@@ -1,0 +1,42 @@
+{
+  "source": "carmodels/dealership/dealership/models/GT4_NISS0004.glb",
+  "source_sha256": "332d62a5f832ac20f669bc8a4cde2b71adbeefd8ce6544353719a0b70957562d",
+  "edition": "default paint; material preview repairs; source geometry unchanged",
+  "repairs": [
+    {
+      "material": 0,
+      "repair": "artistic dark cabin-glass backing"
+    },
+    {
+      "material": 138,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 162,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 168,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 174,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 192,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 198,
+      "repair": "retain nonzero paint alpha"
+    },
+    {
+      "material": 222,
+      "repair": "retain nonzero paint alpha"
+    }
+  ],
+  "materials": 53,
+  "images": 50,
+  "prepared_sha256": "e79630558ed16c54942afc552838fd465a73bf507754947342bd65a805d37874"
+}

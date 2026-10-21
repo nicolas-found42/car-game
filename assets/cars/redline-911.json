@@ -1,0 +1,278 @@
+{
+  "source": "carmodels/dealership/dealership/models/REDLINE_ADDON_072_DP_911_PACK_II_REDPLUG_ZIP_DP91130_D40AEBAC2F82_2F607564778B6BAC.glb",
+  "source_sha256": "3da583a7561f50cb831e55091221b9edc6e5ecbec07ec5584f678752b9b1733c",
+  "source_scene": 0,
+  "source_meshes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_materials": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "normalization": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    -0.0,
+    -0.4675,
+    0.04499999999999993,
+    1
+  ],
+  "mesh_nodes": [
+    {
+      "source_node": 0,
+      "prepared_node": 5,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 1,
+      "prepared_node": 6,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 2,
+      "prepared_node": 7,
+      "source_world_matrix": [
+        0.205,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        -0.695,
+        0.27,
+        1.21,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 3,
+      "prepared_node": 8,
+      "source_world_matrix": [
+        -0.205,
+        0.0,
+        -2.510525938252074e-17,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        0.0,
+        3.6739403974420595e-17,
+        0.0,
+        -0.3,
+        0.0,
+        0.695,
+        0.27,
+        1.21,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 4,
+      "prepared_node": 9,
+      "source_world_matrix": [
+        0.225,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        -0.7025,
+        0.265,
+        -1.12,
+        1.0
+      ],
+      "wheel": 3
+    },
+    {
+      "source_node": 5,
+      "prepared_node": 10,
+      "source_world_matrix": [
+        -0.225,
+        0.0,
+        -2.7554552980815448e-17,
+        0.0,
+        0.0,
+        0.3,
+        0.0,
+        0.0,
+        3.6739403974420595e-17,
+        0.0,
+        -0.3,
+        0.0,
+        0.7025,
+        0.265,
+        -1.12,
+        1.0
+      ],
+      "wheel": 2
+    }
+  ],
+  "excluded_nodes": [],
+  "repairs": [
+    [
+      0,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      0,
+      "artistic opaque dark cabin preview; preserve alpha-zero cutouts"
+    ],
+    [
+      1,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      2,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      3,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      4,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      5,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      6,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      7,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      8,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      9,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      10,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      11,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      12,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      13,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      14,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      15,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      16,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      17,
+      "daylight PBR response instead of inspection-unlit"
+    ]
+  ],
+  "scene_triangles": 8748,
+  "source_binary_sha256": "0a1547dff01e1a832ea5c74ab9c8037c3e7acfd3eb03c6ae6754535d885e846a",
+  "index_partitions": 0,
+  "limits": [
+    "Source-era geometry and textures retained; not original game shader emulation.",
+    "PBR/glass translation is an explicit GRID preview choice."
+  ],
+  "prepared_sha256": "9404efbb30d226c5d9ea8d853609ed7a0c575d60eea934cba331ad195d75ec35"
+}

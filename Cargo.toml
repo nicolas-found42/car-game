@@ -1,0 +1,21 @@
+[package]
+name = "car-game"
+version = "0.1.0"
+edition = "2024"
+default-run = "car-game"
+
+[dependencies]
+bevy = { version = "0.20", default-features = false, features = ["3d", "ui_bevy_render", "bevy_audio", "wav", "keyboard", "mouse"] }
+bevy_rapier3d = { version = "0.37", default-features = false, features = ["dim3", "simd8"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
