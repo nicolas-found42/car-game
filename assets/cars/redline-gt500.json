@@ -1,0 +1,409 @@
+{
+  "source": "carmodels/dealership/dealership/models/REDLINE_ADDON_080_MUSTANG_S197_PACK_ZIP_MUSTANG_NNB_GT500_867D18EE049F_18D1CC5DE2FE0CDE.glb",
+  "source_sha256": "a1ee1e1245eeb77d301d7c9ba8446dc45e22658e0c8dbd1acbf67f6c5b79b0e0",
+  "source_scene": 0,
+  "source_meshes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "source_materials": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "normalization": [
+    -1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    -1,
+    0,
+    -0.0,
+    -0.5325,
+    0.08399999999999996,
+    1
+  ],
+  "mesh_nodes": [
+    {
+      "source_node": 0,
+      "prepared_node": 5,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 1,
+      "prepared_node": 6,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 2,
+      "prepared_node": 7,
+      "source_world_matrix": [
+        0.255,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.34328,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.34328,
+        0.0,
+        -0.786,
+        0.343,
+        1.444,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 3,
+      "prepared_node": 8,
+      "source_world_matrix": [
+        0.255,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.34328,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.34328,
+        0.0,
+        -0.786,
+        0.343,
+        1.444,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 4,
+      "prepared_node": 9,
+      "source_world_matrix": [
+        -0.255,
+        0.0,
+        -3.1228493378257505e-17,
+        0.0,
+        0.0,
+        0.34328,
+        0.0,
+        0.0,
+        4.203967532113034e-17,
+        0.0,
+        -0.34328,
+        0.0,
+        0.786,
+        0.343,
+        1.444,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 5,
+      "prepared_node": 10,
+      "source_world_matrix": [
+        -0.255,
+        0.0,
+        -3.1228493378257505e-17,
+        0.0,
+        5.1483753819216246e-33,
+        -0.34328,
+        -4.203967532113034e-17,
+        0.0,
+        -4.203967532113034e-17,
+        -4.203967532113034e-17,
+        0.34328,
+        0.0,
+        0.786,
+        0.343,
+        1.444,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 6,
+      "prepared_node": 11,
+      "source_world_matrix": [
+        0.285,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.342515,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.342515,
+        0.0,
+        -0.794,
+        0.322,
+        -1.276,
+        1.0
+      ],
+      "wheel": 3
+    },
+    {
+      "source_node": 7,
+      "prepared_node": 12,
+      "source_world_matrix": [
+        0.285,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.342515,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.342515,
+        0.0,
+        -0.794,
+        0.322,
+        -1.276,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 8,
+      "prepared_node": 13,
+      "source_world_matrix": [
+        -0.285,
+        0.0,
+        -3.490243377569956e-17,
+        0.0,
+        0.0,
+        0.342515,
+        0.0,
+        0.0,
+        4.194598984099557e-17,
+        0.0,
+        -0.342515,
+        0.0,
+        0.794,
+        0.322,
+        -1.276,
+        1.0
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 9,
+      "prepared_node": 14,
+      "source_world_matrix": [
+        -0.285,
+        0.0,
+        -3.490243377569956e-17,
+        0.0,
+        5.136902219584262e-33,
+        -0.342515,
+        -4.194598984099557e-17,
+        0.0,
+        -4.194598984099557e-17,
+        -4.194598984099557e-17,
+        0.342515,
+        0.0,
+        0.794,
+        0.322,
+        -1.276,
+        1.0
+      ],
+      "wheel": null
+    }
+  ],
+  "excluded_nodes": [],
+  "repairs": [
+    [
+      0,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      2,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      3,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      4,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      5,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      5,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      38,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      38,
+      "clear exterior lenses kept separate from cabin tint"
+    ],
+    [
+      39,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      39,
+      "artistic opaque dark cabin preview; preserve alpha-zero cutouts"
+    ],
+    [
+      6,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      6,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      7,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      8,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      8,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      9,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      9,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      10,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      11,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      11,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      12,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      12,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      13,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      14,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      14,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      15,
+      "daylight PBR response instead of inspection-unlit"
+    ],
+    [
+      15,
+      "named wheel/brake material to alloy PBR"
+    ],
+    [
+      16,
+      "daylight PBR response instead of inspection-unlit"
+    ]
+  ],
+  "scene_triangles": 10122,
+  "source_binary_sha256": "d9dedf716f47e5c39f77947cb9fa470459f9e9bc49322c2e25d0338a7efb8397",
+  "index_partitions": 1,
+  "limits": [
+    "Source-era geometry and textures retained; not original game shader emulation.",
+    "PBR/glass translation is an explicit GRID preview choice."
+  ],
+  "prepared_sha256": "94e906b98137a81d8033ca98fb5545c6f1cdcb05dfbdc95e7dfad34f45f150a5"
+}
