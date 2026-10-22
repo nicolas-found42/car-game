@@ -2,20 +2,36 @@ name: ci
 
 on:
   push:
+    branches: [main]
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   rust:
     runs-on: macos-14
+    timeout-minutes: 30
     env:
       RUST_BACKTRACE: "1"
       RUST_LOG: car_game=debug,bevy_asset=warn,wgpu=error,naga=warn
+      CARGO_INCREMENTAL: "0"
     steps:
       - uses: actions/checkout@v4
+        with:
+          # HEAD~1 is the base tip for PR merge commits and the previous commit on push.
+          fetch-depth: 2
       - name: Install Rust tools
         run: |
           rustup toolchain install stable --profile minimal --component rustfmt --component clippy
           rustup default stable
+      - name: Cache Rust build
+        uses: Swatinem/rust-cache@v2
+        with:
+          # Manual dispatches may seed/verify the cache; PRs only restore main's.
+          save-if: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
       - name: Format
         run: |
           mkdir -p artifacts/logs
@@ -23,26 +39,20 @@ jobs:
       - name: Clippy
         run: |
           mkdir -p artifacts/logs
-          cargo clippy --all-targets -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
+          cargo clippy --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
       - name: Rust tests
         shell: bash
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          cargo test --all-targets 2>&1 | tee artifacts/logs/cargo-test.log
+          cargo test --all-targets --profile ci 2>&1 | tee artifacts/logs/cargo-test.log
       - name: Code limit & complexity gates (codelimit + lizard + clippy)
         shell: bash
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.base_ref }}"
-          else
-            BASE="origin/${{ github.ref_name }}~1"
-          fi
-          git fetch --depth=2 origin "${BASE#origin/}" >/dev/null 2>&1 || true
           brew install codelimit lizard-analyzer
-          scripts/check_codelimit.sh "$BASE" 2>&1 | tee artifacts/logs/codelimit.log
+          scripts/check_codelimit.sh HEAD~1 2>&1 | tee artifacts/logs/codelimit.log
       - name: Python syntax
         run: python3 -m compileall -q tools
       - name: Python asset tests when source collection is present

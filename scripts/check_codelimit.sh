@@ -38,8 +38,15 @@ changed_files() {
   } | sort -u
 }
 
-mapfile -t py_files < <(changed_files | grep '\.py$' || true)
-mapfile -t rs_files < <(changed_files | grep '\.rs$' || true)
+# Bash 3.2 (macOS /bin/bash) has no mapfile; read the lists portably.
+py_files=()
+while IFS= read -r file; do
+  [ -n "$file" ] && py_files+=("$file")
+done < <(changed_files | grep '\.py$' || true)
+rs_files=()
+while IFS= read -r file; do
+  [ -n "$file" ] && rs_files+=("$file")
+done < <(changed_files | grep '\.rs$' || true)
 
 # ============================================================================
 # Tier 1: codelimit (Python refactoring alarm)
