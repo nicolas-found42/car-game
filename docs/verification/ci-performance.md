@@ -390,9 +390,10 @@ The workflow in this branch was run twice via `workflow_dispatch` on the same co
 |---|---:|---:|---:|---:|---|
 | Baseline PR run [S13] | 17:01 | 2:47 | 13:58 | 13m 42s | none |
 | Cache miss + `--profile ci` (39823798149) | **9:27** | 1:44 | 6:40 | 6m 22s | saved 1.1 GB (43 s post-step) |
-| Cache hit (39825181643) | **2:42** | 0:09 | 1:58 | 22 s | restored in 19 s |
+| Cache hit, pre-codelimit (39825181643) | **2:42** | 0:09 | 1:58 | 22 s | restored in 19 s |
+| Cache hit, final workflow incl. codelimit (39826739851) | **3:48** | 0:12 | 2:42 | 31 s | restored in 31 s |
 
-The warm run is **6.3× faster** than the best baseline run and **10× faster** than the slow push runs, with the same 18 tests passing. The active cache is **1.1 GB**, well below the 10 GB repository limit. The remaining 1m58s test step is mostly the workspace crate plus the 18 tests at `opt-level = 0`; further gains would come from test execution time, not dependency builds.
+The final warm run is **4.5× faster** than the best baseline run and **6.9× faster** than the slow push runs, with the same 18 tests passing and the codelimit gate green. The active cache is **1.1 GB**, well below the 10 GB repository limit. The remaining 2m42s test step is mostly the 18 tests at dependency `opt-level = 0` (about 2m10s execution) plus a 31s workspace build; further gains would come from test execution time, not dependency builds.
 
 ---
 
