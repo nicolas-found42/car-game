@@ -17,8 +17,8 @@ copying historical evidence does not replace its original metadata.
 Both `scripts/verify.sh` and `scripts/verify_live.sh` passed. The retained
 `offline-fleet/` and `live-fleet/` each contain all 13 original roster cars, 13
 successful driving/braking/turn/reset reports and 52 validated GPU captures.
-Asset integrity, Rust formatting, all-target Clippy/tests, complexity gates and
-Python syntax checks passed. Existing keyboard wrap and gamepad bumper behavior
+Asset integrity, Rust formatting, all-target Clippy, complexity gates and
+Python syntax checks passed. Final combined acceptance includes 31 Rust tests. Existing keyboard wrap and gamepad bumper behavior
 are exercised through the production application/input ingress. Replay tests
 cover legacy flat input, empty replay returning live control and a final replay
 sample whose reset must execute before ownership returns to live input.
@@ -79,3 +79,15 @@ The common [provenance contract](../provenance.md) supplies content/build identi
 and portable integrity checks. Ordinary premerge Cargo runs retain their legacy
 identity limitations explicitly; their real gameplay/capture evidence remains
 available without being upgraded to compiler-bound replay claims.
+
+
+The #88 review controls are retained separately at
+`/Users/nicolas/Documents/github/car-game/artifacts/issue-88-provenance/review-fixes/`.
+They exercise compiler-bound sidecar mutation rejection, canonical build-input
+fingerprint validation, inventory/schema/material closure, and refusal to upgrade
+unknown or missing prerequisites by changing completeness flags. The exact
+recorded executable and matching sidecar/source objects for the final combined
+run are retained under this ticket's durable artifact directory, alongside
+portable scenario exports and their independent integrity results. Compatible
+platform/driver availability and deterministic replay remain explicit external
+prerequisites; valid content integrity does not claim they are established.

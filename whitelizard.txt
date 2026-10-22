@@ -8,7 +8,6 @@ src/vehicle.rs:simulate
 src/city.rs:build_city
 src/smoke.rs:scripted_drive
 src/presentation.rs:setup
-src/presentation.rs:read_controls
 src/presentation.rs:update_audio
 
 # Python baseline tooling functions (length > 60 NLOC or CCN > 15)
