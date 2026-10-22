@@ -20,6 +20,9 @@ jobs:
       CARGO_INCREMENTAL: "0"
     steps:
       - uses: actions/checkout@v4
+        with:
+          # HEAD~1 is the base tip for PR merge commits and the previous commit on push.
+          fetch-depth: 2
       - name: Install Rust tools
         run: |
           rustup toolchain install stable --profile minimal --component rustfmt --component clippy
@@ -48,14 +51,8 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.base_ref }}"
-          else
-            BASE="origin/${{ github.ref_name }}~1"
-          fi
-          git fetch --depth=2 origin "${BASE#origin/}" >/dev/null 2>&1 || true
           brew install codelimit lizard-analyzer
-          scripts/check_codelimit.sh "$BASE" 2>&1 | tee artifacts/logs/codelimit.log
+          scripts/check_codelimit.sh HEAD~1 2>&1 | tee artifacts/logs/codelimit.log
       - name: Python syntax
         run: python3 -m compileall -q tools
       - name: Python asset tests when source collection is present
