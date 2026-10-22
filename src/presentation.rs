@@ -46,10 +46,23 @@ pub struct Session {
     pub muted: bool,
 }
 
+impl Session {
+    /// Automated verification runs must not play engine/tire/impact audio over the
+    /// host's speakers. This reuses the same mute state as the `M` key.
+    fn from_env() -> Self {
+        Self {
+            muted: std::env::var("CAR_GAME_MUTE")
+                .map(|value| matches!(value.to_ascii_lowercase().as_str(), "1" | "true" | "yes"))
+                .unwrap_or(false),
+            ..default()
+        }
+    }
+}
+
 pub struct PresentationPlugin;
 impl Plugin for PresentationPlugin {
     fn build(&self, app: &mut App) {
-        app.init_resource::<Session>()
+        app.insert_resource(Session::from_env())
             .init_resource::<InspectionView>()
             .init_resource::<QaRenderTarget>()
             .insert_resource(ClearColor(Color::srgb(0.58, 0.72, 0.81)))
@@ -106,6 +119,7 @@ fn setup(
     mut commands: Commands,
     assets: Res<AssetServer>,
     spec: Res<CarSpec>,
+    session: Res<Session>,
     mut images: ResMut<Assets<Image>>,
 ) {
     spawn_visual(&mut commands, &assets, &spec, spawn_pose());
@@ -277,7 +291,7 @@ fn setup(
     commands.spawn((
         EngineSound,
         AudioPlayer::new(assets.load("audio/engine.wav")),
-        PlaybackSettings::LOOP.with_volume(Volume::Linear(0.15)),
+        PlaybackSettings::LOOP.with_volume(Volume::Linear(if session.muted { 0.0 } else { 0.15 })),
     ));
     commands.spawn((
         TireSound,
