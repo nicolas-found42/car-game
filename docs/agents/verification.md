@@ -11,7 +11,7 @@ Execute checks from top to bottom. Fix any failure at the current rung before pr
 2. cargo clippy --all-targets -- -D warnings
                                          Compiler lints & AST bounds (Rust)
 3. scripts/check_codelimit.sh HEAD       Multi-tier code limits & complexity (Rust + Python)
-4. cargo test --all-targets              Headless physics & gameplay test suite (18 tests)
+4. cargo test --all-targets              Headless physics, controls & production scenarios
 5. python3 -m compileall -q tools        Syntax verification for Python tooling
 6. python3 tools/check_assets.py         Asset integrity (textures, cars, audio receipts)
 7. scripts/verify.sh                     Full offline chain (includes offscreen fleet check)

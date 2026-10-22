@@ -29,6 +29,7 @@ use time::{OffsetDateTime, format_description::well_known::Rfc3339};
 
 static LOG_FILE: OnceLock<PathBuf> = OnceLock::new();
 static RUN_DIR: OnceLock<PathBuf> = OnceLock::new();
+static RUN_COUNTER: AtomicU64 = AtomicU64::new(1);
 static RUN_RECORDER: OnceLock<Arc<RunRecorder>> = OnceLock::new();
 
 pub fn set_run_recorder(run: Arc<RunRecorder>) {
@@ -152,6 +153,7 @@ pub struct RunRecorder {
     recent: Mutex<VecDeque<Value>>,
     failure_written: AtomicBool,
     seq: AtomicU64,
+    pub evidence_clock: crate::telemetry::EvidenceClock,
 }
 
 impl RunRecorder {
@@ -165,8 +167,9 @@ impl RunRecorder {
         let short = git.short.clone();
         let compact = compact_timestamp(&started_at);
         let suffix = format!(
-            "{}-{}",
+            "{}-{}-{}",
             std::process::id(),
+            RUN_COUNTER.fetch_add(1, Ordering::Relaxed),
             SystemTime::now()
                 .duration_since(UNIX_EPOCH)
                 .map(|d| d.as_nanos())
@@ -228,6 +231,7 @@ impl RunRecorder {
             recent: Mutex::new(VecDeque::new()),
             failure_written: AtomicBool::new(false),
             seq: AtomicU64::new(1),
+            evidence_clock: crate::telemetry::EvidenceClock::default(),
         };
         let _ = RUN_DIR.set(dir.clone());
         recorder.write_manifest();
@@ -260,13 +264,40 @@ impl RunRecorder {
     }
 
     pub fn event(&self, kind: &str, fields: Value) {
-        let record = json!({
+        self.event_envelope(kind, fields, self.envelope());
+    }
+
+    pub fn envelope(&self) -> crate::telemetry::Envelope {
+        self.evidence_clock.envelope(&self.run_id)
+    }
+
+    pub fn command(&self, envelope: &crate::telemetry::Envelope, command: &Value, source: &str) {
+        let mut record = serde_json::to_value(envelope).expect("serializable envelope");
+        record["command"] = command.clone();
+        record["source"] = source.into();
+        record["phase"] = "ingress".into();
+        if let Ok(mut file) = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(self.dir.join("commands.jsonl"))
+        {
+            let _ = writeln!(file, "{record}");
+        }
+    }
+
+    pub fn event_envelope(&self, kind: &str, fields: Value, envelope: crate::telemetry::Envelope) {
+        let mut record = serde_json::to_value(envelope).expect("serializable envelope");
+        let legacy = json!({
             "ts": now(),
             "run_id": self.run_id,
             "seq": self.seq.fetch_add(1, Ordering::Relaxed),
             "kind": kind,
             "fields": fields,
         });
+        record
+            .as_object_mut()
+            .expect("envelope object")
+            .extend(legacy.as_object().expect("legacy object").clone());
         if let Ok(mut events) = self.events.lock() {
             let _ = writeln!(events, "{}", record);
             let _ = events.flush();
@@ -414,10 +445,6 @@ impl PhysicsTrace {
         if let Ok(line) = serde_json::to_string(&sample) {
             let _ = writeln!(self.physics, "{line}");
         }
-        let input = InputSample::from(&sample);
-        if let Ok(line) = serde_json::to_string(&input) {
-            let _ = writeln!(self.input, "{line}");
-        }
         if self.ring.len() >= self.capacity {
             self.ring.pop_front();
         }
@@ -425,6 +452,12 @@ impl PhysicsTrace {
         self.step += 1;
         if self.step.is_multiple_of(60) {
             self.flush();
+        }
+    }
+
+    pub fn record_input(&mut self, input: InputSample) {
+        if let Ok(line) = serde_json::to_string(&input) {
+            let _ = writeln!(self.input, "{line}");
         }
     }
 
@@ -457,6 +490,10 @@ impl Drop for PhysicsTrace {
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, Default)]
 pub struct InputSample {
     pub step: u64,
+    #[serde(default)]
+    pub tick: u64,
+    #[serde(default)]
+    pub controller: Option<crate::runtime::ControllerOwner>,
     pub throttle: f32,
     pub brake: f32,
     pub steer: f32,
@@ -467,6 +504,8 @@ pub struct InputSample {
 #[derive(Serialize, Clone, Debug)]
 pub struct PhysicsSample {
     pub step: u64,
+    pub tick: u64,
+    pub actor_id: String,
     pub time: f32,
     pub car: String,
     pub position: [f32; 3],
@@ -490,6 +529,8 @@ impl From<&PhysicsSample> for InputSample {
     fn from(sample: &PhysicsSample) -> Self {
         InputSample {
             step: sample.step,
+            tick: sample.tick,
+            controller: sample.input.controller,
             throttle: sample.input.throttle,
             brake: sample.input.brake,
             steer: sample.input.steer,
@@ -529,7 +570,7 @@ impl ReplayInput {
         })
     }
 
-    pub fn next(&mut self) -> Option<InputSample> {
+    pub fn next_sample(&mut self) -> Option<InputSample> {
         let sample = self.samples.get(self.index).copied()?;
         self.index += 1;
         if self.index >= self.samples.len() {
@@ -729,7 +770,7 @@ pub fn metrics_from_rgba(width: u32, height: u32, data: &[u8]) -> CaptureMetrics
     }
 }
 
-fn now() -> String {
+pub fn now() -> String {
     OffsetDateTime::now_utc()
         .format(&Rfc3339)
         .unwrap_or_else(|_| "unknown".to_string())
@@ -829,23 +870,8 @@ fn record_environment(
     run: Res<RunHandle>,
     adapter: Option<Res<RenderAdapterInfo>>,
     windows: Query<&Window, With<PrimaryWindow>>,
-    gamepads: Query<(Entity, &Name, &Gamepad)>,
     mut recorded: Local<bool>,
-    mut seen_pads: Local<HashSet<Entity>>,
 ) {
-    for (entity, name, pad) in &gamepads {
-        if seen_pads.insert(entity) {
-            run.event(
-                "gamepad.connected",
-                json!({
-                    "entity": entity.to_bits(),
-                    "name": name.as_str(),
-                    "vendor_id": pad.vendor_id(),
-                    "product_id": pad.product_id(),
-                }),
-            );
-        }
-    }
     if *recorded {
         return;
     }
@@ -942,9 +968,9 @@ mod tests {
         .unwrap();
         let mut replay = ReplayInput::load(&path).unwrap();
         assert!(replay.active);
-        assert_eq!(replay.next().unwrap().throttle, 1.0);
+        assert_eq!(replay.next_sample().unwrap().throttle, 1.0);
         assert!(!replay.active);
-        assert!(replay.next().is_none());
+        assert!(replay.next_sample().is_none());
         let _ = fs::remove_file(path);
     }
 }

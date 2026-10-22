@@ -67,6 +67,7 @@ fn build_city(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
     assets: Res<AssetServer>,
+    config: Res<crate::RuntimeConfig>,
 ) {
     let cube = meshes.add(Cuboid::default());
     let asphalt = materials.add(StandardMaterial {
@@ -84,7 +85,8 @@ fn build_city(
     let facades: Vec<_> = (0..4)
         .map(|i| {
             materials.add(StandardMaterial {
-                base_color_texture: Some(assets.load(format!("textures/facade-{i}.png"))),
+                base_color_texture: (config.backend != crate::RenderBackend::Disabled)
+                    .then(|| assets.load(format!("textures/facade-{i}.png"))),
                 perceptual_roughness: 0.82,
                 ..default()
             })
