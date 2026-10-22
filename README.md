@@ -48,6 +48,12 @@ cargo test
 cargo run -- --smoke
 ```
 
+Code limits and complexity are gated across three tiers via `scripts/check_codelimit.sh`:
+1. **CodeLimit** (`tools/*.py`): refactoring alarm for Python functions > 60 lines.
+2. **Lizard** (`src/*.rs` and `tools/*.py`): cross-language NLOC, cyclomatic complexity (CCN <= 20 Rust / <= 15 Python), and parameter count (<= 7). Pre-existing legacy functions are grandfathered in `whitelizard.txt`.
+3. **Clippy** (`src/*.rs`): compiler AST-level enforcement via `clippy.toml` (`too-many-lines-threshold = 100`).
+See [codelimit research](docs/codelimit-research.md) and [Rust alternatives evaluation](docs/rust-code-limits-alternatives.md).
+
 The headless tests use the same Rapier simulation as the game. They cover suspension, parked stability, acceleration/braking, wheel rotation, turning, collision, reverse limiting, reset, pause/resume/quit, synthetic analog gamepad input and render-cadence independence.
 
 `--smoke` checks one car; `--car <id>` chooses it at startup (for example `cargo run -- --car mcla-evo --smoke`). `--fleet-check` cycles every car through the native script. Each run captures matched front/side/rear images and a driving image, checks loaded wheel assemblies, acceleration, turning, braking and reset, and writes a self-contained evidence directory under `artifacts/runs/<run-id>/`. `--visual-check` captures the static comparison without claiming driving success. Blank captures fail. Add `--offscreen` to render the same native scene and HUD to a 1920×1080 GPU image when no usable window surface is available; reports distinguish that target from window performance.
@@ -138,4 +144,5 @@ The app records its git commit, dirty state, binary SHA-256, arguments, OS, Rust
 - [Engine and vehicle dynamics decision](docs/adr/0001-bevy-rapier-vehicle-dynamics.md)
 - [Prepared car edition decision](docs/adr/0002-prepare-a-local-car-edition.md)
 
+- [Function-length gates (codelimit + Clippy)](docs/codelimit-research.md)
 The fleet preparation records exact source geometry/image preservation and intentional material/assembly changes in per-car JSON receipts. See [fleet assembly decision](docs/adr/0003-prepare-a-selectable-fleet.md).

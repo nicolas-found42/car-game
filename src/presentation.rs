@@ -115,6 +115,7 @@ fn spawn_visual(commands: &mut Commands, assets: &AssetServer, spec: &CarSpec, p
     ));
 }
 
+#[allow(clippy::too_many_lines)]
 fn setup(
     mut commands: Commands,
     assets: Res<AssetServer>,

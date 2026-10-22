@@ -1,0 +1,11 @@
+# Clippy configuration — car-game
+# `too_many_lines` is the Rust counterpart to codelimit's function-length gate
+# (codelimit v0.21.0 has no Rust support; see .codelimit.yml and
+# docs/codelimit-research.md). It is a pedantic lint, allow-by-default.
+#
+# Threshold: codelimit fails above 60 LOC. We start at 100 (Clippy's default)
+# because Bevy systems routinely exceed 60; ratchet down after refactoring the
+# four known violations in src/city.rs, src/presentation.rs, src/smoke.rs and
+# src/vehicle.rs. Warnings are enforced (-D warnings in CI already turns them
+# into errors once the lint is enabled in scripts/check_codelimit.sh).
+too-many-lines-threshold = 100

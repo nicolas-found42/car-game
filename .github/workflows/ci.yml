@@ -30,6 +30,19 @@ jobs:
           set -o pipefail
           mkdir -p artifacts/logs
           cargo test --all-targets 2>&1 | tee artifacts/logs/cargo-test.log
+      - name: Code limit & complexity gates (codelimit + lizard + clippy)
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p artifacts/logs
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.base_ref }}"
+          else
+            BASE="origin/${{ github.ref_name }}~1"
+          fi
+          git fetch --depth=2 origin "${BASE#origin/}" >/dev/null 2>&1 || true
+          brew install codelimit lizard-analyzer
+          scripts/check_codelimit.sh "$BASE" 2>&1 | tee artifacts/logs/codelimit.log
       - name: Python syntax
         run: python3 -m compileall -q tools
       - name: Python asset tests when source collection is present

@@ -197,7 +197,7 @@ fn check_capture_timeout(
 }
 
 // Bevy system inputs: checked vehicle, timed script, screenshots and report output.
-#[allow(clippy::too_many_arguments)]
+#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
 fn scripted_drive(
     mut commands: Commands,
     time: Res<Time<Real>>,

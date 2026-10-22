@@ -1,0 +1,23 @@
+# whitelizard.txt — grandfathered technical debt for lizard-analyzer
+# Format: file_path:function_name or function_name
+# Functions listed here are permitted to exceed limits until refactored.
+# Any unlisted or newly added function must adhere to the configured thresholds.
+
+# Rust baseline functions (length > 100 NLOC, CCN > 20, or Bevy queries > 7 params)
+src/vehicle.rs:simulate
+src/city.rs:build_city
+src/smoke.rs:scripted_drive
+src/presentation.rs:setup
+src/presentation.rs:switch_car
+src/presentation.rs:read_controls
+src/presentation.rs:update_audio
+
+# Python baseline tooling functions (length > 60 NLOC or CCN > 15)
+tools/prepare_assets.py:prepare_car
+tools/prepare_fleet.py:scope_lens_materials
+tools/prepare_fleet.py:materials
+tools/prepare_fleet.py:prepare
+tools/test_fleet_assets.py:test_gt500_complete_rear_window_uses_one_cabin_material
+tools/verify_fleet.py:main
+tools/check_assets.py:check
+tools/check_assets.py:check_car

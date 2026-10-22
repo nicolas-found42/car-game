@@ -13,3 +13,7 @@ The canonical triage roles map 1:1 to `needs-triage`, `needs-info`, `ready-for-a
 ### Domain docs
 
 Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### Verification and gates
+
+Run the verification ladder before completing work or opening PRs: `cargo fmt`, `cargo clippy --all-targets -- -D warnings`, `scripts/check_codelimit.sh HEAD`, and `cargo test --all-targets`. Full command ladder, complexity thresholds, and grandfathering in `whitelizard.txt`: see `docs/agents/verification.md`.

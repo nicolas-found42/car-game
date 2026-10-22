@@ -12,6 +12,7 @@ mkdir -p "$(dirname "$log")"
   echo "== git $(git rev-parse HEAD 2>/dev/null || echo unknown) =="
   cargo fmt --check
   cargo clippy --all-targets -- -D warnings
+  scripts/check_codelimit.sh HEAD
   cargo test
   python3 tools/check_assets.py
   cargo run --release -- --offscreen --fleet-check

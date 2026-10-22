@@ -1,0 +1,18 @@
+# CodeLimit config — car-game
+# codelimit (https://github.com/getcodelimit/codelimit) has no Rust support as of
+# v0.21.0; it silently skips .rs files. This config therefore scopes codelimit to
+# the Python tooling in tools/. Rust function length is gated by Clippy's
+# too_many_lines lint (see clippy.toml and scripts/check_codelimit.sh).
+#
+# Only two keys exist: exclude (gitignore-style patterns) and verbose (bool).
+# Thresholds are hard-coded: 31-60 LOC = warning, > 60 LOC = check fails.
+verbose: false
+exclude:
+  # Already excluded via root .gitignore, restated for clarity when the file is
+  # scanned outside a git checkout (codelimit only reads the root .gitignore).
+  - target/
+  - artifacts/
+  - dist/
+  - __pycache__/
+  # Scratch/analysis working files; not shipped tooling.
+  - .scratch/

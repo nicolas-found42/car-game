@@ -133,7 +133,7 @@ pub fn recovery_pose(position: Vec3) -> Transform {
     }
 }
 
-#[allow(clippy::too_many_arguments)]
+#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
 fn simulate(
     context: ReadRapierContext,
     fixed_time: Res<Time<Fixed>>,

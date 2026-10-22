@@ -61,6 +61,7 @@ impl Markings {
     }
 }
 
+#[allow(clippy::too_many_lines)]
 fn build_city(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
