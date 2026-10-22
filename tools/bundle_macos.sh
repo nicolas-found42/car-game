@@ -3,13 +3,16 @@ set -eu
 cd "$(dirname "$0")/.."
 profile="${1:-release}"
 case "$profile" in
-  release) cargo build --release ;;
-  debug) cargo build ;;
+  release) python3 tools/record_build.py --profile release ;;
+  debug) python3 tools/record_build.py ;;
   *) echo 'Usage: tools/bundle_macos.sh [release|debug]' >&2; exit 2 ;;
 esac
 app="dist/GRID.app/Contents"
 mkdir -p "$app/MacOS" "$app/Resources"
-cp "target/$profile/car-game" "$app/MacOS/GRID"
+target_dir="${CARGO_TARGET_DIR:-target}"
+cp "$target_dir/$profile/car-game.recorded" "$app/MacOS/GRID"
+rm -rf "$app/MacOS/GRID.provenance"
+cp -R "$target_dir/$profile/car-game.recorded.provenance" "$app/MacOS/GRID.provenance"
 cp -R assets "$app/Resources/"
 cat > "$app/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
