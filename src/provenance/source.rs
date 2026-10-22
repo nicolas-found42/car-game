@@ -1,5 +1,5 @@
 use super::{
-    policy,
+    binding, policy,
     store::{self, Entry},
 };
 use serde_json::{Value, json};
@@ -98,8 +98,8 @@ pub fn build_snapshot(
     ));
     match import_build(run, &sidecar, binary_sha, entries) {
         Ok(metadata) => metadata,
-        Err(_) => json!({"availability": "unavailable", "rebuild_complete": false,
-            "reason": "matching_build_sidecar_unavailable_use_tools_record_build_py",
+        Err(error) => json!({"availability": "unavailable", "rebuild_complete": false,
+            "reason": build_error(&error),
             "compiler": "unavailable", "dependency_features": "unavailable", "flags": "unavailable"}),
     }
 }
@@ -112,6 +112,7 @@ fn import_build(
 ) -> io::Result<Value> {
     let metadata = read_build_metadata(sidecar, binary_sha)?;
     let sources: Vec<Entry> = serde_json::from_value(metadata["inventory"].clone())?;
+    validate_sources(&sources)?;
     for source in sources {
         let suffix = source
             .object
@@ -119,7 +120,10 @@ fn import_build(
             .filter(|s| s.len() == 64 && s.chars().all(|c| c.is_ascii_hexdigit()))
             .ok_or_else(|| io::Error::other("unsafe_bundle_path"))?;
         let path = sidecar_file(sidecar, &format!("objects/sha256/{suffix}"))?;
-        if source.role != "binary_build_snapshot" || !safe_logical(&source.logical_path) {
+        if suffix != source.sha256
+            || source.role != "binary_build_snapshot"
+            || !safe_logical(&source.logical_path)
+        {
             return Err(io::Error::other("unsafe_build_entry"));
         }
         let captured = store::capture_file(run, &path, &source.role, &source.logical_path)?;
@@ -147,7 +151,17 @@ fn read_build_metadata(sidecar: &Path, binary_sha: &str) -> io::Result<Value> {
     {
         return Err(io::Error::other("source_build_mismatch"));
     }
+    binding::verify(&metadata, compiled_fingerprint)?;
     Ok(metadata)
+}
+
+fn build_error(error: &io::Error) -> &'static str {
+    match error.to_string().as_str() {
+        "source_build_mismatch" => "source_build_mismatch",
+        "invalid_build_completeness_claim" => "invalid_build_completeness_claim",
+        "unsupported_build_binding_format" => "unsupported_build_binding_format",
+        _ => "matching_build_sidecar_unavailable_use_tools_record_build_py",
+    }
 }
 
 fn safe_logical(path: &str) -> bool {
@@ -210,4 +224,28 @@ fn sidecar_file(root: &Path, logical: &str) -> io::Result<std::path::PathBuf> {
         }
     }
     Ok(path)
+}
+
+fn validate_sources(sources: &[Entry]) -> io::Result<()> {
+    let mut paths = std::collections::HashSet::new();
+    for entry in sources {
+        if entry.role != "binary_build_snapshot"
+            || !entry.logical_path.starts_with("build_source/")
+            || !paths.insert(entry.logical_path.as_str())
+        {
+            return Err(io::Error::other("source_build_mismatch"));
+        }
+    }
+    for required in [
+        "Cargo.toml",
+        "Cargo.lock",
+        "src/main.rs",
+        "assets/cars/roster.json",
+        "dirty.patch",
+    ] {
+        if !paths.contains(format!("build_source/{required}").as_str()) {
+            return Err(io::Error::other("source_build_mismatch"));
+        }
+    }
+    Ok(())
 }

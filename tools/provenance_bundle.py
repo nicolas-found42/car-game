@@ -9,10 +9,7 @@ VERSION = 1
 POLICY = 'grid-portable-allowlist-v1'
 
 
-class BundleError(Exception):
-    def __init__(self, code, **fields):
-        self.detail = {'code': code, **fields}
-        super().__init__(code)
+from provenance_schema import BundleError, SYSTEM_PREREQUISITES, validate_index
 
 
 def sha256(path):
@@ -55,13 +52,16 @@ def load_index(root):
         index = json.loads(path.read_text())
     except (ValueError, UnicodeError):
         raise BundleError('invalid_evidence_index') from None
-    if index.get('schema') != 2 or index.get('provenance_version') != VERSION:
+    if not isinstance(index, dict):
+        raise BundleError('invalid_evidence_index')
+    if type(index.get('schema')) is not int or type(index.get('provenance_version')) is not int or index['schema'] != 2 or index['provenance_version'] != VERSION:
         raise BundleError('unsupported_bundle_version')
     expected = safe_path(root, 'evidence-manifest.sha256')
     if not expected.is_file():
         raise BundleError('missing_index_digest')
     if expected.read_text().strip() != sha256(path):
         raise BundleError('index_hash_mismatch')
+    validate_index(index)
     return index
 
 
@@ -91,18 +91,25 @@ def verify(root, require_replay=False):
             verify_entry(root, entry)
         except BundleError as error:
             errors.append(error.detail)
+    if not errors:
+        from provenance_material import verify_material
+        try:
+            verify_material(root, index)
+        except BundleError as error:
+            errors.append(error.detail)
     if require_replay:
         errors.extend(replay_errors(index))
     return {'ok': not errors, 'errors': errors, 'run_id': index.get('run_id'),
             'inventory_entries': len(index.get('inventory', [])),
             'index_sha256': sha256(Path(root) / 'evidence-manifest.json'),
             'completeness': index.get('completeness', {}),
+            'material_status': 'complete_runtime_material' if index['completeness']['runtime_material_complete'] else 'explicitly_incomplete_runtime_material',
             'behavioral_run_result': index.get('behavioral_run_result')}
 
 
 def replay_errors(index):
     unavailable = [item for item in index.get('replay_prerequisites', [])
-                   if item.get('replay_required') and item.get('availability') != 'included']
+                   if (item.get('replay_required') or item.get('id') in SYSTEM_PREREQUISITES) and item.get('availability') != 'included']
     unavailable += [item for item in index.get('omissions', []) if item.get('replay_required')]
     if not index.get('completeness', {}).get('runtime_replay_complete'):
         unavailable.append({'id': 'exact_replay_not_established'})
