@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 import shutil
 import tempfile
+import time
+import traceback
 import unittest
 
 import check_assets
@@ -16,6 +18,7 @@ class IntegrityControls(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.original_root = check_assets.ROOT
+        self.failed = False
         root = Path(self.temp.name) / 'grid'
         shutil.copytree(self.original_root / 'assets/cars', root / 'assets/cars')
         (Path(self.temp.name) / 'carmodels').symlink_to(self.original_root.parent / 'carmodels', target_is_directory=True)
@@ -25,9 +28,29 @@ class IntegrityControls(unittest.TestCase):
         check_assets.ROOT = self.original_root
         self.temp.cleanup()
 
+    def preserve(self, output: str):
+        stamp = time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())
+        destination = self.original_root / 'artifacts' / 'test-failures' / f'{stamp}-{self._testMethodName}'
+        destination.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(check_assets.ROOT, destination / 'grid')
+        (destination / 'output.txt').write_text(output)
+        (destination / 'traceback.txt').write_text(traceback.format_exc())
+        (destination / 'note.json').write_text(json.dumps({
+            'test': self._testMethodName,
+            'at': stamp,
+            'fixture': str(destination / 'grid'),
+        }, indent=2) + '\n')
+        print(f'Test failure evidence retained at {destination}')
+
     def run_check(self):
-        with redirect_stdout(StringIO()):
-            check_assets.check_fleet()
+        output = StringIO()
+        try:
+            with redirect_stdout(output):
+                check_assets.check_fleet()
+        except Exception:
+            self.failed = True
+            self.preserve(output.getvalue())
+            raise
 
     def mutate(self, edit):
         path = check_assets.ROOT / 'assets/cars/fr2-cobra.glb'

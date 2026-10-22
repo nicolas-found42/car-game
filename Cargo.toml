@@ -9,6 +9,8 @@ bevy = { version = "0.20", default-features = false, features = ["3d", "ui_bevy_
 bevy_rapier3d = { version = "0.37", default-features = false, features = ["dim3", "simd8"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+sha2 = "0.10"
+time = { version = "0.3", features = ["formatting"] }
 
 [profile.dev]
 opt-level = 1

@@ -1,7 +1,11 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
-use crate::roster::{CarSpec, Fleet};
-use bevy::prelude::*;
+use crate::{
+    diagnostics::{InputSample, PhysicsSample, PhysicsTrace, ReplayInput, RunHandle},
+    roster::{CarSpec, Fleet},
+};
+use bevy::{app::AppExit, prelude::*};
 use bevy_rapier3d::prelude::*;
+use serde_json::json;
 
 pub const STEP: f32 = 1.0 / 120.0;
 pub const MASS: f32 = 1320.0;
@@ -129,10 +133,16 @@ pub fn recovery_pose(position: Vec3) -> Transform {
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 fn simulate(
     context: ReadRapierContext,
+    fixed_time: Res<Time<Fixed>>,
     spec: Res<CarSpec>,
     mut input: ResMut<DriveInput>,
+    mut replay: Option<ResMut<ReplayInput>>,
+    mut trace: Option<ResMut<PhysicsTrace>>,
+    recorder: Option<Res<RunHandle>>,
+    mut exit: Option<MessageWriter<AppExit>>,
     mut cars: Query<(
         Entity,
         &mut Transform,
@@ -141,6 +151,25 @@ fn simulate(
         &mut Vehicle,
     )>,
 ) {
+    if let Some(replay) = replay.as_mut()
+        && replay.active
+    {
+        if let Some(sample) = replay.next() {
+            input.throttle = sample.throttle;
+            input.brake = sample.brake;
+            input.steer = sample.steer;
+            input.handbrake = sample.handbrake;
+            input.reset = sample.reset;
+        }
+        if !replay.active
+            && let Some(recorder) = recorder.as_ref()
+        {
+            recorder.event(
+                "replay.finished",
+                json!({"path": replay.path.as_ref().map(|p| p.display().to_string())}),
+            );
+        }
+    }
     let Ok(context) = context.single() else {
         return;
     };
@@ -168,12 +197,14 @@ fn simulate(
         let mut lengths = [REST; 4];
         let mut loads = [0.0; 4];
         let mut contacts = [None; 4];
+        let mut ray_misses = 0;
         car.grounded = 0;
         car.slip = 0.0;
         *total = ExternalForce::default();
 
         for (i, mount) in spec.mounts().iter().enumerate() {
             if up.y < 0.25 {
+                ray_misses += 1;
                 continue;
             }
             let origin = center + pose.rotation * *mount;
@@ -184,21 +215,24 @@ fn simulate(
                 true,
                 QueryFilter::default().exclude_rigid_body(entity),
             );
-            if let Some((_, hit)) = hit {
-                if hit.normal.dot(up) < 0.45 {
-                    continue;
-                }
-                lengths[i] = (hit.time_of_impact - spec.radii[i]).clamp(0.02, REST);
-                let point = origin - up * hit.time_of_impact;
-                let point_velocity = velocity.linear + velocity.angular.cross(point - center);
-                let compression = REST - lengths[i];
-                let load = (compression * 38000.0 - point_velocity.dot(hit.normal) * 4100.0)
-                    .clamp(0.0, MASS * 9.81 * 1.5);
-                loads[i] = load;
-                contacts[i] = Some((point, hit.normal, point_velocity));
-                *total += ExternalForce::at_point(hit.normal * load, point, center);
-                car.grounded += 1;
+            let Some((_, hit)) = hit else {
+                ray_misses += 1;
+                continue;
+            };
+            if hit.normal.dot(up) < 0.45 {
+                ray_misses += 1;
+                continue;
             }
+            lengths[i] = (hit.time_of_impact - spec.radii[i]).clamp(0.02, REST);
+            let point = origin - up * hit.time_of_impact;
+            let point_velocity = velocity.linear + velocity.angular.cross(point - center);
+            let compression = REST - lengths[i];
+            let load = (compression * 38000.0 - point_velocity.dot(hit.normal) * 4100.0)
+                .clamp(0.0, MASS * 9.81 * 1.5);
+            loads[i] = load;
+            contacts[i] = Some((point, hit.normal, point_velocity));
+            *total += ExternalForce::at_point(hit.normal * load, point, center);
+            car.grounded += 1;
         }
         let planar_speed = Vec2::new(velocity.linear.x, velocity.linear.z).length();
         if input.throttle > 0.01 {
@@ -283,7 +317,97 @@ fn simulate(
         };
         car.rpm =
             900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
+
+        let step = trace.as_ref().map(|trace| trace.step()).unwrap_or(0);
+        let sample = PhysicsSample {
+            step,
+            time: fixed_time.elapsed_secs(),
+            car: spec.id.clone(),
+            position: [pose.translation.x, pose.translation.y, pose.translation.z],
+            rotation: [
+                pose.rotation.x,
+                pose.rotation.y,
+                pose.rotation.z,
+                pose.rotation.w,
+            ],
+            linear_velocity: [velocity.linear.x, velocity.linear.y, velocity.linear.z],
+            angular_velocity: [velocity.angular.x, velocity.angular.y, velocity.angular.z],
+            grounded: car.grounded,
+            wheel_lengths: lengths,
+            wheel_loads: loads,
+            steering: car.steering,
+            speed: car.speed,
+            slip: car.slip,
+            rpm: car.rpm,
+            gear: car.gear,
+            reset_count: car.reset_count,
+            input: InputSample {
+                step,
+                throttle: input.throttle,
+                brake: input.brake,
+                steer: input.steer,
+                handbrake: input.handbrake,
+                reset: input.reset,
+            },
+            ray_misses,
+        };
+        if let Some(trace) = trace.as_mut() {
+            trace.record(sample.clone());
+        }
+        if let Some(reason) = physics_invariant(&sample) {
+            if let Some(trace) = trace.as_mut() {
+                trace.flush();
+            }
+            if let Some(recorder) = recorder.as_ref() {
+                recorder.fail(
+                    "physics_invariant",
+                    json!({"reason": reason, "sample": sample}),
+                );
+            }
+            if let Some(exit) = exit.as_mut() {
+                exit.write(AppExit::error());
+            }
+            return;
+        }
     }
+}
+
+fn physics_invariant(sample: &PhysicsSample) -> Option<&'static str> {
+    if !sample.position.iter().all(|value| value.is_finite()) {
+        return Some("non_finite_position");
+    }
+    if !sample.rotation.iter().all(|value| value.is_finite()) {
+        return Some("non_finite_rotation");
+    }
+    if !sample
+        .linear_velocity
+        .iter()
+        .chain(sample.angular_velocity.iter())
+        .all(|value| value.is_finite())
+    {
+        return Some("non_finite_velocity");
+    }
+    if sample.grounded > 4 {
+        return Some("grounded_more_than_four_wheels");
+    }
+    if sample
+        .wheel_lengths
+        .iter()
+        .any(|value| !value.is_finite() || *value < 0.0 || *value > REST + 0.05)
+    {
+        return Some("wheel_length_out_of_range");
+    }
+    if sample
+        .wheel_loads
+        .iter()
+        .any(|value| !value.is_finite() || *value < 0.0)
+    {
+        return Some("wheel_load_out_of_range");
+    }
+    if !sample.speed.is_finite() || !sample.rpm.is_finite() || !sample.steering.is_finite() {
+        return Some("non_finite_vehicle_state");
+    }
+    None
 }
 
 #[cfg(test)]

@@ -50,15 +50,21 @@ cargo run -- --smoke
 
 The headless tests use the same Rapier simulation as the game. They cover suspension, parked stability, acceleration/braking, wheel rotation, turning, collision, reverse limiting, reset, pause/resume/quit, synthetic analog gamepad input and render-cadence independence.
 
-`--smoke` checks one car; `--car <id>` chooses it at startup (for example `cargo run -- --car mcla-evo --smoke`). `--fleet-check` cycles every car through the native script. Each run captures matched front/side/rear images and a driving image, checks loaded wheel assemblies, acceleration, turning, braking and reset, and writes reports under `artifacts/fleet/`. `--visual-check` captures the static comparison without claiming driving success. Blank captures fail. Add `--offscreen` to render the same native scene and HUD to a 1920×1080 GPU image when no usable window surface is available; reports distinguish that target from window performance.
+`--smoke` checks one car; `--car <id>` chooses it at startup (for example `cargo run -- --car mcla-evo --smoke`). `--fleet-check` cycles every car through the native script. Each run captures matched front/side/rear images and a driving image, checks loaded wheel assemblies, acceleration, turning, braking and reset, and writes a self-contained evidence directory under `artifacts/runs/<run-id>/`. `--visual-check` captures the static comparison without claiming driving success. Blank captures fail. Add `--offscreen` to render the same native scene and HUD to a 1920×1080 GPU image when no usable window surface is available; reports distinguish that target from window performance.
 
-Offscreen checks use a windowless native runner capped at 120 updates/second, with actual wall-clock frame samples. After a full run, `python3 tools/verify_fleet.py` checks the reports and image content and builds six matched comparison sheets plus a fleet overview. This reporting tool requires Pillow; visual review is still required after the structural/capture checks.
+Every run directory contains `manifest.json` (git state, binary hash, arguments, environment, GPU, window, exit), `run.log`, `events.jsonl`, per-car reports under `cars/`, capture files and metrics under `captures/`, and `physics.jsonl` plus `input.jsonl`. Failures additionally write `failure.json` with the last stage, recent events, log tail, physics tail, and any panic backtrace. A run never overwrites another run; `artifacts/latest` points at the newest one.
+
+Offscreen checks use a windowless native runner capped at 120 updates/second, with actual wall-clock frame samples. After a full run, `python3 tools/verify_fleet.py` checks the latest run’s reports, hashes and image metrics, and builds six matched comparison sheets plus a fleet overview inside that run directory. This reporting tool requires Pillow; visual review is still required after the structural/capture checks.
 
 ```sh
 python3 tools/test_fleet_assets.py
-cargo run -- --fleet-check
+cargo run -- --offscreen --fleet-check
 python3 tools/verify_fleet.py
+python3 tools/verify_run.py
+python3 tools/evidence_manifest.py
 ```
+
+`tools/verify_fleet.py` and `tools/verify_run.py` default to `artifacts/latest`; pass `--run artifacts/runs/<id>` to inspect an older run. They write only inside the selected run directory, so an earlier run and its manual notes are never replaced. `tools/check_assets.py` writes timestamped integrity evidence and a failure artifact instead of overwriting a single file. `sh scripts/verify.sh` runs the whole local chain and tees every command’s output into `artifacts/logs/`.
 
 Source-integrity checks and the Python asset tests require `../carmodels`; the comparison-sheet tool also requires Pillow. Native reports, screenshots and comparison sheets are generated locally under `artifacts/`. Build outputs and verification artifacts are ignored by Git.
 
@@ -68,7 +74,7 @@ The fleet physics test applies the same parked stability, four-wheel support, ac
 
 The current prototype has passed:
 
-- **16 Rust tests**, formatting and strict Clippy checks.
+- **18 Rust tests**, formatting and strict Clippy checks.
 - **Seven asset tests**, including corruption controls and a regression that keeps the GT500's complete rear window under one glass material.
 - Source geometry, texture and wheel-assembly checks, plus glTF validation with zero errors or warnings across all 13 prepared cars.
 - Native driving scripts for all 13 cars and **52 nonblank 1920×1080 captures**, with six matched front/side/rear comparison sheets against the original 350Z.
@@ -106,6 +112,23 @@ python3 tools/check_assets.py
 This also regenerates deterministic facade textures and placeholder WAV sounds. The sibling collection is needed for regeneration and full source-integrity checks; playing the prepared game or bundled app does not access it.
 
 The initial handling is a tunable interpretation of the approved Forza Horizon-inspired feel, not a reproduction of that game's physics. The first build focuses on free drive; racing events, traffic, pedestrians and progression are future scope.
+
+## Diagnostics
+
+Every run writes an append-only evidence directory. Start with the newest run:
+
+```sh
+cargo run -- --diagnose artifacts/latest
+python3 tools/verify_run.py
+```
+
+A failure bundle includes `failure.json` (reason, stage, details, recent events, log tail, physics tail), `panic.json` for panics, and partial `report.json` where a car had already completed. Physics telemetry is recorded at the fixed 120 Hz step with inputs, pose, velocity, wheel lengths/loads and contact misses; `input.jsonl` can be replayed exactly:
+
+```sh
+cargo run -- --replay-input artifacts/runs/<run-id>/input.jsonl
+```
+
+The app records its git commit, dirty state, binary SHA-256, arguments, OS, Rust/Bevy/Rapier versions, asset/source roots, GPU adapter and backend, window resolution/focus/present mode, gamepad identity, and every car start/switch, screenshot request/validation and exit. Use `RUST_LOG` to increase module logging; the same lines are written to `run.log`.
 
 ## Project notes
 
