@@ -100,6 +100,7 @@ pub struct EnvInfo {
     pub os: String,
     pub arch: String,
     pub rustc: String,
+    pub tool_versions_role: &'static str,
     pub cargo: String,
     pub bevy: String,
     pub rapier: String,
@@ -117,6 +118,7 @@ pub struct ExitInfo {
 
 #[derive(Serialize, Clone)]
 pub struct Manifest {
+    pub provenance: Option<Value>,
     pub schema: u32,
     pub run_id: String,
     pub started_at: String,
@@ -182,6 +184,7 @@ impl RunRecorder {
         let _ = File::create(dir.join("run.log"));
 
         let manifest = Manifest {
+            provenance: None,
             schema: 1,
             run_id: run_id.clone(),
             started_at,
@@ -199,6 +202,7 @@ impl RunRecorder {
                 os: env::consts::OS.to_string(),
                 arch: env::consts::ARCH.to_string(),
                 rustc: command_version("rustc", &["-V"]),
+                tool_versions_role: "runtime_observation_not_binary_build_identity",
                 cargo: command_version("cargo", &["-V"]),
                 bevy: "0.20".to_string(),
                 rapier: "0.37".to_string(),
@@ -253,6 +257,32 @@ impl RunRecorder {
             json!({"mode": mode, "car": car, "dir": recorder.dir.display().to_string()}),
         );
         recorder
+    }
+
+    /// Freeze identities before the app can load or mutate its effective inputs.
+    pub fn capture_provenance(&self, assets: &Path, root_kind: &str, config: Value) {
+        match crate::provenance::capture(&self.dir, &self.run_id, assets, root_kind, config) {
+            Ok(reference) => {
+                if let Ok(mut manifest) = self.manifest.lock() {
+                    manifest.env.assets_root = assets.display().to_string();
+                    manifest.provenance = Some(reference);
+                }
+                self.write_manifest();
+            }
+            Err(_) => {
+                if let Ok(mut manifest) = self.manifest.lock()
+                    && manifest.provenance.is_none()
+                {
+                    manifest.provenance =
+                        Some(json!({"availability": "unavailable", "reason": "capture_failed"}));
+                }
+                self.write_manifest();
+                self.event(
+                    "provenance.capture_failed",
+                    json!({"reason": "capture_unavailable"}),
+                );
+            }
+        }
     }
 
     pub fn run_id(&self) -> &str {
@@ -394,6 +424,12 @@ impl RunRecorder {
             "exit_code": code,
             "exit_reason": reason,
         }));
+        if crate::provenance::finalize(&self.dir).is_err() {
+            self.event(
+                "provenance.finalize_failed",
+                json!({"reason": "inventory_unavailable"}),
+            );
+        }
     }
 
     fn write_manifest(&self) {
@@ -770,7 +806,7 @@ pub fn metrics_from_rgba(width: u32, height: u32, data: &[u8]) -> CaptureMetrics
     }
 }
 
-pub fn now() -> String {
+pub(crate) fn now() -> String {
     OffsetDateTime::now_utc()
         .format(&Rfc3339)
         .unwrap_or_else(|_| "unknown".to_string())

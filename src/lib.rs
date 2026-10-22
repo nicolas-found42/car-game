@@ -13,6 +13,7 @@ pub mod config;
 pub mod diagnostics;
 mod ingress;
 pub mod presentation;
+pub mod provenance;
 pub mod roster;
 pub mod runtime;
 pub mod scenario;
@@ -34,6 +35,11 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
     if let Some(scenario) = &config.scenario {
         scenario.validate()?;
     }
+    run.capture_provenance(
+        &config.asset_root,
+        &config.asset_root_kind,
+        effective_config(&config),
+    );
     let replay = config
         .replay_path
         .as_ref()
@@ -132,4 +138,23 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
         plugins = plugins.disable::<WinitPlugin>();
     }
     app.add_plugins(plugins);
+}
+
+fn effective_config(config: &RuntimeConfig) -> serde_json::Value {
+    serde_json::json!({
+        "mode": config.mode,
+        "car": config.car,
+        "visual_only": config.visual_only,
+        "offscreen": config.backend == RenderBackend::Offscreen,
+        "render_disabled": config.backend == RenderBackend::Disabled,
+        "seed": config.seed,
+        "fixed_hz": 120,
+        "log_filter": config.log_filter,
+        "scene": config.scenario.as_ref().map_or("driving", |s| s.scene.as_str()),
+        "context": config.access,
+        "scenario": config.scenario,
+        "max_ticks": config.scenario.as_ref().map(|s| s.max_ticks),
+        "capture_required": config.scenario.as_ref().is_some_and(|s| s.required_capture),
+        "replay_input": config.replay_path
+    })
 }
