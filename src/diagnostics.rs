@@ -297,6 +297,12 @@ impl RunRecorder {
         self.event_envelope(kind, fields, self.envelope());
     }
 
+    pub fn actor_event(&self, actor_id: &str, kind: &str, fields: Value) {
+        let mut envelope = self.envelope();
+        envelope.actor_id = Some(actor_id.into());
+        self.event_envelope(kind, fields, envelope);
+    }
+
     pub fn envelope(&self) -> crate::telemetry::Envelope {
         self.evidence_clock.envelope(&self.run_id)
     }
@@ -363,7 +369,8 @@ impl RunRecorder {
 
     pub fn record_car_report(&self, id: &str, report: &Value) {
         write_json_atomic(&self.dir.join("cars").join(format!("{id}.json")), report);
-        self.event(
+        self.actor_event(
+            "player-vehicle",
             "car.report",
             json!({"car": id, "path": format!("cars/{id}.json")}),
         );

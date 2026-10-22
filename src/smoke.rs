@@ -134,7 +134,8 @@ fn validate_capture(
             smoke.valid_captures += 1;
             smoke.captures.insert(request.view.clone(), value.clone());
             run.record_capture_metrics(&smoke.current_car, &request.view, &value);
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "screenshot.validated",
                 json!({
                     "car": smoke.current_car,
@@ -229,7 +230,8 @@ fn scripted_drive(
         smoke.current_car = spec.id.clone();
         smoke.captures.clear();
         smoke.pending_capture = None;
-        run.event(
+        run.actor_event(
+            "player-vehicle",
             "car.start",
             json!({"car": spec.id, "game": spec.game_id, "path": spec.path}),
         );
@@ -257,7 +259,8 @@ fn scripted_drive(
                 "FLEET: {} loaded; {} wheel/tire nodes ready: {:?}",
                 spec.id, loaded, loaded_names
             );
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "asset.loaded",
                 json!({
                     "car": spec.id,
@@ -350,7 +353,8 @@ fn scripted_drive(
                 .join(format!("{}-{view}.png", spec.id));
             let requested_at = time.elapsed_secs_f64();
             smoke.pending_capture = Some((view.to_string(), requested_at));
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "screenshot.requested",
                 json!({
                     "car": spec.id,
@@ -455,7 +459,8 @@ fn scripted_drive(
                         reset_to_spawn: true,
                     },
                 );
-                run.event(
+                run.actor_event(
+                    "player-vehicle",
                     "car.next",
                     json!({"from": spec.id, "to": fleet.cars[fleet.selected + 1].id}),
                 );
