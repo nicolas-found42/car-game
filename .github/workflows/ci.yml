@@ -1,0 +1,49 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rust:
+    runs-on: macos-14
+    env:
+      RUST_BACKTRACE: "1"
+      RUST_LOG: car_game=debug,bevy_asset=warn,wgpu=error,naga=warn
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust tools
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt --component clippy
+          rustup default stable
+      - name: Format
+        run: |
+          mkdir -p artifacts/logs
+          cargo fmt --check 2>&1 | tee artifacts/logs/cargo-fmt.log
+      - name: Clippy
+        run: |
+          mkdir -p artifacts/logs
+          cargo clippy --all-targets -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
+      - name: Rust tests
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p artifacts/logs
+          cargo test --all-targets 2>&1 | tee artifacts/logs/cargo-test.log
+      - name: Python syntax
+        run: python3 -m compileall -q tools
+      - name: Python asset tests when source collection is present
+        run: |
+          if [ -d ../carmodels ]; then
+            python3 tools/check_assets.py
+            python3 tools/test_fleet_assets.py
+          else
+            echo "SKIP: ../carmodels is not present; source-integrity tests cannot run in CI"
+          fi
+      - name: Upload retained logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gridd-ci-logs
+          path: artifacts/logs
+          if-no-files-found: warn

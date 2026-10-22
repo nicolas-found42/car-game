@@ -1,4 +1,5 @@
 use crate::{
+    diagnostics::{ReplayInput, RunHandle},
     roster::{CarSpec, Fleet},
     vehicle::{DriveInput, Vehicle, chassis_collider, recovery_pose, spawn_pose},
 };
@@ -11,6 +12,7 @@ use bevy::{
     render::render_resource::TextureFormat,
 };
 use bevy_rapier3d::prelude::*;
+use serde_json::json;
 
 #[derive(Component)]
 pub struct VisualCar;
@@ -284,7 +286,12 @@ fn setup(
     ));
 }
 
-fn select_car(keys: Res<ButtonInput<KeyCode>>, pads: Query<&Gamepad>, mut fleet: ResMut<Fleet>) {
+fn select_car(
+    keys: Res<ButtonInput<KeyCode>>,
+    pads: Query<&Gamepad>,
+    mut fleet: ResMut<Fleet>,
+    recorder: Option<Res<RunHandle>>,
+) {
     let mut previous = keys.just_pressed(KeyCode::BracketLeft);
     let mut next = keys.just_pressed(KeyCode::BracketRight);
     for pad in &pads {
@@ -293,16 +300,24 @@ fn select_car(keys: Res<ButtonInput<KeyCode>>, pads: Query<&Gamepad>, mut fleet:
     }
     if previous != next {
         fleet.cycle(if next { 1 } else { -1 });
+        if let Some(recorder) = recorder.as_ref() {
+            recorder.event(
+                "car.select",
+                json!({"direction": if next { 1 } else { -1 }, "pending": fleet.pending}),
+            );
+        }
     }
 }
 
 // Collider, transform and dynamics change together before the next fixed step.
 #[allow(clippy::type_complexity)]
+#[allow(clippy::too_many_arguments)]
 fn switch_car(
     mut commands: Commands,
     assets: Res<AssetServer>,
     mut fleet: ResMut<Fleet>,
     mut spec: ResMut<CarSpec>,
+    recorder: Option<Res<RunHandle>>,
     mut cars: Query<
         (
             &mut Transform,
@@ -324,6 +339,12 @@ fn switch_car(
     };
     fleet.selected = index;
     *spec = fleet.cars[index].clone();
+    if let Some(recorder) = recorder.as_ref() {
+        recorder.event(
+            "car.switched",
+            json!({"car": spec.id, "index": index, "total": fleet.cars.len()}),
+        );
+    }
     *pose = recovery_pose(pose.translation);
     *velocity = Velocity::zero();
     *force = ExternalForce::default();
@@ -368,6 +389,7 @@ pub fn deadzone(value: f32) -> f32 {
     }
 }
 
+#[allow(clippy::too_many_arguments)]
 pub fn read_controls(
     keys: Res<ButtonInput<KeyCode>>,
     gamepads: Query<&Gamepad>,
@@ -375,7 +397,13 @@ pub fn read_controls(
     mut session: ResMut<Session>,
     mut time: ResMut<Time<Virtual>>,
     mut exit: MessageWriter<AppExit>,
+    replay: Option<Res<ReplayInput>>,
+    recorder: Option<Res<RunHandle>>,
 ) {
+    if replay.as_ref().is_some_and(|replay| replay.active) {
+        input.reset = false;
+        return;
+    }
     let mut pause = keys.just_pressed(KeyCode::Escape);
     let mut reset = keys.just_pressed(KeyCode::KeyR);
     let mut quit = keys.just_pressed(KeyCode::KeyQ);
@@ -412,11 +440,20 @@ pub fn read_controls(
         } else {
             time.unpause();
         }
+        if let Some(recorder) = recorder.as_ref() {
+            recorder.event("session.pause", json!({"paused": session.paused}));
+        }
     }
     if keys.just_pressed(KeyCode::KeyM) {
         session.muted = !session.muted;
+        if let Some(recorder) = recorder.as_ref() {
+            recorder.event("session.mute", json!({"muted": session.muted}));
+        }
     }
     if session.paused && quit {
+        if let Some(recorder) = recorder.as_ref() {
+            recorder.event("session.quit", json!({"paused": true}));
+        }
         exit.write(AppExit::Success);
     }
     input.throttle = if session.paused {
