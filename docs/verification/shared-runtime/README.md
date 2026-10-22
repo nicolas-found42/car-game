@@ -18,7 +18,8 @@ Both `scripts/verify.sh` and `scripts/verify_live.sh` passed. The retained
 `offline-fleet/` and `live-fleet/` each contain all 13 original roster cars, 13
 successful driving/braking/turn/reset reports and 52 validated GPU captures.
 Asset integrity, Rust formatting, all-target Clippy, complexity gates and
-Python syntax checks passed. Final combined acceptance includes 31 Rust tests. Existing keyboard wrap and gamepad bumper behavior
+Python syntax checks passed. Final combined acceptance includes 31 Rust tests and
+17 provenance CLI tests. Existing keyboard wrap and gamepad bumper behavior
 are exercised through the production application/input ingress. Replay tests
 cover legacy flat input, empty replay returning live control and a final replay
 sample whose reset must execute before ownership returns to live input.
@@ -91,3 +92,18 @@ run are retained under this ticket's durable artifact directory, alongside
 portable scenario exports and their independent integrity results. Compatible
 platform/driver availability and deterministic replay remain explicit external
 prerequisites; valid content integrity does not claim they are established.
+
+The final combined recorded build is source commit `110d1a6` (clean), with
+executable SHA-256
+`c50e2140676d145e227d1e2333c34bdd5f7d2b76c573a055921942220658bf8f`.
+`final-combined-runs/` retains the driving/reset, career selection and legacy smoke
+controls; `final-portable/` retains their exports. All three finalized inventories
+and portable exports passed independent verification from `/`, without consulting
+the current asset tree. The build records no omissions. The driving scenario's
+three assertions, career scenario's four assertions and smoke's four GPU captures
+passed. `final-acceptance.json` records reset correlation, stopped-tick pause/resume
+context, effective seed overrides and exact source/build identities;
+`final-validation/` retains the complete final ladder and export checks.
+`recorded-application/` retains the executable and its matching complete sidecar
+and source objects. `evidence-index.json` hashes the retained files separately
+from the immutable recorder inventories.
