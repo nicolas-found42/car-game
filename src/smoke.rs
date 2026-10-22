@@ -3,7 +3,7 @@ use crate::{
     diagnostics::{RunHandle, capture_metrics, sha256_file},
     presentation::{InspectionView, PresentationUpdate, QaRenderTarget},
     roster::{CarSpec, Fleet},
-    vehicle::{DriveInput, Vehicle, spawn_pose},
+    vehicle::{DriveInput, Vehicle},
 };
 use bevy::{
     app::AppExit,
@@ -75,9 +75,11 @@ impl SmokePlugin {
 
 impl Plugin for SmokePlugin {
     fn build(&self, app: &mut App) {
-        let visual_only = std::env::args().any(|a| a == "--visual-check");
-        let fleet_check = visual_only || std::env::args().any(|a| a == "--fleet-check");
-        if fleet_check || std::env::args().any(|a| a == "--smoke") {
+        let mode = app.world().resource::<crate::RuntimeConfig>().mode.as_str();
+        let visual_only =
+            mode == "visual" || app.world().resource::<crate::RuntimeConfig>().visual_only;
+        let fleet_check = visual_only || mode == "fleet";
+        if fleet_check || mode == "smoke" {
             std::fs::create_dir_all(self.run_dir.join("captures"))
                 .expect("create smoke captures directory");
             app.insert_resource(Smoke {
@@ -132,7 +134,8 @@ fn validate_capture(
             smoke.valid_captures += 1;
             smoke.captures.insert(request.view.clone(), value.clone());
             run.record_capture_metrics(&smoke.current_car, &request.view, &value);
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "screenshot.validated",
                 json!({
                     "car": smoke.current_car,
@@ -202,16 +205,18 @@ fn scripted_drive(
     mut commands: Commands,
     time: Res<Time<Real>>,
     mut smoke: ResMut<Smoke>,
-    mut input: ResMut<DriveInput>,
+    mut bus: ResMut<crate::runtime::CommandBus>,
     spec: Res<CarSpec>,
-    mut fleet: ResMut<Fleet>,
+    config: Res<crate::RuntimeConfig>,
+    fleet: Res<Fleet>,
     mut inspection: ResMut<InspectionView>,
     render_target: Res<QaRenderTarget>,
     run: Res<RunHandle>,
     names: Query<(&Name, &Transform), Without<Vehicle>>,
-    mut cars: Query<(&mut Transform, &Vehicle, &Velocity)>,
+    cars: Query<(&Transform, &Vehicle, &Velocity)>,
     mut exit: MessageWriter<AppExit>,
 ) {
+    let mut input = DriveInput::default();
     let wheel_names = [
         "wheel_front_left",
         "wheel_front_right",
@@ -226,7 +231,8 @@ fn scripted_drive(
         smoke.current_car = spec.id.clone();
         smoke.captures.clear();
         smoke.pending_capture = None;
-        run.event(
+        run.actor_event(
+            "player-vehicle",
             "car.start",
             json!({"car": spec.id, "game": spec.game_id, "path": spec.path}),
         );
@@ -247,14 +253,15 @@ fn scripted_drive(
         if loaded == spec.wheel_nodes {
             smoke.started = Some(time.elapsed_secs_f64());
             smoke.starting_reset_count = cars
-                .single_mut()
+                .single()
                 .map(|(_, car, _)| car.reset_count)
                 .unwrap_or(0);
             info!(
                 "FLEET: {} loaded; {} wheel/tire nodes ready: {:?}",
                 spec.id, loaded, loaded_names
             );
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "asset.loaded",
                 json!({
                     "car": spec.id,
@@ -299,7 +306,7 @@ fn scripted_drive(
     input.steer = if (11.0..13.0).contains(&t) { 0.45 } else { 0.0 };
     input.brake = if (13.0..17.0).contains(&t) { 1.0 } else { 0.0 };
     input.handbrake = (12.0..12.5).contains(&t);
-    if let Ok((mut pose, car, velocity)) = cars.single_mut() {
+    if let Ok((pose, car, velocity)) = cars.single() {
         let planar_speed = Vec2::new(velocity.linear.x, velocity.linear.z).length();
         if (13.0..17.0).contains(&t) && planar_speed < 1.0 {
             input.brake = 0.0;
@@ -347,7 +354,8 @@ fn scripted_drive(
                 .join(format!("{}-{view}.png", spec.id));
             let requested_at = time.elapsed_secs_f64();
             smoke.pending_capture = Some((view.to_string(), requested_at));
-            run.event(
+            run.actor_event(
+                "player-vehicle",
                 "screenshot.requested",
                 json!({
                     "car": spec.id,
@@ -432,7 +440,7 @@ fn scripted_drive(
                 "capture_metrics": capture_metrics,
                 "captures": captures,
                 "asset_path": format!("assets/{}", spec.path),
-                "asset_sha256": sha256_file(&std::path::Path::new("assets").join(&spec.path)),
+                "asset_sha256": sha256_file(&config.asset_root.join(&spec.path)),
                 "run_id": run.run_id(),
             });
             run.record_car_report(&spec.id, &report);
@@ -445,9 +453,15 @@ fn scripted_drive(
                 exit.write(AppExit::error());
             } else if smoke.fleet_check && fleet.selected + 1 < fleet.cars.len() {
                 // All static comparisons start on the same road under the same light.
-                *pose = spawn_pose();
-                fleet.pending = Some(fleet.selected + 1);
-                run.event(
+                bus.submit(
+                    crate::runtime::ControllerOwner::LegacyComposite,
+                    crate::runtime::ProductionCommand::SelectCar {
+                        car: fleet.cars[fleet.selected + 1].id.clone(),
+                        reset_to_spawn: true,
+                    },
+                );
+                run.actor_event(
+                    "player-vehicle",
                     "car.next",
                     json!({"from": spec.id, "to": fleet.cars[fleet.selected + 1].id}),
                 );
@@ -457,5 +471,20 @@ fn scripted_drive(
                 exit.write(AppExit::Success);
             }
         }
+    }
+    bus.submit(
+        crate::runtime::ControllerOwner::LegacyComposite,
+        crate::runtime::ProductionCommand::Drive {
+            throttle: input.throttle,
+            brake: input.brake,
+            steer: input.steer,
+            handbrake: input.handbrake,
+        },
+    );
+    if input.reset {
+        bus.submit(
+            crate::runtime::ControllerOwner::LegacyComposite,
+            crate::runtime::ProductionCommand::Reset,
+        );
     }
 }

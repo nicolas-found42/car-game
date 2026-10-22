@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "driving-reset",
+  "scene": "driving",
+  "context": {"kind": "sandbox"},
+  "seed": 17,
+  "initial": {"car": "350z", "position": [3.2, 0.62, 190.0], "rotation_y": 0.0},
+  "readiness_timeout_ms": 20000,
+  "max_ticks": 900,
+  "max_wall_ms": 30000,
+  "required_capture": true,
+  "commands": [
+    {"tick": 0, "command": {"action": "drive", "throttle": 1.0, "brake": 0.0, "steer": 0.0}},
+    {"tick": 500, "command": {"action": "reset"}},
+    {"tick": 510, "command": {"action": "drive", "throttle": 0.0, "brake": 0.0, "steer": 0.0}}
+  ],
+  "assertions": [
+    {"tick": 480, "kind": "displacement_at_least", "meters": 10.0},
+    {"tick": 480, "kind": "speed_at_least", "mps": 5.0},
+    {"tick": 540, "kind": "reset_count", "count": 1}
+  ]
+}

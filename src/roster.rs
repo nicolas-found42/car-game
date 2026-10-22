@@ -2,6 +2,17 @@
 use bevy::prelude::*;
 use serde::Deserialize;
 
+pub const WHEEL_NODE_NAMES: [&str; 8] = [
+    "wheel_front_left",
+    "wheel_front_right",
+    "wheel_rear_left",
+    "wheel_rear_right",
+    "tire_front_left",
+    "tire_front_right",
+    "tire_rear_left",
+    "tire_rear_right",
+];
+
 #[derive(Resource, Clone, Deserialize, Debug)]
 pub struct CarSpec {
     pub id: String,

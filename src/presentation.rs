@@ -1,7 +1,8 @@
 use crate::{
-    diagnostics::{ReplayInput, RunHandle},
+    config::{RenderBackend, RuntimeConfig},
     roster::{CarSpec, Fleet},
-    vehicle::{DriveInput, Vehicle, chassis_collider, recovery_pose, spawn_pose},
+    runtime::{CommandBus, ControllerOwner, ProductionCommand},
+    vehicle::{DriveInput, Vehicle, spawn_pose},
 };
 use bevy::{
     audio::{AudioSinkPlayback, Volume},
@@ -12,7 +13,6 @@ use bevy::{
     render::render_resource::TextureFormat,
 };
 use bevy_rapier3d::prelude::*;
-use serde_json::json;
 
 #[derive(Component)]
 pub struct VisualCar;
@@ -40,30 +40,12 @@ struct RpmBar;
 struct EngineSound;
 #[derive(Component)]
 struct TireSound;
-#[derive(Resource, Default)]
-pub struct Session {
-    pub paused: bool,
-    pub muted: bool,
-}
-
-impl Session {
-    /// Automated verification runs must not play engine/tire/impact audio over the
-    /// host's speakers. This reuses the same mute state as the `M` key.
-    fn from_env() -> Self {
-        Self {
-            muted: std::env::var("CAR_GAME_MUTE")
-                .map(|value| matches!(value.to_ascii_lowercase().as_str(), "1" | "true" | "yes"))
-                .unwrap_or(false),
-            ..default()
-        }
-    }
-}
+pub use crate::runtime::Session;
 
 pub struct PresentationPlugin;
 impl Plugin for PresentationPlugin {
     fn build(&self, app: &mut App) {
-        app.insert_resource(Session::from_env())
-            .init_resource::<InspectionView>()
+        app.init_resource::<InspectionView>()
             .init_resource::<QaRenderTarget>()
             .insert_resource(ClearColor(Color::srgb(0.58, 0.72, 0.81)))
             .insert_resource(GlobalAmbientLight {
@@ -77,7 +59,8 @@ impl Plugin for PresentationPlugin {
                 (
                     read_controls,
                     select_car,
-                    switch_car,
+                    crate::runtime::dispatch_update,
+                    refresh_car_visual,
                     tag_wheels,
                     follow_vehicle,
                     animate_wheels,
@@ -122,6 +105,7 @@ fn setup(
     spec: Res<CarSpec>,
     session: Res<Session>,
     mut images: ResMut<Assets<Image>>,
+    config: Res<RuntimeConfig>,
 ) {
     spawn_visual(&mut commands, &assets, &spec, spawn_pose());
     let camera = commands
@@ -147,7 +131,7 @@ fn setup(
             },
         ))
         .id();
-    if std::env::args().any(|a| a == "--offscreen") {
+    if config.backend == RenderBackend::Offscreen {
         let target = images.add(Image::new_target_texture(
             1920,
             1080,
@@ -301,11 +285,10 @@ fn setup(
     ));
 }
 
-fn select_car(
+pub(crate) fn select_car(
     keys: Res<ButtonInput<KeyCode>>,
     pads: Query<&Gamepad>,
-    mut fleet: ResMut<Fleet>,
-    recorder: Option<Res<RunHandle>>,
+    mut bus: ResMut<CommandBus>,
 ) {
     let mut previous = keys.just_pressed(KeyCode::BracketLeft);
     let mut next = keys.just_pressed(KeyCode::BracketRight);
@@ -313,62 +296,29 @@ fn select_car(
         previous |= pad.just_pressed(GamepadButton::LeftTrigger);
         next |= pad.just_pressed(GamepadButton::RightTrigger);
     }
-    if previous != next {
-        fleet.cycle(if next { 1 } else { -1 });
-        if let Some(recorder) = recorder.as_ref() {
-            recorder.event(
-                "car.select",
-                json!({"direction": if next { 1 } else { -1 }, "pending": fleet.pending}),
-            );
-        }
+    if previous || next {
+        bus.submit(
+            ControllerOwner::LegacyComposite,
+            ProductionCommand::CycleCar {
+                direction: i32::from(next) - i32::from(previous),
+            },
+        );
     }
 }
 
-// Collider, transform and dynamics change together before the next fixed step.
-#[allow(clippy::type_complexity)]
-#[allow(clippy::too_many_arguments)]
-fn switch_car(
+fn refresh_car_visual(
     mut commands: Commands,
     assets: Res<AssetServer>,
-    mut fleet: ResMut<Fleet>,
-    mut spec: ResMut<CarSpec>,
-    recorder: Option<Res<RunHandle>>,
-    mut cars: Query<
-        (
-            &mut Transform,
-            &mut Velocity,
-            &mut ExternalForce,
-            &mut Collider,
-            &mut Vehicle,
-        ),
-        Without<VisualCar>,
-    >,
+    spec: Res<CarSpec>,
+    cars: Query<&Transform, With<Vehicle>>,
     visuals: Query<Entity, With<VisualCar>>,
-    mut input: ResMut<DriveInput>,
 ) {
-    let Some(index) = fleet.pending.take() else {
+    if !spec.is_changed() || spec.is_added() {
         return;
-    };
-    let Ok((mut pose, mut velocity, mut force, mut collider, mut car)) = cars.single_mut() else {
-        return;
-    };
-    fleet.selected = index;
-    *spec = fleet.cars[index].clone();
-    if let Some(recorder) = recorder.as_ref() {
-        recorder.event(
-            "car.switched",
-            json!({"car": spec.id, "index": index, "total": fleet.cars.len()}),
-        );
     }
-    *pose = recovery_pose(pose.translation);
-    *velocity = Velocity::zero();
-    *force = ExternalForce::default();
-    *collider = chassis_collider(&spec);
-    let count = car.reset_count + 1;
-    *car = Vehicle::default();
-    car.previous = *pose;
-    car.reset_count = count;
-    *input = DriveInput::default();
+    let Ok(pose) = cars.single() else {
+        return;
+    };
     for entity in &visuals {
         commands.entity(entity).despawn();
     }
@@ -408,17 +358,9 @@ pub fn deadzone(value: f32) -> f32 {
 pub fn read_controls(
     keys: Res<ButtonInput<KeyCode>>,
     gamepads: Query<&Gamepad>,
-    mut input: ResMut<DriveInput>,
-    mut session: ResMut<Session>,
-    mut time: ResMut<Time<Virtual>>,
-    mut exit: MessageWriter<AppExit>,
-    replay: Option<Res<ReplayInput>>,
-    recorder: Option<Res<RunHandle>>,
+    session: Res<Session>,
+    mut bus: ResMut<CommandBus>,
 ) {
-    if replay.as_ref().is_some_and(|replay| replay.active) {
-        input.reset = false;
-        return;
-    }
     let mut pause = keys.just_pressed(KeyCode::Escape);
     let mut reset = keys.just_pressed(KeyCode::KeyR);
     let mut quit = keys.just_pressed(KeyCode::KeyQ);
@@ -448,46 +390,33 @@ pub fn read_controls(
         }
         handbrake |= pad.pressed(GamepadButton::South);
     }
+    let source = ControllerOwner::LegacyComposite;
     if pause {
-        session.paused = !session.paused;
-        if session.paused {
-            time.pause();
-        } else {
-            time.unpause();
-        }
-        if let Some(recorder) = recorder.as_ref() {
-            recorder.event("session.pause", json!({"paused": session.paused}));
-        }
+        bus.submit(
+            source,
+            ProductionCommand::SetPaused {
+                paused: !session.paused,
+            },
+        );
     }
     if keys.just_pressed(KeyCode::KeyM) {
-        session.muted = !session.muted;
-        if let Some(recorder) = recorder.as_ref() {
-            recorder.event("session.mute", json!({"muted": session.muted}));
-        }
+        bus.submit(source, ProductionCommand::ToggleMute);
     }
-    if session.paused && quit {
-        if let Some(recorder) = recorder.as_ref() {
-            recorder.event("session.quit", json!({"paused": true}));
-        }
-        exit.write(AppExit::Success);
+    if quit {
+        bus.submit(source, ProductionCommand::Quit);
     }
-    input.throttle = if session.paused {
-        0.0
-    } else {
-        throttle.clamp(0.0, 1.0)
-    };
-    input.brake = if session.paused {
-        0.0
-    } else {
-        brake.clamp(0.0, 1.0)
-    };
-    input.steer = if session.paused {
-        0.0
-    } else {
-        steer.clamp(-1.0, 1.0)
-    };
-    input.handbrake = !session.paused && handbrake;
-    input.reset |= reset;
+    bus.submit(
+        source,
+        ProductionCommand::Drive {
+            throttle: throttle.clamp(0.0, 1.0),
+            brake: brake.clamp(0.0, 1.0),
+            steer: steer.clamp(-1.0, 1.0),
+            handbrake,
+        },
+    );
+    if reset {
+        bus.submit(source, ProductionCommand::Reset);
+    }
 }
 
 fn tag_wheels(mut commands: Commands, names: Query<(Entity, &Name), Added<Name>>) {
@@ -670,46 +599,4 @@ fn update_audio(
         *impact_cooldown = 0.3;
     }
     *previous_velocity = velocity.linear;
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn keyboard_car_selection_wraps_the_roster() {
-        let mut app = App::new();
-        app.add_plugins(MinimalPlugins)
-            .init_resource::<Fleet>()
-            .init_resource::<ButtonInput<KeyCode>>()
-            .add_systems(Update, select_car);
-        app.world_mut()
-            .resource_mut::<ButtonInput<KeyCode>>()
-            .press(KeyCode::BracketLeft);
-        app.update();
-        let fleet = app.world().resource::<Fleet>();
-        assert_eq!(fleet.pending, Some(fleet.cars.len() - 1));
-        app.world_mut()
-            .resource_mut::<ButtonInput<KeyCode>>()
-            .reset_all();
-        app.world_mut()
-            .resource_mut::<ButtonInput<KeyCode>>()
-            .press(KeyCode::BracketRight);
-        app.update();
-        assert_eq!(app.world().resource::<Fleet>().pending, Some(0));
-    }
-
-    #[test]
-    fn gamepad_bumper_selects_the_next_car() {
-        let mut app = App::new();
-        app.add_plugins(MinimalPlugins)
-            .init_resource::<Fleet>()
-            .init_resource::<ButtonInput<KeyCode>>()
-            .add_systems(Update, select_car);
-        let mut pad = Gamepad::default();
-        pad.digital_mut().press(GamepadButton::RightTrigger);
-        app.world_mut().spawn(pad);
-        app.update();
-        assert_eq!(app.world().resource::<Fleet>().pending, Some(1));
-    }
 }
