@@ -1,0 +1,36 @@
+{
+  "references": {
+    "offscreen": {
+      "run_id": "20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000",
+      "start_step": 541,
+      "end_step": 1141,
+      "elapsed_seconds": 5.0,
+      "speed_kmh": 86.705568,
+      "displacement": [
+        0.0,
+        -0.004821100000000023,
+        -66.47365
+      ],
+      "control_samples": 600,
+      "uninterrupted_full_throttle_straight": true
+    },
+    "native": {
+      "run_id": "20261022T203232998023Z-b5b59a8-smoke-3486-1792701153014196000",
+      "start_step": 607,
+      "end_step": 1207,
+      "elapsed_seconds": 5.000001,
+      "speed_kmh": 86.705568,
+      "displacement": [
+        0.0,
+        -0.004821100000000023,
+        -66.47365
+      ],
+      "control_samples": 600,
+      "uninterrupted_full_throttle_straight": true
+    }
+  },
+  "speed_difference_percent": 0.0,
+  "planar_displacement_difference_m": 0.0,
+  "limit": "Two 350Z observations on one host are evidence for this workload, not fleet/cross-platform tolerance ratification.",
+  "sampling_phase": "Legacy simulate system before Rapier SyncBackend/integration; trace skips reset ticks and does not certify completed-step coverage."
+}
