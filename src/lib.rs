@@ -34,6 +34,14 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
     }
     if let Some(scenario) = &config.scenario {
         scenario.validate()?;
+        if config.mode != "scenario"
+            || config.car != scenario.initial.car
+            || config.access != scenario.context
+        {
+            return Err(
+                "scenario context or initial state conflicts with runtime configuration".into(),
+            );
+        }
     }
     run.capture_provenance(
         &config.asset_root,

@@ -427,3 +427,31 @@ fn the_tick_bound_stops_catch_up_work_at_the_declared_completed_boundary() {
     assert_eq!(last_tick["tick"], summary["completed_tick"]);
     std::fs::remove_dir_all(dir.parent().unwrap()).unwrap();
 }
+
+#[test]
+fn the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario() {
+    let fixture = serde_json::json!({"schema_version":1,"name":"career-conflict","scene":"driving",
+        "context":{"kind":"career","owner_id":"fixture-owner","owned_cars":["350z"]},
+        "initial":{"car":"350z"},"max_ticks":100,"max_wall_ms":2000,"readiness_timeout_ms":1000,
+        "commands":[],"assertions":[{"tick":5,"kind":"selected_car","car":"350z"}]});
+    let scenario = ScenarioDefinition::from_json(&fixture.to_string()).unwrap();
+    let root = std::env::temp_dir().join(format!(
+        "grid-career-conflict-{}-{}",
+        std::process::id(),
+        FIXTURE_COUNTER.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    let run = std::sync::Arc::new(car_game::diagnostics::RunRecorder::create_in(
+        &root, "scenario", "350z",
+    ));
+    let config = RuntimeConfig {
+        backend: car_game::RenderBackend::Disabled,
+        mode: "scenario".into(),
+        scenario: Some(scenario),
+        ..Default::default()
+    };
+    let error = car_game::build_app(config, run)
+        .err()
+        .expect("an explicit career scenario cannot use sandbox access");
+    assert!(error.contains("context"));
+    std::fs::remove_dir_all(root).unwrap();
+}

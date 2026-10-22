@@ -13,7 +13,7 @@ pub enum RenderBackend {
     Disabled,
 }
 
-#[derive(Resource, Clone, Debug, Default, Deserialize, Serialize)]
+#[derive(Resource, Clone, Debug, Default, PartialEq, Eq, Deserialize, Serialize)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum AccessContext {
     #[default]
