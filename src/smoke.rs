@@ -207,6 +207,7 @@ fn scripted_drive(
     mut smoke: ResMut<Smoke>,
     mut bus: ResMut<crate::runtime::CommandBus>,
     spec: Res<CarSpec>,
+    config: Res<crate::RuntimeConfig>,
     fleet: Res<Fleet>,
     mut inspection: ResMut<InspectionView>,
     render_target: Res<QaRenderTarget>,
@@ -439,7 +440,7 @@ fn scripted_drive(
                 "capture_metrics": capture_metrics,
                 "captures": captures,
                 "asset_path": format!("assets/{}", spec.path),
-                "asset_sha256": sha256_file(&std::path::Path::new("assets").join(&spec.path)),
+                "asset_sha256": sha256_file(&config.asset_root.join(&spec.path)),
                 "run_id": run.run_id(),
             });
             run.record_car_report(&spec.id, &report);
