@@ -449,9 +449,9 @@ fn the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario(
         scenario: Some(scenario),
         ..Default::default()
     };
-    let error = car_game::build_app(config, run)
-        .err()
-        .expect("an explicit career scenario cannot use sandbox access");
+    let Err(error) = car_game::build_app(config, run) else {
+        panic!("an explicit career scenario cannot use sandbox access");
+    };
     assert!(error.contains("context"));
     std::fs::remove_dir_all(root).unwrap();
 }
