@@ -78,3 +78,26 @@ Legacy evidence remains unchanged. Its portable export contains sanitized derive
 metadata and explicitly unavailable historical build/assets. The fleet verifier
 requires captured catalog and receipt objects for historical asset verification;
 it does not open today's roster to repair a historical record.
+
+## Binding and completeness validation
+
+Build binding `grid-build-inputs-v1` is SHA-256 over compact UTF-8 JSON with sorted
+object keys, preserving array order. Both wrapper and runtime reconstruct that
+input from the source inventory, invocation, flags, dependency graph, compiler hash
+and bound declarations. Declarations include compiler/Cargo versions, pre-build Git
+observation, omissions and rebuild prerequisites. Rebuild completeness is derived
+from validated required sources and empty bound omissions; changing a standalone
+boolean cannot upgrade an incomplete build.
+
+The portable verifier validates index/entry types, unique logical and singleton
+role bindings, object-name/hash agreement, capture-to-index closure, catalog and
+receipt dependencies, effective configuration/input references and build bindings.
+Complete claims require their material; explicitly incomplete inventories require
+omission reasons. Canonical OS/arch/library and GPU/audio prerequisites remain required and external
+in this version; packaged platform proofs are unsupported. Other included required
+prerequisites need validated content bindings. These checks do
+not validate simulation trace outcomes.
+
+Earlier binding formats cannot establish the stronger rebuild claim. Preserve such
+historical indexes unchanged and record their unsupported claim separately; new
+captures supersede them rather than rewriting their hashes.

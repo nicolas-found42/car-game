@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Build GRID and bind allowlisted source/toolchain/features to exact executable bytes."""
 import argparse
-import hashlib
 import json
 import os
 import re
@@ -14,6 +13,7 @@ from pathlib import Path
 from build_provenance import (build_flags, command, dependency_graph, snapshot,
                               source_hashes, unavailable_inputs)
 from provenance_bundle import sha256
+from provenance_binding import FORMAT, fingerprint, identity
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -70,10 +70,15 @@ def record(options):
         sysroot = Path(command(ROOT, ['rustc', '--print', 'sysroot']))
         compiler_sha = sha256(sysroot / 'bin/rustc')
         args = build_arguments(options)
-        identity = {'inventory': inventory, 'invocation': args, 'flags': flags,
-                    'dependencies': graph, 'compiler_sha256': compiler_sha}
-        fingerprint = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
-        artifact = compile_binary(ROOT, args, fingerprint)
+        declarations = {'compiler_version': compiler, 'cargo_version': cargo,
+                        'git_commit': command(ROOT, ['git', 'rev-parse', 'HEAD']),
+                        'dirty': bool(command(ROOT, ['git', 'status', '--porcelain'])),
+                        'source_binding': 'compiler_embedded_source_fingerprint_and_stable_inputs',
+                        'omissions': list(omissions),
+                        'rebuild_prerequisites': ['compatible_toolchain_and_target_sdk',
+                                                 'registry_dependencies_identified_by_Cargo_lock']}
+        source_fingerprint = fingerprint(identity(inventory, args, flags, graph, compiler_sha, declarations))
+        artifact = compile_binary(ROOT, args, source_fingerprint)
         if source_hashes(ROOT) != before:
             omissions.append('build_inputs_changed_during_compilation')
         compiled = Path(artifact.pop('executable'))
@@ -81,21 +86,17 @@ def record(options):
         with tempfile.NamedTemporaryFile(dir=compiled.parent, prefix='.recorded-', delete=False) as output:
             staged_binary = Path(output.name)
         shutil.copyfile(compiled, staged_binary)
-        if fingerprint.encode() not in staged_binary.read_bytes():
+        if source_fingerprint.encode() not in staged_binary.read_bytes():
             raise RuntimeError('compiler_output_source_binding_mismatch')
         staged_binary.chmod(0o755)
         os.replace(staged_binary, executable)
         metadata = {'schema': 1, 'binary_sha256': sha256(executable),
                     'availability': 'included', 'rebuild_complete': not omissions,
-                    'source_binding': 'compiler_embedded_source_fingerprint_and_stable_inputs',
-                    'source_fingerprint': fingerprint,
-                    'git_commit': command(ROOT, ['git', 'rev-parse', 'HEAD']),
-                    'dirty': bool(command(ROOT, ['git', 'status', '--porcelain'])),
-                    'compiler_version': compiler, 'compiler_sha256': compiler_sha, 'cargo_version': cargo,
-                    'invocation': args, 'rust_flags': flags, 'omissions': omissions,
-                    'dependency_graph': graph, 'artifact': artifact, 'inventory': inventory,
-                    'rebuild_prerequisites': ['compatible_toolchain_and_target_sdk',
-                                             'registry_dependencies_identified_by_Cargo_lock']}
+                    **declarations, 'omissions': omissions,
+                    'source_fingerprint': source_fingerprint, 'binding_format': FORMAT,
+                    'binding_declarations': declarations, 'compiler_sha256': compiler_sha,
+                    'invocation': args, 'rust_flags': flags,
+                    'dependency_graph': graph, 'artifact': artifact, 'inventory': inventory}
         (stage / 'build.json').write_text(json.dumps(metadata, indent=2) + '\n')
         destination = executable.with_name(executable.name + '.provenance')
         if destination.exists():
