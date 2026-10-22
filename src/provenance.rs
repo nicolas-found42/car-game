@@ -1,4 +1,5 @@
 //! Capture-time content identity for the existing recorder; no simulation/save state.
+mod binding;
 mod policy;
 mod source;
 mod store;

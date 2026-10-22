@@ -7,6 +7,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from test_provenance_fixtures import complete_runtime_index
+from provenance_legacy import store_bytes
+
 CLI = Path(__file__).with_name('evidence_manifest.py').resolve()
 
 
@@ -30,8 +33,12 @@ class PortableEvidenceTests(unittest.TestCase):
                                  'object': logical, 'availability': 'included'})
         self.index = {'schema': 2, 'provenance_version': 1, 'run_id': 'fixture',
                       'inventory': self.entries, 'cars': [],
-                      'completeness': {'runtime_replay_complete': False},
-                      'replay_prerequisites': [{'id': 'gpu', 'availability': 'external_required'}]}
+                      'policy': 'grid-portable-allowlist-v1',
+                      'completeness': {'inventory_integrity': True, 'runtime_material_complete': False,
+                                       'runtime_replay_complete': False, 'rebuild_complete': False},
+                      'omissions': [{'role': 'fixture_partial_inventory', 'reason': 'explicit_partial_fixture',
+                                     'replay_required': True}],
+                      'replay_prerequisites': [{'id': 'gpu', 'availability': 'external_required', 'replay_required': True}]}
         self.write_index()
 
     def write_index(self):
@@ -53,6 +60,108 @@ class PortableEvidenceTests(unittest.TestCase):
         code, result = self.cli('verify', exported)
         self.assertEqual((code, result['ok']), (0, True))
         self.assertFalse(result['completeness']['runtime_replay_complete'])
+
+    def test_empty_inventory_cannot_claim_complete_material_or_replay(self):
+        self.index['inventory'] = []
+        self.index['completeness'] = dict.fromkeys(self.index['completeness'], True)
+        self.index['omissions'] = []
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual(code, 1)
+        self.assertIn('invalid_completeness_claim', [error['code'] for error in result['errors']])
+
+    def test_complete_material_requires_every_catalog_asset_and_receipt(self):
+        self.index = complete_runtime_index(self.run)
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['ok']), (0, True))
+        self.index['inventory'] = [entry for entry in self.index['inventory']
+                                   if entry['role'] != 'prepared_asset']
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual(code, 1)
+        self.assertEqual(result['errors'][0]['code'], 'invalid_completeness_claim')
+
+    def test_duplicate_and_invalid_object_bindings_are_rejected(self):
+        self.entries.append(dict(self.entries[0]))
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'duplicate_inventory_binding'))
+        self.entries.pop()
+        self.entries[0]['object'] = self.entries[1]['object']
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'object_binding_mismatch'))
+
+    def test_config_substitution_cannot_keep_an_unrelated_capture_binding(self):
+        self.index = complete_runtime_index(self.run)
+        config = next(entry for entry in self.index['inventory'] if entry['role'] == 'effective_config')
+        binary = next(entry for entry in self.index['inventory'] if entry['role'] == 'executable')
+        binary.update({key: config[key] for key in ('sha256', 'object', 'size_bytes')})
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'capture_inventory_mismatch'))
+
+    def test_explicit_incomplete_inventory_can_be_inspected_without_claiming_replay(self):
+        self.entries.pop(0)
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['ok']), (0, True))
+        self.assertEqual(result['material_status'], 'explicitly_incomplete_runtime_material')
+
+    def test_complete_replay_cannot_hide_external_prerequisites(self):
+        self.index = complete_runtime_index(self.run)
+        self.index['completeness']['runtime_replay_complete'] = True
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'invalid_completeness_claim'))
+
+    def test_wrong_status_and_inventory_types_return_machine_readable_errors(self):
+        self.index['completeness']['rebuild_complete'] = 'true'
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'invalid_completeness_claim'))
+        self.index['completeness']['rebuild_complete'] = False
+        self.index['inventory'] = {}
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'invalid_bundle_schema'))
+
+    def test_null_capture_document_cannot_claim_complete_runtime_material(self):
+        self.index = complete_runtime_index(self.run)
+        replacement = store_bytes(self.run, b'null', 'capture_index', 'provenance/capture.json')
+        self.index['inventory'] = [replacement if entry['role'] == 'capture_index' else entry
+                                   for entry in self.index['inventory']]
+        self.index['capture_sha256'] = replacement['sha256']
+        self.write_index()
+        code, result = self.cli('verify')
+        self.assertEqual((code, result['errors'][0]['code']), (1, 'invalid_material_schema'))
+
+    def assert_replay_claim_rejected(self, mutation):
+        self.index = complete_runtime_index(self.run)
+        self.index['completeness']['runtime_replay_complete'] = True
+        binary = next(entry for entry in self.index['inventory'] if entry['role'] == 'executable')
+        for prerequisite in self.index['replay_prerequisites']:
+            prerequisite.update(mutation(binary))
+        frozen = next(entry for entry in self.index['inventory'] if entry['role'] == 'capture_index')
+        capture = json.loads((self.run / frozen['object']).read_text())
+        capture['completeness'] = self.index['completeness']
+        capture['replay_prerequisites'] = self.index['replay_prerequisites']
+        replacement = store_bytes(self.run, json.dumps(capture).encode(), 'capture_index', 'provenance/capture.json')
+        self.index['inventory'] = [replacement if entry['role'] == 'capture_index' else entry
+                                   for entry in self.index['inventory']]
+        self.index['capture_sha256'] = replacement['sha256']
+        self.write_index()
+        code, result = self.cli('verify', None, '--require-replay')
+        self.assertEqual(code, 1)
+        self.assertEqual(result['errors'][0]['code'], 'invalid_completeness_claim')
+
+    def test_system_prerequisites_cannot_be_relabelled_optional(self):
+        self.assert_replay_claim_rejected(lambda _: {'replay_required': False})
+
+    def test_system_prerequisites_cannot_bind_an_arbitrary_bundled_object(self):
+        self.assert_replay_claim_rejected(lambda binary: {'availability': 'included',
+                                         'logical_path': binary['logical_path'], 'sha256': binary['sha256']})
 
     def test_legacy_export_redacts_existing_metadata_and_never_claims_original_assets(self):
         private = 'PRIVATE_CREDENTIAL_4a82'
