@@ -7,6 +7,7 @@ use std::time::Duration;
 mod city;
 mod diagnostics;
 mod presentation;
+mod provenance;
 mod roster;
 mod smoke;
 mod vehicle;
@@ -21,10 +22,23 @@ fn main() {
         .ok()
         .and_then(|p| p.parent()?.parent().map(|p| p.join("Resources/assets")))
         .filter(|p| p.is_dir());
+    let root_kind = if bundled_assets.is_some() {
+        "bundle_resources"
+    } else {
+        "checkout_assets"
+    };
+    let resolved_assets = bundled_assets.unwrap_or_else(|| {
+        std::path::PathBuf::from(concat!(env!("CARGO_MANIFEST_DIR"), "/assets"))
+    });
     let fleet = roster::Fleet::from_args();
     let car_id = fleet.cars[fleet.selected].id.clone();
     let mode = run_mode();
     let run = std::sync::Arc::new(diagnostics::RunRecorder::create(mode, &car_id));
+    run.capture_provenance(
+        &resolved_assets,
+        root_kind,
+        serde_json::json!({"mode": mode, "car": car_id, "fixed_hz": 120}),
+    );
     diagnostics::set_run_recorder(run.clone());
     let run_dir = run.dir().to_path_buf();
     diagnostics::set_log_file(run_dir.join("run.log"));
@@ -60,12 +74,7 @@ fn main() {
             ..default()
         })
         .set(AssetPlugin {
-            file_path: bundled_assets
-                .unwrap_or_else(|| {
-                    std::path::PathBuf::from(concat!(env!("CARGO_MANIFEST_DIR"), "/assets"))
-                })
-                .to_string_lossy()
-                .into_owned(),
+            file_path: resolved_assets.to_string_lossy().into_owned(),
             ..default()
         });
     if offscreen {
@@ -93,6 +102,12 @@ fn main() {
         )));
     }
     let exit = app.run();
+    if let Some(mut trace) = app
+        .world_mut()
+        .get_resource_mut::<diagnostics::PhysicsTrace>()
+    {
+        trace.flush();
+    }
     if let Some(run) = diagnostics::run_recorder() {
         run.finish(exit);
     }
