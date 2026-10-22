@@ -124,14 +124,24 @@ fn capture_assets(run: &Path, assets: &Path, entries: &mut Vec<Entry>, omissions
 }
 
 pub fn finalize(run: &Path) -> io::Result<()> {
+    finalize_bounded(run, 512 * 1024 * 1024)
+}
+
+pub fn finalize_bounded(run: &Path, max_bytes: u64) -> io::Result<()> {
     let capture_path = run.join("provenance/capture.json");
     if !capture_path.exists() {
         return Ok(());
     }
     let index_path = run.join("evidence-manifest.json");
     if index_path.exists() {
-        return Ok(());
+        let expected = fs::read_to_string(run.join("evidence-manifest.sha256"))?;
+        return if index_path.is_file() && expected.trim() == store::hash_file(&index_path)?.0 {
+            Ok(())
+        } else {
+            Err(io::Error::other("invalid_existing_evidence_index"))
+        };
     }
+    let output_paths = check_output_budget(run, max_bytes)?;
     let capture: Value = serde_json::from_slice(&fs::read(&capture_path)?)?;
     let mut entries: Vec<Entry> = serde_json::from_value(capture["inventory"].clone())?;
     entries.push(store::capture_file(
@@ -140,7 +150,7 @@ pub fn finalize(run: &Path) -> io::Result<()> {
         "capture_index",
         "provenance/capture.json",
     )?);
-    capture_outputs(run, &mut entries)?;
+    capture_outputs(run, &mut entries, max_bytes, &output_paths)?;
     let manifest: Value = serde_json::from_slice(&fs::read(run.join("manifest.json"))?)?;
     let report = run.join("report.json");
     let report_sha = report
@@ -152,18 +162,29 @@ pub fn finalize(run: &Path) -> io::Result<()> {
         "finalized_at": crate::diagnostics::now(), "capture_sha256": store::hash_file(&capture_path)?.0,
         "inventory": entries, "completeness": capture["completeness"],
         "omissions": capture["omissions"], "replay_prerequisites": capture["replay_prerequisites"],
-        "behavioral_run_result": {"exit": manifest["exit"], "failure_recorded": run.join("failure.json").exists()},
+        "behavioral_run_result": {"exit": manifest["exit"], "failure_recorded": run.join("failure.json").exists(), "recorder_health":recording_health(run,&manifest)?},
         "report_sha256": report_sha, "cars": fleet_evidence(run, &entries),
         "diagnostic_export": "allowlisted_derived_json_and_numeric_traces_raw_logs_excluded"});
-    store::freeze(&index_path, &evidence)?;
-    fs::write(
-        run.join("evidence-manifest.sha256"),
-        store::hash_file(&index_path)?.0,
-    )
+    let digest = store::digest(&serde_json::to_vec_pretty(&evidence)?);
+    store::freeze_bytes(&run.join("evidence-manifest.sha256"), digest.as_bytes())?;
+    store::freeze(&index_path, &evidence)
 }
 
-fn capture_outputs(run: &Path, entries: &mut Vec<Entry>) -> io::Result<()> {
-    for path in store::files(run)? {
+fn recording_health(run: &Path, manifest: &Value) -> io::Result<Value> {
+    if manifest["recorder_health"]["required"] != true {
+        return Ok(json!({"status":"legacy_unknown"}));
+    }
+    let health: Value = serde_json::from_slice(&fs::read(run.join("recorder-health.json"))?)?;
+    Ok(policy::redact(&health))
+}
+
+fn capture_outputs(
+    run: &Path,
+    entries: &mut Vec<Entry>,
+    max_bytes: u64,
+    output_paths: &[std::path::PathBuf],
+) -> io::Result<()> {
+    for path in output_paths {
         let relative = path.strip_prefix(run).expect("run prefix");
         let logical = relative.to_string_lossy();
         if logical.starts_with("objects/") || logical.starts_with("provenance/") {
@@ -175,18 +196,20 @@ fn capture_outputs(run: &Path, entries: &mut Vec<Entry>) -> io::Result<()> {
             .unwrap_or_default();
         match extension {
             "json" => {
-                if let Ok(value) = serde_json::from_slice::<Value>(&fs::read(&path)?) {
-                    entries.push(store::capture_bytes(
-                        run,
-                        &serde_json::to_vec_pretty(&policy::redact(&value))?,
-                        "run_metadata",
-                        &logical,
-                    )?);
+                if fs::metadata(path)?.len() > 2 * 1024 * 1024 {
+                    return Err(io::Error::other("metadata_capture_limit_exceeded"));
                 }
+                let value: Value = serde_json::from_slice(&fs::read(path)?)?;
+                entries.push(store::capture_bytes(
+                    run,
+                    &serde_json::to_vec_pretty(&policy::redact(&value))?,
+                    "run_metadata",
+                    &logical,
+                )?);
             }
-            "jsonl" => capture_jsonl(run, &path, &logical, entries)?,
+            "jsonl" => capture_jsonl(run, path, &logical, entries, max_bytes)?,
             "png" | "jpg" if relative.starts_with("captures") => {
-                entries.push(store::capture_file(run, &path, "capture", &logical)?)
+                entries.push(store::capture_file(run, path, "capture", &logical)?)
             }
             _ => (),
         }
@@ -199,17 +222,84 @@ fn capture_jsonl(
     path: &Path,
     logical: &str,
     entries: &mut Vec<Entry>,
+    max_bytes: u64,
 ) -> io::Result<()> {
-    let text = fs::read_to_string(path)?;
-    let mut bytes = Vec::new();
-    for line in text.lines() {
-        if let Ok(value) = serde_json::from_str::<Value>(line) {
-            serde_json::to_writer(&mut bytes, &policy::redact(&value))?;
-            bytes.push(b'\n');
+    let temporary = run.join("provenance/.sanitized-trace.tmp");
+    let result = sanitize_trace(path, &temporary, max_bytes)
+        .and_then(|()| store::capture_file(run, &temporary, "run_trace", logical));
+    let _ = fs::remove_file(temporary);
+    entries.push(result?);
+    Ok(())
+}
+fn sanitize_trace(source: &Path, destination: &Path, max_bytes: u64) -> io::Result<()> {
+    use std::io::{BufRead, BufReader, BufWriter, Read, Write};
+    let mut input = BufReader::new(fs::File::open(source)?);
+    let mut output = BufWriter::new(fs::File::create(destination)?);
+    let mut line = Vec::new();
+    let mut total = 0u64;
+    loop {
+        line.clear();
+        if input
+            .by_ref()
+            .take(2 * 1024 * 1024 + 1)
+            .read_until(b'\n', &mut line)?
+            == 0
+        {
+            break;
+        }
+        if line.len() > 2 * 1024 * 1024 {
+            return Err(io::Error::other("trace_record_exceeds_capture_limit"));
+        }
+        let value: Value = serde_json::from_slice(&line)?;
+        let bytes =
+            crate::diagnostics::bounded_json(&policy::redact(&value), 2 * 1024 * 1024, false)
+                .map_err(io::Error::other)?;
+        total = total.saturating_add(bytes.len() as u64 + 1);
+        if total > max_bytes {
+            return Err(io::Error::other("sanitized_trace_budget_exceeded"));
+        }
+        output.write_all(&bytes)?;
+        output.write_all(b"\n")?;
+    }
+    output.flush()?;
+    output.get_ref().sync_all()
+}
+fn check_output_budget(run: &Path, max_bytes: u64) -> io::Result<Vec<std::path::PathBuf>> {
+    let mut paths = Vec::new();
+    let mut pending = vec![run.to_path_buf()];
+    let mut count = 0;
+    let mut bytes = 0u64;
+    while let Some(directory) = pending.pop() {
+        for item in fs::read_dir(&directory)? {
+            let item = item?;
+            if directory == run
+                && ["objects", "provenance"]
+                    .iter()
+                    .any(|name| item.file_name() == *name)
+            {
+                continue;
+            }
+            count += 1;
+            if count > 8192 {
+                return Err(io::Error::other("output_file_budget_exceeded"));
+            }
+            let metadata = fs::symlink_metadata(item.path())?;
+            if metadata.file_type().is_symlink() {
+                return Err(io::Error::other("symlink_capture_disallowed"));
+            }
+            if metadata.is_dir() {
+                pending.push(item.path());
+            } else {
+                paths.push(item.path());
+                bytes = bytes.saturating_add(metadata.len());
+            }
+            if bytes > max_bytes {
+                return Err(io::Error::other("output_byte_budget_exceeded"));
+            }
         }
     }
-    entries.push(store::capture_bytes(run, &bytes, "run_trace", logical)?);
-    Ok(())
+    paths.sort();
+    Ok(paths)
 }
 
 fn fleet_evidence(run: &Path, entries: &[Entry]) -> Value {

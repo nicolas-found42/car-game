@@ -46,7 +46,7 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
     run.capture_provenance(
         &config.asset_root,
         &config.asset_root_kind,
-        effective_config(&config),
+        effective_config(&config, run.recorder_config()),
     );
     let replay = config
         .replay_path
@@ -54,13 +54,13 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
         .map(|p| diagnostics::ReplayInput::load(p))
         .transpose()?;
     let mut app = App::new();
+    app.insert_resource(diagnostics::RunHandle(run.clone()));
     add_platform(&mut app, &config);
     app.insert_resource(config.clone())
         .insert_resource(fleet.cars[fleet.selected].clone())
         .insert_resource(fleet)
         .insert_resource(config.access.clone())
-        .insert_resource(diagnostics::RunHandle(run.clone()))
-        .insert_resource(diagnostics::PhysicsTrace::new(run.dir()))
+        .insert_resource(diagnostics::PhysicsTrace::for_recorder(run.clone()))
         .insert_resource(runtime::Session::from_env())
         .add_plugins((
             runtime::RuntimePlugin,
@@ -141,16 +141,21 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
             },
             ..default()
         })
-        .set(assets);
+        .set(assets)
+        .disable::<bevy::app::TerminalCtrlCHandlerPlugin>();
     if offscreen {
         plugins = plugins.disable::<WinitPlugin>();
     }
     app.add_plugins(plugins);
 }
 
-fn effective_config(config: &RuntimeConfig) -> serde_json::Value {
+fn effective_config(
+    config: &RuntimeConfig,
+    recorder: &diagnostics::RecorderConfig,
+) -> serde_json::Value {
     serde_json::json!({
         "mode": config.mode,
+        "recorder": recorder,
         "car": config.car,
         "visual_only": config.visual_only,
         "offscreen": config.backend == RenderBackend::Offscreen,

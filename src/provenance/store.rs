@@ -146,3 +146,16 @@ pub fn freeze(path: &Path, value: &impl Serialize) -> io::Result<()> {
     fs::create_dir_all(path.parent().expect("capture parent"))?;
     publish(path, &bytes)
 }
+
+/// Publish immutable non-JSON metadata before its referring index.
+pub fn freeze_bytes(path: &Path, bytes: &[u8]) -> io::Result<()> {
+    fs::create_dir_all(path.parent().expect("metadata parent"))?;
+    if path.exists() {
+        return if fs::read(path)? == bytes {
+            Ok(())
+        } else {
+            Err(io::Error::other("existing_metadata_mismatch"))
+        };
+    }
+    publish(path, bytes)
+}

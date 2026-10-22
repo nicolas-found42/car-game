@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from recorder_health import inspect_health
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,6 +28,8 @@ def read_events(run: Path) -> list[dict]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('run', nargs='?', type=Path, help='run directory; defaults to artifacts/latest')
+    parser.add_argument("--health-only", action="store_true", help="inspect recording health without gameplay/GPU acceptance")
+    parser.add_argument("--json", action="store_true", help="print machine-readable health or verification result")
     args = parser.parse_args()
     run = args.run
     if run is None:
@@ -39,6 +42,14 @@ def main() -> int:
     run = run.resolve()
 
     manifest = load_json(run / 'manifest.json')
+    health = inspect_health(run, manifest)
+    if args.health_only or not health['ok']:
+        print(json.dumps(health))
+        return 0 if health['ok'] else 1
+    return verify_gameplay(run, manifest, health, args.json)
+
+
+def verify_gameplay(run, manifest, health, output_json=False):
     events = read_events(run)
     kinds = [event['kind'] for event in events]
     assert kinds[0] == 'run.start', 'missing run.start'
@@ -65,7 +76,10 @@ def main() -> int:
         for view, capture in report['captures'].items():
             assert capture.get('sha256'), f'{report["id"]}/{view}: missing capture hash'
             assert (run / capture['path']).is_file(), f'{report["id"]}/{view}: capture file missing'
-    print(f'RUN EVIDENCE PASS: {manifest["run_id"]}; {len(events)} events, {len(reports)} car reports')
+    if output_json:
+        print(json.dumps({'schema': 1, 'ok': True, 'run_id': manifest['run_id'], 'recorder_health': health}))
+    else:
+        print(f'RUN EVIDENCE PASS: {manifest["run_id"]}; {len(events)} events, {len(reports)} car reports')
     return 0
 
 
