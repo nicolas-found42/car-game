@@ -382,6 +382,18 @@ Each GitHub-hosted runner is a new VM [S1], so jobs share no filesystem or `targ
 
 In short: the wall-time ceiling for splitting on a cold build is small, while the dependent-build duplication and cache complexity are real. Cache and profile changes reduce the dominant build itself.
 
+### 6.5 Measured result after implementation
+
+The workflow in this branch was run twice via `workflow_dispatch` on the same commit, once cold and once with the cache restored. Both runs passed all steps.
+
+| Run | Job wall | Clippy | Rust tests | Test-profile build | Cache |
+|---|---:|---:|---:|---:|---|
+| Baseline PR run [S13] | 17:01 | 2:47 | 13:58 | 13m 42s | none |
+| Cache miss + `--profile ci` (39823798149) | **9:27** | 1:44 | 6:40 | 6m 22s | saved 1.1 GB (43 s post-step) |
+| Cache hit (39825181643) | **2:42** | 0:09 | 1:58 | 22 s | restored in 19 s |
+
+The warm run is **6.3× faster** than the best baseline run and **10× faster** than the slow push runs, with the same 18 tests passing. The active cache is **1.1 GB**, well below the 10 GB repository limit. The remaining 1m58s test step is mostly the workspace crate plus the 18 tests at `opt-level = 0`; further gains would come from test execution time, not dependency builds.
+
 ---
 
 ## 7. Sources
@@ -413,13 +425,15 @@ All URLs accessed 2026-10-22.
 | S18 | Actions cache usage API (reported 0 active caches, 0 bytes at analysis time): https://api.github.com/repos/nicolas-found42/car-game/actions/cache/usage |
 | S19 | rustc codegen options (`-C opt-level`): https://doc.rust-lang.org/rustc/codegen-options/index.html#opt-level |
 | S20 | Repository metadata API (public, owner `nicolas-found42`, default branch `main`): https://api.github.com/repos/nicolas-found42/car-game |
+| S21 | Actions run 39823798149 (cache-miss run with `--profile ci`): https://github.com/nicolas-found42/car-game/actions/runs/39823798149 |
+| S22 | Actions run 39825181643 (cache-hit run): https://github.com/nicolas-found42/car-game/actions/runs/39825181643 |
 
 ---
 
 ## 8. Verification limits
 
-- The working tree contains an uncommitted `ci.yml` variant that predates this analysis; the baseline in §1 is the workflow as measured in the cited runs, not that variant. No workflow file was modified by this analysis, and no experimental CI run was executed.
+- The baseline in §1 is the workflow as measured in the cited runs. The implementation in this branch is measured separately in §6.5; those two runs are cited as S21 and S22.
 - Step times and log lines are from the public runs above; job walls are the sum of step times as reported by the jobs API.
 - Run-to-run variance is real for an identical SHA (13m 42s vs 21m 19s/21m 22s test-profile builds), so any single-run estimate should be treated as a range, not a constant.
-- The following are explicitly **UNVERIFIED**: cause of the duplicate push runs; cause of the 55.6% build-time variance; compressed CI cache size and whether it fits the 10 GB limit; wall-time saved by a cache hit; wall-time saved by the CI profile or debug-info change; whether tests remain behaviorally identical at lower optimization; larger-runner speedup.
-- The local target-size figures (13 GB total / 11 GB debug / 9.8 GB deps / 1 GB incremental) are a `du` observation on the development machine, not a CI cache measurement, and are labeled as such in §3.5.
+- The following remain explicitly **UNVERIFIED**: cause of the duplicate push runs; cause of the 55.6% baseline build-time variance; whether the 18-test suite is exhaustive evidence that lower optimization preserves behavior beyond the exercised paths; larger-runner speedup.
+- The local target-size figures (13 GB total / 11 GB debug / 9.8 GB deps / 1 GB incremental) are a `du` observation on the development machine, not a CI cache measurement, and are labeled as such in §3.5. The measured CI cache is 1.1 GB (§6.5).
