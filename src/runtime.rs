@@ -104,6 +104,9 @@ pub struct CommandBus {
     fixed: VecDeque<QueuedCommand>,
 }
 impl CommandBus {
+    pub(crate) fn has_pending(&self) -> bool {
+        !self.ingress.is_empty() || !self.fixed.is_empty()
+    }
     pub fn submit(&mut self, source: ControllerOwner, command: ProductionCommand) -> String {
         self.submit_with_span(source, command, SpanContext::default())
     }

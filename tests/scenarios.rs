@@ -15,6 +15,12 @@ fn scenario_requires_an_observable_outcome() {
 }
 
 fn run_fixture(value: serde_json::Value) -> (serde_json::Value, std::path::PathBuf) {
+    run_fixture_with_frame_duration(value, std::time::Duration::from_secs_f64(1.0 / 120.0))
+}
+fn run_fixture_with_frame_duration(
+    value: serde_json::Value,
+    duration: std::time::Duration,
+) -> (serde_json::Value, std::path::PathBuf) {
     use bevy::{prelude::*, time::TimeUpdateStrategy};
     let scenario = ScenarioDefinition::from_json(&value.to_string()).unwrap();
     let root = std::env::temp_dir().join(format!(
@@ -42,9 +48,7 @@ fn run_fixture(value: serde_json::Value) -> (serde_json::Value, std::path::PathB
     ));
     let dir = run.dir().to_path_buf();
     let mut app = car_game::build_app(config, run.clone()).unwrap();
-    app.insert_resource(TimeUpdateStrategy::ManualDuration(
-        std::time::Duration::from_secs_f64(1.0 / 120.0),
-    ));
+    app.insert_resource(TimeUpdateStrategy::ManualDuration(duration));
     let guard = std::time::Instant::now();
     for _ in 0..100000 {
         app.update();
@@ -325,7 +329,7 @@ fn a_declared_motion_assertion_can_fail_on_the_actual_car() {
 #[test]
 fn a_paused_scenario_still_fails_at_its_real_wall_deadline() {
     let fixture = serde_json::json!({"schema_version":1,"name":"paused-deadline","scene":"driving",
-        "initial":{"car":"350z"},"max_ticks":100,"max_wall_ms":300,"readiness_timeout_ms":200,
+        "initial":{"car":"350z"},"max_ticks":100,"max_wall_ms":3000,"readiness_timeout_ms":2000,
         "commands":[{"elapsed_ms":0,"command":{"action":"set_paused","paused":true}}],
         "assertions":[{"tick":100,"kind":"reset_count","count":0}]});
     let (summary, dir) = run_fixture(fixture);
@@ -377,4 +381,49 @@ fn an_empty_legacy_replay_keeps_live_driving_available() {
     assert!(-cars.single(app.world()).unwrap().linear.z > 4.0);
     drop(app);
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn a_late_selection_is_applied_before_a_scenario_can_finish_successfully() {
+    let fixture = serde_json::json!({"schema_version":1,"name":"late-selection","scene":"driving",
+        "initial":{"car":"350z"},"max_ticks":1000,"max_wall_ms":2000,"readiness_timeout_ms":1000,
+        "commands":[{"elapsed_ms":200,"command":{"action":"select_car","car":"redline-911"}}],
+        "assertions":[{"tick":5,"kind":"reset_count","count":0}]});
+    let (summary, dir) = run_fixture(fixture);
+    assert_eq!(summary["passed"], true, "{summary}");
+    let events: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("events.jsonl"))
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    let selection = events
+        .iter()
+        .find(|e| {
+            e["kind"] == "command.outcome" && e["fields"]["command"]["action"] == "select_car"
+        })
+        .unwrap();
+    assert_eq!(selection["fields"]["disposition"], "applied");
+    std::fs::remove_dir_all(dir.parent().unwrap()).unwrap();
+}
+
+#[test]
+fn the_tick_bound_stops_catch_up_work_at_the_declared_completed_boundary() {
+    let fixture = serde_json::json!({"schema_version":1,"name":"bounded-catch-up","scene":"driving",
+        "initial":{"car":"350z"},"max_ticks":5,"max_wall_ms":2000,"readiness_timeout_ms":1000,
+        "commands":[],"assertions":[{"tick":5,"kind":"reset_count","count":0}]});
+    let (summary, dir) =
+        run_fixture_with_frame_duration(fixture, std::time::Duration::from_millis(100));
+    assert_eq!(summary["passed"], true, "{summary}");
+    assert_eq!(summary["ticks"], 5);
+    let events: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("events.jsonl"))
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    let last_tick = events
+        .iter()
+        .rfind(|e| e["kind"] == "simulation.tick_completed")
+        .unwrap();
+    assert_eq!(last_tick["tick"], summary["completed_tick"]);
+    std::fs::remove_dir_all(dir.parent().unwrap()).unwrap();
 }

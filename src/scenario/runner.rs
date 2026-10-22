@@ -16,7 +16,7 @@ use bevy_rapier3d::prelude::Velocity;
 use serde_json::{Value, json};
 use std::{
     collections::{HashMap, HashSet},
-    time::Instant,
+    time::{Duration, Instant},
 };
 
 #[derive(Resource)]
@@ -96,6 +96,9 @@ fn tick_commands(
     clock: Res<SimulationClock>,
     mut bus: ResMut<CommandBus>,
 ) {
+    if state.finished {
+        return;
+    }
     let Some((start, _, _)) = state.ready else {
         return;
     };
@@ -148,13 +151,12 @@ fn update(world: &mut World) {
             None,
             Some(elapsed_ms),
         );
+        crate::runtime::dispatch_update(world);
         if let Some(reason) = state.capture_error.clone() {
             finish(world, &mut state, Some(&reason));
             return;
         }
-        if state.results.len() == state.definition.assertions.len()
-            && state.submitted.len() == state.definition.commands.len()
-        {
+        if work_complete(world, &state) {
             if state.definition.required_capture && state.capture.is_none() {
                 if !state.capture_requested {
                     request_capture(world);
@@ -236,11 +238,11 @@ fn evaluate(world: &mut World) {
                 .results
                 .push(json!({"assertion":assertion,"observed":observed,"passed":passed}));
         }
-        if tick >= state.definition.max_ticks
-            && (state.results.len() < state.definition.assertions.len()
-                || state.submitted.len() < state.definition.commands.len()
-                || state.capture_requested)
+        if work_complete(world, &state)
+            && (!state.definition.required_capture || state.capture.is_some())
         {
+            finish(world, &mut state, None);
+        } else if tick >= state.definition.max_ticks {
             finish(world, &mut state, Some("tick-limit"));
         }
     });
@@ -310,6 +312,9 @@ fn finish(world: &mut World, state: &mut ScenarioRun, failure: Option<&str>) {
         return;
     }
     state.finished = true;
+    world
+        .resource_mut::<Time<Fixed>>()
+        .discard_overstep(Duration::MAX);
     crate::runtime::discard_pending(world, "scenario-ended");
     let all_asserted = state.results.len() == state.definition.assertions.len();
     let passed_count = state.results.iter().filter(|r| r["passed"] == true).count();
@@ -382,4 +387,11 @@ fn collect_outcomes(
             *state.rejections.entry(outcome.reason.clone()).or_default() += 1;
         }
     }
+}
+
+fn work_complete(world: &World, state: &ScenarioRun) -> bool {
+    state.results.len() == state.definition.assertions.len()
+        && state.submitted.len() == state.definition.commands.len()
+        && !world.resource::<CommandBus>().has_pending()
+        && world.resource::<crate::runtime::PendingReset>().0.is_none()
 }

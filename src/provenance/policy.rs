@@ -20,7 +20,7 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
         match arg.as_str() {
             "--smoke" | "--fleet-check" | "--visual-check" | "--offscreen"
             | "--render-disabled" => exported.push(json!(arg)),
-            "--car" | "--seed" => {
+            "--car" | "--seed" | "--scenario-filter" => {
                 if let Some(value) = args.next().filter(|v| safe_token(v)) {
                     exported.extend([json!(arg), json!(value)]);
                 } else {

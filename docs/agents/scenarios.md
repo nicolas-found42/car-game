@@ -66,3 +66,10 @@ execution/pass counts, readiness boundary and capture metrics. Seed is preserved
 with an explicit no-random-draws state for current deterministic authored fixtures;
 no artificial random behavior is added to baseline dynamics. Build/dependency,
 asset/catalog and artifact hashes are supplied by the common provenance manifest.
+
+A scenario completes only after every timed command has reached production dispatch
+and every assertion has executed. A final physical action cannot be silently skipped
+because earlier assertions finished. The runner discards remaining fixed overstep at
+its final boundary, so a slow render frame cannot advance beyond the declared tick
+cap. The legacy smoke fixture requests `select_car` with `reset_to_spawn: true`;
+that production handler owns the common initial pose for cross-car captures.
