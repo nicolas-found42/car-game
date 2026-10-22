@@ -36,16 +36,16 @@ jobs:
         run: |
           mkdir -p artifacts/logs
           cargo fmt --check 2>&1 | tee artifacts/logs/cargo-fmt.log
-      - name: Clippy
-        run: |
-          mkdir -p artifacts/logs
-          cargo clippy --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
       - name: Rust tests
         shell: bash
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
           cargo test --all-targets --profile ci 2>&1 | tee artifacts/logs/cargo-test.log
+      - name: Clippy
+        run: |
+          mkdir -p artifacts/logs
+          cargo clippy --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
       - name: Code limit & complexity gates (codelimit + lizard + clippy)
         shell: bash
         run: |
