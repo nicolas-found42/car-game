@@ -1,0 +1,708 @@
+{
+  "source_run_id": "20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000",
+  "source_manifest": {
+    "schema": 1,
+    "run_id": "20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000",
+    "started_at": "2026-10-22T20:27:45.47116Z",
+    "ended_at": "2026-10-22T20:32:32.551661Z",
+    "git": {
+      "sha": "b5b59a8105d729295734e4efc3ee86b6e0dec177",
+      "short": "b5b59a8",
+      "branch": "codex/issue-10-baseline",
+      "dirty": true
+    },
+    "binary_sha256": "efe4d9aa55af49ffcb3efbc7a5626614ebca519285d5d3c8e99bbb558eb8fe6c",
+    "args": [
+      "--offscreen",
+      "--fleet-check"
+    ],
+    "mode": "fleet",
+    "car": "350z",
+    "env": {
+      "os": "macos",
+      "arch": "aarch64",
+      "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+      "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+      "bevy": "0.20",
+      "rapier": "0.37",
+      "rust_log": "warn",
+      "cwd": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game",
+      "assets_root": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/assets",
+      "source_root": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/../carmodels"
+    },
+    "gpu": {
+      "backend": "Metal",
+      "device": 0,
+      "device_type": "IntegratedGpu",
+      "driver": "",
+      "driver_info": "",
+      "name": "Apple M5 Pro",
+      "vendor": 0
+    },
+    "window": {
+      "available": false,
+      "offscreen": true
+    },
+    "exit": {
+      "code": 0,
+      "reason": "success"
+    }
+  },
+  "input_samples": 34319,
+  "input_reset_true_count": 0,
+  "empty_trace_probe": {
+    "source_run": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/artifacts/runs/20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000",
+    "source_run_id": "20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000",
+    "operation": "copy completed run except traces/comparisons; create empty physics.jsonl and input.jsonl; original untouched",
+    "verifier_sha256": "c80afb1500fdd28463c4913b921a81af03184cf039b4b8dbec7c809b131618fa",
+    "command": [
+      "/opt/homebrew/opt/python@3.15/bin/python3.15",
+      "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/tools/verify_run.py",
+      "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/artifacts/issue-9-baseline/empty-trace-probe"
+    ],
+    "exit_code": 0,
+    "stdout": "RUN EVIDENCE PASS: 20261022T20274547116Z-b5b59a8-fleet-342-1792700865489841000; 185 events, 13 car reports\n",
+    "stderr": "",
+    "classification": "deliberately invalid negative control; verifier exit 0 means false pass"
+  },
+  "cars": [
+    {
+      "id": "350z",
+      "physics_samples": 2581,
+      "max_speed_kmh": 101.5349349975586,
+      "brake_start_kmh": 71.7799301147461,
+      "brake_end_kmh": 2.9576194286346436,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 2099,
+          "after_step": 2100,
+          "before_time": 17.500002,
+          "after_time": 17.516668,
+          "before_count": 0,
+          "after_count": 1,
+          "before_input": {
+            "step": 2099,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 2100,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 541,
+        "sample_step": 1141,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.705568,
+        "planar_displacement_m": 66.47365
+      },
+      "frames": 1720,
+      "frame_ms": {
+        "0.5": 10.011333,
+        "0.95": 10.595875,
+        "0.99": 11.159875
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "fr2-cobra",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.58184051513672,
+      "brake_start_kmh": 72.14405822753906,
+      "brake_end_kmh": 3.1538398265838623,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 4745,
+          "after_step": 4746,
+          "before_time": 39.55834,
+          "after_time": 39.575005,
+          "before_count": 2,
+          "after_count": 3,
+          "before_input": {
+            "step": 4745,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 4746,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 3186,
+        "sample_step": 3786,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.7169008,
+        "planar_displacement_m": 66.47942
+      },
+      "frames": 1714,
+      "frame_ms": {
+        "0.5": 10.035374999999998,
+        "0.95": 10.436124999999999,
+        "0.99": 10.742166
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "fr2-fr500",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.43096923828125,
+      "brake_start_kmh": 71.10899353027344,
+      "brake_end_kmh": 3.245189666748047,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 7389,
+          "after_step": 7390,
+          "before_time": 61.600006,
+          "after_time": 61.616673,
+          "before_count": 4,
+          "after_count": 5,
+          "before_input": {
+            "step": 7389,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 7390,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 5831,
+        "sample_step": 6431,
+        "elapsed_seconds": 5.0000029999999995,
+        "speed_kmh": 86.7136464,
+        "planar_displacement_m": 66.47836
+      },
+      "frames": 1715,
+      "frame_ms": {
+        "0.5": 10.019458,
+        "0.95": 10.420333000000001,
+        "0.99": 10.688542
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "gt-rx7",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.67188262939453,
+      "brake_start_kmh": 72.50688171386719,
+      "brake_end_kmh": 3.278296947479248,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 10034,
+          "after_step": 10035,
+          "before_time": 83.65001,
+          "after_time": 83.66667,
+          "before_count": 6,
+          "after_count": 7,
+          "before_input": {
+            "step": 10034,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 10035,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 8475,
+        "sample_step": 9075,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.724,
+        "planar_displacement_m": 66.48364
+      },
+      "frames": 1704,
+      "frame_ms": {
+        "0.5": 10.042250000000001,
+        "0.95": 10.423041,
+        "0.99": 10.747708999999999
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "gt-viper",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.58912658691406,
+      "brake_start_kmh": 72.31192779541016,
+      "brake_end_kmh": 1.4987009763717651,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 12678,
+          "after_step": 12679,
+          "before_time": 105.69167,
+          "after_time": 105.70834,
+          "before_count": 8,
+          "after_count": 9,
+          "before_input": {
+            "step": 12678,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 12679,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 11119,
+        "sample_step": 11719,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.7112992,
+        "planar_displacement_m": 66.476074
+      },
+      "frames": 1706,
+      "frame_ms": {
+        "0.5": 10.039166999999999,
+        "0.95": 10.403291,
+        "0.99": 10.632291
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "gt4-m3",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.52386474609375,
+      "brake_start_kmh": 71.52326965332031,
+      "brake_end_kmh": 3.2040281295776367,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 15324,
+          "after_step": 15325,
+          "before_time": 127.75001,
+          "after_time": 127.76668,
+          "before_count": 10,
+          "after_count": 11,
+          "before_input": {
+            "step": 15324,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 15325,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 13765,
+        "sample_step": 14365,
+        "elapsed_seconds": 5.000009999999989,
+        "speed_kmh": 86.7149784,
+        "planar_displacement_m": 66.479576
+      },
+      "frames": 1702,
+      "frame_ms": {
+        "0.5": 10.057,
+        "0.95": 10.397791999999999,
+        "0.99": 10.576167
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "gt4-nsx",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.62090301513672,
+      "brake_start_kmh": 72.34718322753906,
+      "brake_end_kmh": 2.6270835399627686,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 17968,
+          "after_step": 17969,
+          "before_time": 149.79167,
+          "after_time": 149.80835,
+          "before_count": 12,
+          "after_count": 13,
+          "before_input": {
+            "step": 17968,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 17969,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 16408,
+        "sample_step": 17008,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.6883924,
+        "planar_displacement_m": 66.463615
+      },
+      "frames": 1702,
+      "frame_ms": {
+        "0.5": 10.06025,
+        "0.95": 10.394167,
+        "0.99": 10.593875
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "mc3-skyline",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.43994140625,
+      "brake_start_kmh": 69.99512481689453,
+      "brake_end_kmh": 3.2470667362213135,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 20612,
+          "after_step": 20613,
+          "before_time": 171.83334,
+          "after_time": 171.85,
+          "before_count": 14,
+          "after_count": 15,
+          "before_input": {
+            "step": 20612,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 20613,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 19053,
+        "sample_step": 19653,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.71550400000001,
+        "planar_displacement_m": 66.480034
+      },
+      "frames": 1701,
+      "frame_ms": {
+        "0.5": 10.048125,
+        "0.95": 10.409417000000001,
+        "0.99": 10.598540999999999
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "mc3-supra",
+      "physics_samples": 2646,
+      "max_speed_kmh": 101.67538452148438,
+      "brake_start_kmh": 71.27079010009766,
+      "brake_end_kmh": 3.221006155014038,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 23257,
+          "after_step": 23258,
+          "before_time": 193.88335,
+          "after_time": 193.90001,
+          "before_count": 16,
+          "after_count": 17,
+          "before_input": {
+            "step": 23257,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 23258,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 21698,
+        "sample_step": 22298,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.719626,
+        "planar_displacement_m": 66.48201
+      },
+      "frames": 1703,
+      "frame_ms": {
+        "0.5": 10.05175,
+        "0.95": 10.404125,
+        "0.99": 10.6115
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "mcla-evo",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.5518798828125,
+      "brake_start_kmh": 71.78826904296875,
+      "brake_end_kmh": 3.2604548931121826,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 25903,
+          "after_step": 25904,
+          "before_time": 215.94168,
+          "after_time": 215.95834,
+          "before_count": 18,
+          "after_count": 19,
+          "before_input": {
+            "step": 25903,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 25904,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 24344,
+        "sample_step": 24944,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.7152124,
+        "planar_displacement_m": 66.47935007237137
+      },
+      "frames": 1703,
+      "frame_ms": {
+        "0.5": 10.053459,
+        "0.95": 10.384625,
+        "0.99": 10.590708000000001
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "mcla-skyline",
+      "physics_samples": 2646,
+      "max_speed_kmh": 101.51459503173828,
+      "brake_start_kmh": 72.45563507080078,
+      "brake_end_kmh": 3.1504743099212646,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 28548,
+          "after_step": 28549,
+          "before_time": 237.99168,
+          "after_time": 238.00835,
+          "before_count": 20,
+          "after_count": 21,
+          "before_input": {
+            "step": 28548,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 28549,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 26990,
+        "sample_step": 27590,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.71419,
+        "planar_displacement_m": 66.478745
+      },
+      "frames": 1703,
+      "frame_ms": {
+        "0.5": 10.0365,
+        "0.95": 10.40175,
+        "0.99": 10.638209
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "redline-911",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.77275848388672,
+      "brake_start_kmh": 73.41743469238281,
+      "brake_end_kmh": 2.1446433067321777,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 31194,
+          "after_step": 31195,
+          "before_time": 260.05002,
+          "after_time": 260.06668,
+          "before_count": 22,
+          "after_count": 23,
+          "before_input": {
+            "step": 31194,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 31195,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 29635,
+        "sample_step": 30235,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.7287448,
+        "planar_displacement_m": 66.48641
+      },
+      "frames": 1703,
+      "frame_ms": {
+        "0.5": 10.039625,
+        "0.95": 10.440167,
+        "0.99": 10.651083
+      },
+      "fixed_update_cpu_p99_ms": null
+    },
+    {
+      "id": "redline-gt500",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.4521484375,
+      "brake_start_kmh": 69.96366119384766,
+      "brake_end_kmh": 3.2978599071502686,
+      "reported_resets": 1,
+      "input_reset_true_count": 0,
+      "reset_count_transitions": [
+        {
+          "before_step": 33839,
+          "after_step": 33840,
+          "before_time": 282.10004,
+          "after_time": 282.1167,
+          "before_count": 24,
+          "after_count": 25,
+          "before_input": {
+            "step": 33839,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          },
+          "after_input": {
+            "step": 33840,
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0,
+            "handbrake": false,
+            "reset": false
+          }
+        }
+      ],
+      "throttle_reference": {
+        "start_step": 32281,
+        "sample_step": 32881,
+        "elapsed_seconds": 5.0,
+        "speed_kmh": 86.715054,
+        "planar_displacement_m": 66.48007
+      },
+      "frames": 1701,
+      "frame_ms": {
+        "0.5": 10.052874999999998,
+        "0.95": 10.426540999999999,
+        "0.99": 10.633458000000001
+      },
+      "fixed_update_cpu_p99_ms": null
+    }
+  ],
+  "sampling_phase": "Legacy simulate system before Rapier SyncBackend/integration; trace skips reset ticks and does not certify completed-step coverage."
+}

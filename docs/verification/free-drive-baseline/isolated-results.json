@@ -1,0 +1,211 @@
+{
+  "run_id": "20261022T203335624405Z-b5b59a8-fleet-3963-1792701215649553000",
+  "manifest": {
+    "schema": 1,
+    "run_id": "20261022T203335624405Z-b5b59a8-fleet-3963-1792701215649553000",
+    "started_at": "2026-10-22T20:33:35.624405Z",
+    "ended_at": "2026-10-22T20:38:22.684706Z",
+    "git": {
+      "sha": "b5b59a8105d729295734e4efc3ee86b6e0dec177",
+      "short": "b5b59a8",
+      "branch": "codex/issue-10-baseline",
+      "dirty": true
+    },
+    "binary_sha256": "efe4d9aa55af49ffcb3efbc7a5626614ebca519285d5d3c8e99bbb558eb8fe6c",
+    "args": [
+      "--offscreen",
+      "--fleet-check"
+    ],
+    "mode": "fleet",
+    "car": "350z",
+    "env": {
+      "os": "macos",
+      "arch": "aarch64",
+      "rustc": "rustc 1.99.0 (b940084d7 2026-09-28)",
+      "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+      "bevy": "0.20",
+      "rapier": "0.37",
+      "rust_log": "warn",
+      "cwd": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game",
+      "assets_root": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/assets",
+      "source_root": "/Users/nicolas/.codex/worktrees/issue-10-baseline/car-game/../carmodels"
+    },
+    "gpu": {
+      "backend": "Metal",
+      "device": 0,
+      "device_type": "IntegratedGpu",
+      "driver": "",
+      "driver_info": "",
+      "name": "Apple M5 Pro",
+      "vendor": 0
+    },
+    "window": {
+      "available": false,
+      "offscreen": true
+    },
+    "exit": {
+      "code": 0,
+      "reason": "success"
+    }
+  },
+  "full_chain_exit_code": 0,
+  "sampling_phase": "Report frame timings are renderer/wall-clock measurements, not fixed-update CPU measurements.",
+  "cars": [
+    {
+      "id": "350z",
+      "max_speed_kmh": 101.53422546386719,
+      "brake_start_kmh": 71.77987670898438,
+      "brake_end_kmh": 2.9577322006225586,
+      "frame_ms_p50": 11.574833,
+      "frame_ms_p95": 12.216625,
+      "frame_ms_p99": 12.557375,
+      "frames": 1491,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "fr2-cobra",
+      "max_speed_kmh": 101.49705505371094,
+      "brake_start_kmh": 72.03270721435547,
+      "brake_end_kmh": 3.2480568885803223,
+      "frame_ms_p50": 11.576167,
+      "frame_ms_p95": 12.223875,
+      "frame_ms_p99": 12.563833,
+      "frames": 1494,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "fr2-fr500",
+      "max_speed_kmh": 101.51615905761719,
+      "brake_start_kmh": 70.83580780029297,
+      "brake_end_kmh": 3.1812100410461426,
+      "frame_ms_p50": 10.12425,
+      "frame_ms_p95": 11.976083000000001,
+      "frame_ms_p99": 12.248375000000001,
+      "frames": 1647,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "gt-rx7",
+      "max_speed_kmh": 101.67222595214844,
+      "brake_start_kmh": 72.80409240722656,
+      "brake_end_kmh": 2.8652477264404297,
+      "frame_ms_p50": 10.037458,
+      "frame_ms_p95": 10.48525,
+      "frame_ms_p99": 10.714917,
+      "frames": 1704,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "gt-viper",
+      "max_speed_kmh": 101.50426483154297,
+      "brake_start_kmh": 72.54908752441406,
+      "brake_end_kmh": 0.9966659545898438,
+      "frame_ms_p50": 10.029290999999999,
+      "frame_ms_p95": 10.541500000000001,
+      "frame_ms_p99": 11.035541,
+      "frames": 1710,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "gt4-m3",
+      "max_speed_kmh": 101.5227279663086,
+      "brake_start_kmh": 71.52326965332031,
+      "brake_end_kmh": 3.2031426429748535,
+      "frame_ms_p50": 10.039958,
+      "frame_ms_p95": 10.489542,
+      "frame_ms_p99": 10.818665999999999,
+      "frames": 1703,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "gt4-nsx",
+      "max_speed_kmh": 101.62090301513672,
+      "brake_start_kmh": 73.21730041503906,
+      "brake_end_kmh": 2.6790504455566406,
+      "frame_ms_p50": 10.049875,
+      "frame_ms_p95": 10.485625,
+      "frame_ms_p99": 10.683917,
+      "frames": 1705,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "mc3-skyline",
+      "max_speed_kmh": 101.52491760253906,
+      "brake_start_kmh": 70.50886535644531,
+      "brake_end_kmh": 3.241229295730591,
+      "frame_ms_p50": 10.048167,
+      "frame_ms_p95": 10.48125,
+      "frame_ms_p99": 10.737833,
+      "frames": 1704,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "mc3-supra",
+      "max_speed_kmh": 101.59049224853516,
+      "brake_start_kmh": 70.79074096679688,
+      "brake_end_kmh": 3.331265926361084,
+      "frame_ms_p50": 10.046125,
+      "frame_ms_p95": 10.463333,
+      "frame_ms_p99": 10.676292,
+      "frames": 1705,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "mcla-evo",
+      "max_speed_kmh": 101.5518798828125,
+      "brake_start_kmh": 71.43806457519531,
+      "brake_end_kmh": 3.302692174911499,
+      "frame_ms_p50": 10.043625,
+      "frame_ms_p95": 10.528042,
+      "frame_ms_p99": 11.127625,
+      "frames": 1708,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "mcla-skyline",
+      "max_speed_kmh": 101.51422882080078,
+      "brake_start_kmh": 72.02995300292969,
+      "brake_end_kmh": 3.182439088821411,
+      "frame_ms_p50": 10.045458,
+      "frame_ms_p95": 10.44525,
+      "frame_ms_p99": 10.726958,
+      "frames": 1706,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "redline-911",
+      "max_speed_kmh": 101.77275848388672,
+      "brake_start_kmh": 73.2273941040039,
+      "brake_end_kmh": 0.6431630253791809,
+      "frame_ms_p50": 10.046667000000001,
+      "frame_ms_p95": 10.510708000000001,
+      "frame_ms_p99": 10.867709,
+      "frames": 1708,
+      "reset_count": 1,
+      "passed": true
+    },
+    {
+      "id": "redline-gt500",
+      "max_speed_kmh": 101.4521484375,
+      "brake_start_kmh": 70.02847290039062,
+      "brake_end_kmh": 3.3484878540039062,
+      "frame_ms_p50": 10.040542,
+      "frame_ms_p95": 10.520334,
+      "frame_ms_p99": 10.807458,
+      "frames": 1706,
+      "reset_count": 1,
+      "passed": true
+    }
+  ]
+}

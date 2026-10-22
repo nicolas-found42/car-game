@@ -1,88 +1,74 @@
 #!/usr/bin/env python3
-"""Build a content-addressed evidence manifest for one persisted GRID run."""
+"""Finalize, export, verify or inspect immutable recorder provenance."""
 import argparse
-import hashlib
 import json
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
+
+from provenance_bundle import BundleError, export, load_index, verify
+from provenance_legacy import export_legacy, legacy_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open('rb') as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b''):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
 def build_manifest(run: Path) -> dict:
-    run = run.resolve()
-    manifest = json.loads((run / 'manifest.json').read_text())
-    report_path = run / 'report.json'
-    reports = json.loads(report_path.read_text())
-    roster = {
-        car['id']: car
-        for car in json.loads((ROOT / 'assets/cars/roster.json').read_text())
-    }
-    cars = []
-    for report in reports:
-        car = roster[report['id']]
-        asset = ROOT / 'assets' / car['path']
-        receipt = asset.with_suffix('.json')
-        captures = {}
-        for view, record in (report.get('captures') or {}).items():
-            capture_path = run / record['path']
-            captures[view] = {
-                'path': record['path'],
-                'sha256': sha256(capture_path) if capture_path.is_file() else None,
-                'metrics': record.get('metrics'),
-            }
-        cars.append({
-            'id': car['id'],
-            'asset_path': car['path'],
-            'asset_sha256': sha256(asset),
-            'receipt_sha256': sha256(receipt),
-            'captures': captures,
-        })
-    evidence = {
-        'schema': 1,
-        'run_id': manifest['run_id'],
-        'generated_at': datetime.now(timezone.utc).isoformat(),
-        'started_at': manifest.get('started_at'),
-        'ended_at': manifest.get('ended_at'),
-        'git': manifest.get('git'),
-        'binary_sha256': manifest.get('binary_sha256'),
-        'args': manifest.get('args'),
-        'mode': manifest.get('mode'),
-        'car': manifest.get('car'),
-        'gpu': manifest.get('gpu'),
-        'window': manifest.get('window'),
-        'render_target': (reports[0].get('render_target') if reports else None),
-        'report_sha256': sha256(report_path),
-        'cars': cars,
-    }
-    (run / 'evidence-manifest.json').write_text(json.dumps(evidence, indent=2) + '\n')
-    return evidence
+    """Existing entry point; never infers historical assets from this checkout."""
+    path = Path(run) / 'evidence-manifest.json'
+    if path.is_file():
+        existing = json.loads(path.read_text())
+        if existing.get('schema') == 2:
+            return load_index(run)
+        # Preserve old baseline evidence rather than rewrite it with current hashes.
+        return {**existing, 'legacy_provenance_unavailable': True}
+    if (Path(run) / 'provenance/capture.json').is_file():
+        raise BundleError('recording_not_finalized', prerequisite='finish_recorder_before_export')
+    return legacy_manifest(run)
+
+
+def selected_run(args):
+    if args.run is not None:
+        return args.run
+    latest = ROOT / 'artifacts/latest'
+    if not latest.is_file():
+        raise BundleError('missing_run_selection')
+    run = Path(latest.read_text().strip())
+    return run if run.is_absolute() else ROOT / run
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--run', type=Path, help='run directory; defaults to artifacts/latest')
+    parser.add_argument('--run', type=Path)
+    parser.add_argument('--action', choices=['finalize', 'export', 'verify', 'inspect'], default='finalize')
+    parser.add_argument('--output', type=Path)
+    parser.add_argument('--require-replay', action='store_true')
     args = parser.parse_args()
-    run = args.run
-    if run is None:
-        latest = ROOT / 'artifacts/latest'
-        if not latest.is_file():
-            raise SystemExit('No run selected and artifacts/latest is missing')
-        run = Path(latest.read_text().strip())
-        if not run.is_absolute():
-            run = ROOT / run
-    evidence = build_manifest(run)
-    print(f'{len(evidence["cars"])} cars; report {evidence["report_sha256"][:12]}; {run / "evidence-manifest.json"}')
-    return 0
+    try:
+        run = selected_run(args)
+        if args.action == 'export':
+            if args.output is None:
+                raise BundleError('missing_export_destination')
+            metadata = json.loads((run / 'evidence-manifest.json').read_text())
+            if metadata.get('schema') == 1:
+                result = export_legacy(run, args.output)
+            else:
+                result = export(run, args.output)
+        elif args.action == 'verify':
+            result = verify(run, args.require_replay)
+        elif args.action == 'inspect':
+            result = verify(run)
+            if result['ok']:
+                result['bundle'] = load_index(run)
+        else:
+            evidence = build_manifest(run)
+            result = {'ok': True, 'cars': len(evidence.get('cars', [])),
+                      'report_sha256': evidence.get('report_sha256'),
+                      'legacy_provenance_unavailable': evidence.get('legacy_provenance_unavailable', False)}
+    except BundleError as error:
+        result = {'ok': False, 'errors': [error.detail]}
+    except (OSError, ValueError, KeyError, TypeError):
+        result = {'ok': False, 'errors': [{'code': 'invalid_or_unavailable_bundle'}]}
+    print(json.dumps(result))
+    return 0 if result['ok'] else 1
 
 
 if __name__ == '__main__':

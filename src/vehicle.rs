@@ -1,6 +1,6 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
 use crate::{
-    diagnostics::{InputSample, PhysicsSample, PhysicsTrace, ReplayInput, RunHandle},
+    diagnostics::{InputSample, PhysicsSample, PhysicsTrace, RunHandle},
     roster::{CarSpec, Fleet},
 };
 use bevy::{app::AppExit, prelude::*};
@@ -139,7 +139,9 @@ fn simulate(
     fixed_time: Res<Time<Fixed>>,
     spec: Res<CarSpec>,
     mut input: ResMut<DriveInput>,
-    mut replay: Option<ResMut<ReplayInput>>,
+    clock: Option<Res<crate::runtime::SimulationClock>>,
+    assignment: Option<Res<crate::runtime::ControllerAssignment>>,
+    mut pending_reset: Option<ResMut<crate::runtime::PendingReset>>,
     mut trace: Option<ResMut<PhysicsTrace>>,
     recorder: Option<Res<RunHandle>>,
     mut exit: Option<MessageWriter<AppExit>>,
@@ -151,31 +153,35 @@ fn simulate(
         &mut Vehicle,
     )>,
 ) {
-    if let Some(replay) = replay.as_mut()
-        && replay.active
-    {
-        if let Some(sample) = replay.next() {
-            input.throttle = sample.throttle;
-            input.brake = sample.brake;
-            input.steer = sample.steer;
-            input.handbrake = sample.handbrake;
-            input.reset = sample.reset;
-        }
-        if !replay.active
-            && let Some(recorder) = recorder.as_ref()
-        {
-            recorder.event(
-                "replay.finished",
-                json!({"path": replay.path.as_ref().map(|p| p.display().to_string())}),
-            );
-        }
-    }
     let Ok(context) = context.single() else {
         return;
     };
     let do_reset = std::mem::take(&mut input.reset);
+    let step = trace.as_ref().map_or(0, |t| t.step());
+    let tick = clock.as_ref().map_or(step, |c| c.current);
+    let controller = assignment.as_ref().map(|a| a.0);
+    if let Some(trace) = trace.as_mut() {
+        trace.record_input(InputSample {
+            step,
+            tick,
+            controller,
+            throttle: input.throttle,
+            brake: input.brake,
+            steer: input.steer,
+            handbrake: input.handbrake,
+            reset: do_reset,
+        });
+    }
+    if let Some(recorder) = recorder.as_ref() {
+        let mut envelope = recorder.envelope();
+        envelope.tick = tick;
+        envelope.boundary = "fixed_consumption".into();
+        envelope.actor_id = Some("player-vehicle".into());
+        recorder.event_envelope("controls.effective", json!({"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
+    }
     for (entity, mut pose, mut velocity, mut total, mut car) in &mut cars {
         if do_reset || pose.translation.y < -12.0 {
+            let before = json!({"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":car.reset_count});
             *pose = recovery_pose(pose.translation);
             *velocity = Velocity::zero();
             *total = ExternalForce::default();
@@ -183,6 +189,21 @@ fn simulate(
             *car = Vehicle::default();
             car.previous = *pose;
             car.reset_count = count;
+            if let Some(recorder) = recorder.as_ref() {
+                let request = pending_reset.as_mut().and_then(|p| p.0.take());
+                let mut envelope = recorder.envelope();
+                envelope.tick = tick;
+                envelope.boundary = "applied_tick".into();
+                envelope.actor_id = Some("player-vehicle".into());
+                if let Some(request) = request {
+                    envelope.command_id = request.envelope.command_id;
+                    envelope.correlation_id = request.envelope.correlation_id;
+                    envelope.span = request.envelope.span;
+                }
+                recorder.event_envelope("vehicle.reset", json!({"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
+            } else if let Some(pending) = pending_reset.as_mut() {
+                pending.0 = None;
+            }
             continue;
         }
         car.previous = *pose;
@@ -318,9 +339,10 @@ fn simulate(
         car.rpm =
             900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
 
-        let step = trace.as_ref().map(|trace| trace.step()).unwrap_or(0);
         let sample = PhysicsSample {
             step,
+            tick,
+            actor_id: "player-vehicle".into(),
             time: fixed_time.elapsed_secs(),
             car: spec.id.clone(),
             position: [pose.translation.x, pose.translation.y, pose.translation.z],
@@ -343,6 +365,8 @@ fn simulate(
             reset_count: car.reset_count,
             input: InputSample {
                 step,
+                tick,
+                controller,
                 throttle: input.throttle,
                 brake: input.brake,
                 steer: input.steer,
@@ -684,9 +708,13 @@ mod tests {
     fn pause_freezes_physics_then_resume_and_quit_work() {
         use crate::presentation::{Session, read_controls};
         let mut app = world(false);
-        app.init_resource::<Session>()
+        app.add_plugins(crate::runtime::RuntimePlugin)
+            .init_resource::<Session>()
             .init_resource::<ButtonInput<KeyCode>>()
-            .add_systems(Update, read_controls);
+            .add_systems(
+                Update,
+                (read_controls, crate::runtime::dispatch_update).chain(),
+            );
         app.world_mut()
             .resource_mut::<ButtonInput<KeyCode>>()
             .press(KeyCode::Escape);
@@ -731,9 +759,13 @@ mod tests {
     fn analog_gamepad_input_drives_the_same_controller() {
         use crate::presentation::{Session, read_controls};
         let mut app = world(false);
-        app.init_resource::<Session>()
+        app.add_plugins(crate::runtime::RuntimePlugin)
+            .init_resource::<Session>()
             .init_resource::<ButtonInput<KeyCode>>()
-            .add_systems(Update, read_controls);
+            .add_systems(
+                Update,
+                (read_controls, crate::runtime::dispatch_update).chain(),
+            );
         let mut pad = Gamepad::default();
         pad.analog_mut().set(GamepadButton::RightTrigger2, 0.65);
         pad.analog_mut().set(GamepadAxis::LeftStickX, 0.5);

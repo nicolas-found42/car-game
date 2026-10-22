@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "pause-selection-career",
+  "scene": "driving",
+  "context": {"kind": "career", "owner_id": "fixture-player", "owned_cars": ["350z"]},
+  "seed": 41,
+  "initial": {"car": "350z"},
+  "readiness_timeout_ms": 20000,
+  "max_ticks": 400,
+  "max_wall_ms": 30000,
+  "commands": [
+    {"elapsed_ms": 100, "command": {"action": "set_paused", "paused": true}},
+    {"elapsed_ms": 300, "command": {"action": "set_paused", "paused": false}},
+    {"tick": 80, "command": {"action": "select_car", "car": "redline-911"}},
+    {"tick": 90, "command": {"action": "select_car", "car": "unknown-car"}},
+    {"tick": 120, "command": {"action": "drive", "throttle": 1.0, "brake": 0.0, "steer": 0.0}}
+  ],
+  "assertions": [
+    {"tick": 100, "kind": "selected_car", "car": "350z"},
+    {"tick": 100, "kind": "command_rejected", "reason": "not-owned", "count": 1},
+    {"tick": 100, "kind": "command_rejected", "reason": "unknown-car", "count": 1},
+    {"tick": 360, "kind": "displacement_at_least", "meters": 2.0}
+  ]
+}
