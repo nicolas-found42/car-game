@@ -90,6 +90,18 @@ pub fn environment() -> Value {
     json!(values)
 }
 
+/// Only exact canonical domain locations with portable opaque IDs are exportable.
+/// Host diagnostics and unrecognized location objects keep the existing redaction.
+fn assembly_location(value: &Value) -> bool {
+    let Ok(location) = serde_json::from_value::<crate::assembly::Location>(value.clone()) else {
+        return false;
+    };
+    serde_json::to_value(location).ok().as_ref() == Some(value)
+        && value
+            .as_object()
+            .is_some_and(|fields| fields.values().all(|v| v.as_str().is_some_and(safe_token)))
+}
+
 /// Exported observations are derived metadata, never byte-exact original logs.
 pub fn redact(value: &Value) -> Value {
     match value {
@@ -97,7 +109,9 @@ pub fn redact(value: &Value) -> Value {
             fields
                 .iter()
                 .map(|(key, value)| {
-                    let value = if [
+                    let value = if key == "location" && assembly_location(value) {
+                        value.clone()
+                    } else if [
                         "args",
                         "env",
                         "cwd",
@@ -171,4 +185,31 @@ pub fn config(value: &Value) -> Value {
         }
     }
     Value::Object(result)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn canonical_assembly_locations_survive_scenario_evidence_redaction() {
+        for location in [
+            json!({"kind":"vehicle","vehicle":"pilot-350z","owner":"sandbox"}),
+            json!({"kind":"inventory","owner":"sandbox","slot":"rack-0"}),
+        ] {
+            let scenario = json!({"scenario":{"commands":[{"command":{"destination":{"kind":"root","location":location}}}]}});
+            assert_eq!(config(&scenario), scenario);
+        }
+    }
+    #[test]
+    fn host_paths_and_noncanonical_locations_remain_redacted() {
+        for location in [
+            json!("/Users/person/private"),
+            json!({"kind":"inventory","owner":"sandbox","slot":"/Users/person/private"}),
+            json!({"kind":"inventory","owner":"sandbox","slot":"rack-0","path":"private"}),
+            json!({"file":"private"}),
+        ] {
+            let value = json!({"location":location});
+            assert_eq!(redact(&value)["location"], "redacted_by_policy");
+        }
+    }
 }

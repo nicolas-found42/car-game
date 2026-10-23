@@ -8,6 +8,7 @@ use bevy::{
     winit::WinitPlugin,
 };
 use std::{sync::Arc, time::Duration};
+pub mod assembly;
 pub mod city;
 pub mod config;
 pub mod diagnostics;
@@ -64,6 +65,7 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
         .insert_resource(runtime::Session::from_env())
         .add_plugins((
             runtime::RuntimePlugin,
+            assembly::AssemblyPlugin,
             vehicle::VehiclePlugin,
             city::CityPlugin,
         ));

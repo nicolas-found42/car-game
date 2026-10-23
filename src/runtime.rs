@@ -39,6 +39,10 @@ pub enum ProductionCommand {
         #[serde(default)]
         handbrake: bool,
     },
+    InspectAssembly,
+    AssemblyTransaction {
+        transaction: crate::assembly::Transaction,
+    },
     Reset,
     SelectCar {
         car: String,
@@ -254,6 +258,8 @@ pub fn dispatch_update(world: &mut World) {
         let physical = matches!(
             command.command,
             ProductionCommand::Reset
+                | ProductionCommand::InspectAssembly
+                | ProductionCommand::AssemblyTransaction { .. }
                 | ProductionCommand::SelectCar { .. }
                 | ProductionCommand::CycleCar { .. }
         );
@@ -278,6 +284,10 @@ fn dispatch_fixed(world: &mut World) {
             continue;
         }
         match &command.command {
+            ProductionCommand::InspectAssembly => crate::assembly::command(world, &command, None),
+            ProductionCommand::AssemblyTransaction { transaction } => {
+                crate::assembly::command(world, &command, Some(transaction))
+            }
             ProductionCommand::Reset => {
                 let has_target = world
                     .query_filtered::<Entity, With<Vehicle>>()
@@ -417,9 +427,11 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
         &mut Velocity,
         &mut ExternalForce,
         &mut Collider,
+        &mut AdditionalMassProperties,
         &mut Vehicle,
     )>();
-    let Ok((mut pose, mut velocity, mut force, mut collider, mut car)) = query.single_mut(world)
+    let Ok((mut pose, mut velocity, mut force, mut collider, mut mass, mut car)) =
+        query.single_mut(world)
     else {
         outcome(world, command, "rejected", "no-target");
         return;
@@ -432,11 +444,15 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
     *velocity = Velocity::zero();
     *force = ExternalForce::default();
     *collider = chassis_collider(&spec);
+    *mass = crate::vehicle::baseline_mass_properties();
     let count = car.reset_count + 1;
     *car = Vehicle::default();
     car.previous = *pose;
     car.reset_count = count;
     world.insert_resource(spec);
+    world
+        .resource_mut::<crate::assembly::AssemblyRuntime>()
+        .applied_revision = None;
     world.resource_mut::<Fleet>().selected = index;
     *world.resource_mut::<DriveInput>() = DriveInput::default();
     outcome(world, command, "applied", "car-switched");
