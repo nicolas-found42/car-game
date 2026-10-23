@@ -143,6 +143,7 @@ impl AssemblySnapshot {
         if attachments.len() != candidate.parts.len() {
             return Err("dangling-or-duplicate-location".into());
         }
+        candidate.validate()?;
         for transaction in &self.committed {
             if transaction.id.0.is_empty()
                 || candidate
@@ -152,9 +153,8 @@ impl AssemblySnapshot {
             {
                 return Err("duplicate-or-empty-transaction-id".into());
             }
-            candidate.part(&transaction.part)?;
+            validate_history(&candidate, transaction, self.revision)?;
         }
-        candidate.validate()?;
         Ok(candidate)
     }
     fn locations(&self) -> Result<BTreeMap<PartId, Attachment>, String> {
@@ -189,6 +189,47 @@ impl AssemblySnapshot {
         Ok(locations)
     }
 }
+fn validate_history(
+    assembly: &Assembly,
+    transaction: &Transaction,
+    revision: u64,
+) -> Result<(), String> {
+    let part = assembly.part(&transaction.part)?;
+    if transaction.expected_revision >= revision {
+        return Err("invalid-transaction-history-revision".into());
+    }
+    match &transaction.destination {
+        Attachment::Mounted { parent, mount } => {
+            let parent_part = assembly.part(parent)?;
+            let socket = assembly.definitions[&parent_part.definition]
+                .mounts
+                .get(mount)
+                .ok_or("unknown-mount")?;
+            if parent == &part.id {
+                return Err("attachment-cycle".into());
+            }
+            if socket.interface != assembly.definitions[&part.definition].interface {
+                return Err("incompatible-mount".into());
+            }
+        }
+        Attachment::Root {
+            location: Location::Vehicle { vehicle, owner },
+        } => {
+            if vehicle != &assembly.vehicle || owner != &assembly.owner {
+                return Err("invalid-transaction-history-location".into());
+            }
+        }
+        Attachment::Root {
+            location: Location::Inventory { owner, slot },
+        } => {
+            if owner != &assembly.owner || slot.is_empty() {
+                return Err("invalid-transaction-history-location".into());
+            }
+        }
+    }
+    Ok(())
+}
+
 pub(super) fn initialize(world: &mut World) {
     rebuild_entities(world);
 }
