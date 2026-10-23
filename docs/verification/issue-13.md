@@ -1,6 +1,6 @@
 # Issue #13 — identity-preserving assembly snapshots
 
-Implementation, applicable verification and source review are complete. Reviewable PR creation is the remaining handoff step. Native dependency #12 remains open pending human merge. No merge or issue closure is authorized. This branch is stacked on #12's graph implementation and canonical-location provenance fix.
+Implementation, applicable verification and source review are complete. Reviewable [PR #97](https://github.com/nicolas-found42/car-game/pull/97) is open against #12's [PR #95](https://github.com/nicolas-found42/car-game/pull/95). Native dependency #12 remains open pending human merge. No merge or issue closure is authorized. This branch is stacked on #12's graph implementation and canonical-location provenance fix.
 
 ## Production contract
 
