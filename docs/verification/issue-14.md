@@ -143,3 +143,14 @@ recorded executable/sidecar are retained in this managed worktree `target/releas
 The existing sibling `carmodels` symlink resolves all original source files. Routine
 headless checks still use shared primary target; preserve local release target for
 exact recorded runs. See `evidence-checksums.json` before using raw evidence.
+
+## Independent spec review resolution — reserved player evidence alias
+
+Review found a secondary `VehicleId("player-vehicle")` could collide with the
+selected player's legacy trace actor (`pilot-350z` remains its domain ID). Secondary
+spawn now rejects that reserved alias as `reserved-vehicle-id` before creating any
+entity. The production command regression submits this exact spawn, checks its
+rejection, verifies every completed-tick vehicle count stays one, and verifies
+unique `(actor_id, tick)` effective-control consumption. Focused regression passed.
+Earlier `902adb5` build/run claims above remain historical and are not transferred
+to this followup source; the alias fix receives fresh checks/build evidence.

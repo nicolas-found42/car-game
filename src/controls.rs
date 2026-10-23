@@ -72,6 +72,10 @@ pub fn spawn(
     position: [f32; 3],
     owner: ControllerOwner,
 ) -> Result<(), &'static str> {
+    // The selected player's legacy evidence actor must remain globally unique.
+    if id.0 == "player-vehicle" {
+        return Err("reserved-vehicle-id");
+    }
     if id.0.is_empty()
         || world
             .query::<&VehicleControl>()
