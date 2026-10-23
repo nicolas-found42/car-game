@@ -76,6 +76,38 @@ Local probes share the user's host with other workloads. Even with serialized
 Cargo invocations, these observations are directional evidence rather than a
 statistical benchmark. Hosted validation remains required.
 
+## Shader compiler candidate
+
+Keep the normal CI dependency level 1 and SHA-256 level 3, with named level-0
+overrides only for `wesl`, `wgsl-parse` and `naga`. Physics, ECS, all dependency
+features, release settings and every assertion remain unchanged. The shader
+compiler's code is still built and checked; optimization work is reduced.
+
+A fresh-target local candidate compiled all targets in 125 s, versus the earlier
+192 s control. This is an observation on the shared host, not a guarantee. The
+candidate also includes the hardware hash feature and one additional regression;
+the baseline compiled the original 67 tests. Both targets started empty, while
+registry sources were already present. Per-crate observations:
+
+| Compiler invocation | Control | Candidate |
+| --- | ---: | ---: |
+| wesl | 46.47 s | 11.65 s |
+| wgsl-parse | 16.66 s | 5.41 s |
+| naga library | 12.98 s | 7.47 s |
+| unchanged bevy_ecs | 21.18 s | 17.36 s |
+
+The unchanged ECS time also varied, so the complete 67 s difference is not
+attributed solely to the overrides. All 68 tests and the full headless ladder
+passed with the candidate. Its executable is 202,327,232 bytes versus the earlier
+174,721,312 bytes. Fast hashing makes that tradeoff less costly, but hosted
+cold/cached jobs and actual CI-profile rendering remain required before acceptance.
+
+The hardware-only intermediate normal CI at `d89133c` passed in 199 s, including
+new cache publication. Its test harnesses took 24.15 s versus main's 57.70 s;
+workspace compilation was 78 s versus 86 s and Clippy was 7.02 s versus 8.34 s.
+It used an Apple M1 virtual runner with 3 CPUs and 7 GiB RAM. This is not a fully
+warm repeat or a measurement of the later shader profile.
+
 ## Cold measurement and evidence
 
 Manual CI dispatch accepts `cold_build=true`. It requires an absent target

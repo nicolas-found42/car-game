@@ -33,6 +33,15 @@ debug = 0
 [profile.ci.package."*"]
 opt-level = 1
 
+# Avoid LLVM optimization of shader compiler crates in CI, retaining every
+# rendering feature and the optimized physics/ECS graph. Release is unchanged.
+[profile.ci.package.wesl]
+opt-level = 0
+[profile.ci.package.wgsl-parse]
+opt-level = 0
+[profile.ci.package.naga]
+opt-level = 0
+
 # Provenance hashes the executable and prepared assets before simulation startup.
 # Keep that bounded production path optimized even in cold CI builds.
 [profile.ci.package.sha2]
