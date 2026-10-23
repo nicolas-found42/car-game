@@ -40,6 +40,13 @@ pub enum ProductionCommand {
         handbrake: bool,
     },
     InspectAssembly,
+    SnapshotAssembly {
+        key: String,
+    },
+    RestoreAssembly {
+        expected_revision: u64,
+        source: crate::assembly::SnapshotSource,
+    },
     AssemblyTransaction {
         transaction: crate::assembly::Transaction,
     },
@@ -258,6 +265,8 @@ pub fn dispatch_update(world: &mut World) {
         let physical = matches!(
             command.command,
             ProductionCommand::Reset
+                | ProductionCommand::SnapshotAssembly { .. }
+                | ProductionCommand::RestoreAssembly { .. }
                 | ProductionCommand::InspectAssembly
                 | ProductionCommand::AssemblyTransaction { .. }
                 | ProductionCommand::SelectCar { .. }
@@ -284,6 +293,13 @@ fn dispatch_fixed(world: &mut World) {
             continue;
         }
         match &command.command {
+            ProductionCommand::SnapshotAssembly { key } => {
+                crate::assembly::snapshot_command(world, &command, key)
+            }
+            ProductionCommand::RestoreAssembly {
+                source,
+                expected_revision,
+            } => crate::assembly::restore_command(world, &command, source, *expected_revision),
             ProductionCommand::InspectAssembly => crate::assembly::command(world, &command, None),
             ProductionCommand::AssemblyTransaction { transaction } => {
                 crate::assembly::command(world, &command, Some(transaction))

@@ -271,6 +271,10 @@ fn observe(
             let actual = velocity.linear.length();
             json!({"passed":actual >= *mps,"mps":actual})
         }
+        AssertionKind::SnapshotMatches {
+            key,
+            fresh_entities,
+        } => crate::assembly::snapshot::observe_snapshot(world, key, *fresh_entities),
         AssertionKind::AssemblyState {
             revision,
             mass,
