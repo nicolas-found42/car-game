@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "runtime_source_commit": "f4c98dd",
+  "current_branch_commit": "177fbc2",
+  "binary_sha256": "fc51b3dc3f88c946098774ab01baf222e41644b1740a2eba54f4fe5f633ecd7e",
+  "compiled_source_fingerprint": "b9c12ef8024665539d94dcb30a2e8b8d9f735e4e241bbf7e602559bf6d0d3e11",
+  "run": "recorded-headless/20261023T013052729843Z-177fbc2-scenario-14229-1-1792719052755526000",
+  "assertions_executed": 4,
+  "assertions_passed": 4,
+  "source_comparison": {
+    "availability": "included",
+    "code": "source_build_match",
+    "logical_paths": [],
+    "matches": true,
+    "meaning": "runtime_workspace_observation_does_not_change_recorded_executable_identity"
+  },
+  "completeness": {
+    "inventory_integrity": true,
+    "rebuild_complete": true,
+    "runtime_material_complete": true,
+    "runtime_replay_complete": false
+  },
+  "hashes": {
+    "verification-ladder.log": "88ee8b99bfbb0d31f56d05aab7c916fd97294a0f7f73d71f12f59ad9626a7c0a",
+    "true-base-complexity.log": "805a50ca6c7e4918acdc00e8d3b3992b90e44870da092e35531465c8df567580",
+    "final-snapshot-tests.log": "0e96ffebdeeed1df161afd78341c275d4d7d9a2d1387da0315a9d2b051dbd61d",
+    "assets.log": "d2f361295df385ede175c98eabe1c6865d621ab3c32552592334e8ec46165db6",
+    "fixture-source/assembly_snapshots.rs": "e44fdbdb809e23c0f4645853adac83ceae59249ac5e943855c812863872c8eeb",
+    "fixture-source/assembly-snapshot.json": "137e27eb79e0a15cc72a7ca73ba6815c9dfc618a8054c00a8522f03154415340",
+    "recorded-headless/20261023T013052729843Z-177fbc2-scenario-14229-1-1792719052755526000/scenario-summary.json": "63e436deb3fdf4a1d228a0569f121c3a488bc47e25102c67a3dd751be8e95ddc",
+    "recorded-headless/20261023T013052729843Z-177fbc2-scenario-14229-1-1792719052755526000/provenance/capture.json": "1ca9bea6331dd1b54545351a8c671fcb8cfa491d8ef8c17a84ab417d6426b1cc"
+  }
+}
