@@ -90,3 +90,14 @@ relative source-path asset check was repaired and rerun successfully. No assets 
 missing. GPU/live queue remains owned by #12 then #13; this issue has not claimed
 render acceptance. Additional `independent-vehicles-metal.json` requests a real
 capture while both independently controlled cars remain in camera range.
+
+Coordinator evidence review found targeted-player normalization could obscure the
+original intent in effect records. Fixed: queued normalized commands retain ingress
+intent, command outcomes expose original `command` and explicit `normalized_command`,
+and reset effects record stable `vehicle_id` plus `requested_command`. A regression
+joins targeted reset evidence back to its original ingress command ID/target.
+
+`input.jsonl` deliberately remains the selected-player legacy replay stream; secondary
+input consumption is preserved with actor identity in `controls.effective` and each
+secondary `physics.jsonl` sample's `input`. Consumers must use those streams for
+multi-vehicle evidence; treating the legacy replay stream as all actors is invalid.

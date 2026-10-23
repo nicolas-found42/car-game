@@ -238,12 +238,16 @@ pub(crate) fn simulate(
             *car = Vehicle::default();
             car.previous = *pose;
             car.reset_count = count;
+            let request = if is_player {
+                pending_reset.as_mut().and_then(|p| p.0.take())
+            } else {
+                control.pending_reset.take()
+            };
             if let Some(recorder) = recorder.as_ref() {
-                let request = if is_player {
-                    pending_reset.as_mut().and_then(|p| p.0.take())
-                } else {
-                    control.pending_reset.take()
-                };
+                let requested = request
+                    .as_ref()
+                    .map(|r| r.intent.as_ref().unwrap_or(&r.command));
+                let requested = serde_json::to_value(requested).expect("command");
                 let mut envelope = recorder.envelope();
                 envelope.tick = tick;
                 envelope.boundary = "applied_tick".into();
@@ -253,7 +257,7 @@ pub(crate) fn simulate(
                     envelope.correlation_id = request.envelope.correlation_id;
                     envelope.span = request.envelope.span;
                 }
-                recorder.event_envelope("vehicle.reset", json!({"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
+                recorder.event_envelope("vehicle.reset", json!({"vehicle_id":control.id,"requested_command":requested,"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
             } else if is_player && let Some(pending) = pending_reset.as_mut() {
                 pending.0 = None;
             }
