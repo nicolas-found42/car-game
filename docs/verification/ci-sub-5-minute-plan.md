@@ -1,5 +1,9 @@
 # Sub-5-Minute CI Plan
 
+Historical plan: several levers below have already landed. See the current
+[verification speed audit](verification-speed.md) for measured remaining costs,
+implemented improvements and current-suite validation.
+
 **Scope:** Concrete strategies, benchmarks, and configuration to achieve sub-5-minute GitHub Actions CI execution for `nicolas-found42/car-game`.
 
 ---

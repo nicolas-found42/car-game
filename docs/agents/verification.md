@@ -4,7 +4,7 @@ The standard verification ladder for agents working in `car-game`. Run these che
 
 ## Verification Ladder
 
-Execute checks from top to bottom. Fix any failure at the current rung before proceeding down the ladder.
+Execute checks from top to bottom. Fix any failure at the current rung before proceeding down the ladder. For a full verification request, run `bash scripts/verify.sh --base origin/main` once: it owns the entire ladder, including all-target tests, Python controls and the fleet. Do not first run the ladder manually and then repeat it inside the script. Use the true branch base when `origin/main` is not the intended comparison.
 
 ```
 1. cargo fmt --check                     Format (Rust)
@@ -82,7 +82,22 @@ Runs the full local chain, offscreen fleet rendering across all 13 cars, and evi
 ```sh
 sh scripts/verify.sh
 ```
-Logs and captures are written to `artifacts/logs/` and `artifacts/latest/`.
+Logs include per-command elapsed seconds; captures are selected by `artifacts/latest`.
+
+Use `bash scripts/verify.sh --headless --base origin/main` for the full headless
+ladder during iteration. This explicitly omits GPU acceptance; a final full run
+is still required for physics, simulation, rendering/camera or roster changes.
+For immutable build/source provenance, use
+`bash scripts/verify.sh --recorded --base origin/main`: it builds the recorded
+release executable once and uses that same executable for the single fleet run.
+Do not add a second ordinary fleet run solely to satisfy this ladder.
+Keep source-specific Cargo processes under one outer lease across test children
+when targets may be shared between worktrees. The lease serializes Cargo invocations;
+independent tests within one suite may use their normal concurrency.
+
+CI sets `CODELIMIT_CARGO_PROFILE=ci` so the complexity gate reuses the CI profile.
+Local invocations default to `dev`. Compiler failures always fail the gate, even
+when no function-length warning was emitted.
 
 ### Live Platform Verification (`scripts/verify_live.sh`)
 Runs offscreen checks with audio muted (`CAR_GAME_MUTE=1`) and attempts a bounded 30-second native window launch on macOS Metal hardware.

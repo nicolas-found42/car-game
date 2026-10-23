@@ -453,12 +453,26 @@ mod tests {
         world_for(CarSpec::default(), wall)
     }
     fn world_for(spec: CarSpec, wall: bool) -> App {
+        world_for_scheduling(spec, wall, true)
+    }
+    fn world_for_scheduling(spec: CarSpec, wall: bool, single_threaded: bool) -> App {
         let mut app = App::new();
         app.insert_resource(spec);
         app.add_plugins((MinimalPlugins, TransformPlugin, VehiclePlugin))
             .insert_resource(TimeUpdateStrategy::ManualDuration(Duration::from_secs_f64(
                 STEP as f64,
             )));
+        // Tiny physics fixtures benefit from avoiding task-pool handoffs. The
+        // differential test below checks them against production's default executor.
+        if single_threaded {
+            for (_, schedule) in app
+                .world_mut()
+                .resource_mut::<bevy::ecs::schedule::Schedules>()
+                .iter_mut()
+            {
+                schedule.set_executor(bevy::ecs::schedule::SingleThreadedExecutor::new());
+            }
+        }
         app.world_mut().spawn((
             RigidBody::Fixed,
             Collider::cuboid(1000.0, 0.2, 1000.0),
@@ -486,95 +500,187 @@ mod tests {
     }
     #[test]
     fn every_car_meets_the_baseline_driving_contract() {
-        for spec in Fleet::default().cars {
-            let id = spec.id.clone();
-            let mut app = world_for(spec.clone(), false);
-            let (parked, velocity, grounded) = state(&mut app);
-            assert_eq!(grounded, 4, "{id}: suspension support");
-            assert!(
-                velocity.linear.length() < 0.1,
-                "{id}: parked velocity {velocity:?}"
-            );
-            tick(&mut app, 600);
-            let (still, _, _) = state(&mut app);
-            assert!(
-                (still.translation - parked.translation).length() < 0.15,
-                "{id}: parked drift"
-            );
+        let cars = Fleet::default().cars;
+        let workers = std::thread::available_parallelism()
+            .map_or(1, usize::from)
+            .min(4);
+        let chunk_size = cars.len().div_ceil(workers).max(1);
+        std::thread::scope(|scope| {
+            for chunk in cars.chunks(chunk_size) {
+                scope.spawn(move || {
+                    for spec in chunk {
+                        assert_driving_contract(spec.clone());
+                    }
+                });
+            }
+        });
+    }
+    fn assert_driving_contract(spec: CarSpec) {
+        let id = spec.id.clone();
+        let mut app = world_for(spec.clone(), false);
+        let (parked, velocity, grounded) = state(&mut app);
+        assert_eq!(grounded, 4, "{id}: suspension support");
+        assert!(
+            velocity.linear.length() < 0.1,
+            "{id}: parked velocity {velocity:?}"
+        );
+        tick(&mut app, 600);
+        let (still, _, _) = state(&mut app);
+        assert!(
+            (still.translation - parked.translation).length() < 0.15,
+            "{id}: parked drift"
+        );
 
-            app.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
-            tick(&mut app, 720);
-            let (_, velocity, _) = state(&mut app);
-            let before = velocity.linear.length();
-            assert!(before > 15.0, "{id}: acceleration {before}");
-            let mut wheels = app.world_mut().query::<&Vehicle>();
-            assert!(
-                wheels
-                    .single(app.world())
-                    .unwrap()
-                    .wheel_spin
-                    .iter()
-                    .all(|x| x.is_finite()),
-                "{id}: wheel animation"
-            );
-            *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
-                brake: 1.0,
-                ..default()
-            };
-            tick(&mut app, 240);
-            assert!(
-                state(&mut app).1.linear.length() < before * 0.6,
-                "{id}: braking"
-            );
+        app.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
+        tick(&mut app, 720);
+        let (_, velocity, _) = state(&mut app);
+        let before = velocity.linear.length();
+        assert!(before > 15.0, "{id}: acceleration {before}");
+        let mut wheels = app.world_mut().query::<&Vehicle>();
+        assert!(
+            wheels
+                .single(app.world())
+                .unwrap()
+                .wheel_spin
+                .iter()
+                .all(|x| x.is_finite()),
+            "{id}: wheel animation"
+        );
+        *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
+            brake: 1.0,
+            ..default()
+        };
+        tick(&mut app, 240);
+        assert!(
+            state(&mut app).1.linear.length() < before * 0.6,
+            "{id}: braking"
+        );
 
-            *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
-                reset: true,
-                ..default()
-            };
-            tick(&mut app, 240);
-            app.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
-            tick(&mut app, 360);
-            app.world_mut().resource_mut::<DriveInput>().steer = 0.5;
-            tick(&mut app, 120);
-            let (turned, _, grounded) = state(&mut app);
-            assert!(
-                (turned.rotation * Vec3::NEG_Z).x > 0.05 && grounded >= 2,
-                "{id}: turning {turned:?}"
-            );
-            app.world_mut().resource_mut::<DriveInput>().handbrake = true;
-            tick(&mut app, 60);
-            assert!(
-                state(&mut app).0.translation.is_finite(),
-                "{id}: handbrake stability"
-            );
+        *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
+            reset: true,
+            ..default()
+        };
+        tick(&mut app, 240);
+        app.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
+        tick(&mut app, 360);
+        app.world_mut().resource_mut::<DriveInput>().steer = 0.5;
+        tick(&mut app, 120);
+        let (turned, _, grounded) = state(&mut app);
+        assert!(
+            (turned.rotation * Vec3::NEG_Z).x > 0.05 && grounded >= 2,
+            "{id}: turning {turned:?}"
+        );
+        app.world_mut().resource_mut::<DriveInput>().handbrake = true;
+        tick(&mut app, 60);
+        assert!(
+            state(&mut app).0.translation.is_finite(),
+            "{id}: handbrake stability"
+        );
 
-            *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
-                reset: true,
-                ..default()
-            };
-            tick(&mut app, 240);
-            assert!(
-                state(&mut app).1.linear.length() < 0.1,
-                "{id}: recovery stopped"
-            );
-            app.world_mut().resource_mut::<DriveInput>().brake = 1.0;
-            tick(&mut app, 1200);
-            let (_, velocity, grounded) = state(&mut app);
-            assert!(
-                velocity.linear.length() > 5.0 && velocity.linear.length() < 8.1 && grounded == 4,
-                "{id}: reverse {velocity:?}"
-            );
+        *app.world_mut().resource_mut::<DriveInput>() = DriveInput {
+            reset: true,
+            ..default()
+        };
+        tick(&mut app, 240);
+        assert!(
+            state(&mut app).1.linear.length() < 0.1,
+            "{id}: recovery stopped"
+        );
+        app.world_mut().resource_mut::<DriveInput>().brake = 1.0;
+        tick(&mut app, 1200);
+        let (_, velocity, grounded) = state(&mut app);
+        assert!(
+            velocity.linear.length() > 5.0 && velocity.linear.length() < 8.1 && grounded == 4,
+            "{id}: reverse {velocity:?}"
+        );
 
-            let mut wall = world_for(spec, true);
-            wall.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
-            tick(&mut wall, 1200);
-            assert!(
-                state(&mut wall).0.translation.z > 121.0,
-                "{id}: collision penetration"
-            );
-            println!(
-                "FLEET PHYSICS PASS {id}: park, four contacts, accelerate, brake, turn, handbrake, reset, reverse, collision"
-            );
+        let mut wall = world_for(spec, true);
+        wall.world_mut().resource_mut::<DriveInput>().throttle = 1.0;
+        tick(&mut wall, 1200);
+        assert!(
+            state(&mut wall).0.translation.z > 121.0,
+            "{id}: collision penetration"
+        );
+        println!(
+            "FLEET PHYSICS PASS {id}: park, four contacts, accelerate, brake, turn, handbrake, reset, reverse, collision"
+        );
+    }
+    #[test]
+    fn physics_fixture_matches_default_executor_at_every_tick() {
+        let mut reference = world_for_scheduling(CarSpec::default(), true, false);
+        let mut fixture = world_for(CarSpec::default(), true);
+        let observe = |app: &mut App| {
+            let (pose, velocity, grounded) = state(app);
+            let mut cars = app.world_mut().query::<&Vehicle>();
+            let car = cars.single(app.world()).unwrap();
+            (
+                pose.translation,
+                pose.rotation,
+                velocity.linear,
+                velocity.angular,
+                grounded,
+                car.wheel_spin,
+                car.wheel_lengths,
+            )
+        };
+        for (input, ticks) in [
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    ..default()
+                },
+                720,
+            ),
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    steer: 0.5,
+                    ..default()
+                },
+                120,
+            ),
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    steer: 0.5,
+                    handbrake: true,
+                    ..default()
+                },
+                60,
+            ),
+            (
+                DriveInput {
+                    brake: 1.0,
+                    ..default()
+                },
+                240,
+            ),
+            (
+                DriveInput {
+                    reset: true,
+                    ..default()
+                },
+                1,
+            ),
+            (
+                DriveInput {
+                    brake: 1.0,
+                    ..default()
+                },
+                240,
+            ),
+        ] {
+            *reference.world_mut().resource_mut::<DriveInput>() = input;
+            *fixture.world_mut().resource_mut::<DriveInput>() = input;
+            for tick_index in 0..ticks {
+                tick(&mut reference, 1);
+                tick(&mut fixture, 1);
+                assert_eq!(
+                    observe(&mut fixture),
+                    observe(&mut reference),
+                    "tick {tick_index}"
+                );
+            }
         }
     }
     #[test]
