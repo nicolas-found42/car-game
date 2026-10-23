@@ -169,3 +169,21 @@ Worktree `artifacts/runs` and `artifacts/logs` point into the primary durable
 `artifacts/issue-15/` directory. Asset-source inspection uses the existing carmodels
 repository through the normal sibling symlink. Full suite, external review and real
 GPU acceptance remain pending; the focused handoff is not the P1 acceptance gate.
+
+### Exact CLI/schema checkpoint
+
+Consumed verified #13 restore guards (`4641ead`/`6ef2ce5`) as `8f7563b`/`8141e45`.
+Serialized format, all-target Clippy, real-base complexity and all seven focused
+production tests passed again; their actual runs are preserved in primary
+`artifacts/issue-15/production-tests/`. Recorded release build `8141e45` is complete
+with no omissions; SHA-256 is
+`be2731d7996380de87f9453e7d7686c980fb664e13610435b59b28e248c2dfa0`.
+Actual headless CLI passed all eight scenario assertions and portable integrity
+verification (134 entries, runtime material/rebuild complete). It preserved 103
+consecutive records including reset tick 9, observed backend forces equal composed
+forces at every tick, and zero recorder drops/errors through durable tick 103.
+
+See `docs/verification/issue-15-schema.md` for the downstream schema/evidence handoff.
+Root owns coordination of the next active slot; this issue awaits #14 follow-up,
+full combined verification, independent reviews, final exact rebind/GPU/fleet checks
+and PR creation. No GPU acceptance, issue completion, merge or closure is claimed.
