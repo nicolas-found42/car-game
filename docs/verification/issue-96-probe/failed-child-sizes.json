@@ -1,0 +1,146 @@
+{
+  "grid-shutdown-3362-1-1792720923279032000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020203430017Z-91e67c8-scenario-3363-1-1792720923693067000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3362-2-1792720931338878000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 224
+    },
+    {
+      "path": "runs/20261023T020211372758Z-91e67c8-scenario-3395-1-1792720931399746000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3362-3-1792720939378897000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020219400861Z-91e67c8-scenario-3547-1-1792720939420612000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3362-4-1792720949428190000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020229487074Z-91e67c8-scenario-3584-1-1792720949566191000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3741-1-1792720958275410000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020238494424Z-91e67c8-scenario-3742-1-1792720958538790000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3741-2-1792720958275422000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 224
+    },
+    {
+      "path": "runs/20261023T020238494437Z-91e67c8-scenario-3743-1-1792720958540354000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3741-3-1792720958275498000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020238494438Z-91e67c8-scenario-3744-1-1792720958631990000/run.log",
+      "bytes": 0
+    }
+  ],
+  "grid-shutdown-3741-4-1792720966323157000": [
+    {
+      "path": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 0
+    },
+    {
+      "path": "scenario.json",
+      "bytes": 225
+    },
+    {
+      "path": "runs/20261023T020246353562Z-91e67c8-scenario-3938-1-1792720966400334000/run.log",
+      "bytes": 0
+    }
+  ]
+}

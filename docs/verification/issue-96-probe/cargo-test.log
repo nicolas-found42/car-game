@@ -1,0 +1,97 @@
+   Compiling sha2 v0.10.9
+   Compiling car-game v0.1.0 (/Users/runner/work/car-game/car-game)
+warning: linker stderr: ld: __eh_frame section too large (max 16MB) to encode dwarf unwind offsets in compact unwind table, performance of exception handling might be affected
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `car-game` (bin "car-game") generated 1 warning
+warning: `car-game` (test "scenarios") generated 1 warning (1 duplicate)
+warning: `car-game` (test "recorder_health") generated 1 warning (1 duplicate)
+    Finished `ci` profile [optimized] target(s) in 1m 12s
+     Running unittests src/lib.rs (target/ci/deps/car_game-0472a605944c83f2)
+
+running 16 tests
+test diagnostics::tests::blank_captures_are_rejected_and_content_is_measured ... ok
+test diagnostics::tests::replay_reads_recorded_input_samples ... ok
+test diagnostics::tests::run_recorder_persists_failure_report_and_manifest ... ok
+test vehicle::tests::analog_gamepad_input_drives_the_same_controller ... ok
+test vehicle::tests::brake_does_not_engage_reverse_while_sliding_sideways ... ok
+test vehicle::tests::acceleration_and_brakes_change_real_chassis_velocity ... ok
+test vehicle::tests::low_speed_brake_becomes_reverse ... ok
+test vehicle::tests::parked_car_does_not_creep_on_level_ground ... ok
+test vehicle::tests::pause_freezes_physics_then_resume_and_quit_work ... ok
+test vehicle::tests::reset_recovers_inverted_car_on_a_road_and_clears_motion ... ok
+test vehicle::tests::solid_wall_stops_the_vehicle ... ok
+test vehicle::tests::simulation_does_not_depend_on_render_cadence ... ok
+test vehicle::tests::steering_right_turns_and_remains_supported ... ok
+test vehicle::tests::suspension_settles_on_four_wheels ... ok
+test vehicle::tests::wheel_rotation_matches_forward_rolling_direction ... ok
+test vehicle::tests::every_car_meets_the_baseline_driving_contract has been running for over 60 seconds
+test vehicle::tests::every_car_meets_the_baseline_driving_contract ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 106.00s
+
+     Running unittests src/main.rs (target/ci/deps/car_game-e428e53b5639a32a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/recorder_health.rs (target/ci/deps/recorder_health-f8dd11ae8e99dc92)
+
+running 21 tests
+test capacity_truncation_is_explicit_even_when_every_record_has_the_same_tick ... ok
+test concurrent_producers_do_not_lose_evidence_when_capacity_is_available ... ok
+test a_drain_deadline_does_not_leave_the_writer_processing_an_abandoned_queue ... ok
+test delayed_capacity_evictions_cannot_hide_a_more_recent_missing_tick ... ok
+test dropping_an_unfinished_recorder_reports_loss_before_returning ... ok
+test failed_report_publication_cannot_finalize_as_success ... ok
+test failed_inventory_publication_cannot_leave_a_frozen_success_index ... ok
+test finalization_respects_an_explicit_export_byte_budget ... ok
+test incident_windows_handle_delayed_records_without_retaining_old_ticks ... ok
+test finalization_returns_the_latched_failure_on_repeated_calls ... ok
+test incidents_keep_thirty_seconds_of_commands_inputs_and_completed_state ... ok
+test legacy_failure_tails_cannot_expand_an_incident_beyond_the_declared_read_bound ... ok
+test oversized_events_do_not_escape_the_bounded_history_through_legacy_failure_metadata ... ok
+test production_cli_faults_fail_the_run_and_are_captured_as_effective_settings ... ok
+test production_durability_follows_the_completed_tick_after_actor_records ... ok
+test retrying_failed_metadata_cannot_accumulate_incident_snapshots_behind_a_busy_writer ... ok
+test malformed_trace_or_metadata_cannot_be_silently_omitted_from_finalization ... ok
+test unwritable_run_destination_returns_a_structured_startup_error ... ok
+test saturated_recording_has_bounded_backpressure_and_cannot_recover_to_healthy ... ok
+test serialization_errors_are_latched_and_survive_later_success ... ok
+test write_flush_sync_and_drop_failures_preserve_the_last_durable_boundary ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 30.17s
+
+     Running tests/recorder_shutdown.rs (target/ci/deps/recorder_shutdown-7eb3dccd64c20267)
+
+running 4 tests
+test forced_kill_is_reported_as_unknown_and_never_graceful ... ok
+test interrupted_inventory_export_does_not_turn_writer_durability_into_run_success ... ok
+test panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer ... ok
+test sigterm_drains_buffered_recording_even_while_simulation_is_paused ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.24s
+
+     Running tests/scenarios.rs (target/ci/deps/scenarios-5c1c958283717c75)
+
+running 15 tests
+test a_late_selection_is_applied_before_a_scenario_can_finish_successfully ... ok
+test a_declared_motion_assertion_can_fail_on_the_actual_car ... ok
+test a_paused_scenario_still_fails_at_its_real_wall_deadline ... ok
+test explicit_career_selection_enforces_ownership_with_rendering_disabled ... ok
+test an_empty_legacy_replay_keeps_live_driving_available ... ok
+test final_replay_sample_reset_is_consumed_before_live_ownership_returns ... ok
+test gamepad_bumper_selects_the_next_car_through_production_ingress ... ok
+test keyboard_car_selection_wraps_the_roster_through_production_ingress ... ok
+test pause_resume_and_selection_keep_real_ingress_timing ... ok
+test readiness_timeouts_execute_no_assertions_and_retain_failure_evidence ... ok
+test scenario_requires_an_observable_outcome ... ok
+test real_driving_and_one_shot_reset_use_the_production_application ... ok
+test the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario ... ok
+test required_capture_cannot_pass_without_a_renderer ... ok
+test the_tick_bound_stops_catch_up_work_at_the_declared_completed_boundary ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 28.35s
+
