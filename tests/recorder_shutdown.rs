@@ -14,6 +14,9 @@ struct RecordingProcess {
 }
 impl RecordingProcess {
     fn spawn(paused: bool, extra: &[&str]) -> Self {
+        Self::spawn_until(paused, extra, 9999)
+    }
+    fn spawn_until(paused: bool, extra: &[&str], tick: u64) -> Self {
         let root = std::env::temp_dir().join(format!(
             "grid-shutdown-{}-{}",
             std::process::id(),
@@ -28,7 +31,7 @@ impl RecordingProcess {
         } else {
             json!([])
         };
-        fs::write(root.join("scenario.json"),json!({"schema_version":1,"name":"shutdown","scene":"driving","initial":{"car":"350z"},"commands":commands,"assertions":[{"tick":9999,"kind":"selected_car","car":"350z"}],"max_ticks":10000,"max_wall_ms":15000,"readiness_timeout_ms":5000}).to_string()).unwrap();
+        fs::write(root.join("scenario.json"),json!({"schema_version":1,"name":"shutdown","scene":"driving","initial":{"car":"350z"},"commands":commands,"assertions":[{"tick":tick,"kind":"selected_car","car":"350z"}],"max_ticks":10000,"max_wall_ms":15000,"readiness_timeout_ms":5000}).to_string()).unwrap();
         let child = Command::new(env!("CARGO_BIN_EXE_car-game"))
             .args(["--render-disabled", "--scenario"])
             .arg(root.join("scenario.json"))
@@ -107,7 +110,11 @@ impl Drop for RecordingProcess {
     fn drop(&mut self) {
         let _ = self.child.kill();
         let _ = self.child.wait();
-        let _ = fs::remove_dir_all(&self.root);
+        if std::thread::panicking() {
+            eprintln!("retained failed shutdown evidence: {}", self.root.display());
+        } else {
+            let _ = fs::remove_dir_all(&self.root);
+        }
     }
 }
 
@@ -203,5 +210,30 @@ fn panic_with_a_busy_writer_exports_history_without_locking_the_panicking_produc
             .unwrap()
             .iter()
             .any(|error| error["stage"] == "panic")
+    );
+}
+
+#[test]
+fn interrupted_inventory_export_does_not_turn_writer_durability_into_run_success() {
+    let mut process = RecordingProcess::spawn_until(false, &[], 240);
+    process.wait_until(|health| health["completed_tick"].as_u64().unwrap_or(0) >= 5);
+    let run = process.run.as_ref().unwrap().clone();
+    let line = format!("{{\"payload\":\"{}\"}}\n", "x".repeat(900));
+    fs::write(run.join("export-padding.jsonl"), line.repeat(32768)).unwrap();
+    process.wait_until(|health| health["phase"] == "finalized");
+    assert!(!run.join("evidence-manifest.json").exists());
+    process.signal("-KILL");
+    assert!(!process.wait().success());
+    let result = Command::new("python3")
+        .args(["tools/verify_run.py", "--health-only", "--json"])
+        .arg(&run)
+        .output()
+        .unwrap();
+    let report: Value = serde_json::from_slice(&result.stdout).unwrap();
+    assert!(!result.status.success(), "{report}");
+    assert_eq!(report["status"], "unknown");
+    assert_eq!(
+        report["errors"][0]["code"],
+        "recorder_finalization_uncommitted"
     );
 }

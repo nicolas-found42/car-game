@@ -20,21 +20,10 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
         match arg.as_str() {
             "--smoke" | "--fleet-check" | "--visual-check" | "--offscreen"
             | "--render-disabled" => exported.push(json!(arg)),
-            "--car"
-            | "--seed"
-            | "--scenario-filter"
-            | "--recorder-fault"
-            | "--recorder-queue-records"
-            | "--recorder-queue-bytes"
-            | "--recorder-max-record-bytes"
-            | "--recorder-flush-ticks"
-            | "--recorder-flush-interval-ms"
-            | "--recorder-drain-timeout-ms"
-            | "--recorder-writer-delay-ms"
-            | "--recorder-history-ticks"
-            | "--recorder-history-bytes"
-            | "--recorder-history-records"
-            | "--recorder-finalize-max-bytes" => {
+            value
+                if matches!(value, "--car" | "--seed" | "--scenario-filter")
+                    || crate::diagnostics::RecorderConfig::is_option(value) =>
+            {
                 if let Some(value) = args.next().filter(|v| safe_token(v)) {
                     exported.extend([json!(arg), json!(value)]);
                 } else {

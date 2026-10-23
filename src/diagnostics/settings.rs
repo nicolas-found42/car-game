@@ -1,5 +1,19 @@
 use serde::{Deserialize, Serialize};
 
+const NUMERIC_FIELDS: &[&str] = &[
+    "queue_records",
+    "queue_bytes",
+    "max_record_bytes",
+    "flush_ticks",
+    "flush_interval_ms",
+    "drain_timeout_ms",
+    "writer_delay_ms",
+    "history_ticks",
+    "history_bytes",
+    "history_records",
+    "finalize_max_bytes",
+];
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct RecorderConfig {
@@ -35,21 +49,15 @@ impl Default for RecorderConfig {
     }
 }
 impl RecorderConfig {
+    pub(crate) fn is_option(flag: &str) -> bool {
+        flag == "--recorder-fault"
+            || flag
+                .strip_prefix("--recorder-")
+                .is_some_and(|field| NUMERIC_FIELDS.contains(&field.replace('-', "_").as_str()))
+    }
     pub fn from_args(args: &[String]) -> Result<Self, super::RecorderError> {
         let mut value = serde_json::to_value(Self::default()).expect("recorder configuration");
-        for field in [
-            "queue_records",
-            "queue_bytes",
-            "max_record_bytes",
-            "flush_ticks",
-            "flush_interval_ms",
-            "drain_timeout_ms",
-            "writer_delay_ms",
-            "history_ticks",
-            "history_bytes",
-            "history_records",
-            "finalize_max_bytes",
-        ] {
+        for &field in NUMERIC_FIELDS {
             let flag = format!("--recorder-{}", field.replace('_', "-"));
             if let Some(index) = args.iter().position(|arg| arg == &flag) {
                 let number = args

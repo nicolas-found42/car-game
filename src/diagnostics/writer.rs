@@ -128,7 +128,7 @@ impl Writer {
         });
         self.health.write_json(
             &self.health.dir.join("panic.json"),
-            &serde_json::json!({"schema":1,"reason":"panic","at":super::now()}),
+            &serde_json::json!({"schema":1,"reason":"panic","at":super::now(),"context":self.health.panic_context()}),
         );
         if !self.health.incident_published.load(Ordering::Acquire) {
             let snapshot = self

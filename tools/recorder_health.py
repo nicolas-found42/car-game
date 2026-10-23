@@ -1,4 +1,5 @@
 """Health/lifecycle checks shared by the existing run verifier; trace semantics belong to #86."""
+import hashlib
 import json
 from pathlib import Path
 
@@ -21,17 +22,43 @@ def inspect_health(run, manifest):
     if not valid_schema(health, manifest):
         return failure(base, 'invalid_recorder_health')
     base.update(last_durable_tick=health['last_durable_tick'], completed_tick=health['completed_tick'],
-                losses=health['losses'], phase=health['phase'])
-    if health['failed'] or health['errors'] or health['dropped'] or health['losses'] or health['loss_ranges_truncated'] or health.get('loss_ranges_unknown', False):
+                losses=health['losses'], phase=health['phase'],
+                history=health.get('history', {'availability': 'unknown'}))
+    if isinstance(base['history'], dict) and base['history'].get('shortened'):
+        base['warnings'] = [{'code': 'incident_history_shortened'}]
+    if evidence_lost(health):
         base['status'] = 'degraded'
         return failure(base, 'recorder_evidence_loss', recorded_errors=health['errors'])
     if health['phase'] != 'finalized' or not manifest.get('ended_at') or not isinstance(manifest.get('exit'), dict):
         return failure(base, 'recorder_unclean_exit', termination_cause='unknown')
+    if export_required(manifest) and not committed_export(run, manifest):
+        return failure(base, 'recorder_finalization_uncommitted', termination_cause='unknown')
     if not coherent_finalization(health):
         base['status'] = 'incomplete'
         return failure(base, 'recorder_durability_incomplete')
     base.update(ok=True, status='healthy')
     return base
+
+
+def evidence_lost(health):
+    return any(health.get(key) for key in ('failed', 'errors', 'dropped', 'losses',
+                                         'loss_ranges_truncated', 'loss_ranges_unknown'))
+
+
+def export_required(manifest):
+    provenance = manifest.get('provenance')
+    return isinstance(provenance, dict) and bool(provenance.get('path'))
+
+
+def committed_export(run, manifest):
+    try:
+        index = (Path(run) / 'evidence-manifest.json').read_bytes()
+        expected = (Path(run) / 'evidence-manifest.sha256').read_text().strip()
+        value = json.loads(index)
+        return (hashlib.sha256(index).hexdigest() == expected and
+                value.get('schema') == 2 and value.get('run_id') == manifest.get('run_id'))
+    except (OSError, ValueError, AttributeError):
+        return False
 
 
 def failure(result, code, **fields):

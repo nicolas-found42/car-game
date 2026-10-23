@@ -576,3 +576,21 @@ fn malformed_trace_or_metadata_cannot_be_silently_omitted_from_finalization() {
         fs::remove_dir_all(root).unwrap();
     }
 }
+
+#[test]
+fn finalization_returns_the_latched_failure_on_repeated_calls() {
+    for domain_failure in [false, true] {
+        let root = temporary();
+        let run = RunRecorder::create_in(&root, "test", "350z");
+        let requested = if domain_failure {
+            run.fail("controlled_failure", json!({}));
+            AppExit::Success
+        } else {
+            AppExit::error()
+        };
+        assert!(matches!(run.finish(requested), AppExit::Error(_)));
+        assert!(matches!(run.finish(AppExit::Success), AppExit::Error(_)));
+        assert_ne!(read(run.dir().join("manifest.json"))["exit"]["code"], 0);
+        fs::remove_dir_all(root).unwrap();
+    }
+}

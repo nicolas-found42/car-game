@@ -86,6 +86,7 @@ pub struct HealthData {
 pub struct HealthState {
     pub failed: AtomicBool,
     pub panic_requested: AtomicBool,
+    panic_context: Mutex<Option<Value>>,
     pub cancel_requested: AtomicBool,
     pub incident_published: AtomicBool,
     pub data: Mutex<HealthData>,
@@ -99,6 +100,7 @@ impl HealthState {
         Self {
             failed: AtomicBool::new(false),
             panic_requested: AtomicBool::new(false),
+            panic_context: Mutex::new(None),
             cancel_requested: AtomicBool::new(false),
             incident_published: AtomicBool::new(false),
             data: Mutex::new(HealthData {
@@ -111,6 +113,31 @@ impl HealthState {
             config,
             persist_gate: Mutex::new(()),
         }
+    }
+    pub fn request_panic(&self, info: &std::panic::PanicHookInfo<'_>) {
+        self.failed.store(true, Ordering::Release);
+        if let Ok(mut context) = self.panic_context.try_lock() {
+            let message = info
+                .payload()
+                .downcast_ref::<&str>()
+                .copied()
+                .or_else(|| info.payload().downcast_ref::<String>().map(String::as_str));
+            *context = Some(
+                json!({"availability":"best_effort", "message":message.map(|s|s.chars().take(4096).collect::<String>()),
+                "location":info.location().map(|l|json!({"file":l.file().chars().take(512).collect::<String>(),"line":l.line(),"column":l.column()})),
+                "backtrace":{"availability":"unavailable","reason":"panic_hook_avoids_blocking_capture"}}),
+            );
+        }
+        self.panic_requested.store(true, Ordering::Release);
+    }
+    pub fn panic_context(&self) -> Value {
+        self.panic_context
+            .try_lock()
+            .ok()
+            .and_then(|context| context.clone())
+            .unwrap_or_else(
+                || json!({"availability":"unavailable","reason":"panic_context_not_captured"}),
+            )
     }
     pub fn update<R>(&self, f: impl FnOnce(&mut HealthData) -> R) -> R {
         f(&mut self.data.lock().unwrap_or_else(|e| e.into_inner()))

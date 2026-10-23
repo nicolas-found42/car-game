@@ -42,7 +42,13 @@ fn main() {
             }
         }
     }))
-    .unwrap_or_else(|_| bevy::app::AppExit::error());
+    .unwrap_or_else(|_| {
+        run.fail(
+            "panic",
+            serde_json::json!({"context":"panic.json","backtrace_availability":"unavailable"}),
+        );
+        bevy::app::AppExit::error()
+    });
     // The production Last schedule flushes the live world before runner teardown.
     let exit = run.finish(exit);
     if let bevy::app::AppExit::Error(code) = exit {

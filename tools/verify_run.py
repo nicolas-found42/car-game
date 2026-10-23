@@ -41,7 +41,14 @@ def main() -> int:
             run = ROOT / run
     run = run.resolve()
 
-    manifest = load_json(run / 'manifest.json')
+    try:
+        manifest = load_json(run / 'manifest.json')
+        if not isinstance(manifest, dict):
+            raise ValueError('manifest must be an object')
+    except (OSError, ValueError):
+        print(json.dumps({'schema': 1, 'ok': False, 'status': 'unknown',
+                          'errors': [{'code': 'run_manifest_unavailable'}]}))
+        return 1
     health = inspect_health(run, manifest)
     if args.health_only or not health['ok']:
         print(json.dumps(health))

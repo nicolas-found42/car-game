@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Public verifier regressions for recording health, independent of GPU availability."""
+import hashlib
 import json
 import subprocess
 import sys
@@ -83,6 +84,44 @@ class RecorderHealthTests(unittest.TestCase):
                 (run / 'recorder-health.json').write_text(json.dumps(health))
                 result = subprocess.run([sys.executable, str(VERIFY), '--health-only', '--json', str(run)], capture_output=True, text=True)
                 self.assertNotEqual(result.returncode, 0, result.stdout)
+
+    def test_unavailable_manifest_reports_unknown_without_a_traceback(self):
+        with tempfile.TemporaryDirectory() as root:
+            for text in (None, '[]', '{truncated'):
+                if text is not None:
+                    (Path(root) / 'manifest.json').write_text(text)
+                result = subprocess.run([sys.executable, str(VERIFY), '--health-only', '--json', root], capture_output=True, text=True)
+                self.assertEqual(result.returncode, 1)
+                self.assertEqual(json.loads(result.stdout)['status'], 'unknown')
+                self.assertEqual(result.stderr, '')
+
+    def test_drained_writer_does_not_prove_inventory_finalization_committed(self):
+        with tempfile.TemporaryDirectory() as root:
+            run, health = fixture(root)
+            manifest = json.loads((run / 'manifest.json').read_text())
+            manifest['provenance'] = {'path': 'provenance/capture.json'}
+            (run / 'manifest.json').write_text(json.dumps(manifest))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            for committed in (False, True):
+                if committed:
+                    index = json.dumps({'schema': 2, 'run_id': manifest['run_id']}).encode()
+                    (run / 'evidence-manifest.json').write_bytes(index)
+                    (run / 'evidence-manifest.sha256').write_text(hashlib.sha256(index).hexdigest())
+                result = subprocess.run([sys.executable, str(VERIFY), '--health-only', '--json', str(run)], capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0 if committed else 1, result.stdout)
+                if not committed:
+                    self.assertEqual(json.loads(result.stdout)['errors'][0]['code'], 'recorder_finalization_uncommitted')
+
+    def test_bounded_history_shortening_is_visible_independently_of_disk_health(self):
+        with tempfile.TemporaryDirectory() as root:
+            run, health = fixture(root)
+            health['history'] = {'shortened': True, 'requested_ticks': 3600, 'first_tick': 9}
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result = subprocess.run([sys.executable, str(VERIFY), '--health-only', '--json', str(run)], capture_output=True, text=True)
+            report = json.loads(result.stdout)
+            self.assertEqual(result.returncode, 0)
+            self.assertEqual(report['warnings'][0]['code'], 'incident_history_shortened')
+            self.assertTrue(report['history']['shortened'])
 
 
 if __name__ == '__main__':

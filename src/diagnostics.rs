@@ -33,7 +33,7 @@ use std::{
     process::Command,
     sync::{
         Arc, Mutex, OnceLock,
-        atomic::{AtomicBool, AtomicU64, Ordering},
+        atomic::{AtomicBool, AtomicI32, AtomicU64, Ordering},
     },
     time::{SystemTime, UNIX_EPOCH},
 };
@@ -64,8 +64,7 @@ pub fn install_panic_hook() {
     let previous = std::panic::take_hook();
     std::panic::set_hook(Box::new(move |info| {
         if let Some(run) = RUN_RECORDER.get() {
-            run.health.failed.store(true, Ordering::Release);
-            run.health.panic_requested.store(true, Ordering::Release);
+            run.health.request_panic(info);
         }
         previous(info);
     }));
@@ -183,6 +182,7 @@ pub struct RunRecorder {
     health: std::sync::Arc<health::HealthState>,
     recording: recording::Recording,
     finished: AtomicBool,
+    final_exit: AtomicI32,
     failure_written: AtomicBool,
     seq: AtomicU64,
     pub evidence_clock: crate::telemetry::EvidenceClock,
@@ -241,6 +241,7 @@ impl RunRecorder {
             health,
             recording,
             finished: AtomicBool::new(false),
+            final_exit: AtomicI32::new(1),
             failure_written: AtomicBool::new(false),
             seq: AtomicU64::new(1),
             evidence_clock: crate::telemetry::EvidenceClock::default(),
@@ -482,11 +483,11 @@ impl RunRecorder {
 
     pub fn finish(&self, exit: AppExit) -> AppExit {
         if self.finished.swap(true, Ordering::AcqRel) {
-            return if self.health.failed() {
-                AppExit::error()
+            return exit_from_code(if self.health.failed() {
+                1
             } else {
-                exit
-            };
+                self.final_exit.load(Ordering::Acquire)
+            });
         }
         self.flush();
         let requested_code = match exit {
@@ -540,11 +541,8 @@ impl RunRecorder {
             self.update_exit_error();
             code = 1;
         }
-        if code == 0 {
-            AppExit::Success
-        } else {
-            AppExit::Error(std::num::NonZeroU8::new(code as u8).unwrap_or(std::num::NonZeroU8::MIN))
-        }
+        self.final_exit.store(code, Ordering::Release);
+        exit_from_code(code)
     }
     fn update_exit_error(&self) {
         if let Ok(mut manifest) = self.manifest.lock() {
@@ -577,6 +575,14 @@ impl RunRecorder {
         if let Err(error) = result {
             self.health.error("publish", "run_index", error.kind());
         }
+    }
+}
+
+fn exit_from_code(code: i32) -> AppExit {
+    if code == 0 {
+        AppExit::Success
+    } else {
+        AppExit::Error(std::num::NonZeroU8::new(code as u8).unwrap_or(std::num::NonZeroU8::MIN))
     }
 }
 
