@@ -17,6 +17,8 @@ use bevy_rapier3d::prelude::*;
 #[derive(Component)]
 pub struct VisualCar;
 #[derive(Component)]
+struct AdditionalVisual(Entity);
+#[derive(Component)]
 struct WheelVisual(usize);
 #[derive(Component)]
 pub struct ChaseCamera;
@@ -64,6 +66,7 @@ impl Plugin for PresentationPlugin {
                     tag_wheels,
                     follow_vehicle,
                     animate_wheels,
+                    additional_visuals,
                     camera_follow,
                     update_hud,
                     update_car_label,
@@ -310,8 +313,8 @@ fn refresh_car_visual(
     mut commands: Commands,
     assets: Res<AssetServer>,
     spec: Res<CarSpec>,
-    cars: Query<&Transform, With<Vehicle>>,
-    visuals: Query<Entity, With<VisualCar>>,
+    cars: Query<&Transform, With<crate::controls::PlayerVehicle>>,
+    visuals: Query<Entity, (With<VisualCar>, Without<AdditionalVisual>)>,
 ) {
     if !spec.is_changed() || spec.is_added() {
         return;
@@ -435,10 +438,15 @@ fn tag_wheels(mut commands: Commands, names: Query<(Entity, &Name), Added<Name>>
     }
 }
 
+// The visual and chassis transforms must be disjoint ECS queries.
+#[allow(clippy::type_complexity)]
 fn follow_vehicle(
     time: Res<Time<Fixed>>,
-    cars: Query<(&Transform, &Vehicle), With<Vehicle>>,
-    mut visuals: Query<&mut Transform, (With<VisualCar>, Without<Vehicle>)>,
+    cars: Query<(&Transform, &Vehicle), With<crate::controls::PlayerVehicle>>,
+    mut visuals: Query<
+        &mut Transform,
+        (With<VisualCar>, Without<Vehicle>, Without<AdditionalVisual>),
+    >,
 ) {
     let Ok((pose, car)) = cars.single() else {
         return;
@@ -452,7 +460,7 @@ fn follow_vehicle(
 
 fn animate_wheels(
     spec: Res<CarSpec>,
-    cars: Query<&Vehicle>,
+    cars: Query<&Vehicle, With<crate::controls::PlayerVehicle>>,
     mut wheels: Query<(&WheelVisual, &mut Transform)>,
 ) {
     let Ok(car) = cars.single() else {
@@ -472,8 +480,8 @@ fn camera_follow(
     time: Res<Time>,
     inspection: Res<InspectionView>,
     context: ReadRapierContext,
-    cars: Query<(Entity, &Vehicle)>,
-    visuals: Query<&Transform, With<VisualCar>>,
+    cars: Query<(Entity, &Vehicle), With<crate::controls::PlayerVehicle>>,
+    visuals: Query<&Transform, (With<VisualCar>, Without<AdditionalVisual>)>,
     mut cameras: Query<(&mut Transform, &mut Projection), (With<ChaseCamera>, Without<VisualCar>)>,
 ) {
     let (Ok((entity, car)), Ok(visual)) = (cars.single(), visuals.single()) else {
@@ -516,7 +524,7 @@ fn camera_follow(
 // Disjoint marker filters are required for Bevy's mutable text queries.
 #[allow(clippy::type_complexity)]
 fn update_hud(
-    cars: Query<&Vehicle>,
+    cars: Query<&Vehicle, With<crate::controls::PlayerVehicle>>,
     session: Res<Session>,
     mut speed: Query<&mut Text, (With<SpeedText>, Without<DetailText>, Without<PauseText>)>,
     mut detail: Query<&mut Text, (With<DetailText>, Without<SpeedText>, Without<PauseText>)>,
@@ -564,7 +572,7 @@ fn update_audio(
     time: Res<Time>,
     session: Res<Session>,
     input: Res<DriveInput>,
-    cars: Query<(&Vehicle, &Velocity)>,
+    cars: Query<(&Vehicle, &Velocity), With<crate::controls::PlayerVehicle>>,
     mut engines: Query<&mut AudioSink, (With<EngineSound>, Without<TireSound>)>,
     mut tires: Query<&mut AudioSink, (With<TireSound>, Without<EngineSound>)>,
     mut previous_velocity: Local<Vec3>,
@@ -599,4 +607,68 @@ fn update_audio(
         *impact_cooldown = 0.3;
     }
     *previous_velocity = velocity.linear;
+}
+
+// Each extra visual follows its own chassis; the selected player's HUD/camera remain scoped.
+#[allow(clippy::type_complexity)]
+fn additional_visuals(
+    mut commands: Commands,
+    assets: Res<AssetServer>,
+    time: Res<Time<Fixed>>,
+    cars: Query<
+        (
+            Entity,
+            &Transform,
+            &Vehicle,
+            &crate::controls::VehicleControl,
+        ),
+        Without<crate::controls::PlayerVehicle>,
+    >,
+    mut visuals: Query<(&AdditionalVisual, &mut Transform), (With<VisualCar>, Without<Vehicle>)>,
+    parents: Query<&ChildOf>,
+    mut wheels: Query<
+        (Entity, &WheelVisual, &mut Transform),
+        (Without<VisualCar>, Without<Vehicle>),
+    >,
+) {
+    for (body, pose, car, control) in &cars {
+        if !visuals.iter().any(|(v, _)| v.0 == body) {
+            commands.spawn((
+                VisualCar,
+                AdditionalVisual(body),
+                Visibility::default(),
+                *pose,
+                children![(
+                    WorldAssetRoot(
+                        assets.load(GltfAssetLabel::Scene(0).from_asset(control.spec.path.clone()))
+                    ),
+                    Transform::from_xyz(0.0, control.spec.visual_offset, 0.0)
+                )],
+            ));
+        }
+        for (visual, mut transform) in &mut visuals {
+            if visual.0 != body {
+                continue;
+            }
+            let t = time.overstep_fraction();
+            transform.translation = car.previous.translation.lerp(pose.translation, t);
+            transform.rotation = car.previous.rotation.slerp(pose.rotation, t);
+        }
+    }
+    for (entity, wheel, mut transform) in &mut wheels {
+        let Some(body) = parents
+            .iter_ancestors(entity)
+            .find_map(|p| visuals.get(p).ok().map(|(v, _)| v.0))
+        else {
+            continue;
+        };
+        let Ok((_, _, car, control)) = cars.get(body) else {
+            continue;
+        };
+        let i = wheel.0;
+        transform.translation.y =
+            control.spec.mounts()[i].y - car.wheel_lengths[i] - control.spec.visual_offset;
+        transform.rotation = Quat::from_rotation_y(if i < 2 { car.steering } else { 0.0 })
+            * Quat::from_rotation_x(car.wheel_spin[i]);
+    }
 }

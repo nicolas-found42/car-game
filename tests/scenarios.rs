@@ -495,3 +495,155 @@ fn assembly_transactions_use_production_commands_and_completed_tick_inspection()
             .contains("assembly.inspection")
     );
 }
+
+#[test]
+fn simultaneous_cars_use_independent_geometry_inputs_and_exclusive_controllers() {
+    let fixture: serde_json::Value = serde_json::from_str(include_str!(
+        "../examples/scenarios/independent-vehicles.json"
+    ))
+    .unwrap();
+    let (summary, dir) = run_fixture(fixture);
+    assert_eq!(summary["passed"], true, "{summary}");
+    assert_eq!(summary["assertions_executed"], 5);
+    let events: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("events.jsonl"))
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    let physics: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("physics.jsonl"))
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    let player = physics
+        .iter()
+        .find(|v| v["actor_id"] == "player-vehicle" && v["input"]["throttle"] == 1.0)
+        .unwrap();
+    let second = physics
+        .iter()
+        .find(|v| v["actor_id"] == "second-car" && v["tick"] == player["tick"])
+        .unwrap();
+    assert_eq!(second["input"]["throttle"], 0.0);
+    assert_eq!(second["input"]["brake"], 1.0);
+    // A target has exactly one effective input event at every completed solver tick.
+    let mut seen = std::collections::HashSet::new();
+    for event in events.iter().filter(|v| v["kind"] == "controls.effective") {
+        assert!(
+            seen.insert((event["actor_id"].to_string(), event["tick"].to_string())),
+            "duplicate consumption: {event}"
+        );
+    }
+    let rejected = events
+        .iter()
+        .filter(|event| {
+            event["kind"] == "command.outcome"
+                && event["actor_id"] == "second-car"
+                && event["fields"]["reason"] == "controller-owner-active"
+        })
+        .count();
+    assert_eq!(rejected, 2);
+    let first_geometry = &summary["results"][0]["observed"];
+    let second_geometry = &summary["results"][1]["observed"];
+    assert_ne!(first_geometry["radii"], second_geometry["radii"]);
+    assert_ne!(first_geometry["wheelbase"], second_geometry["wheelbase"]);
+}
+
+#[test]
+fn live_secondary_controller_resets_once_while_player_replay_keeps_ownership() {
+    use bevy::prelude::*;
+    use car_game::{
+        assembly::VehicleId,
+        controls::{VehicleCommand, VehicleControl},
+        diagnostics::{InputSample, ReplayInput},
+        runtime::{CommandBus, ControllerAssignment, ControllerOwner, ProductionCommand},
+        vehicle::Vehicle,
+    };
+    let (mut app, run) = sandbox_app();
+    app.world_mut().insert_resource(ReplayInput {
+        samples: vec![
+            InputSample {
+                throttle: 1.0,
+                ..Default::default()
+            };
+            100
+        ],
+        active: true,
+        ..Default::default()
+    });
+    let mut bus = app.world_mut().resource_mut::<CommandBus>();
+    bus.submit(
+        ControllerOwner::Replay,
+        ProductionCommand::AssignController {
+            controller: ControllerOwner::Replay,
+        },
+    );
+    bus.submit(
+        ControllerOwner::LegacyComposite,
+        ProductionCommand::SpawnVehicle {
+            id: VehicleId::from("live-car"),
+            car: "gt4-nsx".into(),
+            position: [-3.2, 0.62, 190.0],
+            controller: ControllerOwner::LegacyComposite,
+        },
+    );
+    bus.submit(
+        ControllerOwner::LegacyComposite,
+        ProductionCommand::Vehicle {
+            target: VehicleId::from("live-car"),
+            command: VehicleCommand::Drive {
+                throttle: 0.0,
+                brake: 1.0,
+                steer: 0.0,
+                handbrake: false,
+            },
+        },
+    );
+    for _ in 0..40 {
+        app.update();
+    }
+    let secondary = app
+        .world_mut()
+        .query::<(Entity, &VehicleControl)>()
+        .iter(app.world())
+        .find(|(_, c)| c.id.0 == "live-car")
+        .unwrap()
+        .0;
+    assert!(
+        app.world()
+            .get::<bevy_rapier3d::prelude::Velocity>(secondary)
+            .unwrap()
+            .linear
+            .z
+            > 0.1
+    );
+    app.world_mut().resource_mut::<CommandBus>().submit(
+        ControllerOwner::LegacyComposite,
+        ProductionCommand::Vehicle {
+            target: VehicleId::from("live-car"),
+            command: VehicleCommand::Reset,
+        },
+    );
+    for _ in 0..10 {
+        app.update();
+    }
+    assert_eq!(
+        app.world().get::<Vehicle>(secondary).unwrap().reset_count,
+        1
+    );
+    let primary_resets = app
+        .world_mut()
+        .query_filtered::<&Vehicle, With<car_game::controls::PlayerVehicle>>()
+        .single(app.world())
+        .unwrap()
+        .reset_count;
+    assert_eq!(primary_resets, 0);
+    assert_eq!(
+        app.world().resource::<ControllerAssignment>().0,
+        ControllerOwner::Replay
+    );
+    let held = app.world().get::<VehicleControl>(secondary).unwrap();
+    assert_eq!(held.owner, ControllerOwner::LegacyComposite);
+    assert_eq!(held.input.brake, 1.0);
+    assert!(!held.input.reset);
+    run.finish(bevy::app::AppExit::Success);
+}
