@@ -1,0 +1,62 @@
+warning: linker stderr: ld: __eh_frame section too large (max 16MB) to encode dwarf unwind offsets in compact unwind table, performance of exception handling might be affected
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `car-game` (bin "car-game") generated 1 warning
+    Finished `ci` profile [optimized] target(s) in 0.69s
+     Running tests/recorder_shutdown.rs (target/ci/deps/recorder_shutdown-9a0f81c9b72247f0)
+
+running 4 tests
+
+thread 'interrupted_inventory_export_does_not_turn_writer_durability_into_run_success' (13814) panicked at tests/recorder_shutdown.rs:83:13:
+recording failed to reach readiness
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: <recorder_shutdown::interrupted_inventory_export_does_not_turn_writer_durability_into_run_success::{closure#0} as core::ops::function::FnOnce<()>>::call_once
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+thread 'forced_kill_is_reported_as_unknown_and_never_graceful' (13813) panicked at tests/recorder_shutdown.rs:83:13:
+recording failed to reach readiness
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: <recorder_shutdown::forced_kill_is_reported_as_unknown_and_never_graceful::{closure#0} as core::ops::function::FnOnce<()>>::call_once
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+retained failed shutdown evidence: /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/grid-shutdown-3741-2-1792720958275422000
+retained failed shutdown evidence: /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/grid-shutdown-3741-3-1792720958275498000
+test interrupted_inventory_export_does_not_turn_writer_durability_into_run_success ... FAILED
+test forced_kill_is_reported_as_unknown_and_never_graceful ... FAILED
+
+thread 'panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer' (13815) panicked at tests/recorder_shutdown.rs:105:13:
+shutdown exceeded bounded deadline
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: <recorder_shutdown::RecordingProcess>::wait
+   3: <recorder_shutdown::panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer::{closure#0} as core::ops::function::FnOnce<()>>::call_once
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+retained failed shutdown evidence: /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/grid-shutdown-3741-1-1792720958275410000
+test panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer ... FAILED
+
+thread 'sigterm_drains_buffered_recording_even_while_simulation_is_paused' (14216) panicked at tests/recorder_shutdown.rs:83:13:
+recording failed to reach readiness
+stack backtrace:
+   0: __rustc::rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: <recorder_shutdown::sigterm_drains_buffered_recording_even_while_simulation_is_paused::{closure#0} as core::ops::function::FnOnce<()>>::call_once
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+retained failed shutdown evidence: /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/grid-shutdown-3741-4-1792720966323157000
+test sigterm_drains_buffered_recording_even_while_simulation_is_paused ... FAILED
+
+failures:
+
+failures:
+    forced_kill_is_reported_as_unknown_and_never_graceful
+    interrupted_inventory_export_does_not_turn_writer_durability_into_run_success
+    panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer
+    sigterm_drains_buffered_recording_even_while_simulation_is_paused
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 0 filtered out; finished in 16.09s
+
+error: test failed, to rerun pass `--test recorder_shutdown`

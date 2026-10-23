@@ -1,19 +1,16 @@
 # Worktree cleanup checkpoint — issue #96
 
-The user stopped P1 implementation to recover local disk space. This branch preserves the worktree before removal. Its PR targets `main`; no PR is merged and the issue remains open.
+Historical checkpoint: `2e7c368` preserved the original issue #96 worktree before
+its removal to recover disk space. It retained the temporary diagnostic workflow
+and candidate SHA-256 optimization. No verification was performed by that
+cleanup commit.
 
-Original head: `390bed420b740d8b7b419c57857ef86d312f622a`. Branch: `codex/issue-96-ci-recorder`.
+Work resumed from the preserved branch in PR #102. The completed causal probe,
+workflow restoration and current verification evidence are documented in
+[issue-96.md](issue-96.md). This historical checkpoint does not describe the
+current merge readiness; consult that evidence and the final-head CI checks.
 
-## Work preserved
-
-Candidate CI-only sha2 optimization and a temporary controlled diagnostic workflow comparing baseline serial/default-concurrency shutdown tests with the optimized full suite.
-
-## Verification and limits
-
-Probe run 39887029794 completed successfully: https://github.com/nicolas-found42/car-game/actions/runs/39887029794 . Detailed original failures and checkpoint are in issue-96.md and artifacts/issue-96/CHECKPOINT.json. Individual baseline outcomes still need review.
-
-## Continuation
-
-Inspect/download the causal controls, remove the temporary diagnostic workflow changes by restoring ci.yml from bdd2bee, complete local serialized gates and a clean final CI run, then review. Deadlines were not relaxed. Experimental checkpoint; not ready to merge.
-
-All additional local worktrees and local feature branches are being removed. Recreate a checkout from this PR's remote branch to continue. Main remains synced with origin/main. Primary raw evidence remains under `/Users/nicolas/Documents/github/car-game/artifacts/`; recorded binaries formerly held only in target folders were moved to `artifacts/worktree-cleanup/preserved-builds/issue-96/`. Build caches are disposable and are removed. No new tests or gameplay verification were run for this documentation-only preservation step.
+Original raw evidence remains in the primary checkout's `artifacts/issue-96/`.
+Recorded binaries formerly held only in disposable target folders were retained
+under `artifacts/worktree-cleanup/preserved-builds/issue-96/`. Issue #96 remains
+open pending human merge.
