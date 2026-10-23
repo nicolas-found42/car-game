@@ -304,7 +304,7 @@ fn serialized_snapshot_restores_in_fresh_application_without_runtime_handles() {
     for (id, entity) in &mapping.parts {
         assert_ne!(original_mappings.parts.get(id), Some(entity));
     }
-    assert_body_mass(&mut fresh, 1295.);
+    let detached_mass = assert_body_mass(&mut fresh, 1295.);
     submit(
         &mut fresh,
         ProductionCommand::AssemblyTransaction {
@@ -319,7 +319,7 @@ fn serialized_snapshot_restores_in_fresh_application_without_runtime_handles() {
             },
         },
     );
-    assert_body_mass(&mut fresh, 1320.);
+    let reattached_mass = assert_body_mass(&mut fresh, 1320.);
     assert_eq!(
         fresh.world().resource::<AssemblyRuntime>().wheel_enabled,
         [true; 4]
@@ -337,7 +337,8 @@ fn serialized_snapshot_restores_in_fresh_application_without_runtime_handles() {
         "restored_runtime_bodies":format!("{:?}",fresh.world().resource::<AssemblyRuntime>().bodies),
         "source_parts":format!("{:?}",original_mappings.parts),
         "restored_parts":format!("{:?}",fresh.world().resource::<AssemblyRuntime>().parts),
-        "detached_mass":1295,"reattached_mass":1320,"descendant_preserved":true,
+        "detached_mass":detached_mass,"reattached_mass":reattached_mass,
+        "descendant":fresh.world().resource::<Assembly>().part(&PartId::from("snapshot-fixture-tire")).unwrap(),
         "inspection":fresh.world().resource::<Assembly>().inspect().unwrap()
     })).unwrap()).unwrap();
     finish(original, run, dir);
@@ -360,7 +361,7 @@ fn serialized_dto(snapshot: &AssemblySnapshot) -> AssemblySnapshot {
     serde_json::from_slice(&bytes).unwrap()
 }
 
-fn assert_body_mass(app: &mut App, expected: f32) {
+fn assert_body_mass(app: &mut App, expected: f32) -> f32 {
     use bevy_rapier3d::prelude::ReadMassProperties;
     let world = app.world_mut();
     let mass = world
@@ -369,4 +370,5 @@ fn assert_body_mass(app: &mut App, expected: f32) {
         .unwrap()
         .mass;
     assert!((mass - expected).abs() < 0.001, "{mass} != {expected}");
+    mass
 }
