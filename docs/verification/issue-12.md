@@ -40,11 +40,11 @@ All results below are real executions on macOS/Apple M5 Pro with Metal; audio wa
 
 | Check | Result / retained evidence |
 | --- | --- |
-| `cargo fmt --check`, all-target Clippy, required code-limit `HEAD` and true branch-base `bdd2bee` | Pass; `logs/clippy-followup.log`, `logs/codelimit-followup.log`, `logs/codelimit-final-head.log` |
-| `cargo test --all-targets` after the final code change | 66/66; `logs/tests-followup.log` |
+| `cargo fmt --check`, all-target Clippy, required code-limit `HEAD` and true branch-base `bdd2bee` | Pass; `logs/serialized-final/clippy.log`, `logs/serialized-final/codelimit-base.log`, `logs/serialized-final/codelimit-head.log` |
+| `cargo test --all-targets` after the final code change | 66/66 authoritative serialized rerun; `logs/serialized-final/tests.log` |
 | Python syntax, asset/source integrity | Pass; `logs/assets.log`; original 350Z and all fleet source geometry/images unchanged |
 | Existing portable evidence/privacy controls | 17/17 Python tests; `logs/provenance-privacy-regressions.log`; two new Rust controls preserve exact typed locations and reject host/unknown locations |
-| Full `scripts/verify.sh` | Pass on mechanical commit `ed31f39`; 13/13 driving scripts, 52 validated nonblank 1920×1080 captures, 157,506 events; `logs/full-offline.log` |
+| Full `scripts/verify.sh` | Script exited 0 on mechanical commit `ed31f39`; its shared-target fast-test phase is superseded by the serialized rerun below; 13/13 driving scripts, 52 validated nonblank 1920×1080 captures, 157,506 events; `logs/full-offline.log` |
 | Explicit fleet/run/provenance validation | Pass; `logs/fleet-explicit.log`, `logs/fleet-run-explicit.json`, `logs/fleet-provenance.json`; healthy finalized recorder, complete inventory/build/runtime material |
 | Preserved main versus assembly 350Z | 601 matching post-Writeback completed ticks (readiness-relative 120–720); maximum position and velocity error, longitudinal response error and straight endpoint error all exactly zero on this machine; `preservation-comparison.json`, reproducible `compare_reference.py` |
 | Corrected production assembly scenario | 4/4 assertions; 1320→1295→1320 kg including Rapier readback, revision 0→1→2, stale command rejected, nonblank 1920×1080 capture, healthy finalized recorder; complete immutable inventory/build/runtime material |
@@ -66,3 +66,15 @@ The exact-build packages include immutable source/toolchain/dependency inputs. R
 - Full fleet regression validation and the 601-tick matching comparison do not ratify universal handling budgets or CPU p99 targets. No new performance/fidelity/audio quality claim is made.
 - Jev judgment/browser tools are unavailable in this session; no Jev grade is claimed. Website interactions were unnecessary. CUA was used only for native app inspection. Engineering checks and independent review are preserved separately from the later #19 phase acceptance decision.
 - P2 still owns authored fastener/picking/access and workshop mesh removal/reinstallation. The P1 manifest represents existing major wheel/tire assemblies, not complete engine internals. #13 snapshots, #14 controls and #15 query adapter consume this graph in stacked worktrees; their phase acceptance is not claimed here. Stable handoff `ed31f39`, evidence followup `82ada61`; no merge or issue close was performed.
+
+## Serialized continuation and pre-existing CI failure
+
+Authoritative local source check: `7ba9abe1eff51016ec858b1dbe9190b051b3e8e7`, 2026-10-23 01:50:27–01:52:05 UTC. One outer process held the universal `artifacts/p1-coordination/cargo_serial.py` lease across format, all-target Clippy, both HEAD and true-base `bdd2bee` complexity checks and all-target tests, until every test child exited. `CARGO_INCREMENTAL=0` and `RUST_TEST_THREADS=1`. All checks passed; 18+7+21+4+16 = **66 Rust tests**. Retained outer log `logs/serialized-fast-ladder.log`, script `serialized-fast-ladder.sh`, command logs `logs/serialized-final/`.
+
+This rerun supersedes the earlier shared-target Rust-test claims: another worktree could overwrite the shared CLI/test executable while earlier tests were running. Those older logs remain preserved as non-authoritative for source-specific Rust integration verification. Exact checkout-local recorded builds, fleet captures/provenance, handling comparison and native CUA evidence remain valid independently. No new GPU run or runtime change was necessary.
+
+CI is **not green**. PR #95 run [39884795037](https://github.com/nicolas-found42/car-game/actions/runs/39884795037) failed all four recorder-shutdown tests at existing 8-second readiness / 10-second shutdown bounds. Unchanged main `bdd2bee` run [39880399889](https://github.com/nicolas-found42/car-game/actions/runs/39880399889) and its predecessor run [39879824498](https://github.com/nicolas-found42/car-game/actions/runs/39879824498) failed the same four tests, so this symptom predates the assembly implementation. The causal explanation remains unproven; candidate CI-profile/hash/concurrency/readiness hypotheses are explicitly distinguished from measurements.
+
+Raw retained comparison: `ci-diagnosis.json`; logs `logs/ci-main-bdd2bee-failed.log`, `logs/ci-pr94-predecessor-failed.log`, downloaded CI artifact `ci-failure-39884795037/`. The upload contains only formatter/test logs; child `/var/folders` evidence was not uploaded and its contents are not inferred. [Issue #96](https://github.com/nicolas-found42/car-game/issues/96) owns diagnosis, the narrow repair and real green CI proof in a separate subagent/worktree/PR. No deadline, CI profile, harness or failure threshold was changed in #12. #19 remains blocked on that verification repair; this is not a CI waiver.
+
+Independent Standards review of #14 at `ed31f39...bc9ef37` was also completed during continuation, without editing #14: no hard documented-standard violation, two possible duplication smells (player reset enqueue policy and wheel pose math). Receipt: `artifacts/p1-coordination/issue-14-standards-review-issue12.md`; its owner/coordinator handles any fixes.

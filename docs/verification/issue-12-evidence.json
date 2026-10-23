@@ -36,7 +36,8 @@
     {
       "artifact": "logs/tests-followup.log",
       "sha256": "f425242fe8393fcc5d39f187209b1bca496768ae62bafaa24fe8b8b95fae6444",
-      "bytes": 6678
+      "bytes": 6678,
+      "authority": "superseded_by_outer_lease_serialized_run"
     },
     {
       "artifact": "logs/clippy-followup.log",
@@ -97,6 +98,77 @@
       "artifact": "native-paused-visible.png",
       "sha256": "e7794e17d89714cda9d5b5fbd4599203634352fd30376fcbd9cb42e093098775",
       "bytes": 277036
+    },
+    {
+      "artifact": "logs/serialized-fast-ladder.log",
+      "sha256": "968e9d57ed15df62d7a23ac44dc710aca3157f6dd3415a894d2b91ed04447acb",
+      "bytes": 229
+    },
+    {
+      "artifact": "logs/serialized-final/fmt.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "artifact": "logs/serialized-final/clippy.log",
+      "sha256": "c5104d4ef7c5b175b821445eabfad86ba48a85780d1c93b915cc09569cedd75a",
+      "bytes": 160
+    },
+    {
+      "artifact": "logs/serialized-final/codelimit-head.log",
+      "sha256": "94e5909c6d75b6920c37e342e31f9f9629d16e286e8259942eb684dbc7c4b2c3",
+      "bytes": 244
+    },
+    {
+      "artifact": "logs/serialized-final/codelimit-base.log",
+      "sha256": "a1850a169b9ce9d95d5e07c03606cc23f0621ec01e103757b173956dc4893106",
+      "bytes": 309
+    },
+    {
+      "artifact": "logs/serialized-final/tests.log",
+      "sha256": "92fc1cff1eedc03e664a0dbb27529dbc4b4b088f41e76c0d2404ba9691618bbd",
+      "bytes": 6626
+    },
+    {
+      "artifact": "ci-diagnosis.json",
+      "sha256": "7c05c64f5bac4f8ce0a682064484de372c213ddb4bbc2d2ca02324f259cd451f",
+      "bytes": 2644
     }
-  ]
+  ],
+  "authoritative_rust_verification": {
+    "source": "7ba9abe1eff51016ec858b1dbe9190b051b3e8e7",
+    "outer_lease": "artifacts/p1-coordination/cargo_serial.py",
+    "started_utc": "2026-10-23T01:50:27Z",
+    "finished_utc": "2026-10-23T01:52:05Z",
+    "cargo_incremental": false,
+    "rust_test_threads": 1,
+    "passed_test_groups": [
+      18,
+      0,
+      7,
+      21,
+      4,
+      16
+    ],
+    "passed": 66,
+    "checks": [
+      "fmt",
+      "clippy_all_targets_warnings_denied",
+      "codelimit_HEAD",
+      "codelimit_bdd2bee",
+      "test_all_targets"
+    ],
+    "supersedes": "Earlier shared-target integration-test source authority due to possible concurrent executable overwrite; exact recorded capture/provenance evidence unaffected."
+  },
+  "ci_status": {
+    "green": false,
+    "repair_issue": 96,
+    "evidence": "ci-diagnosis.json",
+    "preexisting_matching_failed_runs": [
+      39884795037,
+      39880399889,
+      39879824498
+    ],
+    "cause": "unproven; no CI/runtime/harness/deadline source changes in issue12"
+  }
 }
