@@ -128,3 +128,29 @@ to avoid a source commit solely to quote its own CI result.
 Historical fleet and baseline comparisons retain their original source bounds.
 These compiler/hash experiments do not establish a new native screenshot-readback
 pass or resolve the existing native limitation.
+
+
+## Accepted stopping point: balanced compilation and bounded hashing
+
+The shader-only intermediate at `80aa052` passed hosted cold CI in 14m51s
+(12m26s compilation) and a cached repeat in 1m41s. Those measurements belong
+only to that source. Cargo timing showed substantial remaining code generation
+in PBR and the workspace, so the final candidate defaults CI runtime crates to
+level 0 while keeping physics, ECS, scheduling and math at level 1, SHA-256 at
+level 3, and build tools at level 1. Debug assertions, overflow checks, all
+features and all verification gates remain enabled. Dev, test and release
+configuration is unchanged.
+
+A fresh local target compiled this balanced candidate in 58.83s, compared with
+the earlier 192s control on the shared host. This is directional evidence, not
+a hosted cold-run claim. Its executable grows to 454,225,600 bytes; streaming
+manifest hashing bounds memory regardless of executable size. The existing
+recorder test, invoked directly with the same balanced profile before/after the
+streaming change, reduced peak RSS from 150,421,504 to 29,949,952 bytes. Its
+0.20s/0.19s duration does not establish a runtime improvement. Interrupted reads
+are retried and all bytes remain hashed.
+
+The final full headless verification passed: formatting, all-target Clippy,
+HEAD and true-base complexity, all 68 Rust tests, doc tests, asset checks and
+Python controls. Exact-source recorded offscreen fleet verification and hosted
+CI results are recorded in PR #104. No further profile experiments are included.

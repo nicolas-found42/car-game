@@ -26,7 +26,11 @@ pub fn hash_file(path: &Path) -> io::Result<(String, u64)> {
     let mut size = 0;
     let mut buffer = [0; 65536];
     loop {
-        let count = source.read(&mut buffer)?;
+        let count = match source.read(&mut buffer) {
+            Ok(count) => count,
+            Err(error) if error.kind() == io::ErrorKind::Interrupted => continue,
+            Err(error) => return Err(error),
+        };
         if count == 0 {
             break;
         }

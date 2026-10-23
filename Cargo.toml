@@ -24,23 +24,52 @@ opt-level = 1
 [profile.dev.package."*"]
 opt-level = 3
 
-# Basic dependency optimization keeps CI executables compact: every recorder
-# hashes/captures its executable. Local dev/test/release profiles are unchanged.
+# Keep CI compilation cheap while retaining debug assertions and overflow checks.
+# Runtime hot paths stay optimized below; build tools stay fast for macro expansion.
+# Dev/test/release settings and the complete feature graph are unchanged.
 [profile.ci]
-inherits = "dev"
-incremental = false
+inherits = "release"
+opt-level = 0
+lto = false
+codegen-units = 16
 debug = 0
-[profile.ci.package."*"]
-opt-level = 1
+debug-assertions = true
+overflow-checks = true
+incremental = false
 
-# Avoid LLVM optimization of shader compiler crates in CI, retaining every
-# rendering feature and the optimized physics/ECS graph. Release is unchanged.
-[profile.ci.package.wesl]
-opt-level = 0
-[profile.ci.package.wgsl-parse]
-opt-level = 0
-[profile.ci.package.naga]
-opt-level = 0
+[profile.ci.build-override]
+opt-level = 1
+codegen-units = 16
+
+# Preserve physics, scheduling and math throughput on the small macOS runner.
+[profile.ci.package.bevy_ecs]
+opt-level = 1
+[profile.ci.package.bevy_app]
+opt-level = 1
+[profile.ci.package.bevy_tasks]
+opt-level = 1
+[profile.ci.package.bevy_time]
+opt-level = 1
+[profile.ci.package.bevy_math]
+opt-level = 1
+[profile.ci.package.bevy_transform]
+opt-level = 1
+[profile.ci.package.bevy_utils]
+opt-level = 1
+[profile.ci.package.bevy_platform]
+opt-level = 1
+[profile.ci.package.bevy_rapier3d]
+opt-level = 1
+[profile.ci.package.rapier3d]
+opt-level = 1
+[profile.ci.package.parry3d]
+opt-level = 1
+[profile.ci.package.nalgebra]
+opt-level = 1
+[profile.ci.package.glam]
+opt-level = 1
+[profile.ci.package.simba]
+opt-level = 1
 
 # Provenance hashes the executable and prepared assets before simulation startup.
 # Keep that bounded production path optimized even in cold CI builds.

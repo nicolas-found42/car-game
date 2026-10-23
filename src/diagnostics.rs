@@ -23,7 +23,6 @@ use bevy::{
 };
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
-use sha2::{Digest, Sha256};
 use std::{
     collections::HashSet,
     env,
@@ -958,10 +957,7 @@ fn command_version(command: &str, args: &[&str]) -> String {
 }
 
 pub fn sha256_file(path: &Path) -> Option<String> {
-    let bytes = fs::read(path).ok()?;
-    let mut hasher = Sha256::new();
-    hasher.update(bytes);
-    Some(format!("{:x}", hasher.finalize()))
+    crate::provenance::hash_file(path).ok().map(|(sha, _)| sha)
 }
 
 fn write_json_atomic(path: &Path, value: &impl Serialize) -> std::io::Result<()> {
