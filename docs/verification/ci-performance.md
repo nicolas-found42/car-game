@@ -1,5 +1,9 @@
 # CI Performance Analysis
 
+Current follow-up: [verification speed audit](verification-speed.md). The 18-test
+measurements below describe an earlier suite and workflow; use the follow-up's
+66-test baseline and current PR results for today's timings.
+
 **Scope:** GitHub Actions wall time for `nicolas-found42/car-game`. This document is analysis only; no workflow, `Cargo.toml`, or source changes were made as part of this analysis.
 
 **Baseline revision:** PR head `4d83ad2` (the revision exercised by the runs below); workflow [`ci.yml`](https://github.com/nicolas-found42/car-game/blob/main/.github/workflows/ci.yml) [S16], manifest [`Cargo.toml`](https://github.com/nicolas-found42/car-game/blob/main/Cargo.toml) [S17]. Sources are listed at the end and cited as `[S#]`.

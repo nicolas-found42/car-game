@@ -86,8 +86,15 @@ fi
 # ============================================================================
 if [ "${#rs_files[@]}" -gt 0 ]; then
   echo "== [3/3] clippy too_many_lines (changed Rust vs $base) =="
-  violations="$(cargo clippy --all-targets --message-format=short -- -W clippy::too_many_lines 2>&1 \
-    | grep "warning: this function has too many lines" || true)"
+  # Match the caller's profile: CI must not build a second dev dependency graph.
+  # Keep compiler failure separate from grep's legitimate no-match exit status.
+  if output="$(cargo clippy --locked --all-targets --profile "${CODELIMIT_CARGO_PROFILE:-dev}" \
+    --message-format=short -- -W clippy::too_many_lines 2>&1)"; then
+    violations="$(printf '%s\n' "$output" | grep "warning: this function has too many lines" || true)"
+  else
+    printf '%s\n' "$output" >&2
+    exit 1
+  fi
   if [ -n "$violations" ]; then
     changed_violations="$(echo "$violations" | while IFS= read -r line; do
       loc="$(echo "$line" | cut -d: -f1)"

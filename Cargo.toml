@@ -33,6 +33,13 @@ opt-level = 0
 [profile.ci.package.sha2]
 opt-level = 3
 
+# Headless tests execute many tiny schedules. Optimize the measured scheduler
+# hot path without paying for release optimization of rendering dependencies.
+[profile.ci.package.bevy_ecs]
+opt-level = 3
+[profile.ci.package.bevy_tasks]
+opt-level = 3
+
 [profile.release]
 lto = "thin"
 codegen-units = 1

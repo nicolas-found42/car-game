@@ -18,6 +18,7 @@ jobs:
       RUST_BACKTRACE: "1"
       RUST_LOG: car_game=debug,bevy_asset=warn,wgpu=error,naga=warn
       CARGO_INCREMENTAL: "0"
+      CODELIMIT_CARGO_PROFILE: ci
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,22 +42,32 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          cargo test --all-targets --profile ci 2>&1 | tee artifacts/logs/cargo-test.log
+          cargo test --locked --all-targets --profile ci 2>&1 | tee artifacts/logs/cargo-test.log
       - name: Clippy
         run: |
           mkdir -p artifacts/logs
-          cargo clippy --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
+          cargo clippy --locked --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
+      - uses: actions/setup-python@v5
+        with:
+          # codelimit 0.21 supports Python 3.10–3.14, not the host's future default.
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: tools/requirements-checks.txt
+      - name: Install code quality tools
+        run: |
+          python3 -m venv "$RUNNER_TEMP/code-quality"
+          "$RUNNER_TEMP/code-quality/bin/pip" install --disable-pip-version-check -r tools/requirements-checks.txt
+          echo "$RUNNER_TEMP/code-quality/bin" >> "$GITHUB_PATH"
       - name: Code limit & complexity gates (codelimit + lizard + clippy)
         shell: bash
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          brew install codelimit lizard-analyzer
           scripts/check_codelimit.sh HEAD~1 2>&1 | tee artifacts/logs/codelimit.log
       - name: Python syntax
         run: python3 -m compileall -q tools
       - name: Recorder health and provenance tooling tests
-        run: python3 -m unittest discover -s tools -p 'test_*provenance*.py' && python3 tools/test_recorder_health.py
+        run: python3 -m unittest discover -s tools -p 'test_*provenance*.py' && python3 tools/test_recorder_health.py && python3 tools/test_codelimit.py
       - name: Python asset tests when source collection is present
         run: |
           if [ -d ../carmodels ]; then
