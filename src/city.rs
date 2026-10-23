@@ -28,7 +28,11 @@ fn block(
         Transform::from_translation(position).with_scale(size),
     ));
     if solid {
-        entity.insert((RigidBody::Fixed, Collider::cuboid(0.5, 0.5, 0.5)));
+        entity.insert((
+            RigidBody::Fixed,
+            Collider::cuboid(0.5, 0.5, 0.5),
+            crate::physics::ColliderIdentity(format!("city:block:{position:?}:{size:?}")),
+        ));
     }
 }
 

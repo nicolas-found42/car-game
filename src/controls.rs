@@ -100,6 +100,10 @@ pub fn spawn(
     let pose = Transform::from_translation(Vec3::from_array(position));
     world
         .spawn(crate::vehicle::chassis_bundle(&spec, pose))
+        .insert(crate::physics::ColliderIdentity(format!(
+            "{}:chassis",
+            id.0
+        )))
         .insert(VehicleControl::new(id, spec, owner));
     Ok(())
 }

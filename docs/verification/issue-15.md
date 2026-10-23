@@ -85,3 +85,56 @@ configuration/controller/reset migration before choosing final component signatu
 Measure independent query index rebuild cost on the declared Mac workload; optimize
 only if observed overhead warrants caching, preserving correct insert/remove/reparent.
 No product decision or missing asset has been identified during preflight.
+
+## Implementation checkpoint (2026-10-22)
+
+Verified #13 code `177fbc2` was integrated before #14 implementation `fd5a7b1` /
+`902adb5`; controller alias review fix `bc9ef37` is included. Existing combined
+71-test suite passed locally before physics changes. A later shared-target run was
+invalidated when another checkout overwrote test executables during execution;
+acceptance checks now use an isolated APFS clone and the coordinator's whole-command
+Cargo lease. A reliable isolated run of the original 71 tests passed after the
+synchronized adapter landed. New focused acceptance tests are in progress.
+
+`physics` owns current collider queries, force bridge, parent mapping readiness,
+control/reset preparation, and completed-step recording. The solver is still the
+single `vehicle::simulate`; `QueryMode::LegacyPreSync` selects its baseline position
+in the schedule, and the default selects synchronized mechanics after backend sync.
+The query database clones only immutable collider shapes/properties, computes
+current body × local poses, resets links in its own ColliderSet and builds its own
+BVH. Production collider queues and broad phase remain untouched.
+
+Pinned-version integration also lacks same-context collider reparenting on ChildOf
+changes. A derived nearest-rigidbody parent cache invalidates changed collider
+handles before normal backend sync, allowing Rapier's own removal/initialization and
+mass events to run. Stable collider/entity/domain identities survive that remapping.
+
+Per-car assembly preparation matches `VehicleControl.id`, the actual bound body and
+its configured car; masks/revisions cannot leak from the player to a secondary.
+Secondary fleet fixtures report `assembly_binding=no_assembly_binding` and null
+assembly revision/part binding explicitly. #16 must replace those fixtures with
+actual per-vehicle graphs before the final P1 gate. No multi-graph completion is
+claimed here.
+
+Completed `PhysicsSample` preserves the existing top-level driving fields and adds
+#11's event envelope, stable vehicle/body/root-part identifiers, post-writeback
+position/velocity, one integration-step count, phase durations, and bounded
+`evidence`: effective input/reset, query tick/geometry epoch, assembly revision and
+runtime generation, explicitly named pre-step position/velocity, four wheel
+contacts/IDs/geometry and suspension/tire/antiroll force+torque, chassis and final
+composed force. `backend_applied` reads Rapier's actual user force/torque after the
+step, so evidence can distinguish computed from applied forces. Reset ticks publish
+zero composed force with `reset_no_mechanics` wheel reasons and normal post-reset
+integration. Prepared assembly revision/generation changes publish the existing #13
+`AssemblySnapshot` DTO in `physics.assembly_checkpoint`; no parallel save schema.
+
+`PhysicsEdit` commands exercise road insertion/removal, root relocation and collider
+reparenting through fixed production dispatch. The scenario framework adds
+`PhysicsState`, checking same-tick query/completed boundaries, one step, contacts,
+force application, grounded count, outcome and motion. Both
+`examples/scenarios/synchronized-physics.json` and its required-capture Metal variant
+carry eight assertions, including the first boundary after each edit and reset.
+
+Outstanding: focused tests, full serialized ladder, independent review/fixes,
+recorded exact build, offline fleet chain, real native Metal validation, retained
+provenance/comparison evidence and attached PR. Nothing is merged or closed.
