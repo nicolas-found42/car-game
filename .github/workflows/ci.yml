@@ -30,6 +30,9 @@ jobs:
           rustup default stable
       - name: Cache Rust build
         uses: Swatinem/rust-cache@v2
+        with:
+          # Keep completed dependencies when a later test/lint fails.
+          cache-on-failure: true
         # Keep new dependency/profile builds between pushes to the same PR.
         # PR merge-ref caches are isolated and cannot replace main's cache.
       - name: Format
@@ -75,6 +78,11 @@ jobs:
           else
             echo "SKIP: ../carmodels is not present; source-integrity tests cannot run in CI"
           fi
+      - name: Drop unused cache profiles
+        if: always()
+        run: |
+          du -sh target/debug target/release target/ci 2>/dev/null || true
+          rm -rf target/debug target/release
       - name: Upload retained logs
         if: always()
         uses: actions/upload-artifact@v4

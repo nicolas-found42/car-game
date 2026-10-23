@@ -42,14 +42,21 @@ duplicated all headless gates. These are orchestration costs, separate from CI.
   and assertions. All catalog entries are discovered dynamically, as before;
   child panic propagates through scoped joins. Production source outside
   `#[cfg(test)]` is unchanged.
-- Only CI's measured ECS/tasks scheduler dependencies receive opt-level 3.
-  Other CI dependency optimizations, SHA-256 repair, debug assertions, overflow
-  checks, production profiles, features and recorder bounds are unchanged.
+- Tiny physics unit-test fixtures use Bevy's single-threaded executor to avoid
+  task-pool handoffs. A new differential regression compares pose, velocity,
+  grounded contacts, wheel rotation and suspension with the default executor at
+  every one of 1,381 ticks, including acceleration, steering, handbrake, braking,
+  reset and reverse. Production scenario apps and rendered fleets retain their
+  normal scheduling. Cargo profiles, including the SHA-256 repair, are unchanged.
 - Rust dependency caches can now be saved for PR merge refs, using rust-cache's
   default policy. Previously a PR that changed profiles rebuilt those dependencies
   on every push until merge. PR-scoped caches cannot replace main's cache; warm
   reruns can reuse them. No assertion result or source-specific test executable
   is substituted for a fresh test execution.
+  Completed dependencies are retained even if a later test/lint fails. The job
+  removes unused dev/release artifacts before cache save, retaining CI artifacts
+  and logging profile sizes. This avoids transferring historical profile builds
+  that this workflow no longer uses.
 - `verify.sh --base REF` owns the full ladder once, with per-command timings.
   `--recorded` uses one recorded release build and one fleet run for both full
   acceptance and source provenance. It now explicitly includes all targets,
@@ -71,20 +78,32 @@ whitespace normalization and found identical; every comparison passed.
 | Comparison | Before | After | Decision |
 | --- | ---: | ---: | --- |
 | Dev fleet contract: sequential vs bounded per-car parallelism | 16.10 s | 9.42 s | Keep; 41% less execution time |
-| CI profile, parallel fleet: scheduler overrides only | 17.48 s | 12.62 s | Keep; 28% less execution time; ~35 s local rebuild cost |
+| CI profile, parallel fleet: scheduler overrides only | 17.48 s | 12.62 s | Reject after actual CI: costly dependency fanout, no demonstrated CI test win |
+| CI profile, parallel fleet: tiny-fixture single-threaded executor | 17.48 s | 5.72 s | Keep; 67% less execution time, no dependency rebuild |
 | CI profile, parallel fleet: Rapier/Parry overrides only | 17.48 s | 14.92 s | Reject; only 2.56 s saved, ~14 s rebuild cost |
 
-The scheduler override rebuilds dependent Bevy crates once. Its advantage is
-primarily repeated warm execution; this is not a claim of a cold-build speedup.
-The narrow physics probe was not retained. No broad renderer optimization,
-feature removal, skipped tests, shorter simulated driving, relaxed deadlines,
-lower capture resolution or replacement of macOS coverage was used.
+The first CI experiment with scheduler package overrides spent **182 seconds**
+compiling tests versus the baseline's 46.77 seconds; library execution was 75.14
+seconds versus 71.09. These are different hosted runners, so this is not a
+controlled attribution of runtime regression. It does show a bad compilation
+tradeoff and no demonstrated CI execution win. Both scheduler and physics package
+overrides were removed. Final Cargo.toml is identical to #95; no dependency,
+renderer feature, debug assertion, overflow check or production profile changed.
+No tests, driving ticks, deadlines, capture resolution or macOS coverage were removed.
+
+The first normal CI passed all Rust tests and real complexity gates, then a new
+gate regression exposed the existing warning filter's Bash 3.2 parser failure.
+The local harness had used newer Bash from PATH. The filter now compares paths
+without nested case/command-substitution parsing; regressions explicitly use
+`/bin/bash`, matching the script's declared interpreter. Both changed-warning
+rejection and unchanged-warning acceptance are verified by result and diagnostic.
 
 Raw baseline job/status, probes, CPU sample, pre-fix failing gate regressions and
 final verification logs are retained in
 `/Users/nicolas/Documents/github/car-game/artifacts/verification-speed/`.
 `fleet-baseline-local.log`, `fleet-parallel-local.log`, `ci-fleet-baseline-local.log`,
-`ci-fleet-ecs-local.log`, and `ci-fleet-physics-local.log` retain compiler and harness
+`ci-fleet-ecs-local.log`, `ci-fleet-physics-local.log`, and
+`ci-fleet-single-executor.log` retain compiler and harness
 timings separately. The CPU sample contains waiting threads as well as active
 stacks; it is not a CPU-percentage attribution.
 
@@ -96,7 +115,13 @@ commit solely to quote its own check result. Compare job/step timings separately
 from runner queue time; this repository cannot eliminate hosted-runner capacity
 delays. The macOS runner remains the same.
 
-The final recorded full run remains a real 13-car/52-capture GPU workload. No new
+The recorded full run is a real 13-car/52-capture GPU workload at intermediate
+source `c227edb`, before the final test-fixture refinements. It passed all 66 tests
+then present, all Python controls, and inventory/build/runtime-material provenance.
+The later refinements affect only cfg(test), CI/tooling and docs; production
+vehicle source before cfg(test) was compared unchanged. Final validation runs 67
+Rust tests including executor equivalence. The recorded GPU run is not relabeled
+as an exact-source run of the later commit. No new
 native screenshot-readback pass, universal handling/performance budget, platform
 replay completeness or downstream P1 acceptance is inferred. The exact historical
 fleet/baseline evidence boundaries and unresolved native readback limitation in

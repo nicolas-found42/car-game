@@ -453,12 +453,26 @@ mod tests {
         world_for(CarSpec::default(), wall)
     }
     fn world_for(spec: CarSpec, wall: bool) -> App {
+        world_for_scheduling(spec, wall, true)
+    }
+    fn world_for_scheduling(spec: CarSpec, wall: bool, single_threaded: bool) -> App {
         let mut app = App::new();
         app.insert_resource(spec);
         app.add_plugins((MinimalPlugins, TransformPlugin, VehiclePlugin))
             .insert_resource(TimeUpdateStrategy::ManualDuration(Duration::from_secs_f64(
                 STEP as f64,
             )));
+        // Tiny physics fixtures benefit from avoiding task-pool handoffs. The
+        // differential test below checks them against production's default executor.
+        if single_threaded {
+            for (_, schedule) in app
+                .world_mut()
+                .resource_mut::<bevy::ecs::schedule::Schedules>()
+                .iter_mut()
+            {
+                schedule.set_executor(bevy::ecs::schedule::SingleThreadedExecutor::new());
+            }
+        }
         app.world_mut().spawn((
             RigidBody::Fixed,
             Collider::cuboid(1000.0, 0.2, 1000.0),
@@ -590,6 +604,84 @@ mod tests {
         println!(
             "FLEET PHYSICS PASS {id}: park, four contacts, accelerate, brake, turn, handbrake, reset, reverse, collision"
         );
+    }
+    #[test]
+    fn physics_fixture_matches_default_executor_at_every_tick() {
+        let mut reference = world_for_scheduling(CarSpec::default(), true, false);
+        let mut fixture = world_for(CarSpec::default(), true);
+        let observe = |app: &mut App| {
+            let (pose, velocity, grounded) = state(app);
+            let mut cars = app.world_mut().query::<&Vehicle>();
+            let car = cars.single(app.world()).unwrap();
+            (
+                pose.translation,
+                pose.rotation,
+                velocity.linear,
+                velocity.angular,
+                grounded,
+                car.wheel_spin,
+                car.wheel_lengths,
+            )
+        };
+        for (input, ticks) in [
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    ..default()
+                },
+                720,
+            ),
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    steer: 0.5,
+                    ..default()
+                },
+                120,
+            ),
+            (
+                DriveInput {
+                    throttle: 1.0,
+                    steer: 0.5,
+                    handbrake: true,
+                    ..default()
+                },
+                60,
+            ),
+            (
+                DriveInput {
+                    brake: 1.0,
+                    ..default()
+                },
+                240,
+            ),
+            (
+                DriveInput {
+                    reset: true,
+                    ..default()
+                },
+                1,
+            ),
+            (
+                DriveInput {
+                    brake: 1.0,
+                    ..default()
+                },
+                240,
+            ),
+        ] {
+            *reference.world_mut().resource_mut::<DriveInput>() = input;
+            *fixture.world_mut().resource_mut::<DriveInput>() = input;
+            for tick_index in 0..ticks {
+                tick(&mut reference, 1);
+                tick(&mut fixture, 1);
+                assert_eq!(
+                    observe(&mut fixture),
+                    observe(&mut reference),
+                    "tick {tick_index}"
+                );
+            }
+        }
     }
     #[test]
     fn suspension_settles_on_four_wheels() {

@@ -37,7 +37,7 @@ class ComplexityGateTests(unittest.TestCase):
     def gate(self, **settings):
         env = dict(os.environ, PATH=str(self.root / 'bin') + os.pathsep + os.environ['PATH'])
         env.update(settings)
-        return subprocess.run(['bash', 'scripts/check_codelimit.sh', 'HEAD'],
+        return subprocess.run(['/bin/bash', 'scripts/check_codelimit.sh', 'HEAD'],
                               cwd=self.root, env=env, capture_output=True, text=True)
 
     def test_ci_profile_is_forwarded_to_clippy(self):
@@ -55,6 +55,7 @@ class ComplexityGateTests(unittest.TestCase):
     def test_changed_function_length_violation_fails(self):
         result = self.gate(GATE_DIAGNOSTIC='changed.rs:1:1: warning: this function has too many lines')
         self.assertNotEqual(result.returncode, 0)
+        self.assertIn('too_many_lines violation in a changed Rust file', result.stderr)
 
     def test_unchanged_function_length_warning_is_not_new_debt(self):
         result = self.gate(GATE_DIAGNOSTIC='untouched.rs:1:1: warning: this function has too many lines')
