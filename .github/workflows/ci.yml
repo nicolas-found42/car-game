@@ -30,9 +30,8 @@ jobs:
           rustup default stable
       - name: Cache Rust build
         uses: Swatinem/rust-cache@v2
-        with:
-          # Manual dispatches may seed/verify the cache; PRs only restore main's.
-          save-if: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
+        # Keep new dependency/profile builds between pushes to the same PR.
+        # PR merge-ref caches are isolated and cannot replace main's cache.
       - name: Format
         run: |
           mkdir -p artifacts/logs

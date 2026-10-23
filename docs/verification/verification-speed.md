@@ -45,6 +45,11 @@ duplicated all headless gates. These are orchestration costs, separate from CI.
 - Only CI's measured ECS/tasks scheduler dependencies receive opt-level 3.
   Other CI dependency optimizations, SHA-256 repair, debug assertions, overflow
   checks, production profiles, features and recorder bounds are unchanged.
+- Rust dependency caches can now be saved for PR merge refs, using rust-cache's
+  default policy. Previously a PR that changed profiles rebuilt those dependencies
+  on every push until merge. PR-scoped caches cannot replace main's cache; warm
+  reruns can reuse them. No assertion result or source-specific test executable
+  is substituted for a fresh test execution.
 - `verify.sh --base REF` owns the full ladder once, with per-command timings.
   `--recorded` uses one recorded release build and one fleet run for both full
   acceptance and source provenance. It now explicitly includes all targets,
