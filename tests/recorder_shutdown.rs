@@ -7,6 +7,8 @@ use std::{
     time::{Duration, Instant},
 };
 
+static NEXT: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
+
 struct RecordingProcess {
     child: Child,
     root: PathBuf,
@@ -18,8 +20,9 @@ impl RecordingProcess {
     }
     fn spawn_until(paused: bool, extra: &[&str], tick: u64) -> Self {
         let root = std::env::temp_dir().join(format!(
-            "grid-shutdown-{}-{}",
+            "grid-shutdown-{}-{}-{}",
             std::process::id(),
+            NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed),
             std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
                 .unwrap()
@@ -74,7 +77,8 @@ impl RecordingProcess {
             assert!(
                 self.child.try_wait().unwrap().is_none(),
                 "{}",
-                fs::read_to_string(self.root.join("stderr.log")).unwrap()
+                fs::read_to_string(self.root.join("stderr.log"))
+                    .unwrap_or_else(|error| format!("stderr unavailable: {error}"))
             );
             assert!(
                 start.elapsed() < Duration::from_secs(8),
