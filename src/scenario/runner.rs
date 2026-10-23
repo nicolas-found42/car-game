@@ -170,7 +170,7 @@ fn update(world: &mut World) {
 }
 fn ready(world: &mut World) -> Option<Vec3> {
     let (pose, grounded) = world
-        .query::<(&Transform, &Vehicle)>()
+        .query_filtered::<(&Transform, &Vehicle), With<crate::controls::PlayerVehicle>>()
         .single(world)
         .ok()
         .map(|(p, c)| (p.translation, c.grounded))?;
@@ -254,7 +254,7 @@ fn observe(
     rejections: &HashMap<String, usize>,
 ) -> Value {
     let Some((pose, velocity, resets)) = world
-        .query::<(&Transform, &Velocity, &Vehicle)>()
+        .query_filtered::<(&Transform, &Velocity, &Vehicle), With<crate::controls::PlayerVehicle>>()
         .iter(world)
         .next()
         .map(|(p, v, c)| (*p, *v, c.reset_count))
@@ -271,6 +271,21 @@ fn observe(
             let actual = velocity.linear.length();
             json!({"passed":actual >= *mps,"mps":actual})
         }
+        AssertionKind::VehicleState {
+            vehicle,
+            car,
+            controller,
+            reset_count,
+            min_forward_mps,
+            max_forward_mps,
+        } => crate::controls::observe(
+            world,
+            vehicle,
+            car,
+            *controller,
+            *reset_count,
+            [*min_forward_mps, *max_forward_mps],
+        ),
         AssertionKind::AssemblyState {
             revision,
             mass,

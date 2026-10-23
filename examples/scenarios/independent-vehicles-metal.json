@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "name": "independent-vehicles-metal",
+  "scene": "driving",
+  "seed": 14,
+  "initial": {
+    "car": "350z"
+  },
+  "max_ticks": 1500,
+  "max_wall_ms": 60000,
+  "readiness_timeout_ms": 30000,
+  "commands": [
+    {
+      "tick": 0,
+      "command": {
+        "action": "spawn_vehicle",
+        "id": "second-car",
+        "car": "gt4-nsx",
+        "position": [
+          -3.2,
+          0.62,
+          188.0
+        ],
+        "controller": "scenario"
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "drive",
+        "throttle": 0.15,
+        "brake": 0.0,
+        "steer": 0.0
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "vehicle",
+        "target": "second-car",
+        "command": {
+          "action": "drive",
+          "throttle": 0.0,
+          "brake": 0.15,
+          "steer": 0.0
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "tick": 300,
+      "kind": "vehicle_state",
+      "vehicle": "pilot-350z",
+      "car": "350z",
+      "controller": "scenario",
+      "reset_count": 0,
+      "min_forward_mps": 0.1,
+      "max_forward_mps": 8
+    },
+    {
+      "tick": 300,
+      "kind": "vehicle_state",
+      "vehicle": "second-car",
+      "car": "gt4-nsx",
+      "controller": "scenario",
+      "reset_count": 0,
+      "min_forward_mps": -5,
+      "max_forward_mps": -0.1
+    }
+  ],
+  "required_capture": true
+}

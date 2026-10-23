@@ -19,3 +19,9 @@ tools/test_fleet_assets.py:test_gt500_complete_rear_window_uses_one_cabin_materi
 tools/verify_fleet.py:main
 tools/check_assets.py:check
 tools/check_assets.py:check_car
+
+# Per-chassis/selected-player Bevy query filters; lizard counts generic commas as params.
+src/presentation.rs:camera_follow
+src/presentation.rs:update_hud
+src/presentation.rs:additional_visuals
+src/runtime.rs:complete_tick

@@ -39,6 +39,16 @@ pub enum ProductionCommand {
         #[serde(default)]
         handbrake: bool,
     },
+    Vehicle {
+        target: crate::assembly::VehicleId,
+        command: crate::controls::VehicleCommand,
+    },
+    SpawnVehicle {
+        id: crate::assembly::VehicleId,
+        car: String,
+        position: [f32; 3],
+        controller: ControllerOwner,
+    },
     InspectAssembly,
     AssemblyTransaction {
         transaction: crate::assembly::Transaction,
@@ -63,6 +73,17 @@ pub enum ProductionCommand {
 }
 impl ProductionCommand {
     pub fn validate(&self) -> Result<(), String> {
+        if let Self::Vehicle { target, command } = self {
+            if target.0.is_empty() {
+                return Err("empty-vehicle-id".into());
+            }
+            command.validate()?;
+        }
+        if let Self::SpawnVehicle { id, position, .. } = self
+            && (id.0.is_empty() || position.iter().any(|v| !v.is_finite()))
+        {
+            return Err("invalid-vehicle-spawn".into());
+        }
         if let Self::Drive {
             throttle,
             brake,
@@ -125,7 +146,11 @@ impl CommandBus {
             .as_ref()
             .map_or_else(|| self.clock.envelope("unrecorded"), |run| run.envelope());
         let id = self.clock.next_command(&envelope.run_id);
-        envelope.actor_id = Some("player-vehicle".into());
+        envelope.actor_id = Some(match &command {
+            ProductionCommand::Vehicle { target, .. } => target.0.clone(),
+            ProductionCommand::SpawnVehicle { id, .. } => id.0.clone(),
+            _ => "player-vehicle".into(),
+        });
         envelope.command_id = Some(id.clone());
         envelope.correlation_id = Some(id.clone());
         envelope.span = span;
@@ -225,7 +250,13 @@ fn complete_tick(
     bus: Res<CommandBus>,
     run: Option<Res<RunHandle>>,
     spec: Res<CarSpec>,
-    cars: Query<(&Transform, &Velocity, &Vehicle)>,
+    cars: Query<(
+        &Transform,
+        &Velocity,
+        &Vehicle,
+        &crate::controls::VehicleControl,
+        Option<&crate::controls::PlayerVehicle>,
+    )>,
 ) {
     clock.completed = clock.current;
     bus.clock.completed(clock.completed);
@@ -238,11 +269,15 @@ fn complete_tick(
             json!({"vehicle_count":cars.iter().count()}),
             completed,
         );
-        for (pose, velocity, car) in &cars {
+        for (pose, velocity, car, control, player) in &cars {
             let mut envelope = run.envelope();
-            envelope.actor_id = Some("player-vehicle".into());
+            envelope.actor_id = Some(if player.is_some() {
+                "player-vehicle".into()
+            } else {
+                control.id.0.clone()
+            });
             envelope.boundary = "completed_tick".into();
-            run.event_envelope("simulation.completed", json!({"car":spec.id,"position":pose.translation.to_array(),"linear_velocity":velocity.linear.to_array(),"reset_count":car.reset_count}), envelope);
+            run.event_envelope("simulation.completed", json!({"car":if player.is_some() { &spec.id } else { &control.spec.id },"vehicle_id":control.id,"position":pose.translation.to_array(),"linear_velocity":velocity.linear.to_array(),"reset_count":car.reset_count}), envelope);
         }
         run.completed_tick(clock.completed);
     }
@@ -258,6 +293,8 @@ pub fn dispatch_update(world: &mut World) {
         let physical = matches!(
             command.command,
             ProductionCommand::Reset
+                | ProductionCommand::Vehicle { .. }
+                | ProductionCommand::SpawnVehicle { .. }
                 | ProductionCommand::InspectAssembly
                 | ProductionCommand::AssemblyTransaction { .. }
                 | ProductionCommand::SelectCar { .. }
@@ -284,13 +321,30 @@ fn dispatch_fixed(world: &mut World) {
             continue;
         }
         match &command.command {
+            ProductionCommand::Vehicle {
+                target,
+                command: action,
+            } => crate::controls::command(world, &command, target, action),
+            ProductionCommand::SpawnVehicle {
+                id,
+                car,
+                position,
+                controller,
+            } => {
+                let result = crate::controls::spawn(world, id.clone(), car, *position, *controller);
+                let (disposition, reason) = match result {
+                    Ok(()) => ("applied", "vehicle-spawned"),
+                    Err(reason) => ("rejected", reason),
+                };
+                outcome(world, &command, disposition, reason);
+            }
             ProductionCommand::InspectAssembly => crate::assembly::command(world, &command, None),
             ProductionCommand::AssemblyTransaction { transaction } => {
                 crate::assembly::command(world, &command, Some(transaction))
             }
             ProductionCommand::Reset => {
                 let has_target = world
-                    .query_filtered::<Entity, With<Vehicle>>()
+                    .query_filtered::<Entity, With<crate::controls::PlayerVehicle>>()
                     .iter(world)
                     .count()
                     == 1;
@@ -329,6 +383,10 @@ fn rejection(world: &World, command: &QueuedCommand) -> Option<&'static str> {
         return Some("controller-owner-active");
     }
     if command.source != ControllerOwner::Replay
+        && !matches!(
+            command.command,
+            ProductionCommand::Vehicle { .. } | ProductionCommand::SpawnVehicle { .. }
+        )
         && world
             .get_resource::<ReplayInput>()
             .is_some_and(|r| r.active)
@@ -376,6 +434,20 @@ fn apply_immediate(world: &mut World, command: QueuedCommand) {
         ProductionCommand::SetPaused { paused } => {
             world.resource_mut::<Session>().paused = paused;
             if paused {
+                let reset = world.resource::<DriveInput>().reset;
+                *world.resource_mut::<DriveInput>() = DriveInput {
+                    reset,
+                    ..Default::default()
+                };
+                for mut control in world
+                    .query::<&mut crate::controls::VehicleControl>()
+                    .iter_mut(world)
+                {
+                    control.input = DriveInput {
+                        reset: control.input.reset,
+                        ..Default::default()
+                    };
+                }
                 world.resource_mut::<Time<Virtual>>().pause();
             } else {
                 world.resource_mut::<Time<Virtual>>().unpause();
@@ -384,6 +456,7 @@ fn apply_immediate(world: &mut World, command: QueuedCommand) {
         }
         ProductionCommand::AssignController { controller } => {
             world.resource_mut::<ControllerAssignment>().0 = controller;
+            *world.resource_mut::<DriveInput>() = DriveInput::default();
             "controller-assigned"
         }
         ProductionCommand::ToggleMute => {
@@ -422,14 +495,14 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
         return;
     }
     let spec = world.resource::<Fleet>().cars[index].clone();
-    let mut query = world.query::<(
+    let mut query = world.query_filtered::<(
         &mut Transform,
         &mut Velocity,
         &mut ExternalForce,
         &mut Collider,
         &mut AdditionalMassProperties,
         &mut Vehicle,
-    )>();
+    ), With<crate::controls::PlayerVehicle>>();
     let Ok((mut pose, mut velocity, mut force, mut collider, mut mass, mut car)) =
         query.single_mut(world)
     else {
@@ -612,5 +685,21 @@ fn flush_on_exit(world: &mut World) {
     discard_pending(world, "run-ended");
     if let Some(mut trace) = world.get_resource_mut::<crate::diagnostics::PhysicsTrace>() {
         trace.flush();
+    }
+}
+
+/// Targeted player commands enter the same dispatch/reset ordering as legacy ingress.
+pub(crate) fn apply_targeted_player(world: &mut World, command: QueuedCommand) {
+    if matches!(command.command, ProductionCommand::Reset) {
+        if let Some(reason) = rejection(world, &command) {
+            outcome(world, &command, "rejected", reason);
+        } else if world.resource::<PendingReset>().0.is_some() {
+            outcome(world, &command, "skipped", "reset-already-pending");
+        } else {
+            world.resource_mut::<DriveInput>().reset = true;
+            world.resource_mut::<PendingReset>().0 = Some(command);
+        }
+    } else {
+        apply_immediate(world, command);
     }
 }
