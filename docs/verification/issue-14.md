@@ -101,3 +101,45 @@ joins targeted reset evidence back to its original ingress command ID/target.
 input consumption is preserved with actor identity in `controls.effective` and each
 secondary `physics.jsonl` sample's `input`. Consumers must use those streams for
 multi-vehicle evidence; treating the legacy replay stream as all actors is invalid.
+
+## Exact verification checkpoint — source `902adb5`
+
+- Format, warning-free all-target Clippy, complexity against both `ed31f39` and
+  `HEAD`, all-target Rust tests (**68 passed**), Python syntax and all 13 source-byte
+  asset checks passed. Exact logs reside in primary `artifacts/issue-14/`, named
+  `*-902adb5.log`; hashes are in `evidence-checksums.json`.
+- Checkout-local recorded release build succeeded with `rebuild_complete=true`,
+  no omissions, executable SHA-256
+  `e561e2f620e2dd97c69ebbfa8e1ac3bea9e358503c5fea3f6e337d7b80344549`.
+  Source target dependencies were copied with APFS clones from #12; recorder built
+  and bound this issue's clean source independently.
+- Recorded production headless scenario:
+  `headless/20261023T012848860135Z-902adb5-scenario-12816-1-1792718928933583000`.
+  All **5 assertions passed**, 284 completed ticks, forward 11.33329 m/s versus
+  reverse -4.541967 m/s; command/physics/input/event streams finalized with no losses.
+  Content verification reports 120 valid inventory entries, complete runtime
+  material and rebuild material, manifest SHA-256
+  `ccf2f230b7a62d88eb5e9a7f5b29c8443120aba53f9599710cfec27cbb8cbcc6`.
+  Exact runtime replay remains unproven, as explicitly reported by the bundle.
+
+## Continuation work
+
+Source handoff `902adb5` is stable for #15 integration and independent review.
+**Issue #14 is not complete and has no PR yet.** Coordinator requested releasing
+this worker slot after headless/build evidence. Resume on coordinator followup:
+
+1. Receive independent standards/spec review and fix actionable findings.
+2. Acquire coordinator GPU lock (currently #12, followed by #13 then #14).
+3. Run full offline fleet chain using this worktree's local target and isolated
+   `artifacts` symlink; preserve actual 13-car/52-capture reports.
+4. Run `independent-vehicles-metal.json` offscreen and native with recorded binary;
+   inspect actual two-model capture, confirm finalized scenario/recorder evidence.
+   Exercise applicable native live workflow; do not count unobserved input/captures.
+5. Update this document with evidence/limits and review resolutions, create stacked
+   reviewable PR against #12's branch, attach PR, notify coordinator. No merge/close.
+
+Worktree `artifacts` now points to primary `artifacts/issue-14/`. Local release
+recorded executable/sidecar are retained in this managed worktree `target/release`.
+The existing sibling `carmodels` symlink resolves all original source files. Routine
+headless checks still use shared primary target; preserve local release target for
+exact recorded runs. See `evidence-checksums.json` before using raw evidence.
