@@ -1,0 +1,267 @@
+{
+  "run": 39887029794,
+  "head": "91e67c8ed8d5c38a561f9bdafbcdcef7782430dc",
+  "local_root": "/Users/nicolas/Documents/github/car-game/artifacts/issue-96",
+  "files": [
+    {
+      "path": "controls/ci-main-bdd2bee-failed.log",
+      "bytes": 18544,
+      "sha256": "8e2fa67942c7087c9d26218e5dd790e84c764b1ae8eef907f9f09bece70deaed"
+    },
+    {
+      "path": "controls/ci-pr94-predecessor-failed.log",
+      "bytes": 18548,
+      "sha256": "116634cbfcff809d931be2e7999bb55d4b5c359c0077f8505ec8bc18a815c57d"
+    },
+    {
+      "path": "controls/pr-95-ci-failed.log",
+      "bytes": 20055,
+      "sha256": "65d094eaca0d032cb55f373b3b71d4c99c2fff32ce9e1e083aec23b98591b994"
+    },
+    {
+      "path": "probe-39887029794/baseline-build.log",
+      "bytes": 1982,
+      "sha256": "c309034f398ec2cf09b02ecffab419b0af027061c13a5a979cbc36aa6eb7fec0"
+    },
+    {
+      "path": "probe-39887029794/baseline-parallel.log",
+      "bytes": 3809,
+      "sha256": "567a5be133d142be8b62a28825f0080a28f9432aa6a75908e45961d77dfde24a"
+    },
+    {
+      "path": "probe-39887029794/baseline-serial.log",
+      "bytes": 3809,
+      "sha256": "c4c8d41dd705d51eb234a9cfc5c7747cb19d424486446c15ac191a8d747187fd"
+    },
+    {
+      "path": "probe-39887029794/cargo-clippy.log",
+      "bytes": 1598,
+      "sha256": "ef756f0b5e9039f690583fdb37d3fbc356a4e764875a55c2b6e3fee510b217bb"
+    },
+    {
+      "path": "probe-39887029794/cargo-fmt.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/cargo-test.log",
+      "bytes": 5973,
+      "sha256": "61f45afa39cbdc804acffd7729ae3ebef7029944657e07310670cab40c5c92f5"
+    },
+    {
+      "path": "probe-39887029794/codelimit.log",
+      "bytes": 250,
+      "sha256": "eac0dfdcf50561a1dbc1bf34ffaa71ecbbca0742b2a8a8562978df35bf2040b1"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-1-1792720923279032000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "43cacb925042f7e283f2bc74ac5aeafde11d801b73455f7d546d2e79b94c1a62"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-1-1792720923279032000/runs/20261023T020203430017Z-91e67c8-scenario-3363-1-1792720923693067000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-1-1792720923279032000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-1-1792720923279032000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-1-1792720923279032000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-2-1792720931338878000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "88312c0a1a9bfa4a1124256f6b23f447926bfb4db5d52833e611e280e3a3a15d"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-2-1792720931338878000/runs/20261023T020211372758Z-91e67c8-scenario-3395-1-1792720931399746000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-2-1792720931338878000/scenario.json",
+      "bytes": 224,
+      "sha256": "10067931d6f44a54592e510e05827c26fec783fae7bc9e6ba63c703b42cd3bc5"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-2-1792720931338878000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-2-1792720931338878000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-3-1792720939378897000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "59bb0b4494f214df1d1b520a8fe09a8cd28ad89852c84cd1bf9e407b665f099c"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-3-1792720939378897000/runs/20261023T020219400861Z-91e67c8-scenario-3547-1-1792720939420612000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-3-1792720939378897000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-3-1792720939378897000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-3-1792720939378897000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-4-1792720949428190000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "eae58af8e9059031b44ca6098c858c8711df38e32d1c49de6124ae5845c9a98d"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-4-1792720949428190000/runs/20261023T020229487074Z-91e67c8-scenario-3584-1-1792720949566191000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-4-1792720949428190000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-4-1792720949428190000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3362-4-1792720949428190000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-1-1792720958275410000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "fa56481d04b8ae6227bb4c75b93262631e7b1425b0be73cb1154bd639008e3af"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-1-1792720958275410000/runs/20261023T020238494424Z-91e67c8-scenario-3742-1-1792720958538790000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-1-1792720958275410000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-1-1792720958275410000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-1-1792720958275410000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-2-1792720958275422000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "868afa1a1ab15fb0f92eac035da2c2c208aa01c9fb47ebfc56dbd0a1e8d4b4ab"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-2-1792720958275422000/runs/20261023T020238494437Z-91e67c8-scenario-3743-1-1792720958540354000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-2-1792720958275422000/scenario.json",
+      "bytes": 224,
+      "sha256": "10067931d6f44a54592e510e05827c26fec783fae7bc9e6ba63c703b42cd3bc5"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-2-1792720958275422000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-2-1792720958275422000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-3-1792720958275498000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "48e1ad61e5bf0556d967724993f07a5c571a5bdfdfd6201239c7899281121174"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-3-1792720958275498000/runs/20261023T020238494438Z-91e67c8-scenario-3744-1-1792720958631990000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-3-1792720958275498000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-3-1792720958275498000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-3-1792720958275498000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-4-1792720966323157000/file-sizes.json",
+      "bytes": 276,
+      "sha256": "fa3e7acf1ffe1bf3459eede3dd89fd11d0978cfeaed1c64897fab553429feb8c"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-4-1792720966323157000/runs/20261023T020246353562Z-91e67c8-scenario-3938-1-1792720966400334000/run.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-4-1792720966323157000/scenario.json",
+      "bytes": 225,
+      "sha256": "0ce293995d2d50b39c8af4428181f1e3889c086d78b64e689179e07fe6491f11"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-4-1792720966323157000/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/failed-children/grid-shutdown-3741-4-1792720966323157000/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "probe-39887029794/workload.txt",
+      "bytes": 335,
+      "sha256": "a21f62e9105b7770378fb0a5271ba55cec65e04896722d064d868ab3fe752265"
+    },
+    {
+      "path": "probe-39887029794-job.log",
+      "bytes": 85278,
+      "sha256": "7d595daed7788d5a14207cfb648bb990b11088fa71d1916016dc8d2689c334b9"
+    }
+  ]
+}

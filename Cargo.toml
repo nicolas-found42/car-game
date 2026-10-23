@@ -19,14 +19,19 @@ opt-level = 1
 [profile.dev.package."*"]
 opt-level = 3
 
-# CI runs validate behavior, not frame rate. Dependencies stay at opt-level 0 to
-# keep cold builds short; local dev/test profiles are unchanged.
+# CI runs validate behavior, not frame rate. Most dependencies stay at opt-level 0
+# to keep cold builds short; local dev/test profiles are unchanged.
 [profile.ci]
 inherits = "dev"
 incremental = false
 debug = 0
 [profile.ci.package."*"]
 opt-level = 0
+
+# Provenance hashes the executable and prepared assets before simulation startup.
+# Keep that bounded production path optimized even in cold CI builds.
+[profile.ci.package.sha2]
+opt-level = 3
 
 [profile.release]
 lto = "thin"

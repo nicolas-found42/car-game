@@ -1,0 +1,120 @@
+[
+  {
+    "command": [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    "exit": 0,
+    "seconds": 0.132,
+    "log": "01.log"
+  },
+  {
+    "command": [
+      "cargo",
+      "clippy",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit": 0,
+    "seconds": 42.089,
+    "log": "02.log"
+  },
+  {
+    "command": [
+      "scripts/check_codelimit.sh",
+      "HEAD"
+    ],
+    "exit": 0,
+    "seconds": 0.089,
+    "log": "03.log"
+  },
+  {
+    "command": [
+      "cargo",
+      "test",
+      "--all-targets"
+    ],
+    "exit": 0,
+    "seconds": 214.628,
+    "log": "04.log"
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "compileall",
+      "-q",
+      "tools"
+    ],
+    "exit": 0,
+    "seconds": 0.05,
+    "log": "05.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/check_assets.py"
+    ],
+    "exit": 0,
+    "seconds": 0.295,
+    "log": "06.log"
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools",
+      "-p",
+      "test_*provenance*.py"
+    ],
+    "exit": 0,
+    "seconds": 0.867,
+    "log": "07.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/test_recorder_health.py"
+    ],
+    "exit": 0,
+    "seconds": 0.543,
+    "log": "08.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/test_fleet_assets.py"
+    ],
+    "exit": 0,
+    "seconds": 1.66,
+    "log": "09.log"
+  },
+  {
+    "command": [
+      "cargo",
+      "test",
+      "--test",
+      "recorder_shutdown",
+      "--",
+      "--test-threads=1"
+    ],
+    "exit": 0,
+    "seconds": 12.887,
+    "log": "10.log"
+  },
+  {
+    "command": [
+      "bash",
+      "scripts/verify.sh"
+    ],
+    "exit": 0,
+    "seconds": 491.37,
+    "log": "11.log"
+  }
+]
