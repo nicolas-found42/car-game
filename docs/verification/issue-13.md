@@ -1,19 +1,39 @@
 # Issue #13 — identity-preserving assembly snapshots
 
-Status: preflight complete; waiting for verified #12 graph prerequisite. Implementation has not started. Native GitHub dependency inspected: #13 blocked by open #12. No merge or issue closure is authorized in this workstream.
+Implementation is complete; final release/Metal evidence and independent review are pending. Native dependency #12 remains open pending human merge. No merge or issue closure is authorized. This branch is stacked on #12's graph implementation and canonical-location provenance fix.
 
-## Scope and implementation plan
+## Production contract
 
-Current requirements are #9 F01/F04/F10 and #13. Normalize versioned vehicle/part/attachment/settings/state DTOs. Store exactly one location for every independent root; descendants inherit root location and owner. DTO authority excludes Bevy Entity IDs, GPU/physics/asset handles and derived mass/query caches. Snapshot validation builds an entirely staged candidate graph, rejects unsupported versions, duplicate IDs/parents/locations, dangling references and all #12 graph invalidity before changing the active domain.
+`SnapshotAssembly { key }` runs at the fixed command boundary, serializes version 1 UTF-8 JSON, retains a named snapshot and emits `assembly.snapshot`. Standalone evidence lives under the run's `assembly-snapshots/<SHA256(key)>.json`; hashing the key prevents path interpretation. This is an assembly DTO/evidence facility, not P5's durable career storage/recovery system.
 
-Use #12's production graph and transaction rules, adding snapshot/restore commands to the same command bus. Runtime mappings must respawn into fresh ECS entities while preserving opaque domain IDs. A production scenario removes a subtree to inventory, snapshots, restores, verifies identity/state/location preservation and new ECS mappings, then reattaches the same identities. Focused rejection tests compare the complete pre/post active graph and runtime mapping. This is assembly persistence only; career durable save/recovery belongs to P5.
+`RestoreAssembly { expected_revision, source }` accepts `{"kind":"saved","key":"removed"}` or `{"kind":"inline","snapshot":<DTO>}`. It stages the entire candidate using the active catalog and #12's graph validation. Only a valid candidate replaces the ledger. The commit revision advances above both the active and saved revision, so restore cannot reopen a stale-revision window. Previously committed transaction identities and contents survive the round trip.
 
-## Integration and conflicts
+The normalized DTO stores opaque vehicle/owner/part/definition IDs, part condition and secured state, attachment rows, exclusive independent-root location rows, prerequisites, functional networks, transaction rows, snapshot tick and catalog hash. Descendants carry no duplicate owner/location. Arrays retain duplicate evidence until validation; they are not deserialized into maps that silently overwrite duplicate keys. Unknown assembly versions, catalog mismatches, dangling references, duplicate IDs/parents/root rows/occupied locations and graph invalidity reject before live state changes. Runtime handles, definitions, derived mass/COM/inertia, controller state and caches are not snapshot authority.
 
-Managed worktree: `/Users/nicolas/.codex/worktrees/issue-13-snapshots/car-game`, branch `codex/issue-13-snapshots`. Expected new owner module: `src/assembly/snapshot.rs`; minimal changes to production dispatch and scenario assertions. #14 controls agent notified of shared `runtime.rs`/`lib.rs` seams. Must rebase on the verified #12 commit before implementation. Parent coordinator owns dependency scheduling and serialized GPU access.
+`AssemblyRuntime.parts` maps durable PartId values to disposable `PartIdentity` ECS anchors. Production preparation validates these mappings against the ledger before installing graph-backed physical mass and wheel capabilities. Valid restore allocates all fresh anchors before despawning old anchors and invalidates prepared state. Same-application restore preserves the existing chassis and controls; a second freshly built production application proves that the DTO restores correctly with distinct chassis and part ECS allocations. Future visual/physics owners can consume the same part map.
 
-## Verification and evidence
+## Actual behavioral evidence
 
-Run in order: `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, `scripts/check_codelimit.sh HEAD`, `cargo test --all-targets`, plus applicable offline/live chains if physics/simulation/fleet changes require them. Shared build cache: `CARGO_TARGET_DIR=/Users/nicolas/Documents/github/car-game/target`. Raw evidence destination: primary repository `artifacts/issue-13/`; preserve scenario definition, summary, input/physics/domain events and build/asset/catalog provenance. Snapshot scenario does not require visual-only features or fabricated assets; any required capture must be real and nonblank. Jev judgment tools unavailable per coordinator, so evidence-backed review remains mandatory.
+`tests/assembly_snapshots.rs` exercises the real `build_app`, production command bus, graph transactions, scenario plugin and Rapier readback:
 
-No acceptance claim or pass evidence exists yet.
+- A non-stock authored fixture partitions existing front-left wheel/tire visual node bindings into a centered 20 kg wheel and 5 kg tire child, with respective diagonal inertias 1.6 and 0.4 kg m². It preserves the permanent pilot's intact 1320 kg aggregate. The default pilot and source assets/receipts are unchanged. The child is deliberately worn (0.37) and unsecured; restore/reattach preserves both values and the unsafe readiness result.
+- The existing scenario framework removes the wheel+tire subtree into inventory, snapshots, restores six part identities into fresh ECS anchors, and reattaches the same subtree. All four declared assertions must execute. The removed child inherits the same inventory root and owner.
+- A separate production application reserves 1024 unrelated ECS entities before startup, ensuring distinct physical/part allocations. It imports the serialized removed assembly, reads back actual Rapier mass 1295 kg and disabled front-left support, reattaches the same IDs, then reads back 1320 kg and all four enabled corners. `fresh-runtime-proof.json` retains the actual observed mappings and inspection.
+- Eleven invalid restore cases compare the complete ledger and live runtime mappings, preparation revision, wheel mask and generation before/after, and require eleven actual production restore rejection outcomes.
+- `examples/scenarios/assembly-snapshot.json` independently exercises the permanent five-part pilot via the ordinary CLI with no custom runner.
+
+## Reproduction and retained evidence
+
+Managed worktree: `/Users/nicolas/.codex/worktrees/issue-13-snapshots/car-game`; branch: `codex/issue-13-snapshots`. Primary raw evidence: `/Users/nicolas/Documents/github/car-game/artifacts/issue-13/`. Failed development attempts remain identifiable alongside final successful runs; they are not acceptance evidence.
+
+```sh
+export CARGO_TARGET_DIR=/Users/nicolas/Documents/github/car-game/target
+cargo fmt --check
+cargo clippy --all-targets -- -D warnings
+scripts/check_codelimit.sh HEAD
+ASSEMBLY_SNAPSHOT_EVIDENCE=/Users/nicolas/Documents/github/car-game/artifacts/issue-13/production-snapshots cargo test --all-targets
+```
+
+The ordered ladder log is `artifacts/issue-13/verification-ladder.log`. Routine checks use the shared debug cache. Recorded release builds use the checkout-local release target and `python3 tools/record_build.py --profile release`; this prevents another worktree from overwriting the bound executable. GPU use is serialized by the parent coordinator. Exact release run IDs, hashes, validation and review results will be appended after completion.
+
+Jev judgment tools are unavailable in this session; the independent source review and real execution evidence remain required.

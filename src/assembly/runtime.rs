@@ -2,8 +2,10 @@ use super::*;
 use crate::{diagnostics::RunHandle, roster::CarSpec, vehicle::Vehicle};
 use bevy_rapier3d::prelude::AdditionalMassProperties;
 /// Derived runtime mappings are deliberately excluded from serialized Assembly.
-#[derive(Resource, Default)]
+#[derive(Resource, Default, Clone)]
 pub struct AssemblyRuntime {
+    pub parts: BTreeMap<PartId, Entity>,
+    pub generation: u64,
     pub bodies: BTreeMap<VehicleId, Entity>,
     pub applied_revision: Option<u64>,
     pub wheel_enabled: [bool; 4],
@@ -12,7 +14,12 @@ pub struct AssemblyPlugin;
 impl Plugin for AssemblyPlugin {
     fn build(&self, app: &mut App) {
         app.init_resource::<AssemblyRuntime>()
-            .add_systems(PostStartup, initialize)
+            .init_resource::<SnapshotStore>()
+            .init_resource::<super::snapshot::SnapshotOrigins>()
+            .add_systems(
+                PostStartup,
+                (initialize, super::snapshot::initialize).chain(),
+            )
             .add_systems(FixedUpdate, prepare.before(crate::vehicle::simulate));
     }
 }
@@ -27,6 +34,7 @@ fn prepare(
     spec: Res<CarSpec>,
     mut runtime: ResMut<AssemblyRuntime>,
     mut cars: Query<(Entity, &mut AdditionalMassProperties), With<Vehicle>>,
+    identities: Query<&PartIdentity>,
 ) {
     if spec.id != "350z" {
         runtime.applied_revision = None;
@@ -35,6 +43,16 @@ fn prepare(
     }
     if runtime.applied_revision == Some(assembly.revision) {
         return;
+    }
+    // Resolve persistent parts through disposable runtime anchors. Rendering and
+    // the physical adapter share this map; restore replaces every anchor.
+    assert_eq!(runtime.parts.len(), assembly.parts.len());
+    for (id, entity) in &runtime.parts {
+        assert_eq!(
+            &identities.get(*entity).expect("prepared part mapping").0,
+            id
+        );
+        assembly.part(id).expect("mapped ledger part");
     }
     let mass = assembly.aggregate().expect("validated assembly").rapier();
     runtime.wheel_enabled = assembly.wheel_mask().expect("validated capability");

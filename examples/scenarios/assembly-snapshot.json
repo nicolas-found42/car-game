@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "name": "assembly-snapshot",
+  "scene": "driving",
+  "seed": 13,
+  "initial": {
+    "car": "350z"
+  },
+  "max_ticks": 30,
+  "max_wall_ms": 10000,
+  "readiness_timeout_ms": 1000,
+  "commands": [
+    {
+      "tick": 2,
+      "command": {
+        "action": "assembly_transaction",
+        "transaction": {
+          "id": "remove",
+          "expected_revision": 0,
+          "part": "350z-wheel-0",
+          "destination": {
+            "kind": "root",
+            "location": {
+              "kind": "inventory",
+              "owner": "sandbox",
+              "slot": "rack-0"
+            }
+          }
+        }
+      }
+    },
+    {
+      "tick": 4,
+      "command": {
+        "action": "snapshot_assembly",
+        "key": "removed"
+      }
+    },
+    {
+      "tick": 6,
+      "command": {
+        "action": "restore_assembly",
+        "expected_revision": 1,
+        "source": {
+          "kind": "saved",
+          "key": "removed"
+        }
+      }
+    },
+    {
+      "tick": 8,
+      "command": {
+        "action": "assembly_transaction",
+        "transaction": {
+          "id": "reattach-same",
+          "expected_revision": 2,
+          "part": "350z-wheel-0",
+          "destination": {
+            "kind": "mounted",
+            "parent": "350z-chassis",
+            "mount": "wheel-0"
+          }
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "tick": 3,
+      "kind": "assembly_state",
+      "revision": 1,
+      "mass": 1295,
+      "readiness": "incomplete-inoperable"
+    },
+    {
+      "tick": 5,
+      "kind": "snapshot_matches",
+      "key": "removed",
+      "fresh_entities": false
+    },
+    {
+      "tick": 7,
+      "kind": "snapshot_matches",
+      "key": "removed",
+      "fresh_entities": true
+    },
+    {
+      "tick": 9,
+      "kind": "assembly_state",
+      "revision": 3,
+      "mass": 1320,
+      "readiness": "ready"
+    }
+  ]
+}
