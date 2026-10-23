@@ -542,6 +542,24 @@ fn simultaneous_cars_use_independent_geometry_inputs_and_exclusive_controllers()
         })
         .count();
     assert_eq!(rejected, 2);
+    let targeted_reset = events
+        .iter()
+        .find(|event| {
+            event["kind"] == "vehicle.reset"
+                && event["fields"]["vehicle_id"] == "pilot-350z"
+                && event["command_id"].is_string()
+        })
+        .unwrap();
+    let ingress: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("commands.jsonl"))
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str(line).unwrap())
+        .collect();
+    let original = ingress
+        .iter()
+        .find(|command| command["command_id"] == targeted_reset["command_id"])
+        .unwrap();
+    assert_eq!(original["command"]["target"], "pilot-350z");
     let first_geometry = &summary["results"][0]["observed"];
     let second_geometry = &summary["results"][1]["observed"];
     assert_ne!(first_geometry["radii"], second_geometry["radii"]);
