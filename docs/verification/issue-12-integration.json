@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "issue": 12,
+  "combined_source": "4fa5ef6b9e0973844ec943d69934d2c5ae116642",
+  "integrated_main": "2fbd42a439724e27d1e88a7e068b5ffe830ac36e",
+  "raw_evidence_root": "/Users/nicolas/Documents/github/car-game/artifacts/issue-12/integration-main-20261023",
+  "rust_tests": 66,
+  "provenance_tests": 17,
+  "review": {
+    "standards_findings": 0,
+    "spec_findings": 0
+  },
+  "runs": {
+    "assembly-bounded": {
+      "run_id": "20261023T070742150802Z-4fa5ef6-scenario-63643-1-1792739262167491000",
+      "index_sha256": "96fbbbb97f4681287594ef1f915158757a75032d6072aeb0a4346834b80279b0",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      }
+    },
+    "driving-scenario": {
+      "run_id": "20261023T070743708673Z-4fa5ef6-scenario-63737-1-1792739263728172000",
+      "index_sha256": "0a2d079b50cb88d70d0c3cd707f3f9b2c1b261c9892772656f69e55fc7b40a6e",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      }
+    },
+    "recorded-fleet": {
+      "run_id": "20261023T070749598849Z-4fa5ef6-fleet-63838-1-1792739269617241000",
+      "index_sha256": "00893fcb79f57f055222d3fa7e556d3a38e603704023612608702d811892cf59",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "path": "logs/assembly-bounded-health.json",
+      "sha256": "3d51034fca25eb9009b949a5301280e2cc2f4d5f1cd4a27324043ebdf9cfff28",
+      "bytes": 469
+    },
+    {
+      "path": "logs/assembly-bounded-provenance.json",
+      "sha256": "61d1412dd18b3fa41e0b6011977762245f762048c2c537efcbc4ec4a1615e06b",
+      "bytes": 3633
+    },
+    {
+      "path": "logs/assembly-scenario-bounded.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "logs/assembly-scenario.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "logs/assets.log",
+      "sha256": "d2f361295df385ede175c98eabe1c6865d621ab3c32552592334e8ec46165db6",
+      "bytes": 249
+    },
+    {
+      "path": "logs/clippy.log",
+      "sha256": "021cb40511591718bfa725321db43c564ec218ca50d52eb664f119cc8440715f",
+      "bytes": 147
+    },
+    {
+      "path": "logs/complexity-head.log",
+      "sha256": "94e5909c6d75b6920c37e342e31f9f9629d16e286e8259942eb684dbc7c4b2c3",
+      "bytes": 244
+    },
+    {
+      "path": "logs/complexity-true-base.log",
+      "sha256": "6c03ffa7f03049cc4d99e5b665212040b9102f9c5be60bf9611b06e41c511ecd",
+      "bytes": 408
+    },
+    {
+      "path": "logs/driving-scenario-health.json",
+      "sha256": "8c27987d99f89805d913a546548294536784051768f3938995363475a7d51003",
+      "bytes": 474
+    },
+    {
+      "path": "logs/driving-scenario-provenance.json",
+      "sha256": "64a87f622f464c81fa599d6c49c41a73381ab3dec837d4e3918e039111602f5d",
+      "bytes": 3668
+    },
+    {
+      "path": "logs/driving-scenario.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "logs/fleet-assets.log",
+      "sha256": "57cac0653a92e494cee73fc011cbe2557b7cc9a6ad00b240374f0446a8a1aaf6",
+      "bytes": 988
+    },
+    {
+      "path": "logs/fmt.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "logs/outer-lease.log",
+      "sha256": "d99edc152b4eccaf8295f5256e7826e96f56f7a6aa2c2c19aed4e94470c4055f",
+      "bytes": 959
+    },
+    {
+      "path": "logs/provenance.log",
+      "sha256": "0444cbb217cc34e6ccc08f4c561cb2d0c5e3efd14873f9922fa32707cd6f7697",
+      "bytes": 116
+    },
+    {
+      "path": "logs/python-syntax.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "logs/recorded-build.log",
+      "sha256": "38600395279a704e03481b50dd4c1bec5896348bdc947188af98d44658e4a1dd",
+      "bytes": 340
+    },
+    {
+      "path": "logs/recorded-fleet-health.json",
+      "sha256": "869e33dd201d58576fe56a37b13cc18758550cd03fd314a62d8d716973afb1b0",
+      "bytes": 488
+    },
+    {
+      "path": "logs/recorded-fleet-provenance.json",
+      "sha256": "e54291221c97e7ef9079d29140b6a84e6f41daea732d07139dfd366ab90b5ccf",
+      "bytes": 3976
+    },
+    {
+      "path": "logs/recorded-fleet.log",
+      "sha256": "6b6baafac1d537f42fa0e8b9fd4f928d388923277f4fa57e1a8db71a56421106",
+      "bytes": 68145
+    },
+    {
+      "path": "logs/recorded-verify_fleet.py.log",
+      "sha256": "3ac8252347b8680e5c525bda2c35547aabb9d8c5f20925bbdc7143e0f89d2ee9",
+      "bytes": 360
+    },
+    {
+      "path": "logs/recorded-verify_run.py.log",
+      "sha256": "23b3afe7bf108acdd7e4b986e5ae073e818653b9036910d9d401376edd749a4b",
+      "bytes": 115
+    },
+    {
+      "path": "logs/recorder-health.log",
+      "sha256": "d44cf281f712aa346a9c9be0156400bd0513a522a18ea3d787b177ce53dfce7f",
+      "bytes": 105
+    },
+    {
+      "path": "logs/tests.log",
+      "sha256": "7cfac129b4db196f4dde411c43ff70f2621910f4660467168886089f4a15227d",
+      "bytes": 6367
+    },
+    {
+      "path": "logs/verify-20261023T071239Z.log",
+      "sha256": "46395f8aa2a58eba61aa072d04f788065207bdf3c99eb7440f610b664d183c0b",
+      "bytes": 7226
+    }
+  ],
+  "failed_capture_attempt": {
+    "run_id": "20261023T070636067267Z-4fa5ef6-scenario-63319-1-1792739196092446000",
+    "passed": false,
+    "assertions_passed": 4,
+    "failure": "tick-limit",
+    "max_ticks": 30,
+    "rerun_fixture": "assembly-capture-bounded.json",
+    "rerun_max_ticks": 900,
+    "production_code_changed": false
+  }
+}

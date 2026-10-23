@@ -2,6 +2,8 @@
 
 Review: [PR #95](https://github.com/nicolas-found42/car-game/pull/95), open against `main`. Stop before merge. Issue #12 remains open until merge; downstream work consumes the stacked branch.
 
+Resumed after CI repair #102: [combined-source verification and completed review](issue-12-integration.md), [fresh integration receipt](issue-12-integration.json). The original results and CI failure discussion below remain historical; final normal CI status is on PR #95.
+
 Owner worktree: `issue-12-assembly`, branch `codex/issue-12-assembly`, based on main `bdd2bee` (merged #10/#11/#87/#88). Current #9 and #12 read in full. No predecessor PR was open to reconcile. Native issue blockers remain open until user-approved merge; this branch provides a stacked code prerequisite only.
 
 ## Implemented seam
