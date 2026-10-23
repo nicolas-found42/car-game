@@ -240,6 +240,62 @@ fn invalid_snapshots(snapshot: &AssemblySnapshot) -> Vec<AssemblySnapshot> {
     next.prerequisites
         .push((PartId::from("350z-chassis"), PartId::from("dangling")));
     invalid.push(next);
+    for (parent, mount, expected_revision) in [
+        ("dangling", "wheel-0", 0),
+        ("350z-wheel-0", "wheel-0", 0),
+        ("350z-chassis", "missing-mount", 0),
+        ("350z-chassis", "wheel-0", 1),
+    ] {
+        let mut next = snapshot.clone();
+        next.revision = 1;
+        next.committed.push(Transaction {
+            id: TransactionId::from("forged-history"),
+            expected_revision,
+            part: PartId::from("350z-wheel-0"),
+            destination: Attachment::Mounted {
+                parent: PartId::from(parent),
+                mount: mount.into(),
+            },
+        });
+        invalid.push(next);
+    }
+    for location in [
+        Location::Inventory {
+            owner: OwnerId::from("other"),
+            slot: "rack".into(),
+        },
+        Location::Inventory {
+            owner: OwnerId::from("sandbox"),
+            slot: String::new(),
+        },
+        Location::Vehicle {
+            owner: OwnerId::from("sandbox"),
+            vehicle: VehicleId::from("unknown"),
+        },
+    ] {
+        let mut next = snapshot.clone();
+        next.revision = 1;
+        next.committed.push(Transaction {
+            id: TransactionId::from("forged-location"),
+            expected_revision: 0,
+            part: PartId::from("350z-wheel-0"),
+            destination: Attachment::Root { location },
+        });
+        invalid.push(next);
+    }
+    let mut next = snapshot.clone();
+    next.revision = 1;
+    next.parts[1].definition = DefinitionId::from("unknown-with-history");
+    next.committed.push(Transaction {
+        id: TransactionId::from("unknown-definition-history"),
+        expected_revision: 0,
+        part: next.parts[1].id.clone(),
+        destination: Attachment::Mounted {
+            parent: PartId::from("350z-chassis"),
+            mount: "wheel-0".into(),
+        },
+    });
+    invalid.push(next);
     invalid
 }
 
