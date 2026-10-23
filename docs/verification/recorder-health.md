@@ -208,3 +208,50 @@ result. The normal gameplay checker rejects both the lost-record control and the
 intentional scenario failure. Raw and portable verification reports are retained
 alongside the cases. Content integrity is kept separate from recorder/gameplay
 acceptance.
+
+## Final source confirmation
+
+The final production implementation at clean commit `3fa8a6e` was rebuilt with
+`tools/record_build.py`: binary SHA-256
+`295c5416b8b26145d49fd312448211c6d0e6a8194fcb2d109baa15a5e0ce657c`,
+with complete compiler/source binding and no declared build omissions.
+`production-shipping/` repeats the valid, shortened-history and long incident
+controls on that build. All three have the expected app/checker outcomes and
+pass content integrity. The resource measurement ran before the verification
+chains, without concurrent benchmarks.
+
+The final long run is
+`production-shipping/long-incident/runs/20261023T001908206742Z-3fa8a6e-scenario-43017-1-1792714748223433000`.
+Its incident contains completed actor evidence for every canonical tick 404–4003
+(3,600 ticks), the single reset command and its correlated `vehicle.reset`, plus
+commands/events/inputs/physics. It exports 24,150 records, allocates exactly one
+incident snapshot, and finishes with `incident_pending: false` and no capacity
+evictions. Final history accounts for 24,059,520 bytes/24,153 records. Queue
+high-water is 25 records/25,088 bytes.
+
+Final producer p50/p95/p99 upper bounds are 16.4/32.8/32.8 µs; maximum 259 µs.
+Producer elapsed total is 298.3 ms (0.85% of 35.279 s whole-process wall time),
+writer 49.7 ms, worker flush/sync 1.494 s across 74 observations (maximum 26.6 ms),
+and incident export 17.9 ms. Total child CPU is 8.473 s and the process-set peak
+RSS upper bound 280.3 MiB. The measurement-scope qualifications above still apply.
+
+
+Final verification passed: `cargo fmt --check`, Clippy with warnings denied, code
+limits against both HEAD and base `db5bcd6`, all 56 Rust tests, Python syntax,
+7 health-checker/17 provenance/7 asset-tool tests, asset integrity, `scripts/verify.sh`
+and `scripts/verify_live.sh`. Both final fleet chains validated all thirteen drive
+scripts, all wheel animations and 52 captures each. Standards and Spec reviews
+have no remaining substantive findings. Logs and `verification.json` retain the
+commands and selected runs.
+
+The live command used `RUST_LOG=warn,bevy_winit=info CAR_GAME_MUTE=1 bash
+scripts/verify_live.sh`: the script needs its INFO-level window-creation message.
+The first inherited `RUST_LOG=warn` run rejected a quiet startup log; that attempt
+is retained. The successful timeout probe proves native-window startup, while its
+recording is correctly reported unknown after an unclean exit. It is not counted
+as a completed recording. A separate compiler-bound native process received one
+direct SIGTERM, exited 0, and passed health inspection with a finalized durable
+boundary matching its completed tick (see `native-single-sigterm-final/`).
+
+The `run.exit` event carries the requested application exit code. Manifest exit
+and final recorder health describe the eventual recording/finalization outcome.
