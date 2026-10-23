@@ -5,6 +5,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      cold_build:
+        description: "Measure a full build without restoring or saving Rust artifacts"
+        type: boolean
+        default: false
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -28,7 +33,24 @@ jobs:
         run: |
           rustup toolchain install stable --profile minimal --component rustfmt --component clippy
           rustup default stable
+      - name: Record compiler and runner
+        run: |
+          mkdir -p artifacts/logs
+          {
+            git rev-parse HEAD HEAD^{tree}
+            rustc -Vv
+            cargo -V
+            sw_vers
+            sysctl hw.physicalcpu hw.logicalcpu hw.memsize machdep.cpu.brand_string
+            clang --version
+          } | tee artifacts/logs/build-environment.log
+      - name: Require an empty target for a cold measurement
+        if: ${{ inputs.cold_build == true }}
+        run: |
+          test ! -e target
+          echo "Cold build: no Rust artifact cache restored."
       - name: Cache Rust build
+        if: ${{ inputs.cold_build != true }}
         uses: Swatinem/rust-cache@v2
         with:
           # Seed a compact level-1 inventory, without old level-0 artifact variants.
@@ -46,11 +68,11 @@ jobs:
         run: |
           set -o pipefail
           mkdir -p artifacts/logs
-          cargo test --locked --all-targets --profile ci 2>&1 | tee artifacts/logs/cargo-test.log
+          cargo test --locked --all-targets --profile ci --timings 2>&1 | tee artifacts/logs/cargo-test.log
       - name: Clippy
         run: |
           mkdir -p artifacts/logs
-          cargo clippy --locked --all-targets --profile ci -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
+          cargo clippy --locked --all-targets --profile ci --timings -- -D warnings 2>&1 | tee artifacts/logs/cargo-clippy.log
       - uses: actions/setup-python@v5
         with:
           # codelimit 0.21 supports Python 3.10–3.14, not the host's future default.
@@ -85,5 +107,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gridd-ci-logs
-          path: artifacts/logs
+          path: |
+            artifacts/logs
+            target/cargo-timings
           if-no-files-found: warn

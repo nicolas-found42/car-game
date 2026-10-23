@@ -4,6 +4,8 @@ mod policy;
 mod source;
 mod store;
 
+pub(crate) use store::hash_file;
+
 use serde_json::{Value, json};
 use std::{env, fs, io, path::Path};
 use store::Entry;
