@@ -635,6 +635,16 @@ pub struct InputSample {
 
 #[derive(Serialize, Clone, Debug)]
 pub struct PhysicsSample {
+    pub envelope: Option<crate::telemetry::Envelope>,
+    pub vehicle_id: crate::assembly::VehicleId,
+    pub body_part_id: Option<crate::assembly::PartId>,
+    pub backend_applied: Option<crate::physics::ForceSample>,
+    pub body_id: String,
+    pub boundary: &'static str,
+    pub query_mode: &'static str,
+    pub integration_steps: u32,
+    pub evidence: crate::physics::StepEvidence,
+    pub phase_durations: crate::physics::PhaseDurations,
     pub step: u64,
     pub tick: u64,
     pub actor_id: String,

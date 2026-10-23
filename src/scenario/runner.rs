@@ -275,6 +275,20 @@ fn observe(
             key,
             fresh_entities,
         } => crate::assembly::snapshot::observe_snapshot(world, key, *fresh_entities),
+        AssertionKind::PhysicsState {
+            vehicle,
+            grounded,
+            collider,
+            outcome,
+            min_forward_mps,
+        } => crate::physics::recording::assert_completed(
+            world,
+            vehicle,
+            *grounded,
+            collider.as_deref(),
+            outcome,
+            *min_forward_mps,
+        ),
         AssertionKind::VehicleState {
             vehicle,
             car,

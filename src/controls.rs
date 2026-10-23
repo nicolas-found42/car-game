@@ -72,6 +72,10 @@ pub fn spawn(
     position: [f32; 3],
     owner: ControllerOwner,
 ) -> Result<(), &'static str> {
+    // The selected player's legacy evidence actor must remain globally unique.
+    if id.0 == "player-vehicle" {
+        return Err("reserved-vehicle-id");
+    }
     if id.0.is_empty()
         || world
             .query::<&VehicleControl>()
@@ -96,6 +100,10 @@ pub fn spawn(
     let pose = Transform::from_translation(Vec3::from_array(position));
     world
         .spawn(crate::vehicle::chassis_bundle(&spec, pose))
+        .insert(crate::physics::ColliderIdentity(format!(
+            "{}:chassis",
+            id.0
+        )))
         .insert(VehicleControl::new(id, spec, owner));
     Ok(())
 }

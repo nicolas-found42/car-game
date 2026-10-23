@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "name": "synchronized-physics-metal",
+  "scene": "driving",
+  "seed": 15,
+  "initial": {
+    "car": "350z"
+  },
+  "max_ticks": 180,
+  "max_wall_ms": 15000,
+  "readiness_timeout_ms": 5000,
+  "commands": [
+    {
+      "tick": 1,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "insert_road",
+          "id": "fixture:road-a",
+          "position": [
+            3.2,
+            9.8,
+            190
+          ],
+          "half_extents": [
+            8,
+            0.2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "relocate_vehicle",
+          "vehicle": "pilot-350z",
+          "position": [
+            3.2,
+            10.62,
+            190
+          ],
+          "rotation_y": 0
+        }
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "drive",
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0
+      }
+    },
+    {
+      "tick": 2,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "remove_collider",
+          "id": "fixture:road-a"
+        }
+      }
+    },
+    {
+      "tick": 3,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "insert_road",
+          "id": "fixture:road-b",
+          "position": [
+            13.2,
+            9.8,
+            190
+          ],
+          "half_extents": [
+            8,
+            0.2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "tick": 3,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "relocate_vehicle",
+          "vehicle": "pilot-350z",
+          "position": [
+            13.2,
+            10.62,
+            190
+          ],
+          "rotation_y": 0
+        }
+      }
+    },
+    {
+      "tick": 4,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "insert_road",
+          "id": "fixture:road-c",
+          "position": [
+            23.2,
+            9.8,
+            190
+          ],
+          "half_extents": [
+            8,
+            0.2,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "tick": 4,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "insert_road",
+          "id": "fixture:deck",
+          "position": [
+            0,
+            2,
+            0
+          ],
+          "half_extents": [
+            8,
+            0.2,
+            8
+          ],
+          "parent": "fixture:road-b"
+        }
+      }
+    },
+    {
+      "tick": 4,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "relocate_vehicle",
+          "vehicle": "pilot-350z",
+          "position": [
+            13.2,
+            12.62,
+            190
+          ],
+          "rotation_y": 0
+        }
+      }
+    },
+    {
+      "tick": 5,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "reparent_collider",
+          "id": "fixture:deck",
+          "parent": "fixture:road-c",
+          "position": [
+            0,
+            2,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "tick": 5,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "relocate_vehicle",
+          "vehicle": "pilot-350z",
+          "position": [
+            23.2,
+            12.62,
+            190
+          ],
+          "rotation_y": 0
+        }
+      }
+    },
+    {
+      "tick": 6,
+      "command": {
+        "action": "reset"
+      }
+    },
+    {
+      "tick": 7,
+      "command": {
+        "action": "physics_edit",
+        "edit": {
+          "edit": "relocate_vehicle",
+          "vehicle": "pilot-350z",
+          "position": [
+            3.2,
+            0.62,
+            190
+          ],
+          "rotation_y": 0
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "tick": 1,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": "fixture:road-a",
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 2,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 0,
+      "collider": null,
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 3,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": "fixture:road-b",
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 4,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": "fixture:deck",
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 5,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": "fixture:deck",
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 6,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 0,
+      "collider": null,
+      "outcome": "reset",
+      "min_forward_mps": -0.001
+    },
+    {
+      "tick": 7,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": null,
+      "outcome": "integrated",
+      "min_forward_mps": 0.001
+    },
+    {
+      "tick": 100,
+      "kind": "physics_state",
+      "vehicle": "pilot-350z",
+      "grounded": 4,
+      "collider": null,
+      "outcome": "integrated",
+      "min_forward_mps": 0.1
+    }
+  ],
+  "required_capture": true
+}

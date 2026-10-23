@@ -1,12 +1,11 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
 use crate::{
     controls::{PlayerVehicle, VehicleControl},
-    diagnostics::{InputSample, PhysicsSample, PhysicsTrace, RunHandle},
+    diagnostics::PhysicsSample,
     roster::{CarSpec, Fleet},
 };
-use bevy::{app::AppExit, prelude::*};
+use bevy::prelude::*;
 use bevy_rapier3d::prelude::*;
-use serde_json::json;
 
 pub const STEP: f32 = 1.0 / 120.0;
 pub const MASS: f32 = 1320.0;
@@ -76,7 +75,24 @@ impl Plugin for VehiclePlugin {
             })
             .add_plugins(RapierPhysicsPlugin::<NoUserData>::default().in_fixed_schedule())
             .add_systems(Startup, spawn_vehicle)
-            .add_systems(FixedUpdate, simulate.before(PhysicsSet::SyncBackend));
+            .add_plugins(crate::physics::PhysicsAdapterPlugin)
+            .add_systems(
+                FixedUpdate,
+                simulate
+                    .after(crate::physics::PhysicsPhase::Prepare)
+                    .before(PhysicsSet::SyncBackend)
+                    .run_if(|mode: Res<crate::physics::QueryMode>| {
+                        *mode == crate::physics::QueryMode::LegacyPreSync
+                    }),
+            )
+            .add_systems(
+                FixedUpdate,
+                simulate
+                    .in_set(crate::physics::PhysicsPhase::Mechanics)
+                    .run_if(|mode: Res<crate::physics::QueryMode>| {
+                        *mode == crate::physics::QueryMode::Synchronized
+                    }),
+            );
     }
 }
 
@@ -107,6 +123,7 @@ fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
     let spec = spec.clone();
     commands.spawn(chassis_bundle(&spec, spawn_pose())).insert((
         PlayerVehicle,
+        crate::physics::ColliderIdentity("pilot-350z:chassis".into()),
         VehicleControl::new(
             crate::assembly::VehicleId::from("pilot-350z"),
             spec,
@@ -119,6 +136,7 @@ pub fn chassis_bundle(spec: &CarSpec, pose: Transform) -> impl Bundle {
     (
         Name::new("Vehicle chassis"),
         Vehicle::default(),
+        crate::physics::StepEvidence::default(),
         pose,
         RigidBody::Dynamic,
         chassis_collider(spec),
@@ -150,7 +168,7 @@ pub fn recovery_pose(position: Vec3) -> Transform {
     }
 }
 
-// Bevy ECS query includes independent per-chassis state and selected-player marker.
+// The same force solver is selected on either side of synchronization for baseline comparison.
 #[allow(
     clippy::too_many_arguments,
     clippy::too_many_lines,
@@ -158,112 +176,60 @@ pub fn recovery_pose(position: Vec3) -> Transform {
 )]
 pub(crate) fn simulate(
     context: ReadRapierContext,
+    mode: Res<crate::physics::QueryMode>,
+    current: Res<crate::physics::CurrentQueries>,
     assembly: Option<Res<crate::assembly::AssemblyRuntime>>,
-    fixed_time: Res<Time<Fixed>>,
-    spec: Res<CarSpec>,
-    mut input: ResMut<DriveInput>,
-    clock: Option<Res<crate::runtime::SimulationClock>>,
-    assignment: Option<Res<crate::runtime::ControllerAssignment>>,
-    mut pending_reset: Option<ResMut<crate::runtime::PendingReset>>,
-    mut trace: Option<ResMut<PhysicsTrace>>,
-    recorder: Option<Res<RunHandle>>,
-    mut exit: Option<MessageWriter<AppExit>>,
+    ledger: Option<Res<crate::assembly::Assembly>>,
     mut cars: Query<(
         Entity,
-        &mut Transform,
-        &mut Velocity,
+        &Transform,
+        &Velocity,
         &mut ExternalForce,
         &mut Vehicle,
-        &mut VehicleControl,
-        Option<&PlayerVehicle>,
+        &VehicleControl,
+        &mut crate::physics::StepEvidence,
     )>,
 ) {
-    let Ok(context) = context.single() else {
-        return;
-    };
-    let do_reset = std::mem::take(&mut input.reset);
-    let step = trace.as_ref().map_or(0, |t| t.step());
-    let tick = clock.as_ref().map_or(step, |c| c.current);
-    let controller = assignment.as_ref().map(|a| a.0);
-    if let Some(trace) = trace.as_mut() {
-        trace.record_input(InputSample {
-            step,
-            tick,
-            controller,
-            throttle: input.throttle,
-            brake: input.brake,
-            steer: input.steer,
-            handbrake: input.handbrake,
-            reset: do_reset,
-        });
-    }
-    if let Some(recorder) = recorder.as_ref() {
-        let mut envelope = recorder.envelope();
-        envelope.tick = tick;
-        envelope.boundary = "fixed_consumption".into();
-        envelope.actor_id = Some("player-vehicle".into());
-        recorder.event_envelope("controls.effective", json!({"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
-    }
-    for (entity, mut pose, mut velocity, mut total, mut car, mut control, player) in &mut cars {
-        let is_player = player.is_some();
-        if is_player {
-            control.spec = spec.clone();
-            control.owner = controller.unwrap_or_default();
-            control.input = *input;
-            control.input.reset = do_reset;
-        }
-        let spec = control.spec.clone();
-        let mut input = control.input;
-        let do_reset = std::mem::take(&mut input.reset);
-        control.input.reset = false;
-        let controller = Some(control.owner);
-        let actor_id = if is_player {
-            "player-vehicle".to_string()
+    let context = context.single().ok();
+    for (entity, pose, velocity, mut total, mut car, control, mut evidence) in &mut cars {
+        let spec = &control.spec;
+        let input = control.input;
+        let revision = crate::physics::recording::assembly_revision(
+            entity,
+            &control.id,
+            ledger.as_deref(),
+            assembly.as_deref(),
+        );
+        evidence.assembly_revision = revision.map(|r| r.0);
+        evidence.assembly_generation = revision.map(|r| r.1);
+        evidence.assembly_binding = if revision.is_some() {
+            "bound"
         } else {
-            control.id.0.clone()
-        };
-        if !is_player && let Some(recorder) = recorder.as_ref() {
-            let mut envelope = recorder.envelope();
-            envelope.tick = tick;
-            envelope.boundary = "fixed_consumption".into();
-            envelope.actor_id = Some(actor_id.clone());
-            recorder.event_envelope("controls.effective", json!({"vehicle_id":control.id,"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
+            "no_assembly_binding"
         }
-        if do_reset || pose.translation.y < -12.0 {
-            let before = json!({"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":car.reset_count});
-            *pose = recovery_pose(pose.translation);
-            *velocity = Velocity::zero();
-            *total = ExternalForce::default();
-            let count = car.reset_count + 1;
-            *car = Vehicle::default();
-            car.previous = *pose;
-            car.reset_count = count;
-            let request = if is_player {
-                pending_reset.as_mut().and_then(|p| p.0.take())
-            } else {
-                control.pending_reset.take()
-            };
-            if let Some(recorder) = recorder.as_ref() {
-                let requested = request
-                    .as_ref()
-                    .map(|r| r.intent.as_ref().unwrap_or(&r.command));
-                let requested = serde_json::to_value(requested).expect("command");
-                let mut envelope = recorder.envelope();
-                envelope.tick = tick;
-                envelope.boundary = "applied_tick".into();
-                envelope.actor_id = Some(actor_id.clone());
-                if let Some(request) = request {
-                    envelope.command_id = request.envelope.command_id;
-                    envelope.correlation_id = request.envelope.correlation_id;
-                    envelope.span = request.envelope.span;
-                }
-                recorder.event_envelope("vehicle.reset", json!({"vehicle_id":control.id,"requested_command":requested,"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
-            } else if is_player && let Some(pending) = pending_reset.as_mut() {
-                pending.0 = None;
-            }
+        .into();
+        evidence.query_tick = current.tick;
+        evidence.query_boundary = if *mode == crate::physics::QueryMode::Synchronized {
+            "synchronized_pre_step"
+        } else {
+            "previous_step_queries"
+        }
+        .into();
+        evidence.geometry_revision = current.revision;
+        evidence.mass = context.as_ref().and_then(|c| c.rigidbody_set.mass(entity));
+        let force_center = context
+            .as_ref()
+            .and_then(|c| c.rigidbody_set.center_of_mass(entity))
+            .unwrap_or(pose.translation);
+        evidence.center_of_mass = force_center.to_array();
+        if evidence.outcome == "reset" {
             continue;
         }
-        car.previous = *pose;
+        *total = ExternalForce::default();
+        if *mode == crate::physics::QueryMode::LegacyPreSync && context.is_none() {
+            evidence.outcome = "unavailable_context".into();
+            continue;
+        }
         let center = pose.translation;
         let up = pose.rotation * Vec3::Y;
         let forward = pose.rotation * Vec3::NEG_Z;
@@ -281,42 +247,81 @@ pub(crate) fn simulate(
         *total = ExternalForce::default();
 
         for (i, mount) in spec.mounts().iter().enumerate() {
-            if is_player
-                && spec.id == "350z"
-                && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i])
-            {
+            let origin = center + pose.rotation * *mount;
+            evidence.wheels[i] = crate::physics::WheelSample {
+                corner: i,
+                part_id: revision.and_then(|_| {
+                    ledger.as_ref().and_then(|a| {
+                        a.parts
+                            .iter()
+                            .find(|p| {
+                                matches!(a.definitions[&p.definition].collision,
+                        crate::assembly::CollisionBinding::RaycastWheel { corner } if corner == i)
+                            })
+                            .map(|p| p.id.clone())
+                    })
+                }),
+                availability: "miss".into(),
+                origin: origin.to_array(),
+                direction: (-up).to_array(),
+                range: REST + spec.radii[i],
+                ..default()
+            };
+            if revision.is_some() && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i]) {
+                evidence.wheels[i].availability = "wheel_absent".into();
                 ray_misses += 1;
                 continue;
             }
             if up.y < 0.25 {
+                evidence.wheels[i].availability = "inverted".into();
                 ray_misses += 1;
                 continue;
             }
-            let origin = center + pose.rotation * *mount;
-            let hit = context.cast_ray_and_get_normal(
-                origin,
-                -up,
-                REST + spec.radii[i],
-                true,
-                QueryFilter::default().exclude_rigid_body(entity),
-            );
-            let Some((_, hit)) = hit else {
+            let hit = if *mode == crate::physics::QueryMode::Synchronized {
+                current
+                    .cast(origin, -up, REST + spec.radii[i], entity)
+                    .map(|hit| (hit.identity, hit.distance, hit.normal))
+            } else {
+                context
+                    .as_ref()
+                    .and_then(|context| {
+                        context.cast_ray_and_get_normal(
+                            origin,
+                            -up,
+                            REST + spec.radii[i],
+                            true,
+                            QueryFilter::default()
+                                .exclude_rigid_body(entity)
+                                .exclude_sensors(),
+                        )
+                    })
+                    .map(|(_, hit)| (None, hit.time_of_impact, hit.normal))
+            };
+            let Some((identity, distance, normal)) = hit else {
                 ray_misses += 1;
                 continue;
             };
-            if hit.normal.dot(up) < 0.45 {
+            evidence.wheels[i].collider_id = identity;
+            evidence.wheels[i].distance = Some(distance);
+            evidence.wheels[i].normal = Some(normal.to_array());
+            evidence.wheels[i].point = Some((origin - up * distance).to_array());
+            if normal.dot(up) < 0.45 {
+                evidence.wheels[i].availability = "rejected_normal".into();
                 ray_misses += 1;
                 continue;
             }
-            lengths[i] = (hit.time_of_impact - spec.radii[i]).clamp(0.02, REST);
-            let point = origin - up * hit.time_of_impact;
-            let point_velocity = velocity.linear + velocity.angular.cross(point - center);
+            evidence.wheels[i].availability = "hit".into();
+            lengths[i] = (distance - spec.radii[i]).clamp(0.02, REST);
+            let point = origin - up * distance;
+            let point_velocity = velocity.linear + velocity.angular.cross(point - force_center);
             let compression = REST - lengths[i];
-            let load = (compression * 38000.0 - point_velocity.dot(hit.normal) * 4100.0)
+            let load = (compression * 38000.0 - point_velocity.dot(normal) * 4100.0)
                 .clamp(0.0, MASS * 9.81 * 1.5);
             loads[i] = load;
-            contacts[i] = Some((point, hit.normal, point_velocity));
-            *total += ExternalForce::at_point(hit.normal * load, point, center);
+            contacts[i] = Some((point, normal, point_velocity));
+            let force = ExternalForce::at_point(normal * load, point, force_center);
+            evidence.wheels[i].suspension = force.into();
+            *total += force;
             car.grounded += 1;
         }
         let planar_speed = Vec2::new(velocity.linear.x, velocity.linear.z).length();
@@ -364,7 +369,9 @@ pub(crate) fn simulate(
                 let fy = -angle * if i < 2 { 47000.0 } else { 45000.0 };
                 let force2 = Vec2::new(fx, fy).clamp_length_max(grip);
                 let force = wheel_forward * force2.x + side * force2.y;
-                *total += ExternalForce::at_point(force, point, center);
+                let force = ExternalForce::at_point(force, point, force_center);
+                evidence.wheels[i].tire = force.into();
+                *total += force;
                 // Forward is -Z, so rolling forward requires rotation about -X.
                 car.wheel_spin[i] = (car.wheel_spin[i] - longitudinal * STEP / spec.radii[i])
                     % std::f32::consts::TAU;
@@ -377,14 +384,17 @@ pub(crate) fn simulate(
             if contacts[axle].is_some() && contacts[axle + 1].is_some() {
                 let roll = (lengths[axle + 1] - lengths[axle]) * 6500.0;
                 for (i, sign) in [(axle, 1.0), (axle + 1, -1.0)] {
-                    *total += ExternalForce::at_point(
+                    let force = ExternalForce::at_point(
                         up * roll * sign,
                         center + pose.rotation * spec.mounts()[i],
-                        center,
+                        force_center,
                     );
+                    evidence.wheels[i].antiroll = force.into();
+                    *total += force;
                 }
             }
         }
+        let wheel_total = *total;
         total.force -= velocity.linear * velocity.linear.length() * 0.45;
         total.force -= Vec3::new(velocity.linear.x, 0.0, velocity.linear.z) * 17.0;
         if car.grounded >= 3 {
@@ -403,68 +413,18 @@ pub(crate) fn simulate(
         car.rpm =
             900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
 
-        let sample = PhysicsSample {
-            step,
-            tick,
-            actor_id: actor_id.clone(),
-            time: fixed_time.elapsed_secs(),
-            car: spec.id.clone(),
-            position: [pose.translation.x, pose.translation.y, pose.translation.z],
-            rotation: [
-                pose.rotation.x,
-                pose.rotation.y,
-                pose.rotation.z,
-                pose.rotation.w,
-            ],
-            linear_velocity: [velocity.linear.x, velocity.linear.y, velocity.linear.z],
-            angular_velocity: [velocity.angular.x, velocity.angular.y, velocity.angular.z],
-            grounded: car.grounded,
-            wheel_lengths: lengths,
-            wheel_loads: loads,
-            steering: car.steering,
-            speed: car.speed,
-            slip: car.slip,
-            rpm: car.rpm,
-            gear: car.gear,
-            reset_count: car.reset_count,
-            input: InputSample {
-                step,
-                tick,
-                controller,
-                throttle: input.throttle,
-                brake: input.brake,
-                steer: input.steer,
-                handbrake: input.handbrake,
-                reset: input.reset,
-            },
-            ray_misses,
-        };
-        if is_player {
-            if let Some(trace) = trace.as_mut() {
-                trace.record(sample.clone());
-            }
-        } else if let Some(recorder) = recorder.as_ref() {
-            recorder.record_evidence(crate::diagnostics::EvidenceStream::Physics, tick, &sample);
+        evidence.chassis = ExternalForce {
+            force: total.force - wheel_total.force,
+            torque: total.torque - wheel_total.torque,
         }
-        if let Some(reason) = physics_invariant(&sample) {
-            if let Some(trace) = trace.as_mut() {
-                trace.flush();
-            }
-            if let Some(recorder) = recorder.as_ref() {
-                recorder.fail(
-                    "physics_invariant",
-                    json!({"reason": reason, "sample": sample}),
-                );
-            }
-            if let Some(exit) = exit.as_mut() {
-                exit.write(AppExit::error());
-            }
-            return;
-        }
+        .into();
+        evidence.total = (*total).into();
+        evidence.wheel_loads = loads;
+        evidence.ray_misses = ray_misses;
     }
 }
 
-fn physics_invariant(sample: &PhysicsSample) -> Option<&'static str> {
+pub(crate) fn physics_invariant(sample: &PhysicsSample) -> Option<&'static str> {
     if !sample.position.iter().all(|value| value.is_finite()) {
         return Some("non_finite_position");
     }
