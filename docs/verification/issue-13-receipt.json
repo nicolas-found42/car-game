@@ -1,0 +1,176 @@
+{
+  "schema": 2,
+  "final_runtime_source_commit": "6ef2ce5",
+  "final_cases": {
+    "final-positive": {
+      "path": "final-positive/20261023T020034493459Z-6ef2ce5-scenario-58031-1-1792720834508981000",
+      "binary_sha256": "7689fc0669030060937e93bc44ac27aa4fefd1651297559b080530d6d7ceb17a",
+      "compiled_source_fingerprint": "a3ff1ddf639864b4cb398ad2a883a45108a7757e6ea1044b56a3b6d2d0345b23",
+      "source_comparison": "source_build_match",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      },
+      "exit": {
+        "code": 0,
+        "reason": "success"
+      },
+      "scenario": {
+        "passed": true,
+        "assertions_executed": 4,
+        "assertions_passed": 4,
+        "capture": null
+      }
+    },
+    "final-negative": {
+      "path": "final-negative/20261023T020034491601Z-6ef2ce5-scenario-58032-1-1792720834508982000",
+      "binary_sha256": "7689fc0669030060937e93bc44ac27aa4fefd1651297559b080530d6d7ceb17a",
+      "compiled_source_fingerprint": "a3ff1ddf639864b4cb398ad2a883a45108a7757e6ea1044b56a3b6d2d0345b23",
+      "source_comparison": "source_build_match",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      },
+      "exit": {
+        "code": 0,
+        "reason": "success"
+      },
+      "scenario": {
+        "passed": true,
+        "assertions_executed": 3,
+        "assertions_passed": 3,
+        "capture": null
+      }
+    },
+    "final-metal": {
+      "path": "final-metal/20261023T020042360132Z-6ef2ce5-scenario-58226-1-1792720842377039000",
+      "binary_sha256": "7689fc0669030060937e93bc44ac27aa4fefd1651297559b080530d6d7ceb17a",
+      "compiled_source_fingerprint": "a3ff1ddf639864b4cb398ad2a883a45108a7757e6ea1044b56a3b6d2d0345b23",
+      "source_comparison": "source_build_match",
+      "completeness": {
+        "inventory_integrity": true,
+        "rebuild_complete": true,
+        "runtime_material_complete": true,
+        "runtime_replay_complete": false
+      },
+      "exit": {
+        "code": 0,
+        "reason": "success"
+      },
+      "scenario": {
+        "passed": true,
+        "assertions_executed": 4,
+        "assertions_passed": 4,
+        "capture": {
+          "metrics": {
+            "edge_count": 143842,
+            "height": 1080,
+            "luma_mean": 150.52752685546875,
+            "luma_stddev": 44.55377960205078,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/scenario.png",
+          "sha256": "368a479fb60d5610c6a3845531f7aaeab9c07b9c07265104817fc54a11f0f59d"
+        }
+      }
+    }
+  },
+  "leased_tests": {
+    "log": "leased-final-verification.log",
+    "passed": 69,
+    "invalid_restore_cases": 19,
+    "negative_run": "leased-production-snapshots/20261023T015625480926Z-6ef2ce5-invalid-snapshot-53002-2-1792720585509160000",
+    "negative_reasons": {
+      "unsupported-assembly-version": 1,
+      "duplicate-parent-or-location": 2,
+      "unknown-part": 4,
+      "dangling-or-duplicate-location": 1,
+      "missing-root-or-attachment": 1,
+      "catalog-mismatch": 1,
+      "unknown-definition": 2,
+      "occupied-location": 1,
+      "unknown-mount": 2,
+      "invalid-transaction-history-revision": 1,
+      "invalid-transaction-history-location": 3
+    },
+    "threads": 1,
+    "incremental": false,
+    "cargo_lease": "primary artifacts/p1-coordination/cargo_serial.py"
+  },
+  "pre_guard_physical_regression": {
+    "source_commit": "5161a3b",
+    "binary_sha256": "fc51b3dc3f88c946098774ab01baf222e41644b1740a2eba54f4fe5f633ecd7e",
+    "source_comparison": "source_build_match",
+    "completeness": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    },
+    "run": "worktree-artifacts/runs/20261023T014533681601Z-5161a3b-fleet-42705-1-1792719933701072000",
+    "fleet_reports": 13,
+    "validated_captures": 52,
+    "full_script_log": "full-offline.log",
+    "scope_boundary": "Final guard changes imported transaction-history validation only; no physics/render/catalog changes."
+  },
+  "native_startup": {
+    "schema": 1,
+    "exit_code": 0,
+    "elapsed_seconds": 30.38579529099661,
+    "bounded_startup_seconds": 30,
+    "sent_sigterm": true,
+    "window_created": true,
+    "assertion": "native startup and graceful shutdown only; no native surface readback image claim",
+    "window": {
+      "available": true,
+      "focused": true,
+      "height": 1080.0,
+      "mode": "Windowed",
+      "present_mode": "AutoVsync",
+      "scale_factor": 1.0,
+      "width": 1920.0
+    },
+    "window_creation_log_line": false,
+    "run": "20261023T014046124853Z-5161a3b-interactive-34902-1-1792719646159573000",
+    "source_comparison": {
+      "availability": "included",
+      "code": "source_build_match",
+      "logical_paths": [],
+      "matches": true,
+      "meaning": "runtime_workspace_observation_does_not_change_recorded_executable_identity"
+    },
+    "completeness": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  },
+  "review": {
+    "standards": "zero blockers",
+    "spec": "zero blockers",
+    "history_guard": "parent source review: zero additional findings"
+  },
+  "non_acceptance_attempts": {
+    "full-offline-unbound-aborted.log": "stopped before fleet to correct exact binary environment",
+    "full-offline-incremental-cache-failure.log": "coordinator removed active shared incremental cache; fixed by no concurrent cleanup and incremental off",
+    "full-offline-parallel-incident-deadline-failure.log": "existing incident export deadline under concurrent workload; final isolated workload passed unchanged deadlines",
+    "full-offline-shared-executable-collision-untrusted.log": "invalidated shared package output; final whole-command Cargo lease prevents collision"
+  },
+  "hashes": {
+    "full-offline.log": "103db4ec1520b0ad445cdda78ce057203a91534d12c6294f75a2e6e3f2a6e7a0",
+    "leased-final-verification.log": "d3da59ee0bc24fb73b8260bb8e309aca578129deb5aae483872bfa25724b0d9b",
+    "final-recorded-build.log": "11738d54700c56ed92b2ef12b986c541b40c6eaf0f6f38e6287d3f6c265f964e",
+    "exact-offline-environment.sh": "d338259300e95aa6e82c62da3071e02605f1e596636b2535084752620ac5b6e8",
+    "final-focus-environment.sh": "af75597072002f2b1af10de72046ee8c8f5da99175f30815ca37753a0e2f406b",
+    "fixture-source/assembly_snapshots.rs": "e59d0dfe76de40ecc97276f881dfb2e3edaa91bc97b8792f7ff5cde9dd344891",
+    "invalid-history-snapshot.json": "f5146e14a09dba4a09f86290fccf53fd2a75b0392a19ce67a767021765d28770",
+    "metal-assembly-snapshot.json": "c67d07fc2212e4358dba31f87d1d2aa0b264f1c1ae8ee5be82fcddd637406481"
+  }
+}
