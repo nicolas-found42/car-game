@@ -26,11 +26,27 @@ pub struct ScheduledCommand {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum AssertionKind {
-    DisplacementAtLeast { meters: f32 },
-    SpeedAtLeast { mps: f32 },
-    ResetCount { count: u32 },
-    SelectedCar { car: String },
-    CommandRejected { reason: String, count: usize },
+    DisplacementAtLeast {
+        meters: f32,
+    },
+    SpeedAtLeast {
+        mps: f32,
+    },
+    ResetCount {
+        count: u32,
+    },
+    AssemblyState {
+        revision: u64,
+        mass: f64,
+        readiness: String,
+    },
+    SelectedCar {
+        car: String,
+    },
+    CommandRejected {
+        reason: String,
+        count: usize,
+    },
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct ScenarioAssertion {

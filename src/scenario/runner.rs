@@ -271,6 +271,22 @@ fn observe(
             let actual = velocity.linear.length();
             json!({"passed":actual >= *mps,"mps":actual})
         }
+        AssertionKind::AssemblyState {
+            revision,
+            mass,
+            readiness,
+        } => {
+            let inspection = world
+                .resource::<crate::assembly::Assembly>()
+                .inspect()
+                .expect("valid assembly");
+            let body_mass = world
+                .query_filtered::<&bevy_rapier3d::prelude::ReadMassProperties, With<Vehicle>>()
+                .iter(world)
+                .next()
+                .map(|m| m.mass);
+            json!({"passed":inspection.revision == *revision && (inspection.aggregate.mass-*mass).abs()<1e-6 && inspection.readiness == *readiness && body_mass.is_some_and(|actual|(actual as f64-*mass).abs()<0.001),"inspection":inspection,"body_mass":body_mass})
+        }
         AssertionKind::ResetCount { count } => json!({"passed":resets == *count,"count":resets}),
         AssertionKind::SelectedCar { car } => {
             let actual = &world.resource::<CarSpec>().id;

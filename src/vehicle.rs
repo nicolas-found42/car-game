@@ -9,6 +9,15 @@ use serde_json::json;
 
 pub const STEP: f32 = 1.0 / 120.0;
 pub const MASS: f32 = 1320.0;
+pub const BASELINE_INERTIA: [f32; 3] = [1800., 2300., 650.];
+pub fn baseline_mass_properties() -> AdditionalMassProperties {
+    AdditionalMassProperties::MassProperties(MassProperties {
+        mass: MASS,
+        local_center_of_mass: Vec3::ZERO,
+        principal_inertia: Vec3::from_array(BASELINE_INERTIA),
+        ..default()
+    })
+}
 const REST: f32 = 0.44;
 
 #[derive(Resource, Default, Clone, Copy)]
@@ -101,12 +110,7 @@ fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
         RigidBody::Dynamic,
         chassis_collider(&spec),
         ColliderMassProperties::Density(0.0),
-        AdditionalMassProperties::MassProperties(MassProperties {
-            mass: MASS,
-            local_center_of_mass: Vec3::ZERO,
-            principal_inertia: Vec3::new(1800.0, 2300.0, 650.0),
-            ..default()
-        }),
+        baseline_mass_properties(),
         Velocity::zero(),
         ExternalForce::default(),
         Damping {
@@ -134,8 +138,9 @@ pub fn recovery_pose(position: Vec3) -> Transform {
 }
 
 #[allow(clippy::too_many_arguments, clippy::too_many_lines)]
-fn simulate(
+pub(crate) fn simulate(
     context: ReadRapierContext,
+    assembly: Option<Res<crate::assembly::AssemblyRuntime>>,
     fixed_time: Res<Time<Fixed>>,
     spec: Res<CarSpec>,
     mut input: ResMut<DriveInput>,
@@ -224,6 +229,10 @@ fn simulate(
         *total = ExternalForce::default();
 
         for (i, mount) in spec.mounts().iter().enumerate() {
+            if spec.id == "350z" && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i]) {
+                ray_misses += 1;
+                continue;
+            }
             if up.y < 0.25 {
                 ray_misses += 1;
                 continue;
