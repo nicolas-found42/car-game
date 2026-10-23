@@ -69,6 +69,7 @@ impl Writer {
                             .incident_published
                             .store(true, Ordering::Release);
                     }
+                    self.health.incident_pending.store(false, Ordering::Release);
                     self.health.persist();
                     let _ = ack.try_send(result);
                 }
@@ -130,7 +131,10 @@ impl Writer {
             &self.health.dir.join("panic.json"),
             &serde_json::json!({"schema":1,"reason":"panic","at":super::now(),"context":self.health.panic_context()}),
         );
-        if !self.health.incident_published.load(Ordering::Acquire) {
+        if !self.health.incident_published.load(Ordering::Acquire)
+            && !self.health.incident_pending.swap(true, Ordering::AcqRel)
+        {
+            self.health.update(|data| data.incident_snapshots += 1);
             let snapshot = self
                 .health
                 .history
@@ -142,6 +146,7 @@ impl Writer {
                     .incident_published
                     .store(true, Ordering::Release);
             }
+            self.health.incident_pending.store(false, Ordering::Release);
         }
         self.health.persist();
     }

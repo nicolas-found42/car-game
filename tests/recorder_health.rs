@@ -622,3 +622,35 @@ fn delayed_capacity_evictions_cannot_hide_a_more_recent_missing_tick() {
     run.finish(AppExit::Success);
     fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn retrying_failed_metadata_cannot_accumulate_incident_snapshots_behind_a_busy_writer() {
+    use car_game::diagnostics::{EvidenceStream, RecorderConfig};
+    let root = temporary();
+    let run = RunRecorder::try_create_with_config(
+        &root,
+        "test",
+        "350z",
+        RecorderConfig {
+            writer_delay_ms: 50,
+            drain_timeout_ms: 10,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    fs::create_dir(run.dir().join("failure.json")).unwrap();
+    for tick in 1..=30 {
+        run.record_evidence(EvidenceStream::Events, tick, &json!({"tick":tick}));
+    }
+    for _ in 0..8 {
+        run.fail("controlled_metadata_failure", json!({}));
+    }
+    assert_eq!(
+        run.health()["incident_snapshots"],
+        1,
+        "retries must share a single pending bounded incident snapshot"
+    );
+    run.finish(AppExit::error());
+    std::thread::sleep(std::time::Duration::from_millis(150));
+    fs::remove_dir_all(root).unwrap();
+}

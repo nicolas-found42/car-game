@@ -296,6 +296,14 @@ impl Recording {
         if self.health.incident_published.load(Ordering::Acquire) {
             return true;
         }
+        if self.health.incident_pending.swap(true, Ordering::AcqRel) {
+            return false;
+        }
+        if self.health.incident_published.load(Ordering::Acquire) {
+            self.health.incident_pending.store(false, Ordering::Release);
+            return true;
+        }
+        self.health.update(|data| data.incident_snapshots += 1);
         let snapshot = self
             .health
             .history
@@ -312,6 +320,7 @@ impl Recording {
             })
             .is_err()
         {
+            self.health.incident_pending.store(false, Ordering::Release);
             self.health
                 .error("incident_export", "recorder", "control_queue_full");
             return false;

@@ -97,7 +97,7 @@ def valid_streams(streams):
 def coherent_finalization(health):
     if not (health['produced'] == health['accepted'] == health['written'] == health['durable_seq']):
         return False
-    if health['queued_bytes'] or health['queued_records'] or health['last_durable_tick'] != health['completed_tick']:
+    if health['queued_bytes'] or health['queued_records'] or health.get('incident_pending', False) or health['last_durable_tick'] != health['completed_tick']:
         return False
     return all(stream['accepted'] == stream['written'] and
                stream['written_seq'] == stream['flushed_seq'] == stream['synced_seq'] <= health['durable_seq']

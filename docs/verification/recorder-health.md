@@ -41,10 +41,10 @@ queue slots; periodic flush requests coalesce.
 Queue/history bytes charge allocated payload capacity plus 128 bytes per record.
 Collection/allocator overhead is additional, bounded by the record/tick caps.
 Incident snapshots share record bytes, but new history can replace them during
-export. Conservatively reserve six history budgets: the live ring, up to four
-queued control snapshots and one active export. Normal single-incident exports
-share most allocations. Caller-owned inputs and concurrent caller stacks are
-additional.
+export. One atomic reservation shared by ordinary and panic export permits at most one
+queued or active incident snapshot. Reserve two history budgets including the live
+ring; retries while an export is pending cannot allocate another snapshot.
+Caller-owned inputs and concurrent caller stacks are additional.
 Raw logs are excluded from the history ring and portable diagnostic export.
 
 The CPU target for ordinary production payloads is producer p99 below 1 ms versus
@@ -158,7 +158,8 @@ Measured on macOS/aarch64, Apple M5 Pro, 48 GiB RAM, muted and render-disabled.
 Compiler-bound dev-profile application source was clean commit `aac21ee`, binary
 SHA-256 `0d1a8f9b5a1ffed3c82512c9d5ad6f48c082b8fd35f076d93c42645fab5246e6`.
 Later commits fix test-directory isolation/teardown and the capacity-eviction
-coverage marker for delayed records, and document results; these measurements
+coverage marker for delayed records and incident reservation under retrying storage
+failures, and document results; these measurements
 identify their original source explicitly. They are local evidence,
 not a platform-independent performance guarantee.
 
