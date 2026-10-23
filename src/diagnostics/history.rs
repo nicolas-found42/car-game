@@ -45,7 +45,9 @@ impl History {
         self.count += 1;
         self.ticks.entry(record.tick).or_default().push_back(record);
         while self.bytes > self.config.history_bytes || self.count > self.config.history_records {
-            self.last_capacity_tick = self.ticks.first_key_value().map(|(tick, _)| *tick);
+            if let Some((tick, _)) = self.ticks.first_key_value() {
+                self.last_capacity_tick = Some(self.last_capacity_tick.unwrap_or(*tick).max(*tick));
+            }
             self.evict();
             self.capacity_evictions += 1;
         }

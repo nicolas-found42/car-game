@@ -40,8 +40,11 @@ queue slots; periodic flush requests coalesce.
 
 Queue/history bytes charge allocated payload capacity plus 128 bytes per record.
 Collection/allocator overhead is additional, bounded by the record/tick caps.
-The incident snapshot shares record bytes, but new history can replace them while
-the snapshot is exporting: reserve up to another history budget for this overlap.
+Incident snapshots share record bytes, but new history can replace them during
+export. Conservatively reserve six history budgets: the live ring, up to four
+queued control snapshots and one active export. Normal single-incident exports
+share most allocations. Caller-owned inputs and concurrent caller stacks are
+additional.
 Raw logs are excluded from the history ring and portable diagnostic export.
 
 The CPU target for ordinary production payloads is producer p99 below 1 ms versus
@@ -131,7 +134,10 @@ write/flush/sync/drop faults, bounded tails/history, concurrent producers, deadl
 cancellation, malformed export and finalization byte/checksum failures. The child
 suite sends real SIGTERM while active/paused, SIGKILL during recording and inventory
 export, and injects an unwinding panic while the producer ordering lock is held.
-All child waits have guards; failing child artifacts are preserved for diagnosis.
+All child waits have guards and unique counter-based directories; failing child
+artifacts are preserved for diagnosis. Library callers and manual test fixtures
+must call `finish()` before removing a run directory. An unfinished drop is a
+failed recording and can still be completing its bounded worker shutdown.
 
 Production CLI fault controls use `--recorder-fault write:200` (also `flush`,
 `sync`, `drop`, `panic`) and `--recorder-writer-delay-ms 20`. The threshold is a
@@ -145,3 +151,59 @@ Local raw runs, stderr, exact commands, compiler-bound executable metadata,
 checker reports and measurements are retained under
 `artifacts/issue-87-recorder-health/`. They are ignored by Git. The final validation
 readout below identifies the tested source/build and measured results.
+
+## Measured controls (2026-10-23 UTC)
+
+Measured on macOS/aarch64, Apple M5 Pro, 48 GiB RAM, muted and render-disabled.
+Compiler-bound dev-profile application source was clean commit `aac21ee`, binary
+SHA-256 `0d1a8f9b5a1ffed3c82512c9d5ad6f48c082b8fd35f076d93c42645fab5246e6`.
+Later commits fix test-directory isolation/teardown and the capacity-eviction
+coverage marker for delayed records, and document results; these measurements
+identify their original source explicitly. They are local evidence,
+not a platform-independent performance guarantee.
+
+`production-final/` retains twelve cases plus the unwritable-destination control.
+Every case has exact command, raw run, stdout/stderr, health checker output and
+resource readout; `reproduce.py` retains the invocation helper. An initial helper
+assertion confused readiness-relative scenario ticks with canonical ticks. The
+corrected validator checks the observed canonical interval; its result and the
+original failed assertion are both retained. No application failure was suppressed.
+
+| Control | App exit | Health check | Observed result |
+|---|---:|---:|---|
+| Valid scenario | 0 | 0 | Tick 363 acknowledged durable; no dropped records |
+| Write / flush / sync / drop injection | 1 | 1 | Stage-specific errors, conservative durable boundary |
+| Slow writer / queue of eight | 1 | 1 | Explicit bounded backpressure and loss ranges |
+| Producer panic while holding ordering lock | 1 | 1 | Panic context, failure and incident files survive |
+| Real SIGTERM, active / paused | 0 | 0 | Final durable tick equals completed tick; no invented scenario pass |
+| Real SIGKILL | -9 | 1 | Unknown unclean exit; last acknowledged durable tick 120 |
+| 2 KiB history + failing assertion | 1 | 0 + warning | Recording durable; incident window explicitly shortened |
+| 4,000-tick scenario + failing reset-count assertion | 1 | 0 | Recording durable; all 3,600 pre-incident ticks retained |
+| Occupied storage path | 2 | unavailable | Structured startup error on stderr; no invented run health |
+
+The long incident is
+`production-final/long-incident/runs/20261023T000505914438Z-aac21ee-scenario-12475-1-1792713905931381000`.
+Its assertion expected two resets after scheduling one. The actual reset command,
+correlated events, effective inputs and completed state survive in 24,132 incident
+records spanning canonical ticks 404–4003. Capacity evictions were zero. Final
+history accounting was 24,029,568 bytes/24,135 records; later exit records explain
+the small difference from the frozen incident. Queue high-water was 32 records/
+32,256 bytes. Wall time was 35.446 s, total child user+system CPU 7.752 s.
+
+Producer p50/p95/p99 upper bounds were 16.4/32.8/32.8 µs (maximum 958.5 µs),
+meeting the 1 ms p99 target. Accumulated measured producer time was 261.7 ms,
+0.74% of whole-process wall time. Writer time was 40.8 ms; worker flush/sync time
+1.531 s across 74 observations (maximum 37.2 ms). Incident export took 17.8 ms.
+These are elapsed-time instrumentation counters, including waits but excluding
+the histogram-update operation itself; they are not an isolated CPU delta versus
+a recorder-disabled build. Child CPU includes startup, simulation and provenance.
+The process-set peak RSS upper bound was 282.1 MiB (macOS `ru_maxrss`, includes the
+application and provenance capture, not just the ring). No other benchmark ran
+concurrently with these measured controls.
+
+Portable exports of the valid and write-failure controls both pass hash/inventory
+integrity, with the latter retaining failed recorder health and nonzero behavior
+result. The normal gameplay checker rejects both the lost-record control and the
+intentional scenario failure. Raw and portable verification reports are retained
+alongside the cases. Content integrity is kept separate from recorder/gameplay
+acceptance.

@@ -594,3 +594,31 @@ fn finalization_returns_the_latched_failure_on_repeated_calls() {
         fs::remove_dir_all(root).unwrap();
     }
 }
+
+#[test]
+fn delayed_capacity_evictions_cannot_hide_a_more_recent_missing_tick() {
+    use car_game::diagnostics::{EvidenceStream, RecorderConfig};
+    let root = temporary();
+    let run = RunRecorder::try_create_with_config(
+        &root,
+        "test",
+        "350z",
+        RecorderConfig {
+            history_ticks: 3,
+            history_records: 1,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for tick in [3, 4, 2] {
+        run.record_evidence(EvidenceStream::Events, tick, &json!({"tick":tick}));
+    }
+    run.completed_tick(5);
+    assert_eq!(
+        run.health()["history"]["shortened"],
+        true,
+        "tick 3 was evicted and is still within the requested [3,5] window"
+    );
+    run.finish(AppExit::Success);
+    fs::remove_dir_all(root).unwrap();
+}
