@@ -87,6 +87,7 @@ pub(super) fn observe(world: &mut World) {
     let mode = *world.resource::<QueryMode>();
     let recorder = world.get_resource::<RunHandle>().map(|r| r.0.clone());
     let applied = backend_forces(world);
+    let execution = execution_status(world);
     let mut query = world.query::<(
         Entity,
         &Transform,
@@ -113,6 +114,10 @@ pub(super) fn observe(world: &mut World) {
             });
             sample.backend_applied = applied.get(&entity).cloned();
             sample.body_part_id = body_part(world, evidence);
+            if let Some(reason) = execution.get(&entity) {
+                sample.integration_steps = 0;
+                sample.evidence.outcome = reason.into();
+            }
             (control.id.clone(), player.is_some(), sample)
         })
         .collect();
@@ -311,4 +316,23 @@ pub(crate) fn assert_completed(
         && contacts
         && force_applied;
     serde_json::json!({"passed":passed,"sample":sample,"force_applied":force_applied})
+}
+
+fn execution_status(world: &mut World) -> BTreeMap<Entity, &'static str> {
+    let active: BTreeMap<_, _> = world
+        .query::<(Entity, &RapierConfiguration)>()
+        .iter(world)
+        .map(|(entity, config)| (entity, config.physics_pipeline_active))
+        .collect();
+    world
+        .query_filtered::<(Entity, Option<&RapierContextEntityLink>), With<Vehicle>>()
+        .iter(world)
+        .filter_map(
+            |(entity, link)| match link.and_then(|link| active.get(&link.0)) {
+                Some(true) => None,
+                Some(false) => Some((entity, "physics_pipeline_inactive")),
+                None => Some((entity, "unavailable_context")),
+            },
+        )
+        .collect()
 }

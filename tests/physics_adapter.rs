@@ -103,7 +103,7 @@ fn inserted_removed_and_relocated_road_queries_and_forces_are_current_on_the_fir
         &mut app,
         [
             road("fixture:road", [1000., 9.8, 0.]),
-            relocate([1000., 10.62, 0.]),
+            relocate([1000., 10.55, 0.]),
             drive(1.),
         ],
     );
@@ -147,7 +147,7 @@ fn inserted_removed_and_relocated_road_queries_and_forces_are_current_on_the_fir
         &mut app,
         [
             road("fixture:second-road", [1100., 9.8, 0.]),
-            relocate([1100., 10.62, 0.]),
+            relocate([1100., 10.55, 0.]),
         ],
     );
     assert!(
@@ -220,7 +220,7 @@ fn reparented_child_collider_uses_new_parent_pose_without_consuming_solver_updat
                 half_extents: [8., 0.2, 8.],
                 parent: Some("fixture:a".into()),
             }),
-            relocate([1000., 12.62, 0.]),
+            relocate([1000., 12.55, 0.]),
         ],
     );
     assert!(
@@ -238,7 +238,7 @@ fn reparented_child_collider_uses_new_parent_pose_without_consuming_solver_updat
                 parent: "fixture:b".into(),
                 position: [0., 2., 0.],
             }),
-            relocate([1100., 12.62, 0.]),
+            relocate([1100., 12.55, 0.]),
         ],
     );
     assert!(
@@ -265,7 +265,7 @@ fn legacy_pre_sync_path_remains_selectable_as_a_regression_reference() {
         &mut app,
         [
             road("fixture:legacy", [1000., 9.8, 0.]),
-            relocate([1000., 10.62, 0.]),
+            relocate([1000., 10.55, 0.]),
         ],
     );
     assert_eq!(sample(&app).query_mode, "legacy_pre_sync");

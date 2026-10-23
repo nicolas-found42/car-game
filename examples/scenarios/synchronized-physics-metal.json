@@ -39,7 +39,7 @@
           "vehicle": "pilot-350z",
           "position": [
             3.2,
-            10.62,
+            10.55,
             190
           ],
           "rotation_y": 0
@@ -94,7 +94,7 @@
           "vehicle": "pilot-350z",
           "position": [
             13.2,
-            10.62,
+            10.55,
             190
           ],
           "rotation_y": 0
@@ -151,7 +151,7 @@
           "vehicle": "pilot-350z",
           "position": [
             13.2,
-            12.62,
+            12.55,
             190
           ],
           "rotation_y": 0
@@ -183,7 +183,7 @@
           "vehicle": "pilot-350z",
           "position": [
             23.2,
-            12.62,
+            12.55,
             190
           ],
           "rotation_y": 0
@@ -205,7 +205,7 @@
           "vehicle": "pilot-350z",
           "position": [
             3.2,
-            0.62,
+            0.55,
             190
           ],
           "rotation_y": 0
