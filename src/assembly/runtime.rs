@@ -1,5 +1,5 @@
 use super::*;
-use crate::{diagnostics::RunHandle, roster::CarSpec, vehicle::Vehicle};
+use crate::{diagnostics::RunHandle, roster::CarSpec};
 use bevy_rapier3d::prelude::AdditionalMassProperties;
 /// Derived runtime mappings are deliberately excluded from serialized Assembly.
 #[derive(Resource, Default, Clone)]
@@ -33,7 +33,7 @@ fn prepare(
     assembly: Res<Assembly>,
     spec: Res<CarSpec>,
     mut runtime: ResMut<AssemblyRuntime>,
-    mut cars: Query<(Entity, &mut AdditionalMassProperties), With<Vehicle>>,
+    mut cars: Query<(Entity, &mut AdditionalMassProperties), With<crate::controls::PlayerVehicle>>,
     identities: Query<&PartIdentity>,
 ) {
     if spec.id != "350z" {

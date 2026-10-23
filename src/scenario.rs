@@ -38,6 +38,13 @@ pub enum AssertionKind {
     SnapshotMatches {
         key: String,
         fresh_entities: bool,
+    VehicleState {
+        vehicle: crate::assembly::VehicleId,
+        car: String,
+        controller: crate::runtime::ControllerOwner,
+        reset_count: u32,
+        min_forward_mps: f32,
+        max_forward_mps: f32,
     },
     AssemblyState {
         revision: u64,
@@ -133,6 +140,21 @@ impl ScenarioDefinition {
             }
             last_tick = assertion.tick;
             match &assertion.condition {
+                AssertionKind::VehicleState {
+                    min_forward_mps,
+                    max_forward_mps,
+                    vehicle,
+                    ..
+                } if vehicle.0.is_empty()
+                    || !min_forward_mps.is_finite()
+                    || !max_forward_mps.is_finite()
+                    || min_forward_mps > max_forward_mps =>
+                {
+                    return Err(
+                        "vehicle assertion requires valid target and finite ordered speed bounds"
+                            .into(),
+                    );
+                }
                 AssertionKind::DisplacementAtLeast { meters }
                 | AssertionKind::SpeedAtLeast { mps: meters }
                     if !meters.is_finite() || *meters <= 0.0 =>

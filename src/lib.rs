@@ -11,6 +11,7 @@ use std::{sync::Arc, time::Duration};
 pub mod assembly;
 pub mod city;
 pub mod config;
+pub mod controls;
 pub mod diagnostics;
 mod ingress;
 pub mod presentation;
