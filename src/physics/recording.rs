@@ -116,7 +116,7 @@ pub(super) fn observe(world: &mut World) {
             sample.body_part_id = body_part(world, evidence);
             if let Some(reason) = execution.get(&entity) {
                 sample.integration_steps = 0;
-                sample.evidence.outcome = reason.into();
+                sample.evidence.outcome = (*reason).into();
             }
             (control.id.clone(), player.is_some(), sample)
         })
