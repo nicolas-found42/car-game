@@ -159,3 +159,49 @@ pub fn freeze_bytes(path: &Path, bytes: &[u8]) -> io::Result<()> {
     }
     publish(path, bytes)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn known_sha256_vectors_cover_all_provenance_hash_paths() {
+        let root = std::env::temp_dir().join(format!("grid-sha-vectors-{}", std::process::id()));
+        fs::create_dir(&root).unwrap();
+        let source = root.join("input");
+        for (bytes, expected) in [
+            (
+                vec![],
+                "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            ),
+            (
+                b"abc".to_vec(),
+                "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+            ),
+            (
+                vec![b'a'; 1_000_000],
+                "cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0",
+            ),
+            (
+                (0..65_537).map(|i| (i % 251) as u8).collect(),
+                "237356e18b503616912abb8ffaed3a72591e397d4ac294c4637917d48a3f529d",
+            ),
+        ] {
+            fs::write(&source, &bytes).unwrap();
+            assert_eq!(digest(&bytes), expected);
+            assert_eq!(
+                hash_file(&source).unwrap(),
+                (expected.into(), bytes.len() as u64)
+            );
+            assert_eq!(
+                crate::diagnostics::sha256_file(&source).as_deref(),
+                Some(expected)
+            );
+            let captured = capture_file(&root, &source, "probe", "input").unwrap();
+            assert_eq!(captured.sha256, expected);
+            assert_eq!(captured.size_bytes, bytes.len() as u64);
+            assert_eq!(fs::read(root.join(captured.object)).unwrap(), bytes);
+        }
+        fs::remove_dir_all(root).unwrap();
+    }
+}
