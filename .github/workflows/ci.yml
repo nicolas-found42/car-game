@@ -36,6 +36,32 @@ jobs:
         run: |
           mkdir -p artifacts/logs
           cargo fmt --check 2>&1 | tee artifacts/logs/cargo-fmt.log
+      - name: Baseline serial and concurrent controls
+        shell: bash
+        run: |
+          mkdir -p artifacts/logs
+          set -o pipefail
+          { sw_vers; sysctl -n hw.ncpu; rustc -Vv; git rev-parse HEAD; } > artifacts/logs/workload.txt
+          cargo test --profile ci --config 'profile.ci.package.sha2.opt-level=0' --test recorder_shutdown --no-run 2>&1 | tee artifacts/logs/baseline-build.log
+          set +e
+          cargo test --profile ci --config 'profile.ci.package.sha2.opt-level=0' --test recorder_shutdown -- --test-threads=1 --nocapture 2>&1 | tee artifacts/logs/baseline-serial.log
+          echo "serial_exit=${PIPESTATUS[0]}" >> artifacts/logs/workload.txt
+          cargo test --profile ci --config 'profile.ci.package.sha2.opt-level=0' --test recorder_shutdown -- --nocapture 2>&1 | tee artifacts/logs/baseline-parallel.log
+          echo "parallel_exit=${PIPESTATUS[0]}" >> artifacts/logs/workload.txt
+          python3 - <<'PY'
+          import json, os, pathlib, shutil, tempfile
+          output = pathlib.Path('artifacts/logs/failed-children')
+          for root in pathlib.Path(tempfile.gettempdir()).glob('grid-shutdown-*'):
+              for source in root.rglob('*'):
+                  if source.is_file() and source.suffix in ('.log', '.json') and source.stat().st_size < 1000000:
+                      target = output / root.name / source.relative_to(root)
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      shutil.copy2(source, target)
+              files = [{'path': str(p.relative_to(root)), 'bytes': p.stat().st_size} for p in root.rglob('*') if p.is_file()]
+              target = output / root.name / 'file-sizes.json'
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_text(json.dumps(files, indent=2))
+          PY
       - name: Rust tests
         shell: bash
         run: |
