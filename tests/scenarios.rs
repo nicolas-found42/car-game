@@ -240,6 +240,10 @@ fn keyboard_car_selection_wraps_the_roster_through_production_ingress() {
         "350z"
     );
     drop(app);
+    assert!(matches!(
+        run.finish(bevy::app::AppExit::Success),
+        bevy::app::AppExit::Success
+    ));
     std::fs::remove_dir_all(run.dir().parent().unwrap()).unwrap();
 }
 
@@ -274,6 +278,10 @@ fn final_replay_sample_reset_is_consumed_before_live_ownership_returns() {
         car_game::runtime::ControllerOwner::LegacyComposite
     );
     drop(app);
+    assert!(matches!(
+        run.finish(bevy::app::AppExit::Success),
+        bevy::app::AppExit::Success
+    ));
     std::fs::remove_dir_all(run.dir().parent().unwrap()).unwrap();
 }
 
@@ -298,6 +306,10 @@ fn gamepad_bumper_selects_the_next_car_through_production_ingress() {
         "fr2-cobra"
     );
     drop(app);
+    assert!(matches!(
+        run.finish(bevy::app::AppExit::Success),
+        bevy::app::AppExit::Success
+    ));
     std::fs::remove_dir_all(run.dir().parent().unwrap()).unwrap();
 }
 
@@ -380,6 +392,10 @@ fn an_empty_legacy_replay_keeps_live_driving_available() {
     let mut cars = app.world_mut().query::<&bevy_rapier3d::prelude::Velocity>();
     assert!(-cars.single(app.world()).unwrap().linear.z > 4.0);
     drop(app);
+    assert!(matches!(
+        run.finish(bevy::app::AppExit::Success),
+        bevy::app::AppExit::Success
+    ));
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -449,9 +465,10 @@ fn the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario(
         scenario: Some(scenario),
         ..Default::default()
     };
-    let Err(error) = car_game::build_app(config, run) else {
+    let Err(error) = car_game::build_app(config, run.clone()) else {
         panic!("an explicit career scenario cannot use sandbox access");
     };
     assert!(error.contains("context"));
+    run.finish(bevy::app::AppExit::error());
     std::fs::remove_dir_all(root).unwrap();
 }
