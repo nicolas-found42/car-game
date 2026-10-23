@@ -31,6 +31,8 @@ jobs:
       - name: Cache Rust build
         uses: Swatinem/rust-cache@v2
         with:
+          # Seed a compact level-1 inventory, without old level-0 artifact variants.
+          prefix-key: v1-ci-opt1
           # Keep completed dependencies when a later test/lint fails.
           cache-on-failure: true
         # Keep new dependency/profile builds between pushes to the same PR.

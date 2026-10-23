@@ -47,7 +47,7 @@ duplicated all headless gates. These are orchestration costs, separate from CI.
   grounded contacts, wheel rotation and suspension with the default executor at
   every one of 1,381 ticks, including acceleration, steering, handbrake, braking,
   reset and reverse. Production scenario apps and rendered fleets retain their
-  normal scheduling. Cargo profiles, including the SHA-256 repair, are unchanged.
+  normal scheduling. The SHA-256 repair remains unchanged.
 - Rust dependency caches can now be saved for PR merge refs, using rust-cache's
   default policy. Previously a PR that changed profiles rebuilt those dependencies
   on every push until merge. PR-scoped caches cannot replace main's cache; warm
@@ -56,8 +56,10 @@ duplicated all headless gates. These are orchestration costs, separate from CI.
   Completed dependencies are retained even if a later test/lint fails.
   Cache pruning was investigated and rejected: CI showed only its CI profile
   (10 GiB before rust-cache cleanup), so deleting dev/release directories would
-  not shrink the existing archive. No artificial cache-key bump or cache purge
-  was retained. Cache transfer remains a measured overhead.
+  not shrink the existing archive. No manual cache purge was retained.
+  The final level-1 dependency profile uses a fresh `v1-ci-opt1` namespace to avoid
+  accumulating old level-0 variants. Its first miss per cache scope is a deliberate
+  cold build; subsequent runs restore the compact compatible inventory.
 - `verify.sh --base REF` owns the full ladder once, with per-command timings.
   `--recorded` uses one recorded release build and one fleet run for both full
   acceptance and source provenance. It now explicitly includes all targets,
@@ -88,9 +90,11 @@ compiling tests versus the baseline's 46.77 seconds; library execution was 75.14
 seconds versus 71.09. These are different hosted runners, so this is not a
 controlled attribution of runtime regression. It does show a bad compilation
 tradeoff and no demonstrated CI execution win. Both scheduler and physics package
-overrides were removed. Final compiler profiles match #95; no dependency,
-renderer feature, debug assertion, overflow check or production profile changed.
-No tests, driving ticks, deadlines, capture resolution or macOS coverage were removed.
+overrides were removed. The final profile instead uses basic level-1 optimization
+for all CI dependencies, based on the full-suite/size comparison below. SHA-256
+stays at level 3; local dev/test and shipping release profiles stay unchanged.
+No dependency version, renderer feature, debug assertion, overflow check, test,
+driving tick, deadline, capture resolution or macOS coverage was removed.
 
 The first normal CI passed all Rust tests and real complexity gates, then a new
 gate regression exposed the existing warning filter's Bash 3.2 parser failure.
@@ -107,6 +111,35 @@ final verification logs are retained in
 `ci-fleet-single-executor.log` retain compiler and harness
 timings separately. The CPU sample contains waiting threads as well as active
 stacks; it is not a CPU-percentage attribution.
+
+## Compact CI executables
+
+The final local comparison used the same source, same 67 tests, same process
+resource policy, same backtrace setting and one outer Cargo lease. Only CI's
+wildcard dependency optimization changed from 0 to 1; SHA-256 stayed at 3.
+All tests passed in both runs. Recorder startup hashes/captures its exact
+executable, so binary size affects repeated integrity work, not just link time.
+
+| Local workload | Dependencies at level 0 | Dependencies at level 1 |
+| --- | ---: | ---: |
+| Executable | 465,594,080 bytes (444 MiB) | 174,721,312 bytes (167 MiB) |
+| 19 library tests | 6.41 s | 2.76 s |
+| 21 recorder-health tests | 7.87 s | 4.82 s |
+| 4 shutdown controls | 13.57 s | 5.93 s |
+| 16 production scenarios | 11.27 s | 9.54 s |
+| Harness execution total, including 7 assembly tests | 39.12 s | 23.05 s |
+
+That is 62.5% fewer executable bytes and 41.1% less local harness execution time.
+It does not skip hashing/capture, change features/linkage, disable backtraces or
+relax correctness controls. The initial local level-1 compilation took 86 seconds;
+its cold cost is not compared with the warm level-0 build. Final normal CI reports
+cold and warm results separately. Raw paired logs: `ci-all-deps-opt0-control.log`,
+`ci-all-deps-opt1.log`; exact binaries/sizes are retained under `profile-size/`.
+
+Before this final profile change, the completed level-0 workflow passed twice at
+335 seconds (5:35) and 238 seconds (3:58), versus the original 416-second baseline.
+Its complexity step fell from 173 to 5/3 seconds. These actual runs remain separate
+from the final level-1 results; hosted-runner variation is not attributed to code.
 
 ## Shutdown control and retained failures
 
