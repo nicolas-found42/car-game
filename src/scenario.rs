@@ -35,6 +35,25 @@ pub enum AssertionKind {
     ResetCount {
         count: u32,
     },
+    SnapshotMatches {
+        key: String,
+        fresh_entities: bool,
+    },
+    PhysicsState {
+        vehicle: crate::assembly::VehicleId,
+        grounded: usize,
+        collider: Option<String>,
+        outcome: String,
+        min_forward_mps: f32,
+    },
+    VehicleState {
+        vehicle: crate::assembly::VehicleId,
+        car: String,
+        controller: crate::runtime::ControllerOwner,
+        reset_count: u32,
+        min_forward_mps: f32,
+        max_forward_mps: f32,
+    },
     AssemblyState {
         revision: u64,
         mass: f64,
@@ -129,6 +148,34 @@ impl ScenarioDefinition {
             }
             last_tick = assertion.tick;
             match &assertion.condition {
+                AssertionKind::PhysicsState {
+                    vehicle,
+                    grounded,
+                    min_forward_mps,
+                    outcome,
+                    ..
+                } if vehicle.0.is_empty()
+                    || *grounded > 4
+                    || !min_forward_mps.is_finite()
+                    || outcome.is_empty() =>
+                {
+                    return Err("physics assertion requires valid vehicle, grounded count, outcome and speed".into());
+                }
+                AssertionKind::VehicleState {
+                    min_forward_mps,
+                    max_forward_mps,
+                    vehicle,
+                    ..
+                } if vehicle.0.is_empty()
+                    || !min_forward_mps.is_finite()
+                    || !max_forward_mps.is_finite()
+                    || min_forward_mps > max_forward_mps =>
+                {
+                    return Err(
+                        "vehicle assertion requires valid target and finite ordered speed bounds"
+                            .into(),
+                    );
+                }
                 AssertionKind::DisplacementAtLeast { meters }
                 | AssertionKind::SpeedAtLeast { mps: meters }
                     if !meters.is_finite() || *meters <= 0.0 =>
