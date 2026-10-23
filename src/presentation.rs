@@ -467,10 +467,7 @@ fn animate_wheels(
         return;
     };
     for (wheel, mut transform) in &mut wheels {
-        let i = wheel.0;
-        transform.translation.y = spec.mounts()[i].y - car.wheel_lengths[i] - spec.visual_offset;
-        transform.rotation = Quat::from_rotation_y(if i < 2 { car.steering } else { 0.0 })
-            * Quat::from_rotation_x(car.wheel_spin[i]);
+        apply_wheel_pose(&mut transform, &spec, car, wheel.0);
     }
 }
 
@@ -665,10 +662,13 @@ fn additional_visuals(
         let Ok((_, _, car, control)) = cars.get(body) else {
             continue;
         };
-        let i = wheel.0;
-        transform.translation.y =
-            control.spec.mounts()[i].y - car.wheel_lengths[i] - control.spec.visual_offset;
-        transform.rotation = Quat::from_rotation_y(if i < 2 { car.steering } else { 0.0 })
-            * Quat::from_rotation_x(car.wheel_spin[i]);
+        apply_wheel_pose(&mut transform, &control.spec, car, wheel.0);
     }
+}
+
+fn apply_wheel_pose(transform: &mut Transform, spec: &CarSpec, car: &Vehicle, corner: usize) {
+    transform.translation.y =
+        spec.mounts()[corner].y - car.wheel_lengths[corner] - spec.visual_offset;
+    transform.rotation = Quat::from_rotation_y(if corner < 2 { car.steering } else { 0.0 })
+        * Quat::from_rotation_x(car.wheel_spin[corner]);
 }

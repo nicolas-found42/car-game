@@ -668,12 +668,10 @@ fn live_secondary_controller_resets_once_while_player_replay_keeps_ownership() {
 
 #[test]
 fn secondary_spawn_cannot_alias_the_legacy_player_evidence_actor() {
-    let fixture = serde_json::json!({
-        "schema_version":1,"name":"reserved-player-actor","scene":"driving",
-        "initial":{"car":"350z"},"max_ticks":30,"max_wall_ms":10000,"readiness_timeout_ms":1000,
-        "commands":[{"tick":0,"command":{"action":"spawn_vehicle","id":"player-vehicle","car":"gt4-nsx","position":[-3.2,0.62,190.0],"controller":"scenario"}}],
-        "assertions":[{"tick":1,"kind":"command_rejected","reason":"reserved-vehicle-id","count":1}]
-    });
+    let fixture: serde_json::Value = serde_json::from_str(include_str!(
+        "../examples/scenarios/reserved-player-actor.json"
+    ))
+    .unwrap();
     let (summary, dir) = run_fixture(fixture);
     assert_eq!(summary["passed"], true, "{summary}");
     let events: Vec<serde_json::Value> = std::fs::read_to_string(dir.join("events.jsonl"))

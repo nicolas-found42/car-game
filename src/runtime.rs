@@ -345,21 +345,7 @@ fn dispatch_fixed(world: &mut World) {
             ProductionCommand::AssemblyTransaction { transaction } => {
                 crate::assembly::command(world, &command, Some(transaction))
             }
-            ProductionCommand::Reset => {
-                let has_target = world
-                    .query_filtered::<Entity, With<crate::controls::PlayerVehicle>>()
-                    .iter(world)
-                    .count()
-                    == 1;
-                if !has_target {
-                    outcome(world, &command, "rejected", "no-target");
-                } else if world.resource::<PendingReset>().0.is_some() {
-                    outcome(world, &command, "skipped", "reset-already-pending");
-                } else {
-                    world.resource_mut::<DriveInput>().reset = true;
-                    world.resource_mut::<PendingReset>().0 = Some(command);
-                }
-            }
+            ProductionCommand::Reset => queue_player_reset(world, command),
             ProductionCommand::SelectCar {
                 car,
                 reset_to_spawn,
@@ -695,15 +681,29 @@ fn flush_on_exit(world: &mut World) {
 /// Targeted player commands enter the same dispatch/reset ordering as legacy ingress.
 pub(crate) fn apply_targeted_player(world: &mut World, command: QueuedCommand) {
     if matches!(command.command, ProductionCommand::Reset) {
-        if let Some(reason) = rejection(world, &command) {
-            outcome(world, &command, "rejected", reason);
-        } else if world.resource::<PendingReset>().0.is_some() {
-            outcome(world, &command, "skipped", "reset-already-pending");
-        } else {
-            world.resource_mut::<DriveInput>().reset = true;
-            world.resource_mut::<PendingReset>().0 = Some(command);
-        }
+        queue_player_reset(world, command);
     } else {
         apply_immediate(world, command);
+    }
+}
+
+/// Shared one-shot policy retains the complete queued request for effect attribution.
+fn queue_player_reset(world: &mut World, command: QueuedCommand) {
+    if let Some(reason) = rejection(world, &command) {
+        outcome(world, &command, "rejected", reason);
+        return;
+    }
+    let has_target = world
+        .query_filtered::<Entity, With<crate::controls::PlayerVehicle>>()
+        .iter(world)
+        .count()
+        == 1;
+    if !has_target {
+        outcome(world, &command, "rejected", "no-target");
+    } else if world.resource::<PendingReset>().0.is_some() {
+        outcome(world, &command, "skipped", "reset-already-pending");
+    } else {
+        world.resource_mut::<DriveInput>().reset = true;
+        world.resource_mut::<PendingReset>().0 = Some(command);
     }
 }

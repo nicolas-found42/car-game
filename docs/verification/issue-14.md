@@ -185,3 +185,14 @@ Do not nest the wrapper inside an already leased script. Coordinator priority is
 no Cargo/acceptance command from #14 is running. Await coordinator followup before
 starting another. Never clean active build caches. Keep older evidence as historical
 source-bound checkpoints; do not silently overwrite earlier logs or claims.
+
+## Independent standards review resolution
+
+Two actionable duplication heuristics were addressed: `runtime::queue_player_reset`
+owns the selected player's target/ownership/pending/enqueue policy for both legacy
+and normalized targeted resets, retaining the original queued intent and outcomes.
+`presentation::apply_wheel_pose` owns suspension/steering/spin math; primary and
+secondary chassis lookup remain distinct. The reserved-actor rejection fixture is
+now a reusable production scenario shared by its regression and recorded runs.
+Fresh acceptance below supersedes unleased results only after a whole-command
+leased verification completes. No global thresholds or CI profiles changed.
