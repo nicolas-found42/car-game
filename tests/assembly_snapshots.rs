@@ -240,6 +240,12 @@ fn invalid_snapshots(snapshot: &AssemblySnapshot) -> Vec<AssemblySnapshot> {
     next.prerequisites
         .push((PartId::from("350z-chassis"), PartId::from("dangling")));
     invalid.push(next);
+    invalid.extend(invalid_history_snapshots(snapshot));
+    invalid
+}
+
+fn invalid_history_snapshots(snapshot: &AssemblySnapshot) -> Vec<AssemblySnapshot> {
+    let mut invalid = Vec::new();
     for (parent, mount, expected_revision) in [
         ("dangling", "wheel-0", 0),
         ("350z-wheel-0", "wheel-0", 0),
