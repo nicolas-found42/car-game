@@ -15,7 +15,7 @@ Owner worktree: `issue-12-assembly`, branch `codex/issue-12-assembly`, based on 
 
 Raw logs and production runs are retained outside this worktree at `/Users/nicolas/Documents/github/car-game/artifacts/issue-12/`. Worktree `artifacts` points there, keeping default legacy script evidence isolated from other branches.
 
-Initial headless handoff: formatting, warning-free all-target Clippy and unchanged complexity thresholds passed. Seven analytic/atomic assembly tests and all sixteen shared-production scenarios passed. The added scenario checks both domain and Rapier readback mass at completed tick boundaries: 1320→1295→1320 kg, ready→incomplete-inoperable→ready, unchanged identity and an actionable stale revision rejection. Additional permanent unit/recorder suites run through the all-target ladder; final results below will be updated after full offline/live checks.
+Initial headless handoff: formatting, warning-free all-target Clippy and unchanged complexity thresholds passed. Seven analytic/atomic assembly tests and all sixteen shared-production scenarios passed. The added scenario checks both domain and Rapier readback mass at completed tick boundaries: 1320→1295→1320 kg, ready→incomplete-inoperable→ready, unchanged identity and an actionable stale revision rejection. The complete final all-target ladder passed 66 tests: 18 unit (including the two location privacy controls), 7 assembly, 21 recorder health, 4 shutdown, and 16 production scenarios.
 
 Reproduction uses `CARGO_TARGET_DIR=/Users/nicolas/Documents/github/car-game/target` and `CARGO_INCREMENTAL=0` for routine headless checks; exact recorded release builds use a checkout-local target (shared-target provenance is deliberately rejected by #88).
 
@@ -32,6 +32,35 @@ cargo run -- --render-disabled --scenario examples/scenarios/assembly-wheel.json
 
 Two independent review findings have been addressed: explicit visual/collision manifest bindings and non-finite/overflow aggregate rejection. Standards review's hardcoded corner IDs moved out of the solver into compiled domain capabilities; baseline mass/inertia literals now share the vehicle baseline contract.
 
-## Remaining gate work
+## Completed verification
 
-Run the full offline fleet chain, native/live applicable chain and exact-build scenario recording; retain summaries and any limitations here. Jev judgment/browser tools are unavailable in this session; no Jev gate or manual visual acceptance is claimed. Independent review and actual executable checks supply engineering evidence, and later #19 owns the phase acceptance judgment. No issue closing or merging is authorized.
+All results below are real executions on macOS/Apple M5 Pro with Metal; audio was muted. No complexity exceptions or global thresholds were added.
+
+| Check | Result / retained evidence |
+| --- | --- |
+| `cargo fmt --check`, all-target Clippy, required code-limit `HEAD` and true branch-base `bdd2bee` | Pass; `logs/clippy-followup.log`, `logs/codelimit-followup.log`, `logs/codelimit-final-head.log` |
+| `cargo test --all-targets` after the final code change | 66/66; `logs/tests-followup.log` |
+| Python syntax, asset/source integrity | Pass; `logs/assets.log`; original 350Z and all fleet source geometry/images unchanged |
+| Existing portable evidence/privacy controls | 17/17 Python tests; `logs/provenance-privacy-regressions.log`; two new Rust controls preserve exact typed locations and reject host/unknown locations |
+| Full `scripts/verify.sh` | Pass on mechanical commit `ed31f39`; 13/13 driving scripts, 52 validated nonblank 1920×1080 captures, 157,506 events; `logs/full-offline.log` |
+| Explicit fleet/run/provenance validation | Pass; `logs/fleet-explicit.log`, `logs/fleet-run-explicit.json`, `logs/fleet-provenance.json`; healthy finalized recorder, complete inventory/build/runtime material |
+| Preserved main versus assembly 350Z | 601 matching post-Writeback completed ticks (readiness-relative 120–720); maximum position and velocity error, longitudinal response error and straight endpoint error all exactly zero on this machine; `preservation-comparison.json`, reproducible `compare_reference.py` |
+| Corrected production assembly scenario | 4/4 assertions; 1320→1295→1320 kg including Rapier readback, revision 0→1→2, stale command rejected, nonblank 1920×1080 capture, healthy finalized recorder; complete immutable inventory/build/runtime material |
+| Actual native window/control inspection | Standard bundle of the same exact recorded executable; CUA inspected visible car/city/HUD, held W 1500 ms, observed 24 km/h, reset with R, paused with Escape, quit with Q; exit 0, healthy finalized recorder and complete build/runtime material |
+
+Exact artifact identifiers under the raw evidence root:
+
+- Full fleet: `runs/20261023T011838842667Z-ed31f39-fleet-93610-1-1792718318866918000`; exact executable SHA-256 `95a4a0c28673ffbbeaabde74229c3083cf31fc001f5b8ac52dbc7250d648862d`.
+- Corrected assembly: `assembly-capture-complete/20261023T012558353969Z-82ada61-scenario-5879-1-1792718758373968000`; final code executable SHA-256 `729140e094d6e38c89ed92f2459b512900cc3c24a34eed3b94ee16a5ee98db35`.
+- Native: `native-bundle-observation/20261023T01302656349Z-82ada61-interactive-13953-1-1792719026584464000`; `native-visible.png`, `native-driving-visible.png`, `native-paused-visible.png`; checksum/physical-command summary `native-observation-summary.json`.
+- Native window screenshots include window chrome around the 1920×1080 viewport. They are separate from the required fleet PNGs. Both the issue owner and coordinator inspected meaningful visible native geometry, HUD and pause state. Native recording measured a peak 32.009 km/h, one reset, one pause and one successful quit; the saved driving frame displays 24 km/h.
+
+The exact-build packages include immutable source/toolchain/dependency inputs. Routine checks shared only derived debug objects. Checkout-local release cache was APFS cloned, and the ordinary exact base executable received a copy of its matching recorded sidecar (identical executable hash). No shared executable was represented as having independent source provenance. The bundle was built using existing `tools/bundle_macos.sh release` and retained the same final executable bytes.
+
+## Preserved findings and boundaries
+
+- First exact assembly run passed behavior/capture but truthfully marked runtime material incomplete: the generic evidence sanitizer redacted the domain field named `location`. Followup `82ada61` permits only canonical typed vehicle/inventory locations whose scalar IDs/slot satisfy the portable-token policy; host paths, extra fields and unrelated location objects remain redacted. The first run remains at `assembly-capture/20261023T011725519312Z-ed31f39-scenario-90666-1-1792718245545081000`; final corrected run has zero omissions. Vehicle mechanics did not change after the full fleet/reference checks.
+- Raw executable native `--smoke` was attempted and correctly failed blank surface screenshots; unchanged main failed the same check. One transient `caffeinate -u -t 300` display activity assertion retry also failed a later driving capture after three meaningful native captures. These runs remain in `native-smoke`, `native-reference`, `native-smoke-active-display`; they are never counted as passing smoke runs. OS evidence says the console was unlocked/on-console. The cause of native built-in screenshot readback intermittency is unresolved; it is distinct from the independently inspected visible native window and from the passing offscreen Metal captures. No rendering code or capture threshold was changed to conceal it. The documented applicable live window/startup requirement was supplemented with actual visible native keyboard/reset/pause/quit validation; the complete `verify_live.sh` remains an integration-owner check at #19.
+- Full fleet regression validation and the 601-tick matching comparison do not ratify universal handling budgets or CPU p99 targets. No new performance/fidelity/audio quality claim is made.
+- Jev judgment/browser tools are unavailable in this session; no Jev grade is claimed. Website interactions were unnecessary. CUA was used only for native app inspection. Engineering checks and independent review are preserved separately from the later #19 phase acceptance decision.
+- P2 still owns authored fastener/picking/access and workshop mesh removal/reinstallation. The P1 manifest represents existing major wheel/tire assemblies, not complete engine internals. #13 snapshots, #14 controls and #15 query adapter consume this graph in stacked worktrees; their phase acceptance is not claimed here. Stable handoff `ed31f39`, evidence followup `82ada61`; no merge or issue close was performed.

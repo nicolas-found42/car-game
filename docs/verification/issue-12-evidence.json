@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "issue": 12,
+  "source_commits": [
+    "ed31f39ef50eaa5b3b2272f10e8512e3730cd5d1",
+    "82ada61cfe7dcccff06a4aa623eac56b93468382"
+  ],
+  "raw_evidence_root": "/Users/nicolas/Documents/github/car-game/artifacts/issue-12",
+  "rust_tests_passed": 66,
+  "python_portable_evidence_tests_passed": 17,
+  "fleet_cars_passed": 13,
+  "fleet_captures_validated": 52,
+  "assembly_assertions_passed": 4,
+  "reference_comparison": {
+    "schema": 1,
+    "reference": "/Users/nicolas/Documents/github/car-game/artifacts/p1-coordination/reference-runs/20261023T01083875354Z-bdd2bee-scenario-74525-1-1792717718772161000",
+    "candidate": "/Users/nicolas/Documents/github/car-game/artifacts/issue-12/preservation-350z/20261023T012342792957Z-82ada61-scenario-1809-1-1792718622810878000",
+    "sample_phase": "simulation.completed, post-Rapier Writeback, readiness-relative completed ticks",
+    "sample_count": 601,
+    "range": [
+      120,
+      720
+    ],
+    "max_position_error_m": 0.0,
+    "max_velocity_error_mps": 0.0,
+    "longitudinal_response_error_percent": 0.0,
+    "straight_endpoint_error_m": 0.0,
+    "proposal_controls": {
+      "response_percent": 1,
+      "endpoint_m": 0.1,
+      "status": "spec proposals; not ratified general handling tolerances"
+    },
+    "passed_proposal_controls": true
+  },
+  "artifacts": [
+    {
+      "artifact": "logs/tests-followup.log",
+      "sha256": "f425242fe8393fcc5d39f187209b1bca496768ae62bafaa24fe8b8b95fae6444",
+      "bytes": 6678
+    },
+    {
+      "artifact": "logs/clippy-followup.log",
+      "sha256": "e25ad6013ff3fa40a799c6df5d27531fc8fa93f2800a699a240b6cdbf967a5e2",
+      "bytes": 160
+    },
+    {
+      "artifact": "logs/codelimit-followup.log",
+      "sha256": "a1850a169b9ce9d95d5e07c03606cc23f0621ec01e103757b173956dc4893106",
+      "bytes": 309
+    },
+    {
+      "artifact": "logs/full-offline.log",
+      "sha256": "d1c267c79e3826cb7173a63e49dae49da8820b99a616f59c15aebde05594c510",
+      "bytes": 75825
+    },
+    {
+      "artifact": "logs/fleet-provenance.json",
+      "sha256": "31f86be65509abc6b132013ab7e8c726d6e19fe40a91a7130e83f10b19101304",
+      "bytes": 2880
+    },
+    {
+      "artifact": "logs/assembly-provenance-complete.json",
+      "sha256": "dcf8a78318209e1fcafa38882816be885e7633921593ae762eb183388f1c6828",
+      "bytes": 2608
+    },
+    {
+      "artifact": "logs/native-observation-provenance.json",
+      "sha256": "3fc9688b420038b57229801c46c90c2b30bfef8d8bb894ace1dc1670e984d7ae",
+      "bytes": 2834
+    },
+    {
+      "artifact": "logs/native-observation-health.json",
+      "sha256": "10ca7df090e51143ff9d1624861adffb7038801571167830b033f1d19ea88fe1",
+      "bytes": 488
+    },
+    {
+      "artifact": "preservation-comparison.json",
+      "sha256": "60e6a9f4a3d158d71d1daccb5a33eca4a42602002e4ddc94ec8646b2de35f8f0",
+      "bytes": 842
+    },
+    {
+      "artifact": "native-observation-summary.json",
+      "sha256": "c8649bf3fbe452dad3afd564ecc85b0c931283a88701aa7b0ae6aaa91c2e8a06",
+      "bytes": 929
+    },
+    {
+      "artifact": "native-visible.png",
+      "sha256": "3d0299fb74f388bcd7c7eda45a702c348d7b3f9d82f95a927f6bf9c41f4b15f5",
+      "bytes": 245349
+    },
+    {
+      "artifact": "native-driving-visible.png",
+      "sha256": "3154953d83d1f7687912f5aef40f5a1d44ea9e51542218c704bd6874d6e30ae6",
+      "bytes": 288978
+    },
+    {
+      "artifact": "native-paused-visible.png",
+      "sha256": "e7794e17d89714cda9d5b5fbd4599203634352fd30376fcbd9cb42e093098775",
+      "bytes": 277036
+    }
+  ]
+}
