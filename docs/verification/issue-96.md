@@ -33,7 +33,7 @@ not a per-function CPU trace or a universal latency guarantee.
 
 All eight failed children have empty stdout/stderr and an empty `run.log`;
 the retained size inventories contain no manifest, health file, provenance
-capture or object. `RunRecorder::try_open_with_config` creates `run.log` before
+capture or object. `RunRecorder::try_create_with_config` creates `run.log` before
 `Manifest::new` synchronously hashes the executable, and only afterwards opens
 the writer and publishes the manifest and initial health. This places the
 observed stall before writer initialization, consistent with unoptimized
@@ -57,13 +57,45 @@ in `CHECKPOINT.json`; that file is a historical checkpoint, not current status.
 
 ## Final verification
 
-Local verification is in progress under one outer `cargo_serial.py` lease,
-including the full repository ladder, recorder/provenance Python controls,
-asset controls and a serial shutdown control. The normal all-targets test run
-retains default test concurrency. Per-command exit statuses and monotonic
-elapsed times are retained in `artifacts/issue-96/local/results.json` with logs,
-source diff, compiler identity and target directory.
+The complete local ladder passed under one outer `cargo_serial.py` lease;
+all 11 command exit statuses are zero. [Command timings](issue-96-probe/local-results.json)
+include formatting, Clippy with warnings denied, the HEAD complexity gate,
+all-target tests, Python syntax, source asset integrity, 17 provenance controls,
+7 recorder-health controls, fleet asset controls, the serial shutdown control,
+and `bash scripts/verify.sh`. The code-limit script correctly had no changed
+Rust/Python files to inspect. No global thresholds or exceptions were added.
 
-Normal CI on the restored workflow and final head is still required. Issue #96
-and its dependency relationship with #19 remain open until human merge. This
-repair does not replace #92's bundle retention/export/reproduction work.
+Local default-concurrency tests passed 16 library, 21 recorder-health, 4 shutdown
+and 15 scenario tests. Shutdown execution took 4.19 s at default concurrency
+and 12.50 s serially; these are local dev-profile observations, separate from
+the CI-profile probe above. The full offline chain also passed 13 fleet drive
+scripts, 52 capture checks and run-evidence verification. This is automated
+fleet verification, not a new human visual review.
+
+Raw logs, the lease acquire/release record, initial source diff/compiler/target
+identity, local SHA-256 receipts and a complete copy of the fleet run are
+retained under `artifacts/issue-96/local/` in the primary checkout. Verification
+started with the workflow restoration applied to `2e7c368`; `98b57d9` committed
+that same behavior and the probe evidence during execution. Subsequent edits
+only update documentation/evidence. All commands, including subprocesses and
+release fleet execution, ran inside the same whole-command Cargo lease.
+
+Normal final-head CI uses the restored workflow. Its exact SHA, run URL,
+conclusion and corrected logs are recorded in PR #102 and the primary
+checkout's `artifacts/issue-96/final-ci/`; consult the latest check on the PR
+for merge readiness. This avoids changing the head merely to embed its own
+CI result. Issue #96 and its dependency relationship with #19 remain open
+until human merge. This repair does not replace #92's bundle retention work.
+
+## Standards
+
+Independent review against `bdd2bee`: zero documented-standard breaches and
+zero baseline smell findings. Corrected the evidence document's method name
+to `try_create_with_config`; no production changes resulted.
+
+## Spec
+
+Independent review against issue #96: zero implementation findings or scope
+creep. Workflow identity, all 52 retained probe-file hashes, original deadlines
+and default concurrency were verified. Final normal CI is the remaining
+external acceptance check; its outcome is recorded as described above.
