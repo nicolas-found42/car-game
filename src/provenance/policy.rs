@@ -20,7 +20,10 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
         match arg.as_str() {
             "--smoke" | "--fleet-check" | "--visual-check" | "--offscreen"
             | "--render-disabled" => exported.push(json!(arg)),
-            "--car" | "--seed" | "--scenario-filter" => {
+            value
+                if matches!(value, "--car" | "--seed" | "--scenario-filter")
+                    || crate::diagnostics::RecorderConfig::is_option(value) =>
+            {
                 if let Some(value) = args.next().filter(|v| safe_token(v)) {
                     exported.extend([json!(arg), json!(value)]);
                 } else {
@@ -135,6 +138,7 @@ pub fn redact(value: &Value) -> Value {
 pub fn config(value: &Value) -> Value {
     let keys = [
         "mode",
+        "recorder",
         "visual_only",
         "car",
         "offscreen",

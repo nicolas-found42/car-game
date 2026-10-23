@@ -183,7 +183,10 @@ impl Plugin for RuntimePlugin {
             .init_resource::<Session>()
             .add_systems(Startup, assign_initial)
             .add_systems(First, begin_frame)
-            .add_systems(Last, flush_on_exit)
+            .add_systems(
+                Last,
+                (crate::diagnostics::poll_lifecycle, flush_on_exit).chain(),
+            )
             .configure_sets(
                 FixedFirst,
                 (CommandSet::BeginTick, CommandSet::Dispatch).chain(),
@@ -237,6 +240,7 @@ fn complete_tick(
             envelope.boundary = "completed_tick".into();
             run.event_envelope("simulation.completed", json!({"car":spec.id,"position":pose.translation.to_array(),"linear_velocity":velocity.linear.to_array(),"reset_count":car.reset_count}), envelope);
         }
+        run.completed_tick(clock.completed);
     }
 }
 /// Update ingress stays live while virtual time is paused; physical actions wait for FixedFirst.

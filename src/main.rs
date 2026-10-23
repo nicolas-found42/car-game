@@ -4,29 +4,53 @@ fn main() {
         diagnostics::print_diagnosis(target.as_deref());
         return;
     }
-    let config = RuntimeConfig::from_args(std::env::args().skip(1)).unwrap_or_else(|e| {
+    let args: Vec<String> = std::env::args().skip(1).collect();
+    let recorder_config = diagnostics::RecorderConfig::from_args(&args).unwrap_or_else(|error| {
+        eprintln!("recorder_error: {error}");
+        std::process::exit(2)
+    });
+    let config = RuntimeConfig::from_args(args).unwrap_or_else(|e| {
         eprintln!("{e}");
         std::process::exit(2)
     });
-    let run = std::sync::Arc::new(diagnostics::RunRecorder::create_in(
-        &config.artifact_dir,
-        &config.mode,
-        &config.car,
-    ));
+    let run = std::sync::Arc::new(
+        diagnostics::RunRecorder::try_create_with_config(
+            &config.artifact_dir,
+            &config.mode,
+            &config.car,
+            recorder_config,
+        )
+        .unwrap_or_else(|error| {
+            eprintln!("recorder_error: {error}");
+            std::process::exit(2)
+        }),
+    );
     diagnostics::set_run_recorder(run.clone());
-    diagnostics::set_log_file(run.dir().join("run.log"));
     diagnostics::install_panic_hook();
-    let mut app = build_app(config, run.clone()).unwrap_or_else(|e| {
-        run.fail("configuration", serde_json::json!({"error":e}));
-        run.finish(bevy::app::AppExit::Error(
-            std::num::NonZeroU8::new(2).expect("nonzero exit code"),
-        ));
-        eprintln!("{e}");
-        std::process::exit(2)
+    if let Err(error) = diagnostics::install_termination_handler(&run) {
+        eprintln!("recorder_error: {error}");
+        run.fail("signal_handler_unavailable", serde_json::json!({}));
+        run.finish(bevy::app::AppExit::error());
+        std::process::exit(2);
+    }
+    let exit = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        match build_app(config, run.clone()) {
+            Ok(mut app) => app.run(),
+            Err(error) => {
+                run.fail("configuration", serde_json::json!({"error":error}));
+                bevy::app::AppExit::error()
+            }
+        }
+    }))
+    .unwrap_or_else(|_| {
+        run.fail(
+            "panic",
+            serde_json::json!({"context":"panic.json","backtrace_availability":"unavailable"}),
+        );
+        bevy::app::AppExit::error()
     });
-    let exit = app.run();
     // The production Last schedule flushes the live world before runner teardown.
-    run.finish(exit.clone());
+    let exit = run.finish(exit);
     if let bevy::app::AppExit::Error(code) = exit {
         std::process::exit(code.get().into());
     }

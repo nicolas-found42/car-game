@@ -2,33 +2,43 @@
 //!
 //! Every run writes to `artifacts/runs/<id>/`. The directory is append-only from the
 //! caller's perspective; a run never rewrites another run's evidence.
+mod health;
+mod history;
+mod incident;
+mod logging;
+mod recording;
+pub(crate) use recording::bounded_json;
+mod settings;
+mod shutdown;
+pub use shutdown::install_termination_handler;
+pub(crate) use shutdown::poll_lifecycle;
+mod writer;
+pub use health::RecorderError;
+pub use recording::EvidenceStream;
+pub use settings::{RecorderConfig, RecorderFault, RecorderFaultStage};
+
 use bevy::{
-    app::AppExit,
-    log::{BoxedLayer, tracing_subscriber},
-    prelude::*,
-    render::renderer::RenderAdapterInfo,
+    app::AppExit, log::BoxedLayer, prelude::*, render::renderer::RenderAdapterInfo,
     window::PrimaryWindow,
 };
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
 use std::{
-    collections::{HashSet, VecDeque},
+    collections::HashSet,
     env,
     fs::{self, File, OpenOptions},
-    io::{BufWriter, Write},
+    io::{Read, Seek, SeekFrom, Write},
     path::{Path, PathBuf},
     process::Command,
     sync::{
         Arc, Mutex, OnceLock,
-        atomic::{AtomicBool, AtomicU64, Ordering},
+        atomic::{AtomicBool, AtomicI32, AtomicU64, Ordering},
     },
     time::{SystemTime, UNIX_EPOCH},
 };
 use time::{OffsetDateTime, format_description::well_known::Rfc3339};
 
-static LOG_FILE: OnceLock<PathBuf> = OnceLock::new();
-static RUN_DIR: OnceLock<PathBuf> = OnceLock::new();
 static RUN_COUNTER: AtomicU64 = AtomicU64::new(1);
 static RUN_RECORDER: OnceLock<Arc<RunRecorder>> = OnceLock::new();
 
@@ -40,48 +50,21 @@ pub fn run_recorder() -> Option<Arc<RunRecorder>> {
     RUN_RECORDER.get().cloned()
 }
 
-pub fn set_log_file(path: PathBuf) {
-    let _ = LOG_FILE.set(path);
-}
-
-/// Extra tracing layer that writes every log event to the run's `run.log`.
-pub fn file_log_layer(_app: &mut App) -> Option<BoxedLayer> {
-    let path = LOG_FILE.get()?;
-    let file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open(path)
-        .ok()?;
-    Some(Box::new(
-        tracing_subscriber::fmt::layer()
-            .with_ansi(false)
-            .with_writer(Mutex::new(file)),
-    ))
+/// Logging uses the same checked, bounded writer as the numeric evidence streams.
+pub fn file_log_layer(app: &mut App) -> Option<BoxedLayer> {
+    let run = app
+        .world()
+        .get_resource::<RunHandle>()
+        .map(|run| run.0.clone())
+        .or_else(run_recorder)?;
+    Some(logging::layer(run))
 }
 
 pub fn install_panic_hook() {
     let previous = std::panic::take_hook();
     std::panic::set_hook(Box::new(move |info| {
-        if let Some(dir) = RUN_DIR.get() {
-            let message = info.to_string();
-            let location = info
-                .location()
-                .map(|l| format!("{}:{}:{}", l.file(), l.line(), l.column()))
-                .unwrap_or_default();
-            let backtrace = std::backtrace::Backtrace::force_capture().to_string();
-            let payload = json!({
-                "schema": 1,
-                "at": now(),
-                "reason": "panic",
-                "message": message,
-                "location": location,
-                "backtrace": backtrace,
-            });
-            write_json_atomic(&dir.join("panic.json"), &payload);
-            let failure = dir.join("failure.json");
-            if !failure.exists() {
-                write_json_atomic(&failure, &payload);
-            }
+        if let Some(run) = RUN_RECORDER.get() {
+            run.health.request_panic(info);
         }
         previous(info);
     }));
@@ -119,6 +102,7 @@ pub struct ExitInfo {
 #[derive(Serialize, Clone)]
 pub struct Manifest {
     pub provenance: Option<Value>,
+    pub recorder_health: Value,
     pub schema: u32,
     pub run_id: String,
     pub started_at: String,
@@ -134,62 +118,16 @@ pub struct Manifest {
     pub exit: Option<ExitInfo>,
 }
 
-#[derive(Resource, Clone)]
-pub struct RunHandle(pub Arc<RunRecorder>);
-
-impl std::ops::Deref for RunHandle {
-    type Target = RunRecorder;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-
-#[derive(Resource)]
-pub struct RunRecorder {
-    run_id: String,
-    root: PathBuf,
-    dir: PathBuf,
-    manifest: Mutex<Manifest>,
-    events: Mutex<BufWriter<File>>,
-    recent: Mutex<VecDeque<Value>>,
-    failure_written: AtomicBool,
-    seq: AtomicU64,
-    pub evidence_clock: crate::telemetry::EvidenceClock,
-}
-
-impl RunRecorder {
-    pub fn create(mode: &str, car: &str) -> Self {
-        Self::create_in(Path::new("artifacts/runs"), mode, car)
-    }
-
-    pub fn create_in(root: &Path, mode: &str, car: &str) -> Self {
-        let started_at = now();
-        let git = git_info();
-        let short = git.short.clone();
-        let compact = compact_timestamp(&started_at);
-        let suffix = format!(
-            "{}-{}-{}",
-            std::process::id(),
-            RUN_COUNTER.fetch_add(1, Ordering::Relaxed),
-            SystemTime::now()
-                .duration_since(UNIX_EPOCH)
-                .map(|d| d.as_nanos())
-                .unwrap_or(0)
-        );
-        let run_id = format!("{}-{}-{}-{}", compact, short, sanitize(mode), suffix);
-        let dir = root.join(&run_id);
-        fs::create_dir_all(dir.join("captures")).expect("create run captures directory");
-        fs::create_dir_all(dir.join("cars")).expect("create run cars directory");
-        let _ = File::create(dir.join("run.log"));
-
-        let manifest = Manifest {
+impl Manifest {
+    fn new(run_id: String, started_at: String, git: GitInfo, mode: &str, car: &str) -> Self {
+        Self {
             provenance: None,
+            recorder_health: json!({"schema":1,"path":"recorder-health.json","required":true}),
             schema: 1,
-            run_id: run_id.clone(),
+            run_id,
             started_at,
             ended_at: None,
-            git: git.clone(),
+            git,
             binary_sha256: env::current_exe()
                 .ok()
                 .as_deref()
@@ -220,24 +158,94 @@ impl RunRecorder {
             gpu: None,
             window: None,
             exit: None,
-        };
-        let events = OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open(dir.join("events.jsonl"))
-            .expect("create events file");
+        }
+    }
+}
+
+#[derive(Resource, Clone)]
+pub struct RunHandle(pub Arc<RunRecorder>);
+
+impl std::ops::Deref for RunHandle {
+    type Target = RunRecorder;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+#[derive(Resource)]
+pub struct RunRecorder {
+    run_id: String,
+    root: PathBuf,
+    dir: PathBuf,
+    manifest: Mutex<Manifest>,
+    health: std::sync::Arc<health::HealthState>,
+    recording: recording::Recording,
+    finished: AtomicBool,
+    final_exit: AtomicI32,
+    failure_written: AtomicBool,
+    seq: AtomicU64,
+    pub evidence_clock: crate::telemetry::EvidenceClock,
+}
+
+impl RunRecorder {
+    pub fn create(mode: &str, car: &str) -> Self {
+        Self::create_in(Path::new("artifacts/runs"), mode, car)
+    }
+
+    pub fn create_in(root: &Path, mode: &str, car: &str) -> Self {
+        Self::try_create_in(root, mode, car).expect("create run recorder")
+    }
+
+    pub fn try_create_in(root: &Path, mode: &str, car: &str) -> Result<Self, RecorderError> {
+        Self::try_create_with_config(root, mode, car, RecorderConfig::default())
+    }
+
+    pub fn try_create_with_config(
+        root: &Path,
+        mode: &str,
+        car: &str,
+        config: RecorderConfig,
+    ) -> Result<Self, RecorderError> {
+        config.validate()?;
+        let started_at = now();
+        let git = git_info();
+        let short = git.short.clone();
+        let compact = compact_timestamp(&started_at);
+        let suffix = format!(
+            "{}-{}-{}",
+            std::process::id(),
+            RUN_COUNTER.fetch_add(1, Ordering::Relaxed),
+            SystemTime::now()
+                .duration_since(UNIX_EPOCH)
+                .map(|d| d.as_nanos())
+                .unwrap_or(0)
+        );
+        let run_id = format!("{}-{}-{}-{}", compact, short, sanitize(mode), suffix);
+        let dir = root.join(&run_id);
+        fs::create_dir_all(dir.join("captures"))
+            .map_err(|e| RecorderError::new("open", "captures", e.kind()))?;
+        fs::create_dir_all(dir.join("cars"))
+            .map_err(|e| RecorderError::new("open", "cars", e.kind()))?;
+        File::create(dir.join("run.log"))
+            .map_err(|e| RecorderError::new("open", "log", e.kind()))?;
+
+        let manifest = Manifest::new(run_id.clone(), started_at, git.clone(), mode, car);
+        let health = std::sync::Arc::new(health::HealthState::new(dir.clone(), config));
+        let recording = recording::Recording::open(health.clone())?;
         let recorder = Self {
             run_id: run_id.clone(),
             root: root.to_path_buf(),
             dir: dir.clone(),
             manifest: Mutex::new(manifest),
-            events: Mutex::new(BufWriter::new(events)),
-            recent: Mutex::new(VecDeque::new()),
+            health,
+            recording,
+            finished: AtomicBool::new(false),
+            final_exit: AtomicI32::new(1),
             failure_written: AtomicBool::new(false),
             seq: AtomicU64::new(1),
             evidence_clock: crate::telemetry::EvidenceClock::default(),
         };
-        let _ = RUN_DIR.set(dir.clone());
         recorder.write_manifest();
         recorder.append_index(json!({
             "event": "start",
@@ -249,14 +257,24 @@ impl RunRecorder {
             "dirty": git.dirty,
             "dir": dir.display().to_string(),
         }));
-        if root == Path::new("artifacts/runs") {
-            let _ = fs::write("artifacts/latest", recorder.dir.display().to_string());
+        if root == Path::new("artifacts/runs")
+            && let Err(error) = fs::write("artifacts/latest", recorder.dir.display().to_string())
+        {
+            recorder.health.error("publish", "latest", error.kind());
         }
         recorder.event(
             "run.start",
             json!({"mode": mode, "car": car, "dir": recorder.dir.display().to_string()}),
         );
-        recorder
+        recorder.health.persist();
+        if recorder.health.failed() {
+            return Err(RecorderError::new(
+                "publish",
+                "startup",
+                "initial evidence unavailable",
+            ));
+        }
+        Ok(recorder)
     }
 
     /// Freeze identities before the app can load or mutate its effective inputs.
@@ -269,7 +287,8 @@ impl RunRecorder {
                 }
                 self.write_manifest();
             }
-            Err(_) => {
+            Err(error) => {
+                self.health.error("capture", "provenance", error.kind());
                 if let Ok(mut manifest) = self.manifest.lock()
                     && manifest.provenance.is_none()
                 {
@@ -283,6 +302,51 @@ impl RunRecorder {
                 );
             }
         }
+    }
+
+    /// Checked serialization and nonblocking bounded recording boundary.
+    pub fn record_evidence(
+        &self,
+        stream: EvidenceStream,
+        tick: u64,
+        payload: &impl Serialize,
+    ) -> bool {
+        self.recording.record(stream, tick, payload)
+    }
+    pub fn flush(&self) -> bool {
+        self.recording.flush(false)
+    }
+    pub(crate) fn recording_failed(&self) -> bool {
+        self.health.failed()
+    }
+    pub(crate) fn signal_support(&self) {
+        self.health.update(|data| data.signal_support = true);
+    }
+    pub(crate) fn terminate(&self) {
+        let first = self.health.update(|data| {
+            if data.shutdown_reason == "termination_requested" {
+                return false;
+            }
+            data.shutdown_reason = "termination_requested".into();
+            true
+        });
+        if first {
+            self.event(
+                "run.termination_requested",
+                json!({"signal_identity":"not_available"}),
+            );
+            self.recording.incident("termination_requested");
+        }
+    }
+    pub fn recorder_config(&self) -> &RecorderConfig {
+        &self.health.config
+    }
+    pub fn health(&self) -> Value {
+        self.health.snapshot()
+    }
+    pub fn completed_tick(&self, tick: u64) {
+        self.evidence_clock.completed(tick);
+        self.recording.completed(tick);
     }
 
     pub fn run_id(&self) -> &str {
@@ -312,17 +376,11 @@ impl RunRecorder {
         record["command"] = command.clone();
         record["source"] = source.into();
         record["phase"] = "ingress".into();
-        if let Ok(mut file) = OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open(self.dir.join("commands.jsonl"))
-        {
-            let _ = writeln!(file, "{record}");
-        }
+        self.record_evidence(EvidenceStream::Commands, envelope.tick, &record);
     }
 
     pub fn event_envelope(&self, kind: &str, fields: Value, envelope: crate::telemetry::Envelope) {
-        let mut record = serde_json::to_value(envelope).expect("serializable envelope");
+        let mut record = serde_json::to_value(&envelope).expect("serializable envelope");
         let legacy = json!({
             "ts": now(),
             "run_id": self.run_id,
@@ -334,16 +392,7 @@ impl RunRecorder {
             .as_object_mut()
             .expect("envelope object")
             .extend(legacy.as_object().expect("legacy object").clone());
-        if let Ok(mut events) = self.events.lock() {
-            let _ = writeln!(events, "{}", record);
-            let _ = events.flush();
-        }
-        if let Ok(mut recent) = self.recent.lock() {
-            if recent.len() >= 200 {
-                recent.pop_front();
-            }
-            recent.push_back(record);
-        }
+        self.record_evidence(EvidenceStream::Events, envelope.tick, &record);
     }
 
     pub fn set_gpu(&self, gpu: Value) {
@@ -363,12 +412,21 @@ impl RunRecorder {
     }
 
     pub fn record_report(&self, report: &Value) {
-        write_json_atomic(&self.dir.join("report.json"), report);
-        self.event("report.write", json!({"path": "report.json"}));
+        if self
+            .health
+            .write_json(&self.dir.join("report.json"), report)
+        {
+            self.event("report.write", json!({"path": "report.json"}));
+        }
     }
 
     pub fn record_car_report(&self, id: &str, report: &Value) {
-        write_json_atomic(&self.dir.join("cars").join(format!("{id}.json")), report);
+        if !self
+            .health
+            .write_json(&self.dir.join("cars").join(format!("{id}.json")), report)
+        {
+            return;
+        }
         self.actor_event(
             "player-vehicle",
             "car.report",
@@ -377,7 +435,7 @@ impl RunRecorder {
     }
 
     pub fn record_capture_metrics(&self, id: &str, view: &str, metrics: &Value) {
-        write_json_atomic(
+        self.health.write_json(
             &self.dir.join("captures").join(format!("{id}-{view}.json")),
             metrics,
         );
@@ -388,11 +446,20 @@ impl RunRecorder {
         if self.failure_written.swap(true, Ordering::SeqCst) {
             return;
         }
+        self.event("run.failure", json!({"reason":reason}));
         let recent = self
-            .recent
+            .health
+            .history
             .lock()
-            .map(|events| events.iter().cloned().collect::<Vec<_>>())
-            .unwrap_or_default();
+            .unwrap_or_else(|e| e.into_inner())
+            .recent_events();
+        let details = match recording::bounded_json(&details, 256 * 1024, false) {
+            Ok(bytes) => serde_json::from_slice::<Value>(&bytes).unwrap_or(Value::Null),
+            Err(_) => {
+                self.health.error("oversize", "incident", "details_omitted");
+                json!({"availability":"omitted","reason":"details_exceed_256KiB"})
+            }
+        };
         let manifest = self.manifest.lock().ok().map(|m| m.clone());
         let payload = json!({
             "schema": 1,
@@ -405,125 +472,147 @@ impl RunRecorder {
             "log_tail": tail_lines(&self.dir.join("run.log"), 80),
             "physics_tail": tail_lines(&self.dir.join("physics.jsonl"), 120),
         });
-        write_json_atomic(&self.dir.join("failure.json"), &payload);
-        self.event("run.failure", json!({"reason": reason}));
+        if !self
+            .health
+            .write_json(&self.dir.join("failure.json"), &payload)
+        {
+            self.failure_written.store(false, Ordering::Release);
+        }
+        self.recording.incident(reason);
     }
 
-    pub fn finish(&self, exit: AppExit) {
-        let (code, reason) = match exit {
-            AppExit::Success => (0, "success"),
-            AppExit::Error(code) => (code.get() as i32, "error"),
+    pub fn finish(&self, exit: AppExit) -> AppExit {
+        if self.finished.swap(true, Ordering::AcqRel) {
+            return exit_from_code(if self.health.failed() {
+                1
+            } else {
+                self.final_exit.load(Ordering::Acquire)
+            });
+        }
+        self.flush();
+        let requested_code = match exit {
+            AppExit::Success => 0,
+            AppExit::Error(code) => i32::from(code.get()),
+        };
+        self.event(
+            "run.exit",
+            json!({"code":requested_code,"reason":if requested_code==0 {"success"} else {"error"}}),
+        );
+        let drained = self.recording.flush(true);
+        let mut code = if self.health.failed() || self.failure_written.load(Ordering::Acquire) {
+            1
+        } else {
+            requested_code
         };
         if let Ok(mut manifest) = self.manifest.lock() {
             manifest.ended_at = Some(now());
             manifest.exit = Some(ExitInfo {
                 code,
-                reason: reason.to_string(),
+                reason: if code == 0 {
+                    "success".into()
+                } else {
+                    "error".into()
+                },
             });
         }
         self.write_manifest();
-        self.event("run.exit", json!({"code": code, "reason": reason}));
-        let manifest = self.manifest.lock().ok().map(|m| m.clone());
-        self.append_index(json!({
-            "event": "finish",
-            "run_id": self.run_id,
-            "ended_at": manifest.as_ref().and_then(|m| m.ended_at.clone()),
-            "exit_code": code,
-            "exit_reason": reason,
-        }));
-        if crate::provenance::finalize(&self.dir).is_err() {
-            self.event(
-                "provenance.finalize_failed",
-                json!({"reason": "inventory_unavailable"}),
-            );
+        self.append_index(json!({"event":"finish","run_id":self.run_id,"exit_code":code}));
+        self.health.update(|data| {
+            data.phase = if self.health.failed() || !drained {
+                "incomplete".into()
+            } else {
+                "finalized".into()
+            }
+        });
+        self.health.persist();
+        if self.health.failed() {
+            code = 1;
+            self.update_exit_error();
         }
+        if drained
+            && let Err(error) = crate::provenance::finalize_bounded(
+                &self.dir,
+                self.health.config.finalize_max_bytes,
+            )
+        {
+            self.health.error("finalize", "provenance", error);
+            self.health.update(|data| data.phase = "incomplete".into());
+            self.health.persist();
+            self.update_exit_error();
+            code = 1;
+        }
+        self.final_exit.store(code, Ordering::Release);
+        exit_from_code(code)
+    }
+    fn update_exit_error(&self) {
+        if let Ok(mut manifest) = self.manifest.lock() {
+            manifest.exit = Some(ExitInfo {
+                code: 1,
+                reason: "error".into(),
+            });
+        }
+        self.write_manifest();
     }
 
     fn write_manifest(&self) {
         let manifest = self.manifest.lock().ok().map(|m| m.clone());
         if let Some(manifest) = manifest {
-            write_json_atomic(&self.dir.join("manifest.json"), &manifest);
+            self.health
+                .write_json(&self.dir.join("manifest.json"), &manifest);
         }
     }
 
     fn append_index(&self, record: Value) {
         let path = self.root.join("index.jsonl");
-        if let Ok(mut file) = OpenOptions::new().create(true).append(true).open(path) {
-            let _ = writeln!(file, "{}", record);
+        let result = OpenOptions::new()
+            .create(true)
+            .append(true)
+            .open(path)
+            .and_then(|mut file| {
+                writeln!(file, "{record}")?;
+                file.sync_all()
+            });
+        if let Err(error) = result {
+            self.health.error("publish", "run_index", error.kind());
         }
+    }
+}
+
+fn exit_from_code(code: i32) -> AppExit {
+    if code == 0 {
+        AppExit::Success
+    } else {
+        AppExit::Error(std::num::NonZeroU8::new(code as u8).unwrap_or(std::num::NonZeroU8::MIN))
     }
 }
 
 #[derive(Resource)]
 pub struct PhysicsTrace {
-    physics: BufWriter<File>,
-    input: BufWriter<File>,
-    ring: VecDeque<PhysicsSample>,
-    capacity: usize,
+    run: Arc<RunRecorder>,
     step: u64,
 }
-
 impl PhysicsTrace {
-    pub fn new(run_dir: &Path) -> Self {
-        let physics = OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open(run_dir.join("physics.jsonl"))
-            .expect("create physics trace");
-        let input = OpenOptions::new()
-            .create(true)
-            .append(true)
-            .open(run_dir.join("input.jsonl"))
-            .expect("create input trace");
-        Self {
-            physics: BufWriter::new(physics),
-            input: BufWriter::new(input),
-            ring: VecDeque::with_capacity(1200),
-            capacity: 1200,
-            step: 0,
-        }
+    pub fn for_recorder(run: Arc<RunRecorder>) -> Self {
+        Self { run, step: 0 }
     }
-
     pub fn record(&mut self, sample: PhysicsSample) {
-        if let Ok(line) = serde_json::to_string(&sample) {
-            let _ = writeln!(self.physics, "{line}");
-        }
-        if self.ring.len() >= self.capacity {
-            self.ring.pop_front();
-        }
-        self.ring.push_back(sample);
+        self.run
+            .record_evidence(EvidenceStream::Physics, sample.tick, &sample);
         self.step += 1;
-        if self.step.is_multiple_of(60) {
-            self.flush();
-        }
     }
-
     pub fn record_input(&mut self, input: InputSample) {
-        if let Ok(line) = serde_json::to_string(&input) {
-            let _ = writeln!(self.input, "{line}");
+        self.run
+            .record_evidence(EvidenceStream::Input, input.tick, &input);
+    }
+    pub fn flush(&mut self) {
+        if !self.run.recording.closed() {
+            self.run.flush();
         }
     }
-
-    pub fn flush(&mut self) {
-        let _ = self.physics.flush();
-        let _ = self.input.flush();
-    }
-
     pub fn step(&self) -> u64 {
         self.step
     }
-
-    #[allow(dead_code)]
-    pub fn tail(&self, count: usize) -> Vec<PhysicsSample> {
-        self.ring
-            .iter()
-            .rev()
-            .take(count)
-            .cloned()
-            .collect::<Vec<_>>()
-    }
 }
-
 impl Drop for PhysicsTrace {
     fn drop(&mut self) {
         self.flush();
@@ -875,17 +964,18 @@ pub fn sha256_file(path: &Path) -> Option<String> {
     Some(format!("{:x}", hasher.finalize()))
 }
 
-fn write_json_atomic(path: &Path, value: &impl Serialize) {
-    let Ok(bytes) = serde_json::to_vec_pretty(value) else {
-        return;
-    };
+fn write_json_atomic(path: &Path, value: &impl Serialize) -> std::io::Result<()> {
+    let bytes = recording::bounded_json(value, 2 * 1024 * 1024, true)
+        .map_err(|code| std::io::Error::new(std::io::ErrorKind::InvalidData, code))?;
     if let Some(parent) = path.parent() {
-        let _ = fs::create_dir_all(parent);
+        fs::create_dir_all(parent)?;
     }
     let temp = path.with_extension("tmp");
-    if fs::write(&temp, bytes).is_ok() {
-        let _ = fs::rename(&temp, path);
-    }
+    let mut file = File::create(&temp)?;
+    file.write_all(&bytes)?;
+    file.sync_all()?;
+    fs::rename(&temp, path)?;
+    Ok(())
 }
 
 fn tail_lines(path: &Path, count: usize) -> Vec<String> {
@@ -893,12 +983,21 @@ fn tail_lines(path: &Path, count: usize) -> Vec<String> {
 }
 
 fn tail_lines_result(path: &Path, count: usize) -> std::io::Result<Vec<String>> {
-    let text = fs::read_to_string(path)?;
-    let lines: Vec<&str> = text.lines().collect();
-    Ok(lines[lines.len().saturating_sub(count)..]
-        .iter()
-        .map(|line| (*line).to_string())
-        .collect())
+    const MAX_BYTES: u64 = 256 * 1024;
+    let mut file = File::open(path)?;
+    let start = file.metadata()?.len().saturating_sub(MAX_BYTES);
+    file.seek(SeekFrom::Start(start))?;
+    let mut bytes = Vec::new();
+    file.take(MAX_BYTES).read_to_end(&mut bytes)?;
+    let text = String::from_utf8_lossy(&bytes);
+    let text = if start > 0 {
+        text.split_once('\n').map_or("", |(_, tail)| tail)
+    } else {
+        &text
+    };
+    let mut lines: Vec<_> = text.lines().rev().take(count).map(str::to_owned).collect();
+    lines.reverse();
+    Ok(lines)
 }
 
 pub struct DiagnosticsPlugin;

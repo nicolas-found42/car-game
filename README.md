@@ -58,7 +58,7 @@ The headless tests use the same Rapier simulation as the game. They cover suspen
 
 `--smoke` checks one car; `--car <id>` chooses it at startup (for example `cargo run -- --car mcla-evo --smoke`). `--fleet-check` cycles every car through the native script. Each run captures matched front/side/rear images and a driving image, checks loaded wheel assemblies, acceleration, turning, braking and reset, and writes a self-contained evidence directory under `artifacts/runs/<run-id>/`. `--visual-check` captures the static comparison without claiming driving success. Blank captures fail. Add `--offscreen` to render the same native scene and HUD to a 1920×1080 GPU image when no usable window surface is available; reports distinguish that target from window performance.
 
-Every run directory contains `manifest.json` (git state, binary hash, arguments, environment, GPU, window, exit), `run.log`, `events.jsonl`, per-car reports under `cars/`, capture files and metrics under `captures/`, and `physics.jsonl` plus `input.jsonl`. Failures additionally write `failure.json` with the last stage, recent events, log tail, physics tail, and any panic backtrace. A run never overwrites another run; `artifacts/latest` points at the newest one.
+Every run directory contains `manifest.json` (git state, binary hash, arguments, environment, GPU, window, exit), `run.log`, `events.jsonl`, per-car reports under `cars/`, capture files and metrics under `captures/`, and `physics.jsonl` plus `input.jsonl`. Failures additionally write `failure.json` with the last stage, recent events, log tail, physics tail, and bounded incident history. Panics retain best-effort bounded message/location in `panic.json`; hook-time backtraces are explicitly unavailable to avoid blocking shutdown. A run never overwrites another run; `artifacts/latest` points at the newest one.
 
 Offscreen checks use a windowless native runner capped at 120 updates/second, with actual wall-clock frame samples. After a full run, `python3 tools/verify_fleet.py` checks the latest run’s reports, hashes and image metrics, and builds six matched comparison sheets plus a fleet overview inside that run directory. This reporting tool requires Pillow; visual review is still required after the structural/capture checks.
 
@@ -133,6 +133,8 @@ A failure bundle includes `failure.json` (reason, stage, details, recent events,
 ```sh
 cargo run -- --replay-input artifacts/runs/<run-id>/input.jsonl
 ```
+
+See [recorder health and incident evidence](docs/verification/recorder-health.md) for limits, fault controls, durability boundaries and supported shutdown paths.
 
 The app records its git commit, dirty state, binary SHA-256, arguments, OS, Rust/Bevy/Rapier versions, asset/source roots, GPU adapter and backend, window resolution/focus/present mode, gamepad identity, and every car start/switch, screenshot request/validation and exit. Use `RUST_LOG` to increase module logging; the same lines are written to `run.log`.
 
