@@ -217,6 +217,7 @@ pub(crate) fn simulate(
         .into();
         evidence.geometry_revision = current.revision;
         evidence.mass = context.as_ref().and_then(|c| c.rigidbody_set.mass(entity));
+        let mass = evidence.mass.unwrap_or(MASS);
         let force_center = context
             .as_ref()
             .and_then(|c| c.rigidbody_set.center_of_mass(entity))
@@ -226,8 +227,13 @@ pub(crate) fn simulate(
             continue;
         }
         *total = ExternalForce::default();
-        if *mode == crate::physics::QueryMode::LegacyPreSync && context.is_none() {
+        if context.is_none() {
             evidence.outcome = "unavailable_context".into();
+            evidence.wheels = std::array::from_fn(|corner| crate::physics::WheelSample {
+                corner,
+                availability: "unavailable_context".into(),
+                ..default()
+            });
             continue;
         }
         let center = pose.translation;
@@ -316,7 +322,7 @@ pub(crate) fn simulate(
             let point_velocity = velocity.linear + velocity.angular.cross(point - force_center);
             let compression = REST - lengths[i];
             let load = (compression * 38000.0 - point_velocity.dot(normal) * 4100.0)
-                .clamp(0.0, MASS * 9.81 * 1.5);
+                .clamp(0.0, mass * 9.81 * 1.5);
             loads[i] = load;
             contacts[i] = Some((point, normal, point_velocity));
             let force = ExternalForce::at_point(normal * load, point, force_center);
@@ -358,8 +364,8 @@ pub(crate) fn simulate(
                 let angle = lateral.atan2(longitudinal.abs().max(2.0));
                 let rear_slide = input.handbrake && i >= 2;
                 let grip = loads[i] * if rear_slide { 0.60 } else { 1.22 };
-                let braking = (brake * MASS * 10.0 / 4.0 + if rear_slide { 6500.0 } else { 0.0 })
-                    .min(longitudinal.abs() * MASS / (4.0 * STEP));
+                let braking = (brake * mass * 10.0 / 4.0 + if rear_slide { 6500.0 } else { 0.0 })
+                    .min(longitudinal.abs() * mass / (4.0 * STEP));
                 let engine = if i >= 2 && !rear_slide {
                     drive / 2.0
                 } else {

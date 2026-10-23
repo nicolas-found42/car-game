@@ -72,7 +72,12 @@ impl Plugin for PhysicsAdapterPlugin {
             )
             .add_systems(
                 FixedUpdate,
-                (finish_sync, query::publish, recording::domain_checkpoint)
+                (
+                    finish_sync,
+                    refresh_mass,
+                    query::publish,
+                    recording::domain_checkpoint,
+                )
                     .chain()
                     .in_set(PhysicsPhase::Query),
             )
@@ -157,4 +162,18 @@ fn bridge(
         }
     }
     clock.durations.bridge_ns = clock.start.take().map(|s| s.elapsed().as_nanos() as u64);
+}
+
+fn refresh_mass(
+    cars: Query<(&RapierRigidBodyHandle, &RapierContextEntityLink), With<crate::vehicle::Vehicle>>,
+    mut contexts: Query<(&mut RapierRigidBodySet, &RapierContextColliders)>,
+) {
+    for (handle, link) in &cars {
+        let (mut bodies, colliders) = contexts.get_mut(link.0).expect("vehicle context");
+        if let Some(body) = bodies.bodies.get_mut(handle.0) {
+            // Rapier normally defers derived mass/COM until integration. Mechanics
+            // needs the new aggregate now; this does not drain its modified queue.
+            body.recompute_mass_properties_from_colliders(&colliders.colliders);
+        }
+    }
 }
