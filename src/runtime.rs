@@ -124,6 +124,8 @@ pub struct SimulationClock {
 pub struct ControllerAssignment(pub ControllerOwner);
 #[derive(Clone)]
 pub struct QueuedCommand {
+    /// Original ingress when a targeted command is normalized for legacy dispatch.
+    pub intent: Option<ProductionCommand>,
     pub command: ProductionCommand,
     pub source: ControllerOwner,
     pub envelope: Envelope,
@@ -169,6 +171,7 @@ impl CommandBus {
             );
         }
         self.ingress.push_back(QueuedCommand {
+            intent: None,
             command,
             source,
             envelope,
@@ -562,7 +565,8 @@ pub fn outcome(world: &mut World, command: &QueuedCommand, disposition: &str, re
         run.event_envelope(
             "command.outcome",
             json!({
-                "command": command.command,
+                "command": command.intent.as_ref().unwrap_or(&command.command),
+                "normalized_command": command.intent.as_ref().map(|_| &command.command),
                 "source": command.source,
                 "disposition": disposition,
                 "reason": reason,

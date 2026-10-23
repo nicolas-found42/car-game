@@ -145,6 +145,7 @@ pub fn command(
         crate::runtime::apply_targeted_player(
             world,
             QueuedCommand {
+                intent: Some(queued.command.clone()),
                 command,
                 ..queued.clone()
             },
