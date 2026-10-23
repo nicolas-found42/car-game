@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "name": "independent-vehicles",
+  "scene": "driving",
+  "seed": 14,
+  "initial": {
+    "car": "350z"
+  },
+  "max_ticks": 400,
+  "max_wall_ms": 15000,
+  "readiness_timeout_ms": 1000,
+  "commands": [
+    {
+      "tick": 0,
+      "command": {
+        "action": "spawn_vehicle",
+        "id": "second-car",
+        "car": "gt4-nsx",
+        "position": [
+          -3.2,
+          0.62,
+          190.0
+        ],
+        "controller": "scenario"
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "drive",
+        "throttle": 1.0,
+        "brake": 0.0,
+        "steer": 0.0
+      }
+    },
+    {
+      "tick": 1,
+      "command": {
+        "action": "vehicle",
+        "target": "second-car",
+        "command": {
+          "action": "drive",
+          "throttle": 0.0,
+          "brake": 1.0,
+          "steer": 0.0
+        }
+      }
+    },
+    {
+      "tick": 250,
+      "command": {
+        "action": "vehicle",
+        "target": "second-car",
+        "command": {
+          "action": "assign_controller",
+          "controller": "replay"
+        }
+      }
+    },
+    {
+      "tick": 251,
+      "command": {
+        "action": "vehicle",
+        "target": "second-car",
+        "command": {
+          "action": "drive",
+          "throttle": 1.0,
+          "brake": 0.0,
+          "steer": 1.0
+        }
+      }
+    },
+    {
+      "tick": 260,
+      "command": {
+        "action": "vehicle",
+        "target": "pilot-350z",
+        "command": {
+          "action": "reset"
+        }
+      }
+    },
+    {
+      "tick": 270,
+      "command": {
+        "action": "vehicle",
+        "target": "second-car",
+        "command": {
+          "action": "reset"
+        }
+      }
+    },
+    {
+      "tick": 280,
+      "command": {
+        "action": "reset"
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "tick": 240,
+      "kind": "vehicle_state",
+      "vehicle": "pilot-350z",
+      "car": "350z",
+      "controller": "scenario",
+      "reset_count": 0,
+      "min_forward_mps": 5,
+      "max_forward_mps": 20
+    },
+    {
+      "tick": 240,
+      "kind": "vehicle_state",
+      "vehicle": "second-car",
+      "car": "gt4-nsx",
+      "controller": "scenario",
+      "reset_count": 0,
+      "min_forward_mps": -8,
+      "max_forward_mps": -1
+    },
+    {
+      "tick": 261,
+      "kind": "vehicle_state",
+      "vehicle": "pilot-350z",
+      "car": "350z",
+      "controller": "scenario",
+      "reset_count": 1,
+      "min_forward_mps": 0,
+      "max_forward_mps": 1
+    },
+    {
+      "tick": 261,
+      "kind": "vehicle_state",
+      "vehicle": "second-car",
+      "car": "gt4-nsx",
+      "controller": "replay",
+      "reset_count": 0,
+      "min_forward_mps": -8,
+      "max_forward_mps": 0
+    },
+    {
+      "tick": 281,
+      "kind": "vehicle_state",
+      "vehicle": "pilot-350z",
+      "car": "350z",
+      "controller": "scenario",
+      "reset_count": 2,
+      "min_forward_mps": 0,
+      "max_forward_mps": 1
+    }
+  ]
+}
