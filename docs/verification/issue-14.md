@@ -154,3 +154,34 @@ rejection, verifies every completed-tick vehicle count stays one, and verifies
 unique `(actor_id, tick)` effective-control consumption. Focused regression passed.
 Earlier `902adb5` build/run claims above remain historical and are not transferred
 to this followup source; the alias fix receives fresh checks/build evidence.
+
+### Shared-target overlap discovered after the alias fix
+
+Coordinator/#15 reproduced cross-worktree test-executable replacement despite
+Cargo's compilation lock: compilation locking does not cover the entire test
+execution. The initial `*-bc9ef37.log` routine checks are therefore historical
+and **not acceptance evidence** even though 69 tests nominally passed. No further
+shared Cargo commands will start until the coordinator's whole-command lease is
+available; rerun checks with that lease and preserve new `-leased` logs. Existing
+bound recorded builds/runs use a separate checkout-local target and retain their
+independent source attribution. No active target was cleaned.
+
+Alias-fix checkout-local recorded release build on source `bc9ef37` succeeded with
+`rebuild_complete=true`, no omissions, binary SHA-256
+`49cbd5814ba7d88af1b23ddeb92e593c0be7b88691471a53731643fd55b804ef`.
+See `record-build-bc9ef37.log`; no scenario or GPU run has yet used this new binary.
+Source fix `bc9ef37` was sent to #15 for integration; current full acceptance remains
+pending the serialized rerun.
+
+All subsequent Cargo acceptance workloads, including checkout-local builds, must
+hold the coordinator's **outer whole-command lease exactly once**:
+
+```sh
+python3 /Users/nicolas/Documents/github/car-game/artifacts/p1-coordination/cargo_serial.py bash <ladder-script>
+```
+
+Do not nest the wrapper inside an already leased script. Coordinator priority is
+#13 complete script, then #14 exact ladder/GPU chain, then #15. At this checkpoint
+no Cargo/acceptance command from #14 is running. Await coordinator followup before
+starting another. Never clean active build caches. Keep older evidence as historical
+source-bound checkpoints; do not silently overwrite earlier logs or claims.
