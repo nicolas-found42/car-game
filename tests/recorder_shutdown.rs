@@ -2,14 +2,28 @@
 use serde_json::{Value, json};
 use std::{
     fs,
-    path::PathBuf,
+    path::{Path, PathBuf},
     process::{Child, Command, Stdio},
+    sync::{RwLock, RwLockReadGuard, RwLockWriteGuard},
     time::{Duration, Instant},
 };
+
+// Give the panic/export control an uncontended CPU/IO budget. The other
+// independent process controls can overlap; all original deadlines remain.
+static PROCESS_LEASE: RwLock<()> = RwLock::new(());
+enum ProcessLease {
+    Shared {
+        _guard: RwLockReadGuard<'static, ()>,
+    },
+    Exclusive {
+        _guard: RwLockWriteGuard<'static, ()>,
+    },
+}
 
 static NEXT: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
 
 struct RecordingProcess {
+    _process_lease: ProcessLease,
     child: Child,
     root: PathBuf,
     run: Option<PathBuf>,
@@ -19,6 +33,22 @@ impl RecordingProcess {
         Self::spawn_until(paused, extra, 9999)
     }
     fn spawn_until(paused: bool, extra: &[&str], tick: u64) -> Self {
+        Self::spawn_guarded(paused, extra, tick, false)
+    }
+    fn spawn_guarded(paused: bool, extra: &[&str], tick: u64, exclusive: bool) -> Self {
+        let process_lease = if exclusive {
+            ProcessLease::Exclusive {
+                _guard: PROCESS_LEASE
+                    .write()
+                    .unwrap_or_else(|error| error.into_inner()),
+            }
+        } else {
+            ProcessLease::Shared {
+                _guard: PROCESS_LEASE
+                    .read()
+                    .unwrap_or_else(|error| error.into_inner()),
+            }
+        };
         let root = std::env::temp_dir().join(format!(
             "grid-shutdown-{}-{}-{}",
             std::process::id(),
@@ -52,6 +82,7 @@ impl RecordingProcess {
             .spawn()
             .unwrap();
         Self {
+            _process_lease: process_lease,
             child,
             root,
             run: None,
@@ -116,10 +147,70 @@ impl Drop for RecordingProcess {
         let _ = self.child.wait();
         if std::thread::panicking() {
             eprintln!("retained failed shutdown evidence: {}", self.root.display());
+            retain_failed_evidence(&self.root, self.run.as_deref());
         } else {
             let _ = fs::remove_dir_all(&self.root);
         }
     }
+}
+
+// CI uploads artifacts/logs, while temporary child directories disappear with
+// the runner. Keep bounded raw diagnostics; missing/oversized files stay explicit.
+fn retain_failed_evidence(root: &Path, run: Option<&Path>) {
+    let destination = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("artifacts/logs")
+        .join(root.file_name().unwrap_or_default());
+    if fs::create_dir_all(&destination).is_err() {
+        return;
+    }
+    let run = run.map(Path::to_path_buf).or_else(|| {
+        fs::read_dir(root.join("runs"))
+            .ok()?
+            .filter_map(Result::ok)
+            .map(|entry| entry.path())
+            .find(|path| path.is_dir())
+    });
+    let mut inventory = Vec::new();
+    for (group, source, names) in [
+        (
+            "process",
+            Some(root),
+            &["stdout.log", "stderr.log", "scenario.json"][..],
+        ),
+        (
+            "run",
+            run.as_deref(),
+            &[
+                "manifest.json",
+                "recorder-health.json",
+                "failure.json",
+                "panic.json",
+                "run.log",
+                "scenario-summary.json",
+                "incident-history.jsonl",
+            ][..],
+        ),
+    ] {
+        let _ = fs::create_dir_all(destination.join(group));
+        for name in names {
+            let file = format!("{group}/{name}");
+            let metadata = source.and_then(|source| fs::metadata(source.join(name)).ok());
+            let Some(metadata) = metadata else {
+                inventory.push(json!({"file":file,"unavailable":true}));
+                continue;
+            };
+            let copied = metadata.is_file()
+                && metadata.len() <= 2 * 1024 * 1024
+                && source.is_some_and(|source| {
+                    fs::copy(source.join(name), destination.join(&file)).is_ok()
+                });
+            inventory.push(json!({"file":file,"bytes":metadata.len(),"copied":copied}));
+        }
+    }
+    let _ = fs::write(
+        destination.join("inventory.json"),
+        json!(inventory).to_string(),
+    );
 }
 
 #[test]
@@ -185,7 +276,7 @@ fn forced_kill_is_reported_as_unknown_and_never_graceful() {
 
 #[test]
 fn panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer() {
-    let mut process = RecordingProcess::spawn(
+    let mut process = RecordingProcess::spawn_guarded(
         false,
         &[
             "--recorder-fault",
@@ -193,6 +284,8 @@ fn panic_with_a_busy_writer_exports_history_without_locking_the_panicking_produc
             "--recorder-writer-delay-ms",
             "2",
         ],
+        9999,
+        true,
     );
     assert!(!process.wait().success());
     let health = process

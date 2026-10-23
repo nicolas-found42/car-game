@@ -17,6 +17,24 @@ fn temporary() -> PathBuf {
     fs::create_dir_all(&path).unwrap();
     path
 }
+// A timed-out writer may finish publishing metadata after finish() returns.
+// Retry only temporary-directory removal, after the behavioral assertions.
+fn remove_after_writer(root: PathBuf) {
+    let deadline = std::time::Instant::now() + std::time::Duration::from_secs(2);
+    loop {
+        match fs::remove_dir_all(&root) {
+            Ok(()) => return,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => return,
+            Err(error)
+                if error.kind() == std::io::ErrorKind::DirectoryNotEmpty
+                    && std::time::Instant::now() < deadline =>
+            {
+                std::thread::sleep(std::time::Duration::from_millis(10));
+            }
+            Err(error) => panic!("recorder fixture cleanup failed: {error}"),
+        }
+    }
+}
 fn read(path: impl AsRef<std::path::Path>) -> Value {
     serde_json::from_slice(&fs::read(path).unwrap()).unwrap()
 }
@@ -524,7 +542,7 @@ fn a_drain_deadline_does_not_leave_the_writer_processing_an_abandoned_queue() {
         written,
         "timed-out shutdown must cancel pending work"
     );
-    fs::remove_dir_all(root).unwrap();
+    remove_after_writer(root);
 }
 
 #[test]
@@ -652,5 +670,5 @@ fn retrying_failed_metadata_cannot_accumulate_incident_snapshots_behind_a_busy_w
     );
     run.finish(AppExit::error());
     std::thread::sleep(std::time::Duration::from_millis(150));
-    fs::remove_dir_all(root).unwrap();
+    remove_after_writer(root);
 }

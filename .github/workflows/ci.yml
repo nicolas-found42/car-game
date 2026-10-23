@@ -78,11 +78,6 @@ jobs:
           else
             echo "SKIP: ../carmodels is not present; source-integrity tests cannot run in CI"
           fi
-      - name: Drop unused cache profiles
-        if: always()
-        run: |
-          du -sh target/debug target/release target/ci 2>/dev/null || true
-          rm -rf target/debug target/release
       - name: Upload retained logs
         if: always()
         uses: actions/upload-artifact@v4

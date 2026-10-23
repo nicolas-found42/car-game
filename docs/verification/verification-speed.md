@@ -53,10 +53,11 @@ duplicated all headless gates. These are orchestration costs, separate from CI.
   on every push until merge. PR-scoped caches cannot replace main's cache; warm
   reruns can reuse them. No assertion result or source-specific test executable
   is substituted for a fresh test execution.
-  Completed dependencies are retained even if a later test/lint fails. The job
-  removes unused dev/release artifacts before cache save, retaining CI artifacts
-  and logging profile sizes. This avoids transferring historical profile builds
-  that this workflow no longer uses.
+  Completed dependencies are retained even if a later test/lint fails.
+  Cache pruning was investigated and rejected: CI showed only its CI profile
+  (10 GiB before rust-cache cleanup), so deleting dev/release directories would
+  not shrink the existing archive. No artificial cache-key bump or cache purge
+  was retained. Cache transfer remains a measured overhead.
 - `verify.sh --base REF` owns the full ladder once, with per-command timings.
   `--recorded` uses one recorded release build and one fleet run for both full
   acceptance and source provenance. It now explicitly includes all targets,
@@ -87,7 +88,7 @@ compiling tests versus the baseline's 46.77 seconds; library execution was 75.14
 seconds versus 71.09. These are different hosted runners, so this is not a
 controlled attribution of runtime regression. It does show a bad compilation
 tradeoff and no demonstrated CI execution win. Both scheduler and physics package
-overrides were removed. Final Cargo.toml is identical to #95; no dependency,
+overrides were removed. Final compiler profiles match #95; no dependency,
 renderer feature, debug assertion, overflow check or production profile changed.
 No tests, driving ticks, deadlines, capture resolution or macOS coverage were removed.
 
@@ -106,6 +107,38 @@ final verification logs are retained in
 `ci-fleet-single-executor.log` retain compiler and harness
 timings separately. The CPU sample contains waiting threads as well as active
 stacks; it is not a CPU-percentage attribution.
+
+## Shutdown control and retained failures
+
+Run 39921783100 confirmed the fixture speedup (19 library tests in 17.44 s,
+versus 18 in 71.09 s in the baseline), including exact executor equivalence.
+It then failed the existing busy-writer panic shutdown deadline; the other three
+shutdown controls passed. No production functions or compiler profile settings
+changed in that run. Its child directory was only retained in the ephemeral
+runner temp folder, so the missing child state is not inferred from the parent
+backtrace. The run remains a failure.
+
+A controlled local backtrace probe passed with backtraces on (6.12 s) and off
+(5.84 s). That small difference does not establish backtrace printing as the
+cause; no backtrace suppression, timeout increase, test retry or assertion
+relaxation was introduced. Failed shutdown controls now copy bounded process/run
+diagnostics to `artifacts/logs` for the actual upload. Each file is capped at
+2 MiB; missing/oversized/uncopied material remains explicit in the size inventory.
+The panic/export control now obtains an exclusive process-fixture lease; the
+other three independent process controls may still overlap. The lease is acquired
+before spawning the application, so each child's existing startup/shutdown clocks
+and assertions are unchanged. This avoids competing with other test children
+for the same small runner's CPU/IO budget. A fully serialized local probe passed
+all four controls in 18.88 s; final code serializes only the panic case.
+
+A faster local suite also exposed a pre-existing `DirectoryNotEmpty` cleanup race
+in the timed-out-writer metadata test: its background writer could still publish
+after the fixed 150 ms cleanup sleep. The original recorder assertions and
+observation windows are preserved. Only temporary-directory removal retries that
+specific race for up to two seconds after the assertions; other cleanup errors
+still fail. This is not a retry of a behavioral assertion or CI job.
+
+Final normal CI is required; retained failed runs are not counted as green.
 
 ## Final validation and remaining costs
 
