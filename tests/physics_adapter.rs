@@ -292,7 +292,7 @@ fn composed_forces_match_the_backend_and_removed_wheel_capability_stays_with_its
             ProductionCommand::SpawnVehicle {
                 id: VehicleId::from("independent"),
                 car: "gt4-nsx".into(),
-                position: [-3.2, 0.62, 190.],
+                position: [-3.2, 0.50, 190.],
                 controller: ControllerOwner::Scenario,
             },
             remove,

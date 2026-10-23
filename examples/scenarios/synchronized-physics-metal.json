@@ -73,7 +73,7 @@
           "edit": "insert_road",
           "id": "fixture:road-b",
           "position": [
-            13.2,
+            -3.2,
             9.8,
             190
           ],
@@ -93,7 +93,7 @@
           "edit": "relocate_vehicle",
           "vehicle": "pilot-350z",
           "position": [
-            13.2,
+            -3.2,
             10.55,
             190
           ],
@@ -109,7 +109,7 @@
           "edit": "insert_road",
           "id": "fixture:road-c",
           "position": [
-            23.2,
+            3.2,
             9.8,
             190
           ],
@@ -150,7 +150,7 @@
           "edit": "relocate_vehicle",
           "vehicle": "pilot-350z",
           "position": [
-            13.2,
+            -3.2,
             12.55,
             190
           ],
@@ -182,7 +182,7 @@
           "edit": "relocate_vehicle",
           "vehicle": "pilot-350z",
           "position": [
-            23.2,
+            3.2,
             12.55,
             190
           ],
