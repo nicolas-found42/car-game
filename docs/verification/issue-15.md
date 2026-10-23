@@ -138,3 +138,34 @@ carry eight assertions, including the first boundary after each edit and reset.
 Outstanding: focused tests, full serialized ladder, independent review/fixes,
 recorded exact build, offline fleet chain, real native Metal validation, retained
 provenance/comparison evidence and attached PR. Nothing is merged or closed.
+
+### Focused verification handoff
+
+Implementation head `0f47939` passed the serialized focused ladder: format,
+all-target warning-free Clippy, complexity against the real #13 base `177fbc2`, and
+all seven new production tests. The scenario executed and passed all eight declared
+assertions. Evidence: primary checkout `artifacts/issue-15/fast-check-4.log`.
+Previous attempts remain in `fast-check*.log`; no failed assertion was skipped.
+
+The focused tests caught pending Rapier derived mass: changing additional mass during
+SyncBackend does not update raw mass/COM until the normal step. The adapter now calls
+the pinned public `recompute_mass_properties_from_colliders` on each vehicle body
+before mechanics, without consuming modified queues. This makes first-tick 1,295-kg
+wheel-removed mass/COM current for force lever arms and mass-dependent braking/load
+limits; intact 1,320-kg tuning remains unchanged. The airborne test verifies the
+actual one-step gravity velocity and absence of stale drive force analytically.
+Inactive or missing physics contexts produce zero executed steps and an explicit
+unavailable outcome rather than a fabricated completed integration claim.
+
+The test clock uses the repository's exact `STEP as f64` convention; nominal 1/120
+rounded to integer nanoseconds was slightly shorter than the existing f32 fixed
+period. First-tick support fixtures use heights within their measured ray range,
+and elevated platforms stay inside road corridors rather than inside existing city
+buildings. Reparent and old-reference tests explicitly demonstrate different query
+readiness on the edit boundary, followed by intact production collision response.
+
+An isolated APFS release dependency cache is prepared for exact recorded builds.
+Worktree `artifacts/runs` and `artifacts/logs` point into the primary durable
+`artifacts/issue-15/` directory. Asset-source inspection uses the existing carmodels
+repository through the normal sibling symlink. Full suite, external review and real
+GPU acceptance remain pending; the focused handoff is not the P1 acceptance gate.
