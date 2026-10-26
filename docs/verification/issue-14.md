@@ -196,3 +196,30 @@ secondary chassis lookup remain distinct. The reserved-actor rejection fixture i
 now a reusable production scenario shared by its regression and recorded runs.
 Fresh acceptance below supersedes unleased results only after a whole-command
 leased verification completes. No global thresholds or CI profiles changed.
+
+## Rebase onto main after #13 — source `59cdea1`
+
+Rebased onto `origin/main` `f338c0e` (#13 snapshots merged). `21f604e` was
+dropped as already upstream. Conflicts were additive and resolved as unions:
+`ProductionCommand` keeps both snapshot/restore and vehicle/spawn variants in
+`src/runtime.rs`; `AssertionKind` keeps both `SnapshotMatches` and
+`VehicleState` in `src/scenario.rs` and `src/scenario/runner.rs`. Assembly
+`prepare` keeps main's `PartIdentity` query with this issue's
+`PlayerVehicle` filter, so pilot mass still never leaks onto secondary cars.
+
+`CAR_GAME_MUTE=1 bash scripts/verify.sh --base origin/main` passed every rung
+with exit 0 as the only Cargo workload on the shared target: fmt, all-target
+Clippy, complexity against `HEAD` and `origin/main`, all-target Rust tests
+(**74 passed**, including
+`simultaneous_cars_use_independent_geometry_inputs_and_exclusive_controllers`
+and `serialized_snapshot_restores_in_fresh_application_without_runtime_handles`),
+Python syntax/controls, asset integrity, and the offscreen release fleet check
+(13 car reports, run
+`20261026T173303891316Z-59cdea1-fleet-43064-1-1793035983931864000`, 160672
+events, `RUN EVIDENCE PASS`). Log: primary `artifacts/issue-14/verify-59cdea1.log`.
+An earlier attempt failed only at the asset step because the scratch checkout
+lacked the sibling `carmodels` link; it is kept in `rebase-59cdea1-attempt1/`.
+
+Not run in this pass: `--recorded` provenance build, the
+`independent-vehicles-metal.json` native Metal scenario, and
+`scripts/verify_live.sh`.
