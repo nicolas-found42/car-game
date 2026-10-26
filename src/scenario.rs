@@ -35,6 +35,10 @@ pub enum AssertionKind {
     ResetCount {
         count: u32,
     },
+    SnapshotMatches {
+        key: String,
+        fresh_entities: bool,
+    },
     AssemblyState {
         revision: u64,
         mass: f64,

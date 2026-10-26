@@ -2,11 +2,16 @@
 mod mass;
 mod pilot;
 mod runtime;
+pub mod snapshot;
 use bevy::math::{DMat3, DQuat, DVec3};
 use bevy::prelude::*;
 pub use mass::Aggregate;
 pub use runtime::{AssemblyPlugin, AssemblyRuntime, command};
 use serde::{Deserialize, Serialize};
+pub use snapshot::{
+    AssemblySnapshot, PartIdentity, SnapshotSource, SnapshotStore, restore_command,
+    snapshot_command,
+};
 use std::collections::{BTreeMap, BTreeSet};
 macro_rules! id {
     ($($name:ident),*) => {$ (
