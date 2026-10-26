@@ -1,5 +1,9 @@
 # Issue 14 — independent per-vehicle controls
 
+Current acceptance: [recorded and native proof on October 26, 2026](issues-14-15-acceptance.md).
+The historical checkpoints below retain their original source and limitations;
+their outstanding recorded/native gates are superseded by that acceptance.
+
 ## Durable status
 
 Implementation passes initial headless verification; GPU evidence/review/PR remain pending. Isolated managed worktree:

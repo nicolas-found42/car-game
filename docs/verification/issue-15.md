@@ -1,5 +1,9 @@
 # Issue 15: synchronized physics adapter
 
+Current acceptance: [recorded and native proof on October 26, 2026](issues-14-15-acceptance.md).
+The historical preflight and checkpoints below retain their original source and
+limitations; their outstanding recorded/native gates are superseded by that acceptance.
+
 Status: preflight/design only. Branch `codex/issue-15-physics`; isolated managed checkout
 `/Users/nicolas/.codex/worktrees/issue-15-physics/car-game`; initial base `bdd2bee`.
 Implementation waits for verified issue 13 and 14 branches integrated by the coordinator.
