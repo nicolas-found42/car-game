@@ -4,6 +4,7 @@ from contextlib import redirect_stdout
 from io import StringIO
 import json
 from pathlib import Path
+import re
 import shutil
 import tempfile
 import time
@@ -18,7 +19,6 @@ class IntegrityControls(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.original_root = check_assets.ROOT
-        self.failed = False
         root = Path(self.temp.name) / 'grid'
         shutil.copytree(self.original_root / 'assets/cars', root / 'assets/cars')
         (Path(self.temp.name) / 'carmodels').symlink_to(self.original_root.parent / 'carmodels', target_is_directory=True)
@@ -42,14 +42,15 @@ class IntegrityControls(unittest.TestCase):
         }, indent=2) + '\n')
         print(f'Test failure evidence retained at {destination}')
 
-    def run_check(self):
+    def run_check(self, expected_error=None):
         output = StringIO()
         try:
             with redirect_stdout(output):
                 check_assets.check_fleet()
-        except Exception:
-            self.failed = True
-            self.preserve(output.getvalue())
+        except Exception as error:
+            if (expected_error is None or not isinstance(error, AssertionError)
+                    or re.search(expected_error, str(error)) is None):
+                self.preserve(output.getvalue())
             raise
 
     def mutate(self, edit):
@@ -70,7 +71,7 @@ class IntegrityControls(unittest.TestCase):
     def test_wrong_wheel_pose_fails_even_with_updated_hash(self):
         self.mutate(lambda d: d['nodes'][1]['translation'].__setitem__(0, -1.4))
         with self.assertRaises(AssertionError):
-            self.run_check()
+            self.run_check(expected_error='')
 
     def test_missing_texture_fails_even_with_updated_hash(self):
         def remove_texture(d):
@@ -81,12 +82,12 @@ class IntegrityControls(unittest.TestCase):
                     return
         self.mutate(remove_texture)
         with self.assertRaises(AssertionError):
-            self.run_check()
+            self.run_check(expected_error='')
 
     def test_changed_geometry_accessor_fails_even_with_updated_hash(self):
         self.mutate(lambda d: d['accessors'][0].__setitem__('count', 1))
         with self.assertRaises(AssertionError):
-            self.run_check()
+            self.run_check(expected_error='')
 
     def test_shared_importer_and_receipt_placement_error_fails(self):
         self.mutate(lambda d: d['nodes'][5]['matrix'].__setitem__(12, d['nodes'][5]['matrix'][12] - 0.3))
@@ -95,7 +96,7 @@ class IntegrityControls(unittest.TestCase):
         receipt['mesh_nodes'][0]['source_world_matrix'][12] += 0.3
         receipt_path.write_text(json.dumps(receipt))
         with self.assertRaises(AssertionError):
-            self.run_check()
+            self.run_check(expected_error='')
 
     def test_duplicate_partition_triangle_fails_with_valid_outer_hash(self):
         import hashlib
@@ -111,7 +112,7 @@ class IntegrityControls(unittest.TestCase):
         receipt['prepared_sha256'] = hashlib.sha256(data).hexdigest()
         path.with_suffix('.json').write_text(json.dumps(receipt))
         with self.assertRaisesRegex(AssertionError, 'source triangles'):
-            self.run_check()
+            self.run_check(expected_error='source triangles')
 
     def test_gt500_complete_rear_window_uses_one_cabin_material(self):
         path = check_assets.ROOT / 'assets/cars/redline-gt500.glb'
