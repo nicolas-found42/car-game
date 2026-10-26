@@ -60,6 +60,9 @@ impl PhysicsEdit {
 fn finite(position: &[f32; 3]) -> bool {
     position.iter().all(|v| v.is_finite())
 }
+/// Geometry spawned by `InsertRoad`; owned by the edit stream, so removal despawns it.
+#[derive(Component)]
+struct AuthoredRoad;
 pub(crate) fn collider(world: &mut World, id: &str) -> Result<Entity, &'static str> {
     world
         .query::<(Entity, &ColliderIdentity)>()
@@ -84,6 +87,7 @@ pub(crate) fn apply(world: &mut World, edit: &PhysicsEdit) -> Result<&'static st
                 return Err("parent-requires-body");
             }
             let mut entity = world.spawn((
+                AuthoredRoad,
                 ColliderIdentity(id.clone()),
                 Collider::cuboid(half_extents[0], half_extents[1], half_extents[2]),
                 Transform::from_translation(Vec3::from_array(*position)),
@@ -97,6 +101,13 @@ pub(crate) fn apply(world: &mut World, edit: &PhysicsEdit) -> Result<&'static st
         }
         PhysicsEdit::RemoveCollider { id } => {
             let entity = collider(world, id)?;
+            let childless = world
+                .get::<Children>(entity)
+                .is_none_or(|children| children.is_empty());
+            if world.get::<AuthoredRoad>(entity).is_some() && childless {
+                world.despawn(entity);
+                return Ok("collider-removed");
+            }
             // Removing geometry must not recursively destroy a vehicle or durable parts.
             world.entity_mut(entity).remove::<Collider>();
             world.entity_mut(entity).remove::<ColliderIdentity>();

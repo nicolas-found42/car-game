@@ -378,3 +378,66 @@ fn airborne_gravity_advances_exactly_one_outer_step_without_stale_drive_force() 
     assert_eq!(state.integration_steps, 1);
     finish(app, run, dir);
 }
+fn identified(app: &mut App, id: &str) -> Entity {
+    let mut query = app
+        .world_mut()
+        .query::<(Entity, &car_game::physics::ColliderIdentity)>();
+    query
+        .iter(app.world())
+        .find(|(_, identity)| identity.0 == id)
+        .map(|(entity, _)| entity)
+        .unwrap()
+}
+fn remove(id: &str) -> ProductionCommand {
+    edit(PhysicsEdit::RemoveCollider { id: id.into() })
+}
+#[test]
+fn removed_roads_are_despawned_while_durable_colliders_keep_their_entities() {
+    let (mut app, run, dir) = application("road-lifecycle");
+    let bodies = |app: &mut App| {
+        app.world_mut()
+            .query::<&bevy_rapier3d::prelude::RigidBody>()
+            .iter(app.world())
+            .count()
+    };
+    let baseline = bodies(&mut app);
+    for cycle in 0..5 {
+        let id = format!("fixture:streamed-{cycle}");
+        submit(&mut app, [road(&id, [1000., 9.8, 0.])]);
+        let road = identified(&mut app, &id);
+        submit(&mut app, [remove(&id)]);
+        assert!(app.world().get_entity(road).is_err(), "{id} leaked");
+    }
+    assert_eq!(bodies(&mut app), baseline, "streamed roads leave no bodies");
+
+    submit(
+        &mut app,
+        [
+            road("fixture:deck", [1000., 9.8, 0.]),
+            edit(PhysicsEdit::InsertRoad {
+                id: "fixture:kerb".into(),
+                position: [0., 0.4, 0.],
+                half_extents: [1., 0.2, 1.],
+                parent: Some("fixture:deck".into()),
+            }),
+        ],
+    );
+    let deck = identified(&mut app, "fixture:deck");
+    let kerb = identified(&mut app, "fixture:kerb");
+    submit(&mut app, [remove("fixture:deck")]);
+    assert!(
+        app.world().get_entity(kerb).is_ok(),
+        "a road with attached colliders is not removed recursively"
+    );
+    assert!(app.world().get_entity(deck).is_ok());
+    submit(&mut app, [remove("fixture:kerb")]);
+    assert!(app.world().get_entity(kerb).is_err());
+
+    let chassis = identified(&mut app, "pilot-350z:chassis");
+    submit(&mut app, [remove("pilot-350z:chassis")]);
+    assert!(
+        app.world().get_entity(chassis).is_ok(),
+        "removing chassis geometry keeps the vehicle"
+    );
+    finish(app, run, dir);
+}
