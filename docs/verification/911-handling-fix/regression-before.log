@@ -1,0 +1,19 @@
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `test` profile [optimized + debuginfo] target(s) in 1.58s
+     Running unittests examples/handling_probe.rs (target/debug/examples/handling_probe-30d462224b3ac9f2)
+
+running 1 test
+
+thread 'short_narrow_geometry_keeps_baseline_braking_and_roll_contract' (2347854) panicked at examples/handling_probe.rs:145:5:
+short-wheelbase braking: 39.28057 vs 38.501095 m
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test short_narrow_geometry_keeps_baseline_braking_and_roll_contract ... FAILED
+
+failures:
+
+failures:
+    short_narrow_geometry_keeps_baseline_braking_and_roll_contract
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.62s
+
+error: test failed, to rerun pass `--example handling_probe`

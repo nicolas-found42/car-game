@@ -1,0 +1,18 @@
+{
+  "baseline_budget_binary_sha256": "4bee831ce2633445ae1d09317d92988bfa2070aa48fab605e9d357b3fc6c2d97",
+  "after_binary_sha256": "3b217b1874392716120645af92d83c17b2335a446ab48ec864abb4c60e43d211",
+  "changed_compiled_inputs": [
+    "build_source/assets/cars/roster.json",
+    "build_source/src/vehicle/profile.rs",
+    "build_source/src/vehicle.rs"
+  ],
+  "changed_snapshot_metadata": [
+    {
+      "path": "build_source/dirty.patch",
+      "before_sha256": "a664b569c1ea807075497661d45615fe1c32ee3de642c17051303d415d319455",
+      "after_sha256": "3de4ccfe6f43122ee12018e16485fe65a4d160cf9dac3c42804c978ff33da626"
+    }
+  ],
+  "same_profile_json": true,
+  "baseline_matrix_bridge": "docs/verification/fleet-57/recorder-build-bridge.json"
+}

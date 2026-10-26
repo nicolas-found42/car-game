@@ -1,0 +1,9 @@
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `test` profile [optimized + debuginfo] target(s) in 0.72s
+     Running unittests examples/handling_probe.rs (target/debug/examples/handling_probe-30d462224b3ac9f2)
+
+running 1 test
+test short_narrow_geometry_keeps_baseline_braking_and_roll_contract ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.05s
+

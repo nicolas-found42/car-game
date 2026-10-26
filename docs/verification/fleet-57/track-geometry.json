@@ -1,0 +1,631 @@
+{
+  "method": "Wheel pivot X separation vs applicable reference track. List/range values are excluded rather than silently averaged. Physical wheel-pivot track is not inferred from body width.",
+  "rows": [
+    {
+      "car": "350z",
+      "axle": "front",
+      "observed_m": 1.534,
+      "reference_m": 1.5350000000000001,
+      "delta_pct": -0.06514657980456473,
+      "source_id": "j01-nissan-fsm-gi"
+    },
+    {
+      "car": "gt4-m3",
+      "axle": "front",
+      "observed_m": 1.5150000000000001,
+      "reference_m": 1.518,
+      "delta_pct": -0.19762845849801147,
+      "source_id": "e06-press"
+    },
+    {
+      "car": "gt4-m3",
+      "axle": "rear",
+      "observed_m": 1.499,
+      "reference_m": 1.5250000000000001,
+      "delta_pct": -1.704918032786884,
+      "source_id": "e06-press"
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "front",
+      "observed_m": 1.4949920177459717,
+      "reference_m": 1.48,
+      "delta_pct": 1.012974172025105,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "rear",
+      "observed_m": 1.5132900476455688,
+      "reference_m": 1.49,
+      "delta_pct": 1.5630904460113282,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "front",
+      "observed_m": 1.497756004333496,
+      "reference_m": 1.5150000000000001,
+      "delta_pct": -1.138217535742836,
+      "source_id": "j09-mitsubishi-press"
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "rear",
+      "observed_m": 1.4980000257492065,
+      "reference_m": 1.5150000000000001,
+      "delta_pct": -1.1221105116035357,
+      "source_id": "j09-mitsubishi-press"
+    },
+    {
+      "car": "mcla-skyline",
+      "axle": "front",
+      "observed_m": 1.4600080251693726,
+      "reference_m": 1.48,
+      "delta_pct": -1.350809110177531,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "mcla-skyline",
+      "axle": "rear",
+      "observed_m": 1.4600080251693726,
+      "reference_m": 1.49,
+      "delta_pct": -2.012884216820632,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "redline-911",
+      "axle": "front",
+      "observed_m": 1.39,
+      "reference_m": 1.369,
+      "delta_pct": 1.5339663988312546,
+      "source_id": "e01-eu1982"
+    },
+    {
+      "car": "redline-911",
+      "axle": "rear",
+      "observed_m": 1.405,
+      "reference_m": 1.379,
+      "delta_pct": 1.8854242204495941,
+      "source_id": "e01-eu1982"
+    },
+    {
+      "car": "redline-gt500",
+      "axle": "front",
+      "observed_m": 1.572,
+      "reference_m": 1.57226,
+      "delta_pct": -0.01653670512510308,
+      "source_id": "am_gt500_esource"
+    },
+    {
+      "car": "redline-gt500",
+      "axle": "rear",
+      "observed_m": 1.588,
+      "reference_m": 1.5875,
+      "delta_pct": 0.03149606299213126,
+      "source_id": "am_gt500_esource"
+    },
+    {
+      "car": "ref-a01",
+      "axle": "front",
+      "observed_m": 1.626,
+      "reference_m": 1.58242,
+      "delta_pct": 2.754009681374092,
+      "source_id": "am_mustang_guide"
+    },
+    {
+      "car": "ref-a01",
+      "axle": "rear",
+      "observed_m": 1.632,
+      "reference_m": 1.5875,
+      "delta_pct": 2.8031496062992156,
+      "source_id": "am_mustang_guide"
+    },
+    {
+      "car": "ref-a04",
+      "axle": "front",
+      "observed_m": 1.741,
+      "reference_m": 1.6586199999999998,
+      "delta_pct": 4.9667796119665875,
+      "source_id": "am_lightning_specs"
+    },
+    {
+      "car": "ref-a04",
+      "axle": "rear",
+      "observed_m": 1.741,
+      "reference_m": 1.6586199999999998,
+      "delta_pct": 4.9667796119665875,
+      "source_id": "am_lightning_specs"
+    },
+    {
+      "car": "ref-a05",
+      "axle": "front",
+      "observed_m": 1.7384381294250488,
+      "reference_m": 1.7018,
+      "delta_pct": 2.1529045378451572,
+      "source_id": "am_f150_specs"
+    },
+    {
+      "car": "ref-a05",
+      "axle": "rear",
+      "observed_m": 1.7384381294250488,
+      "reference_m": 1.7018,
+      "delta_pct": 2.1529045378451572,
+      "source_id": "am_f150_specs"
+    },
+    {
+      "car": "ref-a06",
+      "axle": "front",
+      "observed_m": 1.445721983909607,
+      "reference_m": 1.49352,
+      "delta_pct": -3.2003599610579747,
+      "source_id": "am_focus_2004_press"
+    },
+    {
+      "car": "ref-a06",
+      "axle": "rear",
+      "observed_m": 1.4451160430908203,
+      "reference_m": 1.4859,
+      "delta_pct": -2.7447309313668233,
+      "source_id": "am_focus_2004_press"
+    },
+    {
+      "car": "ref-a07",
+      "axle": "front",
+      "observed_m": 1.6,
+      "reference_m": 1.6001999999999998,
+      "delta_pct": -0.012498437695274145,
+      "source_id": "am_fordgt_brochure"
+    },
+    {
+      "car": "ref-a07",
+      "axle": "rear",
+      "observed_m": 1.618,
+      "reference_m": 1.61798,
+      "delta_pct": 0.0012361092226242931,
+      "source_id": "am_fordgt_brochure"
+    },
+    {
+      "car": "ref-a13",
+      "axle": "front",
+      "observed_m": 1.6985499858856201,
+      "reference_m": 1.7628,
+      "delta_pct": -3.644770485272286,
+      "source_id": "am_h2_brief"
+    },
+    {
+      "car": "ref-a13",
+      "axle": "rear",
+      "observed_m": 1.7175139784812927,
+      "reference_m": 1.7628,
+      "delta_pct": -2.568982387038077,
+      "source_id": "am_h2_brief"
+    },
+    {
+      "car": "ref-a14",
+      "axle": "front",
+      "observed_m": 1.3925999402999878,
+      "reference_m": 1.552,
+      "delta_pct": -10.270622403351304,
+      "source_id": "am_ctsv_order"
+    },
+    {
+      "car": "ref-a14",
+      "axle": "rear",
+      "observed_m": 1.5219999551773071,
+      "reference_m": 1.56,
+      "delta_pct": -2.4359003091469877,
+      "source_id": "am_ctsv_order"
+    },
+    {
+      "car": "ref-a15",
+      "axle": "front",
+      "observed_m": 1.5999999999999999,
+      "reference_m": 1.6,
+      "delta_pct": -1.1102230246251565e-14,
+      "source_id": "am_300c_press"
+    },
+    {
+      "car": "ref-a15",
+      "axle": "rear",
+      "observed_m": 1.5999999999999999,
+      "reference_m": 1.603,
+      "delta_pct": -0.18714909544604863,
+      "source_id": "am_300c_press"
+    },
+    {
+      "car": "ref-e02",
+      "axle": "front",
+      "observed_m": 1.48,
+      "reference_m": 1.518,
+      "delta_pct": -2.503293807641638,
+      "source_id": "e02-eu1988"
+    },
+    {
+      "car": "ref-e02",
+      "axle": "rear",
+      "observed_m": 1.48,
+      "reference_m": 1.6600000000000001,
+      "delta_pct": -10.843373493975916,
+      "source_id": "e02-eu1988"
+    },
+    {
+      "car": "ref-e03",
+      "axle": "front",
+      "observed_m": 1.6224349737167358,
+      "reference_m": 1.622,
+      "delta_pct": 0.026817121870270633,
+      "source_id": "e03-launch"
+    },
+    {
+      "car": "ref-e03",
+      "axle": "rear",
+      "observed_m": 1.5563259720802307,
+      "reference_m": 1.592,
+      "delta_pct": -2.240830899483004,
+      "source_id": "e03-launch"
+    },
+    {
+      "car": "ref-j04",
+      "axle": "front",
+      "observed_m": 1.46,
+      "reference_m": 1.46,
+      "delta_pct": 0.0,
+      "source_id": "j04-mazda-brochure"
+    },
+    {
+      "car": "ref-j04",
+      "axle": "rear",
+      "observed_m": 1.46,
+      "reference_m": 1.46,
+      "delta_pct": 0.0,
+      "source_id": "j04-mazda-brochure"
+    },
+    {
+      "car": "ref-j07",
+      "axle": "front",
+      "observed_m": 1.48,
+      "reference_m": 1.47,
+      "delta_pct": 0.6802721088435382,
+      "source_id": "j07-honda-spec"
+    },
+    {
+      "car": "ref-j07",
+      "axle": "rear",
+      "observed_m": 1.529,
+      "reference_m": 1.51,
+      "delta_pct": 1.2582781456953684,
+      "source_id": "j07-honda-spec"
+    },
+    {
+      "car": "ref-j11",
+      "axle": "front",
+      "observed_m": 1.506,
+      "reference_m": 1.49,
+      "delta_pct": 1.0738255033557076,
+      "source_id": "j11-subaru-catalog"
+    },
+    {
+      "car": "ref-j11",
+      "axle": "rear",
+      "observed_m": 1.501,
+      "reference_m": 1.485,
+      "delta_pct": 1.0774410774410548,
+      "source_id": "j11-subaru-catalog"
+    },
+    {
+      "car": "ref-j16",
+      "axle": "front",
+      "observed_m": 1.2289999999999999,
+      "reference_m": 1.21,
+      "delta_pct": 1.5702479338842945,
+      "source_id": "j16-suzuki-brochure"
+    },
+    {
+      "car": "ref-j16",
+      "axle": "rear",
+      "observed_m": 1.2289999999999999,
+      "reference_m": 1.21,
+      "delta_pct": 1.5702479338842945,
+      "source_id": "j16-suzuki-brochure"
+    },
+    {
+      "car": "ref-a08",
+      "axle": "front",
+      "observed_m": 1.4670000076293945,
+      "reference_m": 1.58496,
+      "delta_pct": -7.442458634325499,
+      "source_id": "am_c5_specs"
+    },
+    {
+      "car": "ref-a08",
+      "axle": "rear",
+      "observed_m": 1.4670000076293945,
+      "reference_m": 1.59004,
+      "delta_pct": -7.738169629104008,
+      "source_id": "am_c5_specs"
+    },
+    {
+      "car": "ref-e07",
+      "axle": "front",
+      "observed_m": 1.5950000000000002,
+      "reference_m": 1.58,
+      "delta_pct": 0.9493670886076,
+      "source_id": "e07-press"
+    },
+    {
+      "car": "ref-e07",
+      "axle": "rear",
+      "observed_m": 1.57,
+      "reference_m": 1.566,
+      "delta_pct": 0.25542784163474774,
+      "source_id": "e07-press"
+    },
+    {
+      "car": "ref-e14",
+      "axle": "front",
+      "observed_m": 1.5459999999999998,
+      "reference_m": 1.569,
+      "delta_pct": -1.4659018483110353,
+      "source_id": "e14-mb2004"
+    },
+    {
+      "car": "ref-e14",
+      "axle": "rear",
+      "observed_m": 1.5110000000000001,
+      "reference_m": 1.551,
+      "delta_pct": -2.5789813023855412,
+      "source_id": "e14-mb2004"
+    },
+    {
+      "car": "ref-j03",
+      "axle": "front",
+      "observed_m": 1.537,
+      "reference_m": 1.52,
+      "delta_pct": 1.1184210526315796,
+      "source_id": "j03-toyota-catalog"
+    },
+    {
+      "car": "ref-j03",
+      "axle": "rear",
+      "observed_m": 1.5419999999999998,
+      "reference_m": 1.5250000000000001,
+      "delta_pct": 1.1147540983606374,
+      "source_id": "j03-toyota-catalog"
+    },
+    {
+      "car": "ref-j05",
+      "axle": "front",
+      "observed_m": 1.539,
+      "reference_m": 1.5,
+      "delta_pct": 2.6000000000000023,
+      "source_id": "j05-mazda-launch"
+    },
+    {
+      "car": "ref-j05",
+      "axle": "rear",
+      "observed_m": 1.5439999999999998,
+      "reference_m": 1.5050000000000001,
+      "delta_pct": 2.591362126245822,
+      "source_id": "j05-mazda-launch"
+    },
+    {
+      "car": "ref-j06",
+      "axle": "front",
+      "observed_m": 1.51,
+      "reference_m": 1.51,
+      "delta_pct": 0.0,
+      "source_id": "j06-honda-spec"
+    },
+    {
+      "car": "ref-j06",
+      "axle": "rear",
+      "observed_m": 1.5390000000000001,
+      "reference_m": 1.54,
+      "delta_pct": -0.06493506493505663,
+      "source_id": "j06-honda-spec"
+    },
+    {
+      "car": "ref-j08",
+      "axle": "front",
+      "observed_m": 1.439,
+      "reference_m": 1.405,
+      "delta_pct": 2.4199288256227858,
+      "source_id": "j08-mazda-brochure"
+    },
+    {
+      "car": "ref-j08",
+      "axle": "rear",
+      "observed_m": 1.437,
+      "reference_m": 1.42,
+      "delta_pct": 1.1971830985915588,
+      "source_id": "j08-mazda-brochure"
+    },
+    {
+      "car": "ref-j13",
+      "axle": "front",
+      "observed_m": 1.533,
+      "reference_m": 1.48,
+      "delta_pct": 3.5810810810810834,
+      "source_id": "j13-subaru-launch"
+    },
+    {
+      "car": "ref-j13",
+      "axle": "rear",
+      "observed_m": 1.5350000000000001,
+      "reference_m": 1.5,
+      "delta_pct": 2.333333333333343,
+      "source_id": "j13-subaru-launch"
+    },
+    {
+      "car": "ref-j14",
+      "axle": "front",
+      "observed_m": 1.4789999999999999,
+      "reference_m": 1.47,
+      "delta_pct": 0.6122448979591688,
+      "source_id": "j14-toyota-catalog"
+    },
+    {
+      "car": "ref-j14",
+      "axle": "rear",
+      "observed_m": 1.4589999999999999,
+      "reference_m": 1.45,
+      "delta_pct": 0.6206896551724128,
+      "source_id": "j14-toyota-catalog"
+    },
+    {
+      "car": "ref-j15",
+      "axle": "front",
+      "observed_m": 1.4949999999999999,
+      "reference_m": 1.475,
+      "delta_pct": 1.3559322033898091,
+      "source_id": "j15-toyota-catalog"
+    },
+    {
+      "car": "ref-j15",
+      "axle": "rear",
+      "observed_m": 1.494,
+      "reference_m": 1.46,
+      "delta_pct": 2.328767123287667,
+      "source_id": "j15-toyota-catalog"
+    },
+    {
+      "car": "ref-j17",
+      "axle": "front",
+      "observed_m": 1.48,
+      "reference_m": 1.48,
+      "delta_pct": 0.0,
+      "source_id": "j17-honda-spec"
+    },
+    {
+      "car": "ref-j17",
+      "axle": "rear",
+      "observed_m": 1.48,
+      "reference_m": 1.48,
+      "delta_pct": 0.0,
+      "source_id": "j17-honda-spec"
+    }
+  ],
+  "largest_deviations": [
+    {
+      "car": "ref-e02",
+      "axle": "rear",
+      "observed_m": 1.48,
+      "reference_m": 1.6600000000000001,
+      "delta_pct": -10.843373493975916,
+      "source_id": "e02-eu1988"
+    },
+    {
+      "car": "ref-a14",
+      "axle": "front",
+      "observed_m": 1.3925999402999878,
+      "reference_m": 1.552,
+      "delta_pct": -10.270622403351304,
+      "source_id": "am_ctsv_order"
+    },
+    {
+      "car": "ref-a08",
+      "axle": "rear",
+      "observed_m": 1.4670000076293945,
+      "reference_m": 1.59004,
+      "delta_pct": -7.738169629104008,
+      "source_id": "am_c5_specs"
+    },
+    {
+      "car": "ref-a08",
+      "axle": "front",
+      "observed_m": 1.4670000076293945,
+      "reference_m": 1.58496,
+      "delta_pct": -7.442458634325499,
+      "source_id": "am_c5_specs"
+    },
+    {
+      "car": "ref-a04",
+      "axle": "front",
+      "observed_m": 1.741,
+      "reference_m": 1.6586199999999998,
+      "delta_pct": 4.9667796119665875,
+      "source_id": "am_lightning_specs"
+    },
+    {
+      "car": "ref-a04",
+      "axle": "rear",
+      "observed_m": 1.741,
+      "reference_m": 1.6586199999999998,
+      "delta_pct": 4.9667796119665875,
+      "source_id": "am_lightning_specs"
+    },
+    {
+      "car": "ref-a13",
+      "axle": "front",
+      "observed_m": 1.6985499858856201,
+      "reference_m": 1.7628,
+      "delta_pct": -3.644770485272286,
+      "source_id": "am_h2_brief"
+    },
+    {
+      "car": "ref-j13",
+      "axle": "front",
+      "observed_m": 1.533,
+      "reference_m": 1.48,
+      "delta_pct": 3.5810810810810834,
+      "source_id": "j13-subaru-launch"
+    },
+    {
+      "car": "ref-a06",
+      "axle": "front",
+      "observed_m": 1.445721983909607,
+      "reference_m": 1.49352,
+      "delta_pct": -3.2003599610579747,
+      "source_id": "am_focus_2004_press"
+    },
+    {
+      "car": "ref-a01",
+      "axle": "rear",
+      "observed_m": 1.632,
+      "reference_m": 1.5875,
+      "delta_pct": 2.8031496062992156,
+      "source_id": "am_mustang_guide"
+    },
+    {
+      "car": "ref-a01",
+      "axle": "front",
+      "observed_m": 1.626,
+      "reference_m": 1.58242,
+      "delta_pct": 2.754009681374092,
+      "source_id": "am_mustang_guide"
+    },
+    {
+      "car": "ref-a06",
+      "axle": "rear",
+      "observed_m": 1.4451160430908203,
+      "reference_m": 1.4859,
+      "delta_pct": -2.7447309313668233,
+      "source_id": "am_focus_2004_press"
+    },
+    {
+      "car": "ref-j05",
+      "axle": "front",
+      "observed_m": 1.539,
+      "reference_m": 1.5,
+      "delta_pct": 2.6000000000000023,
+      "source_id": "j05-mazda-launch"
+    },
+    {
+      "car": "ref-j05",
+      "axle": "rear",
+      "observed_m": 1.5439999999999998,
+      "reference_m": 1.5050000000000001,
+      "delta_pct": 2.591362126245822,
+      "source_id": "j05-mazda-launch"
+    },
+    {
+      "car": "ref-e14",
+      "axle": "rear",
+      "observed_m": 1.5110000000000001,
+      "reference_m": 1.551,
+      "delta_pct": -2.5789813023855412,
+      "source_id": "e14-mb2004"
+    }
+  ]
+}

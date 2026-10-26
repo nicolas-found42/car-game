@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "preserve_existing": 40,
+  "target_fleet_size": 57,
+  "cars": [
+    {
+      "id": "ref-a08",
+      "source_code": "MC3_VP_CORVETTEZ06_03",
+      "name": "Chevrolet Corvette Z06 (2003)",
+      "corpus_reference": "a08"
+    },
+    {
+      "id": "ref-a10",
+      "source_code": "GT4_DODG0005",
+      "name": "Dodge Viper SRT10 (2003)",
+      "corpus_reference": "a10"
+    },
+    {
+      "id": "ref-e05",
+      "source_code": "MCLA_VP_LAM_MIURA_71",
+      "name": "Lamborghini Miura P400 SV (1971)",
+      "corpus_reference": "e05"
+    },
+    {
+      "id": "ref-e07",
+      "source_code": "GT4_BMW_0014",
+      "name": "BMW M5 (2005)",
+      "corpus_reference": "e07"
+    },
+    {
+      "id": "ref-e14",
+      "source_code": "GT4_MBNZ0001",
+      "name": "Mercedes-Benz SL55 AMG (2002)",
+      "corpus_reference": "e14"
+    },
+    {
+      "id": "ref-e15",
+      "source_code": "GT4_ASMT0005",
+      "name": "Aston Martin DB9 Coupe (2003)",
+      "corpus_reference": "e15"
+    },
+    {
+      "id": "ref-e16",
+      "source_code": "GT4_JAGU0004",
+      "name": "Jaguar XJ220 (1992)",
+      "corpus_reference": "e16"
+    },
+    {
+      "id": "ref-e17",
+      "source_code": "GT4_PGNI0001",
+      "name": "Pagani Zonda C12S 7.3 (2002)",
+      "corpus_reference": "e17"
+    },
+    {
+      "id": "ref-j03",
+      "source_code": "GT4_TOYT0006",
+      "name": "Toyota Supra RZ (1997)",
+      "corpus_reference": "j03"
+    },
+    {
+      "id": "ref-j05",
+      "source_code": "GT4_MAZD0008",
+      "name": "Mazda RX-8 Type S (2003)",
+      "corpus_reference": "j05"
+    },
+    {
+      "id": "ref-j06",
+      "source_code": "GT4_HOND0031",
+      "name": "Honda NSX Type R (2002)",
+      "corpus_reference": "j06"
+    },
+    {
+      "id": "ref-j08",
+      "source_code": "GT4_MAZD0046",
+      "name": "Mazda MX-5 V-Special Type II (1993)",
+      "corpus_reference": "j08"
+    },
+    {
+      "id": "ref-j10",
+      "source_code": "MCLA_VP_MIT_3000GT_99",
+      "name": "Mitsubishi 3000GT VR-4 (1999)",
+      "corpus_reference": "j10"
+    },
+    {
+      "id": "ref-j13",
+      "source_code": "GT4_SUBR0019",
+      "name": "Subaru Impreza 22B-STi Version (1998)",
+      "corpus_reference": "j13"
+    },
+    {
+      "id": "ref-j14",
+      "source_code": "GT4_TOYT0026",
+      "name": "Toyota MR2 GT-S (1997)",
+      "corpus_reference": "j14"
+    },
+    {
+      "id": "ref-j15",
+      "source_code": "GT4_TOYT0071",
+      "name": "Toyota MR2 V Edition (2002)",
+      "corpus_reference": "j15"
+    },
+    {
+      "id": "ref-j17",
+      "source_code": "GT4_HOND0082",
+      "name": "Honda Civic Type R (1997)",
+      "corpus_reference": "j17"
+    }
+  ]
+}

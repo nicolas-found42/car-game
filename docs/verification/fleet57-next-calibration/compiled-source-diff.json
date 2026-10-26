@@ -1,0 +1,10 @@
+{
+  "baseline_binary_sha256": "3a540556fac8eab2304ef682cc4a19f8ac75b2905da28862dadd65bf2367d203",
+  "after_binary_sha256": "035e0c4308efb40f652378c821c94c04fede1735deeaade2d2f7b02b40ec06b1",
+  "changed_compiled_inputs": [
+    "build_source/assets/cars/physics.json"
+  ],
+  "changed_snapshot_metadata": [],
+  "same_profile_json": false,
+  "baseline_validation": "docs/verification/fleet57-reference-calibration/validation.json"
+}

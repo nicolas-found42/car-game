@@ -1,0 +1,14 @@
+{
+  "same_scenario_bytes": 1920,
+  "same_car_case_repetition_identities": true,
+  "same_roster_and_course_hashes": true,
+  "same_seed_fixed_hz_clock_mode": true,
+  "observer_queue_limits": [
+    "--recorder-queue-bytes",
+    "33554432",
+    "--recorder-queue-records",
+    "32768"
+  ],
+  "before_binary_sha256": "44e90fb6a0ad4421131229567d6858e6f424b14364d89b033725e7f9a2b98cf9",
+  "after_binary_sha256": "1ba35ad568f41b2554280240ba8ee9250af940609b83f33a9ffd4f1f7644f0aa"
+}

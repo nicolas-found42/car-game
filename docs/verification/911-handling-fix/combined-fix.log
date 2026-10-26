@@ -1,0 +1,21 @@
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 7.51s
+     Running `target/debug/examples/handling_probe --check`
+[
+  {
+    "car": "350z",
+    "variant": "stock",
+    "entry_mps": 27.307566,
+    "braking_m": 34.690998,
+    "braking_s": 2.5000002,
+    "fast_tilt_deg": 4.3980136
+  },
+  {
+    "car": "redline-911",
+    "variant": "stock",
+    "entry_mps": 27.321457,
+    "braking_m": 34.72474,
+    "braking_s": 2.5000002,
+    "fast_tilt_deg": 4.2705383
+  }
+]

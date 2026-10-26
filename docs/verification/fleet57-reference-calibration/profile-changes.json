@@ -1,0 +1,139 @@
+{
+  "changed_editions": [
+    "ref-e12",
+    "ref-a14"
+  ],
+  "unchanged_editions": 55,
+  "roster_sha256": "be41ed120949683adb292225a7327098ba823b45edc3be3c34cec099f98be838",
+  "fields": [
+    {
+      "car": "ref-a14",
+      "field": "driveline_efficiency",
+      "before": 0.88,
+      "after": 0.77,
+      "evidence": {
+        "status": "estimate",
+        "source": "ctsv-mt04",
+        "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Effective power delivery includes unmodeled torque-curve/clutch/shift/test effects; not a physical loss measurement."
+      }
+    },
+    {
+      "car": "ref-a14",
+      "field": "lateral_mu",
+      "before": 1.08,
+      "after": 0.92,
+      "evidence": {
+        "status": "estimate",
+        "source": "ctsv-aw04",
+        "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Lateral limit uses matched skidpad diameter; longitudinal tire coefficient stays separate."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "mass_kg",
+      "before": 1650,
+      "after": 1795,
+      "evidence": {
+        "status": "related_reference",
+        "source": "rs4-us07-oem",
+        "source_field": "mass_kg",
+        "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "front_weight",
+      "before": 0.57,
+      "after": 0.58,
+      "evidence": {
+        "status": "related_reference",
+        "source": "rs4-us07-oem",
+        "source_field": "front_weight_fraction",
+        "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "gears",
+      "before": [
+        3.67,
+        2.05,
+        1.46,
+        1.13,
+        0.92,
+        0.78
+      ],
+      "after": [
+        3.667,
+        2.211,
+        1.52,
+        1.133,
+        0.919,
+        0.778
+      ],
+      "evidence": {
+        "status": "related_reference",
+        "source": "rs4-us07-oem",
+        "source_field": "gear_ratios",
+        "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "final_drive",
+      "before": 4.11,
+      "after": 4.111,
+      "evidence": {
+        "status": "related_reference",
+        "source": "rs4-us07-oem",
+        "source_field": "final_drive",
+        "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "drag_area_m2",
+      "before": 0.77,
+      "after": 0.6727,
+      "evidence": {
+        "status": "related_reference",
+        "source": "rs4-us07-oem",
+        "source_field": "cd * frontal_area_m2",
+        "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "lateral_mu",
+      "before": 1.12,
+      "after": 0.955,
+      "evidence": {
+        "status": "estimate",
+        "source": "rs4-cd07",
+        "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Lateral limit uses matched skidpad diameter; longitudinal tire coefficient stays separate."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "brake_decel_mps2",
+      "before": 11.53262,
+      "after": 9.75,
+      "evidence": {
+        "status": "estimate",
+        "source": "rs4-cd07",
+        "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Service-brake effective deceleration reproduces the70mph stopping envelope."
+      }
+    },
+    {
+      "car": "ref-e12",
+      "field": "driveline_efficiency",
+      "before": 0.88,
+      "after": 0.8,
+      "evidence": {
+        "status": "estimate",
+        "source": "rs4-cd07",
+        "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Effective power delivery includes unmodeled torque-curve/clutch/shift/test effects; not a physical loss measurement."
+      }
+    }
+  ]
+}

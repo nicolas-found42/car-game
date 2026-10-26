@@ -1,0 +1,935 @@
+== verify 2026-10-24T03:06:43Z ==
+== git 2342545363c225929963d16b5a05ca26e0ca2798 ==
+
+== cargo fmt --check ==
+== PASS (0s): cargo fmt --check ==
+
+== cargo clippy --locked --all-targets --profile dev -- -D warnings ==
+    Checking car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 2.05s
+== PASS (2s): cargo clippy --locked --all-targets --profile dev -- -D warnings ==
+
+== scripts/check_codelimit.sh HEAD ==
+== [1/3] codelimit check (changed Python vs HEAD) ==
+docs/vehicle-reference/scripts/build_corpus.py:236:1: 33 ⚠ build
+15 files checked, 1 function needs refactoring.
+== [2/3] lizard check (Python: NLOC<=60, CCN<=15, PARAM<=7 vs HEAD) ==
+== [2/3] lizard check (Rust: NLOC<=100, CCN<=20, PARAM<=7 vs HEAD) ==
+== [3/3] clippy too_many_lines (changed Rust vs HEAD) ==
+clippy too_many_lines: no violations in changed Rust files
+== All 3 code limit & complexity gates passed ==
+== PASS (2s): scripts/check_codelimit.sh HEAD ==
+
+== cargo test --locked --all-targets --profile dev ==
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 4.99s
+     Running unittests src/lib.rs (target/debug/deps/car_game-459276f94bb4b6bd)
+
+running 21 tests
+test vehicle::forces::tests::missing_support_has_no_service_brake_and_handbrake_remains_independent ... ok
+test vehicle::forces::tests::service_braking_uses_loaded_front_grip_without_inventing_total_force ... ok
+test diagnostics::tests::blank_captures_are_rejected_and_content_is_measured ... ok
+test diagnostics::tests::replay_reads_recorded_input_samples ... ok
+test provenance::policy::tests::canonical_assembly_locations_survive_scenario_evidence_redaction ... ok
+test provenance::policy::tests::host_paths_and_noncanonical_locations_remain_redacted ... ok
+test vehicle::tests::suspension_settles_on_four_wheels ... ok
+test vehicle::tests::brake_does_not_engage_reverse_while_sliding_sideways ... ok
+test vehicle::tests::reset_recovers_inverted_car_on_a_road_and_clears_motion ... ok
+test vehicle::tests::wheel_rotation_matches_forward_rolling_direction ... ok
+test vehicle::tests::pause_freezes_physics_then_resume_and_quit_work ... ok
+test vehicle::tests::analog_gamepad_input_drives_the_same_controller ... ok
+test diagnostics::tests::run_recorder_persists_failure_report_and_manifest ... ok
+test vehicle::tests::steering_right_turns_and_remains_supported ... ok
+test vehicle::tests::acceleration_and_brakes_change_real_chassis_velocity ... ok
+test vehicle::tests::parked_car_does_not_creep_on_level_ground ... ok
+test vehicle::tests::solid_wall_stops_the_vehicle ... ok
+test vehicle::tests::low_speed_brake_becomes_reverse ... ok
+test vehicle::tests::simulation_does_not_depend_on_render_cadence ... ok
+test vehicle::tests::physics_fixture_matches_default_executor_at_every_tick ... ok
+test vehicle::tests::every_car_meets_the_baseline_driving_contract ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.73s
+
+     Running unittests src/main.rs (target/debug/deps/car_game-5f0fb3b4d752e73c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/assembly.rs (target/debug/deps/assembly-dfa008db674b314c)
+
+running 7 tests
+test analytic_rotated_tensor_and_parallel_axis ... ok
+test intact_mass_tensor_is_baseline_and_order_independent ... ok
+test aggregate_overflow_is_rejected_before_atomic_commit ... ok
+test finite_tensor_entries_cannot_hide_principal_inertia_overflow ... ok
+test atomic_remove_reinstall_and_idempotence_preserve_identity ... ok
+test topology_errors_leave_all_records_unchanged ... ok
+test prerequisites_are_acyclic_but_functional_networks_can_loop ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/recorder_health.rs (target/debug/deps/recorder_health-22decd4be4f19335)
+
+running 21 tests
+test dropping_an_unfinished_recorder_reports_loss_before_returning ... ok
+test delayed_capacity_evictions_cannot_hide_a_more_recent_missing_tick ... ok
+test concurrent_producers_do_not_lose_evidence_when_capacity_is_available ... ok
+test failed_report_publication_cannot_finalize_as_success ... ok
+test saturated_recording_has_bounded_backpressure_and_cannot_recover_to_healthy ... ok
+test capacity_truncation_is_explicit_even_when_every_record_has_the_same_tick ... ok
+test incident_windows_handle_delayed_records_without_retaining_old_ticks ... ok
+test oversized_events_do_not_escape_the_bounded_history_through_legacy_failure_metadata ... ok
+test legacy_failure_tails_cannot_expand_an_incident_beyond_the_declared_read_bound ... ok
+test incidents_keep_thirty_seconds_of_commands_inputs_and_completed_state ... ok
+test retrying_failed_metadata_cannot_accumulate_incident_snapshots_behind_a_busy_writer ... ok
+test a_drain_deadline_does_not_leave_the_writer_processing_an_abandoned_queue ... ok
+test serialization_errors_are_latched_and_survive_later_success ... ok
+test finalization_returns_the_latched_failure_on_repeated_calls ... ok
+test unwritable_run_destination_returns_a_structured_startup_error ... ok
+test finalization_respects_an_explicit_export_byte_budget ... ok
+test failed_inventory_publication_cannot_leave_a_frozen_success_index ... ok
+test production_durability_follows_the_completed_tick_after_actor_records ... ok
+test write_flush_sync_and_drop_failures_preserve_the_last_durable_boundary ... ok
+test production_cli_faults_fail_the_run_and_are_captured_as_effective_settings ... ok
+test malformed_trace_or_metadata_cannot_be_silently_omitted_from_finalization ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.50s
+
+     Running tests/recorder_shutdown.rs (target/debug/deps/recorder_shutdown-17576d4d6ae8c688)
+
+running 4 tests
+test forced_kill_is_reported_as_unknown_and_never_graceful ... ok
+test interrupted_inventory_export_does_not_turn_writer_durability_into_run_success ... ok
+test panic_with_a_busy_writer_exports_history_without_locking_the_panicking_producer ... ok
+test sigterm_drains_buffered_recording_even_while_simulation_is_paused ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.53s
+
+     Running tests/scenarios.rs (target/debug/deps/scenarios-592823e3673e3087)
+
+running 16 tests
+test scenario_requires_an_observable_outcome ... ok
+test the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario ... ok
+test an_empty_legacy_replay_keeps_live_driving_available ... ok
+test assembly_transactions_use_production_commands_and_completed_tick_inspection ... ok
+test final_replay_sample_reset_is_consumed_before_live_ownership_returns ... ok
+test keyboard_car_selection_wraps_the_roster_through_production_ingress ... ok
+test the_tick_bound_stops_catch_up_work_at_the_declared_completed_boundary ... ok
+test gamepad_bumper_selects_the_next_car_through_production_ingress ... ok
+test pause_resume_and_selection_keep_real_ingress_timing ... ok
+test explicit_career_selection_enforces_ownership_with_rendering_disabled ... ok
+test required_capture_cannot_pass_without_a_renderer ... ok
+test a_late_selection_is_applied_before_a_scenario_can_finish_successfully ... ok
+test readiness_timeouts_execute_no_assertions_and_retain_failure_evidence ... ok
+test a_declared_motion_assertion_can_fail_on_the_actual_car ... ok
+test real_driving_and_one_shot_reset_use_the_production_application ... ok
+test a_paused_scenario_still_fails_at_its_real_wall_deadline ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.73s
+
+     Running tests/vehicle_profiles.rs (target/debug/deps/vehicle_profiles-4aef1362417d6f1b)
+
+running 4 tests
+test estimated_torque_curves_respect_both_reference_output_limits ... ok
+test selected_fleet_cars_spawn_with_distinct_reference_masses ... ok
+test physical_center_of_mass_produces_the_declared_static_axle_loads ... ok
+test production_traction_reaches_front_wheels_only_on_the_awd_cars ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.44s
+
+     Running unittests examples/fleet_benchmark.rs (target/debug/examples/fleet_benchmark-d6b1169c7b8017de)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/handling_probe.rs (target/debug/examples/handling_probe-30d462224b3ac9f2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+== PASS (39s): cargo test --locked --all-targets --profile dev ==
+
+== cargo test --locked --doc --profile dev ==
+    Finished `dev` profile [optimized + debuginfo] target(s) in 0.36s
+   Doc-tests car_game
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+== PASS (1s): cargo test --locked --doc --profile dev ==
+
+== python3 -m compileall -q tools ==
+== PASS (0s): python3 -m compileall -q tools ==
+
+== python3 tools/check_assets.py ==
+ASSETS PASS: 9310 scene triangles; 8 wheel/tire nodes; 53 materials; source bytes verified
+FLEET ASSETS PASS: 12 additions; 2 per game; 350Z unchanged; all source geometry/PNG bytes and texture references preserved; 4 animated wheel assemblies each
+== PASS (1s): python3 tools/check_assets.py ==
+
+== python3 -m unittest discover -s tools -p test_*provenance*.py ==
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.822s
+
+OK
+== PASS (0s): python3 -m unittest discover -s tools -p test_*provenance*.py ==
+
+== python3 tools/test_recorder_health.py ==
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.499s
+
+OK
+== PASS (1s): python3 tools/test_recorder_health.py ==
+
+== python3 tools/test_codelimit.py ==
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.505s
+
+OK
+== PASS (1s): python3 tools/test_codelimit.py ==
+
+== python3 tools/test_fleet_assets.py ==
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.633s
+
+OK
+Test failure evidence retained at /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/test-failures/20261024T030730Z-test_changed_geometry_accessor_fails_even_with_updated_hash
+Test failure evidence retained at /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/test-failures/20261024T030730Z-test_duplicate_partition_triangle_fails_with_valid_outer_hash
+Test failure evidence retained at /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/test-failures/20261024T030730Z-test_missing_texture_fails_even_with_updated_hash
+Test failure evidence retained at /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/test-failures/20261024T030731Z-test_shared_importer_and_receipt_placement_error_fails
+Test failure evidence retained at /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/test-failures/20261024T030731Z-test_wrong_wheel_pose_fails_even_with_updated_hash
+== PASS (1s): python3 tools/test_fleet_assets.py ==
+
+== python3 tools/record_build.py --profile release ==
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+    Finished `release` profile [optimized] target(s) in 1m 02s
+{"ok": true, "binary_sha256": "69ff92ac558df71e53b191995a15a41785301a7dbd60eaf9d5bdb5f70e45ff73", "rebuild_complete": true, "omissions": [], "recorded_executable": "target/release/car-game.recorded"}
+== PASS (63s): python3 tools/record_build.py --profile release ==
+
+== target/release/car-game.recorded --offscreen --fleet-check ==
+2026-10-24T03:11:10.787949Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.787962Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.787964Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.787968Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.787981Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.787983Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.787985Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.787986Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.787996Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.787998Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.787999Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788001Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788007Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788020Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788028Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788031Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788043Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788045Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788047Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788052Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788067Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788075Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788077Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788081Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788094Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788098Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788099Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788101Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788108Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788123Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788135Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788143Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788149Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788151Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788153Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788154Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788162Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788164Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788166Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788169Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788178Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788183Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788186Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788188Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788210Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788217Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788219Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788220Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788248Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788254Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788257Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788259Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788265Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788269Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788273Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788275Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788291Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788294Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788296Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788305Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788324Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788328Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788330Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788332Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788341Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788343Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788345Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788350Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788364Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788367Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788371Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788373Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788395Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788400Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788417Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788427Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788439Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788441Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788453Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788457Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788466Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788468Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788470Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788481Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788490Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788492Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788495Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788500Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788504Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788514Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788519Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788521Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788526Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788531Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788533Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788535Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788557Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788565Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788567Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788569Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788576Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788578Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788580Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788581Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788590Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788593Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788597Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788600Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788613Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788616Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788623Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788627Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788640Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788656Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788661Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788663Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788672Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788674Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788676Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788683Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788690Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788700Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788711Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788716Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788725Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788727Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788728Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788729Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788738Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788740Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788742Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788752Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788761Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788763Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788768Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788770Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788777Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788779Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788781Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788788Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788796Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788798Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788800Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788810Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788825Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788830Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788832Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788833Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788842Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788845Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788855Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788861Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788871Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788873Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788874Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788883Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788903Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788905Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788907Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788921Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788956Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788962Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788963Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788965Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.788974Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.788976Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.788979Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.788989Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789005Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789007Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789011Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789015Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789027Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789031Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789039Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789043Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789050Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789052Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789056Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789060Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789066Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789068Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789070Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789081Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789096Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789098Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789100Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789103Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789109Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789111Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789112Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789119Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789124Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789130Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789134Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789135Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789139Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789147Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789150Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789163Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789174Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789177Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789178Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789187Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789200Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789202Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789203Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789210Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789216Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789218Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789220Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789226Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789234Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789236Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789237Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789239Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789245Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789246Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789248Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789258Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789265Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789267Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789268Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789275Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789283Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789285Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789286Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789288Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789295Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789297Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789308Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789310Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789317Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789321Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789325Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789329Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789345Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789349Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789358Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789360Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789369Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789378Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789382Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789383Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789393Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789396Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789403Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789405Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789412Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789415Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789418Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789420Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789428Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789429Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789432Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789443Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789459Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789461Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789462Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789465Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789480Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789486Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789489Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789490Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789496Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789501Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789503Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789506Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789513Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789515Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789519Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789522Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789527Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789531Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789533Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789541Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789557Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789559Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789560Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789570Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789584Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789586Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789587Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789588Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789603Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789605Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789607Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789608Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789615Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789618Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789622Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789625Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789630Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789631Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789634Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789640Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789650Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789654Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789657Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789660Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789674Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789676Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789677Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789683Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789694Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789696Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789700Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789702Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789724Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789726Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789728Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789730Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789736Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789738Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789741Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789749Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789757Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789759Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789760Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789761Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789768Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789770Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789772Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789775Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789785Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789787Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789788Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789796Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789810Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789812Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789814Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789815Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789833Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789834Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789836Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789838Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789845Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789847Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789849Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789853Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789859Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789861Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789862Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789864Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:10.789872Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:10.789882Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:10.789885Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:10.789888Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852338Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852358Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852360Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852362Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852377Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852379Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852381Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852386Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852394Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852396Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852405Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852408Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852416Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852418Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852421Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852423Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852433Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852434Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852436Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852437Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852444Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852446Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852447Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852451Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852460Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852462Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852463Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852466Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852472Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852474Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852475Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852476Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852482Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852484Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852485Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852487Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852509Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852519Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852521Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852523Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852535Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852539Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852541Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852542Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852548Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852550Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852552Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852554Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852562Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852565Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852567Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852568Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852572Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852574Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852576Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852577Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852582Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852584Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852586Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852587Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852593Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852594Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852606Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852612Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852622Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852624Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852626Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852627Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852635Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852636Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852638Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852640Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852652Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852656Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852658Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852660Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852667Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852669Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852671Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852680Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852695Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852696Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852698Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852710Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852726Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852738Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852741Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852751Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852779Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852788Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852800Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852802Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852812Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852814Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852816Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852829Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852848Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852852Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852855Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852865Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852874Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852876Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852879Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852889Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852898Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852900Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852903Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852905Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852912Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852914Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852916Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852920Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852932Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852934Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852936Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852940Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852945Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852946Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852947Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852951Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852958Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852959Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852971Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852973Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.852982Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.852985Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.852989Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.852993Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853003Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853005Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853015Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853022Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853040Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853049Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853053Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853055Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853064Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853071Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853073Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853075Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853086Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853091Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853092Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853102Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853108Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853110Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853111Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853114Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853118Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853123Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853125Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853128Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853142Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853152Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853159Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853162Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853177Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853180Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853181Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853191Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853206Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853208Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853212Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853215Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853227Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853230Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853231Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853232Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853240Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853242Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853243Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853244Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853257Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853262Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853266Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853267Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853276Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853278Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853281Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853283Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853291Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853294Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853311Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853321Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853333Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853336Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853339Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853341Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853356Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853358Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853360Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853370Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853380Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853382Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853384Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853392Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853398Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853400Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853404Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853410Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853416Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853418Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853420Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853429Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853444Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853450Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853453Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853457Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853473Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853475Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853477Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853481Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853487Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853489Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853490Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853491Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853498Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853499Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853501Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853512Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853521Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853523Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853526Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853530Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853538Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853543Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853546Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853554Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853566Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853568Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853569Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853573Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853579Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853581Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853583Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853585Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853591Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853593Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853595Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853601Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853607Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853609Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853617Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853625Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853634Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853636Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853638Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853648Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853662Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853664Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853668Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853673Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853683Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853693Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853696Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853697Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853704Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853706Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853708Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853714Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853722Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853731Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853737Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853738Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853748Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853756Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853759Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853761Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853767Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853769Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853771Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853774Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853791Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853802Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853814Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853823Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853834Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853836Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853837Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853838Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853844Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853846Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853856Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853868Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853878Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853879Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853881Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853882Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853896Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853899Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853900Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853902Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853908Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853910Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853913Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853917Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853934Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853936Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853938Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853939Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853949Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853953Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853955Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853959Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853967Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853969Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853973Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853977Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.853984Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.853986Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.853988Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.853996Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854008Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854011Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854022Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854025Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854035Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854038Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854046Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854048Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854063Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854065Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854066Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854068Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854077Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854079Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854084Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854086Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854091Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854093Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854094Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854101Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854109Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854111Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854112Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854116Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854125Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854127Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854129Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854135Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854141Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854143Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854144Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854146Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854160Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854162Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854164Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854166Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854175Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854177Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854181Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854185Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854190Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854192Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854193Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854199Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+2026-10-24T03:11:32.854207Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_COLOR
+2026-10-24T03:11:32.854208Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_NORMAL
+2026-10-24T03:11:32.854215Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_POSITION
+2026-10-24T03:11:32.854220Z  WARN bevy_gltf::loader: Unknown vertex attribute _MC3_NATIVE_UV
+== PASS (291s): target/release/car-game.recorded --offscreen --fleet-check ==
+
+== python3 tools/verify_fleet.py ==
+Evidence manifest: /Users/nicolas/.codex/worktrees/130e/car-game/artifacts/runs/20261024T030835126895Z-2342545-fleet-59855-1-1792811315152374000/evidence-manifest.json
+FLEET NATIVE EVIDENCE PASS: 20261024T030835126895Z-2342545-fleet-59855-1-1792811315152374000; 13 drive scripts, all wheel animations, 52 captured views
+== PASS (3s): python3 tools/verify_fleet.py ==
+
+== python3 tools/verify_run.py ==
+RUN EVIDENCE PASS: 20261024T030835126895Z-2342545-fleet-59855-1-1792811315152374000; 153709 events, 13 car reports
+== PASS (0s): python3 tools/verify_run.py ==
+verification log: artifacts/logs/verify-20261024T030643Z.log

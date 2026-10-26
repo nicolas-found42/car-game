@@ -1,0 +1,54 @@
+{
+  "car": "redline-gt500",
+  "production_profile_sha256": "568556980bef9f68acd11683b220303acd5aac26e7eeafc88e073f4a91ca4dc2",
+  "city_source_sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+  "colliders": {
+    "sidewalk_center": [
+      -280,
+      0.09,
+      392
+    ],
+    "sidewalk_size": [
+      88,
+      0.18,
+      88
+    ],
+    "wall_center": [
+      0,
+      1,
+      480
+    ],
+    "wall_size": [
+      960,
+      2,
+      1
+    ]
+  },
+  "method": "Same scenario Drive controls through frozen production VehiclePlugin; change only the two nearby obstacle colliders in the flat fixture. No production source/scene/scenario changes.",
+  "cases": [
+    {
+      "case": "trail-brake-left",
+      "before_four_contact_pct": 100.0,
+      "after_four_contact_pct": 92.86563614744352,
+      "flat_four_contact_pct": 100.0,
+      "replica_four_contact_pct": 92.86563614744352,
+      "flat_peak_tilt_deg": 3.11765718460083,
+      "replica_peak_tilt_deg": 7.8420491218566895,
+      "actual_peak_tilt_deg": 7.842069221244246,
+      "actual_run": "artifacts/fleet40-calibrated-v2-20261024/runs/trail-brake-left-redline-gt500-r1/20261024T185206189772Z-2342545-scenario-16094-1-1792867926213204000",
+      "same_scenario_sha256": true
+    },
+    {
+      "case": "trail-brake-right",
+      "before_four_contact_pct": 100.0,
+      "after_four_contact_pct": 97.50297265160523,
+      "flat_four_contact_pct": 100.0,
+      "replica_four_contact_pct": 97.50297265160523,
+      "flat_peak_tilt_deg": 3.11765718460083,
+      "replica_peak_tilt_deg": 3.11765718460083,
+      "actual_peak_tilt_deg": 3.1176007628737787,
+      "actual_run": "artifacts/fleet40-calibrated-v2-20261024/runs/trail-brake-right-redline-gt500-r1/20261024T185340119921Z-2342545-scenario-22731-1-1792868020144115000",
+      "same_scenario_sha256": true
+    }
+  ]
+}

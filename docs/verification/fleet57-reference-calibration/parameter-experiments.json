@@ -1,0 +1,479 @@
+{
+  "rows": [
+    {
+      "experiment": "baseline",
+      "overrides": {},
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 4.941667,
+          "zero_100_kmh_s": 5.1333337,
+          "zero_100_mph_s": 10.916667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 3.9333336,
+          "zero_100_kmh_s": 4.116667,
+          "zero_100_mph_s": 9.416667,
+          "brake_60_mph_0_m": 32.06317,
+          "brake_70_mph_0_m": 43.478622,
+          "brake_100_0_m": 34.3631,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5704791,
+          "static_total_load_n": 16186.339
+        }
+      ],
+      "skidpad": [
+        {
+          "car": "ref-a14",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 1.034394,
+          "speed_at_peak_mps": 17.711132,
+          "radial_error_at_peak_m": 0.308734,
+          "peak_tilt_deg": 2.9862266,
+          "accepted_windows": 96
+        },
+        {
+          "car": "ref-a14",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 1.0401667,
+          "speed_at_peak_mps": 21.559519,
+          "radial_error_at_peak_m": 0.5598751,
+          "peak_tilt_deg": 3.0112944,
+          "accepted_windows": 100
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 1.0691876,
+          "speed_at_peak_mps": 18.038656,
+          "radial_error_at_peak_m": 0.44048366,
+          "peak_tilt_deg": 2.4759114,
+          "accepted_windows": 102
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 1.0676019,
+          "speed_at_peak_mps": 22.07625,
+          "radial_error_at_peak_m": 0.71178526,
+          "peak_tilt_deg": 2.469975,
+          "accepted_windows": 104
+        }
+      ]
+    },
+    {
+      "experiment": "candidate1",
+      "overrides": {
+        "ref-e12": {
+          "mass_kg": 1795,
+          "front_weight": 0.58,
+          "gears": [
+            3.667,
+            2.211,
+            1.52,
+            1.133,
+            0.919,
+            0.778
+          ],
+          "final_drive": 4.111,
+          "drag_area_m2": 0.6727,
+          "lateral_mu": 0.955
+        },
+        "ref-a14": {
+          "driveline_efficiency": 0.8,
+          "lateral_mu": 0.925
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 5.1083336,
+          "zero_100_kmh_s": 5.3250003,
+          "zero_100_mph_s": 11.725,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 4.0916667,
+          "zero_100_kmh_s": 4.275,
+          "zero_100_mph_s": 10.058333,
+          "brake_60_mph_0_m": 32.116516,
+          "brake_70_mph_0_m": 43.583786,
+          "brake_100_0_m": 34.424835,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5804766,
+          "static_total_load_n": 17608.766
+        }
+      ],
+      "skidpad": [
+        {
+          "car": "ref-a14",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.8880596,
+          "speed_at_peak_mps": 16.419079,
+          "radial_error_at_peak_m": 0.21671918,
+          "peak_tilt_deg": 2.5682647,
+          "accepted_windows": 76
+        },
+        {
+          "car": "ref-a14",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.8898878,
+          "speed_at_peak_mps": 20.122946,
+          "radial_error_at_peak_m": 0.40164185,
+          "peak_tilt_deg": 2.6168113,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.91871506,
+          "speed_at_peak_mps": 16.730257,
+          "radial_error_at_peak_m": 0.31646392,
+          "peak_tilt_deg": 2.1751087,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.91885483,
+          "speed_at_peak_mps": 20.452782,
+          "radial_error_at_peak_m": 0.5071643,
+          "peak_tilt_deg": 2.129184,
+          "accepted_windows": 84
+        }
+      ]
+    },
+    {
+      "experiment": "candidate2",
+      "overrides": {
+        "ref-e12": {
+          "mass_kg": 1795,
+          "front_weight": 0.58,
+          "gears": [
+            3.667,
+            2.211,
+            1.52,
+            1.133,
+            0.919,
+            0.778
+          ],
+          "final_drive": 4.111,
+          "drag_area_m2": 0.6727,
+          "lateral_mu": 0.955,
+          "brake_decel_mps2": 9.75,
+          "driveline_efficiency": 0.8
+        },
+        "ref-a14": {
+          "driveline_efficiency": 0.77,
+          "lateral_mu": 0.92
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 5.241667,
+          "zero_100_kmh_s": 5.4583335,
+          "zero_100_mph_s": 12.141667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 4.4833336,
+          "zero_100_kmh_s": 4.691667,
+          "zero_100_mph_s": 11.083334,
+          "brake_60_mph_0_m": 36.102127,
+          "brake_70_mph_0_m": 48.97055,
+          "brake_100_0_m": 38.680008,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5804766,
+          "static_total_load_n": 17608.766
+        }
+      ],
+      "skidpad": [
+        {
+          "car": "ref-a14",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.8837226,
+          "speed_at_peak_mps": 16.343832,
+          "radial_error_at_peak_m": 0.1912995,
+          "peak_tilt_deg": 2.5548158,
+          "accepted_windows": 76
+        },
+        {
+          "car": "ref-a14",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.88507843,
+          "speed_at_peak_mps": 20.030684,
+          "radial_error_at_peak_m": 0.38940388,
+          "peak_tilt_deg": 2.602711,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.91886127,
+          "speed_at_peak_mps": 16.71941,
+          "radial_error_at_peak_m": 0.30734566,
+          "peak_tilt_deg": 2.1761885,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.91863805,
+          "speed_at_peak_mps": 20.5165,
+          "radial_error_at_peak_m": 0.53973985,
+          "peak_tilt_deg": 2.1293678,
+          "accepted_windows": 84
+        }
+      ]
+    },
+    {
+      "experiment": "ctsv-eff80",
+      "overrides": {
+        "ref-a14": {
+          "driveline_efficiency": 0.8
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 5.1083336,
+          "zero_100_kmh_s": 5.3250003,
+          "zero_100_mph_s": 11.725,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 3.9333336,
+          "zero_100_kmh_s": 4.116667,
+          "zero_100_mph_s": 9.416667,
+          "brake_60_mph_0_m": 32.06317,
+          "brake_70_mph_0_m": 43.478622,
+          "brake_100_0_m": 34.3631,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5704791,
+          "static_total_load_n": 16186.339
+        }
+      ]
+    },
+    {
+      "experiment": "delivery-only2",
+      "overrides": {
+        "ref-e12": {
+          "driveline_efficiency": 0.8
+        },
+        "ref-a14": {
+          "driveline_efficiency": 0.77
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 5.241667,
+          "zero_100_kmh_s": 5.4583335,
+          "zero_100_mph_s": 12.141667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 4.291667,
+          "zero_100_kmh_s": 4.491667,
+          "zero_100_mph_s": 10.358334,
+          "brake_60_mph_0_m": 32.06317,
+          "brake_70_mph_0_m": 43.478622,
+          "brake_100_0_m": 34.3631,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5704791,
+          "static_total_load_n": 16186.339
+        }
+      ]
+    },
+    {
+      "experiment": "grip-only",
+      "overrides": {
+        "ref-e12": {
+          "lateral_mu": 0.955
+        },
+        "ref-a14": {
+          "lateral_mu": 0.925
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 4.941667,
+          "zero_100_kmh_s": 5.1333337,
+          "zero_100_mph_s": 10.916667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 3.9333336,
+          "zero_100_kmh_s": 4.116667,
+          "zero_100_mph_s": 9.416667,
+          "brake_60_mph_0_m": 32.06317,
+          "brake_70_mph_0_m": 43.478622,
+          "brake_100_0_m": 34.3631,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5704791,
+          "static_total_load_n": 16186.339
+        }
+      ],
+      "skidpad": [
+        {
+          "car": "ref-a14",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.88787675,
+          "speed_at_peak_mps": 16.431465,
+          "radial_error_at_peak_m": 0.22901776,
+          "peak_tilt_deg": 2.5682647,
+          "accepted_windows": 76
+        },
+        {
+          "car": "ref-a14",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.8897858,
+          "speed_at_peak_mps": 20.137417,
+          "radial_error_at_peak_m": 0.4067023,
+          "peak_tilt_deg": 2.6167364,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 200.0,
+          "peak_sustained_g": 0.91735774,
+          "speed_at_peak_mps": 16.73643,
+          "radial_error_at_peak_m": 0.33445185,
+          "peak_tilt_deg": 2.1720474,
+          "accepted_windows": 80
+        },
+        {
+          "car": "ref-e12",
+          "diameter_ft": 300.0,
+          "peak_sustained_g": 0.9174282,
+          "speed_at_peak_mps": 20.443869,
+          "radial_error_at_peak_m": 0.5097741,
+          "peak_tilt_deg": 2.1249516,
+          "accepted_windows": 84
+        }
+      ]
+    },
+    {
+      "experiment": "rs4-brake-only",
+      "overrides": {
+        "ref-e12": {
+          "brake_decel_mps2": 9.75
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 4.941667,
+          "zero_100_kmh_s": 5.1333337,
+          "zero_100_mph_s": 10.916667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 3.9333336,
+          "zero_100_kmh_s": 4.116667,
+          "zero_100_mph_s": 9.416667,
+          "brake_60_mph_0_m": 36.013092,
+          "brake_70_mph_0_m": 48.8163,
+          "brake_100_0_m": 38.59706,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5704791,
+          "static_total_load_n": 16186.339
+        }
+      ]
+    },
+    {
+      "experiment": "rs4-oem",
+      "overrides": {
+        "ref-e12": {
+          "mass_kg": 1795,
+          "front_weight": 0.58,
+          "gears": [
+            3.667,
+            2.211,
+            1.52,
+            1.133,
+            0.919,
+            0.778
+          ],
+          "final_drive": 4.111,
+          "drag_area_m2": 0.6727
+        }
+      },
+      "benchmark": [
+        {
+          "car": "ref-a14",
+          "zero_60_mph_s": 4.941667,
+          "zero_100_kmh_s": 5.1333337,
+          "zero_100_mph_s": 10.916667,
+          "brake_60_mph_0_m": 36.77739,
+          "brake_70_mph_0_m": 49.85437,
+          "brake_100_0_m": 39.403748,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.540423,
+          "static_total_load_n": 17128.275
+        },
+        {
+          "car": "ref-e12",
+          "zero_60_mph_s": 4.0916667,
+          "zero_100_kmh_s": 4.275,
+          "zero_100_mph_s": 10.058333,
+          "brake_60_mph_0_m": 32.116516,
+          "brake_70_mph_0_m": 43.583786,
+          "brake_100_0_m": 34.424835,
+          "supported_fraction": 1.0,
+          "static_front_fraction": 0.5804766,
+          "static_total_load_n": 17608.766
+        }
+      ]
+    }
+  ],
+  "method": "One-variable-family probes separate OEM inputs, effective delivery, braking and lateral force limits. Candidate2 combines the selected corrections. Shadow baseline fixtures match production exactly; final fixtures must use production with no overrides.",
+  "probe_source": "artifacts/vehicle-reference/fleet57-reference-calibration/probe-source",
+  "baseline_benchmark_rows_exact": 6,
+  "baseline_skidpad_rows_exact": 114
+}

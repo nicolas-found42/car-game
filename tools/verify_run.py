@@ -5,6 +5,7 @@ import json
 import sys
 from pathlib import Path
 from recorder_health import inspect_health
+from provenance_bundle import captured_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -71,12 +72,13 @@ def verify_gameplay(run, manifest, health, output_json=False):
 
     reports = load_json(run / 'report.json')
     if manifest.get('mode') == 'fleet':
-        assert len(reports) == 13, f'expected 13 reports, got {len(reports)}'
-        assert kinds.count('car.report') == 13, f'expected 13 car.report events, got {kinds.count("car.report")}'
-        assert kinds.count('screenshot.validated') == 52, (
-            f'expected 52 validated captures, got {kinds.count("screenshot.validated")}'
+        count = len(captured_catalog(run))
+        assert len(reports) == count, f'expected {count} reports, got {len(reports)}'
+        assert kinds.count('car.report') == count, 'missing car.report events'
+        assert kinds.count('screenshot.validated') == 4 * count, (
+            f'expected {4 * count} validated captures, got {kinds.count("screenshot.validated")}'
         )
-        assert kinds.count('screenshot.requested') >= 52
+        assert kinds.count('screenshot.requested') >= 4 * count
         assert 'run.complete' in kinds, 'missing run.complete'
     for report in reports:
         assert report.get('captures'), f'{report.get("id")}: missing captures'

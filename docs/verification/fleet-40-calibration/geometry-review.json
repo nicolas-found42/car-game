@@ -1,0 +1,829 @@
+[
+  {
+    "car": "350z",
+    "model_wheelbase_m": 2.65,
+    "reference": "j01",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2649,
+        "unit": "mm",
+        "source_id": "j01-nissan-fsm-gi"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.649,
+        "delta_pct": 0.03775009437523291,
+        "source_id": "j01-nissan-fsm-gi",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "fr2-cobra",
+    "model_wheelbase_m": 2.5436012744903564,
+    "reference": "fr2-cobra",
+    "identity": "unresolved",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "fr2-fr500",
+    "model_wheelbase_m": 2.6686010360717773,
+    "reference": "fr2-fr500",
+    "identity": "catalog_and_manufacturer_name_match",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2.70002,
+        "unit": "m",
+        "source_id": "fr500-oem",
+        "status": "published"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.70002,
+        "delta_pct": -1.1636567109955642,
+        "source_id": "fr500-oem",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "gt-rx7",
+    "model_wheelbase_m": 2.43896484375,
+    "reference": "gt-rx7",
+    "identity": "native_exact_real_variant_unverified",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "gt-viper",
+    "model_wheelbase_m": 2.489501953125,
+    "reference": "gt-viper",
+    "identity": "native_name_exact_year_unresolved",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2.444,
+        "unit": "m",
+        "source_id": "viper-mt",
+        "status": "published"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.444,
+        "delta_pct": 1.8617820427577758,
+        "source_id": "viper-mt",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "gt4-m3",
+    "model_wheelbase_m": 2.729,
+    "reference": "e06",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2729,
+        "unit": "mm",
+        "source_id": "e06-press"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.729,
+        "delta_pct": 0.0,
+        "source_id": "e06-press",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "gt4-nsx",
+    "model_wheelbase_m": 2.53,
+    "reference": "gt4-nsx",
+    "identity": "catalog_exact_year_and_oem_mass_match",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2.53,
+        "unit": "m",
+        "source_id": "nsx-oem",
+        "status": "published"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.53,
+        "delta_pct": 0.0,
+        "source_id": "nsx-oem",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "mc3-skyline",
+    "model_wheelbase_m": 2.6620919704437256,
+    "reference": "j02",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2665,
+        "unit": "mm",
+        "source_id": "j02-nissan-brochure"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.665,
+        "delta_pct": -0.10911930792775193,
+        "source_id": "j02-nissan-brochure",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "mc3-supra",
+    "model_wheelbase_m": 2.5349280834198,
+    "reference": "mc3-supra",
+    "identity": "related_variant_proxy",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2.55016,
+        "unit": "m",
+        "source_id": "supra-brochure",
+        "status": "published_related_variant"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.55016,
+        "delta_pct": -0.597292584786846,
+        "source_id": "supra-brochure",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "mcla-evo",
+    "model_wheelbase_m": 2.628000020980835,
+    "reference": "j09",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2625,
+        "unit": "mm",
+        "source_id": "j09-mitsubishi-press"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.625,
+        "delta_pct": 0.11428651355562813,
+        "source_id": "j09-mitsubishi-press",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "mcla-skyline",
+    "model_wheelbase_m": 2.662569999694824,
+    "reference": "j02",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2665,
+        "unit": "mm",
+        "source_id": "j02-nissan-brochure"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.665,
+        "delta_pct": -0.09118200019421208,
+        "source_id": "j02-nissan-brochure",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "redline-911",
+    "model_wheelbase_m": 2.33,
+    "reference": "e01",
+    "identity": "model_year_confirmed_market_inferred",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2272,
+        "unit": "mm",
+        "source_id": "e01-eu1982",
+        "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.2720000000000002,
+        "delta_pct": 2.55281690140845,
+        "source_id": "e01-eu1982",
+        "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+      }
+    ]
+  },
+  {
+    "car": "redline-gt500",
+    "model_wheelbase_m": 2.7199999999999998,
+    "reference": "a03",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 107.1,
+        "unit": "in",
+        "source_id": "am_gt500_esource"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.7203399999999998,
+        "delta_pct": -0.012498437695285247,
+        "source_id": "am_gt500_esource",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-a01",
+    "model_wheelbase_m": 2.72,
+    "reference": "a01",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 107.1,
+        "unit": "in",
+        "source_id": "am_mustang_guide",
+        "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.7203399999999998,
+        "delta_pct": -0.012498437695274145,
+        "source_id": "am_mustang_guide",
+        "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+      }
+    ]
+  },
+  {
+    "car": "ref-a02",
+    "model_wheelbase_m": 2.573,
+    "reference": "a02",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 101.3,
+        "unit": "in",
+        "source_id": "am_cobra_test",
+        "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.5730199999999996,
+        "delta_pct": -0.000777296717469067,
+        "source_id": "am_cobra_test",
+        "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+      }
+    ]
+  },
+  {
+    "car": "ref-a04",
+    "model_wheelbase_m": 3.043,
+    "reference": "a04",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 119.8,
+        "unit": "in",
+        "source_id": "am_lightning_specs"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 3.0429199999999996,
+        "delta_pct": 0.0026290536721429447,
+        "source_id": "am_lightning_specs",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-a05",
+    "model_wheelbase_m": 3.401969313621521,
+    "reference": "a05",
+    "identity": "trim_year_known_body_configuration_unresolved",
+    "source_facts": [
+      {
+        "field": "regular_cab_short_4x4_wheelbase",
+        "value": 126.1,
+        "unit": "in",
+        "source_id": "am_f150_specs",
+        "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+      },
+      {
+        "field": "supercrew_4x4_wheelbase",
+        "value": 138.7,
+        "unit": "in",
+        "source_id": "am_f150_specs",
+        "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 3.20294,
+        "delta_pct": 6.213956977699264,
+        "source_id": "am_f150_specs",
+        "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+      },
+      {
+        "reference_m": 3.5229799999999996,
+        "delta_pct": -3.4348956388761342,
+        "source_id": "am_f150_specs",
+        "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+      }
+    ]
+  },
+  {
+    "car": "ref-a06",
+    "model_wheelbase_m": 2.62240207195282,
+    "reference": "a06",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 103.0,
+        "unit": "in",
+        "source_id": "am_focus_2004_press",
+        "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.6162,
+        "delta_pct": 0.23706413702391238,
+        "source_id": "am_focus_2004_press",
+        "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+      }
+    ]
+  },
+  {
+    "car": "ref-a07",
+    "model_wheelbase_m": 2.71,
+    "reference": "a07",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 106.7,
+        "unit": "in",
+        "source_id": "am_fordgt_brochure"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.71018,
+        "delta_pct": -0.00664162527949097,
+        "source_id": "am_fordgt_brochure",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-a09",
+    "model_wheelbase_m": 2.6894460916519165,
+    "reference": "a09",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2685,
+        "unit": "mm",
+        "source_id": "am_c6_specs"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.685,
+        "delta_pct": 0.16559000565796733,
+        "source_id": "am_c6_specs",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-a11",
+    "model_wheelbase_m": 3.569,
+    "reference": "a11",
+    "identity": "trim_year_known_body_configuration_unresolved",
+    "source_facts": [
+      {
+        "field": "quad_cab_short_wheelbase",
+        "value": 140.5,
+        "unit": "in",
+        "source_id": "am_ram_parts",
+        "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+      },
+      {
+        "field": "quad_cab_long_wheelbase",
+        "value": 160.5,
+        "unit": "in",
+        "source_id": "am_ram_parts",
+        "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 3.5686999999999998,
+        "delta_pct": 0.008406422506790356,
+        "source_id": "am_ram_parts",
+        "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+      },
+      {
+        "reference_m": 4.0767,
+        "delta_pct": -12.45370029680869,
+        "source_id": "am_ram_parts",
+        "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+      }
+    ]
+  },
+  {
+    "car": "ref-a12",
+    "model_wheelbase_m": 3.3855679035186768,
+    "reference": "a12",
+    "identity": "catalog_exact_name",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "ref-a13",
+    "model_wheelbase_m": 3.2125468850135803,
+    "reference": "a13",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 3118,
+        "unit": "mm",
+        "source_id": "am_h2_brief",
+        "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 3.118,
+        "delta_pct": 3.0322926559839702,
+        "source_id": "am_h2_brief",
+        "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+      }
+    ]
+  },
+  {
+    "car": "ref-a14",
+    "model_wheelbase_m": 3.0097999572753906,
+    "reference": "a14",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2880,
+        "unit": "mm",
+        "source_id": "am_ctsv_order",
+        "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.88,
+        "delta_pct": 4.506942960951066,
+        "source_id": "am_ctsv_order",
+        "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+      }
+    ]
+  },
+  {
+    "car": "ref-a15",
+    "model_wheelbase_m": 3.048,
+    "reference": "a15",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 3048,
+        "unit": "mm",
+        "source_id": "am_300c_press",
+        "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 3.048,
+        "delta_pct": 0.0,
+        "source_id": "am_300c_press",
+        "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+      }
+    ]
+  },
+  {
+    "car": "ref-a16",
+    "model_wheelbase_m": 2.746,
+    "reference": "a16",
+    "identity": "catalog_exact_name",
+    "source_facts": [
+      {
+        "field": "prototype_wheelbase",
+        "value": 108.1,
+        "unit": "in",
+        "source_id": "am_gnx_test",
+        "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.7457399999999996,
+        "delta_pct": 0.009469214128077219,
+        "source_id": "am_gnx_test",
+        "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+      }
+    ]
+  },
+  {
+    "car": "ref-e02",
+    "model_wheelbase_m": 2.45,
+    "reference": "e02",
+    "identity": "model_year_confirmed_market_unresolved",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2550,
+        "unit": "mm",
+        "source_id": "e02-eu1988",
+        "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.5500000000000003,
+        "delta_pct": -3.9215686274509887,
+        "source_id": "e02-eu1988",
+        "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+      }
+    ]
+  },
+  {
+    "car": "ref-e03",
+    "model_wheelbase_m": 2.5543100833892822,
+    "reference": "e03",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2560,
+        "unit": "mm",
+        "source_id": "e03-launch"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.56,
+        "delta_pct": -0.22226236760616302,
+        "source_id": "e03-launch",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-e04",
+    "model_wheelbase_m": 2.6640000343322754,
+    "reference": "e04",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [
+      {
+        "field": "reference_launch_wheelbase",
+        "value": 2665,
+        "unit": "mm",
+        "source_id": "e04-launch",
+        "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.665,
+        "delta_pct": -0.03752216389211194,
+        "source_id": "e04-launch",
+        "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+      }
+    ]
+  },
+  {
+    "car": "ref-e08",
+    "model_wheelbase_m": 2.465,
+    "reference": "e08",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [
+      {
+        "field": "reference_2003US_wheelbase",
+        "value": 97.1,
+        "unit": "in",
+        "source_id": "e08-2003-us",
+        "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.4663399999999998,
+        "delta_pct": -0.054331519579620124,
+        "source_id": "e08-2003-us",
+        "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+      }
+    ]
+  },
+  {
+    "car": "ref-e09",
+    "model_wheelbase_m": 1.97,
+    "reference": "e09",
+    "identity": "model_variant_confirmed_year_unresolved",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "ref-e10",
+    "model_wheelbase_m": 2.52,
+    "reference": "e10",
+    "identity": "cross_game_family_match_market_year_differ",
+    "source_facts": [
+      {
+        "field": "reference_2004US_wheelbase",
+        "value": 2518,
+        "unit": "mm",
+        "source_id": "e10-us2004",
+        "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.5180000000000002,
+        "delta_pct": 0.0794281175536149,
+        "source_id": "e10-us2004",
+        "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+      }
+    ]
+  },
+  {
+    "car": "ref-e11",
+    "model_wheelbase_m": 2.649978995323181,
+    "reference": "e11",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "ref-e12",
+    "model_wheelbase_m": 2.6129400730133057,
+    "reference": "e12",
+    "identity": "catalog_exact_model_variant",
+    "source_facts": [
+      {
+        "field": "reference_2006EU_wheelbase",
+        "value": 2651,
+        "unit": "mm",
+        "source_id": "e12-eu2006",
+        "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.6510000000000002,
+        "delta_pct": -1.4356818931231419,
+        "source_id": "e12-eu2006",
+        "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+      }
+    ]
+  },
+  {
+    "car": "ref-e13",
+    "model_wheelbase_m": 2.3,
+    "reference": "e13",
+    "identity": "GT4_exact_variant_MC3_trim_provisional",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "ref-j04",
+    "model_wheelbase_m": 2.425,
+    "reference": "j04",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2425,
+        "unit": "mm",
+        "source_id": "j04-mazda-brochure"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.4250000000000003,
+        "delta_pct": -2.220446049250313e-14,
+        "source_id": "j04-mazda-brochure",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-j07",
+    "model_wheelbase_m": 2.4,
+    "reference": "j07",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2400,
+        "unit": "mm",
+        "source_id": "j07-honda-spec"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.4,
+        "delta_pct": 0.0,
+        "source_id": "j07-honda-spec",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-j11",
+    "model_wheelbase_m": 2.525,
+    "reference": "j11",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2525,
+        "unit": "mm",
+        "source_id": "j11-subaru-catalog"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.525,
+        "delta_pct": 0.0,
+        "source_id": "j11-subaru-catalog",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "car": "ref-j12",
+    "model_wheelbase_m": 2.535,
+    "reference": "j12",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [],
+    "comparisons": []
+  },
+  {
+    "car": "ref-j16",
+    "model_wheelbase_m": 2.06,
+    "reference": "j16",
+    "identity": "catalog_name_verified_real_configuration_documented",
+    "source_facts": [
+      {
+        "field": "wheelbase",
+        "value": 2060,
+        "unit": "mm",
+        "source_id": "j16-suzuki-brochure"
+      }
+    ],
+    "comparisons": [
+      {
+        "reference_m": 2.06,
+        "delta_pct": 0.0,
+        "source_id": "j16-suzuki-brochure",
+        "note": ""
+      }
+    ]
+  }
+]

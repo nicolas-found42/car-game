@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "cars": 300,
+  "same_inputs_for_every_car": true,
+  "entry_speed_requirement_mps": 5.0,
+  "maximum_height_rise_m": 0.4,
+  "original_interactive_mini_collision_reproduced": true,
+  "failed_native_run": "artifacts/runs/20261025T171857027501Z-2342545-fleet-3913-1-1792948737055165000",
+  "failed_car": "exp-037",
+  "old_planar_brake_entry_mps": 4.687389267815484,
+  "old_body_height_before_brake_m": 1.6376834,
+  "test_log": "native-corridor-green.log",
+  "files": {
+    "tests/fleet_acceptance.rs": "15d7b3382d68d7ccfde26595db2d143652a739bb2ed160c6042d1ffb2bae2d8c",
+    "src/city.rs": "56006c1410a2228a63ba23dd4fce36bc0b1cfd5c92cf05fa7ff5104619e2afba",
+    "artifacts/vehicle-reference/fleet300/native-corridor-green.log": "4095cce67f7d0349df9e17e5d130ca7337abe5d226c96991ece3b94babf53d48",
+    "artifacts/runs/20261025T180846835382Z-2342545-fleet-21425-1-1792951726859812000/cars/exp-037.json": "10911cd6fb00740fb6179d3b75063d8782fe1b7c8e9018dea7ff5f29d468f761",
+    "artifacts/vehicle-reference/fleet300/source-final/src/smoke.rs": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+    "artifacts/runs/20261025T194459988418Z-2342545-fleet-43813-1-1792957500017211000/cars/exp-037.json": "2fce2be9ba057a6ab2aec37ab8c4ab8faa48cd186d7c8cb965b180c73f950526"
+  },
+  "corrected_native_run": "artifacts/runs/20261025T194459988418Z-2342545-fleet-43813-1-1792957500017211000",
+  "corrected_native_mini": {
+    "passed": true,
+    "brake_start_kmh": 50.23624038696289,
+    "brake_end_kmh": 2.3760364055633545,
+    "grounded_after_reset": 4,
+    "animated_nodes": 4,
+    "expected_nodes": 4
+  },
+  "native_smoke_input_values_phase_boundaries_and_assertions_unchanged": true,
+  "phase_clock_correction": "See native-clock-validation.json; common input values and phase boundaries unchanged.",
+  "intermediate_native_confirmation": {
+    "run": "artifacts/runs/20261025T180846835382Z-2342545-fleet-21425-1-1792951726859812000",
+    "mini": {
+      "passed": true,
+      "brake_start_kmh": 49.90838623046875,
+      "brake_end_kmh": 2.510134220123291,
+      "grounded_after_reset": 4,
+      "animated_nodes": 4,
+      "expected_nodes": 4
+    }
+  }
+}

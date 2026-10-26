@@ -1,0 +1,15 @@
+{
+  "successful_runs": 1920,
+  "assertions": 5360,
+  "route_completions": 640,
+  "unexpected_resets": 0,
+  "requested_resets": 80,
+  "minimum_four_contact_pct": 100.0,
+  "minimum_four_loaded_pct": 98.33531510107015,
+  "maximum_route_error_m": 3.790191650390625,
+  "identical_repeat_pairs": 960,
+  "unchanged_other_car_matched_trajectories": 1872,
+  "city_contact_loss_runs": [],
+  "after_binary_sha256": "343cbd08aaa9a8ca4e5a1a0cfa7e67ba53e7550d6632c425bb6b2de09b47a0a4",
+  "matched_before_after_scenario_hashes": 1920
+}

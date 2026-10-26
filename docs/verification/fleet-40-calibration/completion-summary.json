@@ -1,0 +1,13 @@
+{
+  "successful_runs": 1920,
+  "assertions": 5360,
+  "route_completions": 640,
+  "unexpected_resets": 0,
+  "requested_resets": 80,
+  "minimum_four_contact_pct": 92.86563614744352,
+  "minimum_four_loaded_pct": 89.65517241379311,
+  "maximum_route_error_m": 3.790191650390625,
+  "identical_repeat_pairs": 960,
+  "after_binary_sha256": "1ba35ad568f41b2554280240ba8ee9250af940609b83f33a9ffd4f1f7644f0aa",
+  "matched_before_after_identities": 1920
+}

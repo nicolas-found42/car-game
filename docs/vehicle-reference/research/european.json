@@ -1,0 +1,4460 @@
+{
+  "cars": [
+    {
+      "id": "e01",
+      "name": "Porsche 911 SC 3.0",
+      "year": 1982,
+      "market": "Europe",
+      "variant": "G-series coupe; European 204 PS reference, market attribution provisional",
+      "vehicle_type": "rear-engine sports coupe",
+      "asset_codes": [
+        "REDLINE_ADDON_072_DP_911_PACK_II_REDPLUG_ZIP_DP91130_D40AEBAC2F82_2F607564778B6BAC"
+      ],
+      "identity_status": "model_year_confirmed_market_inferred",
+      "identity_notes": "Native Redline year 1982 and 267 Nm identify a late SC. European market is inferred from the author parameters; US engine specifications are excluded.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 3.0,
+          "unit": "L",
+          "source_id": "e01-porsche",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power",
+          "value": 204,
+          "unit": "PS",
+          "source_id": "e01-porsche",
+          "note": "MY 1981–83 European output, not SAE hp European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "model_year_range",
+          "value": [
+            1981,
+            1983
+          ],
+          "unit": "year",
+          "source_id": "e01-porsche",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "engine_displacement_exact",
+          "value": 2994,
+          "unit": "cm3",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "engine_layout",
+          "value": "rear-mounted air-cooled flat six",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "bore",
+          "value": 95,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "stroke",
+          "value": 70.4,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power_kw",
+          "value": 150,
+          "unit": "kW",
+          "source_id": "e01-eu1982",
+          "note": "DIN European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5900,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "torque",
+          "value": 267,
+          "unit": "Nm",
+          "source_id": "e01-eu1982",
+          "note": "DIN European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4300,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "redline",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "Handbook permissible maximum 6800±200; game 6500 differs European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "gearbox",
+          "value": "5-speed manual, dry single-plate clutch",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            3.1818181818181817,
+            1.8333333333333333,
+            1.2608695652173914,
+            1,
+            0.7857142857142857
+          ],
+          "unit": ":1",
+          "source_id": "e01-eu1982",
+          "note": "Derived exactly from printed tooth pairs 11/35,18/33,23/29,26/26,28/22; retain full precision European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.875,
+          "unit": ":1",
+          "source_id": "e01-eu1982",
+          "note": "Printed 8/31 European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "drivetrain",
+          "value": "rear-wheel drive",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_front_standard",
+          "value": "185/70 VR15 on6Jx15",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_rear_standard",
+          "value": "215/60 VR15 on7Jx15",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_front_optional",
+          "value": "205/55 VR16 on6Jx16",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_rear_optional",
+          "value": "225/50 VR16 on7Jx16",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "mass",
+          "value": 1160,
+          "unit": "kg",
+          "source_id": "e01-eu1982",
+          "note": "Printed poids à vide; DIN without optional equipment European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "mass_basis",
+          "value": "DIN unladen",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "maximum_gross_mass",
+          "value": 1500,
+          "unit": "kg",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "top_speed",
+          "value": 235,
+          "unit": "km/h",
+          "source_id": "e01-eu1982",
+          "note": "Performance test basis DIN unladen plus half payload European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 26.8,
+          "unit": "s",
+          "source_id": "e01-eu1982",
+          "note": "Same DIN plus half payload basis European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "ground_clearance",
+          "value": 120,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "turning_circle",
+          "value": 10.95,
+          "unit": "m",
+          "source_id": "e01-eu1982",
+          "note": "Source calls rayon de braquage but value is turning-circle diameter; do not double to 21.9 European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "length",
+          "value": 4291,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "width",
+          "value": 1652,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "height",
+          "value": 1320,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "wheelbase",
+          "value": 2272,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "track_front",
+          "value": 1369,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "track_rear",
+          "value": 1379,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e01-porsche",
+          "url": "https://www.porsche.com/australia/accessoriesandservice/classic/models/911-g/911-sc/",
+          "title": "Porsche Classic: Model 911 SC",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "MY 1981–83 – 3.0 litres, 204 PS",
+          "source_type": "manufacturer publication",
+          "scope": "European engine evolution; current Porsche heritage reference"
+        },
+        {
+          "id": "e01-eu1982",
+          "url": "https://www.manualslib.fr/manual/1040031/Porsche-911-Sc-1982.html",
+          "title": "Porsche 911 SC 1982 French owner handbook, printed pages 67–72",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "150 kW (204 CV/DIN)",
+          "source_type": "manufacturer publication",
+          "scope": "Factory French-language European 204 CV manual; online pages 70,72,73,75,76. US 930/16 workshop data deliberately excluded.",
+          "date": "1982"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Asset market remains inferred; European handbook chosen because 1982/204 CV/267 Nm aligns native author identity.",
+        "Exact spring rates, brake disc dimensions, CG and inertia not retrieved.",
+        "0–100 km/h number illegible in OCR; not guessed."
+      ]
+    },
+    {
+      "id": "e02",
+      "name": "Ferrari Testarossa",
+      "year": 1991,
+      "market": "Unresolved",
+      "variant": "Testarossa F 110 coupe; original model, not 512 TR",
+      "vehicle_type": "mid-engine grand tourer",
+      "asset_codes": [
+        "REDLINE_ADDON_022_FERRARITESTAROSSA_ZIP_TESTAROSSA_220E18865D7B_9ADA21231AEFF101"
+      ],
+      "identity_status": "model_year_confirmed_market_unresolved",
+      "identity_notes": "Asset year is 1991. Detailed facts come from the 1988 European factory handbook and are explicitly adjacent-year references. The retrieved US manual is diagnostic evidence only.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 4942,
+          "unit": "cm3",
+          "source_id": "e02-eu1988",
+          "note": "Source 4942; native game 4.943 L differs 1 cc 1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "engine_layout",
+          "value": "longitudinal rear-compartment180-degreeV12",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "bore",
+          "value": 82,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "stroke",
+          "value": 78,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "compression_ratio",
+          "value": 9.3,
+          "unit": ":1",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "power",
+          "value": 286.8,
+          "unit": "kW",
+          "source_id": "e02-eu1988",
+          "note": "Source 390 CV 1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "power_metric",
+          "value": 390,
+          "unit": "CV",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6300,
+          "unit": "rpm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "torque",
+          "value": 490.3,
+          "unit": "Nm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "redline",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "mass",
+          "value": 1506,
+          "unit": "kg",
+          "source_id": "e02-eu1988",
+          "note": "Englishheading curbweight; Italian emptyweight; fuel/driver condition not defined 1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "mass_basis",
+          "value": "curb_as_printed_fuel_driver_unspecified",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            3.139,
+            2.014,
+            1.526,
+            1.167,
+            0.875
+          ],
+          "unit": ":1",
+          "source_id": "e02-eu1988",
+          "note": "Includes idle/reduction gear 27/29 as noted in handbook 1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "overall_drive_ratios_forward",
+          "value": [
+            10.091,
+            6.473,
+            4.906,
+            3.752,
+            2.813
+          ],
+          "unit": ":1",
+          "source_id": "e02-eu1988",
+          "note": "Authoritative complete reductions; avoid multiplying twice 1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "final_drive_tooth_pair",
+          "value": [
+            14,
+            45
+          ],
+          "unit": "teeth",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "gear_ratio_reverse",
+          "value": 2.532,
+          "unit": ":1",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "overall_drive_ratio_reverse",
+          "value": 8.137,
+          "unit": ":1",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "gearbox",
+          "value": "5-speed manual, dry twin-plate9.5inch clutch",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "drivetrain",
+          "value": "RWD with plate limited-slip differential",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "independent swinging arms, coil springs, hydraulic dampers, transverse antiroll bars",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "tire_front_16in",
+          "value": "225/50VR16",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "tire_rear_16in",
+          "value": "255/50VR16",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "tire_front_metric_option",
+          "value": "240/45VR415 MichelinTRX",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "tire_rear_metric_option",
+          "value": "280/45VR415 MichelinTRX",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "steering_turns_lock_to_lock",
+          "value": 3.45,
+          "unit": "turns",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "turning_circle",
+          "value": 12,
+          "unit": "m",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "brakes",
+          "value": "ventilated four-wheel discs, vacuum servo, rear pressure regulator",
+          "unit": null,
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "top_speed",
+          "value": 290,
+          "unit": "km/h",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "standing_400m",
+          "value": 13.6,
+          "unit": "s",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 24.1,
+          "unit": "s",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "length",
+          "value": 4485,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "width",
+          "value": 1976,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "height",
+          "value": 1130,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "wheelbase",
+          "value": 2550,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "track_front",
+          "value": 1518,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        },
+        {
+          "field": "track_rear",
+          "value": 1660,
+          "unit": "mm",
+          "source_id": "e02-eu1988",
+          "note": "1988 European handbook reference; not established exact 1991 market match. 1988 European factory manual reference for the 1991 asset; exact year/market match unverified."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e02-manual",
+          "url": "https://www.manualslib.com/manual/466982/Ferrari-Testarossa.html",
+          "title": "Ferrari Testarossa US owner manual (1988)",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Us version",
+          "source_type": "manufacturer publication",
+          "scope": "Original Ferrari owner manual rehost;1988 US family reference only"
+        },
+        {
+          "id": "e02-factory-web",
+          "url": "https://www.ferrari.com/en-EN/auto/testarossa",
+          "title": "Ferrari past-model Testarossa page",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "",
+          "source_type": "access diagnostic; no numerical facts extracted",
+          "scope": "Publisher page retrieval blocked by robot verification; no numerical claims extracted"
+        },
+        {
+          "id": "e02-eu1988",
+          "url": "https://cdn.made-in-maranello.fr/documents/testarossa_1988.pdf",
+          "title": "Ferrari Testarossa 1988 European owner handbook, printed pages 10–16",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Maximum power (at 6300 RPM)",
+          "source_type": "manufacturer publication",
+          "scope": "Scanned factory handbook visually inspected PDFpages 11,13–17. Explicit adjacent-year reference for 1991 asset; market unknown.",
+          "date": "1988"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "1991 asset year is explicit;1988 European handbook is adjacent-year reference, with 1 cc displacement difference. Matching 1990/1991 market handbook not retrieved.",
+        "Ferrari official historic webpage inaccessible to web retrieval in en-EN/en-US/it-IT because robot challenge."
+      ]
+    },
+    {
+      "id": "e03",
+      "name": "Lamborghini Gallardo",
+      "year": 2004,
+      "market": "Europe",
+      "variant": "first-series 5.0 V 10 coupe",
+      "vehicle_type": "mid-engine AWD supercar",
+      "asset_codes": [
+        "MC3_VP_GALLARDO_04"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4300,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "width",
+          "value": 1900,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "height",
+          "value": 1165,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2560,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "track_front",
+          "value": 1622,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "track_rear",
+          "value": 1592,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "mass",
+          "value": 1430,
+          "unit": "kg",
+          "source_id": "e03-launch",
+          "note": "Dry; source explicitly nofuel, not kerb"
+        },
+        {
+          "field": "mass_basis",
+          "value": "dry_no_fuel",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "weight_distribution_front",
+          "value": 42,
+          "unit": "%",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "weight_distribution_rear",
+          "value": 58,
+          "unit": "%",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "engine_layout",
+          "value": "mid-mounted90degreeV10DOHC40valve",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 4961,
+          "unit": "cm3",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "bore",
+          "value": 82.5,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "stroke",
+          "value": 92.8,
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 11,
+          "unit": ":1",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "power",
+          "value": 367,
+          "unit": "kW",
+          "source_id": "e03-launch",
+          "note": "Source pairs 500 hp;metric/SAE label notresolved here"
+        },
+        {
+          "field": "power_source_label",
+          "value": 500,
+          "unit": "hp",
+          "source_id": "e03-launch",
+          "note": "Preserved source label; not normalized to SAE"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7800,
+          "unit": "rpm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "torque",
+          "value": 510,
+          "unit": "Nm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "drivetrain",
+          "value": "permanent AWD viscous coupling",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speed manual;optional6speed e-gear",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "rear_differential_lock",
+          "value": 45,
+          "unit": "%",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/35ZR19",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "tire_rear",
+          "value": "295/30ZR19",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "wheel_front",
+          "value": "8.5x19",
+          "unit": "in",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "11x19",
+          "unit": "in",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": [
+            365,
+            34
+          ],
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": [
+            335,
+            32
+          ],
+          "unit": "mm",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "brake_caliper_pistons_front",
+          "value": 8,
+          "unit": "count",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "brake_caliper_pistons_rear",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "double wishbones, antiroll, antidive/antisquat, FSD dampers",
+          "unit": null,
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "turning_circle",
+          "value": 11.5,
+          "unit": "m",
+          "source_id": "e03-launch",
+          "note": "kerb-to-kerb"
+        },
+        {
+          "field": "top_speed",
+          "value": 309,
+          "unit": "km/h",
+          "source_id": "e03-launch",
+          "note": "Manufacturer claim"
+        },
+        {
+          "field": "braking_deceleration_lower_bound",
+          "value": 1.1,
+          "unit": "g",
+          "source_id": "e03-launch",
+          "note": "Dry manufacturer claim, not stopping-distance test"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 90,
+          "unit": "L",
+          "source_id": "e03-launch"
+        },
+        {
+          "field": "torsional_stiffness_lower_bound",
+          "value": 23000,
+          "unit": "Nm/degree",
+          "source_id": "e03-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e03-launch",
+          "url": "https://lamborghiniclubwest.com/GALLARDO_ENG_DAT.pdf",
+          "title": "Lamborghini Gallardo 2003 launch press kit and technical sheet",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Weight (\"dry\"-no fuel) 1430 kg",
+          "source_type": "manufacturer publication",
+          "scope": "Factory launch press kit rehosted by marque club;first 500 hp series",
+          "date": "2003"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+      ]
+    },
+    {
+      "id": "e04",
+      "name": "Lamborghini Murcielago",
+      "year": 2004,
+      "market": "Europe",
+      "variant": "6.2 V 12 coupe; first series",
+      "vehicle_type": "mid-engine AWD supercar",
+      "asset_codes": [
+        "MC3_VP_MURCIELAGO_04"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "The MCLA Murcielago Roadster uses a different body; it is not merged with the MC3 coupe.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4580,
+          "unit": "mm",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "width",
+          "value": 2045,
+          "unit": "mm",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 6192,
+          "unit": "cm3",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "engine_layout",
+          "value": "60degree V12 mid-mounted",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "power",
+          "value": 426,
+          "unit": "kW",
+          "source_id": "e04-brochure",
+          "note": "Brochure pairs 580 bhp; treat k W as authoritative numeric unit"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7500,
+          "unit": "rpm",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "torque",
+          "value": 650,
+          "unit": "Nm",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5400,
+          "unit": "rpm",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "drivetrain",
+          "value": "permanent AWD viscous traction system",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speed manual;optional e-gear",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "independent doublewishbone electronically adjustable;anti-dive and anti-squat",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "245/35ZR18",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "335/30ZR18",
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "wheel_front",
+          "value": "8.5x18",
+          "unit": "in",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "13x18",
+          "unit": "in",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 3.8,
+          "unit": "s",
+          "source_id": "e04-brochure",
+          "note": "Manufacturer brochure claim"
+        },
+        {
+          "field": "top_speed_lower_bound",
+          "value": 330,
+          "unit": "km/h",
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "stability_systems",
+          "value": [
+            "ABS",
+            "DRP",
+            "TCS"
+          ],
+          "unit": null,
+          "source_id": "e04-brochure"
+        },
+        {
+          "field": "power_heritage_alternative",
+          "value": 580,
+          "unit": "CV",
+          "source_id": "e04-heritage"
+        },
+        {
+          "field": "power_rpm_heritage_alternative",
+          "value": 7200,
+          "unit": "rpm",
+          "source_id": "e04-heritage",
+          "note": "Conflict: period dealer brochure 7500 rpm; not silently reconciled"
+        },
+        {
+          "field": "reference_launch_height",
+          "value": 1135,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_wheelbase",
+          "value": 2665,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_track_front",
+          "value": 1635,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_track_rear",
+          "value": 1695,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_mass",
+          "value": 1650,
+          "unit": "kg",
+          "source_id": "e04-launch",
+          "note": "Printed Weight; dry/curb basis not specified. Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_mass_basis",
+          "value": "unspecified",
+          "unit": null,
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_weight_distribution_front",
+          "value": 42,
+          "unit": "%",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_weight_distribution_rear",
+          "value": 58,
+          "unit": "%",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_bore",
+          "value": 87,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_stroke",
+          "value": 86.8,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_compression_ratio",
+          "value": 10.7,
+          "unit": ":1",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_gear_ratios_forward",
+          "value": [
+            2.941,
+            2.056,
+            1.52,
+            1.179,
+            1.03,
+            0.914
+          ],
+          "unit": ":1",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_gear_ratio_reverse",
+          "value": 2.529,
+          "unit": ":1",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_clutch_diameter",
+          "value": 272,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Dry single plate. Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_brake_disc_front",
+          "value": [
+            355,
+            32
+          ],
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_brake_disc_rear",
+          "value": [
+            335,
+            32
+          ],
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_brake_caliper_pistons_front_rear",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_turning_circle",
+          "value": 12.55,
+          "unit": "m",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_differential_rear_lock",
+          "value": 45,
+          "unit": "%",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_differential_front_lock",
+          "value": 25,
+          "unit": "%",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_spring_damper_per_rear_wheel",
+          "value": 2,
+          "unit": "count",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_spring_damper_per_front_wheel",
+          "value": 1,
+          "unit": "count",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_drag_coefficient_range",
+          "value": [
+            0.33,
+            0.36
+          ],
+          "unit": null,
+          "source_id": "e04-launch",
+          "note": "Depends on intake opening and wing setting. Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_rear_wing_schedule",
+          "value": {
+            "closed_below_kmh": 130,
+            "50_degrees_between_kmh": [
+              130,
+              220
+            ],
+            "70_degrees_above_kmh": 220
+          },
+          "unit": null,
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_torsional_rigidity_lower_bound",
+          "value": 20000,
+          "unit": "Nm/degree",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_fuel_tank",
+          "value": 100,
+          "unit": "L",
+          "source_id": "e04-launch",
+          "note": "Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        },
+        {
+          "field": "reference_launch_engine_lowering_vs_predecessor",
+          "value": 50,
+          "unit": "mm",
+          "source_id": "e04-launch",
+          "note": "Dry sump permits lower engine mounting; this is not absolute centre of gravity height. Original 6.2 launch reference; exact 2004 specification equivalence unverified."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e04-brochure",
+          "url": "https://www.luxosonline.pt/empresas/catalogos/4_lamborghini_int_murcielago.pdf",
+          "title": "Lamborghini London/Manchester Murcielago dealer brochure",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Maximum torque 650 Nm at 5400 rpm",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer-authorised dealer brochure;6.2 L coupe, includes roadster marketing"
+        },
+        {
+          "id": "e04-heritage",
+          "url": "https://www.lamborghini.com/en-en/news/lamborghini-murcielago-the-first-v12-engine-of-the-new-millennium",
+          "title": "Lamborghini Murcielago: first V 12 ofnewmillennium",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "580 CV at 7200 rpm",
+          "source_type": "manufacturer publication",
+          "scope": "2022 retrospective differs from period brochure rpm; preserve discrepancy",
+          "date": "2022-09-22"
+        },
+        {
+          "id": "e04-launch",
+          "url": "https://www.lamborghiniclubwest.com/murcielago.pdf",
+          "title": "Lamborghini Murcielago original 6.2 launch press dossier, technical sheet page 16",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "",
+          "source_type": "manufacturer publication",
+          "scope": "Original 6.2 launch model reference; exact 2004 revision not established."
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Final-drive ratio and exact 2004 kerb mass were not established. Launch dossier gives 1650 kg without a mass definition.",
+        "Launch press dossier gives 7500 rpm power peak; 2022 retrospective gives 7200 rpm. Retain disagreement."
+      ]
+    },
+    {
+      "id": "e05",
+      "name": "Lamborghini Miura P400 SV",
+      "year": 1971,
+      "market": "Europe",
+      "variant": "SV production coupe",
+      "vehicle_type": "transverse mid-engine classic supercar",
+      "asset_codes": [
+        "MCLA_VP_LAM_MIURA_71"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "SV-specific manufacturer retrospective used. Earlier P400/P400 S brochures are not treated as exact SV dimensional references.",
+      "facts": [
+        {
+          "field": "power",
+          "value": 385,
+          "unit": "CV",
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7850,
+          "unit": "rpm",
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "torque",
+          "value": 40.7,
+          "unit": "kgf m",
+          "source_id": "e05-heritage",
+          "note": "Original unit; do not read as Nm"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5750,
+          "unit": "rpm",
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "top_speed_lower_bound",
+          "value": 290,
+          "unit": "km/h",
+          "source_id": "e05-heritage",
+          "note": "Manufacturer retrospective claim"
+        },
+        {
+          "field": "standing_kilometre_upper_bound",
+          "value": 24,
+          "unit": "s",
+          "source_id": "e05-heritage",
+          "note": "Source says a little less than 24"
+        },
+        {
+          "field": "carburetors",
+          "value": "4Weber40IDL3C triplebody",
+          "unit": null,
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "rear_wheel_width",
+          "value": 9,
+          "unit": "in",
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "rear_tire_section_width",
+          "value": 255,
+          "unit": "mm",
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "rear_track_increase_approx",
+          "value": 130,
+          "unit": "mm",
+          "source_id": "e05-heritage",
+          "note": "Compared with Miura S; source says almost 130 mm"
+        },
+        {
+          "field": "lubrication",
+          "value": "separate engine and gearbox lubrication",
+          "unit": null,
+          "source_id": "e05-heritage"
+        },
+        {
+          "field": "rear_suspension_change",
+          "value": "revised arm shape and mountpoints",
+          "unit": null,
+          "source_id": "e05-heritage"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e05-heritage",
+          "url": "https://www.lamborghini.com/jp-en/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9/lamborghini-miura-sv-the-iconic-supercar-turns-50",
+          "title": "Lamborghini Miura SV: iconic supercar turns 50",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "385 CV at 7850 rpm and a 40.7 kgm torque at 5750 rpm",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer retrospective; retrieved indexed content; direct URL returned 404",
+          "date": "2021-04-14"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Exact 1971 SV dimensional drawing, defined-basis mass, gear ratios and tire sidewall specifications were not verified in retrieved primary sources. Earlier P400 S dimensions and conflicting secondary tables were excluded."
+      ]
+    },
+    {
+      "id": "e06",
+      "name": "BMW M3 CSL",
+      "year": 2003,
+      "market": "Europe",
+      "variant": "E 46 coupe SMG",
+      "vehicle_type": "front-engine RWD track-focused coupe",
+      "asset_codes": [
+        "GT4_BMW_0011"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4492,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "width",
+          "value": 1780,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "height",
+          "value": 1365,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2729,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "track_front",
+          "value": 1518,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "track_rear",
+          "value": 1525,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "mass",
+          "value": 1385,
+          "unit": "kg",
+          "source_id": "e06-press",
+          "note": "Source table EU 1 with DINplus 75 kg footnote; preserve exact labeling despite differing secondary catalogs"
+        },
+        {
+          "field": "mass_basis",
+          "value": "EU_road_trim_DIN_plus_75kg_as_printed",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 3246,
+          "unit": "cm3",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "engine_layout",
+          "value": "naturallyaspirated inline6 DOHC24valve",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "bore",
+          "value": 87,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "stroke",
+          "value": 91,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 11.5,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "power",
+          "value": 265,
+          "unit": "kW",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7900,
+          "unit": "rpm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "torque",
+          "value": 370,
+          "unit": "Nm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4900,
+          "unit": "rpm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            4.227,
+            2.528,
+            1.669,
+            1.226,
+            1.0,
+            0.828
+          ],
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gear_ratio_reverse",
+          "value": 3.746,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.62,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speed SMGDrivelogic",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/35ZR19 MichelinPilotSportCup",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "tire_rear",
+          "value": "265/30ZR19 MichelinPilotSportCup",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": [
+            345,
+            28
+          ],
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": [
+            328,
+            20
+          ],
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 14.5,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "turning_circle",
+          "value": 11,
+          "unit": "m",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "drag_area",
+          "value": 0.683,
+          "unit": "m2",
+          "source_id": "e06-press",
+          "note": "Source c Xx A"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "acceleration_0_200_kmh",
+          "value": 16.8,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 23.5,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "top_speed",
+          "value": 250,
+          "unit": "km/h",
+          "source_id": "e06-press",
+          "note": "Electroniclimited"
+        },
+        {
+          "field": "braking_100_0_distance_upper_bound",
+          "value": 34,
+          "unit": "m",
+          "source_id": "e06-press",
+          "note": "Manufacturer underappropriateconditions"
+        },
+        {
+          "field": "braking_100_0_time",
+          "value": 2.5,
+          "unit": "s",
+          "source_id": "e06-press",
+          "note": "Manufacturer claim"
+        },
+        {
+          "field": "differential",
+          "value": "variable M lock",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 63,
+          "unit": "L",
+          "source_id": "e06-press"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e06-press",
+          "url": "https://www.press.bmwgroup.com/usa/article/attachment/T0022168EN_US/41493/AG030228_M3_CSL_Press_Kit_GB_finalversion.pdf",
+          "title": "BMW M 3 CSL March 2003 press kit",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Weight of car in road trim (DIN) plus 75 kg for driver and luggage.",
+          "source_type": "manufacturer publication",
+          "scope": "Technical table printedp 19 and footnotep 20; source itselflabels 1385 kg EU",
+          "date": "2003-03"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+      ]
+    },
+    {
+      "id": "e07",
+      "name": "BMW M5",
+      "year": 2005,
+      "market": "Europe",
+      "variant": "E 60 saloon SMGIII",
+      "vehicle_type": "front-engine RWD performance sedan",
+      "asset_codes": [
+        "GT4_BMW_0014"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4855,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "width",
+          "value": 1846,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "height",
+          "value": 1469,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2889,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "track_front",
+          "value": 1580,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "track_rear",
+          "value": 1566,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "mass",
+          "value": 1830,
+          "unit": "kg",
+          "source_id": "e07-press",
+          "note": "EUroadtrim incl 75 kgdriver/luggage"
+        },
+        {
+          "field": "mass_basis",
+          "value": "EU_DIN_plus75kg",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 4999,
+          "unit": "cm3",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "engine_layout",
+          "value": "90degree naturallyaspirated V10DOHC40valve",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "bore",
+          "value": 92,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "stroke",
+          "value": 75.2,
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 12,
+          "unit": ":1",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "power",
+          "value": 373,
+          "unit": "kW",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7750,
+          "unit": "rpm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "torque",
+          "value": 520,
+          "unit": "Nm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 6100,
+          "unit": "rpm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            3.985,
+            2.652,
+            1.806,
+            1.392,
+            1.159,
+            1,
+            0.833
+          ],
+          "unit": ":1",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "gear_ratio_reverse",
+          "value": 3.985,
+          "unit": ":1",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.62,
+          "unit": ":1",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "gearbox",
+          "value": "7speedSMGIII",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "tire_front",
+          "value": "255/40ZR19",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "tire_rear",
+          "value": "285/35ZR19",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": [
+            374,
+            36
+          ],
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": [
+            370,
+            24
+          ],
+          "unit": "mm",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 12.4,
+          "unit": ":1",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "turning_circle",
+          "value": 12.4,
+          "unit": "m",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "drag_area",
+          "value": 0.701,
+          "unit": "m2",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 4.7,
+          "unit": "s",
+          "source_id": "e07-press",
+          "note": "0–62 mph intable"
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 22.7,
+          "unit": "s",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "top_speed",
+          "value": 250,
+          "unit": "km/h",
+          "source_id": "e07-press",
+          "note": "Electroniclimited"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 70,
+          "unit": "L",
+          "source_id": "e07-press"
+        },
+        {
+          "field": "differential",
+          "value": "variable M differential lock",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "suspension_front",
+          "value": "doublejoint tensionrod springstrut",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "aluminum integral axle with antisquat/antidive",
+          "unit": null,
+          "source_id": "e07-press"
+        },
+        {
+          "field": "redline",
+          "value": 8250,
+          "unit": "rpm",
+          "source_id": "e07-uk"
+        },
+        {
+          "field": "weight_distribution_front",
+          "value": 50,
+          "unit": "%",
+          "source_id": "e07-uk",
+          "note": "Manufacturer statedgoal"
+        },
+        {
+          "field": "weight_distribution_rear",
+          "value": 50,
+          "unit": "%",
+          "source_id": "e07-uk",
+          "note": "Manufacturer statedgoal"
+        },
+        {
+          "field": "damping",
+          "value": "EDC comfort normal sport",
+          "unit": null,
+          "source_id": "e07-uk"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e07-press",
+          "url": "https://www.press.bmwgroup.com/usa/article/attachment/T0018520EN_US/36431",
+          "title": "BMW new M 5 September 2004 launch press kit",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Weight of the car in road trim (DIN) plus 75 kg for driver and luggage.",
+          "source_type": "manufacturer publication",
+          "scope": "European launchdata for 2005 model;technical table finalpage",
+          "date": "2004-09-17"
+        },
+        {
+          "id": "e07-uk",
+          "url": "https://www.press.bmwgroup.com/united-kingdom/article/detail/T0013049EN_GB/the-new-bmw-m5?language=en_GB",
+          "title": "BMW M 5 UKMay 2005 presskit",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Maximum engine speed (rpm) 8,250",
+          "source_type": "manufacturer publication",
+          "scope": "UK 2005 launch",
+          "date": "2005-05-16"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+      ]
+    },
+    {
+      "id": "e08",
+      "name": "MINI Cooper S",
+      "year": 2002,
+      "market": "Europe",
+      "variant": "R 53 three-door supercharged hatch manual",
+      "vehicle_type": "front-engine FWD hot hatch",
+      "asset_codes": [
+        "GT4_MINI0001"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "power",
+          "value": 120,
+          "unit": "kW",
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "torque",
+          "value": 210,
+          "unit": "Nm",
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4000,
+          "unit": "rpm",
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "engine_induction",
+          "value": "supercharged intercooled1.6L",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "gearbox",
+          "value": "6speed manual",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 7.4,
+          "unit": "s",
+          "source_id": "e08-launch",
+          "note": "Source 0–62 mph UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "tire_front_rear",
+          "value": "195/55R16 standard;205/45R17optional",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "suspension_rear",
+          "value": "multiarm",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "suspension_tuning",
+          "value": "SportsSuspensionPLUS strongerfront/rearantiroll andfirmersprings/dampers",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "stability_systems",
+          "value": "ABS EBD CBC ASC+T;optionalDSC",
+          "unit": null,
+          "source_id": "e08-launch",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "engine_displacement",
+          "value": 1598,
+          "unit": "cm3",
+          "source_id": "e08-manual",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "bore",
+          "value": 77,
+          "unit": "mm",
+          "source_id": "e08-manual",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "stroke",
+          "value": 85.8,
+          "unit": "mm",
+          "source_id": "e08-manual",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.3,
+          "unit": ":1",
+          "source_id": "e08-manual",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_length",
+          "value": 143.9,
+          "unit": "in",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_width",
+          "value": 66.5,
+          "unit": "in",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_wheelbase",
+          "value": 97.1,
+          "unit": "in",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_track_front",
+          "value": 57.2,
+          "unit": "in",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_track_rear",
+          "value": 57.5,
+          "unit": "in",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_overall_drive_ratios",
+          "value": [
+            11.4,
+            7.1,
+            5.3,
+            4.4,
+            3.6,
+            2.9
+          ],
+          "unit": ":1",
+          "source_id": "e08-2003-us",
+          "note": "Printed asgear ratiosbut valuesareoverall reductions; avoiddoublemultiplying UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_final_drive_gears_1_2_5_6",
+          "value": 2.74,
+          "unit": ":1",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_final_drive_gears_3_4_reverse",
+          "value": 4.05,
+          "unit": ":1",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        },
+        {
+          "field": "reference_2003US_steering_ratio",
+          "value": 13.18,
+          "unit": ":1",
+          "source_id": "e08-2003-us",
+          "note": "UK 2002 launch or explicitly dated US reference; asset market is unresolved."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e08-launch",
+          "url": "https://www.press.bmwgroup.com/united-kingdom/article/detail/T0016013EN_GB/mini-cooper-s?language=en_GB",
+          "title": "MINI Cooper S UK 2002 launchrelease",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "163 bhp (120 kW) at 6,000 rpm",
+          "source_type": "manufacturer publication",
+          "scope": "Original 2002 UKlaunch",
+          "date": "2002-03-18"
+        },
+        {
+          "id": "e08-manual",
+          "url": "https://www.notice-facile.com/en/manual/1239347/mini%2Bcooper-s-2002",
+          "title": "BMW MINI 2002 owner manual 09/02",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "© 09/02 BMW AG",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturerownerbookrehost;2002 USmanualengine data"
+        },
+        {
+          "id": "e08-2003-us",
+          "url": "https://www.press.bmwgroup.com/usa/article/attachment/T0018282EN_US/36018",
+          "title": "MINICooper S 2003 USproductinformation",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Final Drive ratio 1st, 2nd, 5th and 6th gear 2.74",
+          "source_type": "manufacturer publication",
+          "scope": "2003 USreferenceonly;notestablishedexact GT 42002 match",
+          "date": "2003"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Matching 2002 marketmass anddimensionaltable notyetconfirmed; adjacent 2003 USreferencefields areexplicitlyprefixed."
+      ]
+    },
+    {
+      "id": "e09",
+      "name": "Morris Mini Cooper S 1275",
+      "year": null,
+      "market": "UK reference; assetmarket unresolved",
+      "variant": "1275 S road model; exact model year unresolved",
+      "vehicle_type": "front-engine FWD classic small car",
+      "asset_codes": [
+        "REDLINE_ADDON_076_GCW_MINI_COOPER_V1_0_ZIP_GCW_MORRIS_MINI_5666B24469E1_66F5F24BEA75563F"
+      ],
+      "identity_status": "model_variant_confirmed_year_unresolved",
+      "identity_notes": "Road model GCW_MORRIS_MINI is distinct from GCW_MINI_TUNED. Exact year/Mk and installed suspension remain unresolved.",
+      "facts": [
+        {
+          "field": "reference_production_start",
+          "value": "1964-04",
+          "unit": null,
+          "source_id": "e09-archive",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "reference_production_end",
+          "value": "1967-10",
+          "unit": null,
+          "source_id": "e09-archive",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "engine_displacement",
+          "value": 1275,
+          "unit": "cm3",
+          "source_id": "e09-archive",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "engine_layout",
+          "value": "inline4",
+          "unit": null,
+          "source_id": "e09-archive",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "power",
+          "value": 75,
+          "unit": "hp",
+          "source_id": "e09-archive",
+          "note": "Sourceunitasprinted;rating standardnot stated Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5800,
+          "unit": "rpm",
+          "source_id": "e09-archive",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "top_speed",
+          "value": 156,
+          "unit": "km/h",
+          "source_id": "e09-archive",
+          "note": "Gear ratio dependent Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "acceleration_0_100_kmh_upper_bound",
+          "value": 11,
+          "unit": "s",
+          "source_id": "e09-archive",
+          "note": "Archive claim less than  11 seconds Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "suspension_variant_warning",
+          "value": "Hydrolastic introduced1964;rubber-cone earlier;assetyearmustbedetermined",
+          "unit": null,
+          "source_id": "e09-history",
+          "note": "Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "bore",
+          "value": 70.6,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "stroke",
+          "value": 81.33,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "compression_ratio",
+          "value": 9.75,
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "torque",
+          "value": 79,
+          "unit": "lb-ft",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3000,
+          "unit": "rpm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "gear_ratios_standard",
+          "value": [
+            3.2,
+            1.916,
+            1.357,
+            1.0
+          ],
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "gear_ratios_optional",
+          "value": [
+            2.57,
+            1.78,
+            1.242,
+            1.0
+          ],
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "gear_ratio_reverse_standard",
+          "value": 3.2,
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "gear_ratio_reverse_optional",
+          "value": 2.57,
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "final_drive_standard_1275",
+          "value": 3.444,
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "final_drive_optional",
+          "value": [
+            3.939,
+            4.133,
+            4.267
+          ],
+          "unit": ":1",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "front_brake_disc_diameter",
+          "value": 190.5,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "brake_actuation",
+          "value": "Lockheed hydraulic with vacuum servo",
+          "unit": null,
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "wheel_options",
+          "value": [
+            "3.50B x 10",
+            "4.5J x 10"
+          ],
+          "unit": null,
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "tire_standard_options",
+          "value": [
+            "145-10 SP tubed",
+            "5.20-10 C41 tubed"
+          ],
+          "unit": null,
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "track_front_3_5in_rim",
+          "value": 1207,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "track_front_4_5in_rim",
+          "value": 1233,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "track_rear_3_5in_rim",
+          "value": 1176,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "track_rear_4_5in_rim",
+          "value": 1202,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "mass_rubber_suspension",
+          "value": 640,
+          "unit": "kg",
+          "source_id": "e09-bmc",
+          "note": "Kerbside, approximate; fuel/occupant condition not defined. Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "mass_hydrolastic_suspension",
+          "value": 698,
+          "unit": "kg",
+          "source_id": "e09-bmc",
+          "note": "Kerbside, approximate; fuel/occupant condition not defined. Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "mass_basis",
+          "value": "kerbside_as_printed_approximate",
+          "unit": null,
+          "source_id": "e09-bmc",
+          "note": "Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        },
+        {
+          "field": "clutch_diameter",
+          "value": 180.9,
+          "unit": "mm",
+          "source_id": "e09-bmc",
+          "note": "Early single dry plate; later diaphragm spring. Cooper S factory manual reference; asset year and installed gearbox/suspension option remain unresolved. Classic 1275 S family reference; exact asset year and suspension variant unresolved."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e09-archive",
+          "url": "https://www.bmwgroup-classic.com/content/grpw/websites/bmwgroup-classic_com/en/modelle/mini-klassiker/product-description-page.ad-1101-1.morris-mini-cooper-s-1275.content.html",
+          "title": "BMWGroup Classic Morris Mini Cooper S 1275",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "75 hp at 5800 rpm",
+          "source_type": "manufacturer publication",
+          "scope": "Museumarchive;Mk I 04/1964–10/1967 range"
+        },
+        {
+          "id": "e09-history",
+          "url": "https://www.press.bmwgroup.com/united-kingdom/article/detail/T0330170EN_GB/classic-mini-timeline%3A-1959-2000?language=en_GB",
+          "title": "BMWClassic Mini Timeline 1959–2000",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "interconnected Hydrolastic gas/fluid suspension system",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturerhistory;changewithin 1964 createsvariantuncertainty",
+          "date": "2021-04-21"
+        },
+        {
+          "id": "e09-bmc",
+          "url": "https://www.manualslib.com/manual/3119843/Bmw-Mini-Cooper-1968.html",
+          "title": "BMC Mini workshop manual, Cooper S General Data pages 14, 16, 17",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "",
+          "source_type": "manufacturer publication",
+          "scope": "Factory BMC manual rehosted under an erroneous BMW brand label. Multiple 970/1071/1275 S models and suspension variants are tabulated; only 1275-specific engine values extracted."
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Exact year/Mk anddry rubber versus  Hydrolasticsuspension;do not set one globally.",
+        "Gear ratios/finaldrive varied and affect top speed;retrieved archive explicitly warns of this."
+      ]
+    },
+    {
+      "id": "e10",
+      "name": "Volkswagen Golf IV R32",
+      "year": 2003,
+      "market": "Europe",
+      "variant": "Mk 4 VR 6 4 MOTION; EU 2003 reference versus US 2004 asset",
+      "vehicle_type": "front-engine AWD hot hatch",
+      "asset_codes": [
+        "GT4_VW__0007",
+        "MC3_VP_GOLFR32_04",
+        "MCLA_VA_GOLFR32_04"
+      ],
+      "identity_status": "cross_game_family_match_market_year_differ",
+      "identity_notes": "GT4 2003 and MC3/MCLA 2004 assets identify the Mk4 R32 family. Year and market differences are retained. MCLA_VA is traffic; the playable 2008 Mk5 is excluded.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 3189,
+          "unit": "cm3",
+          "source_id": "e10-history"
+        },
+        {
+          "field": "engine_layout",
+          "value": "narrow15degreeVR6",
+          "unit": null,
+          "source_id": "e10-history"
+        },
+        {
+          "field": "power",
+          "value": 177,
+          "unit": "kW",
+          "source_id": "e10-history"
+        },
+        {
+          "field": "power_metric",
+          "value": 241,
+          "unit": "PS",
+          "source_id": "e10-history"
+        },
+        {
+          "field": "torque",
+          "value": 320,
+          "unit": "Nm",
+          "source_id": "e10-history"
+        },
+        {
+          "field": "drivetrain",
+          "value": "4MOTION AWD",
+          "unit": null,
+          "source_id": "e10-history"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speedmanual;optionalDSGfrom2003",
+          "unit": null,
+          "source_id": "e10-history"
+        },
+        {
+          "field": "top_speed",
+          "value": 247,
+          "unit": "km/h",
+          "source_id": "e10-history"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 6.6,
+          "unit": "s",
+          "source_id": "e10-history",
+          "note": "Manufacturerclaim"
+        },
+        {
+          "field": "brakes",
+          "value": "internallyventilateddiscsbluecalipers",
+          "unit": null,
+          "source_id": "e10-history"
+        },
+        {
+          "field": "reference_2004US_mass",
+          "value": 1546,
+          "unit": "kg",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_mass_front",
+          "value": 912,
+          "unit": "kg",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_mass_rear",
+          "value": 634,
+          "unit": "kg",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_power",
+          "value": 240,
+          "unit": "hp SAE",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_power_rpm",
+          "value": 6250,
+          "unit": "rpm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_torque",
+          "value": 320,
+          "unit": "Nm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_torque_rpm_range",
+          "value": [
+            2800,
+            3200
+          ],
+          "unit": "rpm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_bore",
+          "value": 84,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_stroke",
+          "value": 95.9,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_compression_ratio",
+          "value": 11.3,
+          "unit": ":1",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_gear_ratios_forward",
+          "value": [
+            3.36,
+            2.09,
+            1.47,
+            1.1,
+            0.86,
+            0.72
+          ],
+          "unit": ":1",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_gear_ratio_reverse",
+          "value": 3.08,
+          "unit": ":1",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_final_drive",
+          "value": 4.24,
+          "unit": ":1",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_steering_ratio",
+          "value": 15.6,
+          "unit": ":1",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_turning_circle",
+          "value": 10.9,
+          "unit": "m",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_steering_turns_lock_to_lock",
+          "value": 3.04,
+          "unit": "turns",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_drag_coefficient",
+          "value": 0.31,
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_length",
+          "value": 4175,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_width",
+          "value": 1735,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_height",
+          "value": 1424,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_wheelbase",
+          "value": 2518,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_track_front",
+          "value": 1511,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_track_rear",
+          "value": 1490,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_ground_clearance",
+          "value": 107,
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_tire_front_rear",
+          "value": "225/40ZR18",
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_brake_disc_front",
+          "value": [
+            334,
+            34
+          ],
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_brake_disc_rear",
+          "value": [
+            256,
+            22
+          ],
+          "unit": "mm",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_acceleration_0_60_mph",
+          "value": 6.4,
+          "unit": "s",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_top_speed",
+          "value": 130,
+          "unit": "mph",
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_suspension_front",
+          "value": "MacPherson strut, coil, telescopic damper, stabilizer",
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_suspension_rear",
+          "value": "independent multilink with dual trailing arms, coil, telescopic damper, stabilizer",
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_mass_basis",
+          "value": "curb_as_printed",
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        },
+        {
+          "field": "reference_2004US_drivetrain",
+          "value": "Haldex4MOTION permanent AWD, front transverse engine",
+          "unit": null,
+          "source_id": "e10-us2004",
+          "note": "2004 US reference; keep separate from 2003 European GT 4 identity."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e10-history",
+          "url": "https://www.volkswagen-newsroom.com/en/publications/more/50-years-or-the-sporty-golf-2718/download",
+          "title": "Volkswagen 50 yearssporty Golf vehicle 18 Golf IVR 32",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "177 kW (241 PS) / 6 cylinders, 3,189 cc",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturerdisplay 2003 car;production 2002–2003 Europeanreference"
+        },
+        {
+          "id": "e10-us2004",
+          "url": "https://billswebspace.com/R32TechnicalSpecifications.pdf",
+          "title": "Volkswagen of America 2004 U.S.R 32 Technical Specifications",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Horsepower (SAE) @ rpm 240 @ 6,250",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer spreadsheet PDF rehost, published/revised 2003-12-10; MC 3/MCLA 2004 reference, not exact GT 42003 EU.",
+          "date": "2003-12-10"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "US 2004 manufacturer gives 240 SAEhp alongside 177 k W; European 2003 gives 241 PS/177 k W. Retain source units and market, do not numerically equate hp/PS."
+      ]
+    },
+    {
+      "id": "e11",
+      "name": "Audi R8 4.2 FSI quattro",
+      "year": 2008,
+      "market": "USA",
+      "variant": "Type 42 coupe;USmanual reference",
+      "vehicle_type": "mid-engine AWD supercar",
+      "asset_codes": [
+        "MCLA_VP_AUD_R8_08"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "power",
+          "value": 420,
+          "unit": "hp",
+          "source_id": "e11-brochure",
+          "note": "USbrochureunit"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7800,
+          "unit": "rpm",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "torque",
+          "value": 317,
+          "unit": "lb-ft",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "torque_rpm_range",
+          "value": [
+            4500,
+            6000
+          ],
+          "unit": "rpm",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "redline",
+          "value": 8250,
+          "unit": "rpm",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "mass_manual",
+          "value": 3605,
+          "unit": "lb",
+          "source_id": "e11-brochure",
+          "note": "Brochure Weight;noexplicitfuel/driverbasis"
+        },
+        {
+          "field": "mass_r_tronic",
+          "value": 3616,
+          "unit": "lb",
+          "source_id": "e11-brochure",
+          "note": "Brochure Weight;noexplicitfuel/driverbasis"
+        },
+        {
+          "field": "mass_basis",
+          "value": "brochure_weight_unspecified",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "weight_distribution_front",
+          "value": 44,
+          "unit": "%",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "weight_distribution_rear",
+          "value": 56,
+          "unit": "%",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "drag_coefficient",
+          "value": 0.34,
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "acceleration_0_60_mph",
+          "value": 4.4,
+          "unit": "s",
+          "source_id": "e11-brochure",
+          "note": "Manufacturerclaimedbothtransmissions"
+        },
+        {
+          "field": "acceleration_0_125_mph",
+          "value": 15.1,
+          "unit": "s",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "quarter_mile_time",
+          "value": 12.7,
+          "unit": "s",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "top_speed",
+          "value": 187,
+          "unit": "mph",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "engine_layout",
+          "value": "mid-engineV8FSIdrysump",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "drivetrain",
+          "value": "quattro viscouscoupling AWD",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "nominal_drive_torque_front",
+          "value": 10,
+          "unit": "%",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "nominal_drive_torque_rear",
+          "value": 90,
+          "unit": "%",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "maximum_drive_torque_front",
+          "value": 35,
+          "unit": "%",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speedmanualorRtronic",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "doublewishbone",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "damping",
+          "value": "Audimagneticride",
+          "unit": null,
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "brake_caliper_pistons_front",
+          "value": 8,
+          "unit": "count",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "brake_caliper_pistons_rear",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e11-brochure"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 24,
+          "unit": "USgal",
+          "source_id": "e11-brochure"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e11-brochure",
+          "url": "https://xr793.com/wp-content/uploads/2024/01/2008-Audi-R8.pdf",
+          "title": "Audi of America 2008 R 8 brochure C-R 8-08-01 US",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Weight distribution 44%/56%",
+          "source_type": "manufacturer publication",
+          "scope": "Factorybrochure,rehost;page 32 tablemanualvs Rtronic",
+          "date": "2007"
+        },
+        {
+          "id": "e11-uk",
+          "url": "https://cache3.arabwheels.sa/system/brochures/66/original/Audi-R8-2007-UK.pdf?1762345591=",
+          "title": "Audi R 8 UKPricingand Specification Guide October 2007",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "The Audi R8 Pricing and Specification Guide",
+          "source_type": "manufacturer publication",
+          "scope": "UKdimensionalreference,not USweight/performancebasis",
+          "date": "2007-10"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Exact USgear/finaldriveratiosanddimensionaldrawingmustbeextracted;UKbrochuredimensionsareavailableasanadjacentreference."
+      ]
+    },
+    {
+      "id": "e12",
+      "name": "Audi RS4",
+      "year": 2008,
+      "market": "USA",
+      "variant": "B 7 saloon 4.2 FSI quattro sixspeedmanual",
+      "vehicle_type": "front-engine AWD performance sedan",
+      "asset_codes": [
+        "MCLA_VP_AUD_RS4_07"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "Asset internal code says 07, while catalog display says 2008. US saloon references are preferred; European 2006 technical data is explicitly adjacent.",
+      "facts": [
+        {
+          "field": "power",
+          "value": 420,
+          "unit": "hp",
+          "source_id": "e12-brochure"
+        },
+        {
+          "field": "engine_layout",
+          "value": "4.2FSIV8",
+          "unit": null,
+          "source_id": "e12-brochure"
+        },
+        {
+          "field": "drivetrain",
+          "value": "rearbiasedquattroAWD",
+          "unit": null,
+          "source_id": "e12-brochure"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speedmanualshortthrow",
+          "unit": null,
+          "source_id": "e12-brochure"
+        },
+        {
+          "field": "damping",
+          "value": "DynamicRideControl diagonalhydrauliclink",
+          "unit": null,
+          "source_id": "e12-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7800,
+          "unit": "rpm",
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "torque",
+          "value": 317,
+          "unit": "lb-ft",
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5500,
+          "unit": "rpm",
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "tire_front_rear",
+          "value": "255/35R19",
+          "unit": null,
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": 14.4,
+          "unit": "in",
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": 12.8,
+          "unit": "in",
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "suspension_front",
+          "value": "four-link",
+          "unit": null,
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "trapezoidal-link",
+          "unit": null,
+          "source_id": "e12-us2008-release"
+        },
+        {
+          "field": "reference_2006EU_mass",
+          "value": 1650,
+          "unit": "kg",
+          "source_id": "e12-eu2006",
+          "note": "Withoutdriver;Directive 92/21/EEC Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_mass_basis",
+          "value": "unladen_without_driver_EEC92_21",
+          "unit": null,
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_power",
+          "value": 309,
+          "unit": "kW",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_torque",
+          "value": 430,
+          "unit": "Nm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_torque_rpm",
+          "value": 5500,
+          "unit": "rpm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_top_speed",
+          "value": 250,
+          "unit": "km/h",
+          "source_id": "e12-eu2006",
+          "note": "Regulated Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_acceleration_0_100_kmh",
+          "value": 4.8,
+          "unit": "s",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_tire_front_rear",
+          "value": "255/40R18",
+          "unit": null,
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_length",
+          "value": 4586,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_width",
+          "value": 1816,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_height",
+          "value": 1415,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_wheelbase",
+          "value": 2651,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_track_front",
+          "value": 1559,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_track_rear",
+          "value": 1569,
+          "unit": "mm",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        },
+        {
+          "field": "reference_2006EU_turning_circle",
+          "value": 11.1,
+          "unit": "m",
+          "source_id": "e12-eu2006",
+          "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e12-brochure",
+          "url": "https://xr793.com/wp-content/uploads/2019/08/2008-Audi-Ful-Line.pdf",
+          "title": "Audi of America 2008 full-linebrochure",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "rear-biased quattro all-wheel drive, a short throw six-speed manual",
+          "source_type": "manufacturer publication",
+          "scope": "Factorybrochure 2008 USRS 4",
+          "date": "2007"
+        },
+        {
+          "id": "e12-spec2007",
+          "url": "https://www.audiworld.com/model/rs4/07/07AudiRS4_TechSpecs.pdf",
+          "title": "Audi 2007 RS 4 technicalspecifications",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Technical Specifications — 2007 Audi RS 4 Sedan",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturertechnicalsheetrehost;403 retrievalso NOspecificationsimported"
+        },
+        {
+          "id": "e12-us2008-release",
+          "url": "https://www.audiworld.com/model/rs4/08/RS4_Cab_PR.pdf",
+          "title": "Audi of America 2008 RS 4 model announcement June 6,2007",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "RS 4 sedan receives enhancements for 2008",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer press release rehost; indexedfulltext retrieved; clausesexplicitly shared withsaloon",
+          "date": "2007-06-06"
+        },
+        {
+          "id": "e12-eu2006",
+          "url": "https://id.scribd.com/document/1027717492/Audi-Rs4-Owners-Manual",
+          "title": "Audi RS 4 European 2006 salesbrochure (misnamed Owners Manualbyhost)",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Vehicle unladen weight without driver",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer Audi AGbrochure valid September 2006, technicaltablep 49 anddimensionaldrawingp 50; Europeanreference separatefrom US 2008.",
+          "date": "2006-09"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Matching 2008 USmass/gearratios not retrieved; Euro 2006 mass/dimensions preserved as explicit separate reference."
+      ]
+    },
+    {
+      "id": "e13",
+      "name": "Lotus Elise 111R",
+      "year": 2004,
+      "market": "Europe",
+      "variant": "S 2 Toyota 2 ZZ-GE UK 111 R",
+      "vehicle_type": "mid-engine RWD lightweight roadster",
+      "asset_codes": [
+        "GT4_LOTU0010",
+        "MC3_VP_ELISE_04"
+      ],
+      "identity_status": "GT4_exact_variant_MC3_trim_provisional",
+      "identity_notes": "GT4 explicitly identifies the 111R. MC3 Elise 2004 filename does not prove the same trim; the mapping remains provisional.",
+      "facts": [
+        {
+          "field": "engine",
+          "value": "Toyota2ZZ-GE VVTL-i",
+          "unit": null,
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "power",
+          "value": 189,
+          "unit": "hp",
+          "source_id": "e13-brochure",
+          "note": "Sourceunitasprinted"
+        },
+        {
+          "field": "gearbox",
+          "value": "C646speedcloseratiomanual",
+          "unit": null,
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "mass",
+          "value": 860,
+          "unit": "kg",
+          "source_id": "e13-brochure",
+          "note": "Unladenvehiclemass 111 Rcolumn"
+        },
+        {
+          "field": "mass_basis",
+          "value": "unladen_as_printed",
+          "unit": null,
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "acceleration_0_60_mph",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "e13-brochure",
+          "note": "Manufacturerclaim"
+        },
+        {
+          "field": "acceleration_0_100_mph",
+          "value": 13,
+          "unit": "s",
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "top_speed",
+          "value": 150,
+          "unit": "mph",
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "brake_disc_front_rear",
+          "value": 282,
+          "unit": "mm",
+          "source_id": "e13-brochure",
+          "note": "Crossdrilledventilated"
+        },
+        {
+          "field": "wheel_front",
+          "value": "6.5Jx16",
+          "unit": "in",
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "7.5Jx17",
+          "unit": "in",
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "ABS",
+          "value": "servoassistedstandard",
+          "unit": null,
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "chassis",
+          "value": "epoxybondedextrudedaluminummonocoque",
+          "unit": null,
+          "source_id": "e13-brochure"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 1796,
+          "unit": "cm3",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "engine_layout",
+          "value": "transverse mid-mounted naturally aspirated inline4 Toyota2ZZ-GE",
+          "unit": null,
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "power_kw",
+          "value": 141,
+          "unit": "kW",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "power_metric",
+          "value": 192,
+          "unit": "PS",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7800,
+          "unit": "rpm",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "torque",
+          "value": 181,
+          "unit": "Nm",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            3.116,
+            2.05,
+            1.481,
+            1.166,
+            0.916,
+            0.815
+          ],
+          "unit": ":1",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "gear_ratio_reverse",
+          "value": 3.25,
+          "unit": ":1",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.529,
+          "unit": ":1",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "differential",
+          "value": "open",
+          "unit": null,
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "weight_distribution_front",
+          "value": 38,
+          "unit": "%",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "weight_distribution_rear",
+          "value": 62,
+          "unit": "%",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "unequal-lengthwishbones, Bilsteinmonotubegasdamper, Eibachcoilspring, frontantirollbar",
+          "unit": null,
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "brake_disc_front_rear_thickness",
+          "value": 26,
+          "unit": "mm",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "brake_caliper_front",
+          "value": "AP Racing twin-piston fixed aluminum",
+          "unit": null,
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "brake_caliper_rear",
+          "value": "Brembo single-piston sliding",
+          "unit": null,
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "steering_turns_lock_to_lock",
+          "value": 2.8,
+          "unit": "turns",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 40,
+          "unit": "L",
+          "source_id": "e13-2004"
+        },
+        {
+          "field": "mass_2004",
+          "value": 860,
+          "unit": "kg",
+          "source_id": "e13-launch",
+          "note": "Unladen, nooptions"
+        },
+        {
+          "field": "tire_front",
+          "value": "175/55R16 BridgestonePotenzaRE040",
+          "unit": null,
+          "source_id": "e13-launch"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/45R17 BridgestonePotenzaRE040",
+          "unit": null,
+          "source_id": "e13-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e13-brochure",
+          "url": "https://kurumacatalog.com/wp-content/uploads/2021/01/2005_Lotus_Elise_catalog.pdf",
+          "title": "Lotus The Elisein Brief LOTV 505062",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Unladen Vehicle Mass 785 kg 842 kg 860 kg",
+          "source_type": "manufacturer publication",
+          "scope": "Factory UKbrochurethreecolumns;111 Rthirdcolumn;2005 printadjacentto 2004 intro",
+          "date": "2005"
+        },
+        {
+          "id": "e13-2004",
+          "url": "https://www.lotusdriversguide.com/Downloads/Brochures/Elise_111R_2004.pdf",
+          "title": "Lotus Elise 111 R 2004 factory technical leaflet",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Weight distribution 38% Front - 62% Rear",
+          "source_type": "manufacturer publication",
+          "scope": "Factory two-page UKleaflet rehost; downloaded and extracted locally",
+          "date": "2004"
+        },
+        {
+          "id": "e13-launch",
+          "url": "https://gglotus.org/gghotnews/body-elisenews.htm",
+          "title": "Lotus Announces Elise 111 R February 2004 factory release reprint",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "unladen with no options",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturer press release reprinted by Golden Gate Lotus Club; section 299–323",
+          "date": "2004-02"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "MC 3 Elise 04 trim remains provisional; do not assume 111 R solelyfromfilename.",
+        "Retrieved 2004 brochure omitted overall dimensions."
+      ]
+    },
+    {
+      "id": "e14",
+      "name": "Mercedes-Benz SL55 AMG",
+      "year": 2002,
+      "market": "Europe",
+      "variant": "R 230 retractablehardtop;GT 42002 and MC 32004",
+      "vehicle_type": "front-engine RWD luxury performance roadster",
+      "asset_codes": [
+        "GT4_MBNZ0001",
+        "MC3_VP_SL55_AMG_04"
+      ],
+      "identity_status": "cross_game_family_match_market_year_differ",
+      "identity_notes": "SL55 AMG family matches across games, but GT4 2002 European and MC3 2004 US identities are not exact year/market clones.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4535,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "width",
+          "value": 1827,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "height",
+          "value": 1295,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "wheelbase",
+          "value": 2560,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "track_front",
+          "value": 1569,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "track_rear",
+          "value": 1551,
+          "unit": "mm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "reference_year",
+          "value": 2004,
+          "unit": "year",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "reference_market",
+          "value": "USA",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "mass",
+          "value": 1959,
+          "unit": "kg",
+          "source_id": "e14-mb2004",
+          "note": "UScurbweight 4319 lb;sourcefuel/driverdefinitionunstated 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "mass_basis",
+          "value": "US_curb_as_printed",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "engine_displacement",
+          "value": 5439,
+          "unit": "cm3",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "engine_layout",
+          "value": "90degreeV8SOHC24valve",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "engine_induction",
+          "value": "superchargedliquidtoairintercooled",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "power",
+          "value": 493,
+          "unit": "hp",
+          "source_id": "e14-mb2004",
+          "note": "Net USbrochure 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6100,
+          "unit": "rpm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "torque",
+          "value": 516,
+          "unit": "lb-ft",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "torque_rpm_range",
+          "value": [
+            2750,
+            4000
+          ],
+          "unit": "rpm",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "compression_ratio",
+          "value": 9,
+          "unit": ":1",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "drivetrain",
+          "value": "RWD",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "gearbox",
+          "value": "AMGSpeedShift5speedautomatic",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "final_drive",
+          "value": 2.82,
+          "unit": ":1",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "acceleration_0_60_mph",
+          "value": 4.5,
+          "unit": "s",
+          "source_id": "e14-mb2004",
+          "note": "Manufacturertrackclaim 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "drag_coefficient",
+          "value": 0.3,
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "topup 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "tire_front",
+          "value": "255/40R1895Y",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "tire_rear",
+          "value": "285/35R1897Y",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "brake_disc_front",
+          "value": 14.2,
+          "unit": "in",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": 13.0,
+          "unit": "in",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "brake_caliper_pistons_front",
+          "value": 8,
+          "unit": "count",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "brake_caliper_pistons_rear",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "suspension_front",
+          "value": "independent4link",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independent5armmultilink",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "active_suspension",
+          "value": "AMGenhancedABC;coilspring+hydrauliccylinder+separatedamper",
+          "unit": null,
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "steering_turns_lock_to_lock",
+          "value": 2.6,
+          "unit": "turns",
+          "source_id": "e14-mb2004",
+          "note": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        {
+          "field": "turning_circle",
+          "value": 11,
+          "unit": "m",
+          "source_id": "e14-mb2004",
+          "note": "curbtocurb 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e14-mb2004",
+          "url": "https://benzbits.com/manuals/PG/2004/SL_00.pdf",
+          "title": "Mercedes-Benz 2004 SL-Classproductguide",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "SL 55 AMG COUPE/ROADSTER",
+          "source_type": "manufacturer publication",
+          "scope": "Factory USproductguidepages 95–96;2004 onlyfieldsnot assumedexact 2002 European",
+          "date": "2004"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Separate 2002 Europeanhomologationspecificationneeded;allnumericfactsaboveexplicitly 2004 USreference."
+      ]
+    },
+    {
+      "id": "e15",
+      "name": "Aston Martin DB9 Coupe",
+      "year": 2003,
+      "market": "Europe",
+      "variant": "launchshowcar/initial 450 bhpmodel;production 2004 on",
+      "vehicle_type": "frontmid-engine RWD grandtourer",
+      "asset_codes": [
+        "GT4_ASMT0005"
+      ],
+      "identity_status": "launch_year_match_production_reference_2004",
+      "identity_notes": "GT4 labels the 2003 launch car. The 2006 owner manual is a separate adjacent reference and must not overwrite launch specifications.",
+      "facts": [
+        {
+          "field": "body_structure",
+          "value": "VHbondedaluminum/composite",
+          "unit": null,
+          "source_id": "e15-heritage",
+          "note": "Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e15-heritage",
+          "note": "Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "bodyshell_mass_reduction_vs_DB7",
+          "value": 25,
+          "unit": "%",
+          "source_id": "e15-heritage",
+          "note": "Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "bodyshell_torsional_stiffness_ratio_vs_DB7",
+          "value": 2,
+          "unit": ":1",
+          "source_id": "e15-heritage",
+          "note": "Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "power_launch",
+          "value": 450,
+          "unit": "bhp",
+          "source_id": "e15-launch",
+          "note": "Manufacturer 2003 launch pressrelease reprint; notlate 510 bhp DB 9 Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_length",
+          "value": 4710,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_width",
+          "value": 1875,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Excludingmirrors Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_height",
+          "value": 1271,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_wheelbase",
+          "value": 2740,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_track_front",
+          "value": 1568,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_track_rear",
+          "value": 1562,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_mass_manual",
+          "value": 1760,
+          "unit": "kg",
+          "source_id": "e15-manual2006",
+          "note": "Curb Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_mass_automatic",
+          "value": 1800,
+          "unit": "kg",
+          "source_id": "e15-manual2006",
+          "note": "Curb Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_mass_basis",
+          "value": "curb_as_printed",
+          "unit": null,
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_engine_displacement",
+          "value": 5935,
+          "unit": "cm3",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_bore",
+          "value": 89,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_stroke",
+          "value": 79.5,
+          "unit": "mm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_compression_ratio",
+          "value": 10.2,
+          "unit": ":1",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_power",
+          "value": 331,
+          "unit": "kW",
+          "source_id": "e15-manual2006",
+          "note": "Book pairs 450 bhp; preserve published label Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_power_rpm",
+          "value": 5750,
+          "unit": "rpm",
+          "source_id": "e15-manual2006",
+          "note": "Differs 6000 rpmlaunchfigures Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_torque",
+          "value": 570,
+          "unit": "Nm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_torque_rpm",
+          "value": 5000,
+          "unit": "rpm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_redline",
+          "value": 7200,
+          "unit": "rpm",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_gear_ratios_manual",
+          "value": [
+            3.15,
+            1.97,
+            1.44,
+            1.15,
+            0.94,
+            0.76
+          ],
+          "unit": ":1",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_gear_ratios_automatic",
+          "value": [
+            4.17,
+            2.34,
+            1.52,
+            1.14,
+            0.87,
+            0.69
+          ],
+          "unit": ":1",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_final_drive_manual",
+          "value": 3.54,
+          "unit": ":1",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_final_drive_automatic",
+          "value": 3.15,
+          "unit": ":1",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_acceleration_0_100_kmh_manual",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_acceleration_0_100_kmh_automatic",
+          "value": 5.1,
+          "unit": "s",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        },
+        {
+          "field": "reference_2006_top_speed",
+          "value": 300,
+          "unit": "km/h",
+          "source_id": "e15-manual2006",
+          "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e15-launch",
+          "url": "https://www.ultimatecarpage.com/car/1719/Aston-Martin-DB9.html",
+          "title": "Aston Martin DB 9 companylaunchpressrelease(reprint)",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Source: Company press release",
+          "source_type": "manufacturer publication",
+          "scope": "Originalcompanytextreprintlastupdated 2004-12-24;tableeditorialvaluesmustnotbesilentlyattributedtomanufacturer",
+          "date": "2004-12-24"
+        },
+        {
+          "id": "e15-heritage",
+          "url": "https://media.astonmartin.com/db9/?lang=eng",
+          "title": "Aston Martin DB 9 historicmodel 2003–2012",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "first to use the company’s new VH platform structure",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturerretrospective"
+        },
+        {
+          "id": "e15-manual2006",
+          "url": "https://manualzz.com/doc/68803384/aston-martin-2006-db9-owner-manual",
+          "title": "Aston Martin 2006 DB 9 ownerhandbook chapter 13",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "Curb Weight",
+          "source_type": "manufacturer publication",
+          "scope": "Originalmanufacturer handbook Nov 2005 revision, adjacent 2006 production reference, NOTexact 2003 GT 4 launchcar",
+          "date": "2005-11-21"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Original 2003 launchcarcompleteengineeringtable not verified;2006 factorymanualdata deliberatelyprefixed.",
+        "Original 3 Sept 2003 presssheetreported 4697 x 1875 x 1318,1710 manual/1760 auto; secondaryreprintsconflictwithlatermanual 4710 x 1875 x 1271,1760/1800. Notquietlyreconciled."
+      ]
+    },
+    {
+      "id": "e16",
+      "name": "Jaguar XJ220",
+      "year": 1992,
+      "market": "Europe",
+      "variant": "production twin-turbo V6 road coupe",
+      "vehicle_type": "mid-engine RWD supercar",
+      "asset_codes": [
+        "GT4_JAGU0004",
+        "REDLINE_ADDON_035_JAGUARXJ220_2_1_ZIP_PIMLEY_JAGUAR_XJ220_05099F84EBCE_AC0BB4271762361A"
+      ],
+      "identity_status": "GT4_exact_year_Redline_family_match",
+      "identity_notes": "GT4 identifies the 1992 road XJ220. Redline road XJ220 is separate from XJ220C Le Mans; exact Redline year remains unresolved.",
+      "facts": [
+        {
+          "field": "power",
+          "value": 550,
+          "unit": "PS",
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "torque",
+          "value": 475,
+          "unit": "lb-ft",
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "acceleration_0_60_mph_upper_bound",
+          "value": 4,
+          "unit": "s",
+          "source_id": "e16-jlr",
+          "note": "Manufacturer retrospective: under 4 s"
+        },
+        {
+          "field": "top_speed_reference_test",
+          "value": 213,
+          "unit": "mph",
+          "source_id": "e16-jlr",
+          "note": "1991 pre-production chassis 004 Fort Stockton;not a generic production guarantee"
+        },
+        {
+          "field": "brake_supplier",
+          "value": "APRacing",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "brake_caliper_pistons",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "mass",
+          "value": 1470,
+          "unit": "kg",
+          "source_id": "e16-jlr",
+          "note": "Manufacturer retrospective states weight without dry/kerb definition."
+        },
+        {
+          "field": "mass_basis",
+          "value": "unspecified",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "engine_layout",
+          "value": "3.5-litre twin-turbo V6",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "drivetrain",
+          "value": "rear-wheel drive",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "gearbox",
+          "value": "5-speed manual with AP Racing twin-plate clutch",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "rear_tire",
+          "value": "345/35 on 18-inch Speedline wheels; Bridgestone Expedia",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "structure",
+          "value": "aluminium honeycomb",
+          "unit": null,
+          "source_id": "e16-jlr"
+        },
+        {
+          "field": "reference_1993_review_wheelbase",
+          "value": 103.9,
+          "unit": "in",
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_length",
+          "value": 194.0,
+          "unit": "in",
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_mass",
+          "value": 3250,
+          "unit": "lb",
+          "source_id": "e16-cd",
+          "note": "Published curb weight; weighing method not documented. December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_differential",
+          "value": "FF Developments transaxle with viscous limited slip",
+          "unit": null,
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_brake_assistance",
+          "value": false,
+          "unit": null,
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_steering_assistance",
+          "value": false,
+          "unit": null,
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_power",
+          "value": 535,
+          "unit": "hp",
+          "source_id": "e16-cd",
+          "note": "Published table; conflicts with manufacturer 550 PS and is not silently converted. December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        {
+          "field": "reference_1993_review_power_rpm",
+          "value": 7200,
+          "unit": "rpm",
+          "source_id": "e16-cd",
+          "note": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "e16-jlr",
+          "url": "https://media.jlr.com/archive-jaguar/en-us/news/2012/01/marking-20-years-launch-jaguar-xj220",
+          "title": "Jaguar 20 yearssincelaunch XJ 220",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "550 PS and 475 lbs ft of torque",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturerretrospective;Fort Stockton 213 mphwaspreproduction 004 test",
+          "date": "2012-01"
+        },
+        {
+          "id": "e16-cd",
+          "url": "https://www.caranddriver.com/reviews/a62243625/1993-jaguar-xj220-archive-drive/",
+          "title": "Ray Hutton, XJ 220 first drive, Car and Driver December 1992",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "",
+          "source_type": "primary firsthand road review",
+          "scope": "Firsthand drive of three pre-production cars at Salzburgring; article labels model 1993. Dimensions are published specifications, not independently measured."
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement.",
+        "Exact production width, height, tracks, gear ratios and defined-basis mass were not retrieved from factory sources.",
+        "1992 factory press pack was inspected but contains no complete technical table; review dimensions remain separate adjacent reference.",
+        "213 mph is the manufacturer-reported Fort Stockton pre-production test. Modified Nardo runs are not stock production validation."
+      ]
+    },
+    {
+      "id": "e17",
+      "name": "Pagani Zonda C12S 7.3",
+      "year": 2002,
+      "market": "Europe",
+      "variant": "7.3 LM 120 AMGcoupe",
+      "vehicle_type": "mid-engine RWD supercar",
+      "asset_codes": [
+        "GT4_PGNI0001"
+      ],
+      "identity_status": "catalog_exact_model_variant",
+      "identity_notes": "MC3 Zonda 2004 might be a 7.3, but is not merged without native trim proof. Redline Zonda F is separate.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4395,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "width",
+          "value": 2055,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "height",
+          "value": 1151,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2730,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "mass",
+          "value": 1280,
+          "unit": "kg",
+          "source_id": "e17-tech",
+          "note": "Dryweight,notkerb"
+        },
+        {
+          "field": "mass_basis",
+          "value": "dry",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "engine",
+          "value": "MercedesBenzM1207.3AMG60degreeV12",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 7291,
+          "unit": "cm3",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "power",
+          "value": 408,
+          "unit": "kW",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "power_source_label",
+          "value": 555,
+          "unit": "hp",
+          "source_id": "e17-tech",
+          "note": "Italianparalleltextcv=metric PS;donotinterpretas 555 SAEhp"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5900,
+          "unit": "rpm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "torque",
+          "value": 750,
+          "unit": "Nm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4050,
+          "unit": "rpm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "drivetrain",
+          "value": "RWDselflockingdifferential",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speedmechanicalmanual",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "clutch",
+          "value": "twinplate",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "tire_front",
+          "value": "255/40R18MichelinPilotSport",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "tire_rear",
+          "value": "345/35R18MichelinPilotSport",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": 355,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": 335,
+          "unit": "mm",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "brake_caliper_pistons_front_rear",
+          "value": 4,
+          "unit": "count",
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "suspension_front_rear",
+          "value": "independentdoubleAarmpullrodcoilspringsadjustableOhlinsdampersantirollbar",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "steering",
+          "value": "TRWpowerassistedrackpinion",
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "stability_systems",
+          "value": [
+            "ABS",
+            "TCS"
+          ],
+          "unit": null,
+          "source_id": "e17-tech"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 3.7,
+          "unit": "s",
+          "source_id": "e17-tech",
+          "note": "Manufacturerclaim"
+        },
+        {
+          "field": "chassis",
+          "value": "centralcarbonfibertubCrMosteelfrontrearspaceframes",
+          "unit": null,
+          "source_id": "e17-tech"
+        }
+      ],
+      "sources": [
+        {
+          "id": "e17-tech",
+          "url": "https://www.allcarcentral.com/Pagani_pdf/Pagani_Zonda_S_7.3_Tech_IT-GB_2009.pdf",
+          "title": "Pagani Zonda S 7.3 bilingualtechnicalsheet",
+          "accessed": "2026-10-23",
+          "evidence_excerpt": "dry weight 1280 kg",
+          "source_type": "manufacturer publication",
+          "scope": "Manufacturertechnicalsheetrehost;filename 2009 archival,dateonthebrochurenotestablished"
+        }
+      ],
+      "unknowns": [
+        "Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.",
+        "Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+      ]
+    }
+  ]
+}

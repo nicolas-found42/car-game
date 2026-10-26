@@ -1,0 +1,46 @@
+   Compiling car-game v0.1.0 (/Users/nicolas/.codex/worktrees/130e/car-game)
+warning: constant `ANTI_ROLL` is never used
+ --> src/vehicle/forces.rs:5:7
+  |
+5 | const ANTI_ROLL: f32 = 6500.;
+  |       ^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `BASELINE_TRACK` is never used
+ --> src/vehicle/forces.rs:7:7
+  |
+7 | const BASELINE_TRACK: f32 = 1.534;
+  |       ^^^^^^^^^^^^^^
+
+warning: function `anti_roll_stiffness` is never used
+  --> src/vehicle/forces.rs:27:15
+   |
+27 | pub(super) fn anti_roll_stiffness(track: f32) -> f32 {
+   |               ^^^^^^^^^^^^^^^^^^^
+
+warning: `car-game` (lib) generated 3 warnings
+    Finished `dev` profile [optimized + debuginfo] target(s) in 14.03s
+     Running `target/debug/examples/handling_probe --check`
+[
+  {
+    "car": "350z",
+    "variant": "stock",
+    "entry_mps": 27.307566,
+    "braking_m": 34.690998,
+    "braking_s": 2.5000002,
+    "fast_tilt_deg": 4.3980136
+  },
+  {
+    "car": "redline-911",
+    "variant": "stock",
+    "entry_mps": 27.321457,
+    "braking_m": 34.72474,
+    "braking_s": 2.5000002,
+    "fast_tilt_deg": 5.205448
+  }
+]
+
+thread 'main' (2355382) panicked at examples/handling_probe.rs:130:9:
+911 tilt excess reproduced: 5.205448 vs 4.3980136 degrees
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

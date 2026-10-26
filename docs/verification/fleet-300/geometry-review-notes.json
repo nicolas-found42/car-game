@@ -1,0 +1,12 @@
+[
+  {
+    "car": "exp-115",
+    "name": "Mercedes-Benz 300 SL Coupe '54",
+    "observation": "Raised gullwing doors visible in the prepared model. No numerical defect or real-world inertia mismatch established by this visual observation.",
+    "next_verification": "Check source bind pose and whether runtime body bounds/inertia include door geometry before real-world calibration.",
+    "runtime_half_width_m": 1.0472077560424804,
+    "runtime_roof_height_m": 1.0724288425445556,
+    "estimated_cg_height_m": 0.5673525176374561,
+    "overview_page": 20
+  }
+]

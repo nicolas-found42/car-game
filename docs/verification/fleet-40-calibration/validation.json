@@ -1,0 +1,444 @@
+{
+  "status": "passed",
+  "requirements": {
+    "cars_compared": 40,
+    "sourced_performance_rows": 53,
+    "eligible_performance_rows": 52,
+    "cars_with_performance_references": 22,
+    "fitted_handling_comparisons": 4,
+    "unfitted_handling_references_retained": 2,
+    "physical_profile_changes": 9,
+    "physical_parameter_edits": 17,
+    "same_scenario_byte_hashes": 1920,
+    "successful_after_runs": 1920,
+    "assertions_passed": 5360,
+    "route_completions": 640,
+    "repeated_trajectory_pairs_identical": 960,
+    "rust_tests_passed": 81,
+    "native_car_scripts_passed": 40,
+    "native_captures_verified": 160,
+    "unexpected_resets": 0,
+    "city_contact_loss_runs_diagnosed": 4
+  },
+  "scenario_summary": {
+    "successful_runs": 1920,
+    "assertions": 5360,
+    "route_completions": 640,
+    "unexpected_resets": 0,
+    "requested_resets": 80,
+    "minimum_four_contact_pct": 92.86563614744352,
+    "minimum_four_loaded_pct": 89.65517241379311,
+    "maximum_route_error_m": 3.790191650390625,
+    "identical_repeat_pairs": 960,
+    "after_binary_sha256": "1ba35ad568f41b2554280240ba8ee9250af940609b83f33a9ffd4f1f7644f0aa",
+    "matched_before_after_identities": 1920
+  },
+  "before_binary_sha256": "44e90fb6a0ad4421131229567d6858e6f424b14364d89b033725e7f9a2b98cf9",
+  "after_binary_sha256": "1ba35ad568f41b2554280240ba8ee9250af940609b83f33a9ffd4f1f7644f0aa",
+  "changed_build_inputs": [
+    "assets/cars/physics.json",
+    "src/vehicle/forces.rs",
+    "src/vehicle/profile.rs",
+    "src/vehicle.rs"
+  ],
+  "native_run": "artifacts/runs/20261024T182954585625Z-2342545-fleet-26919-1-1792866594611347000",
+  "runtime_replay_complete": false,
+  "visual_review": "All40models in five overview pages; benchmark, reference-delta and city-contact figures; final matrix and curve-path figures inspected",
+  "limitations": [
+    "Calibration targets are not independent validation; related years/markets/trims and prototype records remain qualified",
+    "18editions lack compatible quantitative performance references",
+    "Four fixed-input GT500trail-braking repeats contact curb/wall; matched flat-ground controls retain four contacts",
+    "Murcielago329.891km/h remains0.109km/h below the strict published lower bound",
+    "CG/inertia, tire curves, driveline and suspension inputs include explicit estimates"
+  ],
+  "files": {
+    "artifacts/fleet40-calibrated-v2-20261024/runs.jsonl": {
+      "sha256": "45a30a1130db14c7be684ec0d5747abbe33166dcdb5ead8b1582a63f835f5a69",
+      "bytes": 1847752
+    },
+    "artifacts/fleet40-calibrated-v2-20261024/study.json": {
+      "sha256": "5c0e92d887aac49c93acc1302713977a069c6220a0f9df82f5096108f7022c8b",
+      "bytes": 539152
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-benchmark-r1.json": {
+      "sha256": "5abe1f8224bf7fd32357ef2e81cd38fbad74961c6230192957a018a70cb7fbaf",
+      "bytes": 13374
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-benchmark-r2.json": {
+      "sha256": "5abe1f8224bf7fd32357ef2e81cd38fbad74961c6230192957a018a70cb7fbaf",
+      "bytes": 13374
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-envelope-r1.json": {
+      "sha256": "97d07db393683f4fb5fc88a740552890463a0ed4a4a214be72614ec813161c07",
+      "bytes": 20383
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-envelope-r2.json": {
+      "sha256": "97d07db393683f4fb5fc88a740552890463a0ed4a4a214be72614ec813161c07",
+      "bytes": 20383
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-skidpad-r1.json": {
+      "sha256": "27011fca61fa2fcd5bc793ec98bbfc10ef1fa7550caf4f987083a9ad2b461095",
+      "bytes": 18337
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/after-skidpad-r2.json": {
+      "sha256": "27011fca61fa2fcd5bc793ec98bbfc10ef1fa7550caf4f987083a9ad2b461095",
+      "bytes": 18337
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/analysis-gates.log": {
+      "sha256": "491bbe7cd4501ad953582a9d1c92b0a6ab9e84a05dfe68584d975988fb379010",
+      "bytes": 704
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/analysis.log": {
+      "sha256": "b729132bdf12c45952f6a0b23b495a7c69b152fe9776401245958f0eb424700b",
+      "bytes": 76
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/before-benchmark.json": {
+      "sha256": "381d3568128b545944f3e58f5fea327a3be5d392a2be2dfa1ea7e8c211629dba",
+      "bytes": 13378
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/before-envelope.json": {
+      "sha256": "b57efab517e49034acb0da0450653823a75164b09e870268f106bfeaa3c5bd85",
+      "bytes": 20390
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/before-skidpad.json": {
+      "sha256": "f7c19f1368516a0c65b7f100e5ce7e39e5f5231293952cf397005005a3b4928b",
+      "bytes": 18329
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/ellipse-green.log": {
+      "sha256": "ca33405f392d7093d62e39e33bfd5f1a9b805cb166d87086466b768f61b1e3c0",
+      "bytes": 431
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/ellipse-neutral-benchmark.json": {
+      "sha256": "381d3568128b545944f3e58f5fea327a3be5d392a2be2dfa1ea7e8c211629dba",
+      "bytes": 13378
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/ellipse-red.log": {
+      "sha256": "8e31a4a1c71f71ecc91f0f53557ed24ef5ba821ccc1af9e9f0722646c52d64e8",
+      "bytes": 916
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/governor-green.log": {
+      "sha256": "da46f973003fe449228ada4cf664b2eb561b9bd2da64e9b0d322dd8a631abe17",
+      "bytes": 431
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/governor-red.log": {
+      "sha256": "2278b60c24c6f7d9488c5eb3421a13dbecf8b11897f543ca61313209f12bec49",
+      "bytes": 990
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/trail-surface-counterfactual.json": {
+      "sha256": "a5e8b5c5d445bbf59541a2ca3c2a490dc7fa12a4c5498202e90d7526c49e4a02",
+      "bytes": 1104518
+    },
+    "artifacts/vehicle-reference/fleet-40-calibration/verification.log": {
+      "sha256": "2691416238f25822257556126692187af9ccfc3a8703588fdf04605b1bef4f0c",
+      "bytes": 252726
+    },
+    "assets/cars/physics.json": {
+      "sha256": "568556980bef9f68acd11683b220303acd5aac26e7eeafc88e073f4a91ca4dc2",
+      "bytes": 283756
+    },
+    "assets/cars/roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "docs/verification/fleet-40-calibration/README.md": {
+      "sha256": "ec663481c01bed4cb34c5a66aa724d571830567aa844ed36a89c7b216f2ea639",
+      "bytes": 17669
+    },
+    "docs/verification/fleet-40-calibration/after-profiles.json": {
+      "sha256": "568556980bef9f68acd11683b220303acd5aac26e7eeafc88e073f4a91ca4dc2",
+      "bytes": 283756
+    },
+    "docs/verification/fleet-40-calibration/all-40-comparison.csv": {
+      "sha256": "7dd08a7888ae313d367aab77af00d4fd7f6a2762de2864be3ee35e0620039b25",
+      "bytes": 13931
+    },
+    "docs/verification/fleet-40-calibration/baseline-ranking.json": {
+      "sha256": "4d11f4955584882cde0497c09a82afe55d0d7cd475d185c2a91fe70a47437907",
+      "bytes": 26052
+    },
+    "docs/verification/fleet-40-calibration/before-comparison.json": {
+      "sha256": "4c5d791343bfb630578808dce7fa552b75f570b5d1fb229ec272da42c8ad49bf",
+      "bytes": 43636
+    },
+    "docs/verification/fleet-40-calibration/before-profiles.json": {
+      "sha256": "af1cd57169cc2c313e77930722a75363896cde1050c67c02ff6871f138b2cc6d",
+      "bytes": 259503
+    },
+    "docs/verification/fleet-40-calibration/benchmark-40.png": {
+      "sha256": "2805cd3fb6f910b18bb5eedfb86deb056330c99060fe4a308caa29c8943997ce",
+      "bytes": 182553
+    },
+    "docs/verification/fleet-40-calibration/calibration-deltas.png": {
+      "sha256": "ddfc992c29b78af62321108d22f1f6b419f8675a1b1884a607858577d7d4596c",
+      "bytes": 105176
+    },
+    "docs/verification/fleet-40-calibration/completion-summary.json": {
+      "sha256": "b1a3ef84998bd22d7d9ed2339f232723a9cae3a7c550fe4be3aaca3cd83e697a",
+      "bytes": 444
+    },
+    "docs/verification/fleet-40-calibration/courses.json": {
+      "sha256": "e55fb4a79e296ad994c6ed36eec7acfe37be8d803c90630dcece9dae8af7ed08",
+      "bytes": 3512
+    },
+    "docs/verification/fleet-40-calibration/curve-paths.png": {
+      "sha256": "4b9a7f5120ae924025fb1b615cf4d21edcaadcf849c15b6e7f5533ff93f749c3",
+      "bytes": 103192
+    },
+    "docs/verification/fleet-40-calibration/draft-evidence-audit.jsonl": {
+      "sha256": "0670f87e5517a7fc452029a498361cd0def94959d4ec296a08be4e907d0e2306",
+      "bytes": 942889
+    },
+    "docs/verification/fleet-40-calibration/envelope-benchmark.rs": {
+      "sha256": "49d5dd4bdeecc5da812fb1682b0a37da356699c1edf11db9246191b02a277336",
+      "bytes": 5659
+    },
+    "docs/verification/fleet-40-calibration/envelope-method.json": {
+      "sha256": "b26cd3233f33be1203dfe4f85e2e19d3e895d0496b2956148af8b5e7cb6d14fe",
+      "bytes": 865
+    },
+    "docs/verification/fleet-40-calibration/evidence-audit.jsonl": {
+      "sha256": "dd784d7f24813b2d2972e2ba91ea869fb1b5cf61db98350d345ef0cfc1cd63ab",
+      "bytes": 5415116
+    },
+    "docs/verification/fleet-40-calibration/geometry-review.json": {
+      "sha256": "9276708602fcc95c37def87fac824a4f27f635df707f6468015b4ce541762621",
+      "bytes": 22298
+    },
+    "docs/verification/fleet-40-calibration/handling-targets.json": {
+      "sha256": "56c674bd4db653272e34785cf722b236f9ee77abb684229d353403b88b2d4a26",
+      "bytes": 1372
+    },
+    "docs/verification/fleet-40-calibration/parameter-changes.json": {
+      "sha256": "9d93b23b3e2bc03a439aae5861aa2a91b9abc1e099b4243999ff78aea3177d0a",
+      "bytes": 8253
+    },
+    "docs/verification/fleet-40-calibration/plot-calibration.py": {
+      "sha256": "c9695ed8069e8bd35c17089388305807a7f7f041736f55c918ec7219fbb5e5f6",
+      "bytes": 2034
+    },
+    "docs/verification/fleet-40-calibration/plot-trail-contacts.py": {
+      "sha256": "0830441c28f252f1d590fc3509b8cd1d6db5335bb9c55b1cfb8d482268cf417d",
+      "bytes": 3640
+    },
+    "docs/verification/fleet-40-calibration/protocol-equality.json": {
+      "sha256": "cead6dcb4cf939b1e03968d65fbfc9c99fba23cdc384e3fe7e8fcfa73128098e",
+      "bytes": 474
+    },
+    "docs/verification/fleet-40-calibration/reference-comparison.csv": {
+      "sha256": "4c98526887bfd6835fbb4573ad1f4841515aedd5fa1a03f8e45ff577b0a332ef",
+      "bytes": 17855
+    },
+    "docs/verification/fleet-40-calibration/reference-comparison.json": {
+      "sha256": "1ab0007f29f6dbde221112446392a2150216d616872c73faefb71d7af43a1555",
+      "bytes": 43639
+    },
+    "docs/verification/fleet-40-calibration/reference-deltas.json": {
+      "sha256": "8b778bfa3e0a25dd1c50bbd60ff0b2f52a7a20e6d47e5fa63f9e5b9c6b078d4b",
+      "bytes": 59623
+    },
+    "docs/verification/fleet-40-calibration/results.csv": {
+      "sha256": "0ca05ea829005809b016732f8bfbd863ea89566620c7d0fdb9b691957e95ab2c",
+      "bytes": 139606
+    },
+    "docs/verification/fleet-40-calibration/results.json": {
+      "sha256": "bdacbe2a3f3cf07baca5d5a40d23ee265a8f8354c42e4ba21d1f5cce43fcd45c",
+      "bytes": 5404426
+    },
+    "docs/verification/fleet-40-calibration/roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "docs/verification/fleet-40-calibration/scenario-deltas.json": {
+      "sha256": "8936fb9b88bf40e2f20666ee4e478f70a1ddc038d24937f0a401ea8958fe0a39",
+      "bytes": 1893607
+    },
+    "docs/verification/fleet-40-calibration/scenario-matrix.png": {
+      "sha256": "a9480abe9c8680f24a7e291cb1f281521c97ff6425a1ddaefdfdd62026d02972",
+      "bytes": 244210
+    },
+    "docs/verification/fleet-40-calibration/source-review.json": {
+      "sha256": "0d6e8181dc13e1db036e9a3de804136cda34bcd265b50bfdc4247811a5a051db",
+      "bytes": 3199
+    },
+    "docs/verification/fleet-40-calibration/trail-contacts.png": {
+      "sha256": "edc2554af52bf0961b8c7020b1a8117ca6646fe472190161686643d33a79ec30",
+      "bytes": 108293
+    },
+    "docs/verification/fleet-40-calibration/trail-surface-benchmark.rs": {
+      "sha256": "951376f236c2cfc0c69d2cf4fa3f853e1f5d0df2ee81a67967fea8952f1522ff",
+      "bytes": 3738
+    },
+    "docs/verification/fleet-40-calibration/trail-surface-proof.json": {
+      "sha256": "bac9d6b1043705ed77a807f9ed3b969b27606c57a089821446a7445f1798d39f",
+      "bytes": 1855
+    },
+    "docs/verification/fleet-40-calibration/unfitted-handling.json": {
+      "sha256": "1e93708d7dc08ce67bc18e2062384219f3b1838a5c57e5bee7e67191acc3743b",
+      "bytes": 824
+    },
+    "examples/fleet_skidpad.rs": {
+      "sha256": "225234cf1ad86864dfb8df2aea64570a443d989fca1310c7192c32e59fa6aba2",
+      "bytes": 4790
+    },
+    "src/assembly/mass.rs": {
+      "sha256": "7cc41b568f581b03f457668467f054ffc30c0f2a1db0ca0a75ac556384028641",
+      "bytes": 5746
+    },
+    "src/assembly/pilot.rs": {
+      "sha256": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+      "bytes": 5042
+    },
+    "src/assembly/runtime.rs": {
+      "sha256": "0a1290e58af9b118d85b44d4d2c2eae2696adc9bac3dc453e5107123f8607fa9",
+      "bytes": 2865
+    },
+    "src/assembly.rs": {
+      "sha256": "3582f4b51909e83c669eed5ba951973977ccd33b77f17a0747a8f3800cdb1b4e",
+      "bytes": 11848
+    },
+    "src/city/curve.rs": {
+      "sha256": "ec9da4d501b0ccbeab0489697af0c3cc55db15eba7cf4bfb0f9da9ad85271978",
+      "bytes": 2965
+    },
+    "src/city.rs": {
+      "sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+      "bytes": 9835
+    },
+    "src/config.rs": {
+      "sha256": "376d8825381daf53e93f1535df09cfcff07def7240ddb1dd74bdae6fae58450c",
+      "bytes": 6496
+    },
+    "src/diagnostics/health.rs": {
+      "sha256": "60445ab5d8e346625ec66b84fb6134f15e2de9069c8b0d4daf3932ff83ecf842",
+      "bytes": 9500
+    },
+    "src/diagnostics/history.rs": {
+      "sha256": "3551a9323f69d8b9684eb681c91c40d38f2dd60e5dd51d74ef3b885bee85d804",
+      "bytes": 4022
+    },
+    "src/diagnostics/incident.rs": {
+      "sha256": "71a7af2fccd3068bc8527f5ecfce74724bd025a5e13c5cb8f0171b94b0a46b86",
+      "bytes": 1909
+    },
+    "src/diagnostics/logging.rs": {
+      "sha256": "4555e1d82b7fce4f36bf8b6b7019ad797840acd67c57a9d8331ec05ae7eae66a",
+      "bytes": 1518
+    },
+    "src/diagnostics/recording.rs": {
+      "sha256": "7e59c70f2dee7c83385178e223943280e7411ea86f4714de71e92a47ec5d43d0",
+      "bytes": 11488
+    },
+    "src/diagnostics/settings.rs": {
+      "sha256": "2983201c28b0e92d3c47e70ff1c7daad8b334f91e71dc838e64307e8d870a66d",
+      "bytes": 5527
+    },
+    "src/diagnostics/shutdown.rs": {
+      "sha256": "eb632395889aa929a7386d9381b71e14507266fdd49927ff9307a1e7778a0ee4",
+      "bytes": 1056
+    },
+    "src/diagnostics/writer.rs": {
+      "sha256": "fca911a4e4f69d74ef9a7c559818d0a86f2cb7a39be550998461986e532d9890",
+      "bytes": 9874
+    },
+    "src/diagnostics.rs": {
+      "sha256": "8bb19fea2b08b6db8d7989b1dc423633f5ad088bcd5ae7c42de2c06f57cde230",
+      "bytes": 36533
+    },
+    "src/ingress.rs": {
+      "sha256": "ee19af3ace7dc3aadaf777c3a39e4689025c4c7acc90297e6fe387fa6010c443",
+      "bytes": 1560
+    },
+    "src/lib.rs": {
+      "sha256": "f5944d12f742269d532161654d5c89a7c8f4618ff4dfeb861cf11bd00b547dd4",
+      "bytes": 6160
+    },
+    "src/main.rs": {
+      "sha256": "a7deb8992f503f7d54edfc1f80d4c330ed1658227ecc639d040bb1dcdee62fc7",
+      "bytes": 2081
+    },
+    "src/presentation.rs": {
+      "sha256": "e801ad4e9393eb66d4e256bbbb6adc077cdc3eaf7e0d408c6b98dbfd7f916971",
+      "bytes": 19257
+    },
+    "src/provenance/binding.rs": {
+      "sha256": "98eb529f243b41363f4bad7c221cd3deca5eb320ce22d330aa9e63405c4694bd",
+      "bytes": 2767
+    },
+    "src/provenance/policy.rs": {
+      "sha256": "8f92dd1571ff005b00ddd06f5f40980d46c2b418287dfd6929f752485522913d",
+      "bytes": 7460
+    },
+    "src/provenance/source.rs": {
+      "sha256": "653cb37ee3b60a7153f8f7a44525427d2caab3941814045dd10ed3aa7b1c4aa7",
+      "bytes": 9216
+    },
+    "src/provenance/store.rs": {
+      "sha256": "7b2272aef483147ab6dc2c72f76cb64e93f40676e0742f43d66eea9aee59971e",
+      "bytes": 5078
+    },
+    "src/provenance.rs": {
+      "sha256": "8eafebfebe869e9369d509251612f1093aea7780c3aaa2a279fc12b35aaed9ab",
+      "bytes": 15654
+    },
+    "src/roster.rs": {
+      "sha256": "63f1247fd9b21a1929c4acf6cb4516b1effe180131788c8d36f27dda2884603f",
+      "bytes": 2341
+    },
+    "src/runtime.rs": {
+      "sha256": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+      "bytes": 21297
+    },
+    "src/scenario/route.rs": {
+      "sha256": "6c62dbe74ff8cfce6e6915a0c2877c0b704cc8c10d481b79f2e3158799efb070",
+      "bytes": 5376
+    },
+    "src/scenario/runner.rs": {
+      "sha256": "09cf0d4097e21cec6a68e0d1f1b370fcdaeab4b8ab45585816c9d4612b73a36e",
+      "bytes": 16002
+    },
+    "src/scenario.rs": {
+      "sha256": "f2036a81b11c40a0140ffc6edb8f76d7e9d56ab6b12a6c1419c075794f7fe230",
+      "bytes": 5595
+    },
+    "src/smoke.rs": {
+      "sha256": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+      "bytes": 18108
+    },
+    "src/telemetry.rs": {
+      "sha256": "5371de71508f82b09b61b4cad9c5fcc7ee78b3864e30a195219230d7c2dfeae8",
+      "bytes": 2250
+    },
+    "src/vehicle/forces.rs": {
+      "sha256": "4c78fcf98a156b10089be778d4a791b9275448977f2b65ca70d81febf0d28473",
+      "bytes": 2657
+    },
+    "src/vehicle/profile.rs": {
+      "sha256": "5fa256abffe0017e9f03cc975c0d17e164b642fc3cfb936457813ae59c37b3d9",
+      "bytes": 6638
+    },
+    "src/vehicle.rs": {
+      "sha256": "3140cea3a3b145b73ec4bd52e71542b184c43c2104f02afa021de53e81c02af6",
+      "bytes": 35402
+    },
+    "tests/vehicle_profiles.rs": {
+      "sha256": "c30509815685dda6d0055f6ecd9f8f39dd17c01952294741d0b2eeb9ca56cf56",
+      "bytes": 7178
+    },
+    "tools/analyze_fleet40_study.py": {
+      "sha256": "11e895aa62cc9e8dbe46de883bb2b88b640179b22159d6615b056cbf60774295",
+      "bytes": 10378
+    },
+    "tools/compare_fleet40_calibration.py": {
+      "sha256": "eab80016c782624a7a1317899dfd867e8cc55f25e541cabb1f82bcb60d59072c",
+      "bytes": 8857
+    },
+    "tools/plot_fleet40_results.py": {
+      "sha256": "8ccd3635b50e391fce67a9ace036c1ed6155a0b08ba0cad9b1b37b6c0b2f9520",
+      "bytes": 4845
+    },
+    "tools/run_fleet40_study.py": {
+      "sha256": "9fa923d3a392d99cf901dd2ec04a63503a5623d270b71bcd5782a5782cde7eec",
+      "bytes": 5131
+    }
+  }
+}

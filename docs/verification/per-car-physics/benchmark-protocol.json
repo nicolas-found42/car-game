@@ -1,0 +1,41 @@
+{
+  "fixed_hz": 120,
+  "settle_ticks": 360,
+  "acceleration_ticks": 2400,
+  "braking_max_ticks": 1200,
+  "braking_stop_threshold_mps": 0.1,
+  "braking_entry_mps": [
+    26.8224,
+    31.2928,
+    27.77777777777778
+  ],
+  "rollout_m": 0,
+  "backend": "production VehiclePlugin and Rapier on flat floor; no city/renderer",
+  "executor": "single-threaded fixture; production executor equivalence covered by library regression",
+  "binary_sha256": "81671cf8eb7b0e5d906db57bef484c43f04ef8f6c8dc56179821587aa82eee61",
+  "source_sha256": {
+    "src/vehicle.rs": "0829b7bdf2a36b97754c3617b4c14507fef7740d061dba1d67997b57582256f8",
+    "src/vehicle/profile.rs": "f15b3989ad65d76a2bd5931150e42d8dbf35bf8060e9b5c9f6cdf414268746ab",
+    "src/vehicle/forces.rs": "5763be8a038e5bc419cffc4c0a0a7cc7323b7747740da3913094287509877a7e",
+    "src/assembly/pilot.rs": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+    "src/runtime.rs": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+    "assets/cars/physics.json": "ef310cdfe6462e677cb7e3999de617d6dd34a3e2e3c2f0346a82876bdd7b8eb4",
+    "assets/cars/roster.json": "d13d57b3f666860932e80db383d938be072f70058d3acf2326b5df879623e64a",
+    "examples/fleet_benchmark.rs": "66f9c803b0bf1e822ba56035d30fcb2b63bdcd7699e4992622346d3d75ec0d33"
+  },
+  "repeat_files": [
+    "artifacts/vehicle-reference/profile-benchmark-audited-r1.json",
+    "artifacts/vehicle-reference/profile-benchmark-audited-r2.json"
+  ],
+  "two_repeats_identical": true,
+  "limitations": [
+    "selected mass basis varies; no added driver/payload",
+    "source test rollout/tires/loading/launch conditions differ",
+    "automatic shift and tire force models are estimates",
+    "braking begins from a settled chassis with initial speed; not a reproduction of each source testing procedure"
+  ],
+  "measurement_sha256": [
+    "cb632bdede8a1f5a95cf3eddea9abd7157e5ec9a3643b05f58d34a899e04a2e9",
+    "cb632bdede8a1f5a95cf3eddea9abd7157e5ec9a3643b05f58d34a899e04a2e9"
+  ]
+}

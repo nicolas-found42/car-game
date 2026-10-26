@@ -4,26 +4,19 @@ use std::{
     fs,
     path::{Path, PathBuf},
     process::{Child, Command, Stdio},
-    sync::{RwLock, RwLockReadGuard, RwLockWriteGuard},
+    sync::{Mutex, MutexGuard},
     time::{Duration, Instant},
 };
 
-// Give the panic/export control an uncontended CPU/IO budget. The other
-// independent process controls can overlap; all original deadlines remain.
-static PROCESS_LEASE: RwLock<()> = RwLock::new(());
-enum ProcessLease {
-    Shared {
-        _guard: RwLockReadGuard<'static, ()>,
-    },
-    Exclusive {
-        _guard: RwLockWriteGuard<'static, ()>,
-    },
-}
+// Each process durably captures the complete fleet before readiness. Serialize
+// these fsync-heavy controls so corpus size cannot make concurrent startup I/O
+// consume the unchanged readiness/shutdown deadlines.
+static PROCESS_LEASE: Mutex<()> = Mutex::new(());
 
 static NEXT: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(1);
 
 struct RecordingProcess {
-    _process_lease: ProcessLease,
+    _process_lease: MutexGuard<'static, ()>,
     child: Child,
     root: PathBuf,
     run: Option<PathBuf>,
@@ -33,22 +26,12 @@ impl RecordingProcess {
         Self::spawn_until(paused, extra, 9999)
     }
     fn spawn_until(paused: bool, extra: &[&str], tick: u64) -> Self {
-        Self::spawn_guarded(paused, extra, tick, false)
+        Self::spawn_guarded(paused, extra, tick)
     }
-    fn spawn_guarded(paused: bool, extra: &[&str], tick: u64, exclusive: bool) -> Self {
-        let process_lease = if exclusive {
-            ProcessLease::Exclusive {
-                _guard: PROCESS_LEASE
-                    .write()
-                    .unwrap_or_else(|error| error.into_inner()),
-            }
-        } else {
-            ProcessLease::Shared {
-                _guard: PROCESS_LEASE
-                    .read()
-                    .unwrap_or_else(|error| error.into_inner()),
-            }
-        };
+    fn spawn_guarded(paused: bool, extra: &[&str], tick: u64) -> Self {
+        let process_lease = PROCESS_LEASE
+            .lock()
+            .unwrap_or_else(|error| error.into_inner());
         let root = std::env::temp_dir().join(format!(
             "grid-shutdown-{}-{}-{}",
             std::process::id(),
@@ -285,7 +268,6 @@ fn panic_with_a_busy_writer_exports_history_without_locking_the_panicking_produc
             "2",
         ],
         9999,
-        true,
     );
     assert!(!process.wait().success());
     let health = process

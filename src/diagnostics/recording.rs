@@ -51,6 +51,11 @@ impl Record {
     }
 }
 pub enum Job {
+    Window {
+        window: super::windows::Window,
+        end: u64,
+        snapshot: super::history::HistorySnapshot,
+    },
     Record(Arc<Record>),
     Incident {
         reason: String,
@@ -340,6 +345,32 @@ impl Recording {
     }
     pub fn closed(&self) -> bool {
         self.closed.load(Ordering::Acquire)
+    }
+    pub(super) fn window(&self, window: super::windows::Window, end: u64) {
+        if self.health.window_pending.swap(true, Ordering::AcqRel) {
+            self.health
+                .error("window_export", "history", "export_already_pending");
+            return;
+        }
+        let snapshot = self
+            .health
+            .history
+            .lock()
+            .unwrap_or_else(|e| e.into_inner())
+            .snapshot();
+        if self
+            .sender
+            .try_send(Job::Window {
+                window,
+                end,
+                snapshot,
+            })
+            .is_err()
+        {
+            self.health.window_pending.store(false, Ordering::Release);
+            self.health
+                .error("window_export", "history", "control_queue_full");
+        }
     }
 }
 

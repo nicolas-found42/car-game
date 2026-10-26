@@ -1,0 +1,575 @@
+{
+  "rows": [
+    {
+      "car": "350z",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.33435,
+      "old_geometry_driven_radius_m": 0.33885,
+      "after_engine_radius_m": 0.33885,
+      "fixed_torque_force_ratio_after_over_before": 0.9867197875166003,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9867197875166003,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "fr2-cobra",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.319836363196373,
+      "old_geometry_driven_radius_m": 0.3198363482952118,
+      "after_engine_radius_m": 0.3198363482952118,
+      "fixed_torque_force_ratio_after_over_before": 1.0000000465899554,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0000000465899554,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "fr2-fr500",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.32001181691884995,
+      "old_geometry_driven_radius_m": 0.32000695168972015,
+      "after_engine_radius_m": 0.32000695168972015,
+      "fixed_torque_force_ratio_after_over_before": 1.000015203510749,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.000015203510749,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "gt-rx7",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.3259463310241699,
+      "old_geometry_driven_radius_m": 0.3240795135498047,
+      "after_engine_radius_m": 0.3240795135498047,
+      "fixed_torque_force_ratio_after_over_before": 1.0057603686635945,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0057603686635945,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "gt-viper",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.33577823638916016,
+      "old_geometry_driven_radius_m": 0.3395118713378906,
+      "after_engine_radius_m": 0.3395118713378906,
+      "fixed_torque_force_ratio_after_over_before": 0.9890029325513197,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9890029325513197,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "gt4-m3",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.32046536043015317,
+      "old_geometry_driven_radius_m": 0.31909695316785947,
+      "after_engine_radius_m": 0.31909695316785947,
+      "fixed_torque_force_ratio_after_over_before": 1.0042883745792892,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0042883745792892,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "gt4-nsx",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.302756202819654,
+      "old_geometry_driven_radius_m": 0.31404744326155365,
+      "after_engine_radius_m": 0.31404744326155365,
+      "fixed_torque_force_ratio_after_over_before": 0.9640460679296288,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9640460679296288,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "mc3-skyline",
+      "nominal_front_drive": 0.05,
+      "before_engine_radius_m": 0.34119430219211133,
+      "old_geometry_driven_radius_m": 0.34119430219211133,
+      "after_engine_radius_m": 0.34119430219211133,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "mc3-supra",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.3504945107049203,
+      "old_geometry_driven_radius_m": 0.3504945107049203,
+      "after_engine_radius_m": 0.3504945107049203,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "mcla-evo",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.3280180096626282,
+      "old_geometry_driven_radius_m": 0.32801800669950304,
+      "after_engine_radius_m": 0.32801800669950304,
+      "fixed_torque_force_ratio_after_over_before": 1.0000000090334222,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0000000090334222,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "mcla-skyline",
+      "nominal_front_drive": 0.05,
+      "before_engine_radius_m": 0.32649698853492737,
+      "old_geometry_driven_radius_m": 0.3264969885349274,
+      "after_engine_radius_m": 0.3264969885349274,
+      "fixed_torque_force_ratio_after_over_before": 0.9999999999999998,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9999999999999998,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "redline-911",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.317751681804657,
+      "old_geometry_driven_radius_m": 0.31490271091461186,
+      "after_engine_radius_m": 0.31490271091461186,
+      "fixed_torque_force_ratio_after_over_before": 1.0090471462813722,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0090471462813722,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "redline-gt500",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.34289749999999997,
+      "old_geometry_driven_radius_m": 0.342515,
+      "after_engine_radius_m": 0.342515,
+      "fixed_torque_force_ratio_after_over_before": 1.0011167394128724,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0011167394128724,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a01",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.3378739307474382,
+      "old_geometry_driven_radius_m": 0.3378739307474382,
+      "after_engine_radius_m": 0.3378739307474382,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a02",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.33283946506494694,
+      "old_geometry_driven_radius_m": 0.33283946506494694,
+      "after_engine_radius_m": 0.33283946506494694,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a04",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.3594612063495695,
+      "old_geometry_driven_radius_m": 0.3594612063495695,
+      "after_engine_radius_m": 0.3594612063495695,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a05",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.38063564896583557,
+      "old_geometry_driven_radius_m": 0.38063564896583557,
+      "after_engine_radius_m": 0.38063564896583557,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a06",
+      "nominal_front_drive": 1.0,
+      "before_engine_radius_m": 0.3027624934911728,
+      "old_geometry_driven_radius_m": 0.3027620017528534,
+      "after_engine_radius_m": 0.3027620017528534,
+      "fixed_torque_force_ratio_after_over_before": 1.0000016241744887,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0000016241744887,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a07",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.34898233125497874,
+      "old_geometry_driven_radius_m": 0.36537399876542753,
+      "after_engine_radius_m": 0.36537399876542753,
+      "fixed_torque_force_ratio_after_over_before": 0.9551372906505798,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9551372906505798,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a09",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.33216799795627594,
+      "old_geometry_driven_radius_m": 0.3417559862136841,
+      "after_engine_radius_m": 0.3417559862136841,
+      "fixed_torque_force_ratio_after_over_before": 0.9719449295866519,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9719449295866519,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a11",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.3993278568904454,
+      "old_geometry_driven_radius_m": 0.3993278568904454,
+      "after_engine_radius_m": 0.3993278568904454,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a12",
+      "nominal_front_drive": 0.4,
+      "before_engine_radius_m": 0.42059340462106176,
+      "old_geometry_driven_radius_m": 0.42339146856072,
+      "after_engine_radius_m": 0.42339146856072,
+      "fixed_torque_force_ratio_after_over_before": 0.9933913076964682,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9933913076964682,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a13",
+      "nominal_front_drive": 0.4,
+      "before_engine_radius_m": 0.4715739010881893,
+      "old_geometry_driven_radius_m": 0.4715739010881893,
+      "after_engine_radius_m": 0.4715739010881893,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a14",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.36801922390290254,
+      "old_geometry_driven_radius_m": 0.36801922390290254,
+      "after_engine_radius_m": 0.36801922390290254,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a15",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3617004182333228,
+      "old_geometry_driven_radius_m": 0.3617004182333228,
+      "after_engine_radius_m": 0.3617004182333228,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a16",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.32648750928240533,
+      "old_geometry_driven_radius_m": 0.3289755224865757,
+      "after_engine_radius_m": 0.3289755224865757,
+      "fixed_torque_force_ratio_after_over_before": 0.992437087156623,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.992437087156623,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e02",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.3132327854633331,
+      "old_geometry_driven_radius_m": 0.31323278546333316,
+      "after_engine_radius_m": 0.31323278546333316,
+      "fixed_torque_force_ratio_after_over_before": 0.9999999999999998,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9999999999999998,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e03",
+      "nominal_front_drive": 0.3,
+      "before_engine_radius_m": 0.35744163902221104,
+      "old_geometry_driven_radius_m": 0.35744163902221104,
+      "after_engine_radius_m": 0.35744163902221104,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e04",
+      "nominal_front_drive": 0.3,
+      "before_engine_radius_m": 0.34119430219211133,
+      "old_geometry_driven_radius_m": 0.3411943021921114,
+      "after_engine_radius_m": 0.3411943021921114,
+      "fixed_torque_force_ratio_after_over_before": 0.9999999999999999,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9999999999999999,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e08",
+      "nominal_front_drive": 1.0,
+      "before_engine_radius_m": 0.308822615532796,
+      "old_geometry_driven_radius_m": 0.308822615532796,
+      "after_engine_radius_m": 0.308822615532796,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e09",
+      "nominal_front_drive": 1.0,
+      "before_engine_radius_m": 0.2354915714263916,
+      "old_geometry_driven_radius_m": 0.2354915714263916,
+      "after_engine_radius_m": 0.2354915714263916,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e10",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.3169161805582568,
+      "old_geometry_driven_radius_m": 0.3169161805582568,
+      "after_engine_radius_m": 0.3169161805582568,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e11",
+      "nominal_front_drive": 0.1,
+      "before_engine_radius_m": 0.34310099482536316,
+      "old_geometry_driven_radius_m": 0.34310099482536316,
+      "after_engine_radius_m": 0.34310099482536316,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e12",
+      "nominal_front_drive": 0.4,
+      "before_engine_radius_m": 0.3182060122489929,
+      "old_geometry_driven_radius_m": 0.3182060122489929,
+      "after_engine_radius_m": 0.3182060122489929,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e13",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3066785846721759,
+      "old_geometry_driven_radius_m": 0.31548181190990526,
+      "after_engine_radius_m": 0.31548181190990526,
+      "fixed_torque_force_ratio_after_over_before": 0.9720959278621001,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9720959278621001,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j04",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.31809422577428403,
+      "old_geometry_driven_radius_m": 0.31622821587115624,
+      "after_engine_radius_m": 0.31622821587115624,
+      "fixed_torque_force_ratio_after_over_before": 1.0059008330359998,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0059008330359998,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j07",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.31417184392176223,
+      "old_geometry_driven_radius_m": 0.31404744326155365,
+      "after_engine_radius_m": 0.31404744326155365,
+      "fixed_torque_force_ratio_after_over_before": 1.0003961205954,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0003961205954,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j11",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.31548181190990526,
+      "old_geometry_driven_radius_m": 0.31548181190990526,
+      "after_engine_radius_m": 0.31548181190990526,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j12",
+      "nominal_front_drive": 0.5,
+      "before_engine_radius_m": 0.32363381620951676,
+      "old_geometry_driven_radius_m": 0.32363381620951676,
+      "after_engine_radius_m": 0.32363381620951676,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j16",
+      "nominal_front_drive": 0.0,
+      "before_engine_radius_m": 0.2835617593985599,
+      "old_geometry_driven_radius_m": 0.2835617593985599,
+      "after_engine_radius_m": 0.2835617593985599,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-a08",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.35925686730391143,
+      "old_geometry_driven_radius_m": 0.36801922390290254,
+      "after_engine_radius_m": 0.33185,
+      "fixed_torque_force_ratio_after_over_before": 1.082588119041469,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9761904921540105,
+      "geometry_only_force_ratio_with_driven_rule": 1.1089926891755388
+    },
+    {
+      "car": "ref-a10",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3330590467482886,
+      "old_geometry_driven_radius_m": 0.3429818799278946,
+      "after_engine_radius_m": 0.3429818799278946,
+      "fixed_torque_force_ratio_after_over_before": 0.9710689288259425,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9710689288259425,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e05",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3359529972076416,
+      "old_geometry_driven_radius_m": 0.3359529972076416,
+      "after_engine_radius_m": 0.3359529972076416,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e07",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.34036946606351576,
+      "old_geometry_driven_radius_m": 0.33924986012163916,
+      "after_engine_radius_m": 0.33924986012163916,
+      "fixed_torque_force_ratio_after_over_before": 1.003300239951389,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.003300239951389,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e14",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.32773903799639775,
+      "old_geometry_driven_radius_m": 0.32661943205452115,
+      "after_engine_radius_m": 0.32661943205452115,
+      "fixed_torque_force_ratio_after_over_before": 1.0034278607822995,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0034278607822995,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e15",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.33464703569392407,
+      "old_geometry_driven_radius_m": 0.33576664163580067,
+      "after_engine_radius_m": 0.33576664163580067,
+      "fixed_torque_force_ratio_after_over_before": 0.9966655236016834,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9966655236016834,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e16",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3382179130909885,
+      "old_geometry_driven_radius_m": 0.3475187429695519,
+      "after_engine_radius_m": 0.3475187429695519,
+      "fixed_torque_force_ratio_after_over_before": 0.9732364654663294,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9732364654663294,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-e17",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3381886934539131,
+      "old_geometry_driven_radius_m": 0.3475187429695519,
+      "after_engine_radius_m": 0.3475187429695519,
+      "fixed_torque_force_ratio_after_over_before": 0.9731523847148117,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9731523847148117,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j03",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.31809422577428403,
+      "old_geometry_driven_radius_m": 0.31622821587115624,
+      "after_engine_radius_m": 0.31622821587115624,
+      "fixed_torque_force_ratio_after_over_before": 1.0059008330359998,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0059008330359998,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j05",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3281122399770234,
+      "old_geometry_driven_radius_m": 0.3281122399770234,
+      "after_engine_radius_m": 0.3281122399770234,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j06",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.3082665736178113,
+      "old_geometry_driven_radius_m": 0.31622821587115635,
+      "after_engine_radius_m": 0.31622821587115635,
+      "fixed_torque_force_ratio_after_over_before": 0.9748231123797348,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9748231123797348,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j08",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.2872937792048153,
+      "old_geometry_driven_radius_m": 0.2872937792048153,
+      "after_engine_radius_m": 0.2872937792048153,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j10",
+      "nominal_front_drive": 0.45,
+      "before_engine_radius_m": 0.324972003698349,
+      "old_geometry_driven_radius_m": 0.324972003698349,
+      "after_engine_radius_m": 0.324972003698349,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j13",
+      "nominal_front_drive": 0.35,
+      "before_engine_radius_m": 0.3082665736178113,
+      "old_geometry_driven_radius_m": 0.3082665736178113,
+      "after_engine_radius_m": 0.3082665736178113,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j14",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.2988046013300568,
+      "old_geometry_driven_radius_m": 0.30141701519443564,
+      "after_engine_radius_m": 0.30141701519443564,
+      "fixed_torque_force_ratio_after_over_before": 0.9913328918651336,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9913328918651336,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j15",
+      "nominal_front_drive": 0,
+      "before_engine_radius_m": 0.29454575924589194,
+      "old_geometry_driven_radius_m": 0.29837296007528064,
+      "after_engine_radius_m": 0.29837296007528064,
+      "fixed_torque_force_ratio_after_over_before": 0.9871730976278043,
+      "radius_rule_only_force_ratio_on_old_geometry": 0.9871730976278043,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    },
+    {
+      "car": "ref-j17",
+      "nominal_front_drive": 1,
+      "before_engine_radius_m": 0.296192187465678,
+      "old_geometry_driven_radius_m": 0.296192187465678,
+      "after_engine_radius_m": 0.296192187465678,
+      "fixed_torque_force_ratio_after_over_before": 1.0,
+      "radius_rule_only_force_ratio_on_old_geometry": 1.0,
+      "geometry_only_force_ratio_with_driven_rule": 1.0
+    }
+  ],
+  "method": "Float64 algebra over roster values; runtime uses f32. Ratios assume fixed engine torque, gear and efficiency and do not predict sprint time. AWD uses nominal coupling; dynamic force allocation is separate."
+}

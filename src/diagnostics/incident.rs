@@ -21,14 +21,24 @@ fn write(health: &HealthState, reason: &str, snapshot: Option<HistorySnapshot>) 
     let Some(snapshot) = snapshot else {
         return Err(io::Error::other("history_unavailable"));
     };
-    let path = health.dir.join("incident-history.jsonl");
+    write_snapshot(&health.dir, &health.dir, &snapshot)?;
+    super::write_json_atomic(
+        &health.dir.join("incident.json"),
+        &json!({"schema":1,"run_id":health.dir.file_name().expect("run directory").to_string_lossy(),
+        "reason":reason,"at":super::now(),"history":snapshot.status,"health":health.snapshot(),
+        "records":snapshot.records.len(),"path":"incident-history.jsonl"}),
+    )
+}
+pub(super) fn write_snapshot(
+    dir: &std::path::Path,
+    run: &std::path::Path,
+    snapshot: &HistorySnapshot,
+) -> io::Result<()> {
+    fs::create_dir_all(dir)?;
+    let path = dir.join("incident-history.jsonl");
     let temporary = path.with_extension("tmp");
     let mut file = BufWriter::with_capacity(65536, File::create(&temporary)?);
-    let run_id = health
-        .dir
-        .file_name()
-        .expect("run directory")
-        .to_string_lossy();
+    let run_id = run.file_name().expect("run directory").to_string_lossy();
     let id = serde_json::to_string(&run_id)?;
     for record in &snapshot.records {
         write!(
@@ -45,10 +55,5 @@ fn write(health: &HealthState, reason: &str, snapshot: Option<HistorySnapshot>) 
     file.get_ref().sync_all()?;
     drop(file);
     fs::rename(temporary, &path)?;
-    super::write_json_atomic(
-        &health.dir.join("incident.json"),
-        &json!({"schema":1,"run_id":run_id,
-        "reason":reason,"at":super::now(),"history":snapshot.status,"health":health.snapshot(),
-        "records":snapshot.records.len(),"path":"incident-history.jsonl"}),
-    )
+    Ok(())
 }

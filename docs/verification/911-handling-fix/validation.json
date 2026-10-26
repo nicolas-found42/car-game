@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "before_runs": 130,
+  "after_runs": 130,
+  "identical_inputs_assets_and_scenario_hashes": true,
+  "candidate_recorders_healthy": true,
+  "candidate_maneuver_ticks": 29640,
+  "candidate_four_contact_pct_min": 100.0,
+  "candidate_four_loaded_pct_min": 100.0,
+  "candidate_unrequested_resets": 0,
+  "candidate_provenance_bundles_verified": 130,
+  "minimum_candidate_course_clearance_m": 2.3700192582743966,
+  "maximum_candidate_repeat_yaw_spread_deg": 0.00019323064243792487,
+  "maximum_candidate_repeat_brake_distance_spread_m": 1.9073486328125e-06,
+  "gpu_run": "artifacts/runs/20261023T225916091707Z-2342545-fleet-32276-1-1792796356132847000",
+  "gpu_run_binary_sha256": "4de9f2aed881d9d1987773458e9820e47d75a84fbfc9f1697ad6be47c5a0e603",
+  "gpu_reports": 13,
+  "gpu_nonblank_captures": 52,
+  "full_verification_exit_code": 0,
+  "full_verification_command": "CAR_GAME_MUTE=1 bash scripts/verify.sh --recorded --base HEAD",
+  "full_verification_log": "artifacts/911-diagnosis/full-verification.log",
+  "rust_tests_passed": 70,
+  "analysis_tests_passed": 8,
+  "source_asset_integrity": "passed with local original collection",
+  "independent_notebook_recomputations": 40,
+  "visual_review": [
+    "before-after.png",
+    "fleet-overview.jpg",
+    "redline-911-driving.png"
+  ],
+  "source_sha256": {
+    "src/vehicle.rs": "14c140032cfdfcf6330d677e064f12b4887b3937fec5ed037abca92634131c1a",
+    "src/vehicle/forces.rs": "1cd815e3cf621ba1b4a66cafad44d292ea5f0cf84f2587db46c84b8708784ad1",
+    "examples/handling_probe.rs": "8e00108c167b872d113ea508f65cfee32dae524b7db7c29df8b49b2d8c93ebf6",
+    "tools/handling_protocol.py": "e1a26c54e81dd3e681db662cdfb80fb57312dac7627f4e2dc0ed4b884a179dc7",
+    "tools/handling_metrics.py": "13c7ff3f4a91d8fb8fb2ef01d25debddd994a3debf610b28adc36ed4073718a1",
+    "tools/analyze_handling_study.py": "1ce6f6f432970fc003a9d6059a35ee8b495a0f330313b8fe40b403d36ba97314",
+    "tools/compare_handling_studies.py": "ecccfbaee13a4214605691c23f49f5a570cd088e9fd98ccd89f0dd3346cd30e5"
+  },
+  "debug_instrumentation": "none added to production systems; diagnostic fixture retained in examples/handling_probe.rs"
+}

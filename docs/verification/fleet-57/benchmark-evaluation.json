@@ -1,0 +1,1802 @@
+{
+  "scenario_matrix_status": "independent; consult completion-summary.json when available",
+  "identical_benchmark_rows": 57,
+  "identical_circle_rows": 114,
+  "unchanged_prior_benchmark_rows": 40,
+  "unchanged_prior_circle_rows": 80,
+  "minimum_acceleration_four_contact_fraction": 1.0,
+  "censored_endpoints": [
+    {
+      "car": "ref-a11",
+      "metric": "zero_100_mph_s",
+      "horizon_s": 20
+    },
+    {
+      "car": "ref-a13",
+      "metric": "zero_100_mph_s",
+      "horizon_s": 20
+    },
+    {
+      "car": "ref-e09",
+      "metric": "zero_100_mph_s",
+      "horizon_s": 20
+    },
+    {
+      "car": "ref-j16",
+      "metric": "zero_100_mph_s",
+      "horizon_s": 20
+    }
+  ],
+  "performance_reference_rows": 40,
+  "editions_with_performance_targets": 24,
+  "largest_qualified_performance_gaps": [
+    {
+      "car": "ref-a16",
+      "metric": "zero_60_mph_s",
+      "simulation": 6.016667,
+      "reference": 4.7,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": 28.014191489361707,
+      "within_bound": null,
+      "reference_status": "related_prototype_test",
+      "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext.",
+      "identity_note": {
+        "name": "Buick GNX",
+        "year": 1987,
+        "variant": "productionGNX identity; prototype measurement envelope",
+        "identity_status": "catalog_exact_name",
+        "notes": "GT4 and MCLA explicitly identify GNX 1987. The period Car and Driver measurements describe a prototype and quote 300 hp and 380 lb-ft; they remain separate from the advertised production figures reported by a later firsthand GM collection visit."
+      },
+      "source_id": "am_gnx_test",
+      "source_url": "https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/"
+    },
+    {
+      "car": "redline-911",
+      "metric": "zero_100_kmh_s",
+      "simulation": 5.65,
+      "reference": 6.8,
+      "unit": "s",
+      "delta": -1.1499999999999995,
+      "delta_pct": -16.911764705882348,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "manufacturer_hosted_dealer_claim_exact_year_and_engine",
+      "note": "1982Germanversion204PSmanualcoupe; publishedclaimonly. Periodmanualonlinepage76contains0\u2013100rowbutOCRomitsthenumericvalue,therefore6.8isNOTclaimedverifiedfromhandbook.",
+      "identity_note": "Native Redline year 1982 and 267 Nm identify a late SC. European market is inferred from the author parameters; US engine specifications are excluded.",
+      "source_id": "911-porsche-finder-1982",
+      "source_url": "https://finder.porsche.com/ch/it-CH/details/porsche-911-sc-coupe-usata-G028QN?sortBy=price.value%5C"
+    },
+    {
+      "car": "ref-e12",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.116667,
+      "reference": 4.8,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -14.236104166666674,
+      "within_bound": null,
+      "reference_status": "related_reference",
+      "note": "Adjacent 2006 European reference, not assumed exact 2008 USmatch.",
+      "identity_note": {
+        "name": "Audi RS4",
+        "year": 2008,
+        "variant": "B 7 saloon 4.2 FSI quattro sixspeedmanual",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": "Asset internal code says 07, while catalog display says 2008. US saloon references are preferred; European 2006 technical data is explicitly adjacent."
+      },
+      "source_id": "e12-eu2006",
+      "source_url": "https://id.scribd.com/document/1027717492/Audi-Rs4-Owners-Manual"
+    },
+    {
+      "car": "ref-a16",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 49.393234,
+      "reference": 56.692800000000005,
+      "unit": "m",
+      "upper_bound": false,
+      "delta_pct": -12.875649112409349,
+      "within_bound": null,
+      "reference_status": "related_prototype_test",
+      "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext.",
+      "identity_note": {
+        "name": "Buick GNX",
+        "year": 1987,
+        "variant": "productionGNX identity; prototype measurement envelope",
+        "identity_status": "catalog_exact_name",
+        "notes": "GT4 and MCLA explicitly identify GNX 1987. The period Car and Driver measurements describe a prototype and quote 300 hp and 380 lb-ft; they remain separate from the advertised production figures reported by a later firsthand GM collection visit."
+      },
+      "source_id": "am_gnx_test",
+      "source_url": "https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/"
+    },
+    {
+      "car": "ref-a14",
+      "metric": "zero_100_mph_s",
+      "simulation": 10.916667,
+      "reference": 12.3,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -11.246609756097559,
+      "within_bound": null,
+      "reference_status": "instrumented_test",
+      "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope.",
+      "identity_note": {
+        "name": "Cadillac CTS-V",
+        "year": 2004,
+        "variant": "LS6 six-speed sedan",
+        "identity_status": "catalog_exact_name",
+        "notes": "MC3 and MCLA filenames explicitly identify CTS-V 2004. The MCLA asset is ambient; its geometry identity does not imply playable physics or shared native tuning."
+      },
+      "source_id": "am_ctsv_test",
+      "source_url": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive"
+    },
+    {
+      "car": "ref-e13",
+      "metric": "zero_100_mph_s",
+      "simulation": 11.558334,
+      "reference": 13.0,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -11.089738461538456,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "",
+      "identity_note": {
+        "name": "Lotus Elise 111R",
+        "year": 2004,
+        "variant": "S 2 Toyota 2 ZZ-GE UK 111 R",
+        "identity_status": "GT4_exact_variant_MC3_trim_provisional",
+        "notes": "GT4 explicitly identifies the 111R. MC3 Elise 2004 filename does not prove the same trim; the mapping remains provisional."
+      },
+      "source_id": "e13-brochure",
+      "source_url": "https://kurumacatalog.com/wp-content/uploads/2021/01/2005_Lotus_Elise_catalog.pdf"
+    },
+    {
+      "car": "gt4-m3",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.366667,
+      "reference": 4.9,
+      "unit": "s",
+      "delta": -0.5333330000000007,
+      "delta_pct": -10.884346938775524,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "",
+      "identity_note": "",
+      "source_id": "e06-press",
+      "source_url": "https://www.press.bmwgroup.com/usa/article/attachment/T0022168EN_US/41493/AG030228_M3_CSL_Press_Kit_GB_finalversion.pdf"
+    },
+    {
+      "car": "gt-viper",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.4,
+      "reference": 4.0,
+      "unit": "s",
+      "delta": 0.40000000000000036,
+      "delta_pct": 10.000000000000009,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_year",
+      "note": "",
+      "identity_note": "GT native year unresolved; use1997 GTS first-hand test as relatedyear reference. Not corpus a10 SRT10 2003. Native1470kg is lighter than tested3375\u20133410lb.",
+      "source_id": "viper-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/"
+    },
+    {
+      "car": "mc3-supra",
+      "metric": "zero_60_mph_s",
+      "simulation": 5.0583334,
+      "reference": 4.6,
+      "unit": "s",
+      "delta": 0.4583334000000008,
+      "delta_pct": 9.963769565217406,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_year_and_market",
+      "note": "1993US6MT; no exact1998 identity guarantee",
+      "identity_note": "Modelcode suggests1998, catalog does not decode retailyear/trim/market. Choose1998 US Turbo6MT hardtop only as explicit proxy; do not mix JDMRZ1510kg280PS with US320hp mass.",
+      "source_id": "supra-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a15142755/toyota-supra-turbo-instrumented-test/"
+    },
+    {
+      "car": "350z",
+      "metric": "zero_100_mph_s",
+      "simulation": 12.525001,
+      "reference": 13.9,
+      "unit": "s",
+      "delta": -1.3749990000000007,
+      "delta_pct": -9.892079136690658,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_equipment_grade",
+      "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification.",
+      "identity_note": "GT4 asset has no US equipment grade. Service-manual dimensions apply Z33; mass and grade-specific brakes must not be assumed. MC3/MCLA350Z04 are related different-year counterparts.",
+      "source_id": "j01-cd-test",
+      "source_url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/"
+    },
+    {
+      "car": "ref-e17",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.05,
+      "reference": 3.7,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": 9.459459459459453,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturerclaim",
+      "identity_note": {
+        "name": "Pagani Zonda C12S 7.3",
+        "year": 2002,
+        "variant": "7.3 LM 120 AMGcoupe",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": "MC3 Zonda 2004 might be a 7.3, but is not merged without native trim proof. Redline Zonda F is separate."
+      },
+      "source_id": "e17-tech",
+      "source_url": "https://www.allcarcentral.com/Pagani_pdf/Pagani_Zonda_S_7.3_Tech_IT-GB_2009.pdf"
+    },
+    {
+      "car": "ref-a01",
+      "metric": "zero_60_mph_s",
+      "simulation": 5.533334,
+      "reference": 5.1,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": 8.496745098039217,
+      "within_bound": null,
+      "reference_status": "related_transmission_test",
+      "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance.",
+      "identity_note": {
+        "name": "Ford Mustang GT",
+        "year": 2005,
+        "variant": "4.6L GT coupe, manual reference; automatic test retained separately",
+        "identity_status": "catalog_exact_name",
+        "notes": "MCLA names a 2005 Mustang GT convertible, a different body variant. Do not apply coupe mass or roll calibration to the convertible."
+      },
+      "source_id": "am_mustang_test",
+      "source_url": "https://www.motortrend.com/reviews/2005-ford-mustang-gt"
+    },
+    {
+      "car": "ref-e10",
+      "metric": "zero_60_mph_s",
+      "simulation": 5.925,
+      "reference": 6.4,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -7.421875000000011,
+      "within_bound": null,
+      "reference_status": "related_reference",
+      "note": "2004 US reference; keep separate from 2003 European GT 4 identity.",
+      "identity_note": {
+        "name": "Volkswagen Golf IV R32",
+        "year": 2003,
+        "variant": "Mk 4 VR 6 4 MOTION; EU 2003 reference versus US 2004 asset",
+        "identity_status": "cross_game_family_match_market_year_differ",
+        "notes": "GT4 2003 and MC3/MCLA 2004 assets identify the Mk4 R32 family. Year and market differences are retained. MCLA_VA is traffic; the playable 2008 Mk5 is excluded."
+      },
+      "source_id": "e10-us2004",
+      "source_url": "https://billswebspace.com/R32TechnicalSpecifications.pdf"
+    },
+    {
+      "car": "redline-gt500",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.616667,
+      "reference": 4.3,
+      "unit": "s",
+      "delta": 0.3166669999999998,
+      "delta_pct": 7.364348837209289,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_exact_year_and_trim",
+      "note": "2008coupe6MT; skilledclutchdropandthrottlemodulation, rolloutunspecified.",
+      "identity_note": "The Redline addon explicitly names a 2008 GT500. Roush Stage 3 and FR500 variants are excluded. Coupe spring and stabilizer settings differ from convertible settings.",
+      "source_id": "gt500-mt-2008",
+      "source_url": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive"
+    },
+    {
+      "car": "mcla-evo",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 44.158142,
+      "reference": 47.244,
+      "unit": "m",
+      "delta": -3.0858580000000018,
+      "delta_pct": -6.53174583015833,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_mr_trim",
+      "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset.",
+      "identity_note": "MCLA asset name has no RS/MR grade;standard IX selected as reference. RS1460kg andMR1490kg are separate trims, not interchangeable.",
+      "source_id": "j09-cd-mr-test",
+      "source_url": "https://www.caranddriver.com/reviews/a18202877/2006-mitsubishi-lancer-evolution-ix-first-drive-review/"
+    },
+    {
+      "car": "mc3-supra",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 45.910416,
+      "reference": 48.768,
+      "unit": "m",
+      "delta": -2.857584000000003,
+      "delta_pct": -5.8595472440944985,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_year_and_market",
+      "note": "",
+      "identity_note": "Modelcode suggests1998, catalog does not decode retailyear/trim/market. Choose1998 US Turbo6MT hardtop only as explicit proxy; do not mix JDMRZ1510kg280PS with US320hp mass.",
+      "source_id": "supra-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a15142755/toyota-supra-turbo-instrumented-test/"
+    },
+    {
+      "car": "mcla-evo",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.8583336,
+      "reference": 4.6,
+      "unit": "s",
+      "delta": 0.2583336000000003,
+      "delta_pct": 5.615947826086964,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_mr_trim",
+      "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset.",
+      "identity_note": "MCLA asset name has no RS/MR grade;standard IX selected as reference. RS1460kg andMR1490kg are separate trims, not interchangeable.",
+      "source_id": "j09-cd-mr-test",
+      "source_url": "https://www.caranddriver.com/reviews/a18202877/2006-mitsubishi-lancer-evolution-ix-first-drive-review/"
+    },
+    {
+      "car": "ref-e13",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.908334,
+      "reference": 5.2,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -5.608961538461543,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "",
+      "identity_note": {
+        "name": "Lotus Elise 111R",
+        "year": 2004,
+        "variant": "S 2 Toyota 2 ZZ-GE UK 111 R",
+        "identity_status": "GT4_exact_variant_MC3_trim_provisional",
+        "notes": "GT4 explicitly identifies the 111R. MC3 Elise 2004 filename does not prove the same trim; the mapping remains provisional."
+      },
+      "source_id": "e13-2004",
+      "source_url": "https://www.lotusdriversguide.com/Downloads/Brochures/Elise_111R_2004.pdf"
+    },
+    {
+      "car": "ref-e10",
+      "metric": "zero_100_kmh_s",
+      "simulation": 6.2583337,
+      "reference": 6.6,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -5.1767621212121195,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturerclaim",
+      "identity_note": {
+        "name": "Volkswagen Golf IV R32",
+        "year": 2003,
+        "variant": "Mk 4 VR 6 4 MOTION; EU 2003 reference versus US 2004 asset",
+        "identity_status": "cross_game_family_match_market_year_differ",
+        "notes": "GT4 2003 and MC3/MCLA 2004 assets identify the Mk4 R32 family. Year and market differences are retained. MCLA_VA is traffic; the playable 2008 Mk5 is excluded."
+      },
+      "source_id": "e10-history",
+      "source_url": "https://www.volkswagen-newsroom.com/en/publications/more/50-years-or-the-sporty-golf-2718/download"
+    },
+    {
+      "car": "ref-e07",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.4833336,
+      "reference": 4.7,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -4.609923404255323,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "0\u201362 mph intable",
+      "identity_note": {
+        "name": "BMW M5",
+        "year": 2005,
+        "variant": "E 60 saloon SMGIII",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": ""
+      },
+      "source_id": "e07-press",
+      "source_url": "https://www.press.bmwgroup.com/usa/article/attachment/T0018520EN_US/36431"
+    },
+    {
+      "car": "fr2-fr500",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.4,
+      "reference": 4.6,
+      "unit": "s",
+      "delta": -0.1999999999999993,
+      "delta_pct": -4.347826086956507,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "street tires; launch/rollout unspecified",
+      "identity_note": "1999 experimental concept, not2005+ FR500C/GT racecar. Native mass1630kg is a game value; OEM release does not publish mass.",
+      "source_id": "fr500-oem",
+      "source_url": "https://www.terminator-cobra.com/FR500%20is%20Fords%20Ultimate%20Performance%20Parts%20Car.pdf"
+    },
+    {
+      "car": "ref-e13",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.7083335,
+      "reference": 4.9,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -3.9115612244898013,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturerclaim",
+      "identity_note": {
+        "name": "Lotus Elise 111R",
+        "year": 2004,
+        "variant": "S 2 Toyota 2 ZZ-GE UK 111 R",
+        "identity_status": "GT4_exact_variant_MC3_trim_provisional",
+        "notes": "GT4 explicitly identifies the 111R. MC3 Elise 2004 filename does not prove the same trim; the mapping remains provisional."
+      },
+      "source_id": "e13-brochure",
+      "source_url": "https://kurumacatalog.com/wp-content/uploads/2021/01/2005_Lotus_Elise_catalog.pdf"
+    },
+    {
+      "car": "ref-e11",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.2333336,
+      "reference": 4.4,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -3.787872727272734,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturerclaimedbothtransmissions",
+      "identity_note": {
+        "name": "Audi R8 4.2 FSI quattro",
+        "year": 2008,
+        "variant": "Type 42 coupe;USmanual reference",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": ""
+      },
+      "source_id": "e11-brochure",
+      "source_url": "https://xr793.com/wp-content/uploads/2024/01/2008-Audi-R8.pdf"
+    },
+    {
+      "car": "ref-e15",
+      "metric": "zero_100_kmh_s",
+      "simulation": 4.7166667,
+      "reference": 4.9,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -3.7414959183673546,
+      "within_bound": null,
+      "reference_status": "related_transmission_test",
+      "note": "Adjacent 2006 factoryreference; must not be automatically assigned to 2003 GT 4 launchcar. Launch/heritage or explicitly prefixed 2006 manual reference; do not merge adjacent revisions.",
+      "identity_note": {
+        "name": "Aston Martin DB9 Coupe",
+        "year": 2003,
+        "variant": "launchshowcar/initial 450 bhpmodel;production 2004 on",
+        "identity_status": "launch_year_match_production_reference_2004",
+        "notes": "GT4 labels the 2003 launch car. The 2006 owner manual is a separate adjacent reference and must not overwrite launch specifications."
+      },
+      "source_id": "e15-manual2006",
+      "source_url": "https://manualzz.com/doc/68803384/aston-martin-2006-db9-owner-manual"
+    },
+    {
+      "car": "ref-e14",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.666667,
+      "reference": 4.5,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": 3.7037111111111187,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturertrackclaim 2004 US factory product guide reference; not exact 2002 GT 4 specification.",
+      "identity_note": {
+        "name": "Mercedes-Benz SL55 AMG",
+        "year": 2002,
+        "variant": "R 230 retractablehardtop;GT 42002 and MC 32004",
+        "identity_status": "cross_game_family_match_market_year_differ",
+        "notes": "SL55 AMG family matches across games, but GT4 2002 European and MC3 2004 US identities are not exact year/market clones."
+      },
+      "source_id": "e14-mb2004",
+      "source_url": "https://benzbits.com/manuals/PG/2004/SL_00.pdf"
+    },
+    {
+      "car": "ref-a14",
+      "metric": "zero_60_mph_s",
+      "simulation": 4.941667,
+      "reference": 5.1,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -3.1045686274509765,
+      "within_bound": null,
+      "reference_status": "instrumented_test",
+      "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope.",
+      "identity_note": {
+        "name": "Cadillac CTS-V",
+        "year": 2004,
+        "variant": "LS6 six-speed sedan",
+        "identity_status": "catalog_exact_name",
+        "notes": "MC3 and MCLA filenames explicitly identify CTS-V 2004. The MCLA asset is ambient; its geometry identity does not imply playable physics or shared native tuning."
+      },
+      "source_id": "am_ctsv_test",
+      "source_url": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive"
+    },
+    {
+      "car": "gt4-nsx",
+      "metric": "zero_60_mph_s",
+      "simulation": 5.341667,
+      "reference": 5.2,
+      "unit": "s",
+      "delta": 0.141667,
+      "delta_pct": 2.7243653846153792,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_same_launch_model",
+      "note": "270hp5MT; periodtestcar labeled1990,retrospective identifies1991model. Launch/rollout notresolved.",
+      "identity_note": "GT41365kg matches OEM5MT, automatic1405kg252hp separate. Not NSX-R2002.",
+      "source_id": "nsx-cd-1990",
+      "source_url": "https://www.caranddriver.com/reviews/comparison-test/a15140663/porsche-911-carrera-4-cabriolet-vs-acura-nsx-chevrolet-corvette-zr-1-ferrari-348ts-lotus-esprit-turbo-se-archived-comparison-test/"
+    },
+    {
+      "car": "gt4-nsx",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 46.76062,
+      "reference": 47.8536,
+      "unit": "m",
+      "delta": -1.0929799999999972,
+      "delta_pct": -2.284007890733397,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_same_launch_model",
+      "note": "157ft; stockYokohamaA022; 2019publisherpage explicitlyreproducesSeptember1990results.",
+      "identity_note": "GT41365kg matches OEM5MT, automatic1405kg252hp separate. Not NSX-R2002.",
+      "source_id": "nsx-cd-1990",
+      "source_url": "https://www.caranddriver.com/reviews/comparison-test/a15140663/porsche-911-carrera-4-cabriolet-vs-acura-nsx-chevrolet-corvette-zr-1-ferrari-348ts-lotus-esprit-turbo-se-archived-comparison-test/"
+    },
+    {
+      "car": "ref-e04",
+      "metric": "zero_100_kmh_s",
+      "simulation": 3.8833334,
+      "reference": 3.8,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": 2.1929842105263164,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Manufacturer brochure claim",
+      "identity_note": {
+        "name": "Lamborghini Murcielago",
+        "year": 2004,
+        "variant": "6.2 V 12 coupe; first series",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": "The MCLA Murcielago Roadster uses a different body; it is not merged with the MC3 coupe."
+      },
+      "source_id": "e04-brochure",
+      "source_url": "https://www.luxosonline.pt/empresas/catalogos/4_lamborghini_int_murcielago.pdf"
+    },
+    {
+      "car": "ref-a01",
+      "metric": "brake_60_mph_0_m",
+      "simulation": 35.781403,
+      "reference": 36.576,
+      "unit": "m",
+      "upper_bound": false,
+      "delta_pct": -2.172454615048125,
+      "within_bound": null,
+      "reference_status": "related_transmission_test",
+      "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance.",
+      "identity_note": {
+        "name": "Ford Mustang GT",
+        "year": 2005,
+        "variant": "4.6L GT coupe, manual reference; automatic test retained separately",
+        "identity_status": "catalog_exact_name",
+        "notes": "MCLA names a 2005 Mustang GT convertible, a different body variant. Do not apply coupe mass or roll calibration to the convertible."
+      },
+      "source_id": "am_mustang_test",
+      "source_url": "https://www.motortrend.com/reviews/2005-ford-mustang-gt"
+    },
+    {
+      "car": "350z",
+      "metric": "zero_60_mph_s",
+      "simulation": 5.516667,
+      "reference": 5.4,
+      "unit": "s",
+      "delta": 0.11666699999999963,
+      "delta_pct": 2.1604999999999874,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_equipment_grade",
+      "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification.",
+      "identity_note": "GT4 asset has no US equipment grade. Service-manual dimensions apply Z33; mass and grade-specific brakes must not be assumed. MC3/MCLA350Z04 are related different-year counterparts.",
+      "source_id": "j01-cd-test",
+      "source_url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/"
+    },
+    {
+      "car": "ref-e08",
+      "metric": "zero_100_kmh_s",
+      "simulation": 7.2416673,
+      "reference": 7.4,
+      "unit": "s",
+      "upper_bound": false,
+      "delta_pct": -2.139631081081095,
+      "within_bound": null,
+      "reference_status": "manufacturer_claim",
+      "note": "Source 0\u201362 mph UK 2002 launch or explicitly dated US reference; asset market is unresolved.",
+      "identity_note": {
+        "name": "MINI Cooper S",
+        "year": 2002,
+        "variant": "R 53 three-door supercharged hatch manual",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": ""
+      },
+      "source_id": "e08-launch",
+      "source_url": "https://www.press.bmwgroup.com/united-kingdom/article/detail/T0016013EN_GB/mini-cooper-s?language=en_GB"
+    },
+    {
+      "car": "350z",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 49.35164,
+      "reference": 49.9872,
+      "unit": "m",
+      "delta": -0.6355599999999981,
+      "delta_pct": -1.271445490045453,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_equipment_grade",
+      "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification.",
+      "identity_note": "GT4 asset has no US equipment grade. Service-manual dimensions apply Z33; mass and grade-specific brakes must not be assumed. MC3/MCLA350Z04 are related different-year counterparts.",
+      "source_id": "j01-cd-test",
+      "source_url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/"
+    },
+    {
+      "car": "gt-viper",
+      "metric": "brake_70_mph_0_m",
+      "simulation": 53.5746,
+      "reference": 53.949600000000004,
+      "unit": "m",
+      "delta": -0.3750000000000071,
+      "delta_pct": -0.6950931980960084,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_year",
+      "note": "",
+      "identity_note": "GT native year unresolved; use1997 GTS first-hand test as relatedyear reference. Not corpus a10 SRT10 2003. Native1470kg is lighter than tested3375\u20133410lb.",
+      "source_id": "viper-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/"
+    },
+    {
+      "car": "gt-viper",
+      "metric": "zero_100_mph_s",
+      "simulation": 8.766667,
+      "reference": 8.8,
+      "unit": "s",
+      "delta": -0.03333300000000072,
+      "delta_pct": -0.37878409090910115,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_related_year",
+      "note": "",
+      "identity_note": "GT native year unresolved; use1997 GTS first-hand test as relatedyear reference. Not corpus a10 SRT10 2003. Native1470kg is lighter than tested3375\u20133410lb.",
+      "source_id": "viper-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/"
+    },
+    {
+      "car": "redline-gt500",
+      "metric": "brake_60_mph_0_m",
+      "simulation": 35.849167,
+      "reference": 35.9664,
+      "unit": "m",
+      "delta": -0.11723299999999881,
+      "delta_pct": -0.32595144356954986,
+      "upper_bound": false,
+      "within_bound": null,
+      "reference_status": "measured_exact_year_and_trim",
+      "note": "118ft; standardGoodyearEagleF1Supercar255/45R18front285/40R18rear.",
+      "identity_note": "The Redline addon explicitly names a 2008 GT500. Roush Stage 3 and FR500 variants are excluded. Coupe spring and stabilizer settings differ from convertible settings.",
+      "source_id": "gt500-mt-2008",
+      "source_url": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive"
+    },
+    {
+      "car": "ref-a14",
+      "metric": "brake_60_mph_0_m",
+      "simulation": 36.77739,
+      "reference": 36.8808,
+      "unit": "m",
+      "upper_bound": false,
+      "delta_pct": -0.2803897963167934,
+      "within_bound": null,
+      "reference_status": "instrumented_test",
+      "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope.",
+      "identity_note": {
+        "name": "Cadillac CTS-V",
+        "year": 2004,
+        "variant": "LS6 six-speed sedan",
+        "identity_status": "catalog_exact_name",
+        "notes": "MC3 and MCLA filenames explicitly identify CTS-V 2004. The MCLA asset is ambient; its geometry identity does not imply playable physics or shared native tuning."
+      },
+      "source_id": "am_ctsv_test",
+      "source_url": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive"
+    }
+  ],
+  "handling_comparisons": [
+    {
+      "car": "350z",
+      "diameter_ft": 300,
+      "reference_g": 0.88,
+      "source_id": "j01-cd-test",
+      "source_url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+      "status": "related_equipment_grade",
+      "note": "2003 US Track 6MT versus unspecified GT4 grade; exact 300-ft diameter reported.",
+      "simulation_g": 0.88788223,
+      "delta_pct": 0.8957079545454549
+    },
+    {
+      "car": "gt-viper",
+      "diameter_ft": 300,
+      "reference_g": 0.95,
+      "source_id": "viper-cd",
+      "source_url": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/",
+      "status": "related_year",
+      "note": "1997 GTS on 300-ft diameter; native asset year unresolved.",
+      "simulation_g": 0.95381296,
+      "delta_pct": 0.40136421052632265
+    },
+    {
+      "car": "redline-gt500",
+      "diameter_ft": 200,
+      "reference_g": 0.89,
+      "source_id": "gt500-mt-2008",
+      "source_url": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "status": "same_year_trim_method_qualified",
+      "note": "2008 coupe test reports average lateral acceleration; accessible table does not specify pad diameter. Both 200- and 300-ft simulation results retained; 200-ft chosen as a comparison convention, not a verified exact protocol match.",
+      "simulation_g": 0.89461285,
+      "delta_pct": 0.5182977528089827
+    },
+    {
+      "car": "ref-a01",
+      "diameter_ft": 200,
+      "reference_g": 0.84,
+      "source_id": "am_mustang_test",
+      "source_url": "https://www.motortrend.com/reviews/2005-ford-mustang-gt",
+      "status": "related_transmission",
+      "note": "Period automatic test versus manual profile; reported 200-ft skidpad.",
+      "simulation_g": 0.84593415,
+      "delta_pct": 0.7064464285714278
+    }
+  ],
+  "skidpad_measurements": [
+    {
+      "car": "350z",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.88636714,
+      "speed_at_peak_mps": 16.277115,
+      "radial_error_at_peak_m": 0.22268574,
+      "peak_tilt_deg": 2.6445649,
+      "accepted_windows": 77
+    },
+    {
+      "car": "350z",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.88788223,
+      "speed_at_peak_mps": 20.087858,
+      "radial_error_at_peak_m": 0.43538037,
+      "peak_tilt_deg": 2.567045,
+      "accepted_windows": 80
+    },
+    {
+      "car": "fr2-cobra",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.95481914,
+      "speed_at_peak_mps": 17.058237,
+      "radial_error_at_peak_m": 0.34285456,
+      "peak_tilt_deg": 3.603805,
+      "accepted_windows": 85
+    },
+    {
+      "car": "fr2-cobra",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.95545095,
+      "speed_at_peak_mps": 20.894556,
+      "radial_error_at_peak_m": 0.5485528,
+      "peak_tilt_deg": 3.6027725,
+      "accepted_windows": 90
+    },
+    {
+      "car": "fr2-fr500",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0641768,
+      "speed_at_peak_mps": 17.997778,
+      "radial_error_at_peak_m": 0.40216604,
+      "peak_tilt_deg": 2.2929425,
+      "accepted_windows": 99
+    },
+    {
+      "car": "fr2-fr500",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0648926,
+      "speed_at_peak_mps": 22.082582,
+      "radial_error_at_peak_m": 0.6609478,
+      "peak_tilt_deg": 2.2927718,
+      "accepted_windows": 103
+    },
+    {
+      "car": "gt-rx7",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0080286,
+      "speed_at_peak_mps": 17.531136,
+      "radial_error_at_peak_m": 0.41163152,
+      "peak_tilt_deg": 2.3922017,
+      "accepted_windows": 92
+    },
+    {
+      "car": "gt-rx7",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.008298,
+      "speed_at_peak_mps": 21.49991,
+      "radial_error_at_peak_m": 0.65453464,
+      "peak_tilt_deg": 2.3193374,
+      "accepted_windows": 96
+    },
+    {
+      "car": "gt-viper",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9525694,
+      "speed_at_peak_mps": 17.01141,
+      "radial_error_at_peak_m": 0.33628544,
+      "peak_tilt_deg": 2.2601871,
+      "accepted_windows": 84
+    },
+    {
+      "car": "gt-viper",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.95381296,
+      "speed_at_peak_mps": 20.848667,
+      "radial_error_at_peak_m": 0.5504146,
+      "peak_tilt_deg": 2.2576745,
+      "accepted_windows": 88
+    },
+    {
+      "car": "gt4-m3",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.1009991,
+      "speed_at_peak_mps": 18.329826,
+      "radial_error_at_peak_m": 0.43491256,
+      "peak_tilt_deg": 2.216555,
+      "accepted_windows": 105
+    },
+    {
+      "car": "gt4-m3",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.1017202,
+      "speed_at_peak_mps": 22.47484,
+      "radial_error_at_peak_m": 0.6992251,
+      "peak_tilt_deg": 2.216555,
+      "accepted_windows": 108
+    },
+    {
+      "car": "gt4-nsx",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9848746,
+      "speed_at_peak_mps": 17.319805,
+      "radial_error_at_peak_m": 0.36957404,
+      "peak_tilt_deg": 2.5652142,
+      "accepted_windows": 89
+    },
+    {
+      "car": "gt4-nsx",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.9861147,
+      "speed_at_peak_mps": 21.187979,
+      "radial_error_at_peak_m": 0.5795867,
+      "peak_tilt_deg": 2.5616255,
+      "accepted_windows": 94
+    },
+    {
+      "car": "mc3-skyline",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0421281,
+      "speed_at_peak_mps": 17.81363,
+      "radial_error_at_peak_m": 0.38057974,
+      "peak_tilt_deg": 2.8057482,
+      "accepted_windows": 97
+    },
+    {
+      "car": "mc3-skyline",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0424721,
+      "speed_at_peak_mps": 21.790802,
+      "radial_error_at_peak_m": 0.6102764,
+      "peak_tilt_deg": 2.8041432,
+      "accepted_windows": 101
+    },
+    {
+      "car": "mc3-supra",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0099638,
+      "speed_at_peak_mps": 17.523277,
+      "radial_error_at_peak_m": 0.37596175,
+      "peak_tilt_deg": 3.3516438,
+      "accepted_windows": 92
+    },
+    {
+      "car": "mc3-supra",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.010749,
+      "speed_at_peak_mps": 21.484709,
+      "radial_error_at_peak_m": 0.6138022,
+      "peak_tilt_deg": 3.3510597,
+      "accepted_windows": 97
+    },
+    {
+      "car": "mcla-evo",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0527676,
+      "speed_at_peak_mps": 17.89802,
+      "radial_error_at_peak_m": 0.39204744,
+      "peak_tilt_deg": 3.0209649,
+      "accepted_windows": 98
+    },
+    {
+      "car": "mcla-evo",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0507494,
+      "speed_at_peak_mps": 21.891989,
+      "radial_error_at_peak_m": 0.6512029,
+      "peak_tilt_deg": 2.908653,
+      "accepted_windows": 102
+    },
+    {
+      "car": "mcla-skyline",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0419098,
+      "speed_at_peak_mps": 17.812796,
+      "radial_error_at_peak_m": 0.38032252,
+      "peak_tilt_deg": 2.9806492,
+      "accepted_windows": 97
+    },
+    {
+      "car": "mcla-skyline",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0423952,
+      "speed_at_peak_mps": 21.793737,
+      "radial_error_at_peak_m": 0.61017984,
+      "peak_tilt_deg": 2.9792042,
+      "accepted_windows": 101
+    },
+    {
+      "car": "redline-911",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.91750777,
+      "speed_at_peak_mps": 16.724337,
+      "radial_error_at_peak_m": 0.44285837,
+      "peak_tilt_deg": 4.1043186,
+      "accepted_windows": 82
+    },
+    {
+      "car": "redline-911",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.91824687,
+      "speed_at_peak_mps": 20.469324,
+      "radial_error_at_peak_m": 0.5755262,
+      "peak_tilt_deg": 3.9952261,
+      "accepted_windows": 85
+    },
+    {
+      "car": "redline-gt500",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.89461285,
+      "speed_at_peak_mps": 16.514761,
+      "radial_error_at_peak_m": 0.28415737,
+      "peak_tilt_deg": 3.0148027,
+      "accepted_windows": 77
+    },
+    {
+      "car": "redline-gt500",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.89634347,
+      "speed_at_peak_mps": 20.240572,
+      "radial_error_at_peak_m": 0.46025902,
+      "peak_tilt_deg": 3.080641,
+      "accepted_windows": 81
+    },
+    {
+      "car": "ref-a01",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.84593415,
+      "speed_at_peak_mps": 15.997287,
+      "radial_error_at_peak_m": 0.22119075,
+      "peak_tilt_deg": 2.6600626,
+      "accepted_windows": 71
+    },
+    {
+      "car": "ref-a01",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.84756386,
+      "speed_at_peak_mps": 19.619337,
+      "radial_error_at_peak_m": 0.4122221,
+      "peak_tilt_deg": 2.6280818,
+      "accepted_windows": 75
+    },
+    {
+      "car": "ref-a02",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0473224,
+      "speed_at_peak_mps": 17.851692,
+      "radial_error_at_peak_m": 0.42833945,
+      "peak_tilt_deg": 2.3599937,
+      "accepted_windows": 97
+    },
+    {
+      "car": "ref-a02",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0478889,
+      "speed_at_peak_mps": 21.91311,
+      "radial_error_at_peak_m": 0.6970638,
+      "peak_tilt_deg": 2.3591642,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-a04",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9409926,
+      "speed_at_peak_mps": 16.871151,
+      "radial_error_at_peak_m": 0.23389082,
+      "peak_tilt_deg": 3.5144649,
+      "accepted_windows": 84
+    },
+    {
+      "car": "ref-a04",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.94179136,
+      "speed_at_peak_mps": 20.724304,
+      "radial_error_at_peak_m": 0.4678443,
+      "peak_tilt_deg": 3.3934991,
+      "accepted_windows": 89
+    },
+    {
+      "car": "ref-a05",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.8578928,
+      "speed_at_peak_mps": 16.134062,
+      "radial_error_at_peak_m": 0.14443095,
+      "peak_tilt_deg": 4.9807487,
+      "accepted_windows": 74
+    },
+    {
+      "car": "ref-a05",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.8554318,
+      "speed_at_peak_mps": 19.73365,
+      "radial_error_at_peak_m": 0.4520249,
+      "peak_tilt_deg": 5.098928,
+      "accepted_windows": 76
+    },
+    {
+      "car": "ref-a06",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9957748,
+      "speed_at_peak_mps": 17.444586,
+      "radial_error_at_peak_m": 0.4379916,
+      "peak_tilt_deg": 3.0469036,
+      "accepted_windows": 93
+    },
+    {
+      "car": "ref-a06",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.99082375,
+      "speed_at_peak_mps": 21.32773,
+      "radial_error_at_peak_m": 0.66710687,
+      "peak_tilt_deg": 3.077653,
+      "accepted_windows": 96
+    },
+    {
+      "car": "ref-a07",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0865207,
+      "speed_at_peak_mps": 18.203259,
+      "radial_error_at_peak_m": 0.45284384,
+      "peak_tilt_deg": 2.0224564,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-a07",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0885221,
+      "speed_at_peak_mps": 22.31308,
+      "radial_error_at_peak_m": 0.7142296,
+      "peak_tilt_deg": 2.0177093,
+      "accepted_windows": 105
+    },
+    {
+      "car": "ref-a09",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.1056145,
+      "speed_at_peak_mps": 18.345272,
+      "radial_error_at_peak_m": 0.45429274,
+      "peak_tilt_deg": 1.9744705,
+      "accepted_windows": 104
+    },
+    {
+      "car": "ref-a09",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.1073903,
+      "speed_at_peak_mps": 22.48099,
+      "radial_error_at_peak_m": 0.7260887,
+      "peak_tilt_deg": 1.9707997,
+      "accepted_windows": 108
+    },
+    {
+      "car": "ref-a11",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.8782671,
+      "speed_at_peak_mps": 16.28046,
+      "radial_error_at_peak_m": 0.09436062,
+      "peak_tilt_deg": 4.8013034,
+      "accepted_windows": 76
+    },
+    {
+      "car": "ref-a11",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.8765833,
+      "speed_at_peak_mps": 20.004662,
+      "radial_error_at_peak_m": 0.3549705,
+      "peak_tilt_deg": 4.8301854,
+      "accepted_windows": 80
+    },
+    {
+      "car": "ref-a12",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.93782926,
+      "speed_at_peak_mps": 16.836245,
+      "radial_error_at_peak_m": 0.16185758,
+      "peak_tilt_deg": 3.917167,
+      "accepted_windows": 84
+    },
+    {
+      "car": "ref-a12",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.9365343,
+      "speed_at_peak_mps": 20.667109,
+      "radial_error_at_peak_m": 0.4151538,
+      "peak_tilt_deg": 3.9040973,
+      "accepted_windows": 87
+    },
+    {
+      "car": "ref-a13",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.81360954,
+      "speed_at_peak_mps": 15.712356,
+      "radial_error_at_peak_m": 0.12796725,
+      "peak_tilt_deg": 6.4726295,
+      "accepted_windows": 68
+    },
+    {
+      "car": "ref-a13",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.8104711,
+      "speed_at_peak_mps": 19.317028,
+      "radial_error_at_peak_m": 0.5094989,
+      "peak_tilt_deg": 6.7295146,
+      "accepted_windows": 71
+    },
+    {
+      "car": "ref-a14",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.034394,
+      "speed_at_peak_mps": 17.711132,
+      "radial_error_at_peak_m": 0.308734,
+      "peak_tilt_deg": 2.9862266,
+      "accepted_windows": 96
+    },
+    {
+      "car": "ref-a14",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0401667,
+      "speed_at_peak_mps": 21.559519,
+      "radial_error_at_peak_m": 0.5598751,
+      "peak_tilt_deg": 3.0112944,
+      "accepted_windows": 100
+    },
+    {
+      "car": "ref-a15",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9545111,
+      "speed_at_peak_mps": 17.023094,
+      "radial_error_at_peak_m": 0.26492092,
+      "peak_tilt_deg": 4.0801516,
+      "accepted_windows": 85
+    },
+    {
+      "car": "ref-a15",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.958458,
+      "speed_at_peak_mps": 20.666605,
+      "radial_error_at_peak_m": 0.4785082,
+      "peak_tilt_deg": 4.1019797,
+      "accepted_windows": 90
+    },
+    {
+      "car": "ref-a16",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9359168,
+      "speed_at_peak_mps": 16.884354,
+      "radial_error_at_peak_m": 0.31479803,
+      "peak_tilt_deg": 4.0386147,
+      "accepted_windows": 83
+    },
+    {
+      "car": "ref-a16",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.93696535,
+      "speed_at_peak_mps": 20.690886,
+      "radial_error_at_peak_m": 0.5156065,
+      "peak_tilt_deg": 3.9787717,
+      "accepted_windows": 88
+    },
+    {
+      "car": "ref-e02",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.96980584,
+      "speed_at_peak_mps": 17.2086,
+      "radial_error_at_peak_m": 0.41461945,
+      "peak_tilt_deg": 2.8698988,
+      "accepted_windows": 87
+    },
+    {
+      "car": "ref-e02",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.9827663,
+      "speed_at_peak_mps": 20.961803,
+      "radial_error_at_peak_m": 0.6206179,
+      "peak_tilt_deg": 2.9792042,
+      "accepted_windows": 90
+    },
+    {
+      "car": "ref-e03",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0763749,
+      "speed_at_peak_mps": 18.139467,
+      "radial_error_at_peak_m": 0.4808317,
+      "peak_tilt_deg": 1.8602531,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-e03",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0755045,
+      "speed_at_peak_mps": 22.231556,
+      "radial_error_at_peak_m": 0.7679449,
+      "peak_tilt_deg": 1.8565673,
+      "accepted_windows": 104
+    },
+    {
+      "car": "ref-e04",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0877168,
+      "speed_at_peak_mps": 18.247337,
+      "radial_error_at_peak_m": 0.47841498,
+      "peak_tilt_deg": 1.7141783,
+      "accepted_windows": 103
+    },
+    {
+      "car": "ref-e04",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0877901,
+      "speed_at_peak_mps": 22.299139,
+      "radial_error_at_peak_m": 0.7221934,
+      "peak_tilt_deg": 1.7115506,
+      "accepted_windows": 105
+    },
+    {
+      "car": "ref-e08",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9778799,
+      "speed_at_peak_mps": 17.243677,
+      "radial_error_at_peak_m": 0.37743697,
+      "peak_tilt_deg": 2.9511461,
+      "accepted_windows": 90
+    },
+    {
+      "car": "ref-e08",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.97316813,
+      "speed_at_peak_mps": 21.166464,
+      "radial_error_at_peak_m": 0.7361214,
+      "peak_tilt_deg": 3.0025704,
+      "accepted_windows": 93
+    },
+    {
+      "car": "ref-e09",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.8698902,
+      "speed_at_peak_mps": 16.328768,
+      "radial_error_at_peak_m": 0.45805448,
+      "peak_tilt_deg": 3.919166,
+      "accepted_windows": 77
+    },
+    {
+      "car": "ref-e09",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.86379516,
+      "speed_at_peak_mps": 19.985704,
+      "radial_error_at_peak_m": 0.82231635,
+      "peak_tilt_deg": 3.925756,
+      "accepted_windows": 79
+    },
+    {
+      "car": "ref-e10",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0325229,
+      "speed_at_peak_mps": 17.74463,
+      "radial_error_at_peak_m": 0.43325627,
+      "peak_tilt_deg": 2.8538935,
+      "accepted_windows": 97
+    },
+    {
+      "car": "ref-e10",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0303223,
+      "speed_at_peak_mps": 21.68299,
+      "radial_error_at_peak_m": 0.6862663,
+      "peak_tilt_deg": 2.8451002,
+      "accepted_windows": 100
+    },
+    {
+      "car": "ref-e11",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.1061519,
+      "speed_at_peak_mps": 18.37555,
+      "radial_error_at_peak_m": 0.48610142,
+      "peak_tilt_deg": 2.0067186,
+      "accepted_windows": 105
+    },
+    {
+      "car": "ref-e11",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.1068944,
+      "speed_at_peak_mps": 22.504967,
+      "radial_error_at_peak_m": 0.7559557,
+      "peak_tilt_deg": 2.0053527,
+      "accepted_windows": 109
+    },
+    {
+      "car": "ref-e12",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0691876,
+      "speed_at_peak_mps": 18.038656,
+      "radial_error_at_peak_m": 0.44048366,
+      "peak_tilt_deg": 2.4759114,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-e12",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0676019,
+      "speed_at_peak_mps": 22.07625,
+      "radial_error_at_peak_m": 0.71178526,
+      "peak_tilt_deg": 2.469975,
+      "accepted_windows": 104
+    },
+    {
+      "car": "ref-e13",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.1048863,
+      "speed_at_peak_mps": 18.353172,
+      "radial_error_at_peak_m": 0.57137936,
+      "peak_tilt_deg": 1.9897748,
+      "accepted_windows": 105
+    },
+    {
+      "car": "ref-e13",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.1049626,
+      "speed_at_peak_mps": 22.503862,
+      "radial_error_at_peak_m": 0.8589246,
+      "peak_tilt_deg": 1.8711622,
+      "accepted_windows": 109
+    },
+    {
+      "car": "ref-j04",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0448253,
+      "speed_at_peak_mps": 17.854914,
+      "radial_error_at_peak_m": 0.4748691,
+      "peak_tilt_deg": 2.3105445,
+      "accepted_windows": 98
+    },
+    {
+      "car": "ref-j04",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0450329,
+      "speed_at_peak_mps": 21.911394,
+      "radial_error_at_peak_m": 0.7492639,
+      "peak_tilt_deg": 2.3104596,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-j07",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0284828,
+      "speed_at_peak_mps": 17.705591,
+      "radial_error_at_peak_m": 0.4524571,
+      "peak_tilt_deg": 2.2700374,
+      "accepted_windows": 95
+    },
+    {
+      "car": "ref-j07",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0285406,
+      "speed_at_peak_mps": 21.679878,
+      "radial_error_at_peak_m": 0.70274043,
+      "peak_tilt_deg": 2.193031,
+      "accepted_windows": 99
+    },
+    {
+      "car": "ref-j11",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0501574,
+      "speed_at_peak_mps": 17.878632,
+      "radial_error_at_peak_m": 0.4953578,
+      "peak_tilt_deg": 2.7599566,
+      "accepted_windows": 99
+    },
+    {
+      "car": "ref-j11",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0482892,
+      "speed_at_peak_mps": 21.903912,
+      "radial_error_at_peak_m": 0.7187398,
+      "peak_tilt_deg": 2.7212448,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-j12",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0662711,
+      "speed_at_peak_mps": 18.056824,
+      "radial_error_at_peak_m": 0.48008856,
+      "peak_tilt_deg": 2.4068027,
+      "accepted_windows": 100
+    },
+    {
+      "car": "ref-j12",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0733674,
+      "speed_at_peak_mps": 22.17349,
+      "radial_error_at_peak_m": 0.8177007,
+      "peak_tilt_deg": 2.5158286,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-j16",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.89903146,
+      "speed_at_peak_mps": 16.549795,
+      "radial_error_at_peak_m": 0.4016492,
+      "peak_tilt_deg": 3.7436604,
+      "accepted_windows": 80
+    },
+    {
+      "car": "ref-j16",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.8982655,
+      "speed_at_peak_mps": 20.24515,
+      "radial_error_at_peak_m": 0.6104384,
+      "peak_tilt_deg": 3.7371168,
+      "accepted_windows": 84
+    },
+    {
+      "car": "ref-a08",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0532104,
+      "speed_at_peak_mps": 17.939304,
+      "radial_error_at_peak_m": 0.4079974,
+      "peak_tilt_deg": 2.5814917,
+      "accepted_windows": 98
+    },
+    {
+      "car": "ref-a08",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0549799,
+      "speed_at_peak_mps": 21.980953,
+      "radial_error_at_peak_m": 0.6360458,
+      "peak_tilt_deg": 2.6684382,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-a10",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0602126,
+      "speed_at_peak_mps": 18.016798,
+      "radial_error_at_peak_m": 0.49220017,
+      "peak_tilt_deg": 2.266845,
+      "accepted_windows": 99
+    },
+    {
+      "car": "ref-a10",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0611767,
+      "speed_at_peak_mps": 22.077766,
+      "radial_error_at_peak_m": 0.75106686,
+      "peak_tilt_deg": 2.2617452,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-e05",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.94668967,
+      "speed_at_peak_mps": 16.97522,
+      "radial_error_at_peak_m": 0.36436564,
+      "peak_tilt_deg": 2.4492052,
+      "accepted_windows": 84
+    },
+    {
+      "car": "ref-e05",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.9472989,
+      "speed_at_peak_mps": 20.828997,
+      "radial_error_at_peak_m": 0.59730786,
+      "peak_tilt_deg": 2.4489653,
+      "accepted_windows": 87
+    },
+    {
+      "car": "ref-e07",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0440007,
+      "speed_at_peak_mps": 17.817173,
+      "radial_error_at_peak_m": 0.3686904,
+      "peak_tilt_deg": 2.5266194,
+      "accepted_windows": 96
+    },
+    {
+      "car": "ref-e07",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0453392,
+      "speed_at_peak_mps": 21.870619,
+      "radial_error_at_peak_m": 0.6266989,
+      "peak_tilt_deg": 2.5284781,
+      "accepted_windows": 100
+    },
+    {
+      "car": "ref-e14",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0257381,
+      "speed_at_peak_mps": 17.671253,
+      "radial_error_at_peak_m": 0.41947174,
+      "peak_tilt_deg": 2.5199485,
+      "accepted_windows": 94
+    },
+    {
+      "car": "ref-e14",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0267798,
+      "speed_at_peak_mps": 21.67691,
+      "radial_error_at_peak_m": 0.6759093,
+      "peak_tilt_deg": 2.5206473,
+      "accepted_windows": 98
+    },
+    {
+      "car": "ref-e15",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0467488,
+      "speed_at_peak_mps": 17.875143,
+      "radial_error_at_peak_m": 0.41771126,
+      "peak_tilt_deg": 2.1964197,
+      "accepted_windows": 97
+    },
+    {
+      "car": "ref-e15",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0485368,
+      "speed_at_peak_mps": 21.903172,
+      "radial_error_at_peak_m": 0.65631115,
+      "peak_tilt_deg": 2.2084167,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-e16",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0348939,
+      "speed_at_peak_mps": 17.771717,
+      "radial_error_at_peak_m": 0.43551356,
+      "peak_tilt_deg": 1.8307729,
+      "accepted_windows": 95
+    },
+    {
+      "car": "ref-e16",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.037417,
+      "speed_at_peak_mps": 21.773252,
+      "radial_error_at_peak_m": 0.67351633,
+      "peak_tilt_deg": 1.8284197,
+      "accepted_windows": 98
+    },
+    {
+      "car": "ref-e17",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0911653,
+      "speed_at_peak_mps": 18.241755,
+      "radial_error_at_peak_m": 0.4497722,
+      "peak_tilt_deg": 1.7858601,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-e17",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0926868,
+      "speed_at_peak_mps": 22.343456,
+      "radial_error_at_peak_m": 0.7053797,
+      "peak_tilt_deg": 1.8831517,
+      "accepted_windows": 105
+    },
+    {
+      "car": "ref-j03",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0093693,
+      "speed_at_peak_mps": 17.54395,
+      "radial_error_at_peak_m": 0.4105589,
+      "peak_tilt_deg": 2.397922,
+      "accepted_windows": 93
+    },
+    {
+      "car": "ref-j03",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.009981,
+      "speed_at_peak_mps": 21.498375,
+      "radial_error_at_peak_m": 0.6513442,
+      "peak_tilt_deg": 2.397759,
+      "accepted_windows": 96
+    },
+    {
+      "car": "ref-j05",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.030234,
+      "speed_at_peak_mps": 17.588003,
+      "radial_error_at_peak_m": 0.38162506,
+      "peak_tilt_deg": 2.329274,
+      "accepted_windows": 97
+    },
+    {
+      "car": "ref-j05",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0301577,
+      "speed_at_peak_mps": 21.679506,
+      "radial_error_at_peak_m": 0.6314005,
+      "peak_tilt_deg": 2.2904658,
+      "accepted_windows": 100
+    },
+    {
+      "car": "ref-j06",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0838734,
+      "speed_at_peak_mps": 18.173079,
+      "radial_error_at_peak_m": 0.48727742,
+      "peak_tilt_deg": 2.3513527,
+      "accepted_windows": 102
+    },
+    {
+      "car": "ref-j06",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0851785,
+      "speed_at_peak_mps": 22.288942,
+      "radial_error_at_peak_m": 0.76016146,
+      "peak_tilt_deg": 2.2398322,
+      "accepted_windows": 106
+    },
+    {
+      "car": "ref-j08",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9523678,
+      "speed_at_peak_mps": 17.024529,
+      "radial_error_at_peak_m": 0.41115448,
+      "peak_tilt_deg": 2.34677,
+      "accepted_windows": 87
+    },
+    {
+      "car": "ref-j08",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.9522925,
+      "speed_at_peak_mps": 20.888231,
+      "radial_error_at_peak_m": 0.6517512,
+      "peak_tilt_deg": 2.3442664,
+      "accepted_windows": 90
+    },
+    {
+      "car": "ref-j10",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0283644,
+      "speed_at_peak_mps": 17.702654,
+      "radial_error_at_peak_m": 0.4564338,
+      "peak_tilt_deg": 2.6804414,
+      "accepted_windows": 95
+    },
+    {
+      "car": "ref-j10",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0267884,
+      "speed_at_peak_mps": 21.697441,
+      "radial_error_at_peak_m": 0.7320496,
+      "peak_tilt_deg": 2.571844,
+      "accepted_windows": 99
+    },
+    {
+      "car": "ref-j13",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0524591,
+      "speed_at_peak_mps": 17.823048,
+      "radial_error_at_peak_m": 0.45205027,
+      "peak_tilt_deg": 2.7246952,
+      "accepted_windows": 98
+    },
+    {
+      "car": "ref-j13",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0486476,
+      "speed_at_peak_mps": 21.927637,
+      "radial_error_at_peak_m": 0.7308522,
+      "peak_tilt_deg": 2.6128438,
+      "accepted_windows": 101
+    },
+    {
+      "car": "ref-j14",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.9997461,
+      "speed_at_peak_mps": 17.46903,
+      "radial_error_at_peak_m": 0.44591635,
+      "peak_tilt_deg": 2.3638883,
+      "accepted_windows": 92
+    },
+    {
+      "car": "ref-j14",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0001466,
+      "speed_at_peak_mps": 21.422844,
+      "radial_error_at_peak_m": 0.6978395,
+      "peak_tilt_deg": 2.361983,
+      "accepted_windows": 95
+    },
+    {
+      "car": "ref-j15",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 0.98498875,
+      "speed_at_peak_mps": 17.328426,
+      "radial_error_at_peak_m": 0.41103145,
+      "peak_tilt_deg": 2.2019374,
+      "accepted_windows": 91
+    },
+    {
+      "car": "ref-j15",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 0.98482746,
+      "speed_at_peak_mps": 21.249367,
+      "radial_error_at_peak_m": 0.65608716,
+      "peak_tilt_deg": 2.197667,
+      "accepted_windows": 94
+    },
+    {
+      "car": "ref-j17",
+      "diameter_ft": 200.0,
+      "peak_sustained_g": 1.0164396,
+      "speed_at_peak_mps": 17.608166,
+      "radial_error_at_peak_m": 0.39646217,
+      "peak_tilt_deg": 2.6781034,
+      "accepted_windows": 94
+    },
+    {
+      "car": "ref-j17",
+      "diameter_ft": 300.0,
+      "peak_sustained_g": 1.0117961,
+      "speed_at_peak_mps": 21.588207,
+      "radial_error_at_peak_m": 0.76744014,
+      "peak_tilt_deg": 2.5641458,
+      "accepted_windows": 98
+    }
+  ],
+  "new_model_maximum_skidpad_tilt_deg": 2.7246952,
+  "minimum_circle_accepted_windows": 68
+}

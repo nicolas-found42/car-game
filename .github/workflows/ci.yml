@@ -72,6 +72,8 @@ jobs:
         run: python3 -m compileall -q tools
       - name: Recorder health and provenance tooling tests
         run: python3 -m unittest discover -s tools -p 'test_*provenance*.py' && python3 tools/test_recorder_health.py && python3 tools/test_codelimit.py
+      - name: Searchable diagnosis tooling tests
+        run: python3 tools/test_diagnosis.py
       - name: Python asset tests when source collection is present
         run: |
           if [ -d ../carmodels ]; then

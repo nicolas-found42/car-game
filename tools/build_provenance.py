@@ -20,7 +20,7 @@ def command(root, arguments):
 def source_paths(root):
     paths = list((root / 'src').rglob('*.rs'))
     paths += [root / name for name in ('Cargo.toml', 'Cargo.lock', 'build.rs',
-              'rust-toolchain', 'rust-toolchain.toml', 'assets/cars/roster.json')
+              'rust-toolchain', 'rust-toolchain.toml', 'assets/cars/roster.json', 'assets/cars/physics.json')
               if (root / name).is_file()]
     for path in paths:
         if path.is_symlink() or any(parent.is_symlink() for parent in path.parents if parent != root):
@@ -33,7 +33,7 @@ def snapshot(root, destination):
                              'build_source/' + path.relative_to(root).as_posix())
                  for path in source_paths(root)]
     patch = command(root, ['git', 'diff', '--binary', 'HEAD', '--', 'src', 'Cargo.toml',
-                           'Cargo.lock', 'build.rs', 'assets/cars/roster.json']).encode()
+                           'Cargo.lock', 'build.rs', 'assets/cars/roster.json', 'assets/cars/physics.json']).encode()
     inventory.append(store_bytes(destination, patch, 'binary_build_snapshot', 'build_source/dirty.patch'))
     return inventory
 

@@ -1,0 +1,317 @@
+{
+  "repaired_cars": [
+    "exp-161"
+  ],
+  "all_other_profiles_exact": 299,
+  "all_geometry_exact": 300,
+  "reason": "Native zero torque/RPM placeholders were imported as usable values despite nonzero rated power. Raw native zeros retained; explicit minimum-consistent torque estimate substitutes only missing fields.",
+  "before": {
+    "id": "exp-161",
+    "corpus_reference": null,
+    "parameters": {
+      "power_rpm": 6000,
+      "torque_rpm": 0,
+      "redline_rpm": 6600,
+      "gears": [
+        3.3,
+        2.0,
+        1.4,
+        1.0,
+        0.8
+      ],
+      "final_drive": 3.8,
+      "front_weight": 0.53,
+      "front_drive": 0.0,
+      "cg_height_m": 0.4230267715454102,
+      "ride_frequency_hz": [
+        1.7,
+        1.8
+      ],
+      "damping_ratio": 0.68,
+      "anti_roll_fraction": [
+        0.2,
+        0.2
+      ],
+      "tire_mu": 1.05,
+      "lateral_mu": 0.93,
+      "cornering_per_load": [
+        15.0,
+        15.5
+      ],
+      "drag_area_m2": 0.5722759043812752,
+      "rolling_coefficient": 0.015,
+      "driveline_efficiency": 0.87,
+      "shift_seconds": 0.3,
+      "brake_decel_mps2": 9.5,
+      "max_steer_rad": 0.56,
+      "steer_speed_falloff": 0.06,
+      "speed_governor_mps": null,
+      "mass_kg": 980,
+      "power_kw": 163.30827187602,
+      "torque_nm": 0.0
+    },
+    "evidence": {
+      "power_rpm": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "torque_rpm": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "redline_rpm": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "gears": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "final_drive": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "front_weight": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "front_drive": {
+        "status": "game_proxy",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161",
+        "basis": "Native FR layout establishes the driven axle."
+      },
+      "cg_height_m": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "ride_frequency_hz": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "damping_ratio": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "anti_roll_fraction": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "tire_mu": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "lateral_mu": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "cornering_per_load": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "drag_area_m2": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "rolling_coefficient": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "driveline_efficiency": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "shift_seconds": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "brake_decel_mps2": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "max_steer_rad": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "steer_speed_falloff": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "speed_governor_mps": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "mass_kg": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "power_kw": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "torque_nm": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      }
+    },
+    "applicability": "ConceptCar, source GT_SIMULATION__DCPHN. Game-derived proxy; unmatched market/load/tires. Native display outputs and simple stock gearbox only; tire, chassis, delivery and differential behavior estimated."
+  },
+  "after": {
+    "id": "exp-161",
+    "corpus_reference": null,
+    "parameters": {
+      "power_rpm": 6000,
+      "torque_rpm": 6000,
+      "redline_rpm": 7000,
+      "gears": [
+        3.3,
+        2.0,
+        1.4,
+        1.0,
+        0.8
+      ],
+      "final_drive": 3.8,
+      "front_weight": 0.53,
+      "front_drive": 0.0,
+      "cg_height_m": 0.4230267715454102,
+      "ride_frequency_hz": [
+        1.7,
+        1.8
+      ],
+      "damping_ratio": 0.68,
+      "anti_roll_fraction": [
+        0.2,
+        0.2
+      ],
+      "tire_mu": 1.05,
+      "lateral_mu": 0.93,
+      "cornering_per_load": [
+        15.0,
+        15.5
+      ],
+      "drag_area_m2": 0.5722759043812752,
+      "rolling_coefficient": 0.015,
+      "driveline_efficiency": 0.87,
+      "shift_seconds": 0.3,
+      "brake_decel_mps2": 9.5,
+      "max_steer_rad": 0.56,
+      "steer_speed_falloff": 0.06,
+      "speed_governor_mps": null,
+      "mass_kg": 980,
+      "power_kw": 163.30827187602,
+      "torque_nm": 259.91319845014374
+    },
+    "evidence": {
+      "power_rpm": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "torque_rpm": {
+        "status": "estimate",
+        "basis": "Native zero is a missing placeholder. Minimum torque consistent with rated power at power RPM, with coincident torque/power peaks, is a declared fallback; not a recovered native torque curve."
+      },
+      "redline_rpm": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "gears": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "final_drive": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "front_weight": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "front_drive": {
+        "status": "game_proxy",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161",
+        "basis": "Native FR layout establishes the driven axle."
+      },
+      "cg_height_m": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "ride_frequency_hz": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "damping_ratio": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "anti_roll_fraction": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "tire_mu": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "lateral_mu": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "cornering_per_load": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "drag_area_m2": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "rolling_coefficient": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "driveline_efficiency": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "shift_seconds": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "brake_decel_mps2": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "max_steer_rad": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "steer_speed_falloff": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "speed_governor_mps": {
+        "status": "estimate",
+        "basis": "Shared reduced-order prior fixed before expanded scenario testing; no matched real-world measurement."
+      },
+      "mass_kg": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "power_kw": {
+        "status": "game_proxy",
+        "basis": "Decoded native stock display/specification; conversion and exclusions in native-interpretation.md. A reduced-order proxy, not a recovered game engine or independently verified real car.",
+        "source": "docs/verification/fleet-300/native-specifications.json#exp-161"
+      },
+      "torque_nm": {
+        "status": "estimate",
+        "basis": "Native zero is a missing placeholder. Minimum torque consistent with rated power at power RPM, with coincident torque/power peaks, is a declared fallback; not a recovered native torque curve."
+      }
+    },
+    "applicability": "ConceptCar, source GT_SIMULATION__DCPHN. Game-derived proxy; unmatched market/load/tires. Native display outputs and simple stock gearbox only; tire, chassis, delivery and differential behavior estimated."
+  },
+  "physics_sha256": "d5f5bbe563066e90c135139bff2d8c2e0a8f207bbe123e3929e0ed076779f818"
+}

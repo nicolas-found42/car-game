@@ -2,11 +2,15 @@
 //!
 //! Every run writes to `artifacts/runs/<id>/`. The directory is append-only from the
 //! caller's perspective; a run never rewrites another run's evidence.
+mod automatic;
+pub mod decision;
 mod health;
+pub(crate) use automatic::observe_clocks;
 mod history;
 mod incident;
 mod logging;
 mod recording;
+mod windows;
 pub(crate) use recording::bounded_json;
 mod settings;
 mod shutdown;
@@ -15,6 +19,7 @@ pub(crate) use shutdown::poll_lifecycle;
 mod writer;
 pub use health::RecorderError;
 pub use recording::EvidenceStream;
+pub(crate) use settings::metadata_limit;
 pub use settings::{RecorderConfig, RecorderFault, RecorderFaultStage};
 
 use bevy::{
@@ -175,6 +180,8 @@ impl std::ops::Deref for RunHandle {
 
 #[derive(Resource)]
 pub struct RunRecorder {
+    monitor: Mutex<automatic::Monitor>,
+    windows: Mutex<windows::Windows>,
     run_id: String,
     root: PathBuf,
     dir: PathBuf,
@@ -234,6 +241,8 @@ impl RunRecorder {
         let health = std::sync::Arc::new(health::HealthState::new(dir.clone(), config));
         let recording = recording::Recording::open(health.clone())?;
         let recorder = Self {
+            monitor: Mutex::new(automatic::Monitor::default()),
+            windows: Mutex::new(windows::Windows::default()),
             run_id: run_id.clone(),
             root: root.to_path_buf(),
             dir: dir.clone(),
@@ -347,6 +356,7 @@ impl RunRecorder {
     pub fn completed_tick(&self, tick: u64) {
         self.evidence_clock.completed(tick);
         self.recording.completed(tick);
+        self.poll_window(tick, false);
     }
 
     pub fn run_id(&self) -> &str {
@@ -498,7 +508,12 @@ impl RunRecorder {
             "run.exit",
             json!({"code":requested_code,"reason":if requested_code==0 {"success"} else {"error"}}),
         );
+        self.poll_window(self.envelope().tick, true);
         let drained = self.recording.flush(true);
+        self.health.write_json(
+            &self.dir.join("diagnostic-windows.json"),
+            &self.window_status(),
+        );
         let mut code = if self.health.failed() || self.failure_written.load(Ordering::Acquire) {
             1
         } else {
@@ -598,6 +613,7 @@ impl PhysicsTrace {
     pub fn record(&mut self, sample: PhysicsSample) {
         self.run
             .record_evidence(EvidenceStream::Physics, sample.tick, &sample);
+        self.run.observe_physics(&sample);
         self.step += 1;
     }
     pub fn record_input(&mut self, input: InputSample) {
@@ -635,6 +651,7 @@ pub struct InputSample {
 
 #[derive(Serialize, Clone, Debug)]
 pub struct PhysicsSample {
+    pub decisions: decision::VehicleDecisions,
     pub step: u64,
     pub tick: u64,
     pub actor_id: String,
@@ -652,6 +669,10 @@ pub struct PhysicsSample {
     pub slip: f32,
     pub rpm: f32,
     pub gear: i32,
+    /// Newtons requested at each driven wheel, before the friction-circle clamp.
+    pub drive_demands: [f32; 4],
+    /// Newtons actually applied longitudinally after combined-slip saturation.
+    pub longitudinal_forces: [f32; 4],
     pub reset_count: u32,
     pub input: InputSample,
     pub ray_misses: usize,
@@ -965,7 +986,15 @@ pub fn sha256_file(path: &Path) -> Option<String> {
 }
 
 fn write_json_atomic(path: &Path, value: &impl Serialize) -> std::io::Result<()> {
-    let bytes = recording::bounded_json(value, 2 * 1024 * 1024, true)
+    write_json_atomic_bounded(path, value, 2 * 1024 * 1024)
+}
+
+fn write_json_atomic_bounded(
+    path: &Path,
+    value: &impl Serialize,
+    max_bytes: usize,
+) -> std::io::Result<()> {
+    let bytes = recording::bounded_json(value, max_bytes, true)
         .map_err(|code| std::io::Error::new(std::io::ErrorKind::InvalidData, code))?;
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;

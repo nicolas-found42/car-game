@@ -1,0 +1,21 @@
+[
+  {
+    "car": "ref-a16",
+    "source_url": "https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/",
+    "reference_g": 0.8,
+    "diameter_ft": 300,
+    "before_g": 0.93696535,
+    "after_g": 0.93696535,
+    "fit_target": false,
+    "qualification": "Prototype handling; production tire/chassis/test equivalence unresolved. Fuel-cut proxy does not establish traction calibration equivalence."
+  },
+  {
+    "car": "ref-a02",
+    "source_url": "https://terminator-cobra.com/2000%20SVT%20Mustang%20Cobra%20R%20Overview.pdf",
+    "reference_g_lower_bound": 1.0,
+    "before_g": null,
+    "after_g": null,
+    "fit_target": false,
+    "qualification": "Ford100-ft skidpad lower-bound claim; our200/300-ft sweeps are not treated as that protocol. Specific source archived as am_cobra_press in the corpus."
+  }
+]

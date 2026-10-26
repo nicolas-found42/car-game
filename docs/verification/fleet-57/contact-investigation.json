@@ -1,0 +1,124 @@
+{
+  "car": "ref-j13",
+  "case": "trail-brake-right",
+  "source_run": "artifacts/fleet57-reference-20261025/runs/trail-brake-right-ref-j13-r1/20261025T020459406521Z-2342545-scenario-72748-1-1792893899432620000",
+  "repeated_primary_observation": true,
+  "lost_ray_contact_ticks": 8,
+  "duration_seconds": 0.06666666666666667,
+  "relative_tick_interval": [
+    922,
+    929
+  ],
+  "minimum_contacts": 3,
+  "fully_airborne_ticks": 0,
+  "missing_wheel": "rear_right",
+  "speed_during_loss_mps": [
+    0.5624510489707452,
+    0.6583366345903683
+  ],
+  "controls_during_loss": {
+    "step": 932,
+    "tick": 933,
+    "controller": "scenario",
+    "throttle": 0.0,
+    "brake": 1.0,
+    "steer": 0.0,
+    "handbrake": false,
+    "reset": false
+  },
+  "gear_during_loss": -1,
+  "position_ranges_during_loss_m": [
+    [
+      -228.4103,
+      -228.39143
+    ],
+    [
+      0.5363827,
+      0.5477286
+    ],
+    [
+      477.21317,
+      477.24356
+    ]
+  ],
+  "conditions": [
+    {
+      "case": "trail-brake-left",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "flat",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-left",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "curb",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-left",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "wall",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-left",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "both",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-right",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "flat",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-right",
+      "four_contact_pct": 100.0,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "curb",
+      "contact_loss_ticks": []
+    },
+    {
+      "case": "trail-brake-right",
+      "four_contact_pct": 99.0487514863258,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "wall",
+      "contact_loss_ticks": [
+        922,
+        923,
+        924,
+        925,
+        926,
+        927,
+        928,
+        929
+      ]
+    },
+    {
+      "case": "trail-brake-right",
+      "four_contact_pct": 99.0487514863258,
+      "peak_tilt_deg": 2.7243361473083496,
+      "surface": "both",
+      "contact_loss_ticks": [
+        922,
+        923,
+        924,
+        925,
+        926,
+        927,
+        928,
+        929
+      ]
+    }
+  ],
+  "probe_repeats_byte_identical": true,
+  "pose_sample_epoch_alignment_ticks": 1,
+  "maximum_pose_error_after_declared_epoch_alignment_m": 0.000435762687148588,
+  "interpretation": "The boundary wall is sufficient to reproduce the brief loss and removing it eliminates the loss in the controlled fixture. The curb alone does not cause it. This is a brake-held reverse/wall interaction, not evidence that the AWD car generally lacks tire grip. Collision realism and tire fidelity remain unvalidated."
+}

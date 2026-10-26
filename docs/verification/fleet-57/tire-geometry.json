@@ -1,0 +1,718 @@
+{
+  "method": "Nominal unloaded radius = rim_inches*0.0254/2 + section_width_mm/1000*aspect_percent/100. This is not a measured loaded/dynamic rolling radius. Stock-vs-modified source-asset identity must be checked before correction.",
+  "rows": [
+    {
+      "car": "350z",
+      "axle": "front",
+      "source_designation": "225/50R17 94W; optional225/45R18 91W",
+      "source_id": "j01-nissan-fsm-gi",
+      "nominal_unloaded_radius_m": 0.32839999999999997,
+      "prepared_mesh_radius_m": 0.32985,
+      "difference_pct": 0.4415347137637138
+    },
+    {
+      "car": "350z",
+      "axle": "rear",
+      "source_designation": "235/50R17 96W; optional245/45R18 96W",
+      "source_id": "j01-nissan-fsm-gi",
+      "nominal_unloaded_radius_m": 0.3334,
+      "prepared_mesh_radius_m": 0.33885,
+      "difference_pct": 1.6346730653869157
+    },
+    {
+      "car": "gt4-m3",
+      "axle": "front",
+      "source_designation": "235/35ZR19 MichelinPilotSportCup",
+      "source_id": "e06-press",
+      "nominal_unloaded_radius_m": 0.32355,
+      "prepared_mesh_radius_m": 0.3218337676924468,
+      "difference_pct": -0.5304380490042337
+    },
+    {
+      "car": "gt4-m3",
+      "axle": "rear",
+      "source_designation": "265/30ZR19 MichelinPilotSportCup",
+      "source_id": "e06-press",
+      "nominal_unloaded_radius_m": 0.3208,
+      "prepared_mesh_radius_m": 0.31909695316785947,
+      "difference_pct": -0.5308749476747199
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "front",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 4.468555478294967
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "rear",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 4.468555478294967
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "front",
+      "source_designation": "235/45R17 93W YokohamaAdvan",
+      "source_id": "j09-mitsubishi-press",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.32803601026535034,
+      "difference_pct": 1.9853910353957227
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "rear",
+      "source_designation": "235/45R17 93W YokohamaAdvan",
+      "source_id": "j09-mitsubishi-press",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.328000009059906,
+      "difference_pct": 1.9741983708708277
+    },
+    {
+      "car": "mcla-skyline",
+      "axle": "front",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.32649698853492737,
+      "difference_pct": -0.031540558809750596
+    },
+    {
+      "car": "mcla-skyline",
+      "axle": "rear",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.32649698853492737,
+      "difference_pct": -0.031540558809750596
+    },
+    {
+      "car": "redline-gt500",
+      "axle": "front",
+      "source_designation": "P255/45R18 Goodyear Eagle F1 Supercar",
+      "source_id": "am_gt500_manual",
+      "nominal_unloaded_radius_m": 0.34335,
+      "prepared_mesh_radius_m": 0.34328,
+      "difference_pct": -0.020387359836904206
+    },
+    {
+      "car": "redline-gt500",
+      "axle": "rear",
+      "source_designation": "P285/40R18 Goodyear Eagle F1 Supercar",
+      "source_id": "am_gt500_manual",
+      "nominal_unloaded_radius_m": 0.3426,
+      "prepared_mesh_radius_m": 0.342515,
+      "difference_pct": -0.02481027437244432
+    },
+    {
+      "car": "ref-a01",
+      "axle": "front",
+      "source_designation": "P235/55ZR17",
+      "source_id": "am_mustang_brochure",
+      "nominal_unloaded_radius_m": 0.34514999999999996,
+      "prepared_mesh_radius_m": 0.3378739307474382,
+      "difference_pct": -2.108089020009196
+    },
+    {
+      "car": "ref-a01",
+      "axle": "rear",
+      "source_designation": "P235/55ZR17",
+      "source_id": "am_mustang_brochure",
+      "nominal_unloaded_radius_m": 0.34514999999999996,
+      "prepared_mesh_radius_m": 0.3378739307474382,
+      "difference_pct": -2.108089020009196
+    },
+    {
+      "car": "ref-a02",
+      "axle": "front",
+      "source_designation": "265/40ZR18 BFGoodrich g-Force KD",
+      "source_id": "am_cobra_press",
+      "nominal_unloaded_radius_m": 0.3346,
+      "prepared_mesh_radius_m": 0.33283946506494694,
+      "difference_pct": -0.5261610684557883
+    },
+    {
+      "car": "ref-a02",
+      "axle": "rear",
+      "source_designation": "265/40ZR18 BFGoodrich g-Force KD",
+      "source_id": "am_cobra_press",
+      "nominal_unloaded_radius_m": 0.3346,
+      "prepared_mesh_radius_m": 0.33283946506494694,
+      "difference_pct": -0.5261610684557883
+    },
+    {
+      "car": "ref-a04",
+      "axle": "front",
+      "source_designation": "295/45ZR18 Goodyear Eagle F1-GS",
+      "source_id": "am_lightning_specs",
+      "nominal_unloaded_radius_m": 0.36135,
+      "prepared_mesh_radius_m": 0.3594612063495695,
+      "difference_pct": -0.5227047600471768
+    },
+    {
+      "car": "ref-a04",
+      "axle": "rear",
+      "source_designation": "295/45ZR18 Goodyear Eagle F1-GS",
+      "source_id": "am_lightning_specs",
+      "nominal_unloaded_radius_m": 0.36135,
+      "prepared_mesh_radius_m": 0.3594612063495695,
+      "difference_pct": -0.5227047600471768
+    },
+    {
+      "car": "ref-a06",
+      "axle": "front",
+      "source_designation": "215/45R17",
+      "source_id": "am_focus_manual",
+      "nominal_unloaded_radius_m": 0.31265,
+      "prepared_mesh_radius_m": 0.3027620017528534,
+      "difference_pct": -3.162641371228714
+    },
+    {
+      "car": "ref-a06",
+      "axle": "rear",
+      "source_designation": "215/45R17",
+      "source_id": "am_focus_manual",
+      "nominal_unloaded_radius_m": 0.31265,
+      "prepared_mesh_radius_m": 0.3027629852294922,
+      "difference_pct": -3.1623268096938384
+    },
+    {
+      "car": "ref-a09",
+      "axle": "front",
+      "source_designation": "P275/35ZR18 Goodyear Eagle F1 Supercar EMT",
+      "source_id": "am_c6_specs",
+      "nominal_unloaded_radius_m": 0.32484999999999997,
+      "prepared_mesh_radius_m": 0.3225800096988678,
+      "difference_pct": -0.698781068533838
+    },
+    {
+      "car": "ref-a09",
+      "axle": "rear",
+      "source_designation": "P325/30ZR19 Goodyear Eagle F1 Supercar EMT",
+      "source_id": "am_c6_specs",
+      "nominal_unloaded_radius_m": 0.3388,
+      "prepared_mesh_radius_m": 0.3417559862136841,
+      "difference_pct": 0.8724870760578707
+    },
+    {
+      "car": "ref-e03",
+      "axle": "front",
+      "source_designation": "235/35ZR19",
+      "source_id": "e03-launch",
+      "nominal_unloaded_radius_m": 0.32355,
+      "prepared_mesh_radius_m": 0.35744163902221104,
+      "difference_pct": 10.47493092944245
+    },
+    {
+      "car": "ref-e03",
+      "axle": "rear",
+      "source_designation": "295/30ZR19",
+      "source_id": "e03-launch",
+      "nominal_unloaded_radius_m": 0.3298,
+      "prepared_mesh_radius_m": 0.35744163902221104,
+      "difference_pct": 8.381333845424832
+    },
+    {
+      "car": "ref-e04",
+      "axle": "front",
+      "source_designation": "245/35ZR18",
+      "source_id": "e04-brochure",
+      "nominal_unloaded_radius_m": 0.31435,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 8.539622138416192
+    },
+    {
+      "car": "ref-e04",
+      "axle": "rear",
+      "source_designation": "335/30ZR18",
+      "source_id": "e04-brochure",
+      "nominal_unloaded_radius_m": 0.3291,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 3.6749626837166094
+    },
+    {
+      "car": "ref-e13",
+      "axle": "front",
+      "source_designation": "175/55R16 BridgestonePotenzaRE040",
+      "source_id": "e13-launch",
+      "nominal_unloaded_radius_m": 0.29945,
+      "prepared_mesh_radius_m": 0.2978753574344466,
+      "difference_pct": -0.5258449041754543
+    },
+    {
+      "car": "ref-e13",
+      "axle": "rear",
+      "source_designation": "225/45R17 BridgestonePotenzaRE040",
+      "source_id": "e13-launch",
+      "nominal_unloaded_radius_m": 0.31715,
+      "prepared_mesh_radius_m": 0.31548181190990526,
+      "difference_pct": -0.5259934069351213
+    },
+    {
+      "car": "ref-j04",
+      "axle": "front",
+      "source_designation": "235/45ZR17",
+      "source_id": "j04-mazda-brochure",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.31996023567741183,
+      "difference_pct": -0.5253425532685041
+    },
+    {
+      "car": "ref-j04",
+      "axle": "rear",
+      "source_designation": "255/40ZR17",
+      "source_id": "j04-mazda-brochure",
+      "nominal_unloaded_radius_m": 0.31789999999999996,
+      "prepared_mesh_radius_m": 0.31622821587115624,
+      "difference_pct": -0.5258836517281318
+    },
+    {
+      "car": "ref-j07",
+      "axle": "front",
+      "source_designation": "205/55R16 89V",
+      "source_id": "j07-honda-spec",
+      "nominal_unloaded_radius_m": 0.31595,
+      "prepared_mesh_radius_m": 0.31429624458197075,
+      "difference_pct": -0.5234231422786118
+    },
+    {
+      "car": "ref-j07",
+      "axle": "rear",
+      "source_designation": "225/50R16 92V",
+      "source_id": "j07-honda-spec",
+      "nominal_unloaded_radius_m": 0.3157,
+      "prepared_mesh_radius_m": 0.31404744326155365,
+      "difference_pct": -0.5234579469262979
+    },
+    {
+      "car": "ref-j11",
+      "axle": "front",
+      "source_designation": "225/45ZR17",
+      "source_id": "j11-subaru-catalog",
+      "nominal_unloaded_radius_m": 0.31715,
+      "prepared_mesh_radius_m": 0.31548181190990526,
+      "difference_pct": -0.5259934069351213
+    },
+    {
+      "car": "ref-j11",
+      "axle": "rear",
+      "source_designation": "225/45ZR17",
+      "source_id": "j11-subaru-catalog",
+      "nominal_unloaded_radius_m": 0.31715,
+      "prepared_mesh_radius_m": 0.31548181190990526,
+      "difference_pct": -0.5259934069351213
+    },
+    {
+      "car": "ref-j16",
+      "axle": "front",
+      "source_designation": "165/65R14 79H",
+      "source_id": "j16-suzuki-brochure",
+      "nominal_unloaded_radius_m": 0.28504999999999997,
+      "prepared_mesh_radius_m": 0.2835617593985599,
+      "difference_pct": -0.5220980885599302
+    },
+    {
+      "car": "ref-j16",
+      "axle": "rear",
+      "source_designation": "165/65R14 79H",
+      "source_id": "j16-suzuki-brochure",
+      "nominal_unloaded_radius_m": 0.28504999999999997,
+      "prepared_mesh_radius_m": 0.2835617593985599,
+      "difference_pct": -0.5220980885599302
+    },
+    {
+      "car": "ref-a08",
+      "axle": "front",
+      "source_designation": "P265/40ZR17 Goodyear Eagle F1 SC",
+      "source_id": "am_c5_specs",
+      "nominal_unloaded_radius_m": 0.32189999999999996,
+      "prepared_mesh_radius_m": 0.3504945107049203,
+      "difference_pct": 8.883041536166614
+    },
+    {
+      "car": "ref-a08",
+      "axle": "rear",
+      "source_designation": "P295/35ZR18 Goodyear Eagle F1 SC",
+      "source_id": "am_c5_specs",
+      "nominal_unloaded_radius_m": 0.33185,
+      "prepared_mesh_radius_m": 0.36801922390290254,
+      "difference_pct": 10.899268917553883
+    },
+    {
+      "car": "ref-a10",
+      "axle": "front",
+      "source_designation": "275/35ZR18 Michelin Pilot Sport",
+      "source_id": "am_viper_test",
+      "nominal_unloaded_radius_m": 0.32484999999999997,
+      "prepared_mesh_radius_m": 0.32313621356868266,
+      "difference_pct": -0.527562392278691
+    },
+    {
+      "car": "ref-a10",
+      "axle": "rear",
+      "source_designation": "345/30ZR19 Michelin Pilot Sport",
+      "source_id": "am_viper_test",
+      "nominal_unloaded_radius_m": 0.3448,
+      "prepared_mesh_radius_m": 0.3429818799278946,
+      "difference_pct": -0.5272970046709458
+    },
+    {
+      "car": "ref-e07",
+      "axle": "front",
+      "source_designation": "255/40ZR19",
+      "source_id": "e07-press",
+      "nominal_unloaded_radius_m": 0.3433,
+      "prepared_mesh_radius_m": 0.34148907200539236,
+      "difference_pct": -0.5275059698827911
+    },
+    {
+      "car": "ref-e07",
+      "axle": "rear",
+      "source_designation": "285/35ZR19",
+      "source_id": "e07-press",
+      "nominal_unloaded_radius_m": 0.34104999999999996,
+      "prepared_mesh_radius_m": 0.33924986012163916,
+      "difference_pct": -0.5278228642019656
+    },
+    {
+      "car": "ref-e14",
+      "axle": "front",
+      "source_designation": "255/40R1895Y",
+      "source_id": "e14-mb2004",
+      "nominal_unloaded_radius_m": 0.3306,
+      "prepared_mesh_radius_m": 0.32885864393827435,
+      "difference_pct": -0.5267259714838657
+    },
+    {
+      "car": "ref-e14",
+      "axle": "rear",
+      "source_designation": "285/35R1897Y",
+      "source_id": "e14-mb2004",
+      "nominal_unloaded_radius_m": 0.32835000000000003,
+      "prepared_mesh_radius_m": 0.32661943205452115,
+      "difference_pct": -0.5270497778221084
+    },
+    {
+      "car": "ref-e17",
+      "axle": "front",
+      "source_designation": "255/40R18MichelinPilotSport",
+      "source_id": "e17-tech",
+      "nominal_unloaded_radius_m": 0.3306,
+      "prepared_mesh_radius_m": 0.32885864393827435,
+      "difference_pct": -0.5267259714838657
+    },
+    {
+      "car": "ref-e17",
+      "axle": "rear",
+      "source_designation": "345/35R18MichelinPilotSport",
+      "source_id": "e17-tech",
+      "nominal_unloaded_radius_m": 0.34935,
+      "prepared_mesh_radius_m": 0.3475187429695519,
+      "difference_pct": -0.5241897897375503
+    },
+    {
+      "car": "ref-j03",
+      "axle": "front",
+      "source_designation": "235/45ZR17",
+      "source_id": "j03-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.31996023567741183,
+      "difference_pct": -0.5253425532685041
+    },
+    {
+      "car": "ref-j03",
+      "axle": "rear",
+      "source_designation": "255/40ZR17",
+      "source_id": "j03-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.31789999999999996,
+      "prepared_mesh_radius_m": 0.31622821587115624,
+      "difference_pct": -0.5258836517281318
+    },
+    {
+      "car": "ref-j05",
+      "axle": "front",
+      "source_designation": "225/45R18 91W",
+      "source_id": "j05-mazda-launch",
+      "nominal_unloaded_radius_m": 0.32985,
+      "prepared_mesh_radius_m": 0.3281122399770234,
+      "difference_pct": -0.5268334160911325
+    },
+    {
+      "car": "ref-j05",
+      "axle": "rear",
+      "source_designation": "225/45R18 91W",
+      "source_id": "j05-mazda-launch",
+      "nominal_unloaded_radius_m": 0.32985,
+      "prepared_mesh_radius_m": 0.3281122399770234,
+      "difference_pct": -0.5268334160911325
+    },
+    {
+      "car": "ref-j06",
+      "axle": "front",
+      "source_designation": "215/40R17 83Y",
+      "source_id": "j06-honda-spec",
+      "nominal_unloaded_radius_m": 0.30189999999999995,
+      "prepared_mesh_radius_m": 0.30030493136446623,
+      "difference_pct": -0.5283433704980856
+    },
+    {
+      "car": "ref-j06",
+      "axle": "rear",
+      "source_designation": "255/40R17 94Y",
+      "source_id": "j06-honda-spec",
+      "nominal_unloaded_radius_m": 0.31789999999999996,
+      "prepared_mesh_radius_m": 0.31622821587115635,
+      "difference_pct": -0.5258836517280985
+    },
+    {
+      "car": "ref-j08",
+      "axle": "front",
+      "source_designation": "185/60R14 82H",
+      "source_id": "j08-mazda-brochure",
+      "nominal_unloaded_radius_m": 0.2888,
+      "prepared_mesh_radius_m": 0.2872937792048153,
+      "difference_pct": -0.5215445966705978
+    },
+    {
+      "car": "ref-j08",
+      "axle": "rear",
+      "source_designation": "185/60R14 82H",
+      "source_id": "j08-mazda-brochure",
+      "nominal_unloaded_radius_m": 0.2888,
+      "prepared_mesh_radius_m": 0.2872937792048153,
+      "difference_pct": -0.5215445966705978
+    },
+    {
+      "car": "ref-j10",
+      "axle": "front",
+      "source_designation": "245/40ZR18",
+      "source_id": "j10-mitsubishi-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.324972003698349,
+      "difference_pct": -0.49846794294274854
+    },
+    {
+      "car": "ref-j10",
+      "axle": "rear",
+      "source_designation": "245/40ZR18",
+      "source_id": "j10-mitsubishi-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.324972003698349,
+      "difference_pct": -0.49846794294274854
+    },
+    {
+      "car": "ref-j13",
+      "axle": "front",
+      "source_designation": "235/40ZR17PirelliPZero",
+      "source_id": "j13-subaru-launch",
+      "nominal_unloaded_radius_m": 0.30989999999999995,
+      "prepared_mesh_radius_m": 0.3082665736178113,
+      "difference_pct": -0.5270817625649071
+    },
+    {
+      "car": "ref-j13",
+      "axle": "rear",
+      "source_designation": "235/40ZR17PirelliPZero",
+      "source_id": "j13-subaru-launch",
+      "nominal_unloaded_radius_m": 0.30989999999999995,
+      "prepared_mesh_radius_m": 0.3082665736178113,
+      "difference_pct": -0.5270817625649071
+    },
+    {
+      "car": "ref-j14",
+      "axle": "front",
+      "source_designation": "195/55R15 84V",
+      "source_id": "j14-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.29775,
+      "prepared_mesh_radius_m": 0.296192187465678,
+      "difference_pct": -0.5231948058176394
+    },
+    {
+      "car": "ref-j14",
+      "axle": "rear",
+      "source_designation": "225/50R15 91V",
+      "source_id": "j14-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.303,
+      "prepared_mesh_radius_m": 0.30141701519443564,
+      "difference_pct": -0.5224372295591917
+    },
+    {
+      "car": "ref-j15",
+      "axle": "front",
+      "source_designation": "185/55R15 81V",
+      "source_id": "j15-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.29225,
+      "prepared_mesh_radius_m": 0.29071855841650324,
+      "difference_pct": -0.5240176504693883
+    },
+    {
+      "car": "ref-j15",
+      "axle": "rear",
+      "source_designation": "215/45R16 86W",
+      "source_id": "j15-toyota-catalog",
+      "nominal_unloaded_radius_m": 0.29995,
+      "prepared_mesh_radius_m": 0.29837296007528064,
+      "difference_pct": -0.5257676028402547
+    },
+    {
+      "car": "ref-j17",
+      "axle": "front",
+      "source_designation": "195/55R15 84V",
+      "source_id": "j17-honda-spec",
+      "nominal_unloaded_radius_m": 0.29775,
+      "prepared_mesh_radius_m": 0.296192187465678,
+      "difference_pct": -0.5231948058176394
+    },
+    {
+      "car": "ref-j17",
+      "axle": "rear",
+      "source_designation": "195/55R15 84V",
+      "source_id": "j17-honda-spec",
+      "nominal_unloaded_radius_m": 0.29775,
+      "prepared_mesh_radius_m": 0.296192187465678,
+      "difference_pct": -0.5231948058176394
+    }
+  ],
+  "largest_deviations": [
+    {
+      "car": "ref-a08",
+      "axle": "rear",
+      "source_designation": "P295/35ZR18 Goodyear Eagle F1 SC",
+      "source_id": "am_c5_specs",
+      "nominal_unloaded_radius_m": 0.33185,
+      "prepared_mesh_radius_m": 0.36801922390290254,
+      "difference_pct": 10.899268917553883
+    },
+    {
+      "car": "ref-e03",
+      "axle": "front",
+      "source_designation": "235/35ZR19",
+      "source_id": "e03-launch",
+      "nominal_unloaded_radius_m": 0.32355,
+      "prepared_mesh_radius_m": 0.35744163902221104,
+      "difference_pct": 10.47493092944245
+    },
+    {
+      "car": "ref-a08",
+      "axle": "front",
+      "source_designation": "P265/40ZR17 Goodyear Eagle F1 SC",
+      "source_id": "am_c5_specs",
+      "nominal_unloaded_radius_m": 0.32189999999999996,
+      "prepared_mesh_radius_m": 0.3504945107049203,
+      "difference_pct": 8.883041536166614
+    },
+    {
+      "car": "ref-e04",
+      "axle": "front",
+      "source_designation": "245/35ZR18",
+      "source_id": "e04-brochure",
+      "nominal_unloaded_radius_m": 0.31435,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 8.539622138416192
+    },
+    {
+      "car": "ref-e03",
+      "axle": "rear",
+      "source_designation": "295/30ZR19",
+      "source_id": "e03-launch",
+      "nominal_unloaded_radius_m": 0.3298,
+      "prepared_mesh_radius_m": 0.35744163902221104,
+      "difference_pct": 8.381333845424832
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "front",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 4.468555478294967
+    },
+    {
+      "car": "mc3-skyline",
+      "axle": "rear",
+      "source_designation": "245/40ZR18",
+      "source_id": "j02-nissan-brochure",
+      "nominal_unloaded_radius_m": 0.3266,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 4.468555478294967
+    },
+    {
+      "car": "ref-e04",
+      "axle": "rear",
+      "source_designation": "335/30ZR18",
+      "source_id": "e04-brochure",
+      "nominal_unloaded_radius_m": 0.3291,
+      "prepared_mesh_radius_m": 0.34119430219211133,
+      "difference_pct": 3.6749626837166094
+    },
+    {
+      "car": "ref-a06",
+      "axle": "front",
+      "source_designation": "215/45R17",
+      "source_id": "am_focus_manual",
+      "nominal_unloaded_radius_m": 0.31265,
+      "prepared_mesh_radius_m": 0.3027620017528534,
+      "difference_pct": -3.162641371228714
+    },
+    {
+      "car": "ref-a06",
+      "axle": "rear",
+      "source_designation": "215/45R17",
+      "source_id": "am_focus_manual",
+      "nominal_unloaded_radius_m": 0.31265,
+      "prepared_mesh_radius_m": 0.3027629852294922,
+      "difference_pct": -3.1623268096938384
+    },
+    {
+      "car": "ref-a01",
+      "axle": "front",
+      "source_designation": "P235/55ZR17",
+      "source_id": "am_mustang_brochure",
+      "nominal_unloaded_radius_m": 0.34514999999999996,
+      "prepared_mesh_radius_m": 0.3378739307474382,
+      "difference_pct": -2.108089020009196
+    },
+    {
+      "car": "ref-a01",
+      "axle": "rear",
+      "source_designation": "P235/55ZR17",
+      "source_id": "am_mustang_brochure",
+      "nominal_unloaded_radius_m": 0.34514999999999996,
+      "prepared_mesh_radius_m": 0.3378739307474382,
+      "difference_pct": -2.108089020009196
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "front",
+      "source_designation": "235/45R17 93W YokohamaAdvan",
+      "source_id": "j09-mitsubishi-press",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.32803601026535034,
+      "difference_pct": 1.9853910353957227
+    },
+    {
+      "car": "mcla-evo",
+      "axle": "rear",
+      "source_designation": "235/45R17 93W YokohamaAdvan",
+      "source_id": "j09-mitsubishi-press",
+      "nominal_unloaded_radius_m": 0.32165,
+      "prepared_mesh_radius_m": 0.328000009059906,
+      "difference_pct": 1.9741983708708277
+    },
+    {
+      "car": "350z",
+      "axle": "rear",
+      "source_designation": "235/50R17 96W; optional245/45R18 96W",
+      "source_id": "j01-nissan-fsm-gi",
+      "nominal_unloaded_radius_m": 0.3334,
+      "prepared_mesh_radius_m": 0.33885,
+      "difference_pct": 1.6346730653869157
+    }
+  ]
+}

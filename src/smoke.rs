@@ -203,7 +203,8 @@ fn check_capture_timeout(
 #[allow(clippy::too_many_arguments, clippy::too_many_lines)]
 fn scripted_drive(
     mut commands: Commands,
-    time: Res<Time<Real>>,
+    time: Res<Time<Virtual>>,
+    real_time: Res<Time<Real>>,
     mut smoke: ResMut<Smoke>,
     mut bus: ResMut<crate::runtime::CommandBus>,
     spec: Res<CarSpec>,
@@ -271,7 +272,7 @@ fn scripted_drive(
                     "missing_node_names": missing_names,
                 }),
             );
-        } else if time.elapsed_secs_f64() - smoke.waiting_since > 60.0 {
+        } else if real_time.elapsed_secs_f64() - smoke.waiting_since > 60.0 {
             error!(
                 "FLEET: {} model load timeout: {} nodes; missing {:?}",
                 spec.id, loaded, missing_names
@@ -291,7 +292,7 @@ fn scripted_drive(
         }
         return;
     }
-    let t = time.elapsed_secs_f64() - smoke.started.unwrap();
+    let t = script_elapsed(&time, smoke.started.unwrap());
     if (5.0..13.0).contains(&t) {
         for (name, pose) in &names {
             if wheel_names.contains(&name.as_str()) && pose.rotation.x.abs() > 0.01 {
@@ -300,7 +301,7 @@ fn scripted_drive(
         }
     }
     if (5.0..22.0).contains(&t) {
-        smoke.frames.push(time.delta_secs_f64());
+        smoke.frames.push(real_time.delta_secs_f64());
     }
     input.throttle = if (5.0..13.0).contains(&t) { 1.0 } else { 0.0 };
     input.steer = if (11.0..13.0).contains(&t) { 0.45 } else { 0.0 };
@@ -352,7 +353,7 @@ fn scripted_drive(
                 .run_dir
                 .join("captures")
                 .join(format!("{}-{view}.png", spec.id));
-            let requested_at = time.elapsed_secs_f64();
+            let requested_at = real_time.elapsed_secs_f64();
             smoke.pending_capture = Some((view.to_string(), requested_at));
             run.actor_event(
                 "player-vehicle",
@@ -465,7 +466,7 @@ fn scripted_drive(
                     "car.next",
                     json!({"from": spec.id, "to": fleet.cars[fleet.selected + 1].id}),
                 );
-                smoke.next(time.elapsed_secs_f64());
+                smoke.next(real_time.elapsed_secs_f64());
             } else {
                 run.event("run.complete", json!({"cars": smoke.reports.len()}));
                 exit.write(AppExit::Success);
@@ -485,6 +486,36 @@ fn scripted_drive(
         bus.submit(
             crate::runtime::ControllerOwner::LegacyComposite,
             crate::runtime::ProductionCommand::Reset,
+        );
+    }
+}
+
+// Driving phases follow simulated time; wall-clock stalls must not skip inputs.
+fn script_elapsed(clock: &Time<Virtual>, started: f64) -> f64 {
+    clock.elapsed_secs_f64() - started
+}
+
+#[cfg(test)]
+mod tests {
+    use super::script_elapsed;
+    use bevy::{prelude::*, time::TimeUpdateStrategy};
+    use std::time::Duration;
+
+    #[test]
+    fn long_wall_gap_cannot_skip_the_native_driving_script() {
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins);
+        app.update();
+        let started = app.world().resource::<Time<Virtual>>().elapsed_secs_f64();
+        app.insert_resource(TimeUpdateStrategy::ManualDuration(Duration::from_secs(30)));
+        app.update();
+        let wall = app.world().resource::<Time<Real>>();
+        assert!(wall.delta_secs_f64() >= 30.);
+        let script = app.world().resource::<Time<Virtual>>();
+        assert!(script_elapsed(script, started) <= 0.25);
+        assert!(
+            script_elapsed(script, started) < 1.5,
+            "first capture must remain ahead"
         );
     }
 }

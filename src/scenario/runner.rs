@@ -34,43 +34,53 @@ struct ScenarioRun {
 }
 #[derive(Component)]
 struct ScenarioCapture;
+/// Numeric batch runners retain the same production assertion result without
+/// requiring a separate disk recorder for every execution.
+#[derive(Resource, Default)]
+pub struct ScenarioOutcome(pub Option<Value>);
+
 pub struct ScenarioPlugin;
 impl Plugin for ScenarioPlugin {
     fn build(&self, app: &mut App) {
         let Some(definition) = app.world().resource::<RuntimeConfig>().scenario.clone() else {
             return;
         };
-        app.insert_resource(ScenarioRun {
-            definition,
-            start: Instant::now(),
-            ready: None,
-            submitted: HashSet::new(),
-            results: Vec::new(),
-            finished: false,
-            capture_requested: false,
-            capture: None,
-            capture_error: None,
-            rejections: HashMap::new(),
-        })
-        .add_systems(PostStartup, initialize)
-        .add_systems(
-            FixedFirst,
-            tick_commands
-                .after(CommandSet::BeginTick)
-                .before(CommandSet::Dispatch),
-        )
-        .add_systems(
-            FixedLast,
-            (collect_outcomes, evaluate)
-                .chain()
-                .after(CommandSet::CompleteTick),
-        )
-        .add_systems(
-            Update,
-            (update, crate::runtime::dispatch_update)
-                .chain()
-                .after(PresentationUpdate),
-        );
+        if let Some(plan) = &definition.route {
+            app.insert_resource(super::route::RouteTracker::new(plan.clone()));
+        }
+        app.init_resource::<ScenarioOutcome>()
+            .insert_resource(ScenarioRun {
+                definition,
+                start: Instant::now(),
+                ready: None,
+                submitted: HashSet::new(),
+                results: Vec::new(),
+                finished: false,
+                capture_requested: false,
+                capture: None,
+                capture_error: None,
+                rejections: HashMap::new(),
+            })
+            .add_systems(PostStartup, initialize)
+            .add_systems(
+                FixedFirst,
+                (tick_commands, super::route::controls)
+                    .chain()
+                    .after(CommandSet::BeginTick)
+                    .before(CommandSet::Dispatch),
+            )
+            .add_systems(
+                FixedLast,
+                (collect_outcomes, evaluate)
+                    .chain()
+                    .after(CommandSet::CompleteTick),
+            )
+            .add_systems(
+                Update,
+                (update, crate::runtime::dispatch_update)
+                    .chain()
+                    .after(PresentationUpdate),
+            );
     }
 }
 fn initialize(world: &mut World) {
@@ -85,11 +95,12 @@ fn initialize(world: &mut World) {
     }
     crate::runtime::dispatch_update(world);
     let config = world.resource::<RuntimeConfig>();
-    let run = world.resource::<RunHandle>();
-    write_json(
-        &run.dir().join("scenario.json"),
-        &json!({"definition":world.resource::<ScenarioRun>().definition,"effective_seed":config.seed,"render_backend":config.backend,"context":config.access,"rng":{"algorithm":"no-random-draws","state":config.seed,"draws":0}}),
-    );
+    if let Some(run) = world.get_resource::<RunHandle>() {
+        write_json(
+            &run.dir().join("scenario.json"),
+            &json!({"definition":world.resource::<ScenarioRun>().definition,"effective_seed":config.seed,"render_backend":config.backend,"context":config.access,"rng":{"algorithm":"no-random-draws","state":config.seed,"draws":0}}),
+        );
+    }
 }
 fn tick_commands(
     mut state: ResMut<ScenarioRun>,
@@ -134,9 +145,12 @@ fn update(world: &mut World) {
                 let tick = world.resource::<SimulationClock>().completed;
                 let real_time = world.resource::<Time<Real>>().elapsed_secs_f64();
                 state.ready = Some((tick, real_time, position));
-                world
-                    .resource::<RunHandle>()
-                    .event("scenario.ready", json!({"tick":tick,"backend":backend}));
+                if let Some(mut route) = world.get_resource_mut::<super::route::RouteTracker>() {
+                    route.start_tick = Some(tick);
+                }
+                if let Some(run) = world.get_resource::<RunHandle>() {
+                    run.event("scenario.ready", json!({"tick":tick,"backend":backend}));
+                }
             } else if elapsed >= state.definition.readiness_timeout_ms as u128 {
                 finish(world, &mut state, Some("readiness-timeout"));
             }
@@ -230,10 +244,12 @@ fn evaluate(world: &mut World) {
         {
             let observed = observe(world, &assertion.condition, position, &state.rejections);
             let passed = observed["passed"] == true;
-            world.resource::<RunHandle>().event(
-                "scenario.assertion",
-                json!({"tick":tick,"assertion":assertion,"observed":observed,"passed":passed}),
-            );
+            if let Some(run) = world.get_resource::<RunHandle>() {
+                run.event(
+                    "scenario.assertion",
+                    json!({"tick":tick,"assertion":assertion,"observed":observed,"passed":passed}),
+                );
+            }
             state
                 .results
                 .push(json!({"assertion":assertion,"observed":observed,"passed":passed}));
@@ -262,6 +278,12 @@ fn observe(
         return json!({"passed":false,"reason":"no-target"});
     };
     match condition {
+        AssertionKind::RouteCompleted { max_cross_track_m } => world
+            .get_resource::<super::route::RouteTracker>()
+            .map_or_else(
+                || json!({"passed":false,"reason":"no-route"}),
+                |r| r.outcome(*max_cross_track_m),
+            ),
         AssertionKind::DisplacementAtLeast { meters } => {
             let actual =
                 Vec2::new(pose.translation.x - start.x, pose.translation.z - start.z).length();
@@ -344,9 +366,8 @@ fn finish(world: &mut World, state: &mut ScenarioRun, failure: Option<&str>) {
     if let Some(mut trace) = world.get_resource_mut::<PhysicsTrace>() {
         trace.flush();
     }
-    let run = world.resource::<RunHandle>();
-    let capture_path = run.dir().join("captures/scenario.png");
-    let capture = state.capture.as_ref().map(|metrics| json!({"path":"captures/scenario.png","metrics":metrics,"sha256":crate::diagnostics::sha256_file(&capture_path)}));
+    let run = world.get_resource::<RunHandle>();
+    let capture = state.capture.as_ref().and_then(|metrics| run.map(|run| json!({"path":"captures/scenario.png","metrics":metrics,"sha256":crate::diagnostics::sha256_file(&run.dir().join("captures/scenario.png"))})));
     let capture_missing = state.definition.required_capture
         && !capture.as_ref().is_some_and(|c| c["sha256"].is_string());
     let failure = failure.or(if capture_missing {
@@ -373,16 +394,19 @@ fn finish(world: &mut World, state: &mut ScenarioRun, failure: Option<&str>) {
         "results": state.results,
         "capture": capture,
         "readiness": state.ready.map(|(tick, _, _)| json!({"tick": tick})),
-        "artifacts": ["manifest.json", "scenario.json", "commands.jsonl", "input.jsonl", "physics.jsonl", "events.jsonl"]
+        "artifacts": if run.is_some() { json!(["manifest.json", "scenario.json", "commands.jsonl", "input.jsonl", "physics.jsonl", "events.jsonl"]) } else { json!([]) }
     });
-    run.event("scenario.finished", summary.clone());
-    if !passed {
-        run.fail(
-            failure.unwrap_or("scenario-assertion-failed"),
-            summary.clone(),
-        );
+    if let Some(run) = run {
+        run.event("scenario.finished", summary.clone());
+        if !passed {
+            run.fail(
+                failure.unwrap_or("scenario-assertion-failed"),
+                summary.clone(),
+            );
+        }
+        write_json(&run.dir().join("scenario-summary.json"), &summary);
     }
-    write_json(&run.dir().join("scenario-summary.json"), &summary);
+    world.resource_mut::<ScenarioOutcome>().0 = Some(summary);
     world.write_message(if passed {
         AppExit::Success
     } else {

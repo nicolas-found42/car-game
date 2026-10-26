@@ -41,11 +41,22 @@ fn run_fixture_with_frame_duration(
         scenario: Some(scenario),
         ..Default::default()
     };
-    let run = std::sync::Arc::new(car_game::diagnostics::RunRecorder::create_in(
-        &root,
-        "scenario",
-        &config.car,
-    ));
+    // Manual-time behavior fixtures can emit an entire route as a burst.
+    // Recorder saturation controls retain their own explicit small limits.
+    let recorder_config = car_game::diagnostics::RecorderConfig {
+        queue_records: 32768,
+        queue_bytes: 32 * 1024 * 1024,
+        ..Default::default()
+    };
+    let run = std::sync::Arc::new(
+        car_game::diagnostics::RunRecorder::try_create_with_config(
+            &root,
+            "scenario",
+            &config.car,
+            recorder_config,
+        )
+        .unwrap(),
+    );
     let dir = run.dir().to_path_buf();
     let mut app = car_game::build_app(config, run.clone()).unwrap();
     app.insert_resource(TimeUpdateStrategy::ManualDuration(duration));
@@ -224,12 +235,20 @@ fn key_event(
 fn keyboard_car_selection_wraps_the_roster_through_production_ingress() {
     use bevy::{input::ButtonState, prelude::*};
     let (mut app, run) = sandbox_app();
+    let last_car = app
+        .world()
+        .resource::<car_game::roster::Fleet>()
+        .cars
+        .last()
+        .unwrap()
+        .id
+        .clone();
     key_event(&mut app, KeyCode::BracketLeft, ButtonState::Pressed);
     app.update();
     app.update();
     assert_eq!(
         app.world().resource::<car_game::roster::CarSpec>().id,
-        "redline-gt500"
+        last_car
     );
     key_event(&mut app, KeyCode::BracketLeft, ButtonState::Released);
     key_event(&mut app, KeyCode::BracketRight, ButtonState::Pressed);
@@ -475,6 +494,7 @@ fn the_public_builder_rejects_a_sandbox_override_of_an_explicit_career_scenario(
 
 #[test]
 fn assembly_transactions_use_production_commands_and_completed_tick_inspection() {
+    let profile_mass = car_game::vehicle::profile::for_car("350z").mass_kg;
     let fixture = serde_json::json!({"schema_version":1,"name":"assembly-wheel","scene":"driving","initial":{"car":"350z"},"max_ticks":30,"max_wall_ms":10000,"readiness_timeout_ms":1000,
     "commands":[
       {"tick":0,"command":{"action":"inspect_assembly"}},
@@ -482,10 +502,10 @@ fn assembly_transactions_use_production_commands_and_completed_tick_inspection()
       {"tick":4,"command":{"action":"assembly_transaction","transaction":{"id":"stale","expected_revision":0,"part":"350z-wheel-1","destination":{"kind":"root","location":{"kind":"inventory","owner":"sandbox","slot":"rack-1"}}}}},
       {"tick":6,"command":{"action":"assembly_transaction","transaction":{"id":"restore","expected_revision":1,"part":"350z-wheel-0","destination":{"kind":"mounted","parent":"350z-chassis","mount":"wheel-0"}}}}
     ],"assertions":[
-      {"tick":1,"kind":"assembly_state","revision":0,"mass":1320.,"readiness":"ready"},
-      {"tick":3,"kind":"assembly_state","revision":1,"mass":1295.,"readiness":"incomplete-inoperable"},
+      {"tick":1,"kind":"assembly_state","revision":0,"mass":profile_mass,"readiness":"ready"},
+      {"tick":3,"kind":"assembly_state","revision":1,"mass":profile_mass - 25.,"readiness":"incomplete-inoperable"},
       {"tick":5,"kind":"command_rejected","reason":"stale-revision","count":1},
-      {"tick":7,"kind":"assembly_state","revision":2,"mass":1320.,"readiness":"ready"}
+      {"tick":7,"kind":"assembly_state","revision":2,"mass":profile_mass,"readiness":"ready"}
     ]});
     let (summary, dir) = run_fixture(fixture);
     assert_eq!(summary["passed"], true, "{summary}");
@@ -494,4 +514,49 @@ fn assembly_transactions_use_production_commands_and_completed_tick_inspection()
             .unwrap()
             .contains("assembly.inspection")
     );
+}
+
+#[test]
+fn curved_city_connector_is_completed_through_production_commands() {
+    let points = car_game::city::curve::route(false);
+    let fixture = serde_json::json!({"schema_version":1,"name":"curved-connector","scene":"driving",
+        "initial":{"car":"350z","position":[458.,0.62,350.],"rotation_y":std::f32::consts::PI},
+        "route":{"points":points,"speed_mps":14.},"commands":[],
+        "max_ticks":3601,"max_wall_ms":10000,"readiness_timeout_ms":1000,
+        "assertions":[{"tick":3600,"kind":"route_completed","max_cross_track_m":6.},
+                      {"tick":3600,"kind":"reset_count","count":0}]});
+    let (summary, dir) = run_fixture(fixture);
+    assert_eq!(summary["passed"], true, "{summary}");
+    let commands = std::fs::read_to_string(dir.join("commands.jsonl")).unwrap();
+    assert!(commands.contains("\"source\":\"scenario\""));
+    assert!(commands.contains("\"action\":\"drive\""));
+    std::fs::remove_dir_all(dir.parent().unwrap()).unwrap();
+}
+
+#[test]
+fn accelerated_execution_rejects_wall_clock_scenarios_and_visual_modes() {
+    assert!(RuntimeConfig::from_args(["--fast-scenario"]).is_err());
+    assert!(RuntimeConfig::from_args(["--fast-scenario", "--render-disabled"]).is_err());
+    let mut config = RuntimeConfig {
+        fast_scenario: true,
+        backend: car_game::RenderBackend::Disabled,
+        scenario: Some(ScenarioDefinition::from_json(&driving_fixture().to_string()).unwrap()),
+        ..Default::default()
+    };
+    assert!(config.validate_execution().is_ok());
+    config.scenario.as_mut().unwrap().commands[0].tick = None;
+    config.scenario.as_mut().unwrap().commands[0].elapsed_ms = Some(1);
+    assert!(config.validate_execution().is_err());
+}
+
+#[test]
+fn route_failure_cannot_be_hidden_by_correct_car_identity() {
+    let fixture = serde_json::json!({"schema_version":1,"name":"unfinished-route","scene":"driving",
+        "initial":{"car":"350z"},"route":{"points":[[3.2,190.],[3.2,90.]],"speed_mps":8.},
+        "commands":[],"max_ticks":31,"max_wall_ms":10000,"readiness_timeout_ms":1000,
+        "assertions":[{"tick":30,"kind":"route_completed","max_cross_track_m":6.}]});
+    let (summary, dir) = run_fixture(fixture);
+    assert_eq!(summary["passed"], false);
+    assert_eq!(summary["results"][0]["observed"]["completed"], false);
+    std::fs::remove_dir_all(dir.parent().unwrap()).unwrap();
 }

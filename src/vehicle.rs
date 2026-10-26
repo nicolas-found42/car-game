@@ -1,4 +1,6 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
+mod forces;
+pub mod profile;
 use crate::{
     diagnostics::{InputSample, PhysicsSample, PhysicsTrace, RunHandle},
     roster::{CarSpec, Fleet},
@@ -8,15 +10,8 @@ use bevy_rapier3d::prelude::*;
 use serde_json::json;
 
 pub const STEP: f32 = 1.0 / 120.0;
-pub const MASS: f32 = 1320.0;
-pub const BASELINE_INERTIA: [f32; 3] = [1800., 2300., 650.];
 pub fn baseline_mass_properties() -> AdditionalMassProperties {
-    AdditionalMassProperties::MassProperties(MassProperties {
-        mass: MASS,
-        local_center_of_mass: Vec3::ZERO,
-        principal_inertia: Vec3::from_array(BASELINE_INERTIA),
-        ..default()
-    })
+    profile::for_car("350z").mass_properties(&CarSpec::default())
 }
 const REST: f32 = 0.44;
 
@@ -39,9 +34,12 @@ pub struct Vehicle {
     pub slip: f32,
     pub rpm: f32,
     pub gear: i32,
+    pub drive_demands: [f32; 4],
+    pub longitudinal_forces: [f32; 4],
     pub previous: Transform,
     pub reset_count: u32,
     reverse_engaged: bool,
+    pub(crate) shift_remaining: f32,
 }
 
 impl Default for Vehicle {
@@ -55,9 +53,12 @@ impl Default for Vehicle {
             slip: 0.0,
             rpm: 900.0,
             gear: 1,
+            drive_demands: [0.; 4],
+            longitudinal_forces: [0.; 4],
             previous: spawn_pose(),
             reset_count: 0,
             reverse_engaged: false,
+            shift_remaining: 0.,
         }
     }
 }
@@ -102,7 +103,10 @@ pub fn chassis_collider(spec: &CarSpec) -> Collider {
     ])
 }
 
-fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
+fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>, recorder: Option<Res<RunHandle>>) {
+    if let Some(run) = recorder {
+        run.event("vehicle.physics_profile", profile::report(&spec.id));
+    }
     commands.spawn((
         Name::new("Player chassis"),
         Vehicle::default(),
@@ -110,11 +114,11 @@ fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
         RigidBody::Dynamic,
         chassis_collider(&spec),
         ColliderMassProperties::Density(0.0),
-        baseline_mass_properties(),
+        profile::for_car(&spec.id).mass_properties(&spec),
         Velocity::zero(),
         ExternalForce::default(),
         Damping {
-            linear_damping: 0.02,
+            linear_damping: 0.0,
             angular_damping: 0.25,
         },
         Friction::coefficient(0.3),
@@ -156,6 +160,7 @@ pub(crate) fn simulate(
         &mut Velocity,
         &mut ExternalForce,
         &mut Vehicle,
+        &AdditionalMassProperties,
     )>,
 ) {
     let Ok(context) = context.single() else {
@@ -184,7 +189,12 @@ pub(crate) fn simulate(
         envelope.actor_id = Some("player-vehicle".into());
         recorder.event_envelope("controls.effective", json!({"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
     }
-    for (entity, mut pose, mut velocity, mut total, mut car) in &mut cars {
+    let physics = profile::for_car(&spec.id);
+    for (entity, mut pose, mut velocity, mut total, mut car, properties) in &mut cars {
+        let AdditionalMassProperties::MassProperties(properties) = properties else {
+            continue;
+        };
+        let mass = properties.mass;
         if do_reset || pose.translation.y < -12.0 {
             let before = json!({"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":car.reset_count});
             *pose = recovery_pose(pose.translation);
@@ -212,17 +222,18 @@ pub(crate) fn simulate(
             continue;
         }
         car.previous = *pose;
-        let center = pose.translation;
+        let center = pose.translation + pose.rotation * properties.local_center_of_mass;
         let up = pose.rotation * Vec3::Y;
         let forward = pose.rotation * Vec3::NEG_Z;
         let speed = velocity.linear.dot(forward);
         car.speed = speed;
-        let max_steer = 0.56 / (1.0 + speed.abs() * 0.06);
+        let max_steer = physics.max_steer_rad / (1.0 + speed.abs() * physics.steer_speed_falloff);
         let target = -input.steer.clamp(-1.0, 1.0) * max_steer;
         car.steering += (target - car.steering) * (1.0 - (-9.0 * STEP).exp());
         let mut lengths = [REST; 4];
         let mut loads = [0.0; 4];
         let mut contacts = [None; 4];
+        let mut decisions = crate::diagnostics::decision::VehicleDecisions::new(car.gear);
         let mut ray_misses = 0;
         car.grounded = 0;
         car.slip = 0.0;
@@ -230,14 +241,16 @@ pub(crate) fn simulate(
 
         for (i, mount) in spec.mounts().iter().enumerate() {
             if spec.id == "350z" && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i]) {
+                decisions.wheels[i].contact = "disabled_by_assembly";
                 ray_misses += 1;
                 continue;
             }
             if up.y < 0.25 {
+                decisions.wheels[i].contact = "body_inverted";
                 ray_misses += 1;
                 continue;
             }
-            let origin = center + pose.rotation * *mount;
+            let origin = pose.translation + pose.rotation * *mount;
             let hit = context.cast_ray_and_get_normal(
                 origin,
                 -up,
@@ -250,15 +263,22 @@ pub(crate) fn simulate(
                 continue;
             };
             if hit.normal.dot(up) < 0.45 {
+                decisions.wheels[i].contact = "normal_rejected";
+                decisions.wheels[i].normal = Some(hit.normal.to_array());
+                decisions.wheels[i].point = Some((origin - up * hit.time_of_impact).to_array());
                 ray_misses += 1;
                 continue;
             }
             lengths[i] = (hit.time_of_impact - spec.radii[i]).clamp(0.02, REST);
             let point = origin - up * hit.time_of_impact;
+            decisions.wheels[i].contact = "accepted";
+            decisions.wheels[i].point = Some(point.to_array());
+            decisions.wheels[i].normal = Some(hit.normal.to_array());
             let point_velocity = velocity.linear + velocity.angular.cross(point - center);
             let compression = REST - lengths[i];
-            let load = (compression * 38000.0 - point_velocity.dot(hit.normal) * 4100.0)
-                .clamp(0.0, MASS * 9.81 * 1.5);
+            let load = (compression * physics.spring(i / 2)
+                - point_velocity.dot(hit.normal) * physics.damper(i / 2))
+            .clamp(0.0, mass * 9.81 * 1.5);
             loads[i] = load;
             contacts[i] = Some((point, hit.normal, point_velocity));
             *total += ExternalForce::at_point(hit.normal * load, point, center);
@@ -270,6 +290,23 @@ pub(crate) fn simulate(
         } else if input.brake > 0.01 && planar_speed < 0.8 {
             car.reverse_engaged = true;
         }
+        let radius = physics.drive_radius(spec.radii);
+        let engine_demand = physics.drive_force(&mut car, speed, radius, input.throttle);
+        let cutoff = if car.shift_remaining > 0. {
+            "shift_in_progress"
+        } else if car.rpm > physics.redline_rpm {
+            "redline"
+        } else if input.throttle <= 0. {
+            "no_throttle"
+        } else if physics
+            .speed_governor_mps
+            .is_some_and(|limit| speed >= limit)
+        {
+            "speed_governor"
+        } else {
+            "none"
+        };
+        decisions.drive(&car, engine_demand, radius, cutoff, physics, speed);
         let (drive, brake, reverse) =
             if input.brake > 0.01 && input.throttle < 0.01 && speed < 0.8 && car.reverse_engaged {
                 (
@@ -280,12 +317,12 @@ pub(crate) fn simulate(
             } else if input.throttle > 0.01 && speed < -0.8 {
                 (0.0, input.throttle, false)
             } else {
-                (
-                    input.throttle * 8500.0 * (1.0 - speed.max(0.0) / 77.0).max(0.06),
-                    input.brake,
-                    false,
-                )
+                (engine_demand, input.brake, false)
             };
+        let total_load = loads.iter().sum();
+        let drive_shares = physics.drive_shares(drive, loads);
+        car.drive_demands = [0.; 4];
+        car.longitudinal_forces = [0.; 4];
         for i in 0..4 {
             if let Some((point, normal, point_velocity)) = contacts[i] {
                 let steer = if i < 2 { car.steering } else { 0.0 };
@@ -297,17 +334,34 @@ pub(crate) fn simulate(
                 let lateral = point_velocity.dot(side);
                 let angle = lateral.atan2(longitudinal.abs().max(2.0));
                 let rear_slide = input.handbrake && i >= 2;
-                let grip = loads[i] * if rear_slide { 0.60 } else { 1.22 };
-                let braking = (brake * MASS * 10.0 / 4.0 + if rear_slide { 6500.0 } else { 0.0 })
-                    .min(longitudinal.abs() * MASS / (4.0 * STEP));
-                let engine = if i >= 2 && !rear_slide {
-                    drive / 2.0
+                let grip_scale = if rear_slide { 0.5 } else { 1. };
+                let braking = forces::braking_force(
+                    brake,
+                    loads[i],
+                    total_load,
+                    longitudinal,
+                    rear_slide,
+                    mass,
+                    physics.brake_decel_mps2,
+                );
+                let engine = if !rear_slide {
+                    drive * drive_shares[i]
                 } else {
                     0.0
                 };
+                car.drive_demands[i] = engine;
                 let fx = engine - longitudinal.signum() * braking;
-                let fy = -angle * if i < 2 { 47000.0 } else { 45000.0 };
-                let force2 = Vec2::new(fx, fy).clamp_length_max(grip);
+                let fy = -angle * loads[i] * physics.cornering_per_load[i / 2];
+                let force2 = forces::tire_force(
+                    Vec2::new(fx, fy),
+                    loads[i],
+                    physics.tire_mu * grip_scale,
+                    physics.lateral_mu * grip_scale,
+                );
+                car.longitudinal_forces[i] = force2.x;
+                decisions.wheels[i].requested_tire_n = [fx, fy];
+                decisions.wheels[i].applied_tire_n = force2.to_array();
+                decisions.wheels[i].brake_n = braking;
                 let force = wheel_forward * force2.x + side * force2.y;
                 *total += ExternalForce::at_point(force, point, center);
                 // Forward is -Z, so rolling forward requires rotation about -X.
@@ -320,35 +374,30 @@ pub(crate) fn simulate(
         }
         for axle in [0, 2] {
             if contacts[axle].is_some() && contacts[axle + 1].is_some() {
-                let roll = (lengths[axle + 1] - lengths[axle]) * 6500.0;
+                let roll = (lengths[axle + 1] - lengths[axle])
+                    * physics.spring(axle / 2)
+                    * physics.anti_roll_fraction[axle / 2];
                 for (i, sign) in [(axle, 1.0), (axle + 1, -1.0)] {
                     *total += ExternalForce::at_point(
                         up * roll * sign,
-                        center + pose.rotation * spec.mounts()[i],
+                        pose.translation + pose.rotation * spec.mounts()[i],
                         center,
                     );
                 }
             }
         }
-        total.force -= velocity.linear * velocity.linear.length() * 0.45;
-        total.force -= Vec3::new(velocity.linear.x, 0.0, velocity.linear.z) * 17.0;
-        if car.grounded >= 3 {
-            total.force -= up * speed * speed * 1.3;
-            let target_yaw = (car.steering.tan() * speed / spec.wheelbase())
-                .clamp(-11.0 / speed.abs().max(4.0), 11.0 / speed.abs().max(4.0));
-            let assist = if input.handbrake { 350.0 } else { 1700.0 };
-            total.torque.y += (target_yaw - velocity.angular.y) * assist;
-        }
+        total.force -=
+            velocity.linear * velocity.linear.length() * (0.5 * 1.225 * physics.drag_area_m2);
+        let planar = Vec3::new(velocity.linear.x, 0., velocity.linear.z);
+        total.force -= planar.normalize_or_zero()
+            * (mass * 9.81 * physics.rolling_coefficient * planar.length().min(1.));
         car.wheel_lengths = lengths;
-        car.gear = if reverse || speed < -0.8 {
-            -1
-        } else {
-            (1 + (speed.max(0.0) / 12.0) as i32).min(6)
-        };
-        car.rpm =
-            900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
+        if reverse || speed < -0.8 {
+            car.gear = -1;
+        }
 
         let sample = PhysicsSample {
+            decisions,
             step,
             tick,
             actor_id: "player-vehicle".into(),
@@ -371,6 +420,8 @@ pub(crate) fn simulate(
             slip: car.slip,
             rpm: car.rpm,
             gear: car.gear,
+            drive_demands: car.drive_demands,
+            longitudinal_forces: car.longitudinal_forces,
             reset_count: car.reset_count,
             input: InputSample {
                 step,
@@ -535,7 +586,9 @@ mod tests {
         tick(&mut app, 720);
         let (_, velocity, _) = state(&mut app);
         let before = velocity.linear.length();
-        assert!(before > 15.0, "{id}: acceleration {before}");
+        // Basic mobility is common to every edition; sports-car performance is not.
+        // The 18 PS Fiat 500 must not gain artificial power to pass this contract.
+        assert!(before > 5.0, "{id}: acceleration response {before}");
         let mut wheels = app.world_mut().query::<&Vehicle>();
         assert!(
             wheels

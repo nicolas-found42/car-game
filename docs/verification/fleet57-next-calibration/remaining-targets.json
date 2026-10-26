@@ -1,0 +1,397 @@
+{
+  "schema": 1,
+  "research_date": "2026-10-25",
+  "sources": [
+    {
+      "id": "z-cd-2003",
+      "url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+      "kind": "original instrumented test",
+      "retrieval": "Jev browser open/read confirmed",
+      "publication": "August 2002 issue",
+      "vehicle": "2003 US Nissan 350Z Track 6MT",
+      "mass_lb": 3322,
+      "tires": [
+        "Bridgestone Potenza RE040 225/45WR18",
+        "Bridgestone Potenza RE040 245/45WR18"
+      ],
+      "payload_kg": null,
+      "rollout": null
+    },
+    {
+      "id": "z-aw-2003",
+      "url": "https://www.autoweek.com/news/a2115721/2003-nissan-350z-its-z-lightful-z-back-long-live-z/",
+      "kind": "original instrumented test",
+      "retrieval": "Jev browser open/read confirmed",
+      "publication": "2002-11-11",
+      "vehicle": "2003 US Nissan 350Z Track 6MT",
+      "mass_lb": 3225,
+      "tires": [
+        "Bridgestone Potenza RE040 225/45WR18",
+        "Bridgestone Potenza RE040 245/45WR18"
+      ],
+      "payload_kg": null,
+      "rollout": null,
+      "conditions": "California Speedway; 60 mph at top of second just below 6600 rpm"
+    },
+    {
+      "id": "z-rt-2003-indexed",
+      "url": "https://www.rx8club.com/attachments/rx-8-racing-25/stats-rx-8-34712/2003_nissan350z-24354d1090995725",
+      "kind": "original instrumented test scan hosted by third party",
+      "retrieval": "Search index only; Jev browser 403",
+      "vehicle": "2003 US Nissan 350Z Track",
+      "payload_kg": null,
+      "rollout": null
+    },
+    {
+      "id": "nsx-cd-retrospective",
+      "url": "https://www.caranddriver.com/reviews/comparison-test/a28930414/2019-honda-civic-type-r-vs-1991-acura-nsx/",
+      "kind": "publisher retrospective reproducing September 1990 measurements",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "1991 US Acura NSX 3.0 5MT",
+      "mass_lb": 3020,
+      "tires": [
+        "Yokohama A-022 205/50R15",
+        "Yokohama A-022 225/50R16"
+      ],
+      "payload_kg": null,
+      "rollout": null,
+      "production_build_status": "Unresolved; retrospective model-year label is not a VIN/build record",
+      "qualification": "2019 road car wears modern RE71R; old table explicitly reproduces September 1990 results, not new-tire measurements."
+    },
+    {
+      "id": "nsx-cd-original",
+      "url": "https://www.caranddriver.com/reviews/comparison-test/a15140663/porsche-911-carrera-4-cabriolet-vs-acura-nsx-chevrolet-corvette-zr-1-ferrari-348ts-lotus-esprit-turbo-se-archived-comparison-test/",
+      "kind": "original instrumented comparison",
+      "retrieval": "Jev browser open/read confirmed",
+      "conditions": "Ambient sometimes above 100 F; incomplete weather correction warned for power-related results; no numeric grip correction"
+    },
+    {
+      "id": "nsx-rt-1990",
+      "url": "https://rednsx.org/articles/rt90.html",
+      "kind": "Original Road and Track August 1990 article transcription on owner archive",
+      "retrieval": "Jev browser open/read confirmed; full magazine scan not retrieved",
+      "vehicle": "Early US Acura NSX 3.0 5MT",
+      "tires": [
+        "Yokohama A-022 205/50ZR15",
+        "Yokohama A-022 225/50ZR16"
+      ],
+      "circle_diameter_ft": null,
+      "payload_kg": null,
+      "rollout": null,
+      "production_build_status": "Article differentiates production package from 1989 prototype; instrumented vehicle VIN/build status not proven",
+      "conditions": "Makeshift skidpad riddled with bumps and pavement seams; promised normal-site retest"
+    },
+    {
+      "id": "gnx-rt-1987",
+      "url": "https://www.roadandtrack.com/new-cars/road-tests/a25623/first-look-flashback-1987-buick-gnx/",
+      "kind": "Original June 1987 report republished by publisher",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "Original well-used GNX prototype",
+      "payload_kg": null,
+      "rollout": null,
+      "qualification": "Informal measured timing 5.6-5.7 s; separate Buick manufacturer claim 5.4 s; 300hp/420lb-ft prototype output"
+    },
+    {
+      "id": "supra-mt-1997",
+      "url": "https://www.motortrend.com/reviews/mitsubishi-3000gt-vr4",
+      "kind": "Original May 1 1997 instrumented comparison republished by publisher",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "1997 US Toyota Supra Turbo 6MT",
+      "mass_lb": 3505,
+      "tires": [
+        "Michelin Pilot SX 235/45ZR17",
+        "Michelin Pilot SX 255/40ZR17"
+      ],
+      "payload_kg": null,
+      "rollout": null
+    },
+    {
+      "id": "csl-bmw-2003",
+      "url": "https://www.press.bmwgroup.com/deutschland/article/detail/T0006229DE/bmw-m3-csl-auf-dem-genfer-automobil-salon-2003?language=de",
+      "kind": "Original manufacturer press kit",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "2003 BMW M3 CSL",
+      "mass_kg": 1385,
+      "tires": [
+        "Michelin Pilot Sport Cup 235/35ZR19",
+        "Michelin Pilot Sport Cup 265/30ZR19"
+      ],
+      "payload_kg": null,
+      "rollout": null
+    },
+    {
+      "id": "elise-lotus-2004",
+      "url": "https://elises.co.uk/models/s2_2004/111R/index.html",
+      "kind": "Original UK January 29 2004 Lotus release reproduced by third party",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "2004 UK Lotus Elise 111R",
+      "mass_kg": 860,
+      "mass_basis": "Running order, full tank, no occupants/luggage/options;916kg all options",
+      "tires": [
+        "Bridgestone Potenza RE040 175/55R16",
+        "Bridgestone Potenza RE040 225/45R17"
+      ],
+      "payload_kg": null,
+      "rollout": null
+    },
+    {
+      "id": "gnx-aw-2003",
+      "url": "https://www.autoweek.com/news/a2097746/1987-buick-gnx-bad-bone-indeed/",
+      "kind": "firsthand production-car visit; retrospective advertised specification report",
+      "retrieval": "Jev browser open/read confirmed",
+      "vehicle": "Production GNX479",
+      "power_hp": 276,
+      "power_rpm": 4400,
+      "torque_lbft": 360,
+      "torque_rpm": 3000,
+      "qualification": "5.5s launch quoted without measured-test identity, payload, or protocol;3500lb rounded, not an instrumented curb measurement"
+    }
+  ],
+  "cars": [
+    {
+      "car": "350z",
+      "decision": "Supported delivery-only probe; retain nominal output, mass, gears, current braking and lateral calibration",
+      "use_for_calibration": true,
+      "applicability": "US Track 6MT is selected related equipment; original GT4 grade remains unspecified",
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "z-cd-2003"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13.9,
+          "unit": "s",
+          "source_id": "z-cd-2003"
+        },
+        {
+          "metric": "interval_60_100_mph_s",
+          "value": 8.5,
+          "unit": "s",
+          "source_id": "z-cd-2003",
+          "derived": "13.9-5.4; not rolling-start test"
+        },
+        {
+          "metric": "brake_70_mph_0_m",
+          "value": 49.9872,
+          "unit": "m",
+          "source_id": "z-cd-2003",
+          "conversion": "164ft *0.3048"
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.88,
+          "unit": "g",
+          "source_id": "z-cd-2003",
+          "circle_diameter_ft": 300
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.66,
+          "unit": "s",
+          "source_id": "z-aw-2003"
+        },
+        {
+          "metric": "brake_60_mph_0_m",
+          "value": 34.7472,
+          "unit": "m",
+          "source_id": "z-aw-2003",
+          "conversion": "114ft *0.3048"
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.86,
+          "unit": "g",
+          "source_id": "z-aw-2003",
+          "circle_diameter_ft": 200
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 14.2,
+          "unit": "s",
+          "source_id": "z-rt-2003-indexed",
+          "use_for_calibration": false,
+          "qualification": "Indexed-only corroboration"
+        }
+      ]
+    },
+    {
+      "car": "gt4-nsx",
+      "decision": "Conservative lateral-only estimate near upper period observation; no exact matched-circle production validation claimed",
+      "use_for_calibration": "qualified lateral only",
+      "observed_grip_range_g": [
+        0.86,
+        0.93
+      ],
+      "range_is_matched_circle": false,
+      "observations": [
+        {
+          "metric": "lateral_g",
+          "value": 0.86,
+          "unit": "g",
+          "source_id": "nsx-cd-retrospective",
+          "circle_diameter_ft": 300
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.93,
+          "unit": "g",
+          "source_id": "nsx-rt-1990",
+          "circle_diameter_ft": null
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "nsx-cd-retrospective",
+          "use_for_calibration": false
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13.3,
+          "unit": "s",
+          "source_id": "nsx-cd-retrospective",
+          "use_for_calibration": false
+        },
+        {
+          "metric": "brake_70_mph_0_m",
+          "value": 47.8536,
+          "unit": "m",
+          "source_id": "nsx-cd-retrospective",
+          "conversion": "157ft *0.3048",
+          "use_for_calibration": false
+        }
+      ]
+    },
+    {
+      "car": "ref-a16",
+      "decision": "No supported production retune; prototype 4.7s excluded from production ranking",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "gnx-rt-1987",
+          "status": "manufacturer_claim",
+          "qualification": "No payload, rollout or production measured result established"
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": [
+            5.6,
+            5.7
+          ],
+          "unit": "s",
+          "source_id": "gnx-rt-1987",
+          "status": "informal_prototype_timing"
+        },
+        {
+          "metric": "torque_rpm",
+          "value": 3000,
+          "unit": "rpm",
+          "source_id": "gnx-aw-2003",
+          "status": "related_production_reference",
+          "use_for_calibration": "metadata or curve-shape correction only; not a retrieved factory torque curve"
+        }
+      ]
+    },
+    {
+      "car": "mc3-supra",
+      "decision": "Preserve current launch; related-year original test resolves apparent launch mismatch",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.1,
+          "unit": "s",
+          "source_id": "supra-mt-1997"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 12.3,
+          "unit": "s",
+          "source_id": "supra-mt-1997"
+        },
+        {
+          "metric": "interval_60_100_mph_s",
+          "value": 7.2,
+          "unit": "s",
+          "source_id": "supra-mt-1997",
+          "derived": "12.3-5.1"
+        }
+      ]
+    },
+    {
+      "car": "gt-viper",
+      "decision": "Preserve output; matching 100 mph excludes a power increase justified solely by related-year launch.",
+      "use_for_calibration": false
+    },
+    {
+      "car": "redline-911",
+      "decision": "No new calibration: market, load and test protocol unresolved; keep known DIN mass.",
+      "use_for_calibration": false
+    },
+    {
+      "car": "gt4-m3",
+      "decision": "Preserve Cup grip; track peak g is not sustained circle grip; brake upper bound already met.",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_100_kmh_s",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_200_kmh_s",
+          "value": 16.8,
+          "unit": "s",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "brake_100_kmh_0_m",
+          "value": 34,
+          "unit": "m",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_upper_bound",
+          "comparison": "less_than",
+          "conditions": "Optimal conditions"
+        }
+      ]
+    },
+    {
+      "car": "ref-e13",
+      "decision": "Qualified investigation only; full-tank 860 kg and stock RE040 retained; US Sport Pack test is not interchangeable.",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_100_kmh_s",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        }
+      ]
+    }
+  ],
+  "policy": "Measurements apply to tested vehicle/configuration. Unknown rollout/payload and source disagreement remain explicit. Delivery/lateral model coefficients are estimates, not measured losses/friction."
+}

@@ -1,0 +1,23 @@
+{
+  "changed": {
+    "350z": [
+      "driveline_efficiency",
+      0.8,
+      "z-cd-2003",
+      "Effective delivery estimate matched to Track6MT midrange envelope; nominal outputs/mass/gears unchanged. Not a measured driveline loss. Unknown rollout is not converted."
+    ],
+    "gt4-nsx": [
+      "lateral_mu",
+      0.98,
+      "nsx-rt-1990",
+      "Conservative period tire-grip envelope estimate: C/D .86g300ft, R&T .93g makeshift circle of unknown diameter. Original Yokohama A-02215/16-inch equipment; build status and test conditions remain qualified. Not an exact measured friction coefficient."
+    ]
+  },
+  "unchanged_profiles": 55,
+  "preserved": [
+    "redline-gt500",
+    "ref-a08",
+    "ref-e12",
+    "ref-a14"
+  ]
+}

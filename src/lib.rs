@@ -24,6 +24,7 @@ pub mod vehicle;
 pub use config::{RenderBackend, RuntimeConfig};
 
 pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> Result<App, String> {
+    config.validate_execution()?;
     let mut fleet = roster::Fleet::default();
     fleet.selected = fleet
         .cars
@@ -62,6 +63,7 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
         .insert_resource(fleet)
         .insert_resource(config.access.clone())
         .insert_resource(diagnostics::PhysicsTrace::for_recorder(run.clone()))
+        .add_systems(Update, diagnostics::observe_clocks)
         .insert_resource(runtime::Session::from_env())
         .add_plugins((
             runtime::RuntimePlugin,
@@ -108,10 +110,13 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
         ..default()
     };
     if config.backend == RenderBackend::Disabled {
+        let frame = if config.fast_scenario {
+            Duration::ZERO
+        } else {
+            Duration::from_secs_f64(1. / 120.)
+        };
         app.add_plugins((
-            MinimalPlugins.set(ScheduleRunnerPlugin::run_loop(Duration::from_secs_f64(
-                1.0 / 120.0,
-            ))),
+            MinimalPlugins.set(ScheduleRunnerPlugin::run_loop(frame)),
             TransformPlugin,
             bevy::input::InputPlugin,
             assets,
@@ -119,6 +124,11 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
         .init_asset::<Image>()
         .init_asset::<Mesh>()
         .init_asset::<StandardMaterial>();
+        if config.fast_scenario {
+            app.insert_resource(bevy::time::TimeUpdateStrategy::ManualDuration(
+                Duration::from_secs_f64(1. / 120.),
+            ));
+        }
         return;
     }
     let offscreen = config.backend == RenderBackend::Offscreen;
@@ -162,6 +172,7 @@ fn effective_config(
         "visual_only": config.visual_only,
         "offscreen": config.backend == RenderBackend::Offscreen,
         "render_disabled": config.backend == RenderBackend::Disabled,
+        "fast_scenario": config.fast_scenario,
         "seed": config.seed,
         "fixed_hz": 120,
         "log_filter": config.log_filter,

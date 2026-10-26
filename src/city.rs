@@ -2,6 +2,7 @@ use bevy::{
     asset::RenderAssetUsages, mesh::Indices, prelude::*, render::render_resource::PrimitiveTopology,
 };
 use bevy_rapier3d::prelude::*;
+pub mod curve;
 
 pub const SPACING: f32 = 112.0;
 pub const ROAD: f32 = 24.0;
@@ -69,6 +70,7 @@ fn build_city(
     assets: Res<AssetServer>,
     config: Res<crate::RuntimeConfig>,
 ) {
+    curve::build(&mut commands, &mut meshes, &mut materials);
     let cube = meshes.add(Cuboid::default());
     let asphalt = materials.add(StandardMaterial {
         base_color: Color::srgb(0.13, 0.15, 0.17),
@@ -102,6 +104,11 @@ fn build_city(
     );
     // Raised block-sized sidewalks leave every street and intersection connected.
     for x in -4_i32..4 {
+        // The common native fleet maneuver must not strike sidewalks or buildings.
+        // Interactive play and recorded city scenarios retain every original block.
+        if config.mode == "fleet" && (-1..=1).contains(&x) {
+            continue;
+        }
         for z in -4_i32..4 {
             let center = Vec3::new((x as f32 + 0.5) * SPACING, 0.0, (z as f32 + 0.5) * SPACING);
             block(

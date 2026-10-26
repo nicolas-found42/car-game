@@ -1,0 +1,6 @@
+[
+  {"car":"350z","diameter_ft":300,"reference_g":0.88,"source_id":"j01-cd-test","source_url":"https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/","status":"related_equipment_grade","note":"2003 US Track 6MT versus unspecified GT4 grade; exact 300-ft diameter reported."},
+  {"car":"gt-viper","diameter_ft":300,"reference_g":0.95,"source_id":"viper-cd","source_url":"https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/","status":"related_year","note":"1997 GTS on 300-ft diameter; native asset year unresolved."},
+  {"car":"redline-gt500","diameter_ft":200,"reference_g":0.89,"source_id":"gt500-mt-2008","source_url":"https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive","status":"same_year_trim_method_qualified","note":"2008 coupe test reports average lateral acceleration; accessible table does not specify pad diameter. Both 200- and 300-ft simulation results retained; 200-ft chosen as a comparison convention, not a verified exact protocol match."},
+  {"car":"ref-a01","diameter_ft":200,"reference_g":0.84,"source_id":"am_mustang_test","source_url":"https://www.motortrend.com/reviews/2005-ford-mustang-gt","status":"related_transmission","note":"Period automatic test versus manual profile; reported 200-ft skidpad."}
+]

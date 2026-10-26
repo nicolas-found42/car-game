@@ -1,0 +1,2065 @@
+{
+  "BRAKE": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "Category",
+        "type": "Byte"
+      },
+      {
+        "name": "BraketorqueF",
+        "type": "Byte"
+      },
+      {
+        "name": "BraketorqueR",
+        "type": "Byte"
+      },
+      {
+        "name": "Sidebraketorque",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Brake.cs",
+    "source_sha256": "2a7c9f19d2820f9cfd0dc87bf8784c70160693b03c1691664f0cbe9f4bc8d163"
+  },
+  "CHASSIS": {
+    "columns": [
+      {
+        "name": "length",
+        "type": "Short"
+      },
+      {
+        "name": "height",
+        "type": "Short"
+      },
+      {
+        "name": "wheelbase",
+        "type": "Short"
+      },
+      {
+        "name": "mass",
+        "type": "Short"
+      },
+      {
+        "name": "dlength",
+        "type": "Short"
+      },
+      {
+        "name": "dheight",
+        "type": "Short"
+      },
+      {
+        "name": "dmass",
+        "type": "Short"
+      },
+      {
+        "name": "performanceF",
+        "type": "Short"
+      },
+      {
+        "name": "performanceR",
+        "type": "Short"
+      },
+      {
+        "name": "treadF",
+        "type": "Short"
+      },
+      {
+        "name": "treadR",
+        "type": "Short"
+      },
+      {
+        "name": "width",
+        "type": "Short"
+      },
+      {
+        "name": "dwidth",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "cartype",
+        "type": "Byte"
+      },
+      {
+        "name": "percentageF",
+        "type": "Byte"
+      },
+      {
+        "name": "yaw",
+        "type": "Byte"
+      },
+      {
+        "name": "cheight",
+        "type": "Byte"
+      },
+      {
+        "name": "WheelLayout",
+        "type": "Byte"
+      },
+      {
+        "name": "GrowInch",
+        "type": "Byte"
+      },
+      {
+        "name": "TireWidthR",
+        "type": "Byte"
+      },
+      {
+        "name": "FrontStiffness",
+        "type": "Byte"
+      },
+      {
+        "name": "RearStiffness",
+        "type": "Byte"
+      },
+      {
+        "name": "GasCapacity",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Chassis.cs",
+    "source_sha256": "fc97d31883263391f9c19654932a0dab258ff72f26d473fbdf73533b86da54ad"
+  },
+  "DEFAULTPARAM": {
+    "columns": [
+      {
+        "name": "torquevol",
+        "type": "Short"
+      },
+      {
+        "name": "finalgearDF",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightDFF",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightDFR",
+        "type": "Short"
+      },
+      {
+        "name": "springrateDFF",
+        "type": "Short"
+      },
+      {
+        "name": "springrateDFR",
+        "type": "Short"
+      },
+      {
+        "name": "cIDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "cIDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamFDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2FDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3FDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamRDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2RDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3RDF",
+        "type": "Byte"
+      },
+      {
+        "name": "maxspeedDF",
+        "type": "Byte"
+      },
+      {
+        "name": "camberDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "camberDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "toeDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "toeDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1BDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2BDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1RDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2RDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1BDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2BDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1RDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2RDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCDF",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSDF",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/DefaultParam.cs",
+    "source_sha256": "d097b963cae03d76092137b64d2fc31622721851fb244ae92ca8427368a9b0f7"
+  },
+  "DRIVETRAIN": {
+    "columns": [
+      {
+        "name": "iflywheel",
+        "type": "Short"
+      },
+      {
+        "name": "enginebrake",
+        "type": "Short"
+      },
+      {
+        "name": "iwheelF",
+        "type": "Short"
+      },
+      {
+        "name": "iwheelR",
+        "type": "Short"
+      },
+      {
+        "name": "ipropF",
+        "type": "Short"
+      },
+      {
+        "name": "ipropR",
+        "type": "Short"
+      },
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "drivetypeflag",
+        "type": "Byte"
+      },
+      {
+        "name": "drivetype",
+        "type": "Byte"
+      },
+      {
+        "name": "type4WD",
+        "type": "Byte"
+      },
+      {
+        "name": "type4WDMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "type4WDMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "type4WDDF",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Drivetrain.cs",
+    "source_sha256": "38be370d0c00b3f9ff18c3d749089f1f5cae7422520496b5d68b869a596b5dee"
+  },
+  "ENGINE": {
+    "columns": [
+      {
+        "name": "discplacement",
+        "type": "String"
+      },
+      {
+        "name": "enginetype",
+        "type": "String"
+      },
+      {
+        "name": "cam",
+        "type": "String"
+      },
+      {
+        "name": "aspiration",
+        "type": "String"
+      },
+      {
+        "name": "psrpm",
+        "type": "String"
+      },
+      {
+        "name": "torquerpm",
+        "type": "String"
+      },
+      {
+        "name": "soundNum",
+        "type": "UShort"
+      },
+      {
+        "name": "psvalue",
+        "type": "Short"
+      },
+      {
+        "name": "torquevalue",
+        "type": "Short"
+      },
+      {
+        "name": "torqueA",
+        "type": "Short"
+      },
+      {
+        "name": "torqueB",
+        "type": "Short"
+      },
+      {
+        "name": "torqueC",
+        "type": "Short"
+      },
+      {
+        "name": "torqueD",
+        "type": "Short"
+      },
+      {
+        "name": "torqueE",
+        "type": "Short"
+      },
+      {
+        "name": "torqueF",
+        "type": "Short"
+      },
+      {
+        "name": "torqueG",
+        "type": "Short"
+      },
+      {
+        "name": "torqueH",
+        "type": "Short"
+      },
+      {
+        "name": "torqueI",
+        "type": "Short"
+      },
+      {
+        "name": "torqueJ",
+        "type": "Short"
+      },
+      {
+        "name": "torqueK",
+        "type": "Short"
+      },
+      {
+        "name": "torqueL",
+        "type": "Short"
+      },
+      {
+        "name": "torqueM",
+        "type": "Short"
+      },
+      {
+        "name": "torqueN",
+        "type": "Short"
+      },
+      {
+        "name": "torqueO",
+        "type": "Short"
+      },
+      {
+        "name": "torqueP",
+        "type": "Short"
+      },
+      {
+        "name": "torqueQ",
+        "type": "Short"
+      },
+      {
+        "name": "torqueR",
+        "type": "Short"
+      },
+      {
+        "name": "torqueS",
+        "type": "Short"
+      },
+      {
+        "name": "torqueT",
+        "type": "Short"
+      },
+      {
+        "name": "torqueU",
+        "type": "Short"
+      },
+      {
+        "name": "torqueV",
+        "type": "Short"
+      },
+      {
+        "name": "torqueW",
+        "type": "Short"
+      },
+      {
+        "name": "torqueX",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "dpsflag",
+        "type": "Byte"
+      },
+      {
+        "name": "shiftlimit",
+        "type": "Byte"
+      },
+      {
+        "name": "revlimit",
+        "type": "Byte"
+      },
+      {
+        "name": "?",
+        "type": "Byte"
+      },
+      {
+        "name": "clutchmeetrpm",
+        "type": "Byte"
+      },
+      {
+        "name": "torquepoint",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmA",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmB",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmC",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmD",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmE",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmF",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmG",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmH",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmI",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmJ",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmK",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmL",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmM",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmN",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmO",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmP",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmQ",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmR",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmS",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmT",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmU",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmV",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmW",
+        "type": "Byte"
+      },
+      {
+        "name": "rpmX",
+        "type": "Byte"
+      },
+      {
+        "name": "RedLine",
+        "type": "Byte"
+      },
+      {
+        "name": "MeterScale",
+        "type": "Byte"
+      },
+      {
+        "name": "torquevol",
+        "type": "Byte"
+      },
+      {
+        "name": "GasConsumptionRate",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Engine.cs",
+    "source_sha256": "5295d6c2ed3491bca1305a27a826fc570b562f94848f04683d9568dd8ff58ab4"
+  },
+  "GEAR": {
+    "columns": [
+      {
+        "name": "Gear1st",
+        "type": "Short"
+      },
+      {
+        "name": "Gear2nd",
+        "type": "Short"
+      },
+      {
+        "name": "Gear3rd",
+        "type": "Short"
+      },
+      {
+        "name": "Gear4th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear5th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear6th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear7th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear8th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear9th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear10th",
+        "type": "Short"
+      },
+      {
+        "name": "Gear11th",
+        "type": "Short"
+      },
+      {
+        "name": "GearReverse",
+        "type": "Short"
+      },
+      {
+        "name": "finalgearMIN",
+        "type": "Short"
+      },
+      {
+        "name": "finalgearMAX",
+        "type": "Short"
+      },
+      {
+        "name": "finalgearDF",
+        "type": "Short"
+      },
+      {
+        "name": "ExtraFinalGearRatio",
+        "type": "Short"
+      },
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "geartype",
+        "type": "Byte"
+      },
+      {
+        "name": "Nshift",
+        "type": "Byte"
+      },
+      {
+        "name": "gearflag",
+        "type": "Byte"
+      },
+      {
+        "name": "maxspeedMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "maxspeedMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "maxspeedDF",
+        "type": "Byte"
+      },
+      {
+        "name": "ExtraFinalGearUsage",
+        "type": "Byte"
+      },
+      {
+        "name": "LowGearPos",
+        "type": "Byte"
+      },
+      {
+        "name": "ReverseGearPos",
+        "type": "Byte"
+      },
+      {
+        "name": "GearPattern",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Gear.cs",
+    "source_sha256": "328b892c1943baf1b564f5d27f13a73a6352976f1e9e2b9544cbd642e72868fd"
+  },
+  "RACINGMODIFY": {
+    "columns": [
+      {
+        "name": "?",
+        "type": "Short"
+      },
+      {
+        "name": "chassisTreadF",
+        "type": "Short"
+      },
+      {
+        "name": "chassisThreadR",
+        "type": "Short"
+      },
+      {
+        "name": "chassisWidth",
+        "type": "Short"
+      },
+      {
+        "name": "chassisDWidth",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "?",
+        "type": "Byte"
+      },
+      {
+        "name": "cd",
+        "type": "Byte"
+      },
+      {
+        "name": "clMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "clMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "clDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "clMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "clMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "clDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "wheeloffsetF",
+        "type": "SByte"
+      },
+      {
+        "name": "wheeloffsetR",
+        "type": "SByte"
+      },
+      {
+        "name": "susarmF",
+        "type": "Byte"
+      },
+      {
+        "name": "susarmR",
+        "type": "Byte"
+      },
+      {
+        "name": "?",
+        "type": "Byte"
+      },
+      {
+        "name": "HasActiveWing",
+        "type": "Bool"
+      },
+      {
+        "name": "ActiveWingType",
+        "type": "Byte"
+      },
+      {
+        "name": "ActiveWingVelocity1",
+        "type": "Byte"
+      },
+      {
+        "name": "ActiveWingVelocity2",
+        "type": "Byte"
+      },
+      {
+        "name": "ActiveWingMovingSpeed",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/RacingModify.cs",
+    "source_sha256": "8afbff33cd961fb6219930d0c7c83f455711f7869f5af47af65c8caf6f55706c"
+  },
+  "SUSPENSION": {
+    "columns": [
+      {
+        "name": "rideheightMINF",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightMAXF",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightDFF",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightMINR",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightMAXR",
+        "type": "Short"
+      },
+      {
+        "name": "rideheightMDFR",
+        "type": "Short"
+      },
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "camberMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "camberMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "camberDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "camberMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "camberMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "camberDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "strokecamberF",
+        "type": "Byte"
+      },
+      {
+        "name": "strokecamberR",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFX1",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFx2",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFx3",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFx4",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFy1",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFy2",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFy3",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripFy4",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRx1",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRx2",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRx3",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRx4",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRy1",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRy2",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRy3",
+        "type": "Byte"
+      },
+      {
+        "name": "cmbgripRy4",
+        "type": "Byte"
+      },
+      {
+        "name": "toeMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "toeMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "toeDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "toeMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "toeMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "toeDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "brmarginF",
+        "type": "Byte"
+      },
+      {
+        "name": "brmarginR",
+        "type": "Byte"
+      },
+      {
+        "name": "brtouchF",
+        "type": "Byte"
+      },
+      {
+        "name": "brtouchR",
+        "type": "Byte"
+      },
+      {
+        "name": "limrF",
+        "type": "Byte"
+      },
+      {
+        "name": "limrR",
+        "type": "Byte"
+      },
+      {
+        "name": "springratevol",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "springrateDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "leverratioDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "leverratioDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "bumprubberF",
+        "type": "Byte"
+      },
+      {
+        "name": "bumprubberR",
+        "type": "Byte"
+      },
+      {
+        "name": "bumprubberDMF",
+        "type": "Byte"
+      },
+      {
+        "name": "bumprubberR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV1BF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV1BR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV2BF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV2BR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV1RF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV1RR",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV2RF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampV2RR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelBF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1BMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1BMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF1BDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2BMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2BMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "dampF2BDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelRF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2RMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2RMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2RDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelBR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1BMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1BMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1BDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2BMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2BMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2BDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelRR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF1RDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2RMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2RMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "damplevelF2BRFR",
+        "type": "Byte"
+      },
+      {
+        "name": "unsprungmassF",
+        "type": "Byte"
+      },
+      {
+        "name": "unsprungmassR",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerFlevel",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerMINF",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerMAXF",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerDFF",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerRlevel",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerMINR",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerMAXR",
+        "type": "Byte"
+      },
+      {
+        "name": "stabilizerDFR",
+        "type": "Byte"
+      },
+      {
+        "name": "ActiveSuspensionType",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Suspension.cs",
+    "source_sha256": "655ebe6b44125bf87f2f2588910c56f7444650ed7282ff1d82443fcf606fc72c"
+  },
+  "provenance": {
+    "repository": "https://github.com/Nenkai/PDTools",
+    "commit": "2a9637d8c36100e4c211d73cd8140a9d690578d2",
+    "accessed": "2026-10-23",
+    "selection": "GT4_EU2560 branch; row sizes strictly checked; names are decoder interpretations, not SI unit guarantees",
+    "tree_sha": "bfbb6d65e3ccfe8f1a2e3e23b1f6bcef01ea59e0"
+  },
+  "BRAKECONTROLLER": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSLevelF",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSMinF",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSMaxF",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSDefaultF",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSLevelR",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSMinR",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSMaxR",
+        "type": "Byte"
+      },
+      {
+        "name": "ABSDefaultR",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/BrakeController.cs",
+    "source_sha256": "9fa40d1e81d1c0ab601b1d1a992902582b48b3633d37d7f4c5784fcc841047af"
+  },
+  "TIRESIZE": {
+    "columns": [
+      {
+        "name": "flatness",
+        "type": "Byte"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "diameter",
+        "type": "Byte"
+      },
+      {
+        "name": "width",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/TireSize.cs",
+    "source_sha256": "fbf86091f8980a60429833e067361ca866e47c8b76c4627596600081774d60d2"
+  },
+  "TIREFORCEVOL": {
+    "columns": [
+      {
+        "name": "forceVolTA",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolGU",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolGR",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolSA",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolGV",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolDT",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolWT",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolSF",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolWD",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolHT",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolWR",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolWH",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolWG",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolG1",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolG2",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolG3",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolPB",
+        "type": "Byte"
+      },
+      {
+        "name": "forceVolBE",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/TireForceVol.cs",
+    "source_sha256": "02d6c46fe6152ab462cc4c511f4283721074467b6b08d62330bf5cd5ef46cb1f"
+  },
+  "FLYWHEEL": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "iflywheel",
+        "type": "Byte"
+      },
+      {
+        "name": "enginebrake",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelF",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelR",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Flywheel.cs",
+    "source_sha256": "b7463f16d81f325d5a0540b5d5f6af7de2421b6bef7d0970219c1be1bd3980b4"
+  },
+  "CLUTCH": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "iflywheel",
+        "type": "Byte"
+      },
+      {
+        "name": "enginebrake",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelF",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelR",
+        "type": "Byte"
+      },
+      {
+        "name": "stclutchtq",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Clutch.cs",
+    "source_sha256": "9ee2c5cee097810f2ca8a43b05830852c24ca5c9bb521914f751748b4f34c269"
+  },
+  "PROPELLERSHAFT": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "enginebrake",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelF",
+        "type": "Byte"
+      },
+      {
+        "name": "iwheelR",
+        "type": "Byte"
+      },
+      {
+        "name": "ipropF",
+        "type": "Byte"
+      },
+      {
+        "name": "ipropR",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/PropellerShaft.cs",
+    "source_sha256": "d7674d6ea11e48a1b3dc0f206c32edfb5114a960d523bd0e2fff677cfa1f1f7e"
+  },
+  "ASCC": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCbrakeoff",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparam1level",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparam1MIN",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparam1MAX",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparam1DF",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparam2",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCbrakeon",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparamBlevel",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparamBMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparamBMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "VSCparamBDF",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCbrakeoff",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparam1level",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparam1MIN",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparam1MAX",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparam1DF",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparam2",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCbrakeon",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparamBlevel",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparamBMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparamBMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "VUCparamBDF",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/ASCC.cs",
+    "source_sha256": "301f96a5e4846c7b76191039238ef06f6eee80e86822ea09f612d867d4bd8386"
+  },
+  "STEER": {
+    "columns": [
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx1",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx2",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx3",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx4",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx5",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphx6",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy1",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy2",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy3",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy4",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy5",
+        "type": "Byte"
+      },
+      {
+        "name": "padgraphy6",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx1",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx2",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx3",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx4",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx5",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphx6",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy1",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy2",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy3",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy4",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy5",
+        "type": "Byte"
+      },
+      {
+        "name": "steergraphy6",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx1",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx2",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx3",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx4",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx5",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphx6",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy1",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy2",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy3",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy4",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy5",
+        "type": "Byte"
+      },
+      {
+        "name": "dirtgraphy6",
+        "type": "Byte"
+      },
+      {
+        "name": "steerlimit",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Steer.cs",
+    "source_sha256": "8e594014eeacd3518042d61eba7c68af3bdd94dd3eda500ff855f934a5777765"
+  },
+  "FRONTTIRE": {
+    "columns": [
+      {
+        "name": "tiresize",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound0",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound1",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound2",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol0",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol1",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol2",
+        "type": "Key"
+      },
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/FrontTire.cs",
+    "source_sha256": "60385176177ae88811c6097b946835fdc39cbd9ddd6b55c3d68f44e6bbc4f6a6"
+  },
+  "REARTIRE": {
+    "columns": [
+      {
+        "name": "tiresize",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound0",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound1",
+        "type": "Key"
+      },
+      {
+        "name": "tirecompound2",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol0",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol1",
+        "type": "Key"
+      },
+      {
+        "name": "tireforcevol2",
+        "type": "Key"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/RearTire.cs",
+    "source_sha256": "bdb726bd569a88edaa4fad9fde047413c32756d99b0ca5c1362055e071f053bd"
+  },
+  "TCSC": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "?",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnk1",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnk2",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnk3",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnkValue1",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnkValue2",
+        "type": "Byte"
+      },
+      {
+        "name": "TCSUnkValue3",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/TCSC.cs",
+    "source_sha256": "d5be2be691e9038e8431da1baf27e4d9edd34c6506e3882f123dfc85d3919317"
+  },
+  "TURBINEKIT": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Int"
+      },
+      {
+        "name": "torquemodifier",
+        "type": "Short"
+      },
+      {
+        "name": "torquemodifier2",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "wastegate",
+        "type": "Byte"
+      },
+      {
+        "name": "boost1",
+        "type": "Byte"
+      },
+      {
+        "name": "peakrpm1",
+        "type": "Byte"
+      },
+      {
+        "name": "response1",
+        "type": "Byte"
+      },
+      {
+        "name": "boost2",
+        "type": "Byte"
+      },
+      {
+        "name": "peakrpm2",
+        "type": "Byte"
+      },
+      {
+        "name": "response2",
+        "type": "Byte"
+      },
+      {
+        "name": "shiftlimit",
+        "type": "Byte"
+      },
+      {
+        "name": "revlimit",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/TurbineKit.cs",
+    "source_sha256": "85bf724e6be1ee80b738856f2c087efa4cf8d90eb04dda26afd5c7876b5bd5dc"
+  },
+  "LSD": {
+    "columns": [
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "difftypeF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamFMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamFMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamFDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2F",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2FMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2FMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2FDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3F",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3FMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3FMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3FDF",
+        "type": "Byte"
+      },
+      {
+        "name": "difftypeR",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamRMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamRMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparamRDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2R",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2RMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2RMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam2RDF",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3F",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3RMIN",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3RMAX",
+        "type": "Byte"
+      },
+      {
+        "name": "LSDparam3RDF",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Lsd.cs",
+    "source_sha256": "36337d6e46a12a74db8d0ca4d541243e40ebb3a63b0f5713926a935d9bebb502"
+  },
+  "LIGHTWEIGHT": {
+    "columns": [
+      {
+        "name": "weighteffect",
+        "type": "Short"
+      },
+      {
+        "name": "Price",
+        "type": "Short"
+      },
+      {
+        "name": "category",
+        "type": "Byte"
+      },
+      {
+        "name": "yaweffect",
+        "type": "Byte"
+      }
+    ],
+    "source_path": "PDTools.SpecDB/Core/Mapping/Tables/Lightweight.cs",
+    "source_sha256": "f2e67f16591aad44bdf9e8320435f4315c1cf16d83b33460f39c3dbacd73b304"
+  }
+}

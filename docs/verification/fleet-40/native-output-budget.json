@@ -1,0 +1,9 @@
+{
+  "draft_native_run": "artifacts/runs/20261024T05152266595Z-2342545-fleet-60183-1-1792818922685902000",
+  "completed_cars": 12,
+  "raw_output_bytes_so_far": 254807334,
+  "projected_40_car_bytes": 849357780,
+  "default_limit_bytes": 536870912,
+  "new_native_gate_limit_bytes": 1073741824,
+  "reason": "40-car captures and traces exceed the 13-car-era default; use existing bounded CLI override, without changing recorder global limits."
+}

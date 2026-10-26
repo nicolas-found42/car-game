@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "preserve_existing": 13,
+  "target_fleet_size": 40,
+  "cars": [
+    {
+      "id": "ref-a01",
+      "corpus_reference": "a01",
+      "source_code": "GT4_FORD0011",
+      "name": "Ford Mustang GT"
+    },
+    {
+      "id": "ref-a02",
+      "corpus_reference": "a02",
+      "source_code": "GT4_FORD0008",
+      "name": "Ford Mustang SVT Cobra R"
+    },
+    {
+      "id": "ref-a04",
+      "corpus_reference": "a04",
+      "source_code": "GT4_FORD0012",
+      "name": "Ford SVT F-150 Lightning"
+    },
+    {
+      "id": "ref-a05",
+      "corpus_reference": "a05",
+      "source_code": "F150_2004",
+      "name": "Ford F-150 FX4"
+    },
+    {
+      "id": "ref-a06",
+      "corpus_reference": "a06",
+      "source_code": "MCLA_VP_FRD_FOCUS_04",
+      "name": "Ford SVT Focus"
+    },
+    {
+      "id": "ref-a07",
+      "corpus_reference": "a07",
+      "source_code": "GT4_FORD0006",
+      "name": "Ford GT"
+    },
+    {
+      "id": "ref-a09",
+      "corpus_reference": "a09",
+      "source_code": "MCLA_VP_CHV_CORVETTEZ06_07",
+      "name": "Chevrolet Corvette Z06"
+    },
+    {
+      "id": "ref-a11",
+      "corpus_reference": "a11",
+      "source_code": "GT4_DODG0009",
+      "name": "Dodge Ram 1500 Laramie Hemi Quad Cab"
+    },
+    {
+      "id": "ref-a12",
+      "corpus_reference": "a12",
+      "source_code": "MC3_VP_SILVERADO_SS_04",
+      "name": "Chevrolet Silverado SS"
+    },
+    {
+      "id": "ref-a13",
+      "corpus_reference": "a13",
+      "source_code": "MC3_VP_H2_03",
+      "name": "Hummer H2"
+    },
+    {
+      "id": "ref-a14",
+      "corpus_reference": "a14",
+      "source_code": "MC3_VP_CTSV_04",
+      "name": "Cadillac CTS-V"
+    },
+    {
+      "id": "ref-a15",
+      "corpus_reference": "a15",
+      "source_code": "GT4_CHRY0009",
+      "name": "Chrysler 300C"
+    },
+    {
+      "id": "ref-a16",
+      "corpus_reference": "a16",
+      "source_code": "GT4_BUIC0001",
+      "name": "Buick GNX"
+    },
+    {
+      "id": "ref-e02",
+      "corpus_reference": "e02",
+      "source_code": "REDLINE_ADDON_022_FERRARITESTAROSSA_ZIP_TESTAROSSA_220E18865D7B_9ADA21231AEFF101",
+      "name": "Ferrari Testarossa"
+    },
+    {
+      "id": "ref-e03",
+      "corpus_reference": "e03",
+      "source_code": "MC3_VP_GALLARDO_04",
+      "name": "Lamborghini Gallardo"
+    },
+    {
+      "id": "ref-e04",
+      "corpus_reference": "e04",
+      "source_code": "MC3_VP_MURCIELAGO_04",
+      "name": "Lamborghini Murcielago"
+    },
+    {
+      "id": "ref-e08",
+      "corpus_reference": "e08",
+      "source_code": "GT4_MINI0001",
+      "name": "MINI Cooper S"
+    },
+    {
+      "id": "ref-e09",
+      "corpus_reference": "e09",
+      "source_code": "REDLINE_ADDON_076_GCW_MINI_COOPER_V1_0_ZIP_GCW_MORRIS_MINI_5666B24469E1_66F5F24BEA75563F",
+      "name": "Morris Mini Cooper S 1275"
+    },
+    {
+      "id": "ref-e10",
+      "corpus_reference": "e10",
+      "source_code": "GT4_VW__0007",
+      "name": "Volkswagen Golf IV R32"
+    },
+    {
+      "id": "ref-e11",
+      "corpus_reference": "e11",
+      "source_code": "MCLA_VP_AUD_R8_08",
+      "name": "Audi R8 4.2 FSI quattro"
+    },
+    {
+      "id": "ref-e12",
+      "corpus_reference": "e12",
+      "source_code": "MCLA_VP_AUD_RS4_07",
+      "name": "Audi RS4"
+    },
+    {
+      "id": "ref-e13",
+      "corpus_reference": "e13",
+      "source_code": "GT4_LOTU0010",
+      "name": "Lotus Elise 111R"
+    },
+    {
+      "id": "ref-j04",
+      "corpus_reference": "j04",
+      "source_code": "GT4_MAZD0007",
+      "name": "Mazda RX-7 Spirit R Type A"
+    },
+    {
+      "id": "ref-j07",
+      "corpus_reference": "j07",
+      "source_code": "GT4_HOND0049",
+      "name": "Honda S2000"
+    },
+    {
+      "id": "ref-j11",
+      "corpus_reference": "j11",
+      "source_code": "GT4_SUBR0001",
+      "name": "Subaru Impreza Sedan WRX STi"
+    },
+    {
+      "id": "ref-j12",
+      "corpus_reference": "j12",
+      "source_code": "GT4_SUBR0003",
+      "name": "Subaru Impreza Rally Car"
+    },
+    {
+      "id": "ref-j16",
+      "corpus_reference": "j16",
+      "source_code": "GT4_SUZK0007",
+      "name": "Suzuki Cappuccino"
+    }
+  ]
+}

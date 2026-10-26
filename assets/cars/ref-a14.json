@@ -1,0 +1,771 @@
+{
+  "source": "carmodels/dealership/dealership/models/MC3_VP_CTSV_04.glb",
+  "source_sha256": "97fe3864bbf29e1e4d3b1fadb7514a409d9ae0aad53112becbf65c9fada09ecb",
+  "source_scene": 0,
+  "source_meshes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "source_materials": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    21,
+    22,
+    23,
+    24,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    64
+  ],
+  "normalization": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    -0.0,
+    -0.5564999997615814,
+    -0.0,
+    1
+  ],
+  "mesh_nodes": [
+    {
+      "source_node": 0,
+      "prepared_node": 5,
+      "source_world_matrix": [
+        3.139164788112936e-07,
+        0.0,
+        0.9999999999999507,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -0.9999999999999507,
+        0.0,
+        3.139164788112936e-07,
+        0.0,
+        -0.06199999898672104,
+        0.3562360107898712,
+        -1.5048960447311401,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 1,
+      "prepared_node": 6,
+      "source_world_matrix": [
+        3.139164788112936e-07,
+        0.0,
+        -0.9999999999999507,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.9999999999999507,
+        0.0,
+        3.139164788112936e-07,
+        0.0,
+        0.06169700250029564,
+        0.3562360107898712,
+        -1.5048960447311401,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 2,
+      "prepared_node": 7,
+      "source_world_matrix": [
+        3.139164788112936e-07,
+        0.0,
+        0.9999999999999507,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -0.9999999999999507,
+        0.0,
+        3.139164788112936e-07,
+        0.0,
+        -0.0695360004901886,
+        0.35658201575279236,
+        1.5049309730529785,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 3,
+      "prepared_node": 8,
+      "source_world_matrix": [
+        3.139164788112936e-07,
+        0.0,
+        -0.9999999999999507,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.9999999999999507,
+        0.0,
+        3.139164788112936e-07,
+        0.0,
+        0.07000000029802322,
+        0.35658201575279236,
+        1.5049309730529785,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 4,
+      "prepared_node": 9,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.1332470178604126,
+        1.8641200065612793,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 5,
+      "prepared_node": 10,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.1332470178604126,
+        1.8641200065612793,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 6,
+      "prepared_node": 11,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 7,
+      "prepared_node": 12,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 8,
+      "prepared_node": 13,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 9,
+      "prepared_node": 14,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 10,
+      "prepared_node": 15,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 11,
+      "prepared_node": 16,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0258349180221558,
+        -0.9439550042152405,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 12,
+      "prepared_node": 17,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 13,
+      "prepared_node": 18,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 14,
+      "prepared_node": 19,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 15,
+      "prepared_node": 20,
+      "source_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 16,
+      "prepared_node": 21,
+      "source_world_matrix": [
+        0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        -0.6962999701499939,
+        0.3564999997615814,
+        -1.5048999786376953,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 17,
+      "prepared_node": 22,
+      "source_world_matrix": [
+        0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        -0.6962999701499939,
+        0.3564999997615814,
+        -1.5048999786376953,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 18,
+      "prepared_node": 23,
+      "source_world_matrix": [
+        -0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5333999991416931,
+        0.0,
+        0.6962999701499939,
+        0.3564999997615814,
+        -1.5048999786376953,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 19,
+      "prepared_node": 24,
+      "source_world_matrix": [
+        -0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.7357241125526391,
+        0.0,
+        0.6962999701499939,
+        0.3564999997615814,
+        -1.5048999786376953,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 20,
+      "prepared_node": 25,
+      "source_world_matrix": [
+        0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        -0.7609999775886536,
+        0.3564999997615814,
+        1.5048999786376953,
+        1.0
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 21,
+      "prepared_node": 26,
+      "source_world_matrix": [
+        0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        -0.7609999775886536,
+        0.3564999997615814,
+        1.5048999786376953,
+        1.0
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 22,
+      "prepared_node": 27,
+      "source_world_matrix": [
+        -0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5333999991416931,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5333999991416931,
+        0.0,
+        0.7609999775886536,
+        0.3564999997615814,
+        1.5048999786376953,
+        1.0
+      ],
+      "wheel": 3
+    },
+    {
+      "source_node": 23,
+      "prepared_node": 28,
+      "source_world_matrix": [
+        -0.4300000071525574,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7357241125526391,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.7357241125526391,
+        0.0,
+        0.7609999775886536,
+        0.3564999997615814,
+        1.5048999786376953,
+        1.0
+      ],
+      "wheel": 3
+    }
+  ],
+  "excluded_nodes": [],
+  "repairs": [
+    [
+      1,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      5,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      6,
+      "artistic GRID paint; not a recovered factory colour"
+    ],
+    [
+      10,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      12,
+      "artistic GRID paint; not a recovered factory colour"
+    ],
+    [
+      15,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      21,
+      "artistic dark glass preview"
+    ],
+    [
+      24,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      27,
+      "artistic dark glass preview"
+    ],
+    [
+      29,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      31,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      33,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      37,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      38,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      40,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      42,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      46,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      47,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      49,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      51,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      55,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      56,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      58,
+      "native rim/chrome material role to alloy PBR"
+    ],
+    [
+      60,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      64,
+      "native rubber/black material role to dark rough PBR"
+    ],
+    [
+      65,
+      "artistic dark glass preview"
+    ],
+    [
+      65,
+      "clear rear lamp cover; cabin material remains separate"
+    ]
+  ],
+  "scene_triangles": 8170,
+  "source_binary_sha256": "0e33a25ec63d56b1aad6ad41e00ceb55959829f00216481d4c07b25385c717aa",
+  "index_partitions": 0,
+  "limits": [
+    "Source-era geometry and textures retained; not original game shader emulation.",
+    "PBR/glass translation is an explicit GRID preview choice."
+  ],
+  "prepared_sha256": "65f472b8c0194fa51470adbf5c523a252fc050a2074bd547a34585d548a66b9c"
+}

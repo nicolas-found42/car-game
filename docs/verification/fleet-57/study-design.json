@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "purpose": "Expand to every existing real reference while preserving all current editions, then evaluate the complete scenario suite.",
+  "editions": 57,
+  "real_reference_cars": 50,
+  "preserved_editions": 40,
+  "added_editions": 17,
+  "scenario_cases": 24,
+  "independent_process_repeats": 2,
+  "planned_scenario_executions": 2736,
+  "planned_route_executions": 912,
+  "planned_assertions": 7638,
+  "fixed_hz": 120,
+  "seed": 17,
+  "physics_changes_to_existing_40": 0,
+  "benchmark_repeats": 2,
+  "benchmark_horizon_seconds": 20,
+  "skidpad_diameters_ft": [200, 300],
+  "evaluation": ["scenario assertions", "record completeness and recorder health", "exact repeat trajectory equality", "unchanged original 40 trajectories", "wheel contact and load support", "tilt and slip outliers with map-impact qualification", "route completion and corridor error", "flat-road acceleration and braking against qualified reference facts", "quasi-steady skidpad estimates", "reference coverage and estimated parameter limitations"],
+  "limitations": ["Dry road scenarios only; no loose surface or wet tire validation", "Map impacts are part of timed-case tilt and slip; not a direct real skidpad measurement", "20-second acceleration benchmark endpoints not reached remain censored rather than zero", "Generic gearbox, torque interpolation, differential transfer, tire and suspension models remain approximations", "Passing scenarios demonstrates the driving contract, not complete real-world fidelity"]
+}

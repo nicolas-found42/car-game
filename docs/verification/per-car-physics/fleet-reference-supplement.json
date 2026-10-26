@@ -1,0 +1,2953 @@
+{
+  "schema": "fleet-reference-supplement/v1",
+  "accessed": "2026-10-23",
+  "scope": "13 current fleet models; game observations are never relabeled real measurements",
+  "catalog_source": {
+    "path": "/Users/nicolas/Documents/github/carmodels/dealership/dealership/catalog.json",
+    "sha256": "5dd09aa0cc2d246495e847d42a06f544c8ccf992e2fa52fc7c55a36de65e4cda"
+  },
+  "sources": {
+    "nsx-oem": {
+      "url": "https://hondanews.com/en-US/releases/release-cc39196e84787a20ec3cb086fb095286-1991-acura-nsx",
+      "kind": "manufacturer_press_kit",
+      "title": "1991 Acura NSX; June3 1990 specs"
+    },
+    "fr500-oem": {
+      "url": "https://www.terminator-cobra.com/FR500%20is%20Fords%20Ultimate%20Performance%20Parts%20Car.pdf",
+      "kind": "archived_manufacturer_press_release",
+      "title": "Ford Racing FR500 SEMA release Nov3 1999; three pages"
+    },
+    "viper-mt": {
+      "url": "https://www.motortrend.com/reviews/1997-dodge-viper-gts",
+      "kind": "first_hand_instrumented_test",
+      "title": "MotorTrend May1997 ViperGTS test"
+    },
+    "viper-cd": {
+      "url": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/",
+      "kind": "first_hand_instrumented_test",
+      "title": "Car and Driver July1997 comparison"
+    },
+    "supra-brochure": {
+      "url": "https://www.mkiv.com/specifications/98_brochure/index.html",
+      "kind": "archived_manufacturer_brochure_transcription",
+      "title": "Toyota US1998 Supra brochure transcription; scanned page provenance weaker than original PDF"
+    },
+    "supra-cd": {
+      "url": "https://www.caranddriver.com/reviews/a15142755/toyota-supra-turbo-instrumented-test/",
+      "kind": "first_hand_instrumented_test",
+      "title": "Car and Driver March1993 SupraTurbo manual test; relatedyear"
+    },
+    "nissan-history": {
+      "url": "https://uk.nissannews.com/en-GB/releases/2017-nissan-gt-r-press-pack?origin=channel-8a0d2f3353d7723c4c3fcf8e15008b5a",
+      "kind": "manufacturer_press_release",
+      "title": "Nissan2017 GT-R presskit historical R34 section"
+    },
+    "j01-nissan-launch": {
+      "id": "j01-nissan-launch",
+      "url": "https://usa.nissannews.com/en-US/releases/2003-350z-press-kit",
+      "title": "2003 Nissan 350Z press kit",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_primary",
+      "evidence_excerpt": "The 3.5-liter VQ35DE V6 engine produces 287 horsepower and 274 lb-ft of torque."
+    },
+    "j01-nissan-canada": {
+      "id": "j01-nissan-canada",
+      "url": "https://canada.nissannews.com/en-CA/releases/2003-nissan-350z",
+      "title": "2003 Nissan 350Z Canadian release",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_primary",
+      "evidence_excerpt": "Four-wheel independent multi-link suspension with use of lightweight aluminum components",
+      "date": "2003-04-01"
+    },
+    "j01-nissan-fsm-gi": {
+      "id": "j01-nissan-fsm-gi",
+      "url": "https://350z.se/fsm/coupe/2003/GI.pdf",
+      "title": "Nissan2003 350Z factory service manual GI50\u201351",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_manual_archived",
+      "evidence_excerpt": "Overall length 4,309 (169.6)",
+      "date": "2004-04",
+      "note": "Retrieved PDF and extracted GI50\u201351; mm are US manual literals, not rounded Japanese catalog dimensions.",
+      "retrieval_sha256": "94691d8959eec13babb57d1cf2a3f3bbf4a0b038960a8112637abbfef17ffbb7",
+      "retrieved_bytes": 2124979
+    },
+    "j01-nissan-fsm-mt": {
+      "id": "j01-nissan-fsm-mt",
+      "url": "https://350z.se/fsm/coupe/2003/MT.pdf",
+      "title": "Nissan2003 350Z factory service manual MT61",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_manual_archived",
+      "evidence_excerpt": "FS6R31A",
+      "date": "2004-04",
+      "retrieval_sha256": "fc58c0307c4036c1f2a5793bbdb78b09143e1247eba45a1e3a3be10fac1fbb66",
+      "retrieved_bytes": 3102908
+    },
+    "j01-nissan-fsm-em": {
+      "id": "j01-nissan-fsm-em",
+      "url": "https://350z.se/fsm/coupe/2003/EM.pdf",
+      "title": "Nissan2003 350Z factory service manual EM121",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_manual_archived",
+      "evidence_excerpt": "Displacement cm3 (cu in) 3,498 (213.45)",
+      "date": "2004-04",
+      "retrieval_sha256": "b41a1c8ed0e4e68203ec892811139e0cb5ac0c51ed8c9f0f2ab45e6548422208",
+      "retrieved_bytes": 3740250
+    },
+    "j01-cd-test": {
+      "id": "j01-cd-test",
+      "url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+      "title": "Car and Driver instrumented2003 Nissan350Z Track test,August2002issue",
+      "accessed": "2026-10-23",
+      "date": "2002-08",
+      "source_type": "instrumented_test_primary",
+      "evidence_excerpt": "Roadholding, 300-ft-dia skidpad: 0.88 g",
+      "note": "Tested Track grade6MT;GT4asset equipmentgradeunresolved.Rollout/weather notspecified inretrievedarticle. Keep as testobservation,notfactoryguarantee."
+    },
+    "e06-press": {
+      "id": "e06-press",
+      "url": "https://www.press.bmwgroup.com/usa/article/attachment/T0022168EN_US/41493/AG030228_M3_CSL_Press_Kit_GB_finalversion.pdf",
+      "title": "BMW M 3 CSL March 2003 press kit",
+      "accessed": "2026-10-23",
+      "evidence_excerpt": "Weight of car in road trim (DIN) plus 75 kg for driver and luggage.",
+      "source_type": "manufacturer publication",
+      "scope": "Technical table printedp 19 and footnotep 20; source itselflabels 1385 kg EU",
+      "date": "2003-03"
+    },
+    "e01-porsche": {
+      "id": "e01-porsche",
+      "url": "https://www.porsche.com/australia/accessoriesandservice/classic/models/911-g/911-sc/",
+      "title": "Porsche Classic: Model 911 SC",
+      "accessed": "2026-10-23",
+      "evidence_excerpt": "MY 1981\u201383 \u2013 3.0 litres, 204 PS",
+      "source_type": "manufacturer publication",
+      "scope": "European engine evolution; current Porsche heritage reference"
+    },
+    "e01-eu1982": {
+      "id": "e01-eu1982",
+      "url": "https://www.manualslib.fr/manual/1040031/Porsche-911-Sc-1982.html",
+      "title": "Porsche 911 SC 1982 French owner handbook, printed pages 67\u201372",
+      "accessed": "2026-10-23",
+      "evidence_excerpt": "150 kW (204 CV/DIN)",
+      "source_type": "manufacturer publication",
+      "scope": "Factory French-language European 204 CV manual; online pages 70,72,73,75,76. US 930/16 workshop data deliberately excluded.",
+      "date": "1982"
+    },
+    "am_gt500_manual": {
+      "id": "am_gt500_manual",
+      "url": "https://www.mustangspecs.com/wp-content/uploads/2020/05/2008-Ford-Shelby-GT500-Supplement.pdf",
+      "title": "Ford 2008 Shelby GT500 Owner Guide Supplement, pp.4,11,13",
+      "accessed": "2026-10-23",
+      "kind": "manufacturer_document_mirror",
+      "evidence_excerpt": "34.1 N/mm front and 29.2 N/mm rear (Coupe)"
+    },
+    "am_gt500_esource": {
+      "id": "am_gt500_esource",
+      "url": "https://themustangsource.com/forums/attachments/f637/46859d1187387886-2008-mustang-shelby-e-source-books-better-than-order-guide-08-20shelby-20sb.pdf",
+      "title": "Ford 2008 Shelby GT500 eSourceBook, June 2007, p.52",
+      "accessed": "2026-10-23",
+      "kind": "manufacturer_document_mirror",
+      "evidence_excerpt": "Curb Weight (approx. lbs.) 3920 4040"
+    },
+    "j09-mitsubishi-press": {
+      "id": "j09-mitsubishi-press",
+      "url": "https://www.theautochannel.com/news/2005/08/11/140100.html",
+      "title": "Mitsubishi2006LancerEvolutionIX technical specifications,updated8/3/05",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_press_material_reproduced",
+      "evidence_excerpt": "Technical data, features, options and other equipment listed in this document are based on the latest information available",
+      "date": "2005-08-03",
+      "note": "Retrieved full HTML with urllib after web429. Source is contemporary manufacturer-format press material mirrored by TheAutoChannel;not an instrumented roadtest. StandardIX column, notMR orRS.",
+      "retrieval_sha256": "6e3b044fb07cb8958dd1b8dcaa22c6b79a041301065ea609a1d5e198256282a5",
+      "retrieved_bytes": 402189
+    },
+    "j09-cd-mr-test": {
+      "id": "j09-cd-mr-test",
+      "url": "https://www.caranddriver.com/reviews/a18202877/2006-mitsubishi-lancer-evolution-ix-first-drive-review/",
+      "title": "Car and Driver2006EvolutionIXMR instrumentedtest,May2005issue",
+      "accessed": "2026-10-23",
+      "date": "2005-05",
+      "source_type": "instrumented_test_primary",
+      "evidence_excerpt": "TRANSMISSION 6-speed manual",
+      "note": "Related MR6MT,not the standardIX5MTreference.Car and Driver test equipment atMitsubishiOkazakiTrack,Japan;do notapplyto5MTasset automatically."
+    },
+    "j02-nissan-brochure": {
+      "id": "j02-nissan-brochure",
+      "url": "https://images.jdm-catalogues.com/nissan/skyline/r34/nissan_skyline_r34_gtr/catalogue.pdf",
+      "title": "Nissan Skyline GT-R Japanese brochure January1999, printed35 / PDF18",
+      "accessed": "2026-10-23",
+      "source_type": "manufacturer_brochure_archived",
+      "evidence_excerpt": "GT-R V\u30fbspec",
+      "date": "1999-01",
+      "note": "Authentic scanned Nissan brochure; inspected specification table visually. Not the unofficial Skyline Snap Shots R34.doc PDF.",
+      "retrieval_sha256": "c2fade41464898773ce3dfc900d90e81ef4b112707d8da5aeed259b0a2ddefd9",
+      "retrieved_bytes": 139094361
+    },
+    "nsx-cd-1990": {
+      "url": "https://www.caranddriver.com/reviews/comparison-test/a15140663/porsche-911-carrera-4-cabriolet-vs-acura-nsx-chevrolet-corvette-zr-1-ferrari-348ts-lotus-esprit-turbo-se-archived-comparison-test/",
+      "kind": "first_hand_instrumented_period_test_archived_by_original_publisher",
+      "title": "Car and Driver September1990 five-way comparison",
+      "applicability": "Original test labels car1990; US NSX launched as1991.270hp5MT3020lb; direct mechanical reference for1991manual.",
+      "accessed": "2026-10-23"
+    },
+    "nsx-cd-2019-confirmation": {
+      "url": "https://www.caranddriver.com/reviews/comparison-test/a28930414/2019-honda-civic-type-r-vs-1991-acura-nsx/",
+      "kind": "original_publisher_reproduction_of_own_period_test_results",
+      "title": "C/D2019 CivicTypeR versus1991NSX; historicalresults explicitly fromSeptember1990",
+      "applicability": "Use historical stock Yokohama results; do not confuse with2019 photographcar wearing modernBridgestoneRE71R.",
+      "accessed": "2026-10-23"
+    },
+    "gt500-mt-2008": {
+      "url": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "kind": "first_hand_instrumented_period_test_archived_by_original_publisher",
+      "title": "MotorTrend July2008 TimeTravelers ChallengerSRT8 versus2008ShelbyGT500",
+      "applicability": "Exact2008coupe500hp6MT; republishedJune5 2026. Test3887lb differs fromFord3920lbcurbfigure; tire andlaunch sensitivity apply.",
+      "accessed": "2026-10-23"
+    },
+    "911-porsche-finder-1982": {
+      "url": "https://finder.porsche.com/ch/it-CH/details/porsche-911-sc-coupe-usata-G028QN?sortBy=price.value%5C",
+      "kind": "manufacturer_hosted_official_dealer_specification_claim",
+      "title": "PorscheFinder1982German-version911SCCoupe, vehicle72834",
+      "applicability": "204PS150kW5MT firstregisteredFebruary1982; Porschehosted6.8s0\u2013100claim. Secondarytoperiodmanual, not an instrumentedtest ororiginal1982presskit.",
+      "accessed": "2026-10-23"
+    },
+    "supra-oem-ncf1997": {
+      "url": "https://www.scribd.com/document/23325338/1997-New-Car-Features",
+      "kind": "archived_manufacturer_technical_document_transcription",
+      "title": "Toyota1997 SupraNewCarFeatures; differentialp26 andAppendixp125",
+      "scope": "1997US/Canada2JZ-GTEV160manual. Relatedyearproxyfor1998MC3; notverifiedexact1998fromthisdocument.",
+      "evidence_locator": "Appendix125 V160rows3.827,2.360,1.685,1.312,1.000,0.793; reverse3.280; differential3.133. Differentialp26also3.133manualGTE.",
+      "accessed": "2026-10-23"
+    },
+    "viper-oem2005-gearing": {
+      "url": "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/attachments/ViperSpecifications.pdf",
+      "kind": "manufacturer_press_specification",
+      "title": "2005DodgeViperSRT10 specs,publishedDodgeproductinformationp9/PDFp1",
+      "scope": "Later8.3LSRT10generation,not1996/97GTS.Exactnumbersprovenonlyforthislatermodel; borrowingisrelatedgenerationestimate.",
+      "evidence_locator": "Transmissionrows1st2.66,2nd1.78,3rd1.30,4th1.00,5th.74,6th.50,axle3.07",
+      "accessed": "2026-10-23"
+    },
+    "viper-oem1997-parts": {
+      "url": "https://www.viperclub.org/downloads/1997_Viper_Parts_Listing.pdf",
+      "kind": "archived_manufacturer_parts_catalog",
+      "title": "1997SRDodgeViperGTS/RT10partscatalog,PDFp6Figure3-110",
+      "scope": "Exact1997GTS/RT10butroundedspecificationonly",
+      "evidence_locator": "04763897AB differentialrearcomplete3.0Ratio. Doesnotproveprecise3.07.",
+      "accessed": "2026-10-23"
+    },
+    "native-fr2-COBRA": {
+      "kind": "native_game_catalog_decoded",
+      "path": "/Users/nicolas/Documents/github/carmodels/dealership/dealership/catalog.json",
+      "sha256": "5dd09aa0cc2d246495e847d42a06f544c8ccf992e2fa52fc7c55a36de65e4cda",
+      "entry_code": "COBRA",
+      "scope": "Game-authoredparameters,notrealmanufacturermeasurements"
+    },
+    "native-fr2-FR500": {
+      "kind": "native_game_catalog_decoded",
+      "path": "/Users/nicolas/Documents/github/carmodels/dealership/dealership/catalog.json",
+      "sha256": "5dd09aa0cc2d246495e847d42a06f544c8ccf992e2fa52fc7c55a36de65e4cda",
+      "entry_code": "FR500",
+      "scope": "Game-authoredparameters,notrealmanufacturermeasurements"
+    },
+    "native-gt1-AFA7N": {
+      "kind": "native_game_catalog_decoded",
+      "path": "/Users/nicolas/Documents/github/carmodels/dealership/dealership/catalog.json",
+      "sha256": "5dd09aa0cc2d246495e847d42a06f544c8ccf992e2fa52fc7c55a36de65e4cda",
+      "entry_code": "GT_SIMULATION__AFA7N",
+      "scope": "Game-authoredparameters,notrealmanufacturermeasurements"
+    }
+  },
+  "cars": [
+    {
+      "fleet_id": "fr2-cobra",
+      "source_code": "COBRA",
+      "identity": "Ford Racing2 SVT COBRA, labeled2000; real trim unresolved",
+      "identity_status": "unresolved",
+      "identity_notes": "Do not join to corpus a02 CobraR. Catalog380bhp1718kg differs from both CobraR385hp1628kg and ordinary1999/2001 Cobra320hp. Exact real counterpart cannot be proved from catalog.",
+      "game_catalog": {
+        "code": "COBRA",
+        "name": "SVT COBRA",
+        "year": "2000",
+        "bhp": 380.0,
+        "kg": 1718.0,
+        "topSpeed": "163.0"
+      },
+      "real_facts": [],
+      "performance_references": [],
+      "implementation_proxy": {
+        "mass_kg": 1718,
+        "power_kw": 283.36595136,
+        "origin": "native_game_catalog",
+        "status": "game_proxy_not_real_measurement",
+        "notes": "Use explicit game proxy until trim is identified; torque, CG, gear ratios and handling remain estimates. Native topSpeed163 has no unit here; do not assume mph."
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "fr2-fr500",
+      "source_code": "FR500",
+      "identity": "1999 Ford Mustang FR500 concept",
+      "identity_status": "catalog_and_manufacturer_name_match",
+      "identity_notes": "1999 experimental concept, not2005+ FR500C/GT racecar. Native mass1630kg is a game value; OEM release does not publish mass.",
+      "game_catalog": {
+        "code": "FR500",
+        "name": "MUSTANG FR500",
+        "year": "1999",
+        "bhp": 415.0,
+        "kg": 1630.0,
+        "topSpeed": "188.0"
+      },
+      "real_facts": [
+        {
+          "field": "power",
+          "value": 415,
+          "unit": "hp",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "displacement",
+          "value": 5.0,
+          "unit": "L",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "transmission",
+          "value": "TremecT56 six-speed",
+          "unit": "text",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.1,
+          "unit": "ratio",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "differential",
+          "value": "TorsenTR2 LSD",
+          "unit": "text",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2.70002,
+          "unit": "m",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 0.5,
+          "unit": "fraction",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "tire_front",
+          "value": "265/35ZR18",
+          "unit": "designation",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "tire_rear",
+          "value": "295/35ZR18",
+          "unit": "designation",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 0.35559999999999997,
+          "unit": "m",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 0.3302,
+          "unit": "m",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double A-arm conversion",
+          "unit": "text",
+          "source_id": "fr500-oem",
+          "status": "published"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "modified Cobra IRS",
+          "unit": "text",
+          "source_id": "fr500-oem",
+          "status": "published"
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_60_mph",
+          "value": 4.6,
+          "unit": "s",
+          "source_id": "fr500-oem",
+          "status": "manufacturer_claim",
+          "note": "street tires; launch/rollout unspecified"
+        },
+        {
+          "field": "quarter_mile",
+          "value": 12.7,
+          "unit": "s",
+          "source_id": "fr500-oem",
+          "status": "manufacturer_claim"
+        },
+        {
+          "field": "top_speed",
+          "value": 175,
+          "unit": "mph",
+          "source_id": "fr500-oem",
+          "status": "manufacturer_claim",
+          "note": "about175; catalog188 differs"
+        }
+      ],
+      "implementation_proxy": {
+        "mass_kg": 1630,
+        "status": "native_game_proxy_mass",
+        "torque_nm": null,
+        "gear_ratios": null
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "gt-rx7",
+      "source_code": "GT_SIMULATION__AFA7N",
+      "identity": "Gran Turismo RX-7 FD A spec; Mazdaspeed tuned variant",
+      "identity_status": "native_exact_real_variant_unverified",
+      "identity_notes": "Native spec is direct game evidence only. No authentic A-spec OEM/tuner parameter sheet located. Do not borrow corpusj04 SpiritR2002 or generic stockFD data and label exact.",
+      "game_catalog": {
+        "code": "GT_SIMULATION__AFA7N",
+        "name": "RX-7 FD A spec",
+        "year": null,
+        "bhp": 261,
+        "kg": 1220,
+        "topSpeed": null,
+        "specifications": {
+          "mass_kg": 1220,
+          "length_mm": 4280,
+          "width_mm": 1760,
+          "height_mm": 1230,
+          "wheelbase_mm": 2425,
+          "front_tread_mm": 1460,
+          "rear_tread_mm": 1460,
+          "displacement_raw": 654,
+          "power_raw": 265,
+          "power_rpm": 6500,
+          "torque_raw": 3000,
+          "torque_rpm": 5000,
+          "drive": "FR",
+          "aspiration": "Turbo",
+          "engine_type": "Rotary",
+          "engine_configuration": "RE",
+          "suspension_front": "Double Wishbone",
+          "suspension_rear": "Double Wishbone",
+          "power_hp_game": 261,
+          "power_conversion": "floor(raw * 1000 / 1014); native display label HP",
+          "torque_kgm": 30.0,
+          "displacement_cc": null,
+          "displacement_rotary_chamber_cc": 654,
+          "displacement_rotary_factor": 2,
+          "displacement_display_kind": "rotary-chamber-times-factor",
+          "specification_scope": "native-base"
+        },
+        "claimLimits": [
+          "Retail name and base specifications use an exact native SPEC code join; equipment-modified performance is not inferred.",
+          "Independent editable copy; native source files remain separate.",
+          "Static native body LOD conversion; original game execution and rendered equivalence are unverified.",
+          "Static neutral wheel assembly uses the native showroom template; steering, spin and view-dependent game rounding are not reproduced.",
+          "Display policy omits wheels from body LODs whose four native anchors all exceed lateral/longitudinal body bounds by more than 0.1m; original special-asset routing is unverified.",
+          "Raw UV bytes sample native 256x256 sheets following the community renderer; its OBJ UV convention differs.",
+          "Default display uses source colour set 0; every source colour set is available as a material variant.",
+          "PS1 semi-transparency, illumination/paint flags and game shading are not reproduced.",
+          "Complete native shadow geometry is retained as binary data and omitted from visible body scenes.",
+          "Body winding follows stored normals; ambiguous face normals use geometry oriented away from the LOD centroid, a static display heuristic."
+        ]
+      },
+      "real_facts": [],
+      "performance_references": [],
+      "implementation_proxy": {
+        "mass_kg": 1220,
+        "power_kw": 194.90716874999998,
+        "torque_nm": 294.1995,
+        "power_rpm": 6500,
+        "torque_rpm": 5000,
+        "drive": "RWD",
+        "origin": "native_game_specifications",
+        "status": "game_proxy_not_independent_real_measurement"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "gt-viper",
+      "source_code": "GT_SIMULATION__DVPGN",
+      "identity": "Dodge Viper GTS,1996/97 SRII",
+      "identity_status": "native_name_exact_year_unresolved",
+      "identity_notes": "GT native year unresolved; use1997 GTS first-hand test as relatedyear reference. Not corpus a10 SRT10 2003. Native1470kg is lighter than tested3375\u20133410lb.",
+      "game_catalog": {
+        "code": "GT_SIMULATION__DVPGN",
+        "name": "Viper GTS",
+        "year": null,
+        "bhp": 449,
+        "kg": 1470,
+        "topSpeed": null,
+        "specifications": {
+          "mass_kg": 1470,
+          "length_mm": 4488,
+          "width_mm": 1923,
+          "height_mm": 1193,
+          "wheelbase_mm": 2443,
+          "front_tread_mm": 1514,
+          "rear_tread_mm": 1539,
+          "displacement_raw": 7994,
+          "power_raw": 456,
+          "power_rpm": 5200,
+          "torque_raw": 6790,
+          "torque_rpm": 3700,
+          "drive": "FR",
+          "aspiration": "Normal",
+          "engine_type": "OHV",
+          "engine_configuration": "V10",
+          "suspension_front": "Multilink",
+          "suspension_rear": "Multilink",
+          "power_hp_game": 449,
+          "power_conversion": "floor(raw * 1000 / 1014); native display label HP",
+          "torque_kgm": 67.9,
+          "displacement_cc": 7994,
+          "displacement_rotary_chamber_cc": null,
+          "displacement_rotary_factor": null,
+          "displacement_display_kind": "cc",
+          "specification_scope": "native-base"
+        },
+        "claimLimits": [
+          "Retail name and base specifications use an exact native SPEC code join; equipment-modified performance is not inferred.",
+          "Independent editable copy; native source files remain separate.",
+          "Static native body LOD conversion; original game execution and rendered equivalence are unverified.",
+          "Static neutral wheel assembly uses the native showroom template; steering, spin and view-dependent game rounding are not reproduced.",
+          "Display policy omits wheels from body LODs whose four native anchors all exceed lateral/longitudinal body bounds by more than 0.1m; original special-asset routing is unverified.",
+          "Raw UV bytes sample native 256x256 sheets following the community renderer; its OBJ UV convention differs.",
+          "Default display uses source colour set 0; every source colour set is available as a material variant.",
+          "PS1 semi-transparency, illumination/paint flags and game shading are not reproduced.",
+          "Complete native shadow geometry is retained as binary data and omitted from visible body scenes.",
+          "Body winding follows stored normals; ambiguous face normals use geometry oriented away from the LOD centroid, a static display heuristic."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "power",
+          "value": 450,
+          "unit": "hp",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5200,
+          "unit": "rpm",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "torque",
+          "value": 490,
+          "unit": "lb_ft",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3700,
+          "unit": "rpm",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "curb_mass",
+          "value": 1530.87424875,
+          "unit": "kg",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2.444,
+          "unit": "m",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": "text",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "tire_front",
+          "value": "275/40ZR17 MichelinPilotMXX3",
+          "unit": "designation",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "tire_rear",
+          "value": "335/35ZR17 MichelinPilotMXX3",
+          "unit": "designation",
+          "source_id": "viper-mt",
+          "status": "published"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.66,
+            1.78,
+            1.3,
+            1,
+            0.74,
+            0.5
+          ],
+          "unit": "ratio",
+          "source_id": "viper-oem2005-gearing",
+          "status": "related_year_or_generation_estimate",
+          "note": "Exactlater2005SRT10OEMvalues;plausibleGTSproxybutnot1997primaryconfirmation.NeitherMotorTrend1997nor1997partscatalogpublishgearvalues."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.07,
+          "unit": "ratio",
+          "source_id": "viper-oem2005-gearing",
+          "status": "related_year_or_generation_estimate",
+          "note": "Exactlater2005SRT10OEMvalue;1997OEMpartscatalogsaysrounded3.0only.Precise1997GTSprimarysupportnotretrieved."
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_60_mph",
+          "value": 4.0,
+          "unit": "s",
+          "source_id": "viper-cd",
+          "status": "measured_related_year"
+        },
+        {
+          "field": "zero_to_100_mph",
+          "value": 8.8,
+          "unit": "s",
+          "source_id": "viper-cd",
+          "status": "measured_related_year"
+        },
+        {
+          "field": "braking_70_to_0_mph",
+          "value": 53.949600000000004,
+          "unit": "m",
+          "source_id": "viper-cd",
+          "status": "measured_related_year"
+        },
+        {
+          "field": "skidpad",
+          "value": 0.95,
+          "unit": "g",
+          "source_id": "viper-cd",
+          "status": "measured_related_year",
+          "note": "300ftdiameter; MTotherprotocol1.01g"
+        }
+      ],
+      "implementation_proxy": null,
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "gt4-nsx",
+      "source_code": "GT4_ACRA0003",
+      "identity": "1991 Acura NSX US5-speed manual",
+      "identity_status": "catalog_exact_year_and_oem_mass_match",
+      "identity_notes": "GT41365kg matches OEM5MT, automatic1405kg252hp separate. Not NSX-R2002.",
+      "game_catalog": {
+        "code": "GT4_ACRA0003",
+        "name": "Acura NSX '91",
+        "year": 1991,
+        "bhp": null,
+        "kg": 1365,
+        "topSpeed": null,
+        "claimLimits": [
+          "Name, model year and mass are decoded spec-database values; ratings, power and body style are not decoded.",
+          "Independent editable copy; native source files remain separate.",
+          "Static showroom-model preview decoded from native CAR4/MDLS/Tex1 data; game lighting, reflections, animation and runtime VM state are not reproduced.",
+          "Retail names, wheelbase, tread and tire sizes come from the decoded GT4 spec database (EU, british locale); wheel placement is a reading of those values.",
+          "The native ZIP holds the files matched to this model code; shared wheels, tires, wings and spec-database rows are not included in it."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "curb_mass",
+          "value": 1365,
+          "unit": "kg",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "power",
+          "value": 270,
+          "unit": "hp",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7100,
+          "unit": "rpm",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "torque",
+          "value": 210,
+          "unit": "lb_ft",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5300,
+          "unit": "rpm",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "redline",
+          "value": 8000,
+          "unit": "rpm",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "fuel_cutoff",
+          "value": 8300,
+          "unit": "rpm",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "drive",
+          "value": "mid-engine RWD",
+          "unit": "text",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 0.42,
+          "unit": "fraction",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.071,
+            1.727,
+            1.23,
+            0.967,
+            0.771
+          ],
+          "unit": "ratio",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.062,
+          "unit": "ratio",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2.53,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "length",
+          "value": 4.405,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "width",
+          "value": 1.81,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "height",
+          "value": 1.17,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "track_front",
+          "value": 1.51,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "track_rear",
+          "value": 1.53,
+          "unit": "m",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "tire_front",
+          "value": "205/50ZR15",
+          "unit": "designation",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/50ZR16",
+          "unit": "designation",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "drag_coefficient",
+          "value": 0.32,
+          "unit": "ratio",
+          "source_id": "nsx-oem",
+          "status": "published"
+        },
+        {
+          "field": "frontal_area",
+          "value": 1.78,
+          "unit": "m2",
+          "source_id": "nsx-oem",
+          "status": "published"
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_60_mph",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "nsx-cd-1990",
+          "status": "measured_same_launch_model",
+          "note": "270hp5MT; periodtestcar labeled1990,retrospective identifies1991model. Launch/rollout notresolved."
+        },
+        {
+          "field": "braking_70_to_0_mph",
+          "value": 47.8536,
+          "unit": "m",
+          "source_id": "nsx-cd-1990",
+          "status": "measured_same_launch_model",
+          "note": "157ft; stockYokohamaA022; 2019publisherpage explicitlyreproducesSeptember1990results."
+        },
+        {
+          "field": "skidpad",
+          "value": 0.86,
+          "unit": "g",
+          "source_id": "nsx-cd-1990",
+          "status": "measured_same_launch_model",
+          "note": "300ftdiameter; not currentconstantsteeringfleetprotocol."
+        }
+      ],
+      "implementation_proxy": null,
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "mc3-supra",
+      "source_code": "MC3_VP_SUPRA_98",
+      "identity": "Toyota Supra A80 sourcevp_supra_98; market/trim unresolved",
+      "identity_status": "related_variant_proxy",
+      "identity_notes": "Modelcode suggests1998, catalog does not decode retailyear/trim/market. Choose1998 US Turbo6MT hardtop only as explicit proxy; do not mix JDMRZ1510kg280PS with US320hp mass.",
+      "game_catalog": {
+        "code": "MC3_VP_SUPRA_98",
+        "name": "vp_supra_98",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Independent editable preview; original native package retained.",
+          "Static inspection preview of native PS2 geometry; animation and damage are not emulated.",
+          "Triangle strips use the native normal-X ADC restart bit; runtime clipping and winding are not emulated.",
+          "Default stock-named parts use native skeleton rest positions; runtime customization is not emulated.",
+          "Native local XYZ Euler frames compose with parent rest transforms; runtime joint animation is not emulated.",
+          "Native rims and tires use default source handles and static rest sizing; wheel rotation, camber and deformation are not emulated.",
+          "Display NORMAL is face-derived; original VIF normal, color and UV lanes are retained separately without asserting native shading.",
+          "Authored drop_shadow effect meshes are retained as dormant nativeEffects nodes outside the default scene; runtime projection and activation are pending recovery.",
+          "Textures: PCK-embedded 256x256 PSMT8 images and shared 8-bit .tex files are decoded; native shader passes, environment/specular/metal-flake layers, paint colour and runtime logo/decal textures are not emulated.",
+          "Native shader categories identify surfaces; game shader behavior is not emulated.",
+          "Diffuse images are decoded only where a material lists one; environment, specular, metal-flake, paint, licence-plate and runtime logo slots are not.",
+          "Neutral inspection factors are display choices, not recovered native paint colors.",
+          "Colored-glass factors translate the native tint vector; GS shading is not emulated.",
+          "Explicit native customization RGB vectors are selectable static translations; their runtime precedence over CarCfg paint presets is unresolved.",
+          "CarCfg paint preset indices and palette coordinates are retained, but the preset-to-RGB conversion and current factory default are not established.",
+          "Native RGB channels are carried unscaled; game colour space, finish, gradients, metal flake and runtime vinyl/decal compositing are not emulated.",
+          "Direct carpaint materials and materials sharing the runtime paint slot (__metalflake__) receive paint variants; composite wrapper shader selection and native per-material colour execution remain unresolved.",
+          "Wheel, caliper, window, neon and separate secondary-paint channel bindings are not recovered. Native finish names are retained without invented PBR finish controls.",
+          "Native PS2 tire alpha test is ALWAYS and its base pass overwrites RGB; original image alpha controls additive reflection, never visibility. Recovered VU coordinates and GS blending use the original San Diego midnight garage capture, panorama and specular-copy translation; complete hardware rasterization and runtime frame context remain outside this translation."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "curb_mass_hardtop_6mt",
+          "value": 1562.6257146500002,
+          "unit": "kg",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "curb_mass_sportroof_6mt",
+          "value": 1589.84125685,
+          "unit": "kg",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "power",
+          "value": 320,
+          "unit": "hp",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5600,
+          "unit": "rpm",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "torque",
+          "value": 315,
+          "unit": "lb_ft",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4000,
+          "unit": "rpm",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 0.53,
+          "unit": "fraction",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2.55016,
+          "unit": "m",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/45ZR17",
+          "unit": "designation",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "tire_rear",
+          "value": "255/40ZR17",
+          "unit": "designation",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "drag_coefficient",
+          "value": 0.33,
+          "unit": "ratio",
+          "source_id": "supra-brochure",
+          "status": "published_related_variant"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.827,
+            2.36,
+            1.685,
+            1.312,
+            1,
+            0.793
+          ],
+          "unit": "ratio",
+          "source_id": "supra-oem-ncf1997",
+          "status": "related_year_or_generation_estimate",
+          "note": "Factory1997USTurboV160values;sourcebrochure1998doesnotlistnumericalgears.Qualify1998applicationasrelatedyear,MC3market/trimunresolved."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.133,
+          "unit": "ratio",
+          "source_id": "supra-oem-ncf1997",
+          "status": "related_year_or_generation_estimate",
+          "note": "Factory1997GTEmanual47ringteeth/15pinion;notfrom1998salesbrochure."
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_60_mph",
+          "value": 4.6,
+          "unit": "s",
+          "source_id": "supra-cd",
+          "status": "measured_related_year_and_market",
+          "note": "1993US6MT; no exact1998 identity guarantee"
+        },
+        {
+          "field": "braking_70_to_0_mph",
+          "value": 48.768,
+          "unit": "m",
+          "source_id": "supra-cd",
+          "status": "measured_related_year_and_market"
+        },
+        {
+          "field": "skidpad",
+          "value": 0.95,
+          "unit": "g",
+          "source_id": "supra-cd",
+          "status": "measured_related_year_and_market"
+        }
+      ],
+      "implementation_proxy": {
+        "selected_reference": "1998 USSupraTurbo hardtop6MT",
+        "status": "related_variant_estimate",
+        "alternative": "1997 JDMRZ corpusj03; do notblend"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "mc3-skyline",
+      "source_code": "MC3_VP_SKYLINE_02",
+      "identity": "Skyline GT-R BNR34 sourcevp_skyline_02; trim unresolved",
+      "identity_status": "related_year_and_trim_proxy",
+      "identity_notes": "Sourcecode02 suggests2002 butcatalog doesnotdecodeyear/trim. Inherit1999JVspec corpusj02 as qualifiedproxy only; do notcall2002Nur orMspec exact.",
+      "game_catalog": {
+        "code": "MC3_VP_SKYLINE_02",
+        "name": "vp_skyline_02",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Independent editable preview; original native package retained.",
+          "Static inspection preview of native PS2 geometry; animation and damage are not emulated.",
+          "Triangle strips use the native normal-X ADC restart bit; runtime clipping and winding are not emulated.",
+          "Default stock-named parts use native skeleton rest positions; runtime customization is not emulated.",
+          "Native local XYZ Euler frames compose with parent rest transforms; runtime joint animation is not emulated.",
+          "Native rims and tires use default source handles and static rest sizing; wheel rotation, camber and deformation are not emulated.",
+          "Display NORMAL is face-derived; original VIF normal, color and UV lanes are retained separately without asserting native shading.",
+          "Authored drop_shadow effect meshes are retained as dormant nativeEffects nodes outside the default scene; runtime projection and activation are pending recovery.",
+          "Textures: PCK-embedded 256x256 PSMT8 images and shared 8-bit .tex files are decoded; native shader passes, environment/specular/metal-flake layers, paint colour and runtime logo/decal textures are not emulated.",
+          "Native shader categories identify surfaces; game shader behavior is not emulated.",
+          "Diffuse images are decoded only where a material lists one; environment, specular, metal-flake, paint, licence-plate and runtime logo slots are not.",
+          "Neutral inspection factors are display choices, not recovered native paint colors.",
+          "Colored-glass factors translate the native tint vector; GS shading is not emulated.",
+          "Explicit native customization RGB vectors are selectable static translations; their runtime precedence over CarCfg paint presets is unresolved.",
+          "CarCfg paint preset indices and palette coordinates are retained, but the preset-to-RGB conversion and current factory default are not established.",
+          "Native RGB channels are carried unscaled; game colour space, finish, gradients, metal flake and runtime vinyl/decal compositing are not emulated.",
+          "Direct carpaint materials and materials sharing the runtime paint slot (__metalflake__) receive paint variants; composite wrapper shader selection and native per-material colour execution remain unresolved.",
+          "Wheel, caliper, window, neon and separate secondary-paint channel bindings are not recovered. Native finish names are retained without invented PBR finish controls.",
+          "Native PS2 tire alpha test is ALWAYS and its base pass overwrites RGB; original image alpha controls additive reflection, never visibility. Recovered VU coordinates and GS blending use the original San Diego midnight garage capture, panorama and specular-copy translation; complete hardware rasterization and runtime frame context remain outside this translation."
+        ]
+      },
+      "real_facts": [],
+      "performance_references": [],
+      "implementation_proxy": {
+        "corpus_id": "j02",
+        "mass_kg": 1560,
+        "power_kw": 205.93965,
+        "torque_nm": 392.266,
+        "drive": "AWD",
+        "status": "related_year_and_trim_estimate",
+        "notes": "ATTESA rear-biased variable transfer; fixedfronttorque fraction remains simulationestimate.2002MspecNur1580kg illustratestrimrisk."
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ],
+      "performance_reference_gap": "Bounded search found no retrieved original instrumented1999R34Vspec acceleration/brakingtest. Evoquoted4.8sclaim andaggregatorAutocar4.4/4.6valueswereexcludedbecauseorigin/factoryclaimnotverified. Leaveperformanceunresolved;MC3hasadditionalyear/trimambiguity."
+    },
+    {
+      "fleet_id": "350z",
+      "source_code": "GT4_NISS0004",
+      "identity": "Nissan 350Z 2003",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "GT4 asset has no US equipment grade. Service-manual dimensions apply Z33; mass and grade-specific brakes must not be assumed. MC3/MCLA350Z04 are related different-year counterparts.",
+      "game_catalog": {
+        "code": "GT4_NISS0004",
+        "name": "Nissan 350Z (Z33) '03",
+        "year": 2003,
+        "bhp": null,
+        "kg": 1320,
+        "topSpeed": null,
+        "claimLimits": [
+          "Name, model year and mass are decoded spec-database values; ratings, power and body style are not decoded.",
+          "Independent editable copy; native source files remain separate.",
+          "Static showroom-model preview decoded from native CAR4/MDLS/Tex1 data; game lighting, reflections, animation and runtime VM state are not reproduced.",
+          "Retail names, wheelbase, tread and tire sizes come from the decoded GT4 spec database (EU, british locale); wheel placement is a reading of those values.",
+          "The native ZIP holds the files matched to this model code; shared wheels, tires, wings and spec-database rows are not included in it."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "engine_code",
+          "value": "VQ35DE",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "DOHC24valve V6",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "layout",
+          "value": "front engine, rear-wheel drive",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "power_hp",
+          "value": 287,
+          "unit": "hp",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "torque_lbft",
+          "value": 274,
+          "unit": "lb ft",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT;  optional5AT",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "steering",
+          "value": "engine-speed-sensitive power rack-and-pinion",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc, ABS/EBD/brake assist",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc, ABS/EBD/brake assist",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "tire_front_canada",
+          "value": "225/45R18",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "tire_rear_canada",
+          "value": "245/45R18",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "length",
+          "value": 4309,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "width",
+          "value": 1815,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "height",
+          "value": 1319,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2649,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "track_front",
+          "value": 1535,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "track_rear",
+          "value": [
+            1539,
+            1545
+          ],
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi",
+          "note": "1539 at33mm wheel offset;1545 at30mm offset."
+        },
+        {
+          "field": "tire_front",
+          "value": "225/50R17 94W; optional225/45R18 91W",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "tire_rear",
+          "value": "235/50R17 96W; optional245/45R18 96W",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "transmission_code",
+          "value": "FS6R31A CD000/CD005",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.794,
+            2.324,
+            1.624,
+            1.271,
+            1,
+            0.794
+          ],
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.446,
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "displacement",
+          "value": 3498,
+          "unit": "cm3",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "bore",
+          "value": 95.5,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "stroke",
+          "value": 81.4,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10.3,
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "tested_vehicle",
+          "value": "2003US350ZTrack6MT",
+          "unit": null,
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_mass",
+          "value": 3322,
+          "unit": "lb",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_acceleration_0_60_mph",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_acceleration_0_100_mph",
+          "value": 13.9,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_quarter_mile_time",
+          "value": 14.1,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_quarter_mile_trap",
+          "value": 101,
+          "unit": "mph",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_top_speed_drag_limited",
+          "value": 156,
+          "unit": "mph",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_braking_70_0_mph",
+          "value": 164,
+          "unit": "ft",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_skidpad_300ft_diameter",
+          "value": 0.88,
+          "unit": "g",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        }
+      ],
+      "performance_references": [],
+      "implementation_proxy": {
+        "corpus_id": "j01",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "gt4-m3",
+      "source_code": "GT4_BMW_0011",
+      "identity": "BMW M3 CSL 2003",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "",
+      "game_catalog": {
+        "code": "GT4_BMW_0011",
+        "name": "BMW M3 CSL '03",
+        "year": 2003,
+        "bhp": null,
+        "kg": 1385,
+        "topSpeed": null,
+        "claimLimits": [
+          "Name, model year and mass are decoded spec-database values; ratings, power and body style are not decoded.",
+          "Independent editable copy; native source files remain separate.",
+          "Static showroom-model preview decoded from native CAR4/MDLS/Tex1 data; game lighting, reflections, animation and runtime VM state are not reproduced.",
+          "Retail names, wheelbase, tread and tire sizes come from the decoded GT4 spec database (EU, british locale); wheel placement is a reading of those values.",
+          "The native ZIP holds the files matched to this model code; shared wheels, tires, wings and spec-database rows are not included in it."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "length",
+          "value": 4492,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "width",
+          "value": 1780,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "height",
+          "value": 1365,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2729,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "track_front",
+          "value": 1518,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "track_rear",
+          "value": 1525,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "mass",
+          "value": 1385,
+          "unit": "kg",
+          "source_id": "e06-press",
+          "note": "Source table EU 1 with DINplus 75 kg footnote; preserve exact labeling despite differing secondary catalogs"
+        },
+        {
+          "field": "mass_basis",
+          "value": "EU_road_trim_DIN_plus_75kg_as_printed",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 3246,
+          "unit": "cm3",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "engine_layout",
+          "value": "naturallyaspirated inline6 DOHC24valve",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "bore",
+          "value": 87,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "stroke",
+          "value": 91,
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 11.5,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "power",
+          "value": 265,
+          "unit": "kW",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7900,
+          "unit": "rpm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "torque",
+          "value": 370,
+          "unit": "Nm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4900,
+          "unit": "rpm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            4.227,
+            2.528,
+            1.669,
+            1.226,
+            1.0,
+            0.828
+          ],
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gear_ratio_reverse",
+          "value": 3.746,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.62,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "gearbox",
+          "value": "6speed SMGDrivelogic",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/35ZR19 MichelinPilotSportCup",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "tire_rear",
+          "value": "265/30ZR19 MichelinPilotSportCup",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "brake_disc_front",
+          "value": [
+            345,
+            28
+          ],
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "brake_disc_rear",
+          "value": [
+            328,
+            20
+          ],
+          "unit": "mm",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 14.5,
+          "unit": ":1",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "turning_circle",
+          "value": 11,
+          "unit": "m",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "drag_area",
+          "value": 0.683,
+          "unit": "m2",
+          "source_id": "e06-press",
+          "note": "Source c Xx A"
+        },
+        {
+          "field": "acceleration_0_100_kmh",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "acceleration_0_200_kmh",
+          "value": 16.8,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 23.5,
+          "unit": "s",
+          "source_id": "e06-press"
+        },
+        {
+          "field": "top_speed",
+          "value": 250,
+          "unit": "km/h",
+          "source_id": "e06-press",
+          "note": "Electroniclimited"
+        },
+        {
+          "field": "braking_100_0_distance_upper_bound",
+          "value": 34,
+          "unit": "m",
+          "source_id": "e06-press",
+          "note": "Manufacturer underappropriateconditions"
+        },
+        {
+          "field": "braking_100_0_time",
+          "value": 2.5,
+          "unit": "s",
+          "source_id": "e06-press",
+          "note": "Manufacturer claim"
+        },
+        {
+          "field": "differential",
+          "value": "variable M lock",
+          "unit": null,
+          "source_id": "e06-press"
+        },
+        {
+          "field": "fuel_tank",
+          "value": 63,
+          "unit": "L",
+          "source_id": "e06-press"
+        }
+      ],
+      "performance_references": [],
+      "implementation_proxy": {
+        "corpus_id": "e06",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "redline-911",
+      "source_code": "REDLINE_ADDON_072_DP_911_PACK_II_REDPLUG_ZIP_DP91130_D40AEBAC2F82_2F607564778B6BAC",
+      "identity": "Porsche 911 SC 3.0 1982",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "Native Redline year 1982 and 267 Nm identify a late SC. European market is inferred from the author parameters; US engine specifications are excluded.",
+      "game_catalog": {
+        "code": "REDLINE_ADDON_072_DP_911_PACK_II_REDPLUG_ZIP_DP91130_D40AEBAC2F82_2F607564778B6BAC",
+        "name": "Porsche 911 SC 3.0",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Literal native configuration name; performance and vehicle category are not decoded.",
+          "Independent editable copy; native source files remain separate.",
+          "Static native body/interior/wheel assembly; game animation and lighting are not reproduced.",
+          "Package-local resources precede base resources; global plug-in load precedence is unverified.",
+          "Native preview suspension pose uses half travel; steering/spin are neutral. Paint, reflection and secondary shader composition are not reproduced.",
+          "Native two-slice raw3d textures use the game's first-slice 2D fallback.",
+          "GLB normals are normalized; zero native normals use geometric face normals, with unusable zero-area triangles omitted."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "engine_displacement",
+          "value": 3.0,
+          "unit": "L",
+          "source_id": "e01-porsche",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power",
+          "value": 204,
+          "unit": "PS",
+          "source_id": "e01-porsche",
+          "note": "MY 1981\u201383 European output, not SAE hp European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "model_year_range",
+          "value": [
+            1981,
+            1983
+          ],
+          "unit": "year",
+          "source_id": "e01-porsche",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "engine_displacement_exact",
+          "value": 2994,
+          "unit": "cm3",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "engine_layout",
+          "value": "rear-mounted air-cooled flat six",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "bore",
+          "value": 95,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "stroke",
+          "value": 70.4,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power_kw",
+          "value": 150,
+          "unit": "kW",
+          "source_id": "e01-eu1982",
+          "note": "DIN European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5900,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "torque",
+          "value": 267,
+          "unit": "Nm",
+          "source_id": "e01-eu1982",
+          "note": "DIN European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4300,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "redline",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "e01-eu1982",
+          "note": "Handbook permissible maximum 6800\u00b1200; game 6500 differs European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "gearbox",
+          "value": "5-speed manual, dry single-plate clutch",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "gear_ratios_forward",
+          "value": [
+            3.1818181818181817,
+            1.8333333333333333,
+            1.2608695652173914,
+            1,
+            0.7857142857142857
+          ],
+          "unit": ":1",
+          "source_id": "e01-eu1982",
+          "note": "Derived exactly from printed tooth pairs 11/35,18/33,23/29,26/26,28/22; retain full precision European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.875,
+          "unit": ":1",
+          "source_id": "e01-eu1982",
+          "note": "Printed 8/31 European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "drivetrain",
+          "value": "rear-wheel drive",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_front_standard",
+          "value": "185/70 VR15 on6Jx15",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_rear_standard",
+          "value": "215/60 VR15 on7Jx15",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_front_optional",
+          "value": "205/55 VR16 on6Jx16",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "tire_rear_optional",
+          "value": "225/50 VR16 on7Jx16",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "mass",
+          "value": 1160,
+          "unit": "kg",
+          "source_id": "e01-eu1982",
+          "note": "Printed poids \u00e0 vide; DIN without optional equipment European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "mass_basis",
+          "value": "DIN unladen",
+          "unit": null,
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "maximum_gross_mass",
+          "value": 1500,
+          "unit": "kg",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "top_speed",
+          "value": 235,
+          "unit": "km/h",
+          "source_id": "e01-eu1982",
+          "note": "Performance test basis DIN unladen plus half payload European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "standing_kilometre",
+          "value": 26.8,
+          "unit": "s",
+          "source_id": "e01-eu1982",
+          "note": "Same DIN plus half payload basis European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "ground_clearance",
+          "value": 120,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "turning_circle",
+          "value": 10.95,
+          "unit": "m",
+          "source_id": "e01-eu1982",
+          "note": "Source calls rayon de braquage but value is turning-circle diameter; do not double to 21.9 European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "length",
+          "value": 4291,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "width",
+          "value": 1652,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "height",
+          "value": 1320,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "wheelbase",
+          "value": 2272,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "track_front",
+          "value": 1369,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        },
+        {
+          "field": "track_rear",
+          "value": 1379,
+          "unit": "mm",
+          "source_id": "e01-eu1982",
+          "note": "European 1982 204 CV reference; asset market is inferred, not verified."
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_100_kmh",
+          "value": 6.8,
+          "unit": "s",
+          "source_id": "911-porsche-finder-1982",
+          "status": "manufacturer_hosted_dealer_claim_exact_year_and_engine",
+          "note": "1982Germanversion204PSmanualcoupe; publishedclaimonly. Periodmanualonlinepage76contains0\u2013100rowbutOCRomitsthenumericvalue,therefore6.8isNOTclaimedverifiedfromhandbook."
+        }
+      ],
+      "implementation_proxy": {
+        "corpus_id": "e01",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "redline-gt500",
+      "source_code": "REDLINE_ADDON_080_MUSTANG_S197_PACK_ZIP_MUSTANG_NNB_GT500_867D18EE049F_18D1CC5DE2FE0CDE",
+      "identity": "Ford Shelby GT500 2008",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "The Redline addon explicitly names a 2008 GT500. Roush Stage 3 and FR500 variants are excluded. Coupe spring and stabilizer settings differ from convertible settings.",
+      "game_catalog": {
+        "code": "REDLINE_ADDON_080_MUSTANG_S197_PACK_ZIP_MUSTANG_NNB_GT500_867D18EE049F_18D1CC5DE2FE0CDE",
+        "name": "\u2260mustang_nnb_ver.png\u2260Mustang GT500 (2008)",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Literal native configuration name; performance and vehicle category are not decoded.",
+          "Independent editable copy; native source files remain separate.",
+          "Static native body/interior/wheel assembly; game animation and lighting are not reproduced.",
+          "Package-local resources precede base resources; global plug-in load precedence is unverified.",
+          "Native preview suspension pose uses half travel; steering/spin are neutral. Paint, reflection and secondary shader composition are not reproduced.",
+          "Native two-slice raw3d textures use the game's first-slice 2D fallback.",
+          "GLB normals are normalized; zero native normals use geometric face normals, with unusable zero-area triangles omitted."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.4,
+          "unit": "L",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "engine",
+          "value": "supercharged/intercooled DOHC 32-valve V8",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "power",
+          "value": 500,
+          "unit": "hp_SAE_certified",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "torque",
+          "value": 480,
+          "unit": "lb_ft",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "transmission",
+          "value": "TR6060 6-speed manual",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.31,
+          "unit": "ratio",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_spring_rate",
+          "value": 34.1,
+          "unit": "N_per_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "rear_spring_rate",
+          "value": 29.2,
+          "unit": "N_per_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_anti_roll_bar",
+          "value": "34 OD x 5.8 wall tubular",
+          "unit": "mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "rear_anti_roll_bar",
+          "value": 24,
+          "unit": "mm_solid_diameter",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "dampers",
+          "value": "Tokico twin tube",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 14,
+          "unit": "in",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_caliper_pistons",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "tire_front",
+          "value": "P255/45R18 Goodyear Eagle F1 Supercar",
+          "unit": "designation",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "tire_rear",
+          "value": "P285/40R18 Goodyear Eagle F1 Supercar",
+          "unit": "designation",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheel_front",
+          "value": "18x9.5 +45 offset",
+          "unit": "in_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheel_rear",
+          "value": "18x9.5 +45 offset",
+          "unit": "in_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheelbase",
+          "value": 107.1,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "length",
+          "value": 187.6,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "width",
+          "value": 73.9,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "height",
+          "value": 55.4,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_track",
+          "value": 61.9,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_track",
+          "value": 62.5,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "curb_mass",
+          "value": 3920,
+          "unit": "lb_approx",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_weight",
+          "value": 57,
+          "unit": "percent",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_weight",
+          "value": 43,
+          "unit": "percent",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.97,
+            1.78,
+            1.3,
+            1.0,
+            0.8,
+            0.63
+          ],
+          "unit": "ratio",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_suspension",
+          "value": "MacPherson strut, reverse-L arm",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "3-link live axle, Panhard rod",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        }
+      ],
+      "performance_references": [
+        {
+          "field": "zero_to_60_mph",
+          "value": 4.3,
+          "unit": "s",
+          "source_id": "gt500-mt-2008",
+          "status": "measured_exact_year_and_trim",
+          "note": "2008coupe6MT; skilledclutchdropandthrottlemodulation, rolloutunspecified."
+        },
+        {
+          "field": "braking_60_to_0_mph",
+          "value": 35.9664,
+          "unit": "m",
+          "source_id": "gt500-mt-2008",
+          "status": "measured_exact_year_and_trim",
+          "note": "118ft; standardGoodyearEagleF1Supercar255/45R18front285/40R18rear."
+        },
+        {
+          "field": "skidpad",
+          "value": 0.89,
+          "unit": "g",
+          "source_id": "gt500-mt-2008",
+          "status": "measured_exact_year_and_trim",
+          "note": "Lateralaccelerationaverage; exacttestprotocolnotsameasfleetturn."
+        }
+      ],
+      "implementation_proxy": {
+        "corpus_id": "a03",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "mcla-evo",
+      "source_code": "MCLA_VP_MIT_EVO_06",
+      "identity": "Mitsubishi Lancer Evolution IX 2006",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "MCLA asset name has no RS/MR grade;standard IX selected as reference. RS1460kg andMR1490kg are separate trims, not interchangeable.",
+      "game_catalog": {
+        "code": "MCLA_VP_MIT_EVO_06",
+        "name": "2006 LANCER EVOLUTION IX",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Exact UI string names or source-code fallbacks; retail year, manufacturer and performance remain unknown.",
+          "Independent editable copy; native source files remain separate.",
+          "Static LOD 0 stock-index assembly with half-resolution diffuse textures and neutral paint; slot attachment, wheel placement and material interpretation are readings, not runtime observations. Shared wheel radius and width use geometric approximations because runtime tire-size configuration is undecoded.",
+          "Runtime customization, animation, damage, paint, reflections and original shader passes are not reproduced.",
+          "Names use exact English UI-string key joins when available; other entries retain source codes. Retail year, manufacturer and performance are not inferred from codes.",
+          "Native ZIPs hold this car manifest and its extracted files, excluding separately shared rims, tires and brakes.",
+          "Ambient and player namespace entries remain distinct; this is not a verified playable roster."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "length",
+          "value": 4535,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "width",
+          "value": 1770,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "height",
+          "value": 1450,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2625,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "track_front",
+          "value": 1515,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "track_rear",
+          "value": 1515,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 140,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1485,
+          "unit": "kg",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "mass_basis",
+          "value": "curb weight,standard IX;SunSoundLeather1520kg",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "seats",
+          "value": 5,
+          "unit": "persons",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 60,
+          "unit": "%",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "engine_code",
+          "value": "4G63",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "inline 4 MIVEC DOHC16valve intercooled turbo",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "displacement",
+          "value": 1997,
+          "unit": "cm3",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.8,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "power_hp",
+          "value": 286,
+          "unit": "hp",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "torque_lbft",
+          "value": 289,
+          "unit": "lb ft",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3500,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "redline",
+          "value": 7000,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.785,
+            1.95,
+            1.444,
+            1.096,
+            0.761
+          ],
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.416,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.529,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "layout",
+          "value": "front engine full-time AWD active center differential",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "differential_front",
+          "value": "helical LSD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "differential_rear",
+          "value": "mechanical1.5wayLSD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "suspension_front",
+          "value": "MacPhersonstrut invertedshock forgedaluminum lowercontrolarms",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "multilink forgedaluminum links",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_antiroll_bar_diameter",
+          "value": 24,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "rear_antiroll_bar_diameter",
+          "value": 22,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "brakes_front",
+          "value": "Brembo4pistonventilated disc,ABS/EBD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "Brembo2pistonventilated disc,ABS/EBD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_brake_diameter",
+          "value": 320,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "rear_brake_diameter",
+          "value": 300,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/45R17 93W YokohamaAdvan",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "tire_rear",
+          "value": "235/45R17 93W YokohamaAdvan",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheel_front",
+          "value": "17\u00d78JJ offset+38mm",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "17\u00d78JJ offset+38mm",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 13,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "turning_circle",
+          "value": 11.8,
+          "unit": "m",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 53,
+          "unit": "L",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "related_mr_test_acceleration_0_60_mph",
+          "value": 4.6,
+          "unit": "s",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_quarter_mile_time",
+          "value": 13.4,
+          "unit": "s",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_quarter_mile_trap",
+          "value": 104,
+          "unit": "mph",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_braking_70_0_mph",
+          "value": 155,
+          "unit": "ft",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        }
+      ],
+      "performance_references": [],
+      "implementation_proxy": {
+        "corpus_id": "j09",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ]
+    },
+    {
+      "fleet_id": "mcla-skyline",
+      "source_code": "MCLA_VP_NSN_SKYLINE_99",
+      "identity": "Nissan Skyline GT-R V-spec 1999",
+      "identity_status": "existing_corpus_reference",
+      "identity_notes": "",
+      "game_catalog": {
+        "code": "MCLA_VP_NSN_SKYLINE_99",
+        "name": "1999 SKYLINE GT-R V-SPEC",
+        "year": null,
+        "bhp": null,
+        "kg": null,
+        "topSpeed": null,
+        "claimLimits": [
+          "Exact UI string names or source-code fallbacks; retail year, manufacturer and performance remain unknown.",
+          "Independent editable copy; native source files remain separate.",
+          "Static LOD 0 stock-index assembly with half-resolution diffuse textures and neutral paint; slot attachment, wheel placement and material interpretation are readings, not runtime observations. Shared wheel radius and width use geometric approximations because runtime tire-size configuration is undecoded.",
+          "Runtime customization, animation, damage, paint, reflections and original shader passes are not reproduced.",
+          "Names use exact English UI-string key joins when available; other entries retain source codes. Retail year, manufacturer and performance are not inferred from codes.",
+          "Native ZIPs hold this car manifest and its extracted files, excluding separately shared rims, tires and brakes.",
+          "Ambient and player namespace entries remain distinct; this is not a verified playable roster."
+        ]
+      },
+      "real_facts": [
+        {
+          "field": "length",
+          "value": 4600,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "width",
+          "value": 1785,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "height",
+          "value": 1360,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2665,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "track_front",
+          "value": 1480,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "track_rear",
+          "value": 1490,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 130,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1560,
+          "unit": "kg",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese vehicle mass \u8eca\u4e21\u91cd\u91cf;not dry",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "persons",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "engine_code",
+          "value": "RB26DETT",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled inline 6 DOHC twin-turbo",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "displacement",
+          "value": 2568,
+          "unit": "cm3",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "bore",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "stroke",
+          "value": 73.7,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.5,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 40,
+          "unit": "kgf m",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4400,
+          "unit": "rpm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 65,
+          "unit": "L",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "Getrag6MT",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.827,
+            2.36,
+            1.685,
+            1.312,
+            1,
+            0.793
+          ],
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.28,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.545,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "layout",
+          "value": "front engine AWD, ATTESA E-TS PRO electronically controlled active LSD",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc,opposed4piston",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc,opposed2piston",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.6,
+          "unit": "m",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "steering",
+          "value": "rack-and-pinion;Super HICAS rear steering",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        }
+      ],
+      "performance_references": [],
+      "implementation_proxy": {
+        "corpus_id": "j02",
+        "status": "see_corpus_identity_notes"
+      },
+      "unpublished": [
+        "CG height",
+        "inertia tensor",
+        "tire force curves",
+        "spring wheel rates",
+        "damper coefficients",
+        "dynamic differential map"
+      ],
+      "performance_reference_gap": "Bounded search found no retrieved original instrumented1999R34Vspec acceleration/brakingtest. Evoquoted4.8sclaim andaggregatorAutocar4.4/4.6valueswereexcludedbecauseorigin/factoryclaimnotverified. Leaveperformanceunresolved;MC3hasadditionalyear/trimambiguity."
+    }
+  ],
+  "calibration_limits": [
+    "0\u201360mph and0\u2013100km/h differ; periodtest rollout andlaunch procedures are notuniform.",
+    "Existing fleet6sfullthrottle/brake scenario is not a standardized0\u2013100test.",
+    "Compare braking using exactentryspeed andnormalizeda=v\u00b2/(2d); notrawdistance whereentryspeedsdiffer.",
+    "Tiremu, CGheight, inertia, wheelrates, damperrates and most weightdistributions are explicit engineeringestimates, notfacts.",
+    "No real matched constantsteering turntest covers current scenario; yaw/roll ranking has no directlyvalidated OEMgroundtruth."
+  ],
+  "research_followups": [
+    {
+      "scope": [
+        "1982EU911SC",
+        "1991AcuraNSX5MT",
+        "2008GT500coupe",
+        "1999R34Vspec"
+      ],
+      "outcome": "NSXandGT500periodinstrumentedtestsverified;911officialdealerclaimqualified;R34performanceunresolved",
+      "limitations": "No extra car identities researched; no assets/code changed. Period911handbooknumeric0\u2013100cellunreadableinretrievedOCR;notinferred."
+    }
+  ],
+  "gearing_attribution_audit": {
+    "original_claims": [
+      {
+        "fleet_id": "gt-viper",
+        "incorrect_source_id": "viper-mt",
+        "fields": [
+          "gear_ratios",
+          "final_drive"
+        ],
+        "finding": "Sourceonlystates6MT;noactualratio/finalvalues.Originalattributionunsupported."
+      },
+      {
+        "fleet_id": "mc3-supra",
+        "incorrect_source_id": "supra-brochure",
+        "fields": [
+          "gear_ratios",
+          "final_drive"
+        ],
+        "finding": "1998brochureonlystates6MT;actualratio/finalvaluesabsent.Originalattributionunsupported."
+      }
+    ],
+    "corrected_policy": "Keepnumericalvaluesonlyasexplicitrelatedyear/generationestimateswithnewsources.Noassetsorruntimefileschangedbyresearchaudit.",
+    "unverified": [
+      "Exact1996/97ViperGTSOEMgearsetand3.07finaldrive",
+      "Exact1998USSupraTurboOEMV160and3.133finaldriveconfirmation",
+      "MC3Supramarket/trimidentity"
+    ]
+  },
+  "remaining_reference_audit": {
+    "scope": "Read-only comparison of current physics.json non-estimate evidence against corpus and supplement; no runtime writes.",
+    "numerical_results": "M3CSL,NSX,GT500,EvoIX,911SC,350ZandR34non-estimatefacts match chosen sourceprofiles within declaredrounding/unitconversion. No additional numerical contradictions found.",
+    "attribution_corrections": [
+      {
+        "fleet_id": "fr2-fr500",
+        "field": "mass_kg",
+        "value": 1630,
+        "runtime_status": "game_proxy",
+        "runtime_source": "fr500-oem",
+        "finding": "StatuscorrectbutOEMsourcewrongformass.OEM1999releaseomitsmass;sourceisnativeFR2FR500catalog."
+      },
+      {
+        "fleet_id": "mc3-supra",
+        "fields": [
+          "mass_kg",
+          "power_kw",
+          "torque_nm",
+          "power_rpm",
+          "torque_rpm",
+          "front_weight"
+        ],
+        "finding": "Valuescorrectforselected1998USTurbo6MTproxy;modelmarkettrimnotestablished.Reportmustretainrelatedvariantqualification."
+      },
+      {
+        "fleet_id": "redline-911",
+        "finding": "European204PS1982referencequalifiedbyauthorparameters;marketinferred,notindependentlyverified."
+      },
+      {
+        "fleet_id": "mcla-evo",
+        "finding": "USstandardIX1485kg5MTreference;assetdoesnotestablishRS/MRgrade.Selectedreferencequalificationrequired."
+      }
+    ],
+    "mass_basis_caveat": "M3CSL1385kgtableisEUwith75kgfootnote;othercurbmassesandDIN1160kgSCarenotuniformdriver/fueldefinitions.Preservebasisratherthancallingallcurbmassesdirectlycomparable."
+  }
+}

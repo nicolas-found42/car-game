@@ -1,0 +1,246 @@
+{
+  "source_commit": "2342545363c225929963d16b5a05ca26e0ca2798",
+  "date": "2026-10-23",
+  "method": "Python stdlib JSON/GLB inspection, SHA-256, SQLite in-memory exploratory joins; no persistent database found in tracked inventory",
+  "tracked_files": 145,
+  "tracked_json_files": 26,
+  "json_parse_failures": [],
+  "runtime_evidence_present_before_checks": false,
+  "source_collection_present": false,
+  "queries": {
+    "fleet_by_game": {
+      "sql": "SELECT game_id, COUNT(*) AS cars FROM cars GROUP BY game_id ORDER BY game_id",
+      "columns": [
+        "game_id",
+        "cars"
+      ],
+      "rows": [
+        [
+          "ford-racing-2",
+          2
+        ],
+        [
+          "gran-turismo",
+          2
+        ],
+        [
+          "gran-turismo-4",
+          3
+        ],
+        [
+          "midnight-club-3-remix",
+          2
+        ],
+        [
+          "midnight-club-los-angeles",
+          2
+        ],
+        [
+          "redline",
+          2
+        ]
+      ]
+    },
+    "key_and_hash_anomalies": {
+      "sql": "SELECT c.id FROM cars c LEFT JOIN editions e ON c.id=e.car_id WHERE e.car_id IS NULL OR e.actual_sha<>e.receipt_sha OR c.wheel_nodes<>e.glb_wheel_nodes",
+      "columns": [
+        "id"
+      ],
+      "rows": []
+    },
+    "duplicate_ids": {
+      "sql": "SELECT id, COUNT(*) FROM cars GROUP BY id HAVING COUNT(*)<>1",
+      "columns": [
+        "id",
+        "COUNT(*)"
+      ],
+      "rows": []
+    },
+    "receipt_shapes": {
+      "sql": "SELECT receipt_shape, COUNT(*) FROM editions GROUP BY receipt_shape",
+      "columns": [
+        "receipt_shape",
+        "COUNT(*)"
+      ],
+      "rows": [
+        [
+          "baseline",
+          1
+        ],
+        [
+          "fleet",
+          12
+        ]
+      ]
+    },
+    "geometry_range": {
+      "sql": "SELECT MIN(wheelbase), MAX(wheelbase), MIN(triangles), MAX(triangles), SUM(bytes) FROM cars JOIN editions ON cars.id=editions.car_id",
+      "columns": [
+        "MIN(wheelbase)",
+        "MAX(wheelbase)",
+        "MIN(triangles)",
+        "MAX(triangles)",
+        "SUM(bytes)"
+      ],
+      "rows": [
+        [
+          2.33,
+          2.729,
+          528,
+          115637,
+          26695748
+        ]
+      ]
+    },
+    "fleet_details": {
+      "sql": "SELECT c.id,c.game_id,c.wheel_nodes,e.glb_wheel_nodes,c.triangles,e.bytes FROM cars c JOIN editions e ON c.id=e.car_id ORDER BY c.id",
+      "columns": [
+        "id",
+        "game_id",
+        "wheel_nodes",
+        "glb_wheel_nodes",
+        "triangles",
+        "bytes"
+      ],
+      "rows": [
+        [
+          "350z",
+          "gran-turismo-4",
+          8,
+          8,
+          9310,
+          500760
+        ],
+        [
+          "fr2-cobra",
+          "ford-racing-2",
+          4,
+          4,
+          4040,
+          1192124
+        ],
+        [
+          "fr2-fr500",
+          "ford-racing-2",
+          4,
+          4,
+          4583,
+          1371432
+        ],
+        [
+          "gt-rx7",
+          "gran-turismo",
+          4,
+          4,
+          528,
+          631976
+        ],
+        [
+          "gt-viper",
+          "gran-turismo",
+          4,
+          4,
+          622,
+          443732
+        ],
+        [
+          "gt4-m3",
+          "gran-turismo-4",
+          4,
+          4,
+          7772,
+          420616
+        ],
+        [
+          "gt4-nsx",
+          "gran-turismo-4",
+          4,
+          4,
+          7652,
+          424308
+        ],
+        [
+          "mc3-skyline",
+          "midnight-club-3-remix",
+          4,
+          4,
+          8058,
+          3336476
+        ],
+        [
+          "mc3-supra",
+          "midnight-club-3-remix",
+          4,
+          4,
+          8100,
+          3355036
+        ],
+        [
+          "mcla-evo",
+          "midnight-club-los-angeles",
+          4,
+          4,
+          106110,
+          4079256
+        ],
+        [
+          "mcla-skyline",
+          "midnight-club-los-angeles",
+          4,
+          4,
+          115637,
+          4478172
+        ],
+        [
+          "redline-911",
+          "redline",
+          4,
+          4,
+          8748,
+          2351868
+        ],
+        [
+          "redline-gt500",
+          "redline",
+          4,
+          4,
+          10122,
+          4109992
+        ]
+      ]
+    }
+  },
+  "verification": {
+    "cargo fmt --check": {
+      "exit_code": 0
+    },
+    "cargo clippy --all-targets -- -D warnings": {
+      "exit_code": 0
+    },
+    "scripts/check_codelimit.sh HEAD": {
+      "exit_code": 0,
+      "note": "No Rust/Python modifications; per-file checks skipped"
+    },
+    "cargo test --all-targets": {
+      "exit_code": 0,
+      "passed": 67,
+      "failed": 0,
+      "suites": {
+        "library": 19,
+        "assembly": 7,
+        "recorder_health": 21,
+        "recorder_shutdown": 4,
+        "scenarios": 16
+      }
+    },
+    "report_links": {
+      "broken": 0
+    },
+    "glb_header_and_self_contained_buffers_images": {
+      "checked": 13
+    },
+    "catalog_wheel_corner_order": {
+      "checked": 13
+    }
+  }
+}

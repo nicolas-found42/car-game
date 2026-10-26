@@ -1,0 +1,10 @@
+{
+  "source_to_glb_byte_exact": true,
+  "receipt_semantically_equal": true,
+  "receipt_serialization_note": "JSON key order differs because the initial correction inserted the receipt field before its final hash.",
+  "idempotent": true,
+  "files": {
+    "assets/cars/ref-a08.glb": "c3b6b956a2e51edb113ea9cf41e44894e6c89e7edc1868d65351144e71fb6592",
+    "assets/cars/ref-a08.json": "c1b82b30fad11cfea0ad51baf1376da4fa92c664c5bb60d964cc6cb556652ae6"
+  }
+}

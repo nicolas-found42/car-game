@@ -1,0 +1,25 @@
+{
+  "counts": {
+    "car": 50,
+    "source": 102,
+    "real_fact": 1555,
+    "counterpart": 80,
+    "game_fact": 99166,
+    "model_measurement": 465,
+    "unknown": 254
+  },
+  "foreign_key_check": "passed",
+  "sqlite_integrity_check": "ok",
+  "unique_real_counterparts": 50,
+  "game_counts": {
+    "ford-racing-2": 2,
+    "gran-turismo-4": 34,
+    "gran-turismo": 6,
+    "midnight-club-3-remix": 13,
+    "midnight-club-los-angeles": 14,
+    "redline": 11
+  },
+  "multi_game_real_counterparts": 21,
+  "nonempty_sourced_real_profiles": 50,
+  "runtime_physics_changes": false
+}

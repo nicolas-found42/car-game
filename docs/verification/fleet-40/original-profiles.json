@@ -1,0 +1,1951 @@
+{
+  "schema": 1,
+  "model": "reduced-order-raycast-v1",
+  "sources": [
+    "docs/vehicle-reference/real-profiles.json",
+    "docs/verification/per-car-physics/fleet-reference-supplement.json"
+  ],
+  "estimation_policy": "Missing fields are marked estimate. Torque interpolation, inertia box model, axle split and all tire coefficients are approximations, not recovered tire/differential models.",
+  "cars": [
+    {
+      "id": "350z",
+      "corpus_reference": "j01",
+      "parameters": {
+        "mass_kg": 1506.853,
+        "power_kw": 214.016,
+        "torque_nm": 371.494,
+        "power_rpm": 6200,
+        "torque_rpm": 4800,
+        "redline_rpm": 6600,
+        "gears": [
+          3.794,
+          2.324,
+          1.624,
+          1.271,
+          1,
+          0.794
+        ],
+        "final_drive": 3.538,
+        "front_weight": 0.53,
+        "front_drive": 0.0,
+        "cg_height_m": 0.55,
+        "ride_frequency_hz": [
+          1.8,
+          1.9
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.65,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.918530000000002,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "related_reference",
+          "source": "j01-cd-test",
+          "basis": "Track test mass; unspecified GT4 trim. No additional driver mass is invented."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "estimate",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "estimate",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "source": "j01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "j01",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "Unspecified GT4grade; US2003engine andTrack testmass mixed only as declared estimate."
+    },
+    {
+      "id": "fr2-cobra",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1718,
+        "power_kw": 283.366,
+        "torque_nm": 475,
+        "power_rpm": 6000,
+        "torque_rpm": 4500,
+        "redline_rpm": 6800,
+        "gears": [
+          3.37,
+          1.99,
+          1.33,
+          1,
+          0.67
+        ],
+        "final_drive": 3.27,
+        "front_weight": 0.56,
+        "front_drive": 0.0,
+        "cg_height_m": 0.56,
+        "ride_frequency_hz": [
+          1.6,
+          1.7
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.0,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.78,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.300500000000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "game_proxy",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "game_proxy",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "estimate",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "estimate",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "estimate",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "estimate",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "source": "native-fr2-COBRA",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "game_proxy",
+          "source": "native-fr2-COBRA",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "Native SVT Cobra2000 entry is not a verified Cobra R; native380bhp1718kg proxy."
+    },
+    {
+      "id": "fr2-fr500",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1630,
+        "power_kw": 309.465,
+        "torque_nm": 505,
+        "power_rpm": 6800,
+        "torque_rpm": 5000,
+        "redline_rpm": 7200,
+        "gears": [
+          2.66,
+          1.78,
+          1.3,
+          1,
+          0.8,
+          0.63
+        ],
+        "final_drive": 4.1,
+        "front_weight": 0.5,
+        "front_drive": 0.0,
+        "cg_height_m": 0.51,
+        "ride_frequency_hz": [
+          2.0,
+          2.1
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.12,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.72,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.536560000000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "game_proxy",
+          "source": "native-fr2-FR500",
+          "basis": "Native Ford Racing 2 catalog mass; the Ford concept release does not publish a mass."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "estimate",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "estimate",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "estimate",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "fr500-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "fr500-oem",
+          "basis": "Reference static weight distribution; matching body/market qualified below."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "fr500-oem",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "gt-rx7",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1220,
+        "power_kw": 194.907,
+        "torque_nm": 294.2,
+        "power_rpm": 6500,
+        "torque_rpm": 5000,
+        "redline_rpm": 8000,
+        "gears": [
+          3.483,
+          2.015,
+          1.391,
+          1,
+          0.719
+        ],
+        "final_drive": 4.1,
+        "front_weight": 0.5,
+        "front_drive": 0.0,
+        "cg_height_m": 0.48,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.61,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.918530000000002,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "estimate",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "source": "native-gt1-AFA7N",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "game_proxy",
+          "source": "native-gt1-AFA7N",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "Mazdaspeed A-spec exact real tuning unidentified; native GT1 base specs proxy."
+    },
+    {
+      "id": "gt-viper",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1530.874,
+        "power_kw": 335.565,
+        "torque_nm": 664.351,
+        "power_rpm": 5200,
+        "torque_rpm": 3700,
+        "redline_rpm": 6000,
+        "gears": [
+          2.66,
+          1.78,
+          1.3,
+          1,
+          0.74,
+          0.5
+        ],
+        "final_drive": 3.07,
+        "front_weight": 0.49,
+        "front_drive": 0.0,
+        "cg_height_m": 0.48,
+        "ride_frequency_hz": [
+          1.85,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.08,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.75,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.124540000000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional transmission ratio assumption; the selected period source does not publish these ratios. Not a verified specification for this exact asset."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional transmission ratio assumption; the selected period source does not publish these ratios. Not a verified specification for this exact asset."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "related_reference",
+          "source": "viper-mt",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "gt4-m3",
+      "corpus_reference": "e06",
+      "parameters": {
+        "mass_kg": 1385,
+        "power_kw": 265,
+        "torque_nm": 370,
+        "power_rpm": 7900,
+        "torque_rpm": 4900,
+        "redline_rpm": 8000,
+        "gears": [
+          4.227,
+          2.528,
+          1.669,
+          1.226,
+          1,
+          0.828
+        ],
+        "final_drive": 3.62,
+        "front_weight": 0.5,
+        "front_drive": 0.0,
+        "cg_height_m": 0.51,
+        "ride_frequency_hz": [
+          2.1,
+          2.2
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.16,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.683,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.18,
+        "brake_decel_mps2": 11.94858,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "e06",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "reference",
+          "source": "e06-press",
+          "basis": "Published cX*A; mass follows EU-labeled1385kg table, basis retained."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "gt4-nsx",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1365,
+        "power_kw": 201.339,
+        "torque_nm": 284.72,
+        "power_rpm": 7100,
+        "torque_rpm": 5300,
+        "redline_rpm": 8000,
+        "gears": [
+          3.071,
+          1.727,
+          1.23,
+          0.967,
+          0.771
+        ],
+        "final_drive": 4.062,
+        "front_weight": 0.42,
+        "front_drive": 0.0,
+        "cg_height_m": 0.46,
+        "ride_frequency_hz": [
+          1.75,
+          1.85
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.04,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.58,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.712520000000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Reference static weight distribution; matching body/market qualified below."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "nsx-oem",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "mc3-skyline",
+      "corpus_reference": "j02",
+      "parameters": {
+        "mass_kg": 1560,
+        "power_kw": 205.94,
+        "torque_nm": 392.266,
+        "power_rpm": 6800,
+        "torque_rpm": 4400,
+        "redline_rpm": 8000,
+        "gears": [
+          3.827,
+          2.36,
+          1.685,
+          1.312,
+          1,
+          0.793
+        ],
+        "final_drive": 3.545,
+        "front_weight": 0.57,
+        "front_drive": 0.05,
+        "cg_height_m": 0.55,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.09,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.77,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.021535000000002,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "related_reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "source": "j02",
+          "basis": "Simplified AWD torque split. Evo nominal 50:50; Skyline rear-biased 5% minimum with traction-demand transfer up to50%. Native differential algorithm not reproduced."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "1999 V-spec reference applied to2002-named MC3asset as related-year estimate."
+    },
+    {
+      "id": "mc3-supra",
+      "corpus_reference": null,
+      "parameters": {
+        "mass_kg": 1562.626,
+        "power_kw": 238.624,
+        "torque_nm": 427.083,
+        "power_rpm": 5600,
+        "torque_rpm": 4000,
+        "redline_rpm": 6800,
+        "gears": [
+          3.827,
+          2.36,
+          1.685,
+          1.312,
+          1,
+          0.793
+        ],
+        "final_drive": 3.133,
+        "front_weight": 0.53,
+        "front_drive": 0.0,
+        "cg_height_m": 0.52,
+        "ride_frequency_hz": [
+          1.7,
+          1.8
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.66,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.918530000000002,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional transmission ratio assumption; the selected period source does not publish these ratios. Not a verified specification for this exact asset."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional transmission ratio assumption; the selected period source does not publish these ratios. Not a verified specification for this exact asset."
+        },
+        "front_weight": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Reference static weight distribution; matching body/market qualified below."
+        },
+        "front_drive": {
+          "status": "related_reference",
+          "source": "supra-brochure",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "US1998 Turbo manual hardtop proxy; MC3market/trim unverified."
+    },
+    {
+      "id": "mcla-evo",
+      "corpus_reference": "j09",
+      "parameters": {
+        "mass_kg": 1485,
+        "power_kw": 213.27,
+        "torque_nm": 391.831,
+        "power_rpm": 6500,
+        "torque_rpm": 3500,
+        "redline_rpm": 7000,
+        "gears": [
+          2.785,
+          1.95,
+          1.444,
+          1.096,
+          0.761
+        ],
+        "final_drive": 4.529,
+        "front_weight": 0.6,
+        "front_drive": 0.5,
+        "cg_height_m": 0.56,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.78,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.330550000000002,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "j09",
+          "basis": "Reference static weight distribution; matching body/market qualified below."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "source": "j09",
+          "basis": "Simplified AWD torque split. Evo nominal 50:50; Skyline rear-biased 5% minimum with traction-demand transfer up to50%. Native differential algorithm not reproduced."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "mcla-skyline",
+      "corpus_reference": "j02",
+      "parameters": {
+        "mass_kg": 1560,
+        "power_kw": 205.94,
+        "torque_nm": 392.266,
+        "power_rpm": 6800,
+        "torque_rpm": 4400,
+        "redline_rpm": 8000,
+        "gears": [
+          3.827,
+          2.36,
+          1.685,
+          1.312,
+          1,
+          0.793
+        ],
+        "final_drive": 3.545,
+        "front_weight": 0.57,
+        "front_drive": 0.05,
+        "cg_height_m": 0.55,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.09,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.77,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.227545000000003,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j02",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "source": "j02",
+          "basis": "Simplified AWD torque split. Evo nominal 50:50; Skyline rear-biased 5% minimum with traction-demand transfer up to50%. Native differential algorithm not reproduced."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    },
+    {
+      "id": "redline-911",
+      "corpus_reference": "e01",
+      "parameters": {
+        "mass_kg": 1160,
+        "power_kw": 150,
+        "torque_nm": 267,
+        "power_rpm": 5900,
+        "torque_rpm": 4300,
+        "redline_rpm": 6500,
+        "gears": [
+          3.1818181818181817,
+          1.8333333333333333,
+          1.2608695652173914,
+          1,
+          0.7857142857142857
+        ],
+        "final_drive": 3.875,
+        "front_weight": 0.4,
+        "front_drive": 0.0,
+        "cg_height_m": 0.5,
+        "ride_frequency_hz": [
+          1.5,
+          1.65
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 0.98,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.7,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 10.09449,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "e01",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "1982 EU204PS model; assetmarket inferred, geometry2330mm retained versus2272mm real."
+    },
+    {
+      "id": "redline-gt500",
+      "corpus_reference": "a03",
+      "parameters": {
+        "mass_kg": 1778.082,
+        "power_kw": 372.85,
+        "torque_nm": 650.793,
+        "power_rpm": 6000,
+        "torque_rpm": 4500,
+        "redline_rpm": 6250,
+        "gears": [
+          2.97,
+          1.78,
+          1.3,
+          1,
+          0.8,
+          0.63
+        ],
+        "final_drive": 3.31,
+        "front_weight": 0.57,
+        "front_drive": 0.0,
+        "cg_height_m": 0.57,
+        "ride_frequency_hz": [
+          1.65,
+          1.75
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.22,
+          0.2
+        ],
+        "tire_mu": 1.08,
+        "cornering_per_load": [
+          15.0,
+          15.5
+        ],
+        "drag_area_m2": 0.83,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.3,
+        "brake_decel_mps2": 11.124540000000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Selected reference; see applicability and source supplement. Unit conversions where necessary."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Reference static weight distribution; matching body/market qualified below."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "a03",
+          "basis": "Rear-wheel drive layout; no front engine force."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
+        }
+      },
+      "applicability": "See corpus and fleet-reference-supplement; matching equipment is not independently guaranteed."
+    }
+  ],
+  "shared_estimates": {
+    "suspension_rest_m": 0.44,
+    "mount_height_m": 0.16,
+    "angular_damping_s_inverse": 0.25,
+    "low_speed_reverse_force_n": 4800,
+    "reverse_limit_mps": 8,
+    "handbrake_force_n": 6500,
+    "steering_response_s_inverse": 9,
+    "launch_rpm_fraction_of_torque_peak": 0.65,
+    "launch_rpm_bounds": [
+      1800,
+      3200
+    ],
+    "shift_up_fraction_of_redline": 0.95,
+    "shift_down_fraction_of_torque_peak": 0.65,
+    "inertia_model": "Uniform box approximation: width=.9bodyWidth,length=.8bodyLength,height=1.6CGheight; no measured tensor.",
+    "solver_linear_damping": 0,
+    "basis": "All are model/gameplay estimates. Linear damping disabled because aerodynamic and rolling forces are explicit."
+  }
+}

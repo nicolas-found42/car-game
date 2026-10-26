@@ -1,0 +1,10 @@
+{
+  "baseline_binary_sha256": "3b217b1874392716120645af92d83c17b2335a446ab48ec864abb4c60e43d211",
+  "after_binary_sha256": "3a540556fac8eab2304ef682cc4a19f8ac75b2905da28862dadd65bf2367d203",
+  "changed_compiled_inputs": [
+    "build_source/assets/cars/physics.json"
+  ],
+  "changed_snapshot_metadata": [],
+  "same_profile_json": false,
+  "baseline_validation": "docs/verification/fleet57-geometry-drivetrain/validation.json"
+}

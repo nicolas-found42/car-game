@@ -1,0 +1,1464 @@
+{
+  "preserve_existing": 57,
+  "target_fleet_size": 300,
+  "cars": [
+    {
+      "id": "exp-001",
+      "source_code": "GT4_AC__0014",
+      "name": "AC Cars 427 S/C '66",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-002",
+      "source_code": "GT4_ACRA0001",
+      "name": "Acura CL 3.2 Type-S '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-003",
+      "source_code": "GT4_ALFA0001",
+      "name": "Alfa Romeo Giulia Sprint GTA 1600 '65",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-004",
+      "source_code": "GT4_AMUS0001",
+      "name": "AMUSE S2000 Street Version '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-005",
+      "source_code": "GT4_ASMT0002",
+      "name": "Aston Martin V8 Vantage '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-006",
+      "source_code": "GT4_AUDI0001",
+      "name": "Audi A2 1.4 '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-007",
+      "source_code": "GT4_ATBC0001",
+      "name": "Autobianchi A112 Abarth '79",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-008",
+      "source_code": "GT4_BMW_0002",
+      "name": "BMW 120i '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-009",
+      "source_code": "GT4_BUIC0002",
+      "name": "BUICK Special '62",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-010",
+      "source_code": "GT4_CALW0001",
+      "name": "Callaway C12 '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-011",
+      "source_code": "GT4_CTHM0001",
+      "name": "Caterham Seven Fire Blade '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-012",
+      "source_code": "GT4_CHEV0001",
+      "name": "Chevrolet Camaro Z28 302 '69",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-013",
+      "source_code": "GT4_CHRY0001",
+      "name": "Chrysler Prowler '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-014",
+      "source_code": "GT4_CITR0001",
+      "name": "Citroen C5 V6 Exclusive '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-015",
+      "source_code": "GT4_CIZT0001",
+      "name": "Cizeta V16T '94",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-016",
+      "source_code": "GT4_DAIH0004",
+      "name": "Daihatsu Copen Active Top '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-017",
+      "source_code": "GT4_DMC_0001",
+      "name": "DMC DeLorean S2 '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-018",
+      "source_code": "GT4_EGLE0001",
+      "name": "EAGLE Talon Esi '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-019",
+      "source_code": "GT4_FIAT0001",
+      "name": "Fiat 500F '65",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-020",
+      "source_code": "GT4_FPV_0001",
+      "name": "FPV F6 Typhoon '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-021",
+      "source_code": "GT4_GNTT0001",
+      "name": "Ginetta G4 '64",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-022",
+      "source_code": "GT4_HOLD0001",
+      "name": "Holden Monaro CV8 '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-023",
+      "source_code": "GT4_HOML0001",
+      "name": "Hommell Berlinette R/S Coupe '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-024",
+      "source_code": "GT4_HOND0001",
+      "name": "Honda PRELUDE Type S '96",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-025",
+      "source_code": "GT4_HYDI0001",
+      "name": "Hyundai Coupe FX '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-026",
+      "source_code": "GT4_INFI0001",
+      "name": "Infiniti FX45 Concept '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-027",
+      "source_code": "GT4_ISUZ0001",
+      "name": "Isuzu 117 Coupe '68",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-028",
+      "source_code": "GT4_JAGU0001",
+      "name": "Jaguar XKR R-Performance '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-029",
+      "source_code": "GT4_JENS0001",
+      "name": "Jensen Interceptor MkIII '74",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-030",
+      "source_code": "GT4_LXUS0001",
+      "name": "Lexus IS200 '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-031",
+      "source_code": "GT4_LOTU0001",
+      "name": "Lotus Europa Special '71",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-032",
+      "source_code": "GT4_MRCS0001",
+      "name": "Marcos Mini Marcos GT '70",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-033",
+      "source_code": "GT4_MAZD0001",
+      "name": "Mazda RX-8 Concept (Type-II) '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-034",
+      "source_code": "GT4_MCRY0001",
+      "name": "Mercury Cougar XR-7 '67",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-035",
+      "source_code": "GT4_MG_30001",
+      "name": "MG TF160 '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-036",
+      "source_code": "GT4_MG_30002",
+      "name": "MGF '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-037",
+      "source_code": "GT4_MINE0001",
+      "name": "Mine's Skyline GT-R\uff65N1 V\uff65spec (R34) '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-038",
+      "source_code": "GT4_MINI0002",
+      "name": "MINI ONE '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-039",
+      "source_code": "GT4_MITS0001",
+      "name": "Mitsubishi Lancer Evolution VIII    GSR '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-040",
+      "source_code": "GT4_NISS0003",
+      "name": "Nissan 300ZX 2seater (Z32) '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-041",
+      "source_code": "GT4_OPEL0001",
+      "name": "Opel Tigra 1.6i '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-042",
+      "source_code": "GT4_PLYM0001",
+      "name": "Plymouth Cuda 440 Six Pack '71",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-043",
+      "source_code": "GT4_PONT0001",
+      "name": "Pontiac Tempest Le Mans GTO '64",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-044",
+      "source_code": "GT4_PROT0001",
+      "name": "Proto Motors SPIRRA 4.6 V8 '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-045",
+      "source_code": "GT4_RE__0001",
+      "name": "Renault Clio Renault Sport 2.0 16V '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-046",
+      "source_code": "GT4_RUF_0001",
+      "name": "RUF BTR '86",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-047",
+      "source_code": "GT4_SLEN0001",
+      "name": "Saleen S7 '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-048",
+      "source_code": "GT4_SEAT0001",
+      "name": "Seat Ibiza Cupra '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-049",
+      "source_code": "GT4_SLBY0001",
+      "name": "Shelby Cobra 427 '67",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-050",
+      "source_code": "GT4_ORG_0002",
+      "name": "SILEIGHTY '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-051",
+      "source_code": "GT4_SPYK0001",
+      "name": "Spyker C8 Laviolette '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-052",
+      "source_code": "GT4_SUBR0002",
+      "name": "Subaru IMPREZA WRX STi Prodrive Style (GD, Type-I) '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-053",
+      "source_code": "GT4_SUZK0001",
+      "name": "Suzuki Cappuccino (EA11R) '91",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-054",
+      "source_code": "GT4_TOMS0001",
+      "name": "Tom's X540 CHASER '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-055",
+      "source_code": "GT4_TKIR0001",
+      "name": "Tommy kaira ZZ-S '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-056",
+      "source_code": "GT4_TOYT0001",
+      "name": "Toyota COROLLA LEVIN GT-APEX (AE86) '83",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-057",
+      "source_code": "GT4_TRAL0001",
+      "name": "TRIAL CELICA SS-II (ZZT231) '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-058",
+      "source_code": "GT4_TR_20001",
+      "name": "Triumph Spitfire 1500 '74",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-059",
+      "source_code": "GT4_TVR_0001",
+      "name": "TVR Cerbera Speed Six '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-060",
+      "source_code": "GT4_VW__0001",
+      "name": "Volkswagen Golf IV GTI '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-061",
+      "source_code": "GT4_VOLV0001",
+      "name": "Volvo S60 T 5 Sport '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-062",
+      "source_code": "GT4_ACRA0002",
+      "name": "Acura INTEGRA Type-R '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-063",
+      "source_code": "GT4_ALFA0002",
+      "name": "Alfa Romeo 147 2.0 Twinspark '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-064",
+      "source_code": "GT4_ALPR0002",
+      "name": "Alpine A310 1600VE '73",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-065",
+      "source_code": "GT4_ASL_0002",
+      "name": "ASL Garaiya '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-066",
+      "source_code": "GT4_ASMT0003",
+      "name": "Aston Martin DB7 Vantage Coupe '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-067",
+      "source_code": "GT4_AUDI0002",
+      "name": "Audi TT Coupe 1.8T quattro '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-068",
+      "source_code": "GT4_CHEV0002",
+      "name": "Chevrolet Corvette Stingray L46 350 (C3) '69",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-069",
+      "source_code": "GT4_CHRY0002",
+      "name": "Chrysler Crossfire '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-070",
+      "source_code": "GT4_CITR0002",
+      "name": "Citroen C3 1.6 '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-071",
+      "source_code": "GT4_DAIH0005",
+      "name": "Daihatsu Midget II D-type '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-072",
+      "source_code": "GT4_DODG0002",
+      "name": "Dodge VIPER GTS '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-073",
+      "source_code": "GT4_FIAT0002",
+      "name": "Fiat Panda Super i.e. '90",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-074",
+      "source_code": "GT4_FPV_0002",
+      "name": "FPV GT '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-075",
+      "source_code": "GT4_HOLD0002",
+      "name": "Holden Commodore SS '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-076",
+      "source_code": "GT4_HOND0002",
+      "name": "Honda CIVIC SiR-II (EG) '91",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-077",
+      "source_code": "GT4_INFI0003",
+      "name": "Infiniti G35 SEDAN '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-078",
+      "source_code": "GT4_ISUZ0002",
+      "name": "Isuzu PIAZZA XE '81",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-079",
+      "source_code": "GT4_JAGU0002",
+      "name": "Jaguar S-Type R '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-080",
+      "source_code": "GT4_LXUS0003",
+      "name": "Lexus IS300 Sport Cross '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-081",
+      "source_code": "GT4_LOTU0002",
+      "name": "Lotus Elise '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-082",
+      "source_code": "GT4_MINE0002",
+      "name": "Mine's Lancer Evolution VI '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-083",
+      "source_code": "GT4_MINI0003",
+      "name": "MINI COOPER '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-084",
+      "source_code": "GT4_MITS0002",
+      "name": "Mitsubishi Lancer Evolution VII    GSR '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-085",
+      "source_code": "GT4_NISM0002",
+      "name": "NISMO 400R '96",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-086",
+      "source_code": "GT4_NISS0005",
+      "name": "Nissan SILVIA K's (S13) '88",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-087",
+      "source_code": "GT4_PGNI0003",
+      "name": "Pagani Zonda C12 '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-088",
+      "source_code": "GT4_PLYM0002",
+      "name": "Plymouth Super Bird '70",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-089",
+      "source_code": "GT4_PONT0002",
+      "name": "Pontiac Vibe GT '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-090",
+      "source_code": "GT4_RUF_0002",
+      "name": "RUF CTR2 '96",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-091",
+      "source_code": "GT4_SLBY0002",
+      "name": "Shelby Mustang G.T. 350R '65",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-092",
+      "source_code": "GT4_SPON0002",
+      "name": "Spoon CIVIC TYPE R (EK) '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-093",
+      "source_code": "GT4_SUBR0004",
+      "name": "Subaru IMPREZA Sedan WRX STi (GC) '94",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-094",
+      "source_code": "GT4_SUZK0002",
+      "name": "Suzuki ALTO WORKS SUZUKI SPORT LIMITED '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-095",
+      "source_code": "GT4_TOYT0002",
+      "name": "Toyota SUPRA 2.5GT Twin Turbo R '90",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-096",
+      "source_code": "GT4_TVR_0002",
+      "name": "TVR Tuscan Speed 6 '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-097",
+      "source_code": "GT4_VW__0002",
+      "name": "Volkswagen Karmann Ghia Coupe (Type-1) '68",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-098",
+      "source_code": "GT4_VOLV0002",
+      "name": "Volvo 240 GLT Estate '88",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-099",
+      "source_code": "GT4_ACRA0004",
+      "name": "Acura NSX Coupe '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-100",
+      "source_code": "GT4_ALFA0004",
+      "name": "Alfa Romeo 147 GTA '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-101",
+      "source_code": "GT4_AMUS0003",
+      "name": "AMUSE CarbonR (R34) '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-102",
+      "source_code": "GT4_ASMT0004",
+      "name": "Aston Martin Vanquish '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-103",
+      "source_code": "GT4_CHEV0003",
+      "name": "Chevrolet Chevelle SS 454 '70",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-104",
+      "source_code": "GT4_CHRY0004",
+      "name": "Chrysler PT-Cruiser '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-105",
+      "source_code": "GT4_CITR0003",
+      "name": "Citroen Xantia 3.0i V6 Exclusive '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-106",
+      "source_code": "GT4_DAIH0006",
+      "name": "Daihatsu MOVE CX '95",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-107",
+      "source_code": "GT4_DODG0003",
+      "name": "Dodge SRT4 '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-108",
+      "source_code": "GT4_FIAT0003",
+      "name": "Fiat Barchetta Giovane Due '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-109",
+      "source_code": "GT4_FDEU0003",
+      "name": "Ford RS200 '84",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-110",
+      "source_code": "GT4_HOND0003",
+      "name": "Honda CR-X del Sol SiR '92",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-111",
+      "source_code": "GT4_ISUZ0003",
+      "name": "Isuzu Bellett 1600 GT-R '69",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-112",
+      "source_code": "GT4_LNCA0003",
+      "name": "Lancia STRATOS '73",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-113",
+      "source_code": "GT4_LXUS0004",
+      "name": "Lexus SC430 '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-114",
+      "source_code": "GT4_LOTU0003",
+      "name": "Lotus Elise Sport 190 '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-115",
+      "source_code": "GT4_MAZD0004",
+      "name": "Mazda Familia Sedan Sport 20 '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-116",
+      "source_code": "GT4_MBNZ0004",
+      "name": "Mercedes-Benz 300 SL Coupe '54",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-117",
+      "source_code": "GT4_MITS0004",
+      "name": "Mitsubishi FTO    GP Version R '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-118",
+      "source_code": "GT4_NISM0003",
+      "name": "NISMO Skyline GT-R S-tune (R32) '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-119",
+      "source_code": "GT4_NISS0007",
+      "name": "Nissan SKYLINE GT-R Vspec II (R32) '94",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-120",
+      "source_code": "GT4_PGNI0004",
+      "name": "Pagani Zonda C12S '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-121",
+      "source_code": "GT4_PEUG0003",
+      "name": "Peugeot 206cc '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-122",
+      "source_code": "GT4_RE__0003",
+      "name": "Renault 5 Turbo '80",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-123",
+      "source_code": "GT4_RUF_0003",
+      "name": "RUF RGT '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-124",
+      "source_code": "GT4_SLBY0003",
+      "name": "Shelby Series 1 Super Charged '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-125",
+      "source_code": "GT4_SUBR0005",
+      "name": "Subaru IMPREZA Sedan WRX STi Version VI (GC) '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-126",
+      "source_code": "GT4_TOYT0003",
+      "name": "Toyota CELICA GT-FOUR (ST205) '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-127",
+      "source_code": "GT4_TVR_0003",
+      "name": "TVR Griffith 500 '94",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-128",
+      "source_code": "GT4_VXHL0003",
+      "name": "Vauxhall Corsa Comfort 1.4 '01",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-129",
+      "source_code": "GT4_VW__0003",
+      "name": "Volkswagen Lupo GTI Cup Car (J) '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-130",
+      "source_code": "GT4_ACRA0009",
+      "name": "Acura CL 3.2 Type-S '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-131",
+      "source_code": "GT4_AMUS0004",
+      "name": "AMUSE S2000 R1 '04",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-132",
+      "source_code": "GT4_CHEV0004",
+      "name": "Chevrolet SSR '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-133",
+      "source_code": "GT4_CITR0004",
+      "name": "Citroen Xsara VTR '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-134",
+      "source_code": "GT4_DAIH0007",
+      "name": "Daihatsu MOVE Custom RS Limited '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-135",
+      "source_code": "GT4_DODG0004",
+      "name": "Dodge VIPER GTSR Concept '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-136",
+      "source_code": "GT4_FIAT0004",
+      "name": "Fiat Coupe Turbo Plus '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-137",
+      "source_code": "GT4_HOND0004",
+      "name": "Honda NSX Type S Zero '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-138",
+      "source_code": "GT4_JAGU0005",
+      "name": "Jaguar XKR Coupe '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-139",
+      "source_code": "GT4_LXUS0006",
+      "name": "Lexus GS300 '91",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-140",
+      "source_code": "GT4_LOTU0004",
+      "name": "Lotus Esprit Turbo HC '87",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-141",
+      "source_code": "GT4_MAZD0006",
+      "name": "Mazda KUSABI '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-142",
+      "source_code": "GT4_MITS0006",
+      "name": "Mitsubishi ECLIPSE    GT '95",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-143",
+      "source_code": "GT4_NISM0004",
+      "name": "NISMO Skyline GT-R R-tune (R34) '99",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-144",
+      "source_code": "GT4_OPEL0004",
+      "name": "Opel Vectra 3.2 V6 '03",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-145",
+      "source_code": "GT4_PEUG0004",
+      "name": "Peugeot 406 3.0 V6 Coupe '98",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-146",
+      "source_code": "GT4_PONT0004",
+      "name": "Pontiac Solstice Coupe Concept '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-147",
+      "source_code": "GT4_RE__0004",
+      "name": "Renault AVANTIME '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-148",
+      "source_code": "GT4_RUF_0004",
+      "name": "RUF 3400S '00",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-149",
+      "source_code": "GT4_SUZK0004",
+      "name": "Suzuki Kei WORKS '02",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-150",
+      "source_code": "GT4_TOYT0004",
+      "name": "Toyota CELICA SS-II (ST202) '97",
+      "game": "gran-turismo-4"
+    },
+    {
+      "id": "exp-151",
+      "source_code": "GT_SIMULATION__N180N",
+      "name": "180SX '94 TypeX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-152",
+      "source_code": "GT_SIMULATION__HACSN",
+      "name": "ACCORD Sedan",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-153",
+      "source_code": "GT_SIMULATION__TLVON",
+      "name": "AE86 COROLLA LEVIN GT-APEX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-154",
+      "source_code": "GT_SIMULATION__SSV4N",
+      "name": "ALCYONE SVX S4",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-155",
+      "source_code": "GT_SIMULATION__CCAMN",
+      "name": "Camaro Z28",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-156",
+      "source_code": "GT_SIMULATION__TSPLR",
+      "name": "CASTROL SUPRA GT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-157",
+      "source_code": "GT_SIMULATION__TCEEN",
+      "name": "CELICA GT-FOUR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-158",
+      "source_code": "GT_SIMULATION__VCRBN",
+      "name": "Cerbera",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-159",
+      "source_code": "GT_SIMULATION__TCHSN",
+      "name": "CHASER TOURER S",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-160",
+      "source_code": "GT_SIMULATION__HCFNN",
+      "name": "CIVIC Sedan",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-161",
+      "source_code": "GT_SIMULATION__DCPHN",
+      "name": "ConceptCar",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-162",
+      "source_code": "GT_SIMULATION__TLEVN",
+      "name": "COROLLA LEVIN BZG",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-163",
+      "source_code": "GT_SIMULATION__TEXVN",
+      "name": "CORONA EXIV 200GT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-164",
+      "source_code": "GT_SIMULATION__CC67N",
+      "name": "Corvette '67 427COUPE",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-165",
+      "source_code": "GT_SIMULATION__LD7CN",
+      "name": "DB7 COUPE",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-166",
+      "source_code": "GT_SIMULATION__HDEGN",
+      "name": "del Sol VGi",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-167",
+      "source_code": "GT_SIMULATION__ADEMN",
+      "name": "DEMIO GL-X",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-168",
+      "source_code": "GT_SIMULATION__MECLN",
+      "name": "ECLIPSE GT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-169",
+      "source_code": "GT_SIMULATION__ACOEN",
+      "name": "EUNOS COSMO 20BTYPE-ECCS",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-170",
+      "source_code": "GT_SIMULATION__NZX2N",
+      "name": "FAIRLADY Z Version S TwinTurbo 2by2",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-171",
+      "source_code": "GT_SIMULATION__MFTGN",
+      "name": "FTO  GR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-172",
+      "source_code": "GT_SIMULATION__MGAGN",
+      "name": "GALANT VR-Gtouring",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-173",
+      "source_code": "GT_SIMULATION__VGR5N",
+      "name": "Griffith 500",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-174",
+      "source_code": "GT_SIMULATION__MGNON",
+      "name": "GTO  SR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-175",
+      "source_code": "GT_SIMULATION__SIPAN",
+      "name": "IMPREZA '96 Sedan WRX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-176",
+      "source_code": "GT_SIMULATION__HINRN",
+      "name": "INTEGRA Type-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-177",
+      "source_code": "GT_SIMULATION__TSPON",
+      "name": "JZA70 SUPRA TwinTurbo-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-178",
+      "source_code": "GT_SIMULATION__MLNNN",
+      "name": "LANCER EvolutionlV GSR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-179",
+      "source_code": "GT_SIMULATION__ALTSN",
+      "name": "LANTIS 2000Type-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-180",
+      "source_code": "GT_SIMULATION__SLGAN",
+      "name": "LEGACY TouringWagonGT-B",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-181",
+      "source_code": "GT_SIMULATION__TSGTN",
+      "name": "MA70 SUPRA GT Turbo Limited",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-182",
+      "source_code": "GT_SIMULATION__TM2SN",
+      "name": "MARKll '92 TOURER S",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-183",
+      "source_code": "GT_SIMULATION__MMGON",
+      "name": "MIRAGE '92 CYBORG R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-184",
+      "source_code": "GT_SIMULATION__TMR2N",
+      "name": "MR2 GT-S",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-185",
+      "source_code": "GT_SIMULATION__NL33R",
+      "name": "NISMO GT-R LM",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-186",
+      "source_code": "GT_SIMULATION__HNSBN",
+      "name": "NSX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-187",
+      "source_code": "GT_SIMULATION__HPNEN",
+      "name": "PRELUDE",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-188",
+      "source_code": "GT_SIMULATION__NPRIN",
+      "name": "PRIMERA '95 2.0Te",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-189",
+      "source_code": "GT_SIMULATION__NPLON",
+      "name": "PULSAR '91 GTi-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-190",
+      "source_code": "GT_SIMULATION__N432N",
+      "name": "R32SKYLINE GTS4",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-191",
+      "source_code": "GT_SIMULATION__NR33N",
+      "name": "R33SKYLINE '95 GT-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-192",
+      "source_code": "GT_SIMULATION__AFB7N",
+      "name": "RX-7 FD Type-RB",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-193",
+      "source_code": "GT_SIMULATION__NQ13N",
+      "name": "S13 SILVIA '88 Q's 1800cc",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-194",
+      "source_code": "GT_SIMULATION__NQ14N",
+      "name": "S14 SILVIA '95 Q's",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-195",
+      "source_code": "GT_SIMULATION__N_18N",
+      "name": "SILEIGHTY",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-196",
+      "source_code": "GT_SIMULATION__TSOAN",
+      "name": "SOARER 2.5GT-T VVT-i",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-197",
+      "source_code": "GT_SIMULATION__TTRNN",
+      "name": "SPRINTER TRUENO BZG",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-198",
+      "source_code": "GT_SIMULATION__TSTLN",
+      "name": "STARLET GLANZA V",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-199",
+      "source_code": "GT_SIMULATION__TSONN",
+      "name": "SUPRA '95 RZ",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-200",
+      "source_code": "GT_SIMULATION__T_RDN",
+      "name": "TRD3000GT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-201",
+      "source_code": "GT_SIMULATION__DVPRN",
+      "name": "Viper RT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-202",
+      "source_code": "GT_SIMULATION__N18NN",
+      "name": "180SX TypeX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-203",
+      "source_code": "GT_SIMULATION__HACWN",
+      "name": "ACCORD Wagon",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-204",
+      "source_code": "GT_SIMULATION__TTRON",
+      "name": "AE86 SPRINTER TRUENO GT-APEX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-205",
+      "source_code": "GT_SIMULATION__SSVXN",
+      "name": "ALCYONE SVX VersionL",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-206",
+      "source_code": "GT_SIMULATION__C_30N",
+      "name": "Camaro Z28 30th Anniversary",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-207",
+      "source_code": "GT_SIMULATION__T_PLR",
+      "name": "CASTROL SUPRA GT",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-208",
+      "source_code": "GT_SIMULATION__TCEGN",
+      "name": "CELICA GT-FOUR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-209",
+      "source_code": "GT_SIMULATION__V_RBR",
+      "name": "Cerbera LM Edition",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-210",
+      "source_code": "GT_SIMULATION__TCHVN",
+      "name": "CHASER TOURER V",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-211",
+      "source_code": "GT_SIMULATION__HCFON",
+      "name": "CIVIC '93 Sedan",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-212",
+      "source_code": "GT_SIMULATION__D_PHR",
+      "name": "ConceptCar",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-213",
+      "source_code": "GT_SIMULATION__CCRCN",
+      "name": "Corvette '96 COUPE",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-214",
+      "source_code": "GT_SIMULATION__LD7VN",
+      "name": "DB7 VOLANTE",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-215",
+      "source_code": "GT_SIMULATION__HDELN",
+      "name": "del Sol '93 S",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-216",
+      "source_code": "GT_SIMULATION__ADGLN",
+      "name": "DEMIO GL",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-217",
+      "source_code": "GT_SIMULATION__ACOSN",
+      "name": "EUNOS COSMO 13BTYPE-SCCS",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-218",
+      "source_code": "GT_SIMULATION__NZX3N",
+      "name": "FAIRLADY Z Version S 2seater",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-219",
+      "source_code": "GT_SIMULATION__MFTNN",
+      "name": "FTO  GPversionR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-220",
+      "source_code": "GT_SIMULATION__MGALN",
+      "name": "GALANT VR-4",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-221",
+      "source_code": "GT_SIMULATION__VGRFN",
+      "name": "Griffith 4.0",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-222",
+      "source_code": "GT_SIMULATION__MGNTN",
+      "name": "GTO  TWINTURBO",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-223",
+      "source_code": "GT_SIMULATION__SIPBN",
+      "name": "IMPREZA '96 Sedan WRX-STi version III",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-224",
+      "source_code": "GT_SIMULATION__HINSN",
+      "name": "INTEGRA GS-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-225",
+      "source_code": "GT_SIMULATION__MLNON",
+      "name": "LANCER Evolutionlll GSR",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-226",
+      "source_code": "GT_SIMULATION__SLGBN",
+      "name": "LEGACY TouringSedanRS",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-227",
+      "source_code": "GT_SIMULATION__TM2VN",
+      "name": "MARKll '92 TOURER V",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-228",
+      "source_code": "GT_SIMULATION__MMGRN",
+      "name": "MIRAGE ASTI RX",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-229",
+      "source_code": "GT_SIMULATION__TMRLN",
+      "name": "MR2 G-Limited",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-230",
+      "source_code": "GT_SIMULATION__N_00N",
+      "name": "NISMO 400R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-231",
+      "source_code": "GT_SIMULATION__HNSLR",
+      "name": "NSX-R LM GT2",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-232",
+      "source_code": "GT_SIMULATION__HPNVN",
+      "name": "PRELUDE Type-SH",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-233",
+      "source_code": "GT_SIMULATION__NPRON",
+      "name": "PRIMERA '90 2.0Te",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-234",
+      "source_code": "GT_SIMULATION__NM32N",
+      "name": "R32SKYLINE GTS25 TypeS",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-235",
+      "source_code": "GT_SIMULATION__NR34N",
+      "name": "R33SKYLINE GT-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-236",
+      "source_code": "GT_SIMULATION__AFC7N",
+      "name": "RX-7 FC lll",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-237",
+      "source_code": "GT_SIMULATION__NQ23N",
+      "name": "S13 SILVIA '91 Q's 2000cc",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-238",
+      "source_code": "GT_SIMULATION__NQ15N",
+      "name": "S14 SILVIA Q's",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-239",
+      "source_code": "GT_SIMULATION__TSOON",
+      "name": "SOARER '95 2.5GT-T",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-240",
+      "source_code": "GT_SIMULATION__TSORN",
+      "name": "SUPRA '95 SZ-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-241",
+      "source_code": "GT_SIMULATION__D_PGR",
+      "name": "Viper GTS-R",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-242",
+      "source_code": "GT_SIMULATION__N18SN",
+      "name": "180SX TypeS",
+      "game": "gran-turismo"
+    },
+    {
+      "id": "exp-243",
+      "source_code": "GT_SIMULATION__T_RON",
+      "name": "AE86 SPRINTER TRUENO GT-APEX",
+      "game": "gran-turismo"
+    }
+  ]
+}

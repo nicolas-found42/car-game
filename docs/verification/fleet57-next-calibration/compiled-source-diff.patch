@@ -1,0 +1,51 @@
+--- before/build_source/assets/cars/physics.json
++++ after/build_source/assets/cars/physics.json
+@@ -3,7 +3,9 @@
+   "model": "reduced-order-raycast-v1",
+   "sources": [
+     "docs/vehicle-reference/real-profiles.json",
+-    "docs/verification/per-car-physics/fleet-reference-supplement.json"
++    "docs/verification/per-car-physics/fleet-reference-supplement.json",
++    "docs/vehicle-reference/calibration-supplement-20261025.json",
++    "docs/verification/fleet57-next-calibration/remaining-targets.json"
+   ],
+   "estimation_policy": "Missing fields are marked estimate. Torque interpolation, inertia box model, axle split and all tire coefficients are approximations, not recovered tire/differential models.",
+   "cars": [
+@@ -45,7 +47,7 @@
+         ],
+         "drag_area_m2": 0.65,
+         "rolling_coefficient": 0.015,
+-        "driveline_efficiency": 0.88,
++        "driveline_efficiency": 0.8,
+         "shift_seconds": 0.3,
+         "brake_decel_mps2": 9.65,
+         "max_steer_rad": 0.56,
+@@ -136,7 +138,8 @@
+         },
+         "driveline_efficiency": {
+           "status": "estimate",
+-          "basis": "Reduced-order simulation calibration; not a recovered manufacturer measurement."
++          "source": "z-cd-2003",
++          "basis": "Effective delivery estimate matched to Track6MT midrange envelope; nominal outputs/mass/gears unchanged. Not a measured driveline loss. Unknown rollout is not converted."
+         },
+         "shift_seconds": {
+           "status": "estimate",
+@@ -1000,7 +1003,7 @@
+         "brake_decel_mps2": 10.712520000000001,
+         "max_steer_rad": 0.56,
+         "steer_speed_falloff": 0.06,
+-        "lateral_mu": 1.04,
++        "lateral_mu": 0.98,
+         "speed_governor_mps": null
+       },
+       "evidence": {
+@@ -1107,7 +1110,8 @@
+         },
+         "lateral_mu": {
+           "status": "estimate",
+-          "basis": "Inherited prior isotropic grip limit; not independently measured. Explicit lateral axis of combined-force ellipse."
++          "source": "nsx-rt-1990",
++          "basis": "Conservative period tire-grip envelope estimate: C/D .86g300ft, R&T .93g makeshift circle of unknown diameter. Original Yokohama A-02215/16-inch equipment; build status and test conditions remain qualified. Not an exact measured friction coefficient."
+         },
+         "speed_governor_mps": {
+           "status": "estimate",

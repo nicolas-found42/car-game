@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "name": "mini-original-curb-diagnostic",
+  "scene": "driving",
+  "seed": 17,
+  "context": {
+    "kind": "sandbox"
+  },
+  "initial": {
+    "car": "exp-037",
+    "position": [
+      3.2,
+      0.62,
+      190.0
+    ]
+  },
+  "readiness_timeout_ms": 20000,
+  "max_ticks": 1801,
+  "max_wall_ms": 60000,
+  "commands": [
+    {
+      "tick": 0,
+      "command": {
+        "action": "drive",
+        "throttle": 0,
+        "brake": 0,
+        "steer": 0,
+        "handbrake": false
+      }
+    },
+    {
+      "tick": 600,
+      "command": {
+        "action": "drive",
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0,
+        "handbrake": false
+      }
+    },
+    {
+      "tick": 1320,
+      "command": {
+        "action": "drive",
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0.45,
+        "handbrake": false
+      }
+    },
+    {
+      "tick": 1440,
+      "command": {
+        "action": "drive",
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0.45,
+        "handbrake": true
+      }
+    },
+    {
+      "tick": 1500,
+      "command": {
+        "action": "drive",
+        "throttle": 1,
+        "brake": 0,
+        "steer": 0.45,
+        "handbrake": false
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "tick": 1800,
+      "kind": "reset_count",
+      "count": 0
+    },
+    {
+      "tick": 1800,
+      "kind": "selected_car",
+      "car": "exp-037"
+    }
+  ]
+}

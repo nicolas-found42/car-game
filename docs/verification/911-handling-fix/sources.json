@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "geometry-causes",
+      "title": "What caused the 911 braking and tilt penalties?",
+      "queries": [
+        {
+          "id": "geometry-probes",
+          "source": {
+            "label": "Controlled geometry probes",
+            "files": [
+              {
+                "label": "geometry-probes.json"
+              },
+              {
+                "label": "geometry-probes.log"
+              },
+              {
+                "label": "handling_probe.rs"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Definition",
+                "definition": "Each substitution changes one geometry factor in the 911 while using the original production VehiclePlugin and identical braking/fast-turn inputs."
+              }
+            ],
+            "caveats": [
+              "Substitutions are diagnostic counterfactuals; the production geometry remains unchanged."
+            ]
+          },
+          "columns": [
+            "car",
+            "variant",
+            "braking_m",
+            "fast_tilt_deg"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "variant": "stock",
+              "braking_m": 38.501095,
+              "fast_tilt_deg": 4.3980136
+            },
+            {
+              "car": "redline-911",
+              "variant": "stock",
+              "braking_m": 39.28057,
+              "fast_tilt_deg": 5.205448
+            },
+            {
+              "car": "redline-911",
+              "variant": "baseline-wheelbase",
+              "braking_m": 38.265217,
+              "fast_tilt_deg": 5.2132716
+            },
+            {
+              "car": "redline-911",
+              "variant": "baseline-track",
+              "braking_m": 39.28057,
+              "fast_tilt_deg": 4.263791
+            },
+            {
+              "car": "redline-911",
+              "variant": "baseline-radii",
+              "braking_m": 39.554146,
+              "fast_tilt_deg": 5.3722816
+            },
+            {
+              "car": "redline-911",
+              "variant": "baseline-body",
+              "braking_m": 39.28057,
+              "fast_tilt_deg": 5.205448
+            }
+          ]
+        },
+        {
+          "id": "force-allocation",
+          "source": {
+            "label": "Original braking traces",
+            "files": [
+              {
+                "label": "brake-force-audit.json"
+              },
+              {
+                "label": "src/vehicle.rs"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Definition",
+                "definition": "Unused front grip and unmet rear braking compare the original 3300 N per-wheel brake request with 1.22 times measured normal load over the 200 ticks from 0.33 to 2 seconds after full-brake input."
+              }
+            ],
+            "caveats": []
+          },
+          "columns": [
+            "car",
+            "front_mean_load_N",
+            "rear_mean_load_N",
+            "unused_front_grip_N",
+            "unmet_rear_brake_N",
+            "rear_saturated_fraction"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "front_mean_load_N": 9062.6372295,
+              "rear_mean_load_N": 4240.2731235,
+              "unused_front_grip_N": 4456.41741999,
+              "unmet_rear_brake_N": 1426.86678933,
+              "rear_saturated_fraction": 1.0
+            },
+            {
+              "car": "redline-911",
+              "front_mean_load_N": 9262.203804,
+              "rear_mean_load_N": 4049.4297425,
+              "unused_front_grip_N": 4699.88864088,
+              "unmet_rear_brake_N": 1659.6957141500002,
+              "rear_saturated_fraction": 1.0
+            },
+            {
+              "car": "gt4-m3",
+              "front_mean_load_N": 8940.9740435,
+              "rear_mean_load_N": 4357.6970685,
+              "unused_front_grip_N": 4307.9883330699995,
+              "unmet_rear_brake_N": 1283.6095764300003,
+              "rear_saturated_fraction": 1.0
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "unused_front_grip_N = sum(max(0, 1.22 * wheel_load_N - 3300) for front wheels)\nunmet_rear_brake_N = sum(max(0, 3300 - 1.22 * wheel_load_N) for rear wheels)\nAverage over the same 200 braking ticks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fleet-effect",
+      "title": "How did the fix affect the matched fleet?",
+      "queries": [
+        {
+          "id": "before-after",
+          "source": {
+            "label": "Matched fleet comparison",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "comparison.json"
+              },
+              {
+                "label": "candidate-evidence.json"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Definition",
+                "definition": "Braking distance ends at the first completed planar speed at or below 1 m/s. Cornering tilt is the maximum chassis tilt across both turning directions and both approach speeds."
+              }
+            ],
+            "caveats": [
+              "The simulation uses shared arcade tuning on a smooth road; these are not real-car performance measurements.",
+              "Steering response and braking pitch also change; the separate tradeoff finding retains those outcomes."
+            ]
+          },
+          "columns": [
+            "car",
+            "before_braking_m",
+            "after_braking_m",
+            "before_max_turn_tilt_deg",
+            "after_max_turn_tilt_deg"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "before_braking_m": 38.50110054016113,
+              "after_braking_m": 34.691001892089844,
+              "before_max_turn_tilt_deg": 4.398059258726394,
+              "after_max_turn_tilt_deg": 4.39806029640353
+            },
+            {
+              "car": "fr2-cobra",
+              "before_braking_m": 38.60624122619629,
+              "after_braking_m": 34.7085075378418,
+              "before_max_turn_tilt_deg": 4.308285426492059,
+              "after_max_turn_tilt_deg": 4.21925253079833
+            },
+            {
+              "car": "fr2-fr500",
+              "before_braking_m": 38.2490291595459,
+              "after_braking_m": 34.70631122589111,
+              "before_max_turn_tilt_deg": 4.311757340286241,
+              "after_max_turn_tilt_deg": 4.222544153988649
+            },
+            {
+              "car": "gt-rx7",
+              "before_braking_m": 39.02098274230957,
+              "after_braking_m": 34.71835708618164,
+              "before_max_turn_tilt_deg": 4.476386850452944,
+              "after_max_turn_tilt_deg": 4.333997190237239
+            },
+            {
+              "car": "gt-viper",
+              "before_braking_m": 39.00993537902832,
+              "after_braking_m": 34.69559097290039,
+              "before_max_turn_tilt_deg": 4.532238792036917,
+              "after_max_turn_tilt_deg": 4.399613054429251
+            },
+            {
+              "car": "gt4-m3",
+              "before_braking_m": 38.08690643310547,
+              "after_braking_m": 34.7102108001709,
+              "before_max_turn_tilt_deg": 4.449292834836337,
+              "after_max_turn_tilt_deg": 4.28463886899832
+            },
+            {
+              "car": "gt4-nsx",
+              "before_braking_m": 38.41208267211914,
+              "after_braking_m": 34.66489791870117,
+              "before_max_turn_tilt_deg": 4.1572432204211855,
+              "after_max_turn_tilt_deg": 4.089103089056499
+            },
+            {
+              "car": "mc3-skyline",
+              "before_braking_m": 38.55077362060547,
+              "after_braking_m": 34.70757293701172,
+              "before_max_turn_tilt_deg": 4.6596341342422996,
+              "after_max_turn_tilt_deg": 4.468676062930275
+            },
+            {
+              "car": "mc3-supra",
+              "before_braking_m": 39.07362365722656,
+              "after_braking_m": 34.71022605895996,
+              "before_max_turn_tilt_deg": 4.9679393226193165,
+              "after_max_turn_tilt_deg": 4.550146611115678
+            },
+            {
+              "car": "mcla-evo",
+              "before_braking_m": 38.47337532043457,
+              "after_braking_m": 34.70750427246094,
+              "before_max_turn_tilt_deg": 4.577034340769117,
+              "after_max_turn_tilt_deg": 4.350611300535245
+            },
+            {
+              "car": "mcla-skyline",
+              "before_braking_m": 38.354698181152344,
+              "after_braking_m": 34.706817626953125,
+              "before_max_turn_tilt_deg": 4.821543688604473,
+              "after_max_turn_tilt_deg": 4.338089768883421
+            },
+            {
+              "car": "redline-911",
+              "before_braking_m": 39.280555725097656,
+              "after_braking_m": 34.72480392456055,
+              "before_max_turn_tilt_deg": 5.205393422887187,
+              "after_max_turn_tilt_deg": 4.27053278000843
+            },
+            {
+              "car": "redline-gt500",
+              "before_braking_m": 38.4120979309082,
+              "after_braking_m": 34.707998275756836,
+              "before_max_turn_tilt_deg": 4.207075557444947,
+              "after_max_turn_tilt_deg": 4.207075616359947
+            }
+          ],
+          "reportingPeriod": "October 23, 2026; 130 runs per version",
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "braking_improvement_pct = 100 * (1 - after_braking_m / before_braking_m)\nroll_stiffness = (spring_rate / 2 + anti_roll_coefficient) * track_width ** 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handling-tradeoffs",
+      "title": "What handling tradeoffs remain?",
+      "queries": [
+        {
+          "id": "911-tradeoffs",
+          "source": {
+            "label": "911 case comparison",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Definition",
+                "definition": "Heading response is the direction-normalized yaw change during the fixed steering window. Exit speed is completed planar speed at its end. Tilt includes both pitch and roll."
+              }
+            ],
+            "caveats": [
+              "More heading response alone does not establish better control.",
+              "The roll correction deliberately retains baseline arcade roll resistance for narrow tracks."
+            ]
+          },
+          "columns": [
+            "case",
+            "before_tilt_deg",
+            "after_tilt_deg",
+            "before_yaw_deg",
+            "after_yaw_deg",
+            "before_exit_mps",
+            "after_exit_mps"
+          ],
+          "rows": [
+            {
+              "case": "brake",
+              "before_tilt_deg": 1.7131603229199361,
+              "after_tilt_deg": 2.0375032522568364,
+              "before_yaw_deg": null,
+              "after_yaw_deg": null,
+              "before_exit_mps": null,
+              "after_exit_mps": null
+            },
+            {
+              "case": "turn-left",
+              "before_tilt_deg": 4.894587854092144,
+              "after_tilt_deg": 4.00566935653052,
+              "before_yaw_deg": 75.2084436358197,
+              "after_yaw_deg": 71.23322243670101,
+              "before_exit_mps": 17.22011589969576,
+              "after_exit_mps": 18.360751482325174
+            },
+            {
+              "case": "turn-right",
+              "before_tilt_deg": 4.8945827509984925,
+              "after_tilt_deg": 4.005676587768049,
+              "before_yaw_deg": 75.20834138631947,
+              "after_yaw_deg": 71.23313456439624,
+              "before_exit_mps": 17.22012478783829,
+              "after_exit_mps": 18.360780477375158
+            },
+            {
+              "case": "fast-left",
+              "before_tilt_deg": 5.205392757585132,
+              "after_tilt_deg": 4.270527073625041,
+              "before_yaw_deg": 46.739860321975094,
+              "after_yaw_deg": 43.986404636849805,
+              "before_exit_mps": 26.02876501677609,
+              "after_exit_mps": 26.610388082091752
+            },
+            {
+              "case": "fast-right",
+              "before_tilt_deg": 5.205393422887187,
+              "after_tilt_deg": 4.27053278000843,
+              "before_yaw_deg": 46.7398801538572,
+              "after_yaw_deg": 43.98648343201385,
+              "before_exit_mps": 26.028767096476866,
+              "after_exit_mps": 26.610371807945878
+            }
+          ],
+          "reportingPeriod": "Two matched repetitions per version and maneuver"
+        }
+      ]
+    },
+    {
+      "id": "verification",
+      "title": "What evidence verifies the change?",
+      "queries": [
+        {
+          "id": "validation",
+          "source": {
+            "label": "Run and repository verification",
+            "files": [
+              {
+                "label": "validation.json"
+              },
+              {
+                "label": "candidate-provenance-verification.json"
+              },
+              {
+                "label": "full-verification.log"
+              },
+              {
+                "label": "regression-before.log"
+              },
+              {
+                "label": "regression-after.log"
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Definition",
+                "definition": "Every candidate run passed effective-input, scenario/asset identity, recorder-health and course checks. All 29,640 measured candidate maneuver ticks had four contacts; the original study had 30,574 because its braking windows lasted longer."
+              }
+            ],
+            "caveats": [
+              "The numerical comparison uses the headless build. Native visual acceptance uses a separately hash-identified recorded release build."
+            ]
+          },
+          "columns": [
+            "check",
+            "count"
+          ],
+          "rows": [
+            {
+              "check": "Matched candidate runs passed",
+              "count": 130
+            },
+            {
+              "check": "Candidate provenance bundles verified",
+              "count": 130
+            },
+            {
+              "check": "Rust tests passed",
+              "count": 70
+            },
+            {
+              "check": "Analysis tests passed",
+              "count": 8
+            },
+            {
+              "check": "Native GPU driving scripts passed",
+              "count": 13
+            },
+            {
+              "check": "Nonblank GPU captures",
+              "count": 52
+            },
+            {
+              "check": "Unrequested candidate resets",
+              "count": 0
+            }
+          ],
+          "evidenceFlow": [
+            {
+              "kind": "validation",
+              "title": "Independent recomputation",
+              "detail": "The executed notebook independently recomputed distance, yaw and tilt for 40 baseline-car/911 raw runs with zero difference from the stored metrics."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "source": "src/vehicle.rs: engine_demand uses the mean of all four radii; wheel visual spin uses each individual radius.",
+  "scope": "A model approximation to investigate. Fixed-torque/ratio sensitivity, not a prediction of full sprint-time error. AWD cases are excluded because axle-specific reductions and differential constraints need separate treatment.",
+  "rows": [
+    {
+      "car": "350z",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33435,
+      "driven_axle_mean_radius_m": 0.33885,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0134589502018843,
+      "difference_pct": 1.3458950201884257
+    },
+    {
+      "car": "fr2-cobra",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.319836363196373,
+      "driven_axle_mean_radius_m": 0.3198363482952118,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9999999534100468,
+      "difference_pct": -4.658995322870396e-06
+    },
+    {
+      "car": "fr2-fr500",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.32001181691884995,
+      "driven_axle_mean_radius_m": 0.32000695168972015,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9999847967203942,
+      "difference_pct": -0.0015203279605802145
+    },
+    {
+      "car": "gt-rx7",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3259463310241699,
+      "driven_axle_mean_radius_m": 0.3240795135498047,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9942726231386025,
+      "difference_pct": -0.572737686139746
+    },
+    {
+      "car": "gt-viper",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33577823638916016,
+      "driven_axle_mean_radius_m": 0.3395118713378906,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.011119347664937,
+      "difference_pct": 1.111934766493694
+    },
+    {
+      "car": "gt4-m3",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.32046536043015317,
+      "driven_axle_mean_radius_m": 0.31909695316785947,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.995729937050117,
+      "difference_pct": -0.4270062949882969
+    },
+    {
+      "car": "gt4-nsx",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.302756202819654,
+      "driven_axle_mean_radius_m": 0.31404744326155365,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0372948277747611,
+      "difference_pct": 3.729482777476112
+    },
+    {
+      "car": "mc3-supra",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3504945107049203,
+      "driven_axle_mean_radius_m": 0.3504945107049203,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "redline-911",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.317751681804657,
+      "driven_axle_mean_radius_m": 0.31490271091461186,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9910339706972925,
+      "difference_pct": -0.8966029302707512
+    },
+    {
+      "car": "redline-gt500",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.34289749999999997,
+      "driven_axle_mean_radius_m": 0.342515,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.998884506302904,
+      "difference_pct": -0.11154936970959595
+    },
+    {
+      "car": "ref-a01",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3378739307474382,
+      "driven_axle_mean_radius_m": 0.3378739307474382,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a02",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33283946506494694,
+      "driven_axle_mean_radius_m": 0.33283946506494694,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a04",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3594612063495695,
+      "driven_axle_mean_radius_m": 0.3594612063495695,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a06",
+      "layout": "FWD",
+      "current_all_wheel_mean_radius_m": 0.3027624934911728,
+      "driven_axle_mean_radius_m": 0.3027620017528534,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9999983758281492,
+      "difference_pct": -0.00016241718507892244
+    },
+    {
+      "car": "ref-a07",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.34898233125497874,
+      "driven_axle_mean_radius_m": 0.36537399876542753,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.046969906618202,
+      "difference_pct": 4.696990661820211
+    },
+    {
+      "car": "ref-a09",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33216799795627594,
+      "driven_axle_mean_radius_m": 0.3417559862136841,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0288648765576456,
+      "difference_pct": 2.886487655764558
+    },
+    {
+      "car": "ref-a14",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.36801922390290254,
+      "driven_axle_mean_radius_m": 0.36801922390290254,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a15",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3617004182333228,
+      "driven_axle_mean_radius_m": 0.3617004182333228,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a16",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.32648750928240533,
+      "driven_axle_mean_radius_m": 0.3289755224865757,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0076205463714027,
+      "difference_pct": 0.7620546371402748
+    },
+    {
+      "car": "ref-e02",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3132327854633331,
+      "driven_axle_mean_radius_m": 0.31323278546333316,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0000000000000002,
+      "difference_pct": 2.220446049250313e-14
+    },
+    {
+      "car": "ref-e08",
+      "layout": "FWD",
+      "current_all_wheel_mean_radius_m": 0.308822615532796,
+      "driven_axle_mean_radius_m": 0.308822615532796,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-e09",
+      "layout": "FWD",
+      "current_all_wheel_mean_radius_m": 0.2354915714263916,
+      "driven_axle_mean_radius_m": 0.2354915714263916,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-e13",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3066785846721759,
+      "driven_axle_mean_radius_m": 0.31548181190990526,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0287050602086858,
+      "difference_pct": 2.8705060208685795
+    },
+    {
+      "car": "ref-j04",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.31809422577428403,
+      "driven_axle_mean_radius_m": 0.31622821587115624,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.994133782533821,
+      "difference_pct": -0.5866217466178991
+    },
+    {
+      "car": "ref-j07",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.31417184392176223,
+      "driven_axle_mean_radius_m": 0.31404744326155365,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.999604036253995,
+      "difference_pct": -0.03959637460050347
+    },
+    {
+      "car": "ref-j16",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.2835617593985599,
+      "driven_axle_mean_radius_m": 0.2835617593985599,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-a08",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.35925686730391143,
+      "driven_axle_mean_radius_m": 0.36801922390290254,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0243902271506995,
+      "difference_pct": 2.4390227150699495
+    },
+    {
+      "car": "ref-a10",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3330590467482886,
+      "driven_axle_mean_radius_m": 0.3429818799278946,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0297930150118553,
+      "difference_pct": 2.9793015011855273
+    },
+    {
+      "car": "ref-e05",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3359529972076416,
+      "driven_axle_mean_radius_m": 0.3359529972076416,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-e07",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.34036946606351576,
+      "driven_axle_mean_radius_m": 0.33924986012163916,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9967106158057443,
+      "difference_pct": -0.3289384194255729
+    },
+    {
+      "car": "ref-e14",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.32773903799639775,
+      "driven_axle_mean_radius_m": 0.32661943205452115,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.9965838493066886,
+      "difference_pct": -0.34161506933113595
+    },
+    {
+      "car": "ref-e15",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33464703569392407,
+      "driven_axle_mean_radius_m": 0.33576664163580067,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0033456323303596,
+      "difference_pct": 0.33456323303595603
+    },
+    {
+      "car": "ref-e16",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3382179130909885,
+      "driven_axle_mean_radius_m": 0.3475187429695519,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0274995188562388,
+      "difference_pct": 2.7499518856238803
+    },
+    {
+      "car": "ref-e17",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3381886934539131,
+      "driven_axle_mean_radius_m": 0.3475187429695519,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.027588295221674,
+      "difference_pct": 2.758829522167394
+    },
+    {
+      "car": "ref-j03",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.31809422577428403,
+      "driven_axle_mean_radius_m": 0.31622821587115624,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 0.994133782533821,
+      "difference_pct": -0.5866217466178991
+    },
+    {
+      "car": "ref-j05",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3281122399770234,
+      "driven_axle_mean_radius_m": 0.3281122399770234,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-j06",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3082665736178113,
+      "driven_axle_mean_radius_m": 0.31622821587115635,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0258271344826893,
+      "difference_pct": 2.582713448268925
+    },
+    {
+      "car": "ref-j08",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.2872937792048153,
+      "driven_axle_mean_radius_m": 0.2872937792048153,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    },
+    {
+      "car": "ref-j14",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.2988046013300568,
+      "driven_axle_mean_radius_m": 0.30141701519443564,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0087428836528967,
+      "difference_pct": 0.874288365289666
+    },
+    {
+      "car": "ref-j15",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.29454575924589194,
+      "driven_axle_mean_radius_m": 0.29837296007528064,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0129935696211931,
+      "difference_pct": 1.2993569621193135
+    },
+    {
+      "car": "ref-j17",
+      "layout": "FWD",
+      "current_all_wheel_mean_radius_m": 0.296192187465678,
+      "driven_axle_mean_radius_m": 0.296192187465678,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0,
+      "difference_pct": 0.0
+    }
+  ],
+  "largest_differences": [
+    {
+      "car": "ref-a07",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.34898233125497874,
+      "driven_axle_mean_radius_m": 0.36537399876542753,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.046969906618202,
+      "difference_pct": 4.696990661820211
+    },
+    {
+      "car": "gt4-nsx",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.302756202819654,
+      "driven_axle_mean_radius_m": 0.31404744326155365,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0372948277747611,
+      "difference_pct": 3.729482777476112
+    },
+    {
+      "car": "ref-a10",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3330590467482886,
+      "driven_axle_mean_radius_m": 0.3429818799278946,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0297930150118553,
+      "difference_pct": 2.9793015011855273
+    },
+    {
+      "car": "ref-a09",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33216799795627594,
+      "driven_axle_mean_radius_m": 0.3417559862136841,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0288648765576456,
+      "difference_pct": 2.886487655764558
+    },
+    {
+      "car": "ref-e13",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3066785846721759,
+      "driven_axle_mean_radius_m": 0.31548181190990526,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0287050602086858,
+      "difference_pct": 2.8705060208685795
+    },
+    {
+      "car": "ref-e17",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3381886934539131,
+      "driven_axle_mean_radius_m": 0.3475187429695519,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.027588295221674,
+      "difference_pct": 2.758829522167394
+    },
+    {
+      "car": "ref-e16",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3382179130909885,
+      "driven_axle_mean_radius_m": 0.3475187429695519,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0274995188562388,
+      "difference_pct": 2.7499518856238803
+    },
+    {
+      "car": "ref-j06",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.3082665736178113,
+      "driven_axle_mean_radius_m": 0.31622821587115635,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0258271344826893,
+      "difference_pct": 2.582713448268925
+    },
+    {
+      "car": "ref-a08",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.35925686730391143,
+      "driven_axle_mean_radius_m": 0.36801922390290254,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0243902271506995,
+      "difference_pct": 2.4390227150699495
+    },
+    {
+      "car": "350z",
+      "layout": "RWD",
+      "current_all_wheel_mean_radius_m": 0.33435,
+      "driven_axle_mean_radius_m": 0.33885,
+      "current_force_and_rpm_factor_at_fixed_engine_torque_and_ratio": 1.0134589502018843,
+      "difference_pct": 1.3458950201884257
+    }
+  ]
+}

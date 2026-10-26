@@ -1,0 +1,20 @@
+{
+  "cars": 17,
+  "facts": 575,
+  "sources": 32,
+  "asset_mappings": 32,
+  "all_sources_resolve": true,
+  "all_asset_codes_exist": true,
+  "per_url_direct_excerpt_word_limit_pass": true,
+  "duplicate_fields": 0,
+  "profile_sha256": "4543f4fb6583ffafd2ee0e1551d3e9fb4ace297daabf1ca51d2157ef122dfd6e",
+  "source_conflicts": [
+    "RX-8 technical review narrative torque differs from table and manufacturer launch; table/launch selected"
+  ],
+  "primary_source_gaps": [
+    "3000GT dimensions/mass/gearing too small in retrieved public brochure scan",
+    "RX-8 TypeS vehicle mass not established in retrieved manufacturer sources",
+    "350Z factory grade-specific curb mass not established;Track tested mass retained separately",
+    "WRC2003 event setup and power/torque curve not established"
+  ]
+}

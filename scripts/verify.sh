@@ -24,6 +24,10 @@ if "$headless" && "$recorded"; then
 fi
 # Reject an invalid base before starting expensive commands.
 git rev-parse --verify "$base^{commit}" >/dev/null
+# Keep long native capture runs awake without changing saved power preferences.
+if command -v caffeinate >/dev/null 2>&1; then
+  caffeinate -i -w "$$" >/dev/null 2>&1 &
+fi
 stamp="$(date -u +%Y%m%dT%H%M%SZ)"
 log="artifacts/logs/verify-${stamp}.log"
 mkdir -p "$(dirname "$log")"
@@ -51,12 +55,19 @@ run() {
   run python3 tools/test_recorder_health.py
   run python3 tools/test_codelimit.py
   run python3 tools/test_fleet_assets.py
+  run python3 tools/test_physics_profiles.py
+  run python3 tools/test_handling_metrics.py
+  run python3 tools/test_fleet40_protocol.py
+  run python3 tools/test_large_fleet.py
+  run python3 tools/test_diagnosis.py
   if ! "$headless"; then
+    # Scale the finalization allowance by roster size, bounded at 8GiB for the 300-car run.
+    fleet_budget=$(python3 -c 'import json; print(min(8, max(1, (len(json.load(open("assets/cars/roster.json"))) + 39) // 40)) * 1073741824)')
     if "$recorded"; then
       run python3 tools/record_build.py --profile release
-      run target/release/car-game.recorded --offscreen --fleet-check
+      run target/release/car-game.recorded --offscreen --fleet-check --recorder-finalize-max-bytes "$fleet_budget"
     else
-      run cargo run --locked --release -- --offscreen --fleet-check
+      run cargo run --locked --release -- --offscreen --fleet-check --recorder-finalize-max-bytes "$fleet_budget"
     fi
     run python3 tools/verify_fleet.py
     run python3 tools/verify_run.py

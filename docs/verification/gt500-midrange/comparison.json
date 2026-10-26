@@ -1,0 +1,199 @@
+{
+  "car": "redline-gt500",
+  "selected_parameter": {
+    "name": "driveline_efficiency",
+    "before": 0.88,
+    "after": 0.82,
+    "status": "estimate"
+  },
+  "source": {
+    "baseline": "baseline-correct-distance.json",
+    "original_grip": "original-grip.json",
+    "selected": "efficiency-082.json",
+    "red_command": "cargo test --test vehicle_profiles gt500_midrange_does_not_hide_behind_a_slow_launch -- --nocapture",
+    "red_interval_s": 4.808334,
+    "source_test": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+    "published_seconds_by_mph": {
+      "30": 1.8,
+      "40": 2.5,
+      "50": 3.3,
+      "60": 4.3,
+      "70": 5.4,
+      "80": 6.7,
+      "90": 8.1,
+      "100": 9.7
+    },
+    "published_quarter_mile": {
+      "seconds": 12.6,
+      "mph": 114.2
+    },
+    "qualification": "July 2008 instrumented coupe test, web archive June 2026. Rollout/test load unspecified; simulate nominal curb mass, no rollout. Quarter speed is instantaneous crossing rather than timing-trap average. The selected effective loss factor is estimated, not measured OEM efficiency. Multiple internal loss/rotating-inertia/torque-curve mechanisms remain unidentifiable from these timing data.",
+    "interventions": [
+      {
+        "file": "efficiency-082.json",
+        "parameter": "driveline_efficiency",
+        "before": 0.88,
+        "after": 0.82,
+        "selected": true
+      },
+      {
+        "file": "efficiency-080-correct-distance.json",
+        "parameter": "driveline_efficiency",
+        "before": 0.88,
+        "after": 0.8,
+        "selected": false
+      },
+      {
+        "file": "original-grip.json",
+        "parameter": "tire_mu",
+        "before": 1.25,
+        "after": 1.08,
+        "selected": false
+      },
+      {
+        "file": "inertia-050.json",
+        "engine_inertia_kg_m2": 0.5,
+        "equivalent_wheel_mass_kg": 60,
+        "selected": false,
+        "qualification": "Diagnostic force-scale sensitivity only; not a complete energy-conserving rotational drivetrain. Does not prove recovered inertia."
+      },
+      {
+        "file": "invalid-quarter-origin-shift-060.json",
+        "parameter": "shift_seconds",
+        "before": 0.3,
+        "after": 0.6,
+        "selected": false,
+        "qualification": "Acceleration speed checkpoints valid; quarter-distance origin invalid, excluded."
+      },
+      {
+        "file": "invalid-quarter-origin-mass-plus80.json",
+        "parameter": "mass_kg",
+        "before": 1778.082,
+        "after": 1858.082,
+        "selected": false,
+        "qualification": "Acceleration speed checkpoints valid; quarter-distance origin invalid, excluded."
+      }
+    ],
+    "discarded_files": "invalid-quarter-origin-* retained with erroneous absolute-Z quarter-mile origin, not used for quarter-mile conclusions. invalid-quarter-origin-old-grip used 1.12, not original 1.08. Corrected trials retained separately."
+  },
+  "speed_checkpoints": [
+    {
+      "mph": 30,
+      "reference_s": 1.8,
+      "before_s": 1.908333420753479,
+      "after_s": 1.9833334684371948
+    },
+    {
+      "mph": 40,
+      "reference_s": 2.5,
+      "before_s": 2.5500001907348633,
+      "after_s": 2.625000238418579
+    },
+    {
+      "mph": 50,
+      "reference_s": 3.3,
+      "before_s": 3.5500001907348633,
+      "after_s": 3.633333444595337
+    },
+    {
+      "mph": 60,
+      "reference_s": 4.3,
+      "before_s": 4.4666666984558105,
+      "after_s": 4.616666793823242
+    },
+    {
+      "mph": 70,
+      "reference_s": 5.4,
+      "before_s": 5.350000381469727,
+      "after_s": 5.575000286102295
+    },
+    {
+      "mph": 80,
+      "reference_s": 6.7,
+      "before_s": 6.2916669845581055,
+      "after_s": 6.591667175292969
+    },
+    {
+      "mph": 90,
+      "reference_s": 8.1,
+      "before_s": 7.90000057220459,
+      "after_s": 8.316667556762695
+    },
+    {
+      "mph": 100,
+      "reference_s": 9.7,
+      "before_s": 9.27500057220459,
+      "after_s": 9.816667556762695
+    }
+  ],
+  "sixty_to_hundred_s": {
+    "reference": 5.4,
+    "before": 4.808333873748779,
+    "after": 5.200000762939453
+  },
+  "quarter_mile": {
+    "reference": {
+      "seconds": 12.6,
+      "mph": 114.2
+    },
+    "before": {
+      "mph": 116.9605484008789,
+      "seconds": 12.550000190734863
+    },
+    "after": {
+      "mph": 114.34010314941406,
+      "seconds": 12.783333778381348
+    },
+    "qualification": "Simulation uses no rollout and instantaneous crossing speed; publication timing-trap details and test load unknown."
+  },
+  "handling": [
+    {
+      "diameter_ft": 200,
+      "before": {
+        "car": "redline-gt500",
+        "diameter_ft": 200.0,
+        "peak_sustained_g": 0.8948101,
+        "speed_at_peak_mps": 16.453806,
+        "radial_error_at_peak_m": 0.23638766,
+        "peak_tilt_deg": 3.0148027,
+        "accepted_windows": 77
+      },
+      "after": {
+        "car": "redline-gt500",
+        "diameter_ft": 200.0,
+        "peak_sustained_g": 0.89461285,
+        "speed_at_peak_mps": 16.514761,
+        "radial_error_at_peak_m": 0.28415737,
+        "peak_tilt_deg": 3.0148027,
+        "accepted_windows": 77
+      }
+    },
+    {
+      "diameter_ft": 300,
+      "before": {
+        "car": "redline-gt500",
+        "diameter_ft": 300.0,
+        "peak_sustained_g": 0.8962769,
+        "speed_at_peak_mps": 20.249472,
+        "radial_error_at_peak_m": 0.46601927,
+        "peak_tilt_deg": 3.0803866,
+        "accepted_windows": 80
+      },
+      "after": {
+        "car": "redline-gt500",
+        "diameter_ft": 300.0,
+        "peak_sustained_g": 0.89634347,
+        "speed_at_peak_mps": 20.240572,
+        "radial_error_at_peak_m": 0.46025902,
+        "peak_tilt_deg": 3.080641,
+        "accepted_windows": 81
+      }
+    }
+  ],
+  "unchanged_other_car_benchmark_rows": 39,
+  "unchanged_other_car_circle_rows": 78,
+  "baseline_force_utilization_60_100": {
+    "minimum": 1.0,
+    "maximum": 1.0
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "profiles": 13,
+  "evidence_covered_parameter_entries": 299,
+  "matched_candidate_runs": 130,
+  "verified_candidate_bundles": 130,
+  "matched_car_case_groups": 65,
+  "repeat_count": 2,
+  "native_fleet_cars": 13,
+  "native_fleet_captures": 52,
+  "real_reference_comparisons": 18,
+  "cars_with_reference_metrics": 9,
+  "rust_tests": 73,
+  "profile_control_tests": 2,
+  "analysis_tests": 8,
+  "identical_visual_assets_scenarios_effective_inputs": true,
+  "profile_and_axle_path_audit_passed": true,
+  "benchmark_repeats_identical": true,
+  "recorded_binary_sha256": "69ff92ac558df71e53b191995a15a41785301a7dbd60eaf9d5bdb5f70e45ff73",
+  "native_fleet_run": "artifacts/runs/20261024T030835126895Z-2342545-fleet-59855-1-1792811315152374000",
+  "source_asset_preservation": "Original models, receipts and roster unchanged; check_assets and native fleet checks passed",
+  "limitations": [
+    "Related years/trims, game proxies and estimates remain explicit",
+    "No measured matched real-world turn/tilt target",
+    "Build and runtime material complete; exact cross-platform replay not established"
+  ],
+  "additional_analysis_gate_log": "artifacts/vehicle-reference/profile-final-codelimit.log",
+  "analysis_tools_sha256": {
+    "tools/analyze_profile_study.py": "918928f5679ec0d39dffb1936e0d73535217d4ce0c3b60e9cf96b9613ca50af3",
+    "tools/compare_fleet_references.py": "6f047158d0a1eea3e3aefd07f9d1fc54ea2546724c84e8dddb2500ec085184ae",
+    "tools/analyze_handling_study.py": "1ce6f6f432970fc003a9d6059a35ee8b495a0f330313b8fe40b403d36ba97314",
+    "tools/handling_metrics.py": "13c7ff3f4a91d8fb8fb2ef01d25debddd994a3debf610b28adc36ed4073718a1"
+  },
+  "files_sha256": {
+    "docs/verification/per-car-physics/README.md": "e1630a5c1ec71c0bf5b219fbdf8a8442cbe9ef319f7d2987dae52eeb5ceb40e9",
+    "docs/verification/per-car-physics/comparison.json": "d1c808ee461698364ef39c9fbb209507daccbc375106a0cc674651f260e9b2d5",
+    "docs/verification/per-car-physics/candidate-protocol.json": "b94417dce75d6a7697fb4ca5c50fad6daae0f7f0f15c440fe55e305ad918a2cc",
+    "docs/verification/per-car-physics/candidate-evidence.json": "e6496f61edb23989993f95bb531eb1b59b8314d0d2bd0daa17821700e4590085",
+    "docs/verification/per-car-physics/candidate-provenance-verification.json": "f09a79b9602e9620e58df59931930513d7e0891b4377d5dc6a8e0e1a18882a57",
+    "docs/verification/per-car-physics/tested-profiles.json": "ef310cdfe6462e677cb7e3999de617d6dd34a3e2e3c2f0346a82876bdd7b8eb4",
+    "docs/verification/per-car-physics/real-reference-comparison.json": "13214eb92deb4bd984d7cc9aac9dbf1237c1c619e9a211a3d3fb7345712fe6b4",
+    "docs/verification/per-car-physics/benchmark-protocol.json": "1ef001b2cae9c00a241ecf53628529651443db349249d62539e3fe83340ae143",
+    "docs/verification/per-car-physics/benchmark-reference.png": "b2d09aae65ede8d90013c87ae222cf76852958d6513987325a6461876dfec5cc",
+    "docs/verification/per-car-physics/full-verification.log": "fca37219b5de7b59d9e3b14f5ceb3df69023df99090319be1fbb65bf68d33b6d"
+  }
+}

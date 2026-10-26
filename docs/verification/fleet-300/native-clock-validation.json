@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "failed_native_run": "artifacts/runs/20261025T180846835382Z-2342545-fleet-21425-1-1792951726859812000",
+  "car": "exp-138",
+  "observed_physics_seconds": 2.1083333333333334,
+  "observed_monotonic_event_seconds": 31.902728333,
+  "old_sampled_driving_frames": 0,
+  "old_nonblank_captures": 0,
+  "phase_clock": "Time<Virtual>",
+  "capture_and_load_deadlines": "Time<Real>; original5s/60s unchanged",
+  "frame_time_measurements": "Time<Real>; stalls remain visible in FPS samples",
+  "wall_gap_regression_seconds": 30,
+  "regression_maximum_script_advance_seconds": 0.25,
+  "idle_sleep_assertion": "macOS caffeinate -i -w verification-shell-pid, process-scoped",
+  "files": {
+    "artifacts/runs/20261025T180846835382Z-2342545-fleet-21425-1-1792951726859812000/cars/exp-138.json": "460fa279def5e33b9536b424698ec2c47d2a717ca55ac3ad3e946f2faeb6cb42",
+    "artifacts/runs/20261025T180846835382Z-2342545-fleet-21425-1-1792951726859812000/events.jsonl": "43cdc68292e7efa98110cae859db11784904f611972aa1e95f70a8570140f3a6",
+    "src/smoke.rs": "ffc264216def5db175668247fac98f0556dfc66c18420c9ca18838f7294f6c4e",
+    "scripts/verify.sh": "0dbb8b981d53447a143cd485f3a0961b244cff92d713d1447e7dd1b22193ecb0",
+    "artifacts/vehicle-reference/fleet300/native-clock-green.log": "64de331452bf769926bbddf0b95b9e95e5406927c992b74ee730605e6314e091"
+  }
+}

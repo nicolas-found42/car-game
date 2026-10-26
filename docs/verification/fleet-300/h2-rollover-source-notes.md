@@ -1,0 +1,33 @@
+# Hummer H2 rollover reference investigation
+
+Research date: 2026-10-25. Scope is the `ref-a13` 2003 H2 SUV reference, not H1, H3, H2 SUT or the later 6.2-litre H2. Evidence only: no runtime, asset, profile or scenario changes were made.
+
+**Decision: no supported CG or rollover-parameter correction was established.** No exact 2003 H2 measured SSF, measured CG height, inertia tensor, load-specific roll data or fishhook result was retrieved from NHTSA or GM. The failures at 30–50 m/s remain legitimate simulation observations to investigate. They do not by themselves establish either a real H2 defect or a physics-code defect. Reducing the estimated CG until they disappear would be an unsupported fit.
+
+## What the official records actually show
+
+Jev browser read the NHTSA ratings API directly. The exact **2003/HUMMER/H2** query returns `Count:0`, and the 2004 HUMMER make query also returns no records. Absence from these responses is not proof that no historical measurement exists anywhere; it means this source supplies none. [2003 H2 API](https://api.nhtsa.gov/SafetyRatings/modelyear/2003/make/HUMMER/model/H2?format=json), [2004 make API](https://api.nhtsa.gov/SafetyRatings/modelyear/2004/make/HUMMER?format=json).
+
+As a related-year check, 2006 H2 resolves to VehicleId **1866**. Its record explicitly says `RolloverRating:"Not Rated"`, `RolloverRating2:"Not Rated"` and blank `dynamicTipResult`. The two `RolloverPossibility` fields contain **0.0**, but the adjacent unrated fields mean those zeros cannot be interpreted as measured zero risk. This record contains no SSF/track/CG measurement or fishhook pass. It also says electronic stability control “No,” but that is a **2006** record, not exact 2003 equipment proof. [2006 identity query](https://api.nhtsa.gov/SafetyRatings/modelyear/2006/make/HUMMER/model/H2?format=json), [official VehicleId 1866 response](https://api.nhtsa.gov/SafetyRatings/VehicleId/1866?format=json).
+
+The exact 2003 NHTSA vehicle page returned access denied. Both official GM-hosted copies of the exact 2003 owner manual also returned access denied in Jev. Search located their indexed text, including load/rollover warnings, but no numeric CG. No access restriction was bypassed. [NHTSA vehicle page](https://www.nhtsa.gov/vehicle/2003/HUMMER/H2/SUV/4WD), [GM manual](https://assets.gm.com/manuals/hummer/2003_hummer_h2_owners.pdf), [GM Owner Center copy](https://experience.gm.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2003/hummer/h2/2003_hummer_h2_owners.pdf).
+
+GM Upfitter publishes an exact **2003 H2 SUV N25706** engineering-drawing packet. Its index covers exterior/interior arrangement, frame, front/rear axle-suspension tire data and exhaust/fuel tank. Jev opened it as a download rather than readable page content. The search index exposes dimensional drawings but no verified CG/SSF table. This is a promising geometry source requiring page-level inspection before adopting dimensions; it is not evidence for a numerical CG correction. [Official GM Upfitter packet](https://www.gmupfitter.com/wp-content/uploads/2021/05/2003_LD_HummerH2SUV.pdf).
+
+## Why an SSF or fishhook claim would need qualification
+
+NHTSA defines **SSF = track/(2 × CG height)**. Its 2003 fishhook protocol releases the throttle and coasts into **35–50 mph** entry tests; steering reversal uses roll-rate feedback. Nominal loading includes driver, instruments, steering machine, outriggers and full fuel; the multipassenger condition adds up to three 175 lb rear-seat dummies, subject to axle/gross limits. Test tip-up is simultaneous inside-wheel lift of at least two inches. Thus it is not an arbitrary full-brake steering step. The source distinguishes tripped and untripped rollover and does not treat SSF as a complete dynamic threshold. These statements describe the general protocol, **not an H2 test result**. [NHTSA final policy and Appendix I, Federal Register 68 FR 59250](https://www.govinfo.gov/content/pkg/FR-2003-10-14/html/03-25360.htm).
+
+The current stress cases' **30–50 m/s = 67.1–111.8 mph** are substantially above those nominal fishhook entry speeds. Their trail-braking, steering trajectory, road contact, vehicle load and possible trip/contact conditions must be compared explicitly before applying any future test result. A lower-speed test pass would not guarantee stability in these cases; a rollover here does not prove failure of that lower-speed test.
+
+## Local geometry explains sensitivity, not real-world validity
+
+The current profile stores **CG 1.02 m**, explicitly marked `estimate`, and a uniform-box inertia approximation. Current wheel pivots imply tracks **1.698550 m / 1.717514 m**, average **1.708032 m**. These inputs yield a purely geometric ratio **0.837271** using the SSF equation. This calculation is a model diagnostic, **not a measured H2 SSF**. Using the corpus's preliminary 69.4-inch/1.76276 m track with the same unverified CG instead gives **0.864098**; changing track alone would not validate the CG or dynamic behavior. [Current profile](../../../assets/cars/physics.json), [current geometry](../../../assets/cars/roster.json), [existing qualified H2 reference](../../vehicle-reference/real-profiles.json).
+
+The estimated lateral coefficient is 0.86, close to these simple geometric ratios. That makes strong transient load-transfer sensitivity unsurprising within the model, but it cannot identify the correct physical rollover boundary: suspension motion, tire compliance, combined braking/cornering, inertia and contacts matter. Do not substitute either ratio for a dynamic lateral-g rollover threshold or infer a new CG from a general SUV fleet average.
+
+## Conservative disposition and missing evidence
+
+Keep the stress failures, speeds and contact/roll traces visible. Inspect whether each event is an untripped roll, road/body/wall trip, or numerical/contact failure; compare onset under progressively changed braking and steering while preserving the original case definitions. Such diagnosis can justify a code correction if a mechanical inconsistency is demonstrated, independently of a claimed H2 match.
+
+A source-backed physical retune needs an exact H2 SUV measurement with model year/VIN or configuration, coil versus optional air suspension/ride setting, tire size and pressure, fuel and occupant/cargo load, track and CG measurement procedure. A fishhook comparison also needs command history, entry speed, surface, ESC/TCS state, load and wheel-lift criterion. None of those complete H2-specific measurement sets was recovered here. No new numerical runtime value is recommended.

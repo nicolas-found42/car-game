@@ -1,0 +1,16 @@
+{
+  "native_overviews_reviewed": 7,
+  "cars_visible": 57,
+  "comparison_chart_reviewed": true,
+  "review": "All 57 overview views inspected. Wheels and vehicles visible. Existing low-detail materials and C5 source texture artifacts persist; no presentation or geometry changes in this calibration. Comparison chart labels and qualified envelope are readable.",
+  "file_hashes": {
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-1.jpg": "40db328537fd653dafff4c3365e6af87795153303cc8ab9be8eb69ee08fe1b71",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-2.jpg": "f1fb9fc1c5e2fb817aa2e76d3ba24acca35387a8e7b52d426b150cb89dbf2f13",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-3.jpg": "b449a6c00b21453783a0e6271f2c1e598fd6773a68d35c381ab47a523b38caaa",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-4.jpg": "876293de44bd1303022372251dcc77185ae27354226a83d94866bfb589061fae",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-5.jpg": "5d3f03511684e61d3c765961f6cbe3f1d347de3078659579f346c42d399e0c7d",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-6.jpg": "e6431fc9d39ffc6327a331d526b47ea8bc305d95b526e2054dcd19088b9b184a",
+    "artifacts/runs/20261025T12175462451Z-2342545-fleet-8507-1-1792930674644909000/fleet-overview-7.jpg": "e0c2d8ccb9bf70c41041a61160cda2c3ed165d447be2d3a8a3f757ef4c6252c8",
+    "docs/verification/fleet57-next-calibration/comparison.png": "615cc1bc27e6e5a8a18d67534ec1bd286feaadca5f37ef6ca1250f30eb556b42"
+  }
+}

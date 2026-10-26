@@ -1,0 +1,174 @@
+--- before/build_source/assets/cars/physics.json
++++ after/build_source/assets/cars/physics.json
+@@ -3959,12 +3959,12 @@
+         ],
+         "drag_area_m2": 0.78,
+         "rolling_coefficient": 0.015,
+-        "driveline_efficiency": 0.88,
++        "driveline_efficiency": 0.77,
+         "shift_seconds": 0.28,
+         "brake_decel_mps2": 9.55,
+         "max_steer_rad": 0.56,
+         "steer_speed_falloff": 0.06,
+-        "lateral_mu": 1.08,
++        "lateral_mu": 0.92,
+         "speed_governor_mps": null
+       },
+       "evidence": {
+@@ -4070,7 +4070,8 @@
+         },
+         "driveline_efficiency": {
+           "status": "estimate",
+-          "basis": "Explicit reduced-order assumption; not measured or recovered from the source game."
++          "source": "ctsv-mt04",
++          "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Effective power delivery includes unmodeled torque-curve/clutch/shift/test effects; not a physical loss measurement."
+         },
+         "shift_seconds": {
+           "status": "estimate",
+@@ -4091,7 +4092,8 @@
+         },
+         "lateral_mu": {
+           "status": "estimate",
+-          "basis": "Inherited prior isotropic grip limit; not independently measured. Explicit lateral axis of combined-force ellipse."
++          "source": "ctsv-aw04",
++          "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Lateral limit uses matched skidpad diameter; longitudinal tire coefficient stays separate."
+         },
+         "speed_governor_mps": {
+           "status": "estimate",
+@@ -5816,22 +5818,22 @@
+         "notes": "Asset internal code says 07, while catalog display says 2008. US saloon references are preferred; European 2006 technical data is explicitly adjacent."
+       },
+       "parameters": {
+-        "mass_kg": 1650,
++        "mass_kg": 1795,
+         "power_kw": 313.193946,
+         "torque_nm": 429.79429,
+         "power_rpm": 7800,
+         "torque_rpm": 5500,
+         "redline_rpm": 8250,
+         "gears": [
+-          3.67,
+-          2.05,
+-          1.46,
+-          1.13,
+-          0.92,
+-          0.78
+-        ],
+-        "final_drive": 4.11,
+-        "front_weight": 0.57,
++          3.667,
++          2.211,
++          1.52,
++          1.133,
++          0.919,
++          0.778
++        ],
++        "final_drive": 4.111,
++        "front_weight": 0.58,
+         "front_drive": 0.4,
+         "cg_height_m": 0.55,
+         "ride_frequency_hz": [
+@@ -5848,24 +5850,22 @@
+           14.5,
+           15.0
+         ],
+-        "drag_area_m2": 0.77,
++        "drag_area_m2": 0.6727,
+         "rolling_coefficient": 0.015,
+-        "driveline_efficiency": 0.88,
++        "driveline_efficiency": 0.8,
+         "shift_seconds": 0.28,
+-        "brake_decel_mps2": 11.53262,
++        "brake_decel_mps2": 9.75,
+         "max_steer_rad": 0.56,
+         "steer_speed_falloff": 0.06,
+-        "lateral_mu": 1.12,
++        "lateral_mu": 0.955,
+         "speed_governor_mps": 69.44444444444444
+       },
+       "evidence": {
+         "mass_kg": {
+           "status": "related_reference",
+-          "source": "e12-eu2006",
+-          "source_field": "reference_2006EU_mass",
+-          "source_value": 1650,
+-          "source_unit": "kg",
+-          "basis": "Withoutdriver;Directive 92/21/EEC Adjacent 2006 European reference, not assumed exact 2008 USmatch. Selected corpus fact, with explicit unit conversion if applicable."
++          "source": "rs4-us07-oem",
++          "source_field": "mass_kg",
++          "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+         },
+         "power_kw": {
+           "status": "reference",
+@@ -5904,16 +5904,22 @@
+           "basis": "Estimated rev limit, not inferred to be an OEM limit."
+         },
+         "gears": {
+-          "status": "estimate",
+-          "basis": "Estimated gearbox ratios; not recovered model-specific transmission internals."
++          "status": "related_reference",
++          "source": "rs4-us07-oem",
++          "source_field": "gear_ratios",
++          "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+         },
+         "final_drive": {
+-          "status": "estimate",
+-          "basis": "Explicit reduced-order assumption; not measured or recovered from the source game."
++          "status": "related_reference",
++          "source": "rs4-us07-oem",
++          "source_field": "final_drive",
++          "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+         },
+         "front_weight": {
+-          "status": "estimate",
+-          "basis": "Estimated static front axle fraction; not inferred directly from mesh shape."
++          "status": "related_reference",
++          "source": "rs4-us07-oem",
++          "source_field": "front_weight_fraction",
++          "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+         },
+         "front_drive": {
+           "status": "estimate",
+@@ -5944,8 +5950,10 @@
+           "basis": "Explicit reduced-order assumption; not measured or recovered from the source game."
+         },
+         "drag_area_m2": {
+-          "status": "estimate",
+-          "basis": "Estimated Cd*A; published drag coefficient alone does not establish frontal area."
++          "status": "related_reference",
++          "source": "rs4-us07-oem",
++          "source_field": "cd * frontal_area_m2",
++          "basis": "Audi US2007 sedan technical sheet; related year to2008US asset. Corrects priorEU2006 mass/estimated gearing. Cd times area for effective drag area. See calibration-supplement-20261025.json; no claim of exact2008 curb mass."
+         },
+         "rolling_coefficient": {
+           "status": "estimate",
+@@ -5953,7 +5961,8 @@
+         },
+         "driveline_efficiency": {
+           "status": "estimate",
+-          "basis": "Explicit reduced-order assumption; not measured or recovered from the source game."
++          "source": "rs4-cd07",
++          "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Effective power delivery includes unmodeled torque-curve/clutch/shift/test effects; not a physical loss measurement."
+         },
+         "shift_seconds": {
+           "status": "estimate",
+@@ -5961,7 +5970,8 @@
+         },
+         "brake_decel_mps2": {
+           "status": "estimate",
+-          "basis": "Estimated brake force budget = estimated dry tire_mu * 9.80665 * 1.05; no measured stopping target fitted."
++          "source": "rs4-cd07",
++          "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Service-brake effective deceleration reproduces the70mph stopping envelope."
+         },
+         "max_steer_rad": {
+           "status": "estimate",
+@@ -5973,7 +5983,8 @@
+         },
+         "lateral_mu": {
+           "status": "estimate",
+-          "basis": "Inherited prior isotropic grip limit; not independently measured. Explicit lateral axis of combined-force ellipse."
++          "source": "rs4-cd07",
++          "basis": "Reduced-order model calibration to qualified period test envelope; not measured tire friction, driveline loss or brake hardware. Nominal engine output unchanged. Lateral limit uses matched skidpad diameter; longitudinal tire coefficient stays separate."
+         },
+         "speed_governor_mps": {
+           "status": "related_reference",

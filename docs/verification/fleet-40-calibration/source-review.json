@@ -1,0 +1,16 @@
+{
+  "review_date": "2026-10-24",
+  "scope": "Bounded source applicability review for calibration targets and new governor/high-speed checks; not an independent audit of every corpus fact.",
+  "base_sources": ["docs/vehicle-reference/real-profiles.json", "docs/verification/per-car-physics/fleet-reference-supplement.json"],
+  "checks": [
+    {"url":"https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive","original_issue":"July2008","vehicle":"2008GT500coupe6MT","facts":{"zero_60_mph_s":4.3,"zero_100_mph_s":9.7,"brake_60_0_ft":118,"lateral_g_average":0.89},"qualification":"Rollout and skidpad diameter are not specified in the accessible table; do not present an exact protocol replication."},
+    {"url":"https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/","original_issue":"July1997","vehicle":"1997ViperGTS","facts":{"brake_70_0_ft":177,"skidpad_300ft_diameter_g":0.95},"qualification":"Related year; native asset year unresolved."},
+    {"url":"https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/","original_issue":"August2002","vehicle":"2003US350ZTrack6MT","facts":{"brake_70_0_ft":164,"cornering_g":0.88,"top_speed_mph":156},"qualification":"Track equipment versus unspecified GT4 grade."},
+    {"url":"https://www.motortrend.com/reviews/2005-ford-mustang-gt","original_date":"2004-10-13","vehicle":"2005MustangGT","qualification":"Automatic test versus manual profile; handling fit remains a related configuration."},
+    {"url":"https://www.bmw-m.com/en/topics/magazine-article-pool/the-bmw-m3-csl.html","facts":{"standard_governor_kmh":250,"license_qualified_option_kmh":280},"qualification":"Standard stock option selected; not the raised-limit edition."},
+    {"url":"https://www.ausmotive.com/downloads/Audi/RS4-Avant-press-kit-June2012.pdf","document":"AUDIAG June2012 press kit","page":19,"facts":{"B7_sedan_standard_governor_kmh":250,"optional_from_2007_kmh":280},"qualification":"Read the previous-model B7V8saloon section, not the new2012Avant specifications; European configuration is related to US2008asset."},
+    {"url":"https://www.motortrend.com/features/2007-ford-shelby-gt500","original_issue":"July2006","facts":{"nominal_governed_mph":155},"qualification":"Related2007/preproduction stock-family observation; article includes prototype vehicles and higher indicated readings. Exact2008controller calibration not recovered."},
+    {"url":"https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/","original_issue":"May1987","facts":{"fuel_cut_mph":124,"prototype_zero_60_mph_s":4.7,"prototype_skidpad_300ft_g":0.8},"qualification":"Prototype: controller proxy retained, engine and traction equivalence to production not assumed."},
+    {"url":"https://www.lamborghiniclubwest.com/murcielago.pdf","document":"Original6.2Lfactorylaunchdossier","facts":{"reverse_ratio":2.529,"drag_coefficient_range":[0.33,0.36]},"qualification":"Does not establish the calibrated final drive, rev ceiling, frontal area or driveline efficiency. Period brochure acceleration/top-speed claims reused from the reviewed corpus."}
+  ]
+}

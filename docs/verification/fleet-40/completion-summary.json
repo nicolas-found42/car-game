@@ -1,0 +1,16 @@
+{
+  "selected_successful_runs": 1920,
+  "aggregate_car_case_pairs": 960,
+  "total_assertions": 5360,
+  "unexpected_resets": 0,
+  "deliberate_resets": 80,
+  "minimum_four_contact_pct": 100.0,
+  "minimum_four_loaded_pct": 98.33531510107015,
+  "route_runs": 640,
+  "maximum_route_error_m": 3.790191650390625,
+  "infrastructure_retries": 4,
+  "selected_index_sha256": "5bd933af3bb9b7a6568aafebdb1165272b8e2c4296ef43e35af99178ec83bf04",
+  "raw_audit_sha256": "7c46f56b4d50cc448b04db6f8fa56c9e150defae2993f14ddb2dec6caf7d3389",
+  "selected_audit_sha256": "9ccb40a3d736effb4b3c6ecdb170a3135fa02e4931f54009034bce89b6b5800a",
+  "results_sha256": "b20b0aa5938469c6e7872e5b3167b9ba3d2c1ca0bc2fd9538b6e65fbf1b4ff5d"
+}

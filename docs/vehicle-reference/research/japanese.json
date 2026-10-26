@@ -1,0 +1,4645 @@
+{
+  "cars": [
+    {
+      "id": "j01",
+      "name": "Nissan 350Z",
+      "year": 2003,
+      "market": "United States",
+      "variant": "Z33 coupe, US manual reference",
+      "vehicle_type": "sports coupe",
+      "asset_codes": [
+        "GT4_NISS0004",
+        "MC3_VP_350Z_04",
+        "MCLA_VA_350Z_04"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_NISS0004",
+          "game": "gran-turismo-4",
+          "catalog_name": "Nissan 350Z (Z33) '03",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "MC3_VP_350Z_04",
+          "game": "midnight-club-3-remix",
+          "catalog_name": "vp_350z_04",
+          "match": "related_variant_not_exact",
+          "reason": "differentyear2004;gradeunresolved"
+        },
+        {
+          "code": "MCLA_VA_350Z_04",
+          "game": "midnight-club-los-angeles",
+          "catalog_name": "va_350z_04",
+          "match": "related_variant_not_exact",
+          "reason": "differentyear2004;gradeunresolved"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "GT4 asset has no US equipment grade. Service-manual dimensions apply Z33; mass and grade-specific brakes must not be assumed. MC3/MCLA350Z04 are related different-year counterparts.",
+      "facts": [
+        {
+          "field": "engine_code",
+          "value": "VQ35DE",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "DOHC24valve V6",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "layout",
+          "value": "front engine, rear-wheel drive",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "power_hp",
+          "value": 287,
+          "unit": "hp",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "torque_lbft",
+          "value": 274,
+          "unit": "lb ft",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT;  optional5AT",
+          "unit": null,
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j01-nissan-launch"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "steering",
+          "value": "engine-speed-sensitive power rack-and-pinion",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc, ABS/EBD/brake assist",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc, ABS/EBD/brake assist",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "tire_front_canada",
+          "value": "225/45R18",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "tire_rear_canada",
+          "value": "245/45R18",
+          "unit": null,
+          "source_id": "j01-nissan-canada"
+        },
+        {
+          "field": "length",
+          "value": 4309,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "width",
+          "value": 1815,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "height",
+          "value": 1319,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2649,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "track_front",
+          "value": 1535,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "track_rear",
+          "value": [
+            1539,
+            1545
+          ],
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-gi",
+          "note": "1539 at33mm wheel offset;1545 at30mm offset."
+        },
+        {
+          "field": "tire_front",
+          "value": "225/50R17 94W; optional225/45R18 91W",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "tire_rear",
+          "value": "235/50R17 96W; optional245/45R18 96W",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-gi"
+        },
+        {
+          "field": "transmission_code",
+          "value": "FS6R31A CD000/CD005",
+          "unit": null,
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.794,
+            2.324,
+            1.624,
+            1.271,
+            1,
+            0.794
+          ],
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.446,
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-mt"
+        },
+        {
+          "field": "displacement",
+          "value": 3498,
+          "unit": "cm3",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "bore",
+          "value": 95.5,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "stroke",
+          "value": 81.4,
+          "unit": "mm",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10.3,
+          "unit": "ratio",
+          "source_id": "j01-nissan-fsm-em"
+        },
+        {
+          "field": "tested_vehicle",
+          "value": "2003US350ZTrack6MT",
+          "unit": null,
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_mass",
+          "value": 3322,
+          "unit": "lb",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_acceleration_0_60_mph",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_acceleration_0_100_mph",
+          "value": 13.9,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_quarter_mile_time",
+          "value": 14.1,
+          "unit": "s",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_quarter_mile_trap",
+          "value": 101,
+          "unit": "mph",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_top_speed_drag_limited",
+          "value": 156,
+          "unit": "mph",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_braking_70_0_mph",
+          "value": 164,
+          "unit": "ft",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        },
+        {
+          "field": "tested_skidpad_300ft_diameter",
+          "value": 0.88,
+          "unit": "g",
+          "source_id": "j01-cd-test",
+          "note": "Observed 2003 US 350Z Track 6MT in Car and Driver August2002 issue. Track trim, tires and test conditions differ from an unspecified GT4 grade; do not use as a generic factory specification."
+        }
+      ],
+      "sources": [
+        {
+          "id": "j01-nissan-launch",
+          "url": "https://usa.nissannews.com/en-US/releases/2003-350z-press-kit",
+          "title": "2003 Nissan 350Z press kit",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "The 3.5-liter VQ35DE V6 engine produces 287 horsepower and 274 lb-ft of torque."
+        },
+        {
+          "id": "j01-nissan-canada",
+          "url": "https://canada.nissannews.com/en-CA/releases/2003-nissan-350z",
+          "title": "2003 Nissan 350Z Canadian release",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "Four-wheel independent multi-link suspension with use of lightweight aluminum components",
+          "date": "2003-04-01"
+        },
+        {
+          "id": "j01-nissan-fsm-gi",
+          "url": "https://350z.se/fsm/coupe/2003/GI.pdf",
+          "title": "Nissan2003 350Z factory service manual GI50–51",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_manual_archived",
+          "evidence_excerpt": "Overall length 4,309 (169.6)",
+          "date": "2004-04",
+          "note": "Retrieved PDF and extracted GI50–51; mm are US manual literals, not rounded Japanese catalog dimensions.",
+          "retrieval_sha256": "94691d8959eec13babb57d1cf2a3f3bbf4a0b038960a8112637abbfef17ffbb7",
+          "retrieved_bytes": 2124979
+        },
+        {
+          "id": "j01-nissan-fsm-mt",
+          "url": "https://350z.se/fsm/coupe/2003/MT.pdf",
+          "title": "Nissan2003 350Z factory service manual MT61",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_manual_archived",
+          "evidence_excerpt": "FS6R31A",
+          "date": "2004-04",
+          "retrieval_sha256": "fc58c0307c4036c1f2a5793bbdb78b09143e1247eba45a1e3a3be10fac1fbb66",
+          "retrieved_bytes": 3102908
+        },
+        {
+          "id": "j01-nissan-fsm-em",
+          "url": "https://350z.se/fsm/coupe/2003/EM.pdf",
+          "title": "Nissan2003 350Z factory service manual EM121",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_manual_archived",
+          "evidence_excerpt": "Displacement cm3 (cu in) 3,498 (213.45)",
+          "date": "2004-04",
+          "retrieval_sha256": "b41a1c8ed0e4e68203ec892811139e0cb5ac0c51ed8c9f0f2ab45e6548422208",
+          "retrieved_bytes": 3740250
+        },
+        {
+          "id": "j01-cd-test",
+          "url": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+          "title": "Car and Driver instrumented2003 Nissan350Z Track test,August2002issue",
+          "accessed": "2026-10-23",
+          "date": "2002-08",
+          "source_type": "instrumented_test_primary",
+          "evidence_excerpt": "Roadholding, 300-ft-dia skidpad: 0.88 g",
+          "note": "Tested Track grade6MT;GT4asset equipmentgradeunresolved.Rollout/weather notspecified inretrievedarticle. Keep as testobservation,notfactoryguarantee."
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "grade-specific curb mass",
+        "final_drive_ratio",
+        "performance test exactly matching unspecifiedGT4equipmentgrade"
+      ]
+    },
+    {
+      "id": "j02",
+      "name": "Nissan Skyline GT-R V-spec",
+      "year": 1999,
+      "market": "Japan",
+      "variant": "GF-BNR34 V-spec",
+      "vehicle_type": "AWD sports coupe",
+      "asset_codes": [
+        "GT4_NISS0046",
+        "MCLA_VP_NSN_SKYLINE_99"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_NISS0046",
+          "game": "gran-turismo-4",
+          "catalog_name": "Nissan SKYLINE GT-R V-spec (R34) '99",
+          "match": "exact_named_model_year_trim"
+        },
+        {
+          "code": "MCLA_VP_NSN_SKYLINE_99",
+          "game": "midnight-club-los-angeles",
+          "catalog_name": "1999 SKYLINE GT-R V-SPEC",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4600,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "width",
+          "value": 1785,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "height",
+          "value": 1360,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2665,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "track_front",
+          "value": 1480,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "track_rear",
+          "value": 1490,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 130,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1560,
+          "unit": "kg",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese vehicle mass 車両重量;not dry",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "persons",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "engine_code",
+          "value": "RB26DETT",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled inline 6 DOHC twin-turbo",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "displacement",
+          "value": 2568,
+          "unit": "cm3",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "bore",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "stroke",
+          "value": 73.7,
+          "unit": "mm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.5,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6800,
+          "unit": "rpm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 40,
+          "unit": "kgf m",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4400,
+          "unit": "rpm",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 65,
+          "unit": "L",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "Getrag6MT",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.827,
+            2.36,
+            1.685,
+            1.312,
+            1,
+            0.793
+          ],
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.28,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.545,
+          "unit": "ratio",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "layout",
+          "value": "front engine AWD, ATTESA E-TS PRO electronically controlled active LSD",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independent multilink",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc,opposed4piston",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc,opposed2piston",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.6,
+          "unit": "m",
+          "source_id": "j02-nissan-brochure"
+        },
+        {
+          "field": "steering",
+          "value": "rack-and-pinion;Super HICAS rear steering",
+          "unit": null,
+          "source_id": "j02-nissan-brochure"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j02-nissan-brochure",
+          "url": "https://images.jdm-catalogues.com/nissan/skyline/r34/nissan_skyline_r34_gtr/catalogue.pdf",
+          "title": "Nissan Skyline GT-R Japanese brochure January1999, printed35 / PDF18",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "GT-R V・spec",
+          "date": "1999-01",
+          "note": "Authentic scanned Nissan brochure; inspected specification table visually. Not the unofficial Skyline Snap Shots R34.doc PDF.",
+          "retrieval_sha256": "c2fade41464898773ce3dfc900d90e81ef4b112707d8da5aeed259b0a2ddefd9",
+          "retrieved_bytes": 139094361
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j03",
+      "name": "Toyota Supra RZ",
+      "year": 1997,
+      "market": "Japan",
+      "variant": "E-JZA80 RZ, August1997 VVT-i revision",
+      "vehicle_type": "sports GT coupe",
+      "asset_codes": [
+        "GT4_TOYT0006",
+        "MC3_VP_SUPRA_98",
+        "GT_SIMULATION__TSPNN",
+        "GT_SIMULATION__T_PNN",
+        "GT_SIMULATION__TSONN",
+        "REDLINE_ADDON_055_TOYOTA_SUPRA_ZIP_TOYOTA_SUPRA_V0_1_47072AE57B27_B60593267222F127"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_TOYT0006",
+          "game": "gran-turismo-4",
+          "catalog_name": "Toyota SUPRA RZ '97",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "MC3_VP_SUPRA_98",
+          "game": "midnight-club-3-remix",
+          "catalog_name": "vp_supra_98",
+          "match": "related_variant_not_exact",
+          "reason": "differentyear1998;market/trimunresolved"
+        },
+        {
+          "code": "GT_SIMULATION__TSPNN",
+          "game": "gran-turismo",
+          "catalog_name": "SUPRA RZ",
+          "match": "related_variant_not_exact",
+          "reason": "sameA80RZname,butyearnotlabeled"
+        },
+        {
+          "code": "GT_SIMULATION__T_PNN",
+          "game": "gran-turismo",
+          "catalog_name": "SUPRA RZ",
+          "match": "related_variant_not_exact",
+          "reason": "sameA80RZname,butyearnotlabeled"
+        },
+        {
+          "code": "GT_SIMULATION__TSONN",
+          "game": "gran-turismo",
+          "catalog_name": "SUPRA '95 RZ",
+          "match": "related_variant_not_exact",
+          "reason": "explicit1995RZ,differentrevision"
+        },
+        {
+          "code": "REDLINE_ADDON_055_TOYOTA_SUPRA_ZIP_TOYOTA_SUPRA_V0_1_47072AE57B27_B60593267222F127",
+          "game": "redline",
+          "catalog_name": "Toyota Supra Turbo v0.1",
+          "match": "related_variant_not_exact",
+          "reason": "communityaddon;year/market/trimorstockstatusdiffersorunresolved"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "Selected real reference is August1997 Japanese RZ. The game year alone does not resolve pre/post-August revision; verify native engine/torque before enforcing451.1Nm. GT1 unnamed-year RZ and MC3Supra98 are related mappings.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4520,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "width",
+          "value": 1810,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "height",
+          "value": 1275,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2550,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "track_front",
+          "value": 1520,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "track_rear",
+          "value": 1525,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1510,
+          "unit": "kg",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "engine_code",
+          "value": "2JZ-GTE",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "inline 6 DOHC24valve intercooled twin-turbo",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "displacement",
+          "value": 2997,
+          "unit": "cm3",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "bore",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "stroke",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.5,
+          "unit": "ratio",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "power_kw",
+          "value": 206,
+          "unit": "kW net",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5600,
+          "unit": "rpm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "torque_nm",
+          "value": 451.1,
+          "unit": "N m",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3600,
+          "unit": "rpm",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "layout",
+          "value": "FR",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.266,
+          "unit": "ratio",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.192,
+          "unit": "ratio",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/45ZR17",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "tire_rear",
+          "value": "255/40ZR17",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone coil",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone coil",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 70,
+          "unit": "L",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "differential",
+          "value": "LSD standard",
+          "unit": null,
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.4,
+          "unit": "m",
+          "source_id": "j03-toyota-catalog"
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "persons",
+          "source_id": "j03-toyota-catalog"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j03-toyota-catalog",
+          "url": "https://gazoo.com/catalog/maker/TOYOTA/SUPRA/199305/1000971/",
+          "title": "Toyota GAZOO1997August SupraRZ catalog",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_hosted_catalog",
+          "evidence_excerpt": "最高出力 280ps(206kW)/5600rpm",
+          "note": "Toyota-owned catalog; not US market Supra Turbo. Forward gear ratios not displayed, left unknown."
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "gear_ratios",
+        "exact GT4 pre/post August1997 revision"
+      ]
+    },
+    {
+      "id": "j04",
+      "name": "Mazda RX-7 Spirit R Type A",
+      "year": 2002,
+      "market": "Japan",
+      "variant": "GF-FD3S Spirit R Type A",
+      "vehicle_type": "rotary sports coupe",
+      "asset_codes": [
+        "GT4_MAZD0007"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_MAZD0007",
+          "game": "gran-turismo-4",
+          "catalog_name": "Mazda RX-7 Spirit R Type A (FD) '02",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4285,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "width",
+          "value": 1760,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "height",
+          "value": 1230,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2425,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "track_front",
+          "value": 1460,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "track_rear",
+          "value": 1460,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 135,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1270,
+          "unit": "kg",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量,not dry;source footnote includes spare tire/tools",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "engine_code",
+          "value": "13B-REW",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled2rotor sequential twin-turbo",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "displacement_source_literal",
+          "value": "654×2cc",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 9,
+          "unit": "ratio",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "power_kw",
+          "value": 206,
+          "unit": "kW net",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "torque_nm",
+          "value": 314,
+          "unit": "N m",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5000,
+          "unit": "rpm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "layout",
+          "value": "FR",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.483,
+            2.015,
+            1.391,
+            1,
+            0.762
+          ],
+          "unit": "ratio",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.288,
+          "unit": "ratio",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.3,
+          "unit": "ratio",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "dampers",
+          "value": "Bilstein gas monotube,46mmouterdiameter front/rear",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "front_antiroll_bar_diameter",
+          "value": 28.6,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "rear_antiroll_bar_diameter",
+          "value": 15.9,
+          "unit": "mm",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/45ZR17",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "255/40ZR17",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "wheel_front",
+          "value": "17×8JJ",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "17×8.5JJ",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 76,
+          "unit": "L",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.1,
+          "unit": "m",
+          "source_id": "j04-mazda-brochure"
+        },
+        {
+          "field": "brake_equipment",
+          "value": "drilled discs and stainless mesh hoses",
+          "unit": null,
+          "source_id": "j04-mazda-launch"
+        },
+        {
+          "field": "seat_equipment",
+          "value": "Recaro lightweight buckets",
+          "unit": null,
+          "source_id": "j04-mazda-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j04-mazda-brochure",
+          "url": "https://kurumacatalog.com/wp-content/uploads/2023/08/2002_Mazda_RX-7_catalog_jp.pdf",
+          "title": "Mazda RX-7 Japanese brochure March2002 technicaldata PDF21",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "SPIRIT R Type A",
+          "date": "2002-03",
+          "note": "Scanned Mazda-authored table, exact Type A column. Footnote describes net ratings and original spare tire/tools in vehicle mass.",
+          "retrieval_sha256": "1a3149e2291ea2854e641bb18cfd957b05b0f37208680e917be0a367b24681df",
+          "retrieved_bytes": 3983238
+        },
+        {
+          "id": "j04-mazda-launch",
+          "url": "https://newsroom.mazda.com/en/publicity/release/2002/200203/0325e.html",
+          "title": "Mazda SpiritR launch",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "Exclusive dampers manufactured by Bilstein (Type-A and Type-B)",
+          "date": "2002-03-25"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j05",
+      "name": "Mazda RX-8 Type S",
+      "year": 2003,
+      "market": "Japan",
+      "variant": "Japan Type S6MT",
+      "vehicle_type": "rotary fourseat sports coupe",
+      "asset_codes": [
+        "GT4_MAZD0008"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_MAZD0008",
+          "game": "gran-turismo-4",
+          "catalog_name": "Mazda RX-8 Type S (J) '03",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4435,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "width",
+          "value": 1770,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "height",
+          "value": 1340,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2700,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "track_front",
+          "value": 1500,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "track_rear",
+          "value": 1505,
+          "unit": "mm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "persons",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled naturally aspirated  two-rotor RENESIS",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "power_kw",
+          "value": 184,
+          "unit": "kW net",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "power_ps",
+          "value": 250,
+          "unit": "PS net",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "power_rpm",
+          "value": 8500,
+          "unit": "rpm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "torque_nm",
+          "value": 216,
+          "unit": "N m",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5500,
+          "unit": "rpm",
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "multilink",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "tire_front",
+          "value": "225/45R18 91W",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/45R18 91W",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "engine_position_relative_RX7",
+          "value": "40mm lower and60mm furtheraft",
+          "unit": null,
+          "source_id": "j05-mazda-launch"
+        },
+        {
+          "field": "engine_code",
+          "value": "13B-MSP",
+          "unit": null,
+          "source_id": "j05-mazda-technical-review",
+          "note": "High-powerRENESIS column,PDF18"
+        },
+        {
+          "field": "displacement_source_literal",
+          "value": "654×2cc",
+          "unit": null,
+          "source_id": "j05-mazda-technical-review",
+          "note": "Two-rotorcapacity preserved"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10,
+          "unit": "ratio",
+          "source_id": "j05-mazda-technical-review"
+        },
+        {
+          "field": "redline",
+          "value": 9000,
+          "unit": "rpm",
+          "source_id": "j05-mazda-technical-review",
+          "note": "High-power unit revlimit,PDF45Table1"
+        },
+        {
+          "field": "layout",
+          "value": "advanced front-mid-engine,rear-wheel drive",
+          "unit": null,
+          "source_id": "j05-mazda-technical-review"
+        },
+        {
+          "field": "differential",
+          "value": "torque-sensing SuperLSD standard high-power 6MT",
+          "unit": null,
+          "source_id": "j05-mazda-technical-review"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.76,
+            2.269,
+            1.539,
+            1.187,
+            1,
+            0.894
+          ],
+          "unit": "ratio",
+          "source_id": "j05-mazda-technical-review",
+          "note": "Japan 6MT column PDF88Table1"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.564,
+          "unit": "ratio",
+          "source_id": "j05-mazda-technical-review"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.444,
+          "unit": "ratio",
+          "source_id": "j05-mazda-technical-review"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 50,
+          "unit": "%",
+          "source_id": "j05-mazda-technical-review",
+          "note": "Manufacturer nominal claim,occupancy unspecified"
+        },
+        {
+          "field": "yaw_inertia_change_vs_RX7",
+          "value": -5,
+          "unit": "%",
+          "source_id": "j05-mazda-technical-review",
+          "note": "Manufacturer comparative claim,absolute inertia not given"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j05-mazda-launch",
+          "url": "https://newsroom.mazda.com/en/publicity/release/2003/200304/0409e.html",
+          "title": "Mazda RX-8 Japanese launch specifications",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "Major specifications of Mazda RX-8",
+          "date": "2003-04-09"
+        },
+        {
+          "id": "j05-mazda-technical-review",
+          "url": "https://www.mazda.com/content/dam/mazda/corporate/mazda-com/en/pdf/innovation/monozukuri/technology/tech-review/2003/giho_all2003.pdf",
+          "title": "Mazda Technical Review No21(2003): RX-8 RENESIS,packaging,anddrivetrain",
+          "accessed": "2026-10-23",
+          "date": "2003",
+          "source_type": "manufacturer_engineering_paper",
+          "evidence_excerpt": "Table 1 MT Main Specifications",
+          "note": "PDF18Table1 engine;45Table1revlimit,highpowerSuperLSD;58Fig12 yaw;88Table1Japan 6MTgear set. Narrative onPDF45 conflicts with its own torque table;launchandtable216Nm5500used.",
+          "retrieval_sha256": "7c78934772c6c16e6b3c5f04cea6f484a6e1668330e45c40d2d43a660bf39085",
+          "retrieved_bytes": 7297799
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "vehicle_mass"
+      ],
+      "source_conflicts": [
+        {
+          "field": "torque",
+          "source_id": "j05-mazda-technical-review",
+          "details": "PDF45 narrative says212Nm at7500rpm;itsTable1 says216Nm at5500rpm,matchingofficial2003launchtable. Corpus keeps table/launch value and doesnotaverage."
+        }
+      ]
+    },
+    {
+      "id": "j06",
+      "name": "Honda NSX Type R",
+      "year": 2002,
+      "market": "Japan",
+      "variant": "LA-NA2 NSX-R3.2L6MT",
+      "vehicle_type": "midengine sports coupe",
+      "asset_codes": [
+        "GT4_HOND0031"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_HOND0031",
+          "game": "gran-turismo-4",
+          "catalog_name": "Honda NSX Type R '02",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4430,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "width",
+          "value": 1810,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "height",
+          "value": 1160,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2530,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "track_front",
+          "value": 1510,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "track_rear",
+          "value": 1540,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 125,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1270,
+          "unit": "kg",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "mass_with_aircon",
+          "value": 1290,
+          "unit": "kg",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "mass_with_aircon_airbags",
+          "value": 1300,
+          "unit": "kg",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese vehicle mass;options separate",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "engine_code",
+          "value": "C32B",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "transverse water-cooled V6 DOHC VTEC",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "displacement",
+          "value": 3179,
+          "unit": "cm3",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "bore",
+          "value": 93,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "stroke",
+          "value": 78,
+          "unit": "mm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10.2,
+          "unit": "ratio",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "power_kw",
+          "value": 206,
+          "unit": "kW net",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "power_rpm",
+          "value": 7300,
+          "unit": "rpm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "torque_nm",
+          "value": 304,
+          "unit": "N m",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5300,
+          "unit": "rpm",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 70,
+          "unit": "L",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.066,
+            1.956,
+            1.428,
+            1.125,
+            0.914,
+            0.717
+          ],
+          "unit": "ratio",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.186,
+          "unit": "ratio",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.235,
+          "unit": "ratio",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "tire_front",
+          "value": "215/40R17 83Y",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "tire_rear",
+          "value": "255/40R17 94Y",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.8,
+          "unit": "m",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j06-honda-spec"
+        },
+        {
+          "field": "differential",
+          "value": "preloadedLSD",
+          "unit": null,
+          "source_id": "j06-honda-launch"
+        },
+        {
+          "field": "tires",
+          "value": "BridgestonePotenzaRE070",
+          "unit": null,
+          "source_id": "j06-honda-launch"
+        },
+        {
+          "field": "aerodynamics",
+          "value": "negative front/rear lift via carbonhood,frontundercover,reardiffuser,rearspoiler;coefficients unavailable",
+          "unit": null,
+          "source_id": "j06-honda-launch"
+        },
+        {
+          "field": "wheel_front",
+          "value": "17×7JJ forgedBBS",
+          "unit": null,
+          "source_id": "j06-honda-equipment"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "17×9JJ forgedBBS",
+          "unit": null,
+          "source_id": "j06-honda-equipment"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j06-honda-spec",
+          "url": "https://www.honda.co.jp/factbook/auto/nsx-r/200205/11.html",
+          "title": "Honda NSX-R May2002 factbook specifications",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "車両重量（kg） 1,270",
+          "date": "2002-05-23"
+        },
+        {
+          "id": "j06-honda-launch",
+          "url": "https://global.honda/en/newsroom/news/2002/4020523-nsx-eng.html",
+          "title": "Honda NSX-R launch driving features",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "A pre-loaded LSD (limited-slip differential) is employed, with a custom preset weight.",
+          "date": "2002-05-23"
+        },
+        {
+          "id": "j06-honda-equipment",
+          "url": "https://www.honda.co.jp/factbook/auto/nsx-r/200205/10.html",
+          "title": "Honda NSX-R equipment factbook May2002",
+          "accessed": "2026-10-23",
+          "date": "2002-05-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "前：17×7JJ／後：17×9JJ"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j07",
+      "name": "Honda S2000",
+      "year": 1999,
+      "market": "Japan",
+      "variant": "GH-AP1 Japan 6MT",
+      "vehicle_type": "roadster",
+      "asset_codes": [
+        "GT4_HOND0049",
+        "REDLINE_ADDON_030_HONDA_S2000_1_2_ZIP_HONDA_S2000_V1_2_EE4212DABFB1_409613152E2B8DD4"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_HOND0049",
+          "game": "gran-turismo-4",
+          "catalog_name": "Honda HONDA S2000 '99",
+          "match": "exact_named_model_year_trim"
+        },
+        {
+          "code": "REDLINE_ADDON_030_HONDA_S2000_1_2_ZIP_HONDA_S2000_V1_2_EE4212DABFB1_409613152E2B8DD4",
+          "game": "redline",
+          "catalog_name": "≠honda.png≠ Honda S2000 v1.2",
+          "match": "related_variant_not_exact",
+          "reason": "communityaddon;year/market/trimorstockstatusdiffersorunresolved"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4135,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "width",
+          "value": 1750,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "height",
+          "value": 1285,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2400,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "track_front",
+          "value": 1470,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "track_rear",
+          "value": 1510,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 130,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1240,
+          "unit": "kg",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量;navigation adds10kg",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "engine_code",
+          "value": "F20C",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "longitudinal inline 4 DOHC VTEC",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "displacement",
+          "value": 1997,
+          "unit": "cm3",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "bore",
+          "value": 87,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "stroke",
+          "value": 84,
+          "unit": "mm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 11.7,
+          "unit": "ratio",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "power_ps",
+          "value": 250,
+          "unit": "PS net",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "power_rpm",
+          "value": 8300,
+          "unit": "rpm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 22.2,
+          "unit": "kgf m",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 7500,
+          "unit": "rpm",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 50,
+          "unit": "L",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.133,
+            2.045,
+            1.481,
+            1.161,
+            0.97,
+            0.81
+          ],
+          "unit": "ratio",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 2.8,
+          "unit": "ratio",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "primary_reduction",
+          "value": 1.16,
+          "unit": "ratio",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.1,
+          "unit": "ratio",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "tire_front",
+          "value": "205/55R16 89V",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/50R16 92V",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "solid disc",
+          "unit": null,
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.4,
+          "unit": "m",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j07-honda-spec"
+        },
+        {
+          "field": "layout",
+          "value": "front engine behind front axle,RWD",
+          "unit": null,
+          "source_id": "j07-honda-layout"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 50,
+          "unit": "%",
+          "source_id": "j07-honda-layout",
+          "note": "Manufacturer nominalclaim;occupancycondition not given in this page."
+        },
+        {
+          "field": "differential",
+          "value": "TorsenLSD",
+          "unit": null,
+          "source_id": "j07-honda-equipment"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j07-honda-spec",
+          "url": "https://www.honda.co.jp/factbook/auto/s2000/199904/050.html",
+          "title": "Honda S2000 April1999 factbook specifications",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "減速比（1次／2次） 1.160／4.100",
+          "date": "1999-04-15"
+        },
+        {
+          "id": "j07-honda-layout",
+          "url": "https://www.honda.co.jp/factbook/auto/s2000/199904/004.html",
+          "title": "Honda S2000 behindaxle layout",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "50：50の理想的な前後重量配分を実現",
+          "date": "1999-04-15"
+        },
+        {
+          "id": "j07-honda-equipment",
+          "url": "https://www.honda.co.jp/factbook/auto/s2000/199904/049.html",
+          "title": "Honda S2000 equipment",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "トルセンLSD（リミテッドスリップデフ）",
+          "date": "1999-04-15"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j08",
+      "name": "Mazda MX-5 V-Special Type II",
+      "year": 1993,
+      "market": "Japan",
+      "variant": "Japan EunosRoadster E-NA8C1.85MT",
+      "vehicle_type": "light roadster",
+      "asset_codes": [
+        "GT4_MAZD0046",
+        "REDLINE_ADDON_040_MAZDA_MX_5_MIATA_V1_0_REDPLUG_ZIP_MAZDA_MX_5_MIATA_V1_0_2804F582B1E9_A7BFAC6FCE407A78"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_MAZD0046",
+          "game": "gran-turismo-4",
+          "catalog_name": "Mazda MX-5 V-Special Type II (NA, J) '93",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "REDLINE_ADDON_040_MAZDA_MX_5_MIATA_V1_0_REDPLUG_ZIP_MAZDA_MX_5_MIATA_V1_0_2804F582B1E9_A7BFAC6FCE407A78",
+          "game": "redline",
+          "catalog_name": "≠mazda_logo.png≠ Mazda MX-5 Miata v1.0",
+          "match": "related_variant_not_exact",
+          "reason": "communityaddon;year/market/trimorstockstatusdiffersorunresolved"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "GT4 uses export familynameMX5 for Japan V-SpecialType II. August1993 Mazda brochure is1.8BP;not previous1.6Vspecial.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 3955,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "width",
+          "value": 1675,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "height",
+          "value": 1235,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2265,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "track_front",
+          "value": 1405,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "track_rear",
+          "value": 1420,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 140,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 990,
+          "unit": "kg",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量,base5MT; options/4AT change mass",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "mass_automatic",
+          "value": 1020,
+          "unit": "kg",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "mass_typeII_abs_manual",
+          "value": 1010,
+          "unit": "kg",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "mass_typeII_airbag_package_manual",
+          "value": 1040,
+          "unit": "kg",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "engine_code",
+          "value": "BP-ZE(RS)",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled  inline 4 DOHC",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "displacement",
+          "value": 1839,
+          "unit": "cm3",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "bore",
+          "value": 83,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "stroke",
+          "value": 85,
+          "unit": "mm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 9,
+          "unit": "ratio",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "power_ps",
+          "value": 130,
+          "unit": "PS net",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 16,
+          "unit": "kgf m",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.136,
+            1.888,
+            1.33,
+            1,
+            0.814
+          ],
+          "unit": "ratio",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.758,
+          "unit": "ratio",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.1,
+          "unit": "ratio",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "185/60R14 82H",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "185/60R14 82H",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "wheel_front",
+          "value": "14×6JJ",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "14×6JJ",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "solid disc",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 48,
+          "unit": "L",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "turning_radius",
+          "value": 4.6,
+          "unit": "m",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j08-mazda-brochure"
+        },
+        {
+          "field": "stopping_distance_50kmh",
+          "value": "12.0m;manufacturer table testconditions unstated",
+          "unit": null,
+          "source_id": "j08-mazda-brochure"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j08-mazda-brochure",
+          "url": "https://www.atelier-nii.com/cars/rs_catalog/jp/1993_08jp_Roadster_brochure.pdf",
+          "title": "Mazda/EunosRoadster August1993 Japanese brochure printed25–26 PDF14",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "BP-ZE(RS)",
+          "date": "1993-08",
+          "note": "Scanned original brochure visually inspected V-SPECIAL Type II option chart and shared main table. Standard5MT mass990,4AT1020;Type II ABS options1010/1040,airbag package1040/1080kg.",
+          "retrieval_sha256": "efc424dc1982f9a482435da23b567eaa0de9bc3a1c07e2522d26cf0b1366c234",
+          "retrieved_bytes": 23214418
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j09",
+      "name": "Mitsubishi Lancer Evolution IX",
+      "year": 2006,
+      "market": "United States",
+      "variant": "US standardEvolutionIX5MT reference",
+      "vehicle_type": "AWD sports sedan",
+      "asset_codes": [
+        "MCLA_VP_MIT_EVO_06"
+      ],
+      "asset_mappings": [
+        {
+          "code": "MCLA_VP_MIT_EVO_06",
+          "game": "midnight-club-los-angeles",
+          "catalog_name": "2006 LANCER EVOLUTION IX",
+          "match": "catalog_identity_with_caveat"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "MCLA asset name has no RS/MR grade;standard IX selected as reference. RS1460kg andMR1490kg are separate trims, not interchangeable.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4535,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "width",
+          "value": 1770,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "height",
+          "value": 1450,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2625,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "track_front",
+          "value": 1515,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "track_rear",
+          "value": 1515,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 140,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1485,
+          "unit": "kg",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "mass_basis",
+          "value": "curb weight,standard IX;SunSoundLeather1520kg",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "seats",
+          "value": 5,
+          "unit": "persons",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 60,
+          "unit": "%",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "engine_code",
+          "value": "4G63",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "inline 4 MIVEC DOHC16valve intercooled turbo",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "displacement",
+          "value": 1997,
+          "unit": "cm3",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.8,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "power_hp",
+          "value": 286,
+          "unit": "hp",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "torque_lbft",
+          "value": 289,
+          "unit": "lb ft",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3500,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "redline",
+          "value": 7000,
+          "unit": "rpm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.785,
+            1.95,
+            1.444,
+            1.096,
+            0.761
+          ],
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.416,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.529,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "layout",
+          "value": "front engine full-time AWD active center differential",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "differential_front",
+          "value": "helical LSD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "differential_rear",
+          "value": "mechanical1.5wayLSD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "suspension_front",
+          "value": "MacPhersonstrut invertedshock forgedaluminum lowercontrolarms",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "multilink forgedaluminum links",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_antiroll_bar_diameter",
+          "value": 24,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "rear_antiroll_bar_diameter",
+          "value": 22,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "brakes_front",
+          "value": "Brembo4pistonventilated disc,ABS/EBD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "Brembo2pistonventilated disc,ABS/EBD",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "front_brake_diameter",
+          "value": 320,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "rear_brake_diameter",
+          "value": 300,
+          "unit": "mm",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/45R17 93W YokohamaAdvan",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "tire_rear",
+          "value": "235/45R17 93W YokohamaAdvan",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheel_front",
+          "value": "17×8JJ offset+38mm",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "17×8JJ offset+38mm",
+          "unit": null,
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 13,
+          "unit": "ratio",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "turning_circle",
+          "value": 11.8,
+          "unit": "m",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 53,
+          "unit": "L",
+          "source_id": "j09-mitsubishi-press"
+        },
+        {
+          "field": "related_mr_test_acceleration_0_60_mph",
+          "value": 4.6,
+          "unit": "s",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_quarter_mile_time",
+          "value": 13.4,
+          "unit": "s",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_quarter_mile_trap",
+          "value": 104,
+          "unit": "mph",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        },
+        {
+          "field": "related_mr_test_braking_70_0_mph",
+          "value": 155,
+          "unit": "ft",
+          "source_id": "j09-cd-mr-test",
+          "note": "Observed 2006 Evolution IX MR 6MT, Car and Driver test equipment at Mitsubishi Okazaki track. This is a related trim; reference standard IX uses5MT. Not automatically applicable to MCLA asset."
+        }
+      ],
+      "sources": [
+        {
+          "id": "j09-mitsubishi-press",
+          "url": "https://www.theautochannel.com/news/2005/08/11/140100.html",
+          "title": "Mitsubishi2006LancerEvolutionIX technical specifications,updated8/3/05",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_press_material_reproduced",
+          "evidence_excerpt": "Technical data, features, options and other equipment listed in this document are based on the latest information available",
+          "date": "2005-08-03",
+          "note": "Retrieved full HTML with urllib after web429. Source is contemporary manufacturer-format press material mirrored by TheAutoChannel;not an instrumented roadtest. StandardIX column, notMR orRS.",
+          "retrieval_sha256": "6e3b044fb07cb8958dd1b8dcaa22c6b79a041301065ea609a1d5e198256282a5",
+          "retrieved_bytes": 402189
+        },
+        {
+          "id": "j09-cd-mr-test",
+          "url": "https://www.caranddriver.com/reviews/a18202877/2006-mitsubishi-lancer-evolution-ix-first-drive-review/",
+          "title": "Car and Driver2006EvolutionIXMR instrumentedtest,May2005issue",
+          "accessed": "2026-10-23",
+          "date": "2005-05",
+          "source_type": "instrumented_test_primary",
+          "evidence_excerpt": "TRANSMISSION 6-speed manual",
+          "note": "Related MR6MT,not the standardIX5MTreference.Car and Driver test equipment atMitsubishiOkazakiTrack,Japan;do notapplyto5MTasset automatically."
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j10",
+      "name": "Mitsubishi 3000GT VR-4",
+      "year": 1999,
+      "market": "United States",
+      "variant": "US3000GTVR4 sixspeed",
+      "vehicle_type": "AWD grand tourer",
+      "asset_codes": [
+        "MCLA_VP_MIT_3000GT_99",
+        "GT4_MITS0069"
+      ],
+      "asset_mappings": [
+        {
+          "code": "MCLA_VP_MIT_3000GT_99",
+          "game": "midnight-club-los-angeles",
+          "catalog_name": "1999 3000GT VR-4",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "GT4_MITS0069",
+          "game": "gran-turismo-4",
+          "catalog_name": "Mitsubishi 3000GT    VR-4 Turbo (J) '98",
+          "match": "related_variant_not_exact",
+          "reason": "1998JapaneseVR4Turbo(J);differentmarket,powerratingandyear"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "US1999VR4;GT4 Japanese VR4Turbo(J)1998 is a related differentmarket/year configuration, not the same powergrade.",
+      "facts": [
+        {
+          "field": "engine_configuration",
+          "value": "3.0LDOHC24valve V6twinturbo intercooler",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "power_hp",
+          "value": 320,
+          "unit": "hp",
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "torque_lbft",
+          "value": 315,
+          "unit": "lb ft",
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 2500,
+          "unit": "rpm",
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "layout",
+          "value": "front engine full-time all-wheel drive",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independentMacPhersonstrut",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "steering",
+          "value": "power rackandpinion;4wheelsteering",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "245/40ZR18",
+          "unit": null,
+          "source_id": "j10-mitsubishi-brochure"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j10-mitsubishi-brochure",
+          "url": "https://importarchive.com/brochure/mitsubishi3000gt1999_01",
+          "title": "Mitsubishi1999 3000GT brochure MMSA-ADV-99504 page12",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "SPECIFICATIONS",
+          "date": "1999",
+          "note": "Public400pixel page12 scan inspected. Only legible values transcribed;fine-print gearing/mass deliberately not guessed from tinyimage.",
+          "retrieval_sha256": "3014afc74d609821f0fccfd328b4a86633e3d78429df5135861b1430ae3bed89",
+          "retrieved_bytes": 32900,
+          "specification_image_url": "https://importarchive.com/brochures/mitsubishi/mitsubishi3000gt1999_01/mitsubishi3000gt1999_01_012.jpg",
+          "specification_image_sha256": "73f664bf48b0d9cfac1207f67ca33462d3ca50647f749156bd0613a77f3c3257",
+          "specification_image_dimensions": [
+            400,
+            515
+          ]
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "vehicle_mass;brochure row too small for trustworthy transcription",
+        "length_width_height_wheelbase_tracks;need higherresolution original",
+        "gear_ratios",
+        "final_drive_ratio"
+      ]
+    },
+    {
+      "id": "j11",
+      "name": "Subaru Impreza Sedan WRX STi",
+      "year": 2002,
+      "market": "Japan",
+      "variant": "GH-GDB GDType II,November2002 regularSTi",
+      "vehicle_type": "AWD sports sedan",
+      "asset_codes": [
+        "GT4_SUBR0001",
+        "GT_SIMULATION__SIPBN",
+        "GT_SIMULATION__SIPSN"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_SUBR0001",
+          "game": "gran-turismo-4",
+          "catalog_name": "Subaru IMPREZA Sedan WRX STi (GD, Type-II) '02",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "GT_SIMULATION__SIPBN",
+          "game": "gran-turismo",
+          "catalog_name": "IMPREZA '96 Sedan WRX-STi version III",
+          "match": "related_variant_not_exact",
+          "reason": "1996STiVersionIII;differentgeneration"
+        },
+        {
+          "code": "GT_SIMULATION__SIPSN",
+          "game": "gran-turismo",
+          "catalog_name": "IMPREZA '95 Sedan WRX-STi version II",
+          "match": "related_variant_not_exact",
+          "reason": "1995STiVersionII;differentgeneration"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "Type II matched toNovember2002Japanese facelift;not US2004STi nor lightenedSpecC.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4415,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "width",
+          "value": 1740,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "height",
+          "value": 1425,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2525,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "track_front",
+          "value": 1490,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "track_rear",
+          "value": 1485,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1440,
+          "unit": "kg",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "engine_code",
+          "value": "EJ20",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "flat 4 DOHC16valve turbo",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "displacement",
+          "value": 1994,
+          "unit": "cm3",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "bore",
+          "value": 92,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "stroke",
+          "value": 75,
+          "unit": "mm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8,
+          "unit": "ratio",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "power_kw",
+          "value": 206,
+          "unit": "kW net",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "torque_nm",
+          "value": 394,
+          "unit": "N m",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4400,
+          "unit": "rpm",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "layout",
+          "value": "full-time AWD",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.636,
+            2.375,
+            1.761,
+            1.346,
+            1.062,
+            0.842
+          ],
+          "unit": "ratio",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.545,
+          "unit": "ratio",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.9,
+          "unit": "ratio",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "tire_front",
+          "value": "225/45ZR17",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/45ZR17",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independentstrut",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independentstrut",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 60,
+          "unit": "L",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.4,
+          "unit": "m",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "seats",
+          "value": 5,
+          "unit": "persons",
+          "source_id": "j11-subaru-catalog"
+        },
+        {
+          "field": "turbo",
+          "value": "twin-scroll",
+          "unit": null,
+          "source_id": "j11-subaru-launch"
+        },
+        {
+          "field": "center_differential",
+          "value": "automaticDCCD optional onregularSTi;standardSpecC17",
+          "unit": null,
+          "source_id": "j11-subaru-launch"
+        },
+        {
+          "field": "differential_options",
+          "value": "enlargedfrontSuretrac/rearmechanicalLSD optionalregularSTi,standardSpecC",
+          "unit": null,
+          "source_id": "j11-subaru-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j11-subaru-catalog",
+          "url": "https://ucar.subaru.jp/php/catalog/grade.php?cat_id=4502753",
+          "title": "Subaruofficial usedcar catalogNovember2002WRXSTi",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_hosted_catalog",
+          "evidence_excerpt": "車両重量 1440kg",
+          "date": "2002-11"
+        },
+        {
+          "id": "j11-subaru-launch",
+          "url": "https://www.subaru.co.jp/news/archives/02_10_12/02_11_01.htm/",
+          "title": "Subaru Impreza revisedseries announcement",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "ドライバーズコントロールセンターデフ［オートモード付］方式4WD",
+          "date": "2002-11-01"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j12",
+      "name": "Subaru Impreza Rally Car",
+      "year": 2003,
+      "market": "Japan",
+      "variant": "Subaru ImprezaWRC2003,FIA A5652 extension02/01WR",
+      "vehicle_type": "World Rally Car",
+      "asset_codes": [
+        "GT4_SUBR0003"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_SUBR0003",
+          "game": "gran-turismo-4",
+          "catalog_name": "Subaru IMPREZA Rally Car '03",
+          "match": "catalog_identity_with_caveat"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "Competitioncar;never inherit roadSTi mass,power,torque,gearing,tires or torque split. Event/surface setup is unresolved.",
+      "facts": [
+        {
+          "field": "homologation_number",
+          "value": "A5652/02-01WR",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "homologation_effective",
+          "value": "2003-01-01",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "displacement",
+          "value": 1994.3,
+          "unit": "cm3",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "width",
+          "value": 1770,
+          "unit": "mm",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "width_measurement",
+          "value": "frontwing atfront axle;body front/rear1770",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "bore",
+          "value": 92,
+          "unit": "mm",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "stroke",
+          "value": 75,
+          "unit": "mm",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "layout",
+          "value": "4WD,frontand rear driven",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "turbo",
+          "value": "IHI RX",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "fuel_injection",
+          "value": "electronic,4effectivefueloutlets,manifoldinjectors",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "intake_manifold",
+          "value": "magnesiumalloy",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "throttle_diameter_mm",
+          "value": 60,
+          "unit": "mm",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "water_injection",
+          "value": "manifoldorintercooler;reservoir6.0±2.0L",
+          "unit": null,
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "flywheel_minimum_mass_g",
+          "value": 3160,
+          "unit": "g",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "crankshaft_minimum_bare_mass_g",
+          "value": 7330,
+          "unit": "g",
+          "source_id": "j12-fia-homologation"
+        },
+        {
+          "field": "connecting_rod_minimum_mass_g",
+          "value": 574,
+          "unit": "g",
+          "source_id": "j12-fia-homologation"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j12-fia-homologation",
+          "url": "https://historicdb.fia.com/sites/default/files/car_attachment/1601041801/homologation_form_number_5652_group_a.pdf",
+          "title": "FIA/JAF A5652,02/01WR WRC2003 extension,PDF54–70",
+          "accessed": "2026-10-23",
+          "source_type": "homologation_primary",
+          "evidence_excerpt": "SUBARU IMPREZA WRC 2003",
+          "date": "2003-01-01",
+          "note": "220pagecombinedhomologation;facts taken only02/01WR extension,not baseGDA or laterWRC2004/2005. PDF54=extension1;62=borestroke;64=injection;68=driven wheels. X X X fields treated unknown."
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "vehicle_mass",
+        "length",
+        "height",
+        "wheelbase",
+        "tracks",
+        "power",
+        "torque",
+        "event-specifictires",
+        "gear_ratios",
+        "final_drive_ratio",
+        "differentialsettings",
+        "brakepackage",
+        "suspensionrates"
+      ]
+    },
+    {
+      "id": "j13",
+      "name": "Subaru Impreza 22B-STi Version",
+      "year": 1998,
+      "market": "Japan",
+      "variant": "E-GC8modified22B5MT",
+      "vehicle_type": "AWD sports coupe",
+      "asset_codes": [
+        "GT4_SUBR0019"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_SUBR0019",
+          "game": "gran-turismo-4",
+          "catalog_name": "Subaru IMPREZA Premium Sport Coupe 22B-STi Version (GC) '98",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4365,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "width",
+          "value": 1770,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "height",
+          "value": 1390,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2520,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "track_front",
+          "value": 1480,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "track_rear",
+          "value": 1500,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 140,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1270,
+          "unit": "kg",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量;gross1545kg",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "seats",
+          "value": 5,
+          "unit": "persons",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "engine_code",
+          "value": "EJ22modified",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "flat 4 DOHC intercooled turbo",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "displacement",
+          "value": 2212,
+          "unit": "cm3",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "bore",
+          "value": 96.9,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "stroke",
+          "value": 75,
+          "unit": "mm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8,
+          "unit": "ratio",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "power_ps",
+          "value": 280,
+          "unit": "PS net",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 37,
+          "unit": "kgf m",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3200,
+          "unit": "rpm",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "layout",
+          "value": "front engineAWD,DCCD",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "free_center_front_torque_percent",
+          "value": 35,
+          "unit": "%",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.083,
+            2.062,
+            1.545,
+            1.151,
+            0.825
+          ],
+          "unit": "ratio",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.416,
+          "unit": "ratio",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.444,
+          "unit": "ratio",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "suspension_front",
+          "value": "independentstrut,Bilstein inverted dampers,Eibach springs",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "independentstrut,Bilstein inverted dampers,Eibach springs",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "tire_front",
+          "value": "235/40ZR17PirelliPZero",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "tire_rear",
+          "value": "235/40ZR17PirelliPZero",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "wheel_front",
+          "value": "17×8.5JJforgedBBS",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "17×8.5JJforgedBBS",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 13,
+          "unit": "ratio",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.2,
+          "unit": "m",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 60,
+          "unit": "L",
+          "source_id": "j13-subaru-launch"
+        },
+        {
+          "field": "rear_spoiler_adjustment",
+          "value": "2positions,17degreeincidencechange",
+          "unit": null,
+          "source_id": "j13-subaru-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j13-subaru-launch",
+          "url": "https://www.subaru.co.jp/news/archives/98_1_3/3_16_1.html",
+          "title": "Subaru 22B-STiVersion launch andfull specification",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "デフフリー時はＦ：Ｒ＝35：65",
+          "date": "1998-03-16"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j14",
+      "name": "Toyota MR2 GT-S",
+      "year": 1997,
+      "market": "Japan",
+      "variant": "E-SW20 GT-S December1997 hardtop",
+      "vehicle_type": "midengine sports coupe",
+      "asset_codes": [
+        "GT4_TOYT0026",
+        "GT_SIMULATION__TMR2N"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_TOYT0026",
+          "game": "gran-turismo-4",
+          "catalog_name": "Toyota MR2 GT-S '97",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "GT_SIMULATION__TMR2N",
+          "game": "gran-turismo",
+          "catalog_name": "MR2 GT-S",
+          "match": "related_variant_not_exact",
+          "reason": "sameMR2GT-Sname,butyearnotlabeled"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "ReferenceDecember1997facelift;GT1GT-S has noyearlabel andmust be related/unresolved ratherthan exactyear.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4170,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "width",
+          "value": 1695,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "height",
+          "value": 1235,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2400,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "track_front",
+          "value": 1470,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "track_rear",
+          "value": 1450,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1270,
+          "unit": "kg",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "engine_code",
+          "value": "3S-GTE",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "inline 4DOHC16valve intercooled turbo",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "displacement",
+          "value": 1998,
+          "unit": "cm3",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "bore",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "stroke",
+          "value": 86,
+          "unit": "mm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.5,
+          "unit": "ratio",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "power_ps",
+          "value": 245,
+          "unit": "PS net",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "power_kw",
+          "value": 180,
+          "unit": "kW net",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "torque_nm",
+          "value": 304,
+          "unit": "N m",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4000,
+          "unit": "rpm",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "layout",
+          "value": "mid-engine,rear-wheel drive",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.285,
+          "unit": "ratio",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.545,
+          "unit": "ratio",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "differential",
+          "value": "LSDstandard",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "suspension_front",
+          "value": "strutcoil",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "strutcoil",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "tire_front",
+          "value": "195/55R15 84V",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "tire_rear",
+          "value": "225/50R15 91V",
+          "unit": null,
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "turning_radius",
+          "value": 4.9,
+          "unit": "m",
+          "source_id": "j14-toyota-catalog"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 54,
+          "unit": "L",
+          "source_id": "j14-toyota-catalog"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j14-toyota-catalog",
+          "url": "https://gazoo.com/catalog/maker/TOYOTA/MR2/198910/1002263/",
+          "title": "Toyota GAZOO December1997MR2GT-S",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_hosted_catalog",
+          "evidence_excerpt": "最高出力 245ps(180kW)/6000rpm",
+          "date": "1997-12"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "gear_ratios"
+      ]
+    },
+    {
+      "id": "j15",
+      "name": "Toyota MR2 V Edition",
+      "year": 2002,
+      "market": "Japan",
+      "variant": "Japan MR-S TA-ZZW30 VEdition6MT August2002",
+      "vehicle_type": "midengine roadster",
+      "asset_codes": [
+        "GT4_TOYT0071",
+        "REDLINE_ADDON_054_TOYOTA_MR2_SPYDER_V_1_0_ZIP_TOYOTA_MR2_0851A2D424FB_C99668FA944D7C65"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_TOYT0071",
+          "game": "gran-turismo-4",
+          "catalog_name": "Toyota MR2 V Edition (J) '02",
+          "match": "catalog_identity_with_caveat"
+        },
+        {
+          "code": "REDLINE_ADDON_054_TOYOTA_MR2_SPYDER_V_1_0_ZIP_TOYOTA_MR2_0851A2D424FB_C99668FA944D7C65",
+          "game": "redline",
+          "catalog_name": "2005 Toyota MR2 Spyder",
+          "match": "related_variant_not_exact",
+          "reason": "communityaddon;year/market/trimorstockstatusdiffersorunresolved"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "GT4localized MR2VEdition refers toJapan MR-S. Redline2005MR2Spyder isdifferentyearandUSmarket;2ZZaddon ismodifiedandmustnotusethe1ZZprofile.",
+      "facts": [
+        {
+          "field": "length",
+          "value": 3895,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "width",
+          "value": 1695,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "height",
+          "value": 1235,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2450,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "track_front",
+          "value": 1475,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "track_rear",
+          "value": 1460,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 980,
+          "unit": "kg",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "engine_code",
+          "value": "1ZZ-FE",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "naturally aspirated inline 4DOHC",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "displacement",
+          "value": 1794,
+          "unit": "cm3",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "bore",
+          "value": 79,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "stroke",
+          "value": 91.5,
+          "unit": "mm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10,
+          "unit": "ratio",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "power_ps",
+          "value": 140,
+          "unit": "PS net",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "power_kw",
+          "value": 103,
+          "unit": "kW net",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6400,
+          "unit": "rpm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "torque_nm",
+          "value": 171,
+          "unit": "N m",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4400,
+          "unit": "rpm",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "layout",
+          "value": "mid-engine,rear-wheel drive",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "transmission",
+          "value": "6MT",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.312,
+          "unit": "ratio",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.25,
+          "unit": "ratio",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "differential",
+          "value": "LSDoptional",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "suspension_front",
+          "value": "strutcoil",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "strutcoil",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "tire_front",
+          "value": "185/55R15 81V",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "tire_rear",
+          "value": "215/45R16 86W",
+          "unit": null,
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5,
+          "unit": "m",
+          "source_id": "j15-toyota-catalog"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 48,
+          "unit": "L",
+          "source_id": "j15-toyota-catalog"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j15-toyota-catalog",
+          "url": "https://gazoo.com/catalog/maker/TOYOTA/MRS/199910/1011294/",
+          "title": "Toyota GAZOO August2002MR-SVEdition6MT",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_hosted_catalog",
+          "evidence_excerpt": "トランスミッション 6速マニュアル",
+          "date": "2002-08"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test",
+        "gear_ratios"
+      ]
+    },
+    {
+      "id": "j16",
+      "name": "Suzuki Cappuccino",
+      "year": 1995,
+      "market": "Japan",
+      "variant": "E-EA21R K6A5MT",
+      "vehicle_type": "kei roadster",
+      "asset_codes": [
+        "GT4_SUZK0007"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_SUZK0007",
+          "game": "gran-turismo-4",
+          "catalog_name": "Suzuki Cappuccino (EA21R) '95",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 3295,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "width",
+          "value": 1395,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "height",
+          "value": 1185,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2060,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "track_front",
+          "value": 1210,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "track_rear",
+          "value": 1210,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 135,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 690,
+          "unit": "kg",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量,5MT; optional ABS / airbag/LSD700kg",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "mass_automatic",
+          "value": 700,
+          "unit": "kg",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "seats",
+          "value": 2,
+          "unit": "persons",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "engine_code",
+          "value": "K6A",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "water-cooled inline 3DOHC12valveintercooled turbo",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "displacement",
+          "value": 658,
+          "unit": "cm3",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "bore",
+          "value": 68,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "stroke",
+          "value": 60.4,
+          "unit": "mm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 8.4,
+          "unit": "ratio",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "power_ps",
+          "value": 64,
+          "unit": "PS net",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 10.5,
+          "unit": "kgf m",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3500,
+          "unit": "rpm",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "layout",
+          "value": "front engine,rear-wheel drive",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.478,
+            2.021,
+            1.352,
+            1,
+            0.79
+          ],
+          "unit": "ratio",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.26,
+          "unit": "ratio",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 5.125,
+          "unit": "ratio",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbonecoil",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbonecoil",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "solid disc",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "165/65R14 79H",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "165/65R14 79H",
+          "unit": null,
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 30,
+          "unit": "L",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "turning_radius",
+          "value": 4.4,
+          "unit": "m",
+          "source_id": "j16-suzuki-brochure"
+        },
+        {
+          "field": "front_weight_fraction",
+          "value": 51,
+          "unit": "%",
+          "source_id": "j16-suzuki-mechanism",
+          "note": "Explicitly2occupants aboard;not curb weight distribution."
+        },
+        {
+          "field": "differential",
+          "value": "TorsenLSD optional5MT withABS / airbagpackage",
+          "unit": null,
+          "source_id": "j16-suzuki-mechanism"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j16-suzuki-brochure",
+          "url": "https://images.jdm-catalogues.com/suzuki/cappuccino/suzuki_cappuccino_ea21r/images/l/page.5.webp",
+          "title": "SuzukiCappuccino May1995brochure,finalspecificationpanel",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "E-EA21R",
+          "date": "1995-05",
+          "note": "Finalpanel imagepage.5.webp visuallyinspected;3ATcolumnexcludedexcept explicitlyseparate mass. Bracketed700kgmanual isABS / airbag/LSDoptionpackage.",
+          "evidence_page": "Final specification panel of original May1995Suzuki brochure",
+          "retrieval_sha256": "fc49fbbf981b32b900f709a79fa0ecf8c35fa108bada1ec2d6dbb4de19d929e2",
+          "retrieved_bytes": 177088
+        },
+        {
+          "id": "j16-suzuki-mechanism",
+          "url": "https://images.jdm-catalogues.com/suzuki/cappuccino/suzuki_cappuccino_ea21r/images/l/page.4.webp",
+          "title": "Suzuki1995Cappuccino brochure EngineandMechanism pages5–6",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_brochure_archived",
+          "evidence_excerpt": "前後重量配分51：49",
+          "date": "1995-05",
+          "retrieval_sha256": "a55bb28c847427c7665c8dbe363afdf1cb0a55ff68039fb61535ffc8de7dbd07",
+          "retrieved_bytes": 463152
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    },
+    {
+      "id": "j17",
+      "name": "Honda Civic Type R",
+      "year": 1997,
+      "market": "Japan",
+      "variant": "E-EK9 B16B5MT",
+      "vehicle_type": "frontdrive hot hatch",
+      "asset_codes": [
+        "GT4_HOND0082"
+      ],
+      "asset_mappings": [
+        {
+          "code": "GT4_HOND0082",
+          "game": "gran-turismo-4",
+          "catalog_name": "Honda CIVIC TYPE R (EK) '97",
+          "match": "exact_named_model_year_trim"
+        }
+      ],
+      "identity_status": "catalog_name_verified_real_configuration_documented",
+      "identity_notes": "",
+      "facts": [
+        {
+          "field": "length",
+          "value": 4180,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "width",
+          "value": 1695,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "height",
+          "value": 1360,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2620,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "track_front",
+          "value": 1480,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "track_rear",
+          "value": 1480,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "ground_clearance",
+          "value": 135,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "vehicle_mass",
+          "value": 1050,
+          "unit": "kg",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "mass_basis",
+          "value": "Japanese 車両重量,Type Rwithpower steeringlessoptions;racebase1040kg,fullAC/ABS / airbag1090kg",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "seats",
+          "value": 4,
+          "unit": "persons",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "engine_code",
+          "value": "B16B",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "engine_configuration",
+          "value": "transversewater-cooled inline 4DOHCVTEC",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "displacement",
+          "value": 1595,
+          "unit": "cm3",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "bore",
+          "value": 81,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "stroke",
+          "value": 77.4,
+          "unit": "mm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "compression_ratio",
+          "value": 10.8,
+          "unit": "ratio",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "power_ps",
+          "value": 185,
+          "unit": "PS net",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "power_rpm",
+          "value": 8200,
+          "unit": "rpm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "torque_kgfm",
+          "value": 16.3,
+          "unit": "kgf m",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 7500,
+          "unit": "rpm",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "transmission",
+          "value": "5MT",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.23,
+            2.105,
+            1.458,
+            1.107,
+            0.848
+          ],
+          "unit": "ratio",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3,
+          "unit": "ratio",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.4,
+          "unit": "ratio",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "fuel_capacity",
+          "value": 45,
+          "unit": "L",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "tire_front",
+          "value": "195/55R15 84V",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "tire_rear",
+          "value": "195/55R15 84V",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "suspension_front",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "suspension_rear",
+          "value": "double wishbone",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "brakes_front",
+          "value": "ventilated disc",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "brakes_rear",
+          "value": "solid disc",
+          "unit": null,
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "turning_radius",
+          "value": 5.4,
+          "unit": "m",
+          "source_id": "j17-honda-spec"
+        },
+        {
+          "field": "differential",
+          "value": "helicalLSD",
+          "unit": null,
+          "source_id": "j17-honda-launch"
+        }
+      ],
+      "sources": [
+        {
+          "id": "j17-honda-spec",
+          "url": "https://www.honda.co.jp/factbook/auto/CIVIC/19970822/cv97-013.html",
+          "title": "Honda CivicType R August1997 factbook main specifications",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "最高出力(PS/rpm) 185/8,200",
+          "date": "1997-08-22"
+        },
+        {
+          "id": "j17-honda-launch",
+          "url": "https://global.honda/en/newsroom/worldnews/1997/4970822b.html",
+          "title": "Honda1997CivicType R launch",
+          "accessed": "2026-10-23",
+          "source_type": "manufacturer_primary",
+          "evidence_excerpt": "A new high performance 1.6-liter DOHC VTEC engine",
+          "date": "1997-08-22"
+        }
+      ],
+      "unknowns": [
+        "center_of_gravity_height",
+        "inertia_tensor",
+        "tire_force_curves",
+        "spring_rates",
+        "damper_force_velocity_curves",
+        "brake_bias",
+        "drag_area",
+        "acceleration_test",
+        "top_speed_test"
+      ]
+    }
+  ]
+}

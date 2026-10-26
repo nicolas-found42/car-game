@@ -13,8 +13,6 @@ src/presentation.rs:update_audio
 # Python baseline tooling functions (length > 60 NLOC or CCN > 15)
 tools/prepare_assets.py:prepare_car
 tools/prepare_fleet.py:scope_lens_materials
-tools/prepare_fleet.py:materials
-tools/prepare_fleet.py:prepare
 tools/test_fleet_assets.py:test_gt500_complete_rear_window_uses_one_cabin_material
 tools/verify_fleet.py:main
 tools/check_assets.py:check

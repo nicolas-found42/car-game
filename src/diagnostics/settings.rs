@@ -114,7 +114,7 @@ impl RecorderConfig {
             || !(1..=7200).contains(&self.history_ticks)
             || !(1024..=128 * 1024 * 1024).contains(&self.history_bytes)
             || !(1..=65536).contains(&self.history_records)
-            || !(1024..=1024 * 1024 * 1024).contains(&self.finalize_max_bytes)
+            || !(1024..=8 * 1024 * 1024 * 1024).contains(&self.finalize_max_bytes)
             || self.fault.as_ref().is_some_and(|fault| {
                 fault.stage == RecorderFaultStage::Panic && fault.after_records == 0
             })
@@ -154,4 +154,30 @@ impl RecorderFaultStage {
 pub struct RecorderFault {
     pub stage: RecorderFaultStage,
     pub after_records: u64,
+}
+
+/// Only the aggregate fleet report scales with all per-car frame-time samples.
+/// Ordinary metadata, including nested per-car reports, keeps its 2 MiB bound.
+pub(crate) fn metadata_limit(relative: &std::path::Path) -> usize {
+    if relative == std::path::Path::new("report.json") {
+        32 * 1024 * 1024
+    } else {
+        2 * 1024 * 1024
+    }
+}
+
+#[cfg(test)]
+mod metadata_tests {
+    use super::metadata_limit;
+    use std::path::Path;
+
+    #[test]
+    fn aggregate_report_allowance_does_not_expand_other_metadata() {
+        assert_eq!(metadata_limit(Path::new("report.json")), 32 * 1024 * 1024);
+        assert_eq!(
+            metadata_limit(Path::new("cars/report.json")),
+            2 * 1024 * 1024
+        );
+        assert_eq!(metadata_limit(Path::new("manifest.json")), 2 * 1024 * 1024);
+    }
 }

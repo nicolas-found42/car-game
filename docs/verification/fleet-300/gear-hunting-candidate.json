@@ -1,0 +1,10 @@
+{
+  "car": "exp-231",
+  "method": "Static kinematic derivation from exact production drive_force thresholds; not a retained full tick trace.",
+  "first_upshift_rpm": 8740.0,
+  "second_gear_landing_rpm": 5296.969696969697,
+  "second_downshift_threshold_rpm": 5330.0,
+  "first_upshift_kmh": 85.67555069089154,
+  "observed_20_second_speed_kmh": 85.71082763671875,
+  "prediction": "Second gear immediately falls below downshift threshold, resetting shift delay. First/second hunting is a supported next diagnosis; unknown GT1 ratios remain estimates."
+}

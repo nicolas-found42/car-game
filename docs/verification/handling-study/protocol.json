@@ -1,0 +1,965 @@
+{
+  "schema": 1,
+  "commit": "2342545363c225929963d16b5a05ca26e0ca2798",
+  "binary": "/Users/nicolas/.codex/worktrees/130e/car-game/target/debug/car-game",
+  "binary_sha256": "cc39892dee1beca073caf9cdb91e3f52674e640a9e53e377be1e97b6e59f30fc",
+  "roster_sha256": "d13d57b3f666860932e80db383d938be072f70058d3acf2326b5df879623e64a",
+  "repeats": 2,
+  "cases": {
+    "brake": {
+      "action_tick": 960,
+      "end_tick": 1800,
+      "steer": 0.0
+    },
+    "turn-left": {
+      "action_tick": 600,
+      "end_tick": 840,
+      "steer": -0.5
+    },
+    "turn-right": {
+      "action_tick": 600,
+      "end_tick": 840,
+      "steer": 0.5
+    },
+    "fast-left": {
+      "action_tick": 960,
+      "end_tick": 1140,
+      "steer": -0.5
+    },
+    "fast-right": {
+      "action_tick": 960,
+      "end_tick": 1140,
+      "steer": 0.5
+    }
+  },
+  "cars": [
+    "350z",
+    "fr2-cobra",
+    "fr2-fr500",
+    "gt-rx7",
+    "gt-viper",
+    "gt4-m3",
+    "gt4-nsx",
+    "mc3-skyline",
+    "mc3-supra",
+    "mcla-evo",
+    "mcla-skyline",
+    "redline-911",
+    "redline-gt500"
+  ],
+  "backend": "disabled",
+  "fixed_hz": 120,
+  "seed": 17,
+  "tasks": [
+    {
+      "car": "350z",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-350z.json",
+      "scenario_sha256": "d4d0a0e75108b312ff214249280cc5080a09ac9bb267cb1e2290517eea82508d"
+    },
+    {
+      "car": "350z",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-350z.json",
+      "scenario_sha256": "d4d0a0e75108b312ff214249280cc5080a09ac9bb267cb1e2290517eea82508d"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-fr2-cobra.json",
+      "scenario_sha256": "ba1f3fb7777b7697bfc9aba4ac5d6b49ea2321e5a5a68fd0b3e2296b8d91aab5"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-fr2-cobra.json",
+      "scenario_sha256": "ba1f3fb7777b7697bfc9aba4ac5d6b49ea2321e5a5a68fd0b3e2296b8d91aab5"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-fr2-fr500.json",
+      "scenario_sha256": "be368ab74fe849148094612031a02762749bf57b40f735ae36904678ca6c570c"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-fr2-fr500.json",
+      "scenario_sha256": "be368ab74fe849148094612031a02762749bf57b40f735ae36904678ca6c570c"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt-rx7.json",
+      "scenario_sha256": "5af7062cc099eabf31995be996f6d60883135837f174061119622ae04a3b4a49"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt-rx7.json",
+      "scenario_sha256": "5af7062cc099eabf31995be996f6d60883135837f174061119622ae04a3b4a49"
+    },
+    {
+      "car": "gt-viper",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt-viper.json",
+      "scenario_sha256": "56ea0c3684fef6dd6a18a32626c667eb90c110e3442a56bd4b8cd1ecf9586d4b"
+    },
+    {
+      "car": "gt-viper",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt-viper.json",
+      "scenario_sha256": "56ea0c3684fef6dd6a18a32626c667eb90c110e3442a56bd4b8cd1ecf9586d4b"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt4-m3.json",
+      "scenario_sha256": "12bdb02c9f64c9ae39bf199f8b494364722cc6b5a515c30e0c07322123472d9b"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt4-m3.json",
+      "scenario_sha256": "12bdb02c9f64c9ae39bf199f8b494364722cc6b5a515c30e0c07322123472d9b"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt4-nsx.json",
+      "scenario_sha256": "0accf1c34b2757fcff5c11980189f220d97b93147c0097bcc0923e4ed13e6227"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-gt4-nsx.json",
+      "scenario_sha256": "0accf1c34b2757fcff5c11980189f220d97b93147c0097bcc0923e4ed13e6227"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mc3-skyline.json",
+      "scenario_sha256": "841d204e88d660980f625995a2c38c36f2191ed1d5ce59fb49100baad76683cf"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mc3-skyline.json",
+      "scenario_sha256": "841d204e88d660980f625995a2c38c36f2191ed1d5ce59fb49100baad76683cf"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mc3-supra.json",
+      "scenario_sha256": "4d9ad1862baa9fdcd5ea7341b86ae297f75a873fee0c2a0fc4f5936c074f91f1"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mc3-supra.json",
+      "scenario_sha256": "4d9ad1862baa9fdcd5ea7341b86ae297f75a873fee0c2a0fc4f5936c074f91f1"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mcla-evo.json",
+      "scenario_sha256": "e6f57223313f0c22de1d07d82007db21488e39f860491dedb87aa85efc84d605"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mcla-evo.json",
+      "scenario_sha256": "e6f57223313f0c22de1d07d82007db21488e39f860491dedb87aa85efc84d605"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mcla-skyline.json",
+      "scenario_sha256": "6d0e5a33c14be748e291452a186c80e3c0773cd03c88ea394e4443a4d4f0ef4f"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-mcla-skyline.json",
+      "scenario_sha256": "6d0e5a33c14be748e291452a186c80e3c0773cd03c88ea394e4443a4d4f0ef4f"
+    },
+    {
+      "car": "redline-911",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-redline-911.json",
+      "scenario_sha256": "4995b8b99d6688eab8296433765dd1ca9256f4137f211d379c4266afcef60deb"
+    },
+    {
+      "car": "redline-911",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-redline-911.json",
+      "scenario_sha256": "4995b8b99d6688eab8296433765dd1ca9256f4137f211d379c4266afcef60deb"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "brake",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-redline-gt500.json",
+      "scenario_sha256": "e84b681ceba5d441493563036fd376206d40f79655904c39c0f8b3093d301c7f"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "brake",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/brake-redline-gt500.json",
+      "scenario_sha256": "e84b681ceba5d441493563036fd376206d40f79655904c39c0f8b3093d301c7f"
+    },
+    {
+      "car": "350z",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-350z.json",
+      "scenario_sha256": "6ea94c92b3cfcde63dfd1c226a83d9d3dfd3072d0aea5885d344165941103192"
+    },
+    {
+      "car": "350z",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-350z.json",
+      "scenario_sha256": "6ea94c92b3cfcde63dfd1c226a83d9d3dfd3072d0aea5885d344165941103192"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-fr2-cobra.json",
+      "scenario_sha256": "407b58db111de3809112e9eea43a5c7756c1fc40bdd058dc50259e010cc4d144"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-fr2-cobra.json",
+      "scenario_sha256": "407b58db111de3809112e9eea43a5c7756c1fc40bdd058dc50259e010cc4d144"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-fr2-fr500.json",
+      "scenario_sha256": "163c5c660fbe214380b46c09d4f9d40be2306d24e5d42ecfbd857c636d202f9c"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-fr2-fr500.json",
+      "scenario_sha256": "163c5c660fbe214380b46c09d4f9d40be2306d24e5d42ecfbd857c636d202f9c"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt-rx7.json",
+      "scenario_sha256": "aa47db90f72fce730e758be356e3ab888130258b6a292821ff67eeda1d49fe8d"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt-rx7.json",
+      "scenario_sha256": "aa47db90f72fce730e758be356e3ab888130258b6a292821ff67eeda1d49fe8d"
+    },
+    {
+      "car": "gt-viper",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt-viper.json",
+      "scenario_sha256": "bed73238dda1eed442b26f99ffc776a7b0532d82038987743681ba58ba4f5b6b"
+    },
+    {
+      "car": "gt-viper",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt-viper.json",
+      "scenario_sha256": "bed73238dda1eed442b26f99ffc776a7b0532d82038987743681ba58ba4f5b6b"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt4-m3.json",
+      "scenario_sha256": "1ab1f518a4c1d095ab439ef3b39245c9bb2ff4e8acf3f7adfd4d6ffc42becd66"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt4-m3.json",
+      "scenario_sha256": "1ab1f518a4c1d095ab439ef3b39245c9bb2ff4e8acf3f7adfd4d6ffc42becd66"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt4-nsx.json",
+      "scenario_sha256": "d29829b4bb3320a16e46299b47f1c52126a1e149830ddaf0853a7d4943d214e6"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-gt4-nsx.json",
+      "scenario_sha256": "d29829b4bb3320a16e46299b47f1c52126a1e149830ddaf0853a7d4943d214e6"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mc3-skyline.json",
+      "scenario_sha256": "334b2efd58cce67363b52b54a812d3d790d6ef6d7e00f47c547589b8172a6c3e"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mc3-skyline.json",
+      "scenario_sha256": "334b2efd58cce67363b52b54a812d3d790d6ef6d7e00f47c547589b8172a6c3e"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mc3-supra.json",
+      "scenario_sha256": "fc7df4525649fb8b3b598a43fcd38813239b9668568de955ae13c49927bfb8a9"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mc3-supra.json",
+      "scenario_sha256": "fc7df4525649fb8b3b598a43fcd38813239b9668568de955ae13c49927bfb8a9"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mcla-evo.json",
+      "scenario_sha256": "8a12bc1f9d019bf48ff607795802c2a55ae58530aadbdd054dc5172e9a1766b8"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mcla-evo.json",
+      "scenario_sha256": "8a12bc1f9d019bf48ff607795802c2a55ae58530aadbdd054dc5172e9a1766b8"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mcla-skyline.json",
+      "scenario_sha256": "2f120c82e75dda8ff4a6d17e2ddee563710a0570e01f162ad770b63472a87d57"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-mcla-skyline.json",
+      "scenario_sha256": "2f120c82e75dda8ff4a6d17e2ddee563710a0570e01f162ad770b63472a87d57"
+    },
+    {
+      "car": "redline-911",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-redline-911.json",
+      "scenario_sha256": "26d207f39d1cffca1d172086e5fbcec64e8d1bb0bca4f77cd8c6d2deea9f67a2"
+    },
+    {
+      "car": "redline-911",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-redline-911.json",
+      "scenario_sha256": "26d207f39d1cffca1d172086e5fbcec64e8d1bb0bca4f77cd8c6d2deea9f67a2"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "turn-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-redline-gt500.json",
+      "scenario_sha256": "5efff2b1e890e97d8efc71358d8e612a5b23c05461e8e1bbbbf51218d13b766c"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "turn-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-left-redline-gt500.json",
+      "scenario_sha256": "5efff2b1e890e97d8efc71358d8e612a5b23c05461e8e1bbbbf51218d13b766c"
+    },
+    {
+      "car": "350z",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-350z.json",
+      "scenario_sha256": "7e13bb84957365e426052ba1edc630fec86c4cf36b289cad6740052b525e9ca2"
+    },
+    {
+      "car": "350z",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-350z.json",
+      "scenario_sha256": "7e13bb84957365e426052ba1edc630fec86c4cf36b289cad6740052b525e9ca2"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-fr2-cobra.json",
+      "scenario_sha256": "3eb27250daf85610f7f48684a6f10d9067db513a7410af4bb6c9ca9b95603e24"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-fr2-cobra.json",
+      "scenario_sha256": "3eb27250daf85610f7f48684a6f10d9067db513a7410af4bb6c9ca9b95603e24"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-fr2-fr500.json",
+      "scenario_sha256": "af70460b4652dd5a10668a78084e6fd18588337316435d61c6d194809ea6574e"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-fr2-fr500.json",
+      "scenario_sha256": "af70460b4652dd5a10668a78084e6fd18588337316435d61c6d194809ea6574e"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt-rx7.json",
+      "scenario_sha256": "de94deb8a6e66fc611b506edb24992572744f4b71570ea718a1a48a04a630484"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt-rx7.json",
+      "scenario_sha256": "de94deb8a6e66fc611b506edb24992572744f4b71570ea718a1a48a04a630484"
+    },
+    {
+      "car": "gt-viper",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt-viper.json",
+      "scenario_sha256": "f5158188180adc7c7071a03ebb105ed68cb7e99f04bb3927d7334b90e212ea79"
+    },
+    {
+      "car": "gt-viper",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt-viper.json",
+      "scenario_sha256": "f5158188180adc7c7071a03ebb105ed68cb7e99f04bb3927d7334b90e212ea79"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt4-m3.json",
+      "scenario_sha256": "5b4af7b78d052b87bad0752b65b86e25de617e298646e92df2badcb6e37ccce9"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt4-m3.json",
+      "scenario_sha256": "5b4af7b78d052b87bad0752b65b86e25de617e298646e92df2badcb6e37ccce9"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt4-nsx.json",
+      "scenario_sha256": "54e36e3211c131c6e0b8ada3c670ed706fa890c5c2798b1707f4aa60dbc9e726"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-gt4-nsx.json",
+      "scenario_sha256": "54e36e3211c131c6e0b8ada3c670ed706fa890c5c2798b1707f4aa60dbc9e726"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mc3-skyline.json",
+      "scenario_sha256": "b9d757a66366131f479f10a6722356afaf211f2be92dd4a2b9479a92503d51b7"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mc3-skyline.json",
+      "scenario_sha256": "b9d757a66366131f479f10a6722356afaf211f2be92dd4a2b9479a92503d51b7"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mc3-supra.json",
+      "scenario_sha256": "74014ac5799417bd765739ce70e282c9548fbb78e529a700eefa2158ac731410"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mc3-supra.json",
+      "scenario_sha256": "74014ac5799417bd765739ce70e282c9548fbb78e529a700eefa2158ac731410"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mcla-evo.json",
+      "scenario_sha256": "6205033f975d534f8345ef79ce630b596609d44bd95bd1300282e1be5e6cbe01"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mcla-evo.json",
+      "scenario_sha256": "6205033f975d534f8345ef79ce630b596609d44bd95bd1300282e1be5e6cbe01"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mcla-skyline.json",
+      "scenario_sha256": "11b3e84c4a751497fd6d44a9587ae4e09400cf9de87739227392e40df29a846b"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-mcla-skyline.json",
+      "scenario_sha256": "11b3e84c4a751497fd6d44a9587ae4e09400cf9de87739227392e40df29a846b"
+    },
+    {
+      "car": "redline-911",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-redline-911.json",
+      "scenario_sha256": "e8b331d89adc940e3c781f9d581e2120da952d15ede1249d1538803afae55b1d"
+    },
+    {
+      "car": "redline-911",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-redline-911.json",
+      "scenario_sha256": "e8b331d89adc940e3c781f9d581e2120da952d15ede1249d1538803afae55b1d"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "turn-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-redline-gt500.json",
+      "scenario_sha256": "45f1ef45e1c3d6444d5060dca7f8b8a5f39212261c9e4c4fe9d4df6305605d36"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "turn-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/turn-right-redline-gt500.json",
+      "scenario_sha256": "45f1ef45e1c3d6444d5060dca7f8b8a5f39212261c9e4c4fe9d4df6305605d36"
+    },
+    {
+      "car": "350z",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-350z.json",
+      "scenario_sha256": "7e21051b6e1efda9d974be819c3546a3d6224eda7c1ea35d35c7bfa330e16732"
+    },
+    {
+      "car": "350z",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-350z.json",
+      "scenario_sha256": "7e21051b6e1efda9d974be819c3546a3d6224eda7c1ea35d35c7bfa330e16732"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-fr2-cobra.json",
+      "scenario_sha256": "32355c86708f9bcd4e56fa53f4ef251f814a33dcca6d14434711c331abcb393c"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-fr2-cobra.json",
+      "scenario_sha256": "32355c86708f9bcd4e56fa53f4ef251f814a33dcca6d14434711c331abcb393c"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-fr2-fr500.json",
+      "scenario_sha256": "4fc917926f831f079da8606162d91bf3bf814b44553d29294cc375ef1c7e5ecd"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-fr2-fr500.json",
+      "scenario_sha256": "4fc917926f831f079da8606162d91bf3bf814b44553d29294cc375ef1c7e5ecd"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt-rx7.json",
+      "scenario_sha256": "10f480e64f0786bbec0c4abb2dfcc3d3431eca33679b43e241fa3236d0419de5"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt-rx7.json",
+      "scenario_sha256": "10f480e64f0786bbec0c4abb2dfcc3d3431eca33679b43e241fa3236d0419de5"
+    },
+    {
+      "car": "gt-viper",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt-viper.json",
+      "scenario_sha256": "fe5e5b44893bc17d6593705ec35f18720c7ec2d63dcb69fe0d5e8b6c7915457d"
+    },
+    {
+      "car": "gt-viper",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt-viper.json",
+      "scenario_sha256": "fe5e5b44893bc17d6593705ec35f18720c7ec2d63dcb69fe0d5e8b6c7915457d"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt4-m3.json",
+      "scenario_sha256": "fc0b41a96bd7f482dc7f1165abc8942b470dc4214f79ed3856812189a32fe3e2"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt4-m3.json",
+      "scenario_sha256": "fc0b41a96bd7f482dc7f1165abc8942b470dc4214f79ed3856812189a32fe3e2"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt4-nsx.json",
+      "scenario_sha256": "6ee4e962f8aac87dde1d61e35d699eb2e7e99c428ee8119b6b81a23fd4f1743f"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-gt4-nsx.json",
+      "scenario_sha256": "6ee4e962f8aac87dde1d61e35d699eb2e7e99c428ee8119b6b81a23fd4f1743f"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mc3-skyline.json",
+      "scenario_sha256": "1876bcf5971b5cdc3e808e53fa01891a322c8c4bd398f9278d6f0296e67cc7f5"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mc3-skyline.json",
+      "scenario_sha256": "1876bcf5971b5cdc3e808e53fa01891a322c8c4bd398f9278d6f0296e67cc7f5"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mc3-supra.json",
+      "scenario_sha256": "0543b9125d6e4b30bd6bfe252021b34e5e8d1993b9168aa4715faa4d0f995752"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mc3-supra.json",
+      "scenario_sha256": "0543b9125d6e4b30bd6bfe252021b34e5e8d1993b9168aa4715faa4d0f995752"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mcla-evo.json",
+      "scenario_sha256": "5a15ab8dcb9f229b18213e4acb299347997542aa1827b90574bdf444607e7d08"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mcla-evo.json",
+      "scenario_sha256": "5a15ab8dcb9f229b18213e4acb299347997542aa1827b90574bdf444607e7d08"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mcla-skyline.json",
+      "scenario_sha256": "4fbff784685f22c1348302591ab9aa74639c103c8cfa942990a4c5def09f627c"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-mcla-skyline.json",
+      "scenario_sha256": "4fbff784685f22c1348302591ab9aa74639c103c8cfa942990a4c5def09f627c"
+    },
+    {
+      "car": "redline-911",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-redline-911.json",
+      "scenario_sha256": "2419b351d2cc00086a8b57c54859a12c7add9ca566a3ae09931c1a2b4018c470"
+    },
+    {
+      "car": "redline-911",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-redline-911.json",
+      "scenario_sha256": "2419b351d2cc00086a8b57c54859a12c7add9ca566a3ae09931c1a2b4018c470"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "fast-left",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-redline-gt500.json",
+      "scenario_sha256": "9f6d87b2b1c2f80a2b10c5b6e6c2b6312dae72b939535d34542d185da3194dbf"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "fast-left",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-left-redline-gt500.json",
+      "scenario_sha256": "9f6d87b2b1c2f80a2b10c5b6e6c2b6312dae72b939535d34542d185da3194dbf"
+    },
+    {
+      "car": "350z",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-350z.json",
+      "scenario_sha256": "dc6014c715506aa429135711967ad70dce714caf454bed0db88341a929720dd1"
+    },
+    {
+      "car": "350z",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-350z.json",
+      "scenario_sha256": "dc6014c715506aa429135711967ad70dce714caf454bed0db88341a929720dd1"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-fr2-cobra.json",
+      "scenario_sha256": "6f8cba126b2de0bea44fd7ea20edb61e07830ef9d30f9b3a4f96eb9d25f038de"
+    },
+    {
+      "car": "fr2-cobra",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-fr2-cobra.json",
+      "scenario_sha256": "6f8cba126b2de0bea44fd7ea20edb61e07830ef9d30f9b3a4f96eb9d25f038de"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-fr2-fr500.json",
+      "scenario_sha256": "949949cfc019ccd8c22fe6749d6dd68792f8a12a4db6578eec92a8a2c6f06f42"
+    },
+    {
+      "car": "fr2-fr500",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-fr2-fr500.json",
+      "scenario_sha256": "949949cfc019ccd8c22fe6749d6dd68792f8a12a4db6578eec92a8a2c6f06f42"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt-rx7.json",
+      "scenario_sha256": "642d0c4c0ba02f3e299672138e9938e37c65b55b96bf1d2d3cbc9741c8cfeb33"
+    },
+    {
+      "car": "gt-rx7",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt-rx7.json",
+      "scenario_sha256": "642d0c4c0ba02f3e299672138e9938e37c65b55b96bf1d2d3cbc9741c8cfeb33"
+    },
+    {
+      "car": "gt-viper",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt-viper.json",
+      "scenario_sha256": "c0124a9c252023e034603bf09bc63c2ccb5e1000f493e9c6159d553cf1fd097a"
+    },
+    {
+      "car": "gt-viper",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt-viper.json",
+      "scenario_sha256": "c0124a9c252023e034603bf09bc63c2ccb5e1000f493e9c6159d553cf1fd097a"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt4-m3.json",
+      "scenario_sha256": "bcac49344204d2baeb30f22c0e16f8205994aba18c576387ab1a0172afe9f553"
+    },
+    {
+      "car": "gt4-m3",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt4-m3.json",
+      "scenario_sha256": "bcac49344204d2baeb30f22c0e16f8205994aba18c576387ab1a0172afe9f553"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt4-nsx.json",
+      "scenario_sha256": "d3b2a8ba1a15468aa9147542d1b8afe4ba178dbd789c49839dc1ad358c7224f7"
+    },
+    {
+      "car": "gt4-nsx",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-gt4-nsx.json",
+      "scenario_sha256": "d3b2a8ba1a15468aa9147542d1b8afe4ba178dbd789c49839dc1ad358c7224f7"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mc3-skyline.json",
+      "scenario_sha256": "6f8f0e0eff7dad0cdc0cf67723aedfdef246bd2ac898337667b51f2d4ee1e2ee"
+    },
+    {
+      "car": "mc3-skyline",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mc3-skyline.json",
+      "scenario_sha256": "6f8f0e0eff7dad0cdc0cf67723aedfdef246bd2ac898337667b51f2d4ee1e2ee"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mc3-supra.json",
+      "scenario_sha256": "c680da925f99fcb662029810b32a6ca0f49747a369a9b35f307f397858207635"
+    },
+    {
+      "car": "mc3-supra",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mc3-supra.json",
+      "scenario_sha256": "c680da925f99fcb662029810b32a6ca0f49747a369a9b35f307f397858207635"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mcla-evo.json",
+      "scenario_sha256": "af3d8f09310fa836a8c437446d670f9d32ed49836a68d3a8ec847fd53d9126e7"
+    },
+    {
+      "car": "mcla-evo",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mcla-evo.json",
+      "scenario_sha256": "af3d8f09310fa836a8c437446d670f9d32ed49836a68d3a8ec847fd53d9126e7"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mcla-skyline.json",
+      "scenario_sha256": "62430659cc2d1ddea3d5f59cab4d90b377f9974a6bf8b42c35abdd75d4256110"
+    },
+    {
+      "car": "mcla-skyline",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-mcla-skyline.json",
+      "scenario_sha256": "62430659cc2d1ddea3d5f59cab4d90b377f9974a6bf8b42c35abdd75d4256110"
+    },
+    {
+      "car": "redline-911",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-redline-911.json",
+      "scenario_sha256": "0e5ff9377d1ac0594d053cc3aa8dcd0f2d3e635d37509bd16afee81db90b5018"
+    },
+    {
+      "car": "redline-911",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-redline-911.json",
+      "scenario_sha256": "0e5ff9377d1ac0594d053cc3aa8dcd0f2d3e635d37509bd16afee81db90b5018"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "fast-right",
+      "repeat": 1,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-redline-gt500.json",
+      "scenario_sha256": "7ee380d9def185126fc089b3d491d88f266eb1ff6171751846b458355463d86d"
+    },
+    {
+      "car": "redline-gt500",
+      "case": "fast-right",
+      "repeat": 2,
+      "scenario": "artifacts/handling-study-20261023/scenarios/fast-right-redline-gt500.json",
+      "scenario_sha256": "7ee380d9def185126fc089b3d491d88f266eb1ff6171751846b458355463d86d"
+    }
+  ]
+}

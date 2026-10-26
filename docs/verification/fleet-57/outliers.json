@@ -1,0 +1,2922 @@
+{
+  "largest_tilt": [
+    {
+      "car": "ref-a13",
+      "case": "fast-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 22.444227523285758,
+      "peak_speed_mps_range": [
+        22.444227523285758,
+        22.444227523285758
+      ],
+      "final_speed_mps": 22.31088590143641,
+      "final_speed_mps_range": [
+        22.31088590143641,
+        22.31088590143641
+      ],
+      "peak_tilt_deg": 6.539259121565118,
+      "peak_tilt_deg_range": [
+        6.539259121565118,
+        6.539259121565118
+      ],
+      "peak_slip_deg": 6.498291933765658,
+      "peak_slip_deg_range": [
+        6.498291933765658,
+        6.498291933765658
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "case": "fast-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 22.447836216583237,
+      "peak_speed_mps_range": [
+        22.447836216583237,
+        22.447836216583237
+      ],
+      "final_speed_mps": 22.314534698762824,
+      "final_speed_mps_range": [
+        22.314534698762824,
+        22.314534698762824
+      ],
+      "peak_tilt_deg": 6.533317365811207,
+      "peak_tilt_deg_range": [
+        6.533317365811207,
+        6.533317365811207
+      ],
+      "peak_slip_deg": 6.492633975538741,
+      "peak_slip_deg_range": [
+        6.492633975538741,
+        6.492633975538741
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "case": "turn-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 15.16658081460449,
+      "peak_speed_mps_range": [
+        15.16658081460449,
+        15.16658081460449
+      ],
+      "final_speed_mps": 15.16658081460449,
+      "final_speed_mps_range": [
+        15.16658081460449,
+        15.16658081460449
+      ],
+      "peak_tilt_deg": 5.4844636577277,
+      "peak_tilt_deg_range": [
+        5.4844636577277,
+        5.4844636577277
+      ],
+      "peak_slip_deg": 4.4222887980479895,
+      "peak_slip_deg_range": [
+        4.4222887980479895,
+        4.4222887980479895
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "case": "turn-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 15.167246106711724,
+      "peak_speed_mps_range": [
+        15.167246106711724,
+        15.167246106711724
+      ],
+      "final_speed_mps": 15.167246106711724,
+      "final_speed_mps_range": [
+        15.167246106711724,
+        15.167246106711724
+      ],
+      "peak_tilt_deg": 5.483439865386202,
+      "peak_tilt_deg_range": [
+        5.483439865386202,
+        5.483439865386202
+      ],
+      "peak_slip_deg": 4.422229210437296,
+      "peak_slip_deg_range": [
+        4.422229210437296,
+        4.422229210437296
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "fast-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 25.235371306635077,
+      "peak_speed_mps_range": [
+        25.235371306635077,
+        25.235371306635077
+      ],
+      "final_speed_mps": 25.235371306635077,
+      "final_speed_mps_range": [
+        25.235371306635077,
+        25.235371306635077
+      ],
+      "peak_tilt_deg": 5.023494381523173,
+      "peak_tilt_deg_range": [
+        5.023494381523173,
+        5.023494381523173
+      ],
+      "peak_slip_deg": 6.489825049948111,
+      "peak_slip_deg_range": [
+        6.489825049948111,
+        6.489825049948111
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "fast-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 25.235371306635077,
+      "peak_speed_mps_range": [
+        25.235371306635077,
+        25.235371306635077
+      ],
+      "final_speed_mps": 25.235371306635077,
+      "final_speed_mps_range": [
+        25.235371306635077,
+        25.235371306635077
+      ],
+      "peak_tilt_deg": 5.023493901054267,
+      "peak_tilt_deg_range": [
+        5.023493901054267,
+        5.023493901054267
+      ],
+      "peak_slip_deg": 6.489835076709527,
+      "peak_slip_deg_range": [
+        6.489835076709527,
+        6.489835076709527
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "fast-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 24.33353416868797,
+      "peak_speed_mps_range": [
+        24.33353416868797,
+        24.33353416868797
+      ],
+      "final_speed_mps": 24.33353416868797,
+      "final_speed_mps_range": [
+        24.33353416868797,
+        24.33353416868797
+      ],
+      "peak_tilt_deg": 4.8162256332484255,
+      "peak_tilt_deg_range": [
+        4.8162256332484255,
+        4.8162256332484255
+      ],
+      "peak_slip_deg": 6.221865007758022,
+      "peak_slip_deg_range": [
+        6.221865007758022,
+        6.221865007758022
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "fast-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 24.333520468983522,
+      "peak_speed_mps_range": [
+        24.333520468983522,
+        24.333520468983522
+      ],
+      "final_speed_mps": 24.333520468983522,
+      "final_speed_mps_range": [
+        24.333520468983522,
+        24.333520468983522
+      ],
+      "peak_tilt_deg": 4.816221939872345,
+      "peak_tilt_deg_range": [
+        4.816221939872345,
+        4.816221939872345
+      ],
+      "peak_slip_deg": 6.221871883251562,
+      "peak_slip_deg_range": [
+        6.221871883251562,
+        6.221871883251562
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "turn-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 19.681308197053976,
+      "peak_speed_mps_range": [
+        19.681308197053976,
+        19.681308197053976
+      ],
+      "final_speed_mps": 19.53158025696756,
+      "final_speed_mps_range": [
+        19.53158025696756,
+        19.53158025696756
+      ],
+      "peak_tilt_deg": 4.58395117802941,
+      "peak_tilt_deg_range": [
+        4.58395117802941,
+        4.58395117802941
+      ],
+      "peak_slip_deg": 5.420152094047832,
+      "peak_slip_deg_range": [
+        5.420152094047832,
+        5.420152094047832
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "turn-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 19.681303325258213,
+      "peak_speed_mps_range": [
+        19.681303325258213,
+        19.681303325258213
+      ],
+      "final_speed_mps": 19.53157581983617,
+      "final_speed_mps_range": [
+        19.53157581983617,
+        19.53157581983617
+      ],
+      "peak_tilt_deg": 4.583948603873672,
+      "peak_tilt_deg_range": [
+        4.583948603873672,
+        4.583948603873672
+      ],
+      "peak_slip_deg": 5.420163553203734,
+      "peak_slip_deg_range": [
+        5.420163553203734,
+        5.420163553203734
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "turn-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 19.25704760582416,
+      "peak_speed_mps_range": [
+        19.25704760582416,
+        19.25704760582416
+      ],
+      "final_speed_mps": 19.095343143625175,
+      "final_speed_mps_range": [
+        19.095343143625175,
+        19.095343143625175
+      ],
+      "peak_tilt_deg": 4.450944631306261,
+      "peak_tilt_deg_range": [
+        4.450944631306261,
+        4.450944631306261
+      ],
+      "peak_slip_deg": 5.137670723019047,
+      "peak_slip_deg_range": [
+        5.137670723019047,
+        5.137670723019047
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "turn-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 19.25705220305561,
+      "peak_speed_mps_range": [
+        19.25705220305561,
+        19.25705220305561
+      ],
+      "final_speed_mps": 19.095348118944678,
+      "final_speed_mps_range": [
+        19.095348118944678,
+        19.095348118944678
+      ],
+      "peak_tilt_deg": 4.450939829023825,
+      "peak_tilt_deg_range": [
+        4.450939829023825,
+        4.450939829023825
+      ],
+      "peak_slip_deg": 5.137643794002677,
+      "peak_slip_deg_range": [
+        5.137643794002677,
+        5.137643794002677
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "handbrake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.651999,
+      "peak_speed_mps_range": [
+        13.651999,
+        13.651999
+      ],
+      "final_speed_mps": 1.8970686141647592,
+      "final_speed_mps_range": [
+        1.8970686141647592,
+        1.8970686141647592
+      ],
+      "peak_tilt_deg": 4.41197105992225,
+      "peak_tilt_deg_range": [
+        4.41197105992225,
+        4.41197105992225
+      ],
+      "peak_slip_deg": 22.536555755915213,
+      "peak_slip_deg_range": [
+        22.536555755915213,
+        22.536555755915213
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "handbrake-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.651999,
+      "peak_speed_mps_range": [
+        13.651999,
+        13.651999
+      ],
+      "final_speed_mps": 1.8971040076455823,
+      "final_speed_mps_range": [
+        1.8971040076455823,
+        1.8971040076455823
+      ],
+      "peak_tilt_deg": 4.411933682697857,
+      "peak_tilt_deg_range": [
+        4.411933682697857,
+        4.411933682697857
+      ],
+      "peak_slip_deg": 22.536238337296712,
+      "peak_slip_deg_range": [
+        22.536238337296712,
+        22.536238337296712
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.879768875161622,
+      "peak_speed_mps_range": [
+        13.879768875161622,
+        13.879768875161622
+      ],
+      "final_speed_mps": 7.516507927275601e-09,
+      "final_speed_mps_range": [
+        7.516507927275601e-09,
+        7.516507927275601e-09
+      ],
+      "peak_tilt_deg": 4.320891642360457,
+      "peak_tilt_deg_range": [
+        4.320891642360457,
+        4.320891642360457
+      ],
+      "peak_slip_deg": 2.2431275906975516,
+      "peak_slip_deg_range": [
+        2.2431275906975516,
+        2.2431275906975516
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.79010009765625,
+      "maximum_cross_track_m_range": [
+        3.79010009765625,
+        3.79010009765625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    }
+  ],
+  "least_contact": [
+    {
+      "car": "ref-j13",
+      "case": "trail-brake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 23.036995000000093,
+      "peak_speed_mps_range": [
+        23.036995000000093,
+        23.036995000000093
+      ],
+      "final_speed_mps": 3.780517015211993,
+      "final_speed_mps_range": [
+        3.780517015211993,
+        3.780517015211993
+      ],
+      "peak_tilt_deg": 2.7242341397275367,
+      "peak_tilt_deg_range": [
+        2.7242341397275367,
+        2.7242341397275367
+      ],
+      "peak_slip_deg": 35.8882485516283,
+      "peak_slip_deg_range": [
+        35.8882485516283,
+        35.8882485516283
+      ],
+      "four_contact_pct": 99.0487514863258,
+      "four_contact_pct_range": [
+        99.0487514863258,
+        99.0487514863258
+      ],
+      "four_loaded_pct": 98.5731272294887,
+      "four_loaded_pct_range": [
+        98.5731272294887,
+        98.5731272294887
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "brake",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 28.407553000000135,
+      "peak_speed_mps_range": [
+        28.407553000000135,
+        28.407553000000135
+      ],
+      "final_speed_mps": 2.1271390000000125,
+      "final_speed_mps_range": [
+        2.1271390000000125,
+        2.1271390000000125
+      ],
+      "peak_tilt_deg": 1.6813476496144506,
+      "peak_tilt_deg_range": [
+        1.6813476496144506,
+        1.6813476496144506
+      ],
+      "peak_slip_deg": 3.634761517204325e-06,
+      "peak_slip_deg_range": [
+        3.634761517204325e-06,
+        3.634761517204325e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "brake-progressive",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 28.407610000000133,
+      "peak_speed_mps_range": [
+        28.407610000000133,
+        28.407610000000133
+      ],
+      "final_speed_mps": 3.611230600000042,
+      "final_speed_mps_range": [
+        3.611230600000042,
+        3.611230600000042
+      ],
+      "peak_tilt_deg": 1.6813606155654541,
+      "peak_tilt_deg_range": [
+        1.6813606155654541,
+        1.6813606155654541
+      ],
+      "peak_slip_deg": 6.001660482130069e-06,
+      "peak_slip_deg_range": [
+        6.001660482130069e-06,
+        6.001660482130069e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "coast-down",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 21.30707700000008,
+      "peak_speed_mps_range": [
+        21.30707700000008,
+        21.30707700000008
+      ],
+      "final_speed_mps": 19.756075000000113,
+      "final_speed_mps_range": [
+        19.756075000000113,
+        19.756075000000113
+      ],
+      "peak_tilt_deg": 0.48641261805624186,
+      "peak_tilt_deg_range": [
+        0.48641261805624186,
+        0.48641261805624186
+      ],
+      "peak_slip_deg": 3.6527503293233706e-06,
+      "peak_slip_deg_range": [
+        3.6527503293233706e-06,
+        3.6527503293233706e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952260304580037,
+      "peak_speed_mps_range": [
+        13.952260304580037,
+        13.952260304580037
+      ],
+      "final_speed_mps": 5.1712154377754496e-08,
+      "final_speed_mps_range": [
+        5.1712154377754496e-08,
+        5.1712154377754496e-08
+      ],
+      "peak_tilt_deg": 1.6180257756082848,
+      "peak_tilt_deg_range": [
+        1.6180257756082848,
+        1.6180257756082848
+      ],
+      "peak_slip_deg": 2.195869344205807,
+      "peak_slip_deg_range": [
+        2.195869344205807,
+        2.195869344205807
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 2.965484619140625,
+      "maximum_cross_track_m_range": [
+        2.965484619140625,
+        2.965484619140625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-forward-slow",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 7.953347418366827,
+      "peak_speed_mps_range": [
+        7.953347418366827,
+        7.953347418366827
+      ],
+      "final_speed_mps": 4.209636806900271e-08,
+      "final_speed_mps_range": [
+        4.209636806900271e-08,
+        4.209636806900271e-08
+      ],
+      "peak_tilt_deg": 1.5047384322230855,
+      "peak_tilt_deg_range": [
+        1.5047384322230855,
+        1.5047384322230855
+      ],
+      "peak_slip_deg": 0.760517190944504,
+      "peak_slip_deg_range": [
+        0.760517190944504,
+        0.760517190944504
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.3518066108226776,
+      "maximum_cross_track_m_range": [
+        0.3518066108226776,
+        0.3518066108226776
+      ],
+      "progress_m": 198.9554443359375,
+      "progress_m_range": [
+        198.9554443359375,
+        198.9554443359375
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952259280511415,
+      "peak_speed_mps_range": [
+        13.952259280511415,
+        13.952259280511415
+      ],
+      "final_speed_mps": 1.0884032098987546e-08,
+      "final_speed_mps_range": [
+        1.0884032098987546e-08,
+        1.0884032098987546e-08
+      ],
+      "peak_tilt_deg": 1.6179823714308679,
+      "peak_tilt_deg_range": [
+        1.6179823714308679,
+        1.6179823714308679
+      ],
+      "peak_slip_deg": 2.1958206427932208,
+      "peak_slip_deg_range": [
+        2.1958206427932208,
+        2.1958206427932208
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 2.96551513671875,
+      "maximum_cross_track_m_range": [
+        2.96551513671875,
+        2.96551513671875
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-reverse-slow",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 7.953347598202859,
+      "peak_speed_mps_range": [
+        7.953347598202859,
+        7.953347598202859
+      ],
+      "final_speed_mps": 5.129379320240165e-08,
+      "final_speed_mps_range": [
+        5.129379320240165e-08,
+        5.129379320240165e-08
+      ],
+      "peak_tilt_deg": 1.5047404354415084,
+      "peak_tilt_deg_range": [
+        1.5047404354415084,
+        1.5047404354415084
+      ],
+      "peak_slip_deg": 0.7605151282964416,
+      "peak_slip_deg_range": [
+        0.7605151282964416,
+        0.7605151282964416
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.3517463803291321,
+      "maximum_cross_track_m_range": [
+        0.3517463803291321,
+        0.3517463803291321
+      ],
+      "progress_m": 198.95547485351562,
+      "progress_m_range": [
+        198.95547485351562,
+        198.95547485351562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "fast-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 29.540495053974517,
+      "peak_speed_mps_range": [
+        29.540495053974517,
+        29.540495053974517
+      ],
+      "final_speed_mps": 29.540495053974517,
+      "final_speed_mps_range": [
+        29.540495053974517,
+        29.540495053974517
+      ],
+      "peak_tilt_deg": 2.581302816550014,
+      "peak_tilt_deg_range": [
+        2.581302816550014,
+        2.581302816550014
+      ],
+      "peak_slip_deg": 11.609540135104451,
+      "peak_slip_deg_range": [
+        11.609540135104451,
+        11.609540135104451
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "fast-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 29.540493450673655,
+      "peak_speed_mps_range": [
+        29.540493450673655,
+        29.540493450673655
+      ],
+      "final_speed_mps": 29.540493450673655,
+      "final_speed_mps_range": [
+        29.540493450673655,
+        29.540493450673655
+      ],
+      "peak_tilt_deg": 2.5813026331344426,
+      "peak_tilt_deg_range": [
+        2.5813026331344426,
+        2.5813026331344426
+      ],
+      "peak_slip_deg": 11.609561907500668,
+      "peak_slip_deg_range": [
+        11.609561907500668,
+        11.609561907500668
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "handbrake-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 16.464846000000076,
+      "peak_speed_mps_range": [
+        16.464846000000076,
+        16.464846000000076
+      ],
+      "final_speed_mps": 3.186506857167342,
+      "final_speed_mps_range": [
+        3.186506857167342,
+        3.186506857167342
+      ],
+      "peak_tilt_deg": 2.689032912245848,
+      "peak_tilt_deg_range": [
+        2.689032912245848,
+        2.689032912245848
+      ],
+      "peak_slip_deg": 54.85777763169643,
+      "peak_slip_deg_range": [
+        54.85777763169643,
+        54.85777763169643
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "handbrake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 16.464846000000076,
+      "peak_speed_mps_range": [
+        16.464846000000076,
+        16.464846000000076
+      ],
+      "final_speed_mps": 3.186504263305538,
+      "final_speed_mps_range": [
+        3.186504263305538,
+        3.186504263305538
+      ],
+      "peak_tilt_deg": 2.6890378024043113,
+      "peak_tilt_deg_range": [
+        2.6890378024043113,
+        2.6890378024043113
+      ],
+      "peak_slip_deg": 54.85776388070935,
+      "peak_slip_deg_range": [
+        54.85776388070935,
+        54.85776388070935
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "lane-change",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 9.955119526831416,
+      "peak_speed_mps_range": [
+        9.955119526831416,
+        9.955119526831416
+      ],
+      "final_speed_mps": 8.541326629079964e-08,
+      "final_speed_mps_range": [
+        8.541326629079964e-08,
+        8.541326629079964e-08
+      ],
+      "peak_tilt_deg": 1.5082297713026855,
+      "peak_tilt_deg_range": [
+        1.5082297713026855,
+        1.5082297713026855
+      ],
+      "peak_slip_deg": 0.8428990680806967,
+      "peak_slip_deg_range": [
+        0.8428990680806967,
+        0.8428990680806967
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.7233819365501404,
+      "maximum_cross_track_m_range": [
+        0.7233819365501404,
+        0.7233819365501404
+      ],
+      "progress_m": 191.884765625,
+      "progress_m_range": [
+        191.884765625,
+        191.884765625
+      ],
+      "total_m": 191.884765625,
+      "total_m_range": [
+        191.884765625,
+        191.884765625
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "lane-change-reverse",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 9.955070753695447,
+      "peak_speed_mps_range": [
+        9.955070753695447,
+        9.955070753695447
+      ],
+      "final_speed_mps": 5.6072640690049935e-08,
+      "final_speed_mps_range": [
+        5.6072640690049935e-08,
+        5.6072640690049935e-08
+      ],
+      "peak_tilt_deg": 1.5081977262953896,
+      "peak_tilt_deg_range": [
+        1.5081977262953896,
+        1.5081977262953896
+      ],
+      "peak_slip_deg": 0.842879644811442,
+      "peak_slip_deg_range": [
+        0.842879644811442,
+        0.842879644811442
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.7205637693405151,
+      "maximum_cross_track_m_range": [
+        0.7205637693405151,
+        0.7205637693405151
+      ],
+      "progress_m": 191.884765625,
+      "progress_m_range": [
+        191.884765625,
+        191.884765625
+      ],
+      "total_m": 191.884765625,
+      "total_m_range": [
+        191.884765625,
+        191.884765625
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "launch-full",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 39.261020000000194,
+      "peak_speed_mps_range": [
+        39.261020000000194,
+        39.261020000000194
+      ],
+      "final_speed_mps": 39.261020000000194,
+      "final_speed_mps_range": [
+        39.261020000000194,
+        39.261020000000194
+      ],
+      "peak_tilt_deg": 0.48641261805624186,
+      "peak_tilt_deg_range": [
+        0.48641261805624186,
+        0.48641261805624186
+      ],
+      "peak_slip_deg": 3.7256941591792714e-06,
+      "peak_slip_deg_range": [
+        3.7256941591792714e-06,
+        3.7256941591792714e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    }
+  ],
+  "least_load_support": [
+    {
+      "car": "ref-e02",
+      "case": "trail-brake-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 21.0211560000001,
+      "peak_speed_mps_range": [
+        21.0211560000001,
+        21.0211560000001
+      ],
+      "final_speed_mps": 2.417965881355076,
+      "final_speed_mps_range": [
+        2.417965881355076,
+        2.417965881355076
+      ],
+      "peak_tilt_deg": 3.025092775536542,
+      "peak_tilt_deg_range": [
+        3.025092775536542,
+        3.025092775536542
+      ],
+      "peak_slip_deg": 19.366521796031765,
+      "peak_slip_deg_range": [
+        19.366521796031765,
+        19.366521796031765
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 98.33531510107015,
+      "four_loaded_pct_range": [
+        98.33531510107015,
+        98.33531510107015
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-j13",
+      "case": "trail-brake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 23.036995000000093,
+      "peak_speed_mps_range": [
+        23.036995000000093,
+        23.036995000000093
+      ],
+      "final_speed_mps": 3.780517015211993,
+      "final_speed_mps_range": [
+        3.780517015211993,
+        3.780517015211993
+      ],
+      "peak_tilt_deg": 2.7242341397275367,
+      "peak_tilt_deg_range": [
+        2.7242341397275367,
+        2.7242341397275367
+      ],
+      "peak_slip_deg": 35.8882485516283,
+      "peak_slip_deg_range": [
+        35.8882485516283,
+        35.8882485516283
+      ],
+      "four_contact_pct": 99.0487514863258,
+      "four_contact_pct_range": [
+        99.0487514863258,
+        99.0487514863258
+      ],
+      "four_loaded_pct": 98.5731272294887,
+      "four_loaded_pct_range": [
+        98.5731272294887,
+        98.5731272294887
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "redline-gt500",
+      "case": "trail-brake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 20.52346800000009,
+      "peak_speed_mps_range": [
+        20.52346800000009,
+        20.52346800000009
+      ],
+      "final_speed_mps": 2.483425502641829,
+      "final_speed_mps_range": [
+        2.483425502641829,
+        2.483425502641829
+      ],
+      "peak_tilt_deg": 3.2704520281038896,
+      "peak_tilt_deg_range": [
+        3.2704520281038896,
+        3.2704520281038896
+      ],
+      "peak_slip_deg": 18.6898775475895,
+      "peak_slip_deg_range": [
+        18.6898775475895,
+        18.6898775475895
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 99.88109393579073,
+      "four_loaded_pct_range": [
+        99.88109393579073,
+        99.88109393579073
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-e03",
+      "case": "trail-brake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 23.971247000260348,
+      "peak_speed_mps_range": [
+        23.971247000260348,
+        23.971247000260348
+      ],
+      "final_speed_mps": 3.4102317101036115,
+      "final_speed_mps_range": [
+        3.4102317101036115,
+        3.4102317101036115
+      ],
+      "peak_tilt_deg": 1.966806581411218,
+      "peak_tilt_deg_range": [
+        1.966806581411218,
+        1.966806581411218
+      ],
+      "peak_slip_deg": 23.384117325349564,
+      "peak_slip_deg_range": [
+        23.384117325349564,
+        23.384117325349564
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 99.88109393579073,
+      "four_loaded_pct_range": [
+        99.88109393579073,
+        99.88109393579073
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "brake",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 28.407553000000135,
+      "peak_speed_mps_range": [
+        28.407553000000135,
+        28.407553000000135
+      ],
+      "final_speed_mps": 2.1271390000000125,
+      "final_speed_mps_range": [
+        2.1271390000000125,
+        2.1271390000000125
+      ],
+      "peak_tilt_deg": 1.6813476496144506,
+      "peak_tilt_deg_range": [
+        1.6813476496144506,
+        1.6813476496144506
+      ],
+      "peak_slip_deg": 3.634761517204325e-06,
+      "peak_slip_deg_range": [
+        3.634761517204325e-06,
+        3.634761517204325e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "brake-progressive",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 28.407610000000133,
+      "peak_speed_mps_range": [
+        28.407610000000133,
+        28.407610000000133
+      ],
+      "final_speed_mps": 3.611230600000042,
+      "final_speed_mps_range": [
+        3.611230600000042,
+        3.611230600000042
+      ],
+      "peak_tilt_deg": 1.6813606155654541,
+      "peak_tilt_deg_range": [
+        1.6813606155654541,
+        1.6813606155654541
+      ],
+      "peak_slip_deg": 6.001660482130069e-06,
+      "peak_slip_deg_range": [
+        6.001660482130069e-06,
+        6.001660482130069e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "coast-down",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 21.30707700000008,
+      "peak_speed_mps_range": [
+        21.30707700000008,
+        21.30707700000008
+      ],
+      "final_speed_mps": 19.756075000000113,
+      "final_speed_mps_range": [
+        19.756075000000113,
+        19.756075000000113
+      ],
+      "peak_tilt_deg": 0.48641261805624186,
+      "peak_tilt_deg_range": [
+        0.48641261805624186,
+        0.48641261805624186
+      ],
+      "peak_slip_deg": 3.6527503293233706e-06,
+      "peak_slip_deg_range": [
+        3.6527503293233706e-06,
+        3.6527503293233706e-06
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952260304580037,
+      "peak_speed_mps_range": [
+        13.952260304580037,
+        13.952260304580037
+      ],
+      "final_speed_mps": 5.1712154377754496e-08,
+      "final_speed_mps_range": [
+        5.1712154377754496e-08,
+        5.1712154377754496e-08
+      ],
+      "peak_tilt_deg": 1.6180257756082848,
+      "peak_tilt_deg_range": [
+        1.6180257756082848,
+        1.6180257756082848
+      ],
+      "peak_slip_deg": 2.195869344205807,
+      "peak_slip_deg_range": [
+        2.195869344205807,
+        2.195869344205807
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 2.965484619140625,
+      "maximum_cross_track_m_range": [
+        2.965484619140625,
+        2.965484619140625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-forward-slow",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 7.953347418366827,
+      "peak_speed_mps_range": [
+        7.953347418366827,
+        7.953347418366827
+      ],
+      "final_speed_mps": 4.209636806900271e-08,
+      "final_speed_mps_range": [
+        4.209636806900271e-08,
+        4.209636806900271e-08
+      ],
+      "peak_tilt_deg": 1.5047384322230855,
+      "peak_tilt_deg_range": [
+        1.5047384322230855,
+        1.5047384322230855
+      ],
+      "peak_slip_deg": 0.760517190944504,
+      "peak_slip_deg_range": [
+        0.760517190944504,
+        0.760517190944504
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.3518066108226776,
+      "maximum_cross_track_m_range": [
+        0.3518066108226776,
+        0.3518066108226776
+      ],
+      "progress_m": 198.9554443359375,
+      "progress_m_range": [
+        198.9554443359375,
+        198.9554443359375
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952259280511415,
+      "peak_speed_mps_range": [
+        13.952259280511415,
+        13.952259280511415
+      ],
+      "final_speed_mps": 1.0884032098987546e-08,
+      "final_speed_mps_range": [
+        1.0884032098987546e-08,
+        1.0884032098987546e-08
+      ],
+      "peak_tilt_deg": 1.6179823714308679,
+      "peak_tilt_deg_range": [
+        1.6179823714308679,
+        1.6179823714308679
+      ],
+      "peak_slip_deg": 2.1958206427932208,
+      "peak_slip_deg_range": [
+        2.1958206427932208,
+        2.1958206427932208
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 2.96551513671875,
+      "maximum_cross_track_m_range": [
+        2.96551513671875,
+        2.96551513671875
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "curve-reverse-slow",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 7.953347598202859,
+      "peak_speed_mps_range": [
+        7.953347598202859,
+        7.953347598202859
+      ],
+      "final_speed_mps": 5.129379320240165e-08,
+      "final_speed_mps_range": [
+        5.129379320240165e-08,
+        5.129379320240165e-08
+      ],
+      "peak_tilt_deg": 1.5047404354415084,
+      "peak_tilt_deg_range": [
+        1.5047404354415084,
+        1.5047404354415084
+      ],
+      "peak_slip_deg": 0.7605151282964416,
+      "peak_slip_deg_range": [
+        0.7605151282964416,
+        0.7605151282964416
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 0.3517463803291321,
+      "maximum_cross_track_m_range": [
+        0.3517463803291321,
+        0.3517463803291321
+      ],
+      "progress_m": 198.95547485351562,
+      "progress_m_range": [
+        198.95547485351562,
+        198.95547485351562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "fast-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 29.540495053974517,
+      "peak_speed_mps_range": [
+        29.540495053974517,
+        29.540495053974517
+      ],
+      "final_speed_mps": 29.540495053974517,
+      "final_speed_mps_range": [
+        29.540495053974517,
+        29.540495053974517
+      ],
+      "peak_tilt_deg": 2.581302816550014,
+      "peak_tilt_deg_range": [
+        2.581302816550014,
+        2.581302816550014
+      ],
+      "peak_slip_deg": 11.609540135104451,
+      "peak_slip_deg_range": [
+        11.609540135104451,
+        11.609540135104451
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "fast-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 29.540493450673655,
+      "peak_speed_mps_range": [
+        29.540493450673655,
+        29.540493450673655
+      ],
+      "final_speed_mps": 29.540493450673655,
+      "final_speed_mps_range": [
+        29.540493450673655,
+        29.540493450673655
+      ],
+      "peak_tilt_deg": 2.5813026331344426,
+      "peak_tilt_deg_range": [
+        2.5813026331344426,
+        2.5813026331344426
+      ],
+      "peak_slip_deg": 11.609561907500668,
+      "peak_slip_deg_range": [
+        11.609561907500668,
+        11.609561907500668
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "handbrake-left",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 16.464846000000076,
+      "peak_speed_mps_range": [
+        16.464846000000076,
+        16.464846000000076
+      ],
+      "final_speed_mps": 3.186506857167342,
+      "final_speed_mps_range": [
+        3.186506857167342,
+        3.186506857167342
+      ],
+      "peak_tilt_deg": 2.689032912245848,
+      "peak_tilt_deg_range": [
+        2.689032912245848,
+        2.689032912245848
+      ],
+      "peak_slip_deg": 54.85777763169643,
+      "peak_slip_deg_range": [
+        54.85777763169643,
+        54.85777763169643
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "350z",
+      "case": "handbrake-right",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 16.464846000000076,
+      "peak_speed_mps_range": [
+        16.464846000000076,
+        16.464846000000076
+      ],
+      "final_speed_mps": 3.186504263305538,
+      "final_speed_mps_range": [
+        3.186504263305538,
+        3.186504263305538
+      ],
+      "peak_tilt_deg": 2.6890378024043113,
+      "peak_tilt_deg_range": [
+        2.6890378024043113,
+        2.6890378024043113
+      ],
+      "peak_slip_deg": 54.85776388070935,
+      "peak_slip_deg_range": [
+        54.85776388070935,
+        54.85776388070935
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    }
+  ],
+  "largest_route_error": [
+    {
+      "car": "ref-a13",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.879769519901217,
+      "peak_speed_mps_range": [
+        13.879769519901217,
+        13.879769519901217
+      ],
+      "final_speed_mps": 6.161157872293852e-08,
+      "final_speed_mps_range": [
+        6.161157872293852e-08,
+        6.161157872293852e-08
+      ],
+      "peak_tilt_deg": 4.316120254657342,
+      "peak_tilt_deg_range": [
+        4.316120254657342,
+        4.316120254657342
+      ],
+      "peak_slip_deg": 2.2439639944868834,
+      "peak_slip_deg_range": [
+        2.2439639944868834,
+        2.2439639944868834
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.790191650390625,
+      "maximum_cross_track_m_range": [
+        3.790191650390625,
+        3.790191650390625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.879768875161622,
+      "peak_speed_mps_range": [
+        13.879768875161622,
+        13.879768875161622
+      ],
+      "final_speed_mps": 7.516507927275601e-09,
+      "final_speed_mps_range": [
+        7.516507927275601e-09,
+        7.516507927275601e-09
+      ],
+      "peak_tilt_deg": 4.320891642360457,
+      "peak_tilt_deg_range": [
+        4.320891642360457,
+        4.320891642360457
+      ],
+      "peak_slip_deg": 2.2431275906975516,
+      "peak_slip_deg_range": [
+        2.2431275906975516,
+        2.2431275906975516
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.79010009765625,
+      "maximum_cross_track_m_range": [
+        3.79010009765625,
+        3.79010009765625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "gt-viper",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952173332234919,
+      "peak_speed_mps_range": [
+        13.952173332234919,
+        13.952173332234919
+      ],
+      "final_speed_mps": 8.3538765662183e-08,
+      "final_speed_mps_range": [
+        8.3538765662183e-08,
+        8.3538765662183e-08
+      ],
+      "peak_tilt_deg": 1.4795846964369712,
+      "peak_tilt_deg_range": [
+        1.4795846964369712,
+        1.4795846964369712
+      ],
+      "peak_slip_deg": 2.2158465490570745,
+      "peak_slip_deg_range": [
+        2.2158465490570745,
+        2.2158465490570745
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.7484254837036133,
+      "maximum_cross_track_m_range": [
+        3.7484254837036133,
+        3.7484254837036133
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "gt-viper",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.952175305286119,
+      "peak_speed_mps_range": [
+        13.952175305286119,
+        13.952175305286119
+      ],
+      "final_speed_mps": 3.433976002843469e-08,
+      "final_speed_mps_range": [
+        3.433976002843469e-08,
+        3.433976002843469e-08
+      ],
+      "peak_tilt_deg": 1.4795881890183604,
+      "peak_tilt_deg_range": [
+        1.4795881890183604,
+        1.4795881890183604
+      ],
+      "peak_slip_deg": 2.215817442801082,
+      "peak_slip_deg_range": [
+        2.215817442801082,
+        2.215817442801082
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.748425006866455,
+      "maximum_cross_track_m_range": [
+        3.748425006866455,
+        3.748425006866455
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.912709136349164,
+      "peak_speed_mps_range": [
+        13.912709136349164,
+        13.912709136349164
+      ],
+      "final_speed_mps": 1.2203739604846458e-07,
+      "final_speed_mps_range": [
+        1.2203739604846458e-07,
+        1.2203739604846458e-07
+      ],
+      "peak_tilt_deg": 3.17899900309685,
+      "peak_tilt_deg_range": [
+        3.17899900309685,
+        3.17899900309685
+      ],
+      "peak_slip_deg": 2.2586637996787595,
+      "peak_slip_deg_range": [
+        2.2586637996787595,
+        2.2586637996787595
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.412386655807495,
+      "maximum_cross_track_m_range": [
+        3.412386655807495,
+        3.412386655807495
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a05",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.91270946705542,
+      "peak_speed_mps_range": [
+        13.91270946705542,
+        13.91270946705542
+      ],
+      "final_speed_mps": 7.129388725677955e-08,
+      "final_speed_mps_range": [
+        7.129388725677955e-08,
+        7.129388725677955e-08
+      ],
+      "peak_tilt_deg": 3.1790986226065843,
+      "peak_tilt_deg_range": [
+        3.1790986226065843,
+        3.1790986226065843
+      ],
+      "peak_slip_deg": 2.258672394045687,
+      "peak_slip_deg_range": [
+        2.258672394045687,
+        2.258672394045687
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.412386655807495,
+      "maximum_cross_track_m_range": [
+        3.412386655807495,
+        3.412386655807495
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-j16",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.88862557943895,
+      "peak_speed_mps_range": [
+        13.88862557943895,
+        13.88862557943895
+      ],
+      "final_speed_mps": 1.1818953888205736e-08,
+      "final_speed_mps_range": [
+        1.1818953888205736e-08,
+        1.1818953888205736e-08
+      ],
+      "peak_tilt_deg": 2.293241495415328,
+      "peak_tilt_deg_range": [
+        2.293241495415328,
+        2.293241495415328
+      ],
+      "peak_slip_deg": 2.2374854461057803,
+      "peak_slip_deg_range": [
+        2.2374854461057803,
+        2.2374854461057803
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.3142526149749756,
+      "maximum_cross_track_m_range": [
+        3.3142526149749756,
+        3.3142526149749756
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-j16",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.88862498528497,
+      "peak_speed_mps_range": [
+        13.88862498528497,
+        13.88862498528497
+      ],
+      "final_speed_mps": 1.6555320867720312e-08,
+      "final_speed_mps_range": [
+        1.6555320867720312e-08,
+        1.6555320867720312e-08
+      ],
+      "peak_tilt_deg": 2.293187366361284,
+      "peak_tilt_deg_range": [
+        2.293187366361284,
+        2.293187366361284
+      ],
+      "peak_slip_deg": 2.237432733988628,
+      "peak_slip_deg_range": [
+        2.237432733988628,
+        2.237432733988628
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.3142523765563965,
+      "maximum_cross_track_m_range": [
+        3.3142523765563965,
+        3.3142523765563965
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "redline-911",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.941362114864821,
+      "peak_speed_mps_range": [
+        13.941362114864821,
+        13.941362114864821
+      ],
+      "final_speed_mps": 5.660590022263186e-08,
+      "final_speed_mps_range": [
+        5.660590022263186e-08,
+        5.660590022263186e-08
+      ],
+      "peak_tilt_deg": 2.441511409498213,
+      "peak_tilt_deg_range": [
+        2.441511409498213,
+        2.441511409498213
+      ],
+      "peak_slip_deg": 2.2373311485715512,
+      "peak_slip_deg_range": [
+        2.2373311485715512,
+        2.2373311485715512
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.280092716217041,
+      "maximum_cross_track_m_range": [
+        3.280092716217041,
+        3.280092716217041
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "redline-911",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.941364023294813,
+      "peak_speed_mps_range": [
+        13.941364023294813,
+        13.941364023294813
+      ],
+      "final_speed_mps": 4.415197459594315e-08,
+      "final_speed_mps_range": [
+        4.415197459594315e-08,
+        4.415197459594315e-08
+      ],
+      "peak_tilt_deg": 2.4415146515871147,
+      "peak_tilt_deg_range": [
+        2.4415146515871147,
+        2.4415146515871147
+      ],
+      "peak_slip_deg": 2.237317684063366,
+      "peak_slip_deg_range": [
+        2.237317684063366,
+        2.237317684063366
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.280092477798462,
+      "maximum_cross_track_m_range": [
+        3.280092477798462,
+        3.280092477798462
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.90696019800508,
+      "peak_speed_mps_range": [
+        13.90696019800508,
+        13.90696019800508
+      ],
+      "final_speed_mps": 1.4411977631795013e-07,
+      "final_speed_mps_range": [
+        1.4411977631795013e-07,
+        1.4411977631795013e-07
+      ],
+      "peak_tilt_deg": 2.982795940247883,
+      "peak_tilt_deg_range": [
+        2.982795940247883,
+        2.982795940247883
+      ],
+      "peak_slip_deg": 2.2537107514271923,
+      "peak_slip_deg_range": [
+        2.2537107514271923,
+        2.2537107514271923
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.2735979557037354,
+      "maximum_cross_track_m_range": [
+        3.2735979557037354,
+        3.2735979557037354
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a11",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.906958140941084,
+      "peak_speed_mps_range": [
+        13.906958140941084,
+        13.906958140941084
+      ],
+      "final_speed_mps": 1.5303901231814675e-07,
+      "final_speed_mps_range": [
+        1.5303901231814675e-07,
+        1.5303901231814675e-07
+      ],
+      "peak_tilt_deg": 2.982751562493446,
+      "peak_tilt_deg_range": [
+        2.982751562493446,
+        2.982751562493446
+      ],
+      "peak_slip_deg": 2.2536689255081477,
+      "peak_slip_deg_range": [
+        2.2536689255081477,
+        2.2536689255081477
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.273475170135498,
+      "maximum_cross_track_m_range": [
+        3.273475170135498,
+        3.273475170135498
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-e09",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.872272019102342,
+      "peak_speed_mps_range": [
+        13.872272019102342,
+        13.872272019102342
+      ],
+      "final_speed_mps": 5.584061905669787e-09,
+      "final_speed_mps_range": [
+        5.584061905669787e-09,
+        5.584061905669787e-09
+      ],
+      "peak_tilt_deg": 2.4237624758606464,
+      "peak_tilt_deg_range": [
+        2.4237624758606464,
+        2.4237624758606464
+      ],
+      "peak_slip_deg": 2.2066323563873396,
+      "peak_slip_deg_range": [
+        2.2066323563873396,
+        2.2066323563873396
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.2559120655059814,
+      "maximum_cross_track_m_range": [
+        3.2559120655059814,
+        3.2559120655059814
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-e09",
+      "case": "curve-reverse-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.872272052930676,
+      "peak_speed_mps_range": [
+        13.872272052930676,
+        13.872272052930676
+      ],
+      "final_speed_mps": 2.57678225396465e-08,
+      "final_speed_mps_range": [
+        2.57678225396465e-08,
+        2.57678225396465e-08
+      ],
+      "peak_tilt_deg": 2.423781932780742,
+      "peak_tilt_deg_range": [
+        2.423781932780742,
+        2.423781932780742
+      ],
+      "peak_slip_deg": 2.206639804838676,
+      "peak_slip_deg_range": [
+        2.206639804838676,
+        2.206639804838676
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.2559120655059814,
+      "maximum_cross_track_m_range": [
+        3.2559120655059814,
+        3.2559120655059814
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    },
+    {
+      "car": "ref-a14",
+      "case": "curve-forward-fast",
+      "runs": 2,
+      "scenario_passed": true,
+      "identical_trajectories": true,
+      "peak_speed_mps": 13.945685261172267,
+      "peak_speed_mps_range": [
+        13.945685261172267,
+        13.945685261172267
+      ],
+      "final_speed_mps": 1.1770656672491175e-08,
+      "final_speed_mps_range": [
+        1.1770656672491175e-08,
+        1.1770656672491175e-08
+      ],
+      "peak_tilt_deg": 1.5850639924539678,
+      "peak_tilt_deg_range": [
+        1.5850639924539678,
+        1.5850639924539678
+      ],
+      "peak_slip_deg": 2.266175448260263,
+      "peak_slip_deg_range": [
+        2.266175448260263,
+        2.266175448260263
+      ],
+      "four_contact_pct": 100.0,
+      "four_contact_pct_range": [
+        100.0,
+        100.0
+      ],
+      "four_loaded_pct": 100.0,
+      "four_loaded_pct_range": [
+        100.0,
+        100.0
+      ],
+      "maximum_cross_track_m": 3.05181884765625,
+      "maximum_cross_track_m_range": [
+        3.05181884765625,
+        3.05181884765625
+      ],
+      "progress_m": 199.67959594726562,
+      "progress_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "total_m": 199.67959594726562,
+      "total_m_range": [
+        199.67959594726562,
+        199.67959594726562
+      ],
+      "unexpected_resets": 0,
+      "unexpected_resets_range": [
+        0,
+        0
+      ]
+    }
+  ],
+  "failed_scenarios": [],
+  "repeat_mismatches": []
+}

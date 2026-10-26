@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "braking",
+      "title": "Which car takes longest to brake?",
+      "queries": [
+        {
+          "id": "brake-distance",
+          "source": {
+            "label": "Matched fleet handling study",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "per-run.csv"
+              },
+              {
+                "label": "evidence.json"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "filters": [
+              "Fleet: all 13 prepared cars",
+              "Repetitions: two per car and scenario",
+              "Physics: production systems at 120 Hz",
+              "Backend: render disabled"
+            ],
+            "caveats": [
+              "The smooth-road simulation uses shared arcade tuning and does not establish real-car performance."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Input and evidence checks",
+                "detail": "All 130 runs passed effective-input, tick completeness, recorder-health and obstacle-clearance checks. All 130 retained provenance inventories passed object verification."
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "brake-distance",
+                "definition": "Braking distance is the cumulative planar travel from full-brake input until completed speed first falls to 1 m/s or less, following six seconds of full throttle."
+              }
+            ]
+          },
+          "reportingPeriod": "Matched simulation runs on October 23, 2026",
+          "columns": [
+            "car",
+            "distance_to_1mps_m",
+            "time_to_1mps_s",
+            "entry_mps"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "distance_to_1mps_m": 38.50110054016113,
+              "time_to_1mps_s": 2.7916666666666665,
+              "entry_mps": 27.307565689087017
+            },
+            {
+              "car": "fr2-cobra",
+              "distance_to_1mps_m": 38.60624122619629,
+              "time_to_1mps_s": 2.8,
+              "entry_mps": 27.313879013061637
+            },
+            {
+              "car": "fr2-fr500",
+              "distance_to_1mps_m": 38.2490291595459,
+              "time_to_1mps_s": 2.775,
+              "entry_mps": 27.312025070190536
+            },
+            {
+              "car": "gt-rx7",
+              "distance_to_1mps_m": 39.02098274230957,
+              "time_to_1mps_s": 2.825,
+              "entry_mps": 27.31828880310068
+            },
+            {
+              "car": "gt-viper",
+              "distance_to_1mps_m": 39.00993537902832,
+              "time_to_1mps_s": 2.825,
+              "entry_mps": 27.310644149780384
+            },
+            {
+              "car": "gt4-m3",
+              "distance_to_1mps_m": 38.08690643310547,
+              "time_to_1mps_s": 2.7583333333333333,
+              "entry_mps": 27.31286430358897
+            },
+            {
+              "car": "gt4-nsx",
+              "distance_to_1mps_m": 38.41208267211914,
+              "time_to_1mps_s": 2.783333333333333,
+              "entry_mps": 27.29944801330578
+            },
+            {
+              "car": "mc3-skyline",
+              "distance_to_1mps_m": 38.55077362060547,
+              "time_to_1mps_s": 2.7916666666666665,
+              "entry_mps": 27.31298065185557
+            },
+            {
+              "car": "mc3-supra",
+              "distance_to_1mps_m": 39.07362365722656,
+              "time_to_1mps_s": 2.8333333333333335,
+              "entry_mps": 27.3153133392335
+            },
+            {
+              "car": "mcla-evo",
+              "distance_to_1mps_m": 38.47337532043457,
+              "time_to_1mps_s": 2.7916666666666665,
+              "entry_mps": 27.31294059770449
+            },
+            {
+              "car": "mcla-skyline",
+              "distance_to_1mps_m": 38.354698181152344,
+              "time_to_1mps_s": 2.783333333333333,
+              "entry_mps": 27.312381744384872
+            },
+            {
+              "car": "redline-911",
+              "distance_to_1mps_m": 39.280555725097656,
+              "time_to_1mps_s": 2.85,
+              "entry_mps": 27.321456909179787
+            },
+            {
+              "car": "redline-gt500",
+              "distance_to_1mps_m": 38.4120979309082,
+              "time_to_1mps_s": 2.783333333333333,
+              "entry_mps": 27.312713623046992
+            }
+          ],
+          "methods": [
+            {
+              "language": "python",
+              "code": "def near_stop(states, action_tick, end_tick):\n    \"\"\"Distance/time to first <=1 m/s sample; later reverse is not failed braking.\"\"\"\n    previous = states[action_tick - 1]['position']\n    distance = 0.0\n    for tick in range(action_tick, end_tick):\n        state = states[tick]\n        position = state['position']\n        distance += math.hypot(position[0] - previous[0], position[2] - previous[2])\n        if planar(state['linear_velocity']) <= 1.0:\n            return {'near_stop_s': (tick - action_tick + 1) / HZ,\n                    'near_stop_m': distance, 'near_stop_tick': tick}\n        previous = position\n    return {'near_stop_s': None, 'near_stop_m': None, 'near_stop_tick': None}\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "turning",
+      "title": "Which cars respond least to steering?",
+      "queries": [
+        {
+          "id": "heading-response",
+          "source": {
+            "label": "Matched fleet handling study",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "per-run.csv"
+              },
+              {
+                "label": "evidence.json"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "filters": [
+              "Fleet: all 13 prepared cars",
+              "Repetitions: two per car and scenario",
+              "Physics: production systems at 120 Hz",
+              "Backend: render disabled"
+            ],
+            "caveats": [
+              "The smooth-road simulation uses shared arcade tuning and does not establish real-car performance.",
+              "Smaller yaw is less steering response; larger yaw alone does not prove better control."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Input and evidence checks",
+                "detail": "All 130 runs passed effective-input, tick completeness, recorder-health and obstacle-clearance checks. All 130 retained provenance inventories passed object verification."
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "heading-response",
+                "definition": "Heading response is the direction-normalized unwrapped yaw change during two seconds of steering after a three-second acceleration, or 1.5 seconds after a six-second acceleration."
+              }
+            ]
+          },
+          "reportingPeriod": "Matched simulation runs on October 23, 2026",
+          "columns": [
+            "car",
+            "turn-left_degrees",
+            "turn-right_degrees",
+            "fast-left_degrees",
+            "fast-right_degrees"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "turn-left_degrees": 75.83330229446612,
+              "turn-right_degrees": 75.83328691628486,
+              "fast-left_degrees": 47.332806957796905,
+              "fast-right_degrees": 47.33280171793866
+            },
+            {
+              "car": "fr2-cobra",
+              "turn-left_degrees": 77.06693523868468,
+              "turn-right_degrees": 77.06698281901642,
+              "fast-left_degrees": 47.785022330246754,
+              "fast-right_degrees": 47.78492573445824
+            },
+            {
+              "car": "fr2-fr500",
+              "turn-left_degrees": 77.41770998253803,
+              "turn-right_degrees": 77.41792700167514,
+              "fast-left_degrees": 48.22590303597037,
+              "fast-right_degrees": 48.22577209983618
+            },
+            {
+              "car": "gt-rx7",
+              "turn-left_degrees": 75.28865085822856,
+              "turn-right_degrees": 75.28867425789566,
+              "fast-left_degrees": 46.65237611823718,
+              "fast-right_degrees": 46.65214910402169
+            },
+            {
+              "car": "gt-viper",
+              "turn-left_degrees": 76.52743272113167,
+              "turn-right_degrees": 76.52763564730375,
+              "fast-left_degrees": 47.56746571902327,
+              "fast-right_degrees": 47.56738533181242
+            },
+            {
+              "car": "gt4-m3",
+              "turn-left_degrees": 75.7648746318399,
+              "turn-right_degrees": 75.76504599553425,
+              "fast-left_degrees": 47.356313606223516,
+              "fast-right_degrees": 47.35642277763769
+            },
+            {
+              "car": "gt4-nsx",
+              "turn-left_degrees": 77.29197075480029,
+              "turn-right_degrees": 77.29216973780318,
+              "fast-left_degrees": 47.7684542242903,
+              "fast-right_degrees": 47.76846888406291
+            },
+            {
+              "car": "mc3-skyline",
+              "turn-left_degrees": 76.0824454437071,
+              "turn-right_degrees": 76.08249185249078,
+              "fast-left_degrees": 47.67056497820269,
+              "fast-right_degrees": 47.670530242850816
+            },
+            {
+              "car": "mc3-supra",
+              "turn-left_degrees": 74.95763803816597,
+              "turn-right_degrees": 74.95769101904067,
+              "fast-left_degrees": 46.977517487141746,
+              "fast-right_degrees": 46.97757385794131
+            },
+            {
+              "car": "mcla-evo",
+              "turn-left_degrees": 75.820680719263,
+              "turn-right_degrees": 75.79830394796477,
+              "fast-left_degrees": 47.340993017339024,
+              "fast-right_degrees": 47.325303971638306
+            },
+            {
+              "car": "mcla-skyline",
+              "turn-left_degrees": 75.88876309445187,
+              "turn-right_degrees": 75.8889503285257,
+              "fast-left_degrees": 47.55456439979704,
+              "fast-right_degrees": 47.55449143914266
+            },
+            {
+              "car": "redline-911",
+              "turn-left_degrees": 75.2084436358197,
+              "turn-right_degrees": 75.20834138631947,
+              "fast-left_degrees": 46.739860321975094,
+              "fast-right_degrees": 46.7398801538572
+            },
+            {
+              "car": "redline-gt500",
+              "turn-left_degrees": 76.14581428195102,
+              "turn-right_degrees": 76.1456265626078,
+              "fast-left_degrees": 47.56990395465812,
+              "fast-right_degrees": 47.56997537775396
+            }
+          ],
+          "methods": [
+            {
+              "language": "python",
+              "code": "def rotate(q, point):\n    x, y, z, w = q\n    px, py, pz = point\n    cross = (y * pz - z * py, z * px - x * pz, x * py - y * px)\n    cross2 = (y * cross[2] - z * cross[1], z * cross[0] - x * cross[2],\n              x * cross[1] - y * cross[0])\n    return tuple(p + 2 * (w * c + d) for p, c, d in zip(point, cross, cross2))\n\ndef heading(q):\n    forward = rotate(q, (0, 0, -1))\n    return math.atan2(forward[0], -forward[2])\n\ndef yaw_change(samples):\n    angles = [heading(sample['rotation']) for sample in samples]\n    return math.degrees(sum(math.atan2(math.sin(b - a), math.cos(b - a))\n                            for a, b in zip(angles, angles[1:])))\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slip-and-tilt",
+      "title": "Which cars show the most slip and tilt?",
+      "queries": [
+        {
+          "id": "slip-tilt",
+          "source": {
+            "label": "Matched fleet handling study",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "per-run.csv"
+              },
+              {
+                "label": "evidence.json"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "filters": [
+              "Fleet: all 13 prepared cars",
+              "Repetitions: two per car and scenario",
+              "Physics: production systems at 120 Hz",
+              "Backend: render disabled"
+            ],
+            "caveats": [
+              "The smooth-road simulation uses shared arcade tuning and does not establish real-car performance."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Input and evidence checks",
+                "detail": "All 130 runs passed effective-input, tick completeness, recorder-health and obstacle-clearance checks. All 130 retained provenance inventories passed object verification."
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "slip-tilt",
+                "definition": "Slip is the maximum recorded per-wheel angle/speed proxy across turning samples. Tilt is the angle between the chassis up direction and world up, including both pitch and roll."
+              }
+            ]
+          },
+          "reportingPeriod": "Matched simulation runs on October 23, 2026",
+          "columns": [
+            "car",
+            "maximum_turn_slip_deg",
+            "maximum_turn_tilt_deg"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "maximum_turn_slip_deg": 18.93249538002206,
+              "maximum_turn_tilt_deg": 4.398059258726394
+            },
+            {
+              "car": "fr2-cobra",
+              "maximum_turn_slip_deg": 19.465933411233735,
+              "maximum_turn_tilt_deg": 4.308285426492059
+            },
+            {
+              "car": "fr2-fr500",
+              "maximum_turn_slip_deg": 19.695036315194745,
+              "maximum_turn_tilt_deg": 4.311757340286241
+            },
+            {
+              "car": "gt-rx7",
+              "maximum_turn_slip_deg": 18.621260122044635,
+              "maximum_turn_tilt_deg": 4.476386850452944
+            },
+            {
+              "car": "gt-viper",
+              "maximum_turn_slip_deg": 19.408491527482894,
+              "maximum_turn_tilt_deg": 4.532238792036917
+            },
+            {
+              "car": "gt4-m3",
+              "maximum_turn_slip_deg": 18.827931728326273,
+              "maximum_turn_tilt_deg": 4.449292834836337
+            },
+            {
+              "car": "gt4-nsx",
+              "maximum_turn_slip_deg": 19.385661451178112,
+              "maximum_turn_tilt_deg": 4.1572432204211855
+            },
+            {
+              "car": "mc3-skyline",
+              "maximum_turn_slip_deg": 19.283130080781653,
+              "maximum_turn_tilt_deg": 4.6596341342422996
+            },
+            {
+              "car": "mc3-supra",
+              "maximum_turn_slip_deg": 18.891458423861405,
+              "maximum_turn_tilt_deg": 4.9679393226193165
+            },
+            {
+              "car": "mcla-evo",
+              "maximum_turn_slip_deg": 18.98231119551971,
+              "maximum_turn_tilt_deg": 4.577034340769117
+            },
+            {
+              "car": "mcla-skyline",
+              "maximum_turn_slip_deg": 19.153185544677164,
+              "maximum_turn_tilt_deg": 4.821543688604473
+            },
+            {
+              "car": "redline-911",
+              "maximum_turn_slip_deg": 18.939354830745366,
+              "maximum_turn_tilt_deg": 5.205393422887187
+            },
+            {
+              "car": "redline-gt500",
+              "maximum_turn_slip_deg": 19.06510187804273,
+              "maximum_turn_tilt_deg": 4.207075557444947
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "slip_degrees = radians * 180 / pi\ntilt_degrees = acos(dot(rotated_chassis_up, world_up)) * 180 / pi\nTake maximum over both turning directions and approach-speed conditions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "support-and-resets",
+      "title": "Did any cars lose support or reset unexpectedly?",
+      "queries": [
+        {
+          "id": "support-resets",
+          "source": {
+            "label": "Matched fleet handling study",
+            "files": [
+              {
+                "label": "comparison.csv"
+              },
+              {
+                "label": "per-run.csv"
+              },
+              {
+                "label": "evidence.json"
+              },
+              {
+                "label": "analysis.ipynb"
+              }
+            ],
+            "filters": [
+              "Fleet: all 13 prepared cars",
+              "Repetitions: two per car and scenario",
+              "Physics: production systems at 120 Hz",
+              "Backend: render disabled"
+            ],
+            "caveats": [
+              "The smooth-road simulation uses shared arcade tuning and does not establish real-car performance."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Input and evidence checks",
+                "detail": "All 130 runs passed effective-input, tick completeness, recorder-health and obstacle-clearance checks. All 130 retained provenance inventories passed object verification."
+              }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "support-resets",
+                "definition": "Four-contact rate is the share of measured maneuver ticks with all four suspension raycasts grounded. Unrequested resets exclude the one deliberate reset in each braking run."
+              }
+            ]
+          },
+          "reportingPeriod": "Matched simulation runs on October 23, 2026",
+          "columns": [
+            "car",
+            "minimum_four_contact_pct",
+            "unexpected_resets",
+            "deliberate_resets"
+          ],
+          "rows": [
+            {
+              "car": "350z",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "fr2-cobra",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "fr2-fr500",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "gt-rx7",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "gt-viper",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "gt4-m3",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "gt4-nsx",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "mc3-skyline",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "mc3-supra",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "mcla-evo",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "mcla-skyline",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "redline-911",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            },
+            {
+              "car": "redline-gt500",
+              "minimum_four_contact_pct": 100.0,
+              "unexpected_resets": 0,
+              "deliberate_resets": 2
+            }
+          ],
+          "methods": [
+            {
+              "language": "calculation",
+              "code": "four_contact_pct = 100 * count(grounded == 4) / maneuver_ticks\nunrequested_resets = count(vehicle.reset events whose reason is not requested-reset)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

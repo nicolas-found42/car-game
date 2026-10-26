@@ -1,0 +1,12 @@
+{
+  "unexpected_resets": 0,
+  "requested_resets": 26,
+  "airborne_ticks": 0,
+  "minimum_four_contact_pct": 100.0,
+  "minimum_four_loaded_pct": 100.0,
+  "minimum_course_clearance_m": 1.9033106784946767,
+  "identical_repeat_groups": 46,
+  "complete_runs": 130,
+  "maximum_braking_repeat_spread_m": 1.239776611328125e-05,
+  "maximum_heading_repeat_spread_deg": 0.00010951659836067051
+}

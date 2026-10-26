@@ -1,0 +1,975 @@
+{
+  "edition_count": 57,
+  "distinct_archived_models": 57,
+  "covered_references": 50,
+  "preserved_roster_rows": 40,
+  "preserved_physics_rows": 40,
+  "new_parameter_evidence_counts": {
+    "reference": 103,
+    "estimate": 296,
+    "related_reference": 9,
+    "game_proxy": 1
+  },
+  "rows": [
+    {
+      "car": "350z",
+      "corpus_reference": "j01",
+      "wheelbase_m": 2.65,
+      "front_track_m": 1.534,
+      "rear_track_m": 1.534,
+      "radii_m": [
+        0.32985,
+        0.32985,
+        0.33885,
+        0.33885
+      ],
+      "physical_mass_kg": 1506.853,
+      "estimated_parameter_count": 20,
+      "reference_wheelbase_m": 2.649,
+      "wheelbase_error_pct": 0.03775009437523291,
+      "source_id": "j01-nissan-fsm-gi"
+    },
+    {
+      "car": "fr2-cobra",
+      "corpus_reference": null,
+      "wheelbase_m": 2.5436012744903564,
+      "front_track_m": 1.5033999681472778,
+      "rear_track_m": 1.5533998012542725,
+      "radii_m": [
+        0.3198363780975342,
+        0.3198363780975342,
+        0.3198363482952118,
+        0.3198363482952118
+      ],
+      "physical_mass_kg": 1718,
+      "estimated_parameter_count": 22
+    },
+    {
+      "car": "fr2-fr500",
+      "corpus_reference": null,
+      "wheelbase_m": 2.6686010360717773,
+      "front_track_m": 1.5033999681472778,
+      "rear_track_m": 1.5533998012542725,
+      "radii_m": [
+        0.32001668214797974,
+        0.32001668214797974,
+        0.32000695168972015,
+        0.32000695168972015
+      ],
+      "physical_mass_kg": 1630,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "gt-rx7",
+      "corpus_reference": null,
+      "wheelbase_m": 2.43896484375,
+      "front_track_m": 1.5068359375,
+      "rear_track_m": 1.5146484375,
+      "radii_m": [
+        0.32781314849853516,
+        0.32781314849853516,
+        0.3240795135498047,
+        0.3240795135498047
+      ],
+      "physical_mass_kg": 1220,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "gt-viper",
+      "corpus_reference": null,
+      "wheelbase_m": 2.489501953125,
+      "front_track_m": 1.4912109375,
+      "rear_track_m": 1.5380859375,
+      "radii_m": [
+        0.3320446014404297,
+        0.3320446014404297,
+        0.3395118713378906,
+        0.3395118713378906
+      ],
+      "physical_mass_kg": 1530.874,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "gt4-m3",
+      "corpus_reference": "e06",
+      "wheelbase_m": 2.729,
+      "front_track_m": 1.5150000000000001,
+      "rear_track_m": 1.499,
+      "radii_m": [
+        0.3218337676924468,
+        0.3218337676924468,
+        0.31909695316785947,
+        0.31909695316785947
+      ],
+      "physical_mass_kg": 1385,
+      "estimated_parameter_count": 15,
+      "reference_wheelbase_m": 2.729,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "e06-press"
+    },
+    {
+      "car": "gt4-nsx",
+      "corpus_reference": null,
+      "wheelbase_m": 2.53,
+      "front_track_m": 1.51,
+      "rear_track_m": 1.547,
+      "radii_m": [
+        0.2914649623777543,
+        0.2914649623777543,
+        0.31404744326155365,
+        0.31404744326155365
+      ],
+      "physical_mass_kg": 1365,
+      "estimated_parameter_count": 16
+    },
+    {
+      "car": "mc3-skyline",
+      "corpus_reference": "j02",
+      "wheelbase_m": 2.6620919704437256,
+      "front_track_m": 1.4949920177459717,
+      "rear_track_m": 1.5132900476455688,
+      "radii_m": [
+        0.34119430219211133,
+        0.34119430219211133,
+        0.34119430219211133,
+        0.34119430219211133
+      ],
+      "physical_mass_kg": 1560,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.665,
+      "wheelbase_error_pct": -0.10911930792775193,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "mc3-supra",
+      "corpus_reference": null,
+      "wheelbase_m": 2.5349280834198,
+      "front_track_m": 1.472193956375122,
+      "rear_track_m": 1.472193956375122,
+      "radii_m": [
+        0.3504945107049203,
+        0.3504945107049203,
+        0.3504945107049203,
+        0.3504945107049203
+      ],
+      "physical_mass_kg": 1562.626,
+      "estimated_parameter_count": 18
+    },
+    {
+      "car": "mcla-evo",
+      "corpus_reference": "j09",
+      "wheelbase_m": 2.628000020980835,
+      "front_track_m": 1.497756004333496,
+      "rear_track_m": 1.4980000257492065,
+      "radii_m": [
+        0.3280720114707947,
+        0.328000009059906,
+        0.328000009059906,
+        0.328000009059906
+      ],
+      "physical_mass_kg": 1485,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.625,
+      "wheelbase_error_pct": 0.11428651355562813,
+      "source_id": "j09-mitsubishi-press"
+    },
+    {
+      "car": "mcla-skyline",
+      "corpus_reference": "j02",
+      "wheelbase_m": 2.662569999694824,
+      "front_track_m": 1.4600080251693726,
+      "rear_track_m": 1.4600080251693726,
+      "radii_m": [
+        0.32649698853492737,
+        0.32649698853492737,
+        0.32649698853492737,
+        0.32649698853492737
+      ],
+      "physical_mass_kg": 1560,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.665,
+      "wheelbase_error_pct": -0.09118200019421208,
+      "source_id": "j02-nissan-brochure"
+    },
+    {
+      "car": "redline-911",
+      "corpus_reference": "e01",
+      "wheelbase_m": 2.33,
+      "front_track_m": 1.39,
+      "rear_track_m": 1.405,
+      "radii_m": [
+        0.32060065269470217,
+        0.32060065269470217,
+        0.31490271091461186,
+        0.31490271091461186
+      ],
+      "physical_mass_kg": 1160,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.2720000000000002,
+      "wheelbase_error_pct": 2.55281690140845,
+      "source_id": "e01-eu1982"
+    },
+    {
+      "car": "redline-gt500",
+      "corpus_reference": "a03",
+      "wheelbase_m": 2.7199999999999998,
+      "front_track_m": 1.572,
+      "rear_track_m": 1.588,
+      "radii_m": [
+        0.34328,
+        0.34328,
+        0.342515,
+        0.342515
+      ],
+      "physical_mass_kg": 1778.082,
+      "estimated_parameter_count": 15,
+      "reference_wheelbase_m": 2.7203399999999998,
+      "wheelbase_error_pct": -0.012498437695285247,
+      "source_id": "am_gt500_esource"
+    },
+    {
+      "car": "ref-a01",
+      "corpus_reference": "a01",
+      "wheelbase_m": 2.72,
+      "front_track_m": 1.626,
+      "rear_track_m": 1.632,
+      "radii_m": [
+        0.3378739307474382,
+        0.3378739307474382,
+        0.3378739307474382,
+        0.3378739307474382
+      ],
+      "physical_mass_kg": 1596.645142,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.7203399999999998,
+      "wheelbase_error_pct": -0.012498437695274145,
+      "source_id": "am_mustang_guide"
+    },
+    {
+      "car": "ref-a02",
+      "corpus_reference": "a02",
+      "wheelbase_m": 2.573,
+      "front_track_m": 1.517,
+      "rear_track_m": 1.517,
+      "radii_m": [
+        0.33283946506494694,
+        0.33283946506494694,
+        0.33283946506494694,
+        0.33283946506494694
+      ],
+      "physical_mass_kg": 1628.396608,
+      "estimated_parameter_count": 20,
+      "reference_wheelbase_m": 2.5730199999999996,
+      "wheelbase_error_pct": -0.000777296717469067,
+      "source_id": "am_cobra_test"
+    },
+    {
+      "car": "ref-a04",
+      "corpus_reference": "a04",
+      "wheelbase_m": 3.043,
+      "front_track_m": 1.741,
+      "rear_track_m": 1.741,
+      "radii_m": [
+        0.3594612063495695,
+        0.3594612063495695,
+        0.3594612063495695,
+        0.3594612063495695
+      ],
+      "physical_mass_kg": 2118.276368,
+      "estimated_parameter_count": 15,
+      "reference_wheelbase_m": 3.0429199999999996,
+      "wheelbase_error_pct": 0.0026290536721429447,
+      "source_id": "am_lightning_specs"
+    },
+    {
+      "car": "ref-a05",
+      "corpus_reference": "a05",
+      "wheelbase_m": 3.401969313621521,
+      "front_track_m": 1.7384381294250488,
+      "rear_track_m": 1.7384381294250488,
+      "radii_m": [
+        0.38063564896583557,
+        0.38063564896583557,
+        0.38063564896583557,
+        0.38063564896583557
+      ],
+      "physical_mass_kg": 2096.0,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "ref-a06",
+      "corpus_reference": "a06",
+      "wheelbase_m": 2.62240207195282,
+      "front_track_m": 1.445721983909607,
+      "rear_track_m": 1.4451160430908203,
+      "radii_m": [
+        0.3027620017528534,
+        0.3027620017528534,
+        0.3027629852294922,
+        0.3027629852294922
+      ],
+      "physical_mass_kg": 1247.379018,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.6162,
+      "wheelbase_error_pct": 0.23706413702391238,
+      "source_id": "am_focus_2004_press"
+    },
+    {
+      "car": "ref-a07",
+      "corpus_reference": "a07",
+      "wheelbase_m": 2.71,
+      "front_track_m": 1.6,
+      "rear_track_m": 1.618,
+      "radii_m": [
+        0.33259066374452995,
+        0.33259066374452995,
+        0.36537399876542753,
+        0.36537399876542753
+      ],
+      "physical_mass_kg": 1538,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.71018,
+      "wheelbase_error_pct": -0.00664162527949097,
+      "source_id": "am_fordgt_brochure"
+    },
+    {
+      "car": "ref-a09",
+      "corpus_reference": "a09",
+      "wheelbase_m": 2.6894460916519165,
+      "front_track_m": 1.6044139862060547,
+      "rear_track_m": 1.6039999723434448,
+      "radii_m": [
+        0.3225800096988678,
+        0.3225800096988678,
+        0.3417559862136841,
+        0.3417559862136841
+      ],
+      "physical_mass_kg": 1421,
+      "estimated_parameter_count": 19,
+      "reference_wheelbase_m": 2.685,
+      "wheelbase_error_pct": 0.16559000565796733,
+      "source_id": "am_c6_specs"
+    },
+    {
+      "car": "ref-a11",
+      "corpus_reference": "a11",
+      "wheelbase_m": 3.569,
+      "front_track_m": 1.7469999999999999,
+      "rear_track_m": 1.7639999999999998,
+      "radii_m": [
+        0.3993278568904454,
+        0.3993278568904454,
+        0.3993278568904454,
+        0.3993278568904454
+      ],
+      "physical_mass_kg": 2390,
+      "estimated_parameter_count": 23
+    },
+    {
+      "car": "ref-a12",
+      "corpus_reference": "a12",
+      "wheelbase_m": 3.3855679035186768,
+      "front_track_m": 1.6473560333251953,
+      "rear_track_m": 1.6473560333251953,
+      "radii_m": [
+        0.40306869142307966,
+        0.40306869142307966,
+        0.43811811781904386,
+        0.43811811781904386
+      ],
+      "physical_mass_kg": 2410,
+      "estimated_parameter_count": 20
+    },
+    {
+      "car": "ref-a13",
+      "corpus_reference": "a13",
+      "wheelbase_m": 3.2125468850135803,
+      "front_track_m": 1.6985499858856201,
+      "rear_track_m": 1.7175139784812927,
+      "radii_m": [
+        0.4715739010881893,
+        0.4715739010881893,
+        0.4715739010881893,
+        0.4715739010881893
+      ],
+      "physical_mass_kg": 2902.991168,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 3.118,
+      "wheelbase_error_pct": 3.0322926559839702,
+      "source_id": "am_h2_brief"
+    },
+    {
+      "car": "ref-a14",
+      "corpus_reference": "a14",
+      "wheelbase_m": 3.0097999572753906,
+      "front_track_m": 1.3925999402999878,
+      "rear_track_m": 1.5219999551773071,
+      "radii_m": [
+        0.36801922390290254,
+        0.36801922390290254,
+        0.36801922390290254,
+        0.36801922390290254
+      ],
+      "physical_mass_kg": 1746,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.88,
+      "wheelbase_error_pct": 4.506942960951066,
+      "source_id": "am_ctsv_order"
+    },
+    {
+      "car": "ref-a15",
+      "corpus_reference": "a15",
+      "wheelbase_m": 3.048,
+      "front_track_m": 1.5999999999999999,
+      "rear_track_m": 1.5999999999999999,
+      "radii_m": [
+        0.3617004182333228,
+        0.3617004182333228,
+        0.3617004182333228,
+        0.3617004182333228
+      ],
+      "physical_mass_kg": 1844,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 3.048,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "am_300c_press"
+    },
+    {
+      "car": "ref-a16",
+      "corpus_reference": "a16",
+      "wheelbase_m": 2.746,
+      "front_track_m": 1.5470000000000002,
+      "rear_track_m": 1.545,
+      "radii_m": [
+        0.323999496078235,
+        0.323999496078235,
+        0.3289755224865757,
+        0.3289755224865757
+      ],
+      "physical_mass_kg": 1600,
+      "estimated_parameter_count": 18
+    },
+    {
+      "car": "ref-e02",
+      "corpus_reference": "e02",
+      "wheelbase_m": 2.45,
+      "front_track_m": 1.48,
+      "rear_track_m": 1.48,
+      "radii_m": [
+        0.3132327854633331,
+        0.3132327854633331,
+        0.31323278546333316,
+        0.31323278546333316
+      ],
+      "physical_mass_kg": 1506,
+      "estimated_parameter_count": 16,
+      "reference_wheelbase_m": 2.5500000000000003,
+      "wheelbase_error_pct": -3.9215686274509887,
+      "source_id": "e02-eu1988"
+    },
+    {
+      "car": "ref-e03",
+      "corpus_reference": "e03",
+      "wheelbase_m": 2.5543100833892822,
+      "front_track_m": 1.6224349737167358,
+      "rear_track_m": 1.5563259720802307,
+      "radii_m": [
+        0.35744163902221104,
+        0.35744163902221104,
+        0.35744163902221104,
+        0.35744163902221104
+      ],
+      "physical_mass_kg": 1520,
+      "estimated_parameter_count": 20,
+      "reference_wheelbase_m": 2.56,
+      "wheelbase_error_pct": -0.22226236760616302,
+      "source_id": "e03-launch"
+    },
+    {
+      "car": "ref-e04",
+      "corpus_reference": "e04",
+      "wheelbase_m": 2.6640000343322754,
+      "front_track_m": 1.6289219856262207,
+      "rear_track_m": 1.6742080450057983,
+      "radii_m": [
+        0.34119430219211133,
+        0.34119430219211133,
+        0.34119430219211133,
+        0.34119430219211133
+      ],
+      "physical_mass_kg": 1740,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "ref-e08",
+      "corpus_reference": "e08",
+      "wheelbase_m": 2.465,
+      "front_track_m": 1.4889999999999999,
+      "rear_track_m": 1.4949999999999999,
+      "radii_m": [
+        0.308822615532796,
+        0.308822615532796,
+        0.308822615532796,
+        0.308822615532796
+      ],
+      "physical_mass_kg": 1180,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "ref-e09",
+      "corpus_reference": "e09",
+      "wheelbase_m": 1.97,
+      "front_track_m": 1.214,
+      "rear_track_m": 1.166,
+      "radii_m": [
+        0.2354915714263916,
+        0.2354915714263916,
+        0.2354915714263916,
+        0.2354915714263916
+      ],
+      "physical_mass_kg": 640,
+      "estimated_parameter_count": 18
+    },
+    {
+      "car": "ref-e10",
+      "corpus_reference": "e10",
+      "wheelbase_m": 2.52,
+      "front_track_m": 1.515,
+      "rear_track_m": 1.48,
+      "radii_m": [
+        0.3169161805582568,
+        0.3169161805582568,
+        0.3169161805582568,
+        0.3169161805582568
+      ],
+      "physical_mass_kg": 1546,
+      "estimated_parameter_count": 17
+    },
+    {
+      "car": "ref-e11",
+      "corpus_reference": "e11",
+      "wheelbase_m": 2.649978995323181,
+      "front_track_m": 1.5636800527572632,
+      "rear_track_m": 1.5636800527572632,
+      "radii_m": [
+        0.34310099482536316,
+        0.34310099482536316,
+        0.34310099482536316,
+        0.34310099482536316
+      ],
+      "physical_mass_kg": 1635.200494,
+      "estimated_parameter_count": 17
+    },
+    {
+      "car": "ref-e12",
+      "corpus_reference": "e12",
+      "wheelbase_m": 2.6129400730133057,
+      "front_track_m": 1.5254460573196411,
+      "rear_track_m": 1.5254460573196411,
+      "radii_m": [
+        0.3182060122489929,
+        0.3182060122489929,
+        0.3182060122489929,
+        0.3182060122489929
+      ],
+      "physical_mass_kg": 1650,
+      "estimated_parameter_count": 19
+    },
+    {
+      "car": "ref-e13",
+      "corpus_reference": "e13",
+      "wheelbase_m": 2.3,
+      "front_track_m": 1.456,
+      "rear_track_m": 1.503,
+      "radii_m": [
+        0.2978753574344466,
+        0.2978753574344466,
+        0.31548181190990526,
+        0.31548181190990526
+      ],
+      "physical_mass_kg": 860,
+      "estimated_parameter_count": 17
+    },
+    {
+      "car": "ref-j04",
+      "corpus_reference": "j04",
+      "wheelbase_m": 2.425,
+      "front_track_m": 1.46,
+      "rear_track_m": 1.46,
+      "radii_m": [
+        0.31996023567741183,
+        0.31996023567741183,
+        0.31622821587115624,
+        0.31622821587115624
+      ],
+      "physical_mass_kg": 1270,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.4250000000000003,
+      "wheelbase_error_pct": -2.220446049250313e-14,
+      "source_id": "j04-mazda-brochure"
+    },
+    {
+      "car": "ref-j07",
+      "corpus_reference": "j07",
+      "wheelbase_m": 2.4,
+      "front_track_m": 1.48,
+      "rear_track_m": 1.529,
+      "radii_m": [
+        0.31429624458197075,
+        0.31429624458197075,
+        0.31404744326155365,
+        0.31404744326155365
+      ],
+      "physical_mass_kg": 1240,
+      "estimated_parameter_count": 16,
+      "reference_wheelbase_m": 2.4,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j07-honda-spec"
+    },
+    {
+      "car": "ref-j11",
+      "corpus_reference": "j11",
+      "wheelbase_m": 2.525,
+      "front_track_m": 1.506,
+      "rear_track_m": 1.501,
+      "radii_m": [
+        0.31548181190990526,
+        0.31548181190990526,
+        0.31548181190990526,
+        0.31548181190990526
+      ],
+      "physical_mass_kg": 1440,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.525,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j11-subaru-catalog"
+    },
+    {
+      "car": "ref-j12",
+      "corpus_reference": "j12",
+      "wheelbase_m": 2.535,
+      "front_track_m": 1.549,
+      "rear_track_m": 1.539,
+      "radii_m": [
+        0.32363381620951676,
+        0.32363381620951676,
+        0.32363381620951676,
+        0.32363381620951676
+      ],
+      "physical_mass_kg": 1230,
+      "estimated_parameter_count": 24
+    },
+    {
+      "car": "ref-j16",
+      "corpus_reference": "j16",
+      "wheelbase_m": 2.06,
+      "front_track_m": 1.2289999999999999,
+      "rear_track_m": 1.2289999999999999,
+      "radii_m": [
+        0.2835617593985599,
+        0.2835617593985599,
+        0.2835617593985599,
+        0.2835617593985599
+      ],
+      "physical_mass_kg": 690,
+      "estimated_parameter_count": 16,
+      "reference_wheelbase_m": 2.06,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j16-suzuki-brochure"
+    },
+    {
+      "car": "ref-a08",
+      "corpus_reference": "a08",
+      "wheelbase_m": 2.8043999671936035,
+      "front_track_m": 1.4670000076293945,
+      "rear_track_m": 1.4670000076293945,
+      "radii_m": [
+        0.3504945107049203,
+        0.3504945107049203,
+        0.36801922390290254,
+        0.36801922390290254
+      ],
+      "physical_mass_kg": 1414.30100966,
+      "estimated_parameter_count": 15,
+      "reference_wheelbase_m": 2.6543,
+      "wheelbase_error_pct": 5.6549737103418485,
+      "source_id": "am_c5_specs"
+    },
+    {
+      "car": "ref-a10",
+      "corpus_reference": "a10",
+      "wheelbase_m": 2.51,
+      "front_track_m": 1.5739999999999998,
+      "rear_track_m": 1.581,
+      "radii_m": [
+        0.32313621356868266,
+        0.32313621356868266,
+        0.3429818799278946,
+        0.3429818799278946
+      ],
+      "physical_mass_kg": 1522.7095860900001,
+      "estimated_parameter_count": 16,
+      "reference_wheelbase_m": 2.5095199999999998,
+      "wheelbase_error_pct": 0.0191271637604018,
+      "source_id": "am_viper_test"
+    },
+    {
+      "car": "ref-e05",
+      "corpus_reference": "e05",
+      "wheelbase_m": 2.502854108810425,
+      "front_track_m": 1.4176980257034302,
+      "rear_track_m": 1.4176980257034302,
+      "radii_m": [
+        0.3359529972076416,
+        0.3359529972076416,
+        0.3359529972076416,
+        0.3359529972076416
+      ],
+      "physical_mass_kg": 1300,
+      "estimated_parameter_count": 20
+    },
+    {
+      "car": "ref-e07",
+      "corpus_reference": "e07",
+      "wheelbase_m": 2.889,
+      "front_track_m": 1.5950000000000002,
+      "rear_track_m": 1.57,
+      "radii_m": [
+        0.34148907200539236,
+        0.34148907200539236,
+        0.33924986012163916,
+        0.33924986012163916
+      ],
+      "physical_mass_kg": 1830,
+      "estimated_parameter_count": 14,
+      "reference_wheelbase_m": 2.8890000000000002,
+      "wheelbase_error_pct": -1.1102230246251565e-14,
+      "source_id": "e07-press"
+    },
+    {
+      "car": "ref-e14",
+      "corpus_reference": "e14",
+      "wheelbase_m": 2.56,
+      "front_track_m": 1.5459999999999998,
+      "rear_track_m": 1.5110000000000001,
+      "radii_m": [
+        0.32885864393827435,
+        0.32885864393827435,
+        0.32661943205452115,
+        0.32661943205452115
+      ],
+      "physical_mass_kg": 1959,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.56,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "e14-mb2004"
+    },
+    {
+      "car": "ref-e15",
+      "corpus_reference": "e15",
+      "wheelbase_m": 2.74,
+      "front_track_m": 1.6,
+      "rear_track_m": 1.5750000000000002,
+      "radii_m": [
+        0.3335274297520474,
+        0.3335274297520474,
+        0.33576664163580067,
+        0.33576664163580067
+      ],
+      "physical_mass_kg": 1760,
+      "estimated_parameter_count": 16
+    },
+    {
+      "car": "ref-e16",
+      "corpus_reference": "e16",
+      "wheelbase_m": 2.64,
+      "front_track_m": 1.77,
+      "rear_track_m": 1.6500000000000001,
+      "radii_m": [
+        0.328917083212425,
+        0.328917083212425,
+        0.3475187429695519,
+        0.3475187429695519
+      ],
+      "physical_mass_kg": 1510,
+      "estimated_parameter_count": 21
+    },
+    {
+      "car": "ref-e17",
+      "corpus_reference": "e17",
+      "wheelbase_m": 2.73,
+      "front_track_m": 1.7349999999999999,
+      "rear_track_m": 1.72,
+      "radii_m": [
+        0.32885864393827435,
+        0.32885864393827435,
+        0.3475187429695519,
+        0.3475187429695519
+      ],
+      "physical_mass_kg": 1370,
+      "estimated_parameter_count": 20,
+      "reference_wheelbase_m": 2.73,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "e17-tech"
+    },
+    {
+      "car": "ref-j03",
+      "corpus_reference": "j03",
+      "wheelbase_m": 2.55,
+      "front_track_m": 1.537,
+      "rear_track_m": 1.5419999999999998,
+      "radii_m": [
+        0.31996023567741183,
+        0.31996023567741183,
+        0.31622821587115624,
+        0.31622821587115624
+      ],
+      "physical_mass_kg": 1510,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.5500000000000003,
+      "wheelbase_error_pct": -2.220446049250313e-14,
+      "source_id": "j03-toyota-catalog"
+    },
+    {
+      "car": "ref-j05",
+      "corpus_reference": "j05",
+      "wheelbase_m": 2.7,
+      "front_track_m": 1.539,
+      "rear_track_m": 1.5439999999999998,
+      "radii_m": [
+        0.3281122399770234,
+        0.3281122399770234,
+        0.3281122399770234,
+        0.3281122399770234
+      ],
+      "physical_mass_kg": 1310,
+      "estimated_parameter_count": 15,
+      "reference_wheelbase_m": 2.7,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j05-mazda-launch"
+    },
+    {
+      "car": "ref-j06",
+      "corpus_reference": "j06",
+      "wheelbase_m": 2.53,
+      "front_track_m": 1.51,
+      "rear_track_m": 1.5390000000000001,
+      "radii_m": [
+        0.30030493136446623,
+        0.30030493136446623,
+        0.31622821587115635,
+        0.31622821587115635
+      ],
+      "physical_mass_kg": 1270,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.5300000000000002,
+      "wheelbase_error_pct": -2.220446049250313e-14,
+      "source_id": "j06-honda-spec"
+    },
+    {
+      "car": "ref-j08",
+      "corpus_reference": "j08",
+      "wheelbase_m": 2.265,
+      "front_track_m": 1.439,
+      "rear_track_m": 1.437,
+      "radii_m": [
+        0.2872937792048153,
+        0.2872937792048153,
+        0.2872937792048153,
+        0.2872937792048153
+      ],
+      "physical_mass_kg": 1010,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.265,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j08-mazda-brochure"
+    },
+    {
+      "car": "ref-j10",
+      "corpus_reference": "j10",
+      "wheelbase_m": 2.4053258895874023,
+      "front_track_m": 1.5295759439468384,
+      "rear_track_m": 1.5295759439468384,
+      "radii_m": [
+        0.324972003698349,
+        0.324972003698349,
+        0.324972003698349,
+        0.324972003698349
+      ],
+      "physical_mass_kg": 1720,
+      "estimated_parameter_count": 20
+    },
+    {
+      "car": "ref-j13",
+      "corpus_reference": "j13",
+      "wheelbase_m": 2.52,
+      "front_track_m": 1.533,
+      "rear_track_m": 1.5350000000000001,
+      "radii_m": [
+        0.3082665736178113,
+        0.3082665736178113,
+        0.3082665736178113,
+        0.3082665736178113
+      ],
+      "physical_mass_kg": 1270,
+      "estimated_parameter_count": 16,
+      "reference_wheelbase_m": 2.52,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j13-subaru-launch"
+    },
+    {
+      "car": "ref-j14",
+      "corpus_reference": "j14",
+      "wheelbase_m": 2.4,
+      "front_track_m": 1.4789999999999999,
+      "rear_track_m": 1.4589999999999999,
+      "radii_m": [
+        0.296192187465678,
+        0.296192187465678,
+        0.30141701519443564,
+        0.30141701519443564
+      ],
+      "physical_mass_kg": 1270,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.4,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j14-toyota-catalog"
+    },
+    {
+      "car": "ref-j15",
+      "corpus_reference": "j15",
+      "wheelbase_m": 2.45,
+      "front_track_m": 1.4949999999999999,
+      "rear_track_m": 1.494,
+      "radii_m": [
+        0.29071855841650324,
+        0.29071855841650324,
+        0.29837296007528064,
+        0.29837296007528064
+      ],
+      "physical_mass_kg": 980,
+      "estimated_parameter_count": 18,
+      "reference_wheelbase_m": 2.45,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j15-toyota-catalog"
+    },
+    {
+      "car": "ref-j17",
+      "corpus_reference": "j17",
+      "wheelbase_m": 2.62,
+      "front_track_m": 1.48,
+      "rear_track_m": 1.48,
+      "radii_m": [
+        0.296192187465678,
+        0.296192187465678,
+        0.296192187465678,
+        0.296192187465678
+      ],
+      "physical_mass_kg": 1050,
+      "estimated_parameter_count": 17,
+      "reference_wheelbase_m": 2.62,
+      "wheelbase_error_pct": 0.0,
+      "source_id": "j17-honda-spec"
+    }
+  ]
+}

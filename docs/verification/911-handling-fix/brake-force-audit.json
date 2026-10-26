@@ -1,0 +1,26 @@
+[
+  {
+    "car": "350z",
+    "front_mean_load_N": 9062.6372295,
+    "rear_mean_load_N": 4240.2731235,
+    "unused_front_grip_N": 4456.41741999,
+    "unmet_rear_brake_N": 1426.86678933,
+    "rear_saturated_fraction": 1.0
+  },
+  {
+    "car": "redline-911",
+    "front_mean_load_N": 9262.203804,
+    "rear_mean_load_N": 4049.4297425,
+    "unused_front_grip_N": 4699.88864088,
+    "unmet_rear_brake_N": 1659.6957141500002,
+    "rear_saturated_fraction": 1.0
+  },
+  {
+    "car": "gt4-m3",
+    "front_mean_load_N": 8940.9740435,
+    "rear_mean_load_N": 4357.6970685,
+    "unused_front_grip_N": 4307.9883330699995,
+    "unmet_rear_brake_N": 1283.6095764300003,
+    "rear_saturated_fraction": 1.0
+  }
+]

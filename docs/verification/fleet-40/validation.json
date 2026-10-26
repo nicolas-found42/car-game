@@ -1,0 +1,714 @@
+{
+  "status": "passed",
+  "requirements": {
+    "forty_selectable_prepared_editions": 40,
+    "original_editions_preserved": 13,
+    "explicit_evidence_labeled_profiles": 40,
+    "scenario_types": 24,
+    "new_scenario_types": 19,
+    "successful_run_identities": 1920,
+    "attempts_including_recorder_retries": 1924,
+    "route_completions": 640,
+    "scenario_assertions_passed": 5360,
+    "curved_city_connector": "90 degrees, 38m radius, 24m width; solid curbs and production ground collider; all 40 cars both directions and speeds",
+    "native_car_scripts_passed": 40,
+    "native_captures_verified": 160,
+    "required_rust_tests_passed": 77,
+    "unexpected_resets": 0,
+    "same_platform_identical_repeat_pairs": 960
+  },
+  "summary": {
+    "selected_successful_runs": 1920,
+    "aggregate_car_case_pairs": 960,
+    "total_assertions": 5360,
+    "unexpected_resets": 0,
+    "deliberate_resets": 80,
+    "minimum_four_contact_pct": 100.0,
+    "minimum_four_loaded_pct": 98.33531510107015,
+    "route_runs": 640,
+    "maximum_route_error_m": 3.790191650390625,
+    "infrastructure_retries": 4,
+    "selected_index_sha256": "5bd933af3bb9b7a6568aafebdb1165272b8e2c4296ef43e35af99178ec83bf04",
+    "raw_audit_sha256": "7c46f56b4d50cc448b04db6f8fa56c9e150defae2993f14ddb2dec6caf7d3389",
+    "selected_audit_sha256": "9ccb40a3d736effb4b3c6ecdb170a3135fa02e4931f54009034bce89b6b5800a",
+    "results_sha256": "b20b0aa5938469c6e7872e5b3167b9ba3d2c1ca0bc2fd9538b6e65fbf1b4ff5d"
+  },
+  "binary_sha256": "44e90fb6a0ad4421131229567d6858e6f424b14364d89b033725e7f9a2b98cf9",
+  "current_build_sources_match_native_capture": [
+    "Cargo.lock",
+    "Cargo.toml",
+    "assets/cars/physics.json",
+    "assets/cars/roster.json",
+    "src/assembly/mass.rs",
+    "src/assembly/pilot.rs",
+    "src/assembly/runtime.rs",
+    "src/assembly.rs",
+    "src/city/curve.rs",
+    "src/city.rs",
+    "src/config.rs",
+    "src/diagnostics/health.rs",
+    "src/diagnostics/history.rs",
+    "src/diagnostics/incident.rs",
+    "src/diagnostics/logging.rs",
+    "src/diagnostics/recording.rs",
+    "src/diagnostics/settings.rs",
+    "src/diagnostics/shutdown.rs",
+    "src/diagnostics/writer.rs",
+    "src/diagnostics.rs",
+    "src/ingress.rs",
+    "src/lib.rs",
+    "src/main.rs",
+    "src/presentation.rs",
+    "src/provenance/binding.rs",
+    "src/provenance/policy.rs",
+    "src/provenance/source.rs",
+    "src/provenance/store.rs",
+    "src/provenance.rs",
+    "src/roster.rs",
+    "src/runtime.rs",
+    "src/scenario/route.rs",
+    "src/scenario/runner.rs",
+    "src/scenario.rs",
+    "src/smoke.rs",
+    "src/telemetry.rs",
+    "src/vehicle/forces.rs",
+    "src/vehicle/profile.rs",
+    "src/vehicle.rs"
+  ],
+  "native_run": "artifacts/runs/20261024T052538723463Z-2342545-fleet-5566-1-1792819538746836000",
+  "native_capture_visual_review": "All five fleet overview pages (40 models); Hummer, Mini and WRC driving images; curve PNG; benchmark, scenario matrix and curve-path figures inspected",
+  "runtime_replay_complete": false,
+  "limitations": [
+    "Reduced-order tire, suspension and drivetrain model includes explicitly marked estimates",
+    "Only 19 editions have compatible sourced performance comparisons",
+    "WRC setup provisional tarmac; no loose-surface tire or recovered differential controller",
+    "Existing grid markings continue through curve intersection",
+    "Four recorder-capacity failures retained and replaced only by explicit successful same-identity retries"
+  ],
+  "files": {
+    "artifacts/fleet40-final-20261024/runs.jsonl": {
+      "sha256": "e0763c08c185faf29f125e959c7889a8957edd1455d0fa1cb104f9a3a7b505d4",
+      "bytes": 1626909
+    },
+    "artifacts/fleet40-final-20261024/selected-runs.jsonl": {
+      "sha256": "5bd933af3bb9b7a6568aafebdb1165272b8e2c4296ef43e35af99178ec83bf04",
+      "bytes": 1628226
+    },
+    "artifacts/fleet40-final-20261024/study.json": {
+      "sha256": "86c7ca65afd0f02649926b9222c4884142d9fca8ae63be54075b5fb0f5c55ca2",
+      "bytes": 523673
+    },
+    "artifacts/fleet40-retries-20261024/selection-policy.json": {
+      "sha256": "a7159d5bf7baaac877cfd7f70c15c979f7701502965f6dd211b739689c16d86e",
+      "bytes": 578
+    },
+    "artifacts/vehicle-reference/fleet-40-acceptance-verification.log": {
+      "sha256": "f0640b6ef6a1c71a685860218a3db0cc60bacedd235e31f890616f15c3e2a556",
+      "bytes": 252033
+    },
+    "artifacts/vehicle-reference/fleet-40-final-analysis-gates.log": {
+      "sha256": "50a6fb04217f8bd583da72b438755ac19fd5a71179b8a255da8118a4490093a0",
+      "bytes": 704
+    },
+    "assets/cars/350z.glb": {
+      "sha256": "e79630558ed16c54942afc552838fd465a73bf507754947342bd65a805d37874",
+      "bytes": 500760
+    },
+    "assets/cars/350z.json": {
+      "sha256": "2497e367f3ebe153c82e2b7199212e127f53d4e018835a79b6e81b4e941cf64b",
+      "bytes": 1040
+    },
+    "assets/cars/fr2-cobra.glb": {
+      "sha256": "bcd7d99dfe3fb8d8a7c7d4be608b811eda57c382c1f5a1e99cd4224ca266b464",
+      "bytes": 1192124
+    },
+    "assets/cars/fr2-cobra.json": {
+      "sha256": "38ceabad2a2090489251e0b7269705bfe42180e63bf295f3a79ad730a5a312ff",
+      "bytes": 4958
+    },
+    "assets/cars/fr2-fr500.glb": {
+      "sha256": "e280e49a49286eb62617f54f3f7d5fc5a9bf38958e1d55e23db76d9f28a5dccf",
+      "bytes": 1371432
+    },
+    "assets/cars/fr2-fr500.json": {
+      "sha256": "014c777fe1630478e3dfbd684bb830793a7ce80709a5d657c667555d7e498501",
+      "bytes": 4965
+    },
+    "assets/cars/gt-rx7.glb": {
+      "sha256": "47fa84d5ec58d9de08f851902aa0880b95ba4416a119f6fbeddaa0f129621ca2",
+      "bytes": 631976
+    },
+    "assets/cars/gt-rx7.json": {
+      "sha256": "a86a44aea5538fd8d65434dd3c9b04da9126e82389c7086854993f2776c0fb31",
+      "bytes": 2466
+    },
+    "assets/cars/gt-viper.glb": {
+      "sha256": "7e61f66543554dd21a30f964c911ff30096d0c0cd51c8611b20f23b0205f594c",
+      "bytes": 443732
+    },
+    "assets/cars/gt-viper.json": {
+      "sha256": "8f84cb733a5983dbcd549cc0136337337f0083c98b10894412d92f3b6e783260",
+      "bytes": 2488
+    },
+    "assets/cars/gt4-m3.glb": {
+      "sha256": "edfad641515525b0e45873a27aff9079e353636978f4a17cec2c8f76a248b6db",
+      "bytes": 420616
+    },
+    "assets/cars/gt4-m3.json": {
+      "sha256": "575efc66c693200f99525cae549215c1b81dcf66da1ccd5078e82da9c6c4307b",
+      "bytes": 5105
+    },
+    "assets/cars/gt4-nsx.glb": {
+      "sha256": "443537bd92db0c56ef2cd2c36ffc1fb4cecccee8d3ae96c3cbf5d5000bf01788",
+      "bytes": 424308
+    },
+    "assets/cars/gt4-nsx.json": {
+      "sha256": "4501ab34ed9a7ded03369e78edc8818057cc199841fc0ac2156a8891655dac8a",
+      "bytes": 5144
+    },
+    "assets/cars/mc3-skyline.glb": {
+      "sha256": "601088871666af5d541efe3abcc0bcc09bd3bcf6d0934447e501658620c96e46",
+      "bytes": 3336476
+    },
+    "assets/cars/mc3-skyline.json": {
+      "sha256": "b596a1c7c9dc33cfd4085be1c053622c86091f8cd9fa1d4226a78054bcbc32f8",
+      "bytes": 13239
+    },
+    "assets/cars/mc3-supra.glb": {
+      "sha256": "46d6e9b61633b0153b0e9c1c57d7149234f0a9bee561e3170c6d52139e6675f8",
+      "bytes": 3355036
+    },
+    "assets/cars/mc3-supra.json": {
+      "sha256": "545126a10cfcf1f8f37ef3aa3da4df6a0f094c740b8afdcff2525f93f6cca76d",
+      "bytes": 13658
+    },
+    "assets/cars/mcla-evo.glb": {
+      "sha256": "a57e240be577ad9b7d927416db7ab72d0f4821bc03aeb7fb7ab930a1fa9dc10b",
+      "bytes": 4079256
+    },
+    "assets/cars/mcla-evo.json": {
+      "sha256": "6caa1d31d900f82a574036f29467f2c1d079066b4d6a6ae4ad836c16ed0fa7c1",
+      "bytes": 31374
+    },
+    "assets/cars/mcla-skyline.glb": {
+      "sha256": "1a177823ed20cf5c605928a3f97a919f4e3b1cbe93e78bf8d8418318370dd850",
+      "bytes": 4478172
+    },
+    "assets/cars/mcla-skyline.json": {
+      "sha256": "e71ace50b13a367cdd7f8c95bff19a56b49d35c65bd4255b106c7e27e46dddfe",
+      "bytes": 31101
+    },
+    "assets/cars/physics.json": {
+      "sha256": "af1cd57169cc2c313e77930722a75363896cde1050c67c02ff6871f138b2cc6d",
+      "bytes": 259503
+    },
+    "assets/cars/redline-911.glb": {
+      "sha256": "9404efbb30d226c5d9ea8d853609ed7a0c575d60eea934cba331ad195d75ec35",
+      "bytes": 2351868
+    },
+    "assets/cars/redline-911.json": {
+      "sha256": "14b25820ab0e3249aacc7ed303d569c4df76635909b0a80c03f4129bc088676d",
+      "bytes": 4676
+    },
+    "assets/cars/redline-gt500.glb": {
+      "sha256": "94e906b98137a81d8033ca98fb5545c6f1cdcb05dfbdc95e7dfad34f45f150a5",
+      "bytes": 4109992
+    },
+    "assets/cars/redline-gt500.json": {
+      "sha256": "022f06207d56e2b10dee4ed256333deb8937a20aab0ae7683c750cdb9ab7d698",
+      "bytes": 6979
+    },
+    "assets/cars/ref-a01.glb": {
+      "sha256": "424ceb800772f815cf797eb24d636c75803b321d6ddb4051e165e07a25634594",
+      "bytes": 662852
+    },
+    "assets/cars/ref-a01.json": {
+      "sha256": "88fd2b312d0552da24fd6aecaef29c7f0da2a6bd461c94f21cb199b9d851f944",
+      "bytes": 4438
+    },
+    "assets/cars/ref-a02.glb": {
+      "sha256": "a4f5e28bc1ceccd83b29a6532ee2b00639f9531b4f06711c9f939a01388397dd",
+      "bytes": 320144
+    },
+    "assets/cars/ref-a02.json": {
+      "sha256": "0f32512c5e396a0f994e0b89d164a18d2f8aee5e41ba2af9b2d77d86fde1b597",
+      "bytes": 4259
+    },
+    "assets/cars/ref-a04.glb": {
+      "sha256": "0aaa273c6b4624405edbc0e0ee70aa791f56fe3f8b69d6da529f00970a0dde5e",
+      "bytes": 583816
+    },
+    "assets/cars/ref-a04.json": {
+      "sha256": "a099c86ae02768fc903c2fdcb71e36e6ec7db73961df842b80837cd39e1b5ab9",
+      "bytes": 5021
+    },
+    "assets/cars/ref-a05.glb": {
+      "sha256": "d4110cf452c03bd8429008a3eb6fa2811603ebe09655e4eec5d503634bfdfb5b",
+      "bytes": 1426444
+    },
+    "assets/cars/ref-a05.json": {
+      "sha256": "ab7a6d6917b428cb54ad1e66935533347c3edf9622d1396b8170a3cb95078549",
+      "bytes": 4963
+    },
+    "assets/cars/ref-a06.glb": {
+      "sha256": "80200a54635809c1a3f8228958485607a041c7f88ee3ca888873afd01be9e9e1",
+      "bytes": 4157468
+    },
+    "assets/cars/ref-a06.json": {
+      "sha256": "b48b3b0b7e49ac40cbc18fb725b5b4558e951043ecd8270463753b50fd20fbf6",
+      "bytes": 29201
+    },
+    "assets/cars/ref-a07.glb": {
+      "sha256": "76052d6b86bcaa3bc38511f51521703cf76f33570cdbac156d9aa8f0eeaf8c66",
+      "bytes": 1095084
+    },
+    "assets/cars/ref-a07.json": {
+      "sha256": "9b57cbe4a3b8da44b153a92741a2400c151e7d97578ecbd12f8684db0e87f271",
+      "bytes": 5313
+    },
+    "assets/cars/ref-a09.glb": {
+      "sha256": "9cc4c7281988867c5a034d9ad11b47a2702dd88f897210308205e966edd24ec9",
+      "bytes": 4132256
+    },
+    "assets/cars/ref-a09.json": {
+      "sha256": "4a55d732f36232a0d0feb57f222dd62b2c2623d9069fe169b05c023595e1261d",
+      "bytes": 30025
+    },
+    "assets/cars/ref-a11.glb": {
+      "sha256": "76dbbc22b8792494cc29bb8e2119806553b2550f034da2d8240d8cd57083b938",
+      "bytes": 825780
+    },
+    "assets/cars/ref-a11.json": {
+      "sha256": "2ac419177440b4063923c1c22dcc84d309c4b0343f507170d7c3fe42bfa351bc",
+      "bytes": 4704
+    },
+    "assets/cars/ref-a12.glb": {
+      "sha256": "569d4084f09ad57a8493c1affe6e2bb09e0fa51320791a3f25c61a583d5ff538",
+      "bytes": 3161188
+    },
+    "assets/cars/ref-a12.json": {
+      "sha256": "187501ae759f3d52db62fe968b3daeaf34b97164b0ab6481c090fddce24871fc",
+      "bytes": 11764
+    },
+    "assets/cars/ref-a13.glb": {
+      "sha256": "7caae8f4d3f4bf71dd3bbaedf2079d01fea2ac0703ac777f74c78622873a2222",
+      "bytes": 3187904
+    },
+    "assets/cars/ref-a13.json": {
+      "sha256": "34f60c335b3edda5422f7f7683e2ebc688a17342a9e4298c5bc476285493fbe1",
+      "bytes": 16697
+    },
+    "assets/cars/ref-a14.glb": {
+      "sha256": "65f472b8c0194fa51470adbf5c523a252fc050a2074bd547a34585d548a66b9c",
+      "bytes": 2720288
+    },
+    "assets/cars/ref-a14.json": {
+      "sha256": "65418e77176ec61ebbea4f6111fad2f83fd5ff468f99528bcff064db9c2aa70c",
+      "bytes": 12721
+    },
+    "assets/cars/ref-a15.glb": {
+      "sha256": "ddeccf5a606c5ecb6bf60091c1325ef93f237b030a4771f2eaac33fc8cea5e15",
+      "bytes": 569776
+    },
+    "assets/cars/ref-a15.json": {
+      "sha256": "66776dd7fa5f5a1f19f4a05d4b9fdb5551680634cc6f5f41568e2c7acbda75af",
+      "bytes": 4854
+    },
+    "assets/cars/ref-a16.glb": {
+      "sha256": "689a4bc9ab411ebf0fb5067cb85d3c1e2d69a9ad45109a79ed07926510b8de86",
+      "bytes": 356548
+    },
+    "assets/cars/ref-a16.json": {
+      "sha256": "e1bd6e36350eed23a02c62547f61a7165646df9971a895f5d80b0034897aad89",
+      "bytes": 4992
+    },
+    "assets/cars/ref-e02.glb": {
+      "sha256": "18d9d450f35342513bd67d29d88d4b7efc40a2a5f9831e9f3765aa98c8460075",
+      "bytes": 2075260
+    },
+    "assets/cars/ref-e02.json": {
+      "sha256": "c7232d88f77b9f38f8c3df38f65babfcb87a303b3e5336508c1411bdc7439111",
+      "bytes": 3547
+    },
+    "assets/cars/ref-e03.glb": {
+      "sha256": "2a7cd3afde3945429ee5fcc8bf67842a22c76ed63d5449b108d8e091ea146754",
+      "bytes": 2812308
+    },
+    "assets/cars/ref-e03.json": {
+      "sha256": "59e7e0f50b1daf838790b39b9726ce3ec8fb9e0134ffc72e1df37d79289b3420",
+      "bytes": 12976
+    },
+    "assets/cars/ref-e04.glb": {
+      "sha256": "0c458cff8b36da1e914f3c9aae525565a1f5da5e3bad851ca37f9a459a829d58",
+      "bytes": 2592460
+    },
+    "assets/cars/ref-e04.json": {
+      "sha256": "fb3484a996dd46892b8905dcde7c2f86b98614697d0bcc63167d87d35bee00fc",
+      "bytes": 15708
+    },
+    "assets/cars/ref-e08.glb": {
+      "sha256": "aadef6b0337fd3a9ca61693a72128640728438dd040747e6eeca07d102e4f895",
+      "bytes": 543384
+    },
+    "assets/cars/ref-e08.json": {
+      "sha256": "8386a85e6419440601c0290a4d11d90de5b3864cdf1c494810ac2645f87c79ce",
+      "bytes": 4657
+    },
+    "assets/cars/ref-e09.glb": {
+      "sha256": "df8d8418d577a3a0ea2039ee97f48ca595308a823ad0e8e26f6faf8ec09f50f0",
+      "bytes": 2593960
+    },
+    "assets/cars/ref-e09.json": {
+      "sha256": "4839ee911957b3079c3639d5f027e9d7382c4d9057b2c086956452822fa28a1f",
+      "bytes": 5112
+    },
+    "assets/cars/ref-e10.glb": {
+      "sha256": "23dcd54abb9ddbc6db7d7a0c1308e810b718556976d18f208d84201b2f134cf1",
+      "bytes": 622760
+    },
+    "assets/cars/ref-e10.json": {
+      "sha256": "6a805146907e0e585165dceed40591d4fc115c8bcc68fb006f37212acf23fc8a",
+      "bytes": 5214
+    },
+    "assets/cars/ref-e11.glb": {
+      "sha256": "3e03e136f776d70745b7cbc6c0a796c6ce137f7b5e8fce381f0463a15369d7a5",
+      "bytes": 4459132
+    },
+    "assets/cars/ref-e11.json": {
+      "sha256": "75db6321561f5833f13a7850b7854e3e07e8693caffe462dff246b4519dfaf4e",
+      "bytes": 33243
+    },
+    "assets/cars/ref-e12.glb": {
+      "sha256": "33eb062a08c8879e6a996c99ff01d03307ebb410fe647350e3bd66fd8e2cbbc4",
+      "bytes": 4659416
+    },
+    "assets/cars/ref-e12.json": {
+      "sha256": "652a4e0405675c80590651539b80edc0cef1c8303682aa7d423eb6b3897e9ab8",
+      "bytes": 36258
+    },
+    "assets/cars/ref-e13.glb": {
+      "sha256": "f4187b3f20e6da9ea1da3aa9f4f7b7d2605023dc5df5482b04ff59d128e2668d",
+      "bytes": 1092244
+    },
+    "assets/cars/ref-e13.json": {
+      "sha256": "edad964dcf04e1f3aa79c7c8b1433f36e4c0b98bdf259dee8ac959a04e2fb1a5",
+      "bytes": 4458
+    },
+    "assets/cars/ref-j04.glb": {
+      "sha256": "8be637fed7e8a6bf5bbfdba56d19696ab774287924e1113ed6d56fe9721c6983",
+      "bytes": 619724
+    },
+    "assets/cars/ref-j04.json": {
+      "sha256": "e92e73ef85636e36e12d33ebf13330a03872e33086279b217053666e94d2d0d2",
+      "bytes": 4964
+    },
+    "assets/cars/ref-j07.glb": {
+      "sha256": "e047a5932ddcc135b5108d6183cb4491850a067b9775126201d4aa8777e55b55",
+      "bytes": 496108
+    },
+    "assets/cars/ref-j07.json": {
+      "sha256": "704a5704f35425a8f2836edafd601808023c2ec7a4353147f1031d53ab6ba566",
+      "bytes": 4377
+    },
+    "assets/cars/ref-j11.glb": {
+      "sha256": "35104ed1fcfa17a5db0ca23d9424e7dcfd8c1fd29b7b7ae800936696783edd24",
+      "bytes": 472668
+    },
+    "assets/cars/ref-j11.json": {
+      "sha256": "a985405419c632ee592d0451b7e29d992ec00512cb4666023100fd3477005827",
+      "bytes": 4878
+    },
+    "assets/cars/ref-j12.glb": {
+      "sha256": "3590fef7c329ddfc593c22baebb8e2581fc057378ed99c042fb54a414c8ec169",
+      "bytes": 420352
+    },
+    "assets/cars/ref-j12.json": {
+      "sha256": "f18c8965593cecdf6fc08bf3efcc68d876d307c10e9b94392c9d3af22d45be5e",
+      "bytes": 4651
+    },
+    "assets/cars/ref-j16.glb": {
+      "sha256": "f18c3f27d03364587bbc576322bee7e67e78ec8e31c5213be4276e43c1041c56",
+      "bytes": 426480
+    },
+    "assets/cars/ref-j16.json": {
+      "sha256": "9e6456d9bb5a021364ba9c98b268e06b3db547b84b7a5cc472c6f47db5098600",
+      "bytes": 4743
+    },
+    "assets/cars/roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "docs/verification/fleet-40/README.md": {
+      "sha256": "34692da9669f3c929cad417045e1afcad6fa22db046c448073a1bd711ec4062b",
+      "bytes": 14384
+    },
+    "docs/verification/fleet-40/benchmark-40.png": {
+      "sha256": "dcb8d46e37fcd57c3294c835b2034cfbb9dccef6cf147beca189e242515af5ef",
+      "bytes": 182556
+    },
+    "docs/verification/fleet-40/benchmark-protocol.json": {
+      "sha256": "3868575dadfffb1677e290032fd9c9ec84c61e1cccb8bd3f5f5943169c41182b",
+      "bytes": 1431
+    },
+    "docs/verification/fleet-40/completion-summary.json": {
+      "sha256": "67635ca97dfa1ed9e52d3bb6f7e10e259c9f8c1e46de2d1b4f3ad815400cd108",
+      "bytes": 706
+    },
+    "docs/verification/fleet-40/courses.json": {
+      "sha256": "e55fb4a79e296ad994c6ed36eec7acfe37be8d803c90630dcece9dae8af7ed08",
+      "bytes": 3512
+    },
+    "docs/verification/fleet-40/curve-native-evidence.json": {
+      "sha256": "e891d653545072f94bb08072793e2b618fb38e35e31a42f078a88d8ae69e4505",
+      "bytes": 5940
+    },
+    "docs/verification/fleet-40/curve-native.png": {
+      "sha256": "2ae1ef075ad147acdfc65deb38b7289fc7850c2b0feb68ac0297da60d473ff0b",
+      "bytes": 1321783
+    },
+    "docs/verification/fleet-40/curve-paths.png": {
+      "sha256": "79d5bda3d40d541da61dab55f7dc6d6d6b2888357a6f6fdef27e545204d9a6ab",
+      "bytes": 103187
+    },
+    "docs/verification/fleet-40/curve-preview-scenario.json": {
+      "sha256": "6cc271ed00afac991a92d77d3f6c5eb33820699c258c8ace49a56096e81bae56",
+      "bytes": 1594
+    },
+    "docs/verification/fleet-40/evidence-audit.jsonl": {
+      "sha256": "7c46f56b4d50cc448b04db6f8fa56c9e150defae2993f14ddb2dec6caf7d3389",
+      "bytes": 5398070
+    },
+    "docs/verification/fleet-40/native-output-budget.json": {
+      "sha256": "2521206734a8c78d3e8ce2c8baa14b57900a9e5190a54d16298c846667870061",
+      "bytes": 440
+    },
+    "docs/verification/fleet-40/original-13-comparison.json": {
+      "sha256": "53ba67e7eb7c978c87a45dd44960b494d58f8e88e0820594c5f2c59aded3d2a0",
+      "bytes": 73508
+    },
+    "docs/verification/fleet-40/original-profiles.json": {
+      "sha256": "ef310cdfe6462e677cb7e3999de617d6dd34a3e2e3c2f0346a82876bdd7b8eb4",
+      "bytes": 72408
+    },
+    "docs/verification/fleet-40/original-roster.json": {
+      "sha256": "d13d57b3f666860932e80db383d938be072f70058d3acf2326b5df879623e64a",
+      "bytes": 12333
+    },
+    "docs/verification/fleet-40/preparation.json": {
+      "sha256": "18cd92b5b9f195453eacd844bf4f3b5d4a23ebef2a5d02224147ca13946d5b84",
+      "bytes": 4402
+    },
+    "docs/verification/fleet-40/profile-expansion.json": {
+      "sha256": "39bbe8690feb2028465495549ba0527362e2dc8076cb180b5bda8bdf533edec0",
+      "bytes": 198905
+    },
+    "docs/verification/fleet-40/profile-research.md": {
+      "sha256": "1f3b63e9480609d241e47b19fbc0ace6cd95c33af069ddfc717d3d4e94e85d62",
+      "bytes": 25232
+    },
+    "docs/verification/fleet-40/reference-comparison.csv": {
+      "sha256": "78224a9cb90cb2e6a4851c8a02828c53232a2a93bebc4b66e3eeedf6c36a73a0",
+      "bytes": 17848
+    },
+    "docs/verification/fleet-40/reference-comparison.json": {
+      "sha256": "4c5d791343bfb630578808dce7fa552b75f570b5d1fb229ec272da42c8ad49bf",
+      "bytes": 43636
+    },
+    "docs/verification/fleet-40/results.csv": {
+      "sha256": "2e8e28ee4ffd6cd26a1b507af98bc0e58986df41f19394a8f55eb374546d1251",
+      "bytes": 139636
+    },
+    "docs/verification/fleet-40/results.json": {
+      "sha256": "b20b0aa5938469c6e7872e5b3167b9ba3d2c1ca0bc2fd9538b6e65fbf1b4ff5d",
+      "bytes": 5108296
+    },
+    "docs/verification/fleet-40/scenario-matrix.png": {
+      "sha256": "9e9eb30506265e3badefa53c8af50af995b285cef325ae28ea8ba5ff3ff76111",
+      "bytes": 241501
+    },
+    "docs/verification/fleet-40/selected-evidence-audit.json": {
+      "sha256": "9ccb40a3d736effb4b3c6ecdb170a3135fa02e4931f54009034bce89b6b5800a",
+      "bytes": 7894456
+    },
+    "docs/verification/fleet-40/selection.json": {
+      "sha256": "e4af6bf1e84d0bd962201b05c33eb9821bcaac6a6a0952e13ca63df1f4c74310",
+      "bytes": 4105
+    },
+    "scripts/verify.sh": {
+      "sha256": "3c568fac7d234d221c874afd95ef9bfb1ff3cc302bd6285f774eb2d80405eaa9",
+      "bytes": 2351
+    },
+    "src/assembly/mass.rs": {
+      "sha256": "7cc41b568f581b03f457668467f054ffc30c0f2a1db0ca0a75ac556384028641",
+      "bytes": 5746
+    },
+    "src/assembly/pilot.rs": {
+      "sha256": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+      "bytes": 5042
+    },
+    "src/assembly/runtime.rs": {
+      "sha256": "0a1290e58af9b118d85b44d4d2c2eae2696adc9bac3dc453e5107123f8607fa9",
+      "bytes": 2865
+    },
+    "src/assembly.rs": {
+      "sha256": "3582f4b51909e83c669eed5ba951973977ccd33b77f17a0747a8f3800cdb1b4e",
+      "bytes": 11848
+    },
+    "src/city/curve.rs": {
+      "sha256": "ec9da4d501b0ccbeab0489697af0c3cc55db15eba7cf4bfb0f9da9ad85271978",
+      "bytes": 2965
+    },
+    "src/city.rs": {
+      "sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+      "bytes": 9835
+    },
+    "src/config.rs": {
+      "sha256": "376d8825381daf53e93f1535df09cfcff07def7240ddb1dd74bdae6fae58450c",
+      "bytes": 6496
+    },
+    "src/diagnostics/health.rs": {
+      "sha256": "60445ab5d8e346625ec66b84fb6134f15e2de9069c8b0d4daf3932ff83ecf842",
+      "bytes": 9500
+    },
+    "src/diagnostics/history.rs": {
+      "sha256": "3551a9323f69d8b9684eb681c91c40d38f2dd60e5dd51d74ef3b885bee85d804",
+      "bytes": 4022
+    },
+    "src/diagnostics/incident.rs": {
+      "sha256": "71a7af2fccd3068bc8527f5ecfce74724bd025a5e13c5cb8f0171b94b0a46b86",
+      "bytes": 1909
+    },
+    "src/diagnostics/logging.rs": {
+      "sha256": "4555e1d82b7fce4f36bf8b6b7019ad797840acd67c57a9d8331ec05ae7eae66a",
+      "bytes": 1518
+    },
+    "src/diagnostics/recording.rs": {
+      "sha256": "7e59c70f2dee7c83385178e223943280e7411ea86f4714de71e92a47ec5d43d0",
+      "bytes": 11488
+    },
+    "src/diagnostics/settings.rs": {
+      "sha256": "2983201c28b0e92d3c47e70ff1c7daad8b334f91e71dc838e64307e8d870a66d",
+      "bytes": 5527
+    },
+    "src/diagnostics/shutdown.rs": {
+      "sha256": "eb632395889aa929a7386d9381b71e14507266fdd49927ff9307a1e7778a0ee4",
+      "bytes": 1056
+    },
+    "src/diagnostics/writer.rs": {
+      "sha256": "fca911a4e4f69d74ef9a7c559818d0a86f2cb7a39be550998461986e532d9890",
+      "bytes": 9874
+    },
+    "src/diagnostics.rs": {
+      "sha256": "8bb19fea2b08b6db8d7989b1dc423633f5ad088bcd5ae7c42de2c06f57cde230",
+      "bytes": 36533
+    },
+    "src/ingress.rs": {
+      "sha256": "ee19af3ace7dc3aadaf777c3a39e4689025c4c7acc90297e6fe387fa6010c443",
+      "bytes": 1560
+    },
+    "src/lib.rs": {
+      "sha256": "f5944d12f742269d532161654d5c89a7c8f4618ff4dfeb861cf11bd00b547dd4",
+      "bytes": 6160
+    },
+    "src/main.rs": {
+      "sha256": "a7deb8992f503f7d54edfc1f80d4c330ed1658227ecc639d040bb1dcdee62fc7",
+      "bytes": 2081
+    },
+    "src/presentation.rs": {
+      "sha256": "e801ad4e9393eb66d4e256bbbb6adc077cdc3eaf7e0d408c6b98dbfd7f916971",
+      "bytes": 19257
+    },
+    "src/provenance/binding.rs": {
+      "sha256": "98eb529f243b41363f4bad7c221cd3deca5eb320ce22d330aa9e63405c4694bd",
+      "bytes": 2767
+    },
+    "src/provenance/policy.rs": {
+      "sha256": "8f92dd1571ff005b00ddd06f5f40980d46c2b418287dfd6929f752485522913d",
+      "bytes": 7460
+    },
+    "src/provenance/source.rs": {
+      "sha256": "653cb37ee3b60a7153f8f7a44525427d2caab3941814045dd10ed3aa7b1c4aa7",
+      "bytes": 9216
+    },
+    "src/provenance/store.rs": {
+      "sha256": "7b2272aef483147ab6dc2c72f76cb64e93f40676e0742f43d66eea9aee59971e",
+      "bytes": 5078
+    },
+    "src/provenance.rs": {
+      "sha256": "8eafebfebe869e9369d509251612f1093aea7780c3aaa2a279fc12b35aaed9ab",
+      "bytes": 15654
+    },
+    "src/roster.rs": {
+      "sha256": "63f1247fd9b21a1929c4acf6cb4516b1effe180131788c8d36f27dda2884603f",
+      "bytes": 2341
+    },
+    "src/runtime.rs": {
+      "sha256": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+      "bytes": 21297
+    },
+    "src/scenario/route.rs": {
+      "sha256": "6c62dbe74ff8cfce6e6915a0c2877c0b704cc8c10d481b79f2e3158799efb070",
+      "bytes": 5376
+    },
+    "src/scenario/runner.rs": {
+      "sha256": "09cf0d4097e21cec6a68e0d1f1b370fcdaeab4b8ab45585816c9d4612b73a36e",
+      "bytes": 16002
+    },
+    "src/scenario.rs": {
+      "sha256": "f2036a81b11c40a0140ffc6edb8f76d7e9d56ab6b12a6c1419c075794f7fe230",
+      "bytes": 5595
+    },
+    "src/smoke.rs": {
+      "sha256": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+      "bytes": 18108
+    },
+    "src/telemetry.rs": {
+      "sha256": "5371de71508f82b09b61b4cad9c5fcc7ee78b3864e30a195219230d7c2dfeae8",
+      "bytes": 2250
+    },
+    "src/vehicle/forces.rs": {
+      "sha256": "5763be8a038e5bc419cffc4c0a0a7cc7323b7747740da3913094287509877a7e",
+      "bytes": 1660
+    },
+    "src/vehicle/profile.rs": {
+      "sha256": "627c69a3037758e7779f4224e02daa00866056069bba243bda4e47876105ed07",
+      "bytes": 6442
+    },
+    "src/vehicle.rs": {
+      "sha256": "0829b7bdf2a36b97754c3617b4c14507fef7740d061dba1d67997b57582256f8",
+      "bytes": 35377
+    },
+    "tests/scenarios.rs": {
+      "sha256": "373904338f2dace700d61a4779e78e320f91de875141efbe04899937c78dcbd4",
+      "bytes": 23116
+    },
+    "tests/vehicle_profiles.rs": {
+      "sha256": "e6278d2a14da8fd4e46f99268f15f6ad5ebe9ff98c4ba864cfcc6129124a7b14",
+      "bytes": 4213
+    },
+    "tools/analyze_fleet40_study.py": {
+      "sha256": "11e895aa62cc9e8dbe46de883bb2b88b640179b22159d6615b056cbf60774295",
+      "bytes": 10378
+    },
+    "tools/audit_fleet40_evidence.py": {
+      "sha256": "512eb881d15a81bbb984a5cb6abb61d0a84438c16746086895559fbb14d3e8e6",
+      "bytes": 1995
+    },
+    "tools/expand_fleet.py": {
+      "sha256": "ffb4aea3c87c5150e43f8d937055f7099aa990a9d5c7c20ce8fe3529766e32c0",
+      "bytes": 1828
+    },
+    "tools/fleet40_protocol.py": {
+      "sha256": "c849c9ae68bc40bc485d22540f514ac00c45a72fb0bcd4071a38f047b4202c7e",
+      "bytes": 4250
+    },
+    "tools/plot_fleet40_results.py": {
+      "sha256": "d8660eb6207002220ffe7fc724125165e2454e20e57ae4dc430e01b5b7d18038",
+      "bytes": 4673
+    },
+    "tools/run_fleet40_study.py": {
+      "sha256": "3816a7984aba8e8d134f2a2ef737f336cff311ba13a0b16b345fad95c925dbc6",
+      "bytes": 4589
+    }
+  }
+}

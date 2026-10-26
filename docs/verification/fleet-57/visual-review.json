@@ -1,0 +1,21 @@
+{
+  "native_run": "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000",
+  "native_overview_pages": 7,
+  "native_editions_reviewed": 57,
+  "scenario_matrix_reviewed": true,
+  "figure_checks": "Readable labels and units; all57rows/24cases present; sole cyan contact marker on22B right trail brake; geometry ratios and wall-control chart match retained numeric results.",
+  "preview_limits": "Source-era geometry and PBR translations remain visible. Colored glazing on NSX-R/MX-5 and some source hood/material appearances are retained; native acceptance does not assert pixel-identical source-game shading.",
+  "files": {
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-1.jpg": "f762b2f53e70bbe59fb3c88fd40ad9b0669f2bd90bc485f438ee692d145997de",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-2.jpg": "6e9bed9c8544aa6f171a76df4730f807d4660f87b7b6cd62e6c8ace4a413bc57",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-3.jpg": "c00045fe2eaa79662f273be75a059f4cc515d9ec4df985d89fa17dab65aa50b9",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-4.jpg": "e3b0b8dfabc41932534937e63660c9cc7f9390dcd7ee17e5b3cafa163a2d431e",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-5.jpg": "798022e25e4d7c9d6f7a39027c7b6b2bb1f183901ba1dfed95d2e032b2d248d9",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-6.jpg": "4cf3192fa5efc12c4e1075e9638c88901a86b3d93449fd28c1eec4e35f81e831",
+    "artifacts/runs/20261025T014906737212Z-2342545-fleet-12341-1-1792892946761736000/fleet-overview-7.jpg": "2b4d7c069a3fa8df1a70a5969bb54df062d54eb3108ab86799a7db0387525509",
+    "docs/verification/fleet-57/benchmarks-57.png": "b19d7df7ca356aba4262eb7d8b3dcb8efd26d8bb803f760206c4396e1928f3a4",
+    "docs/verification/fleet-57/scenario-matrix.png": "ff8d4b96ef87dc57fe480ea218cda9e2fa690258ebcbecf0281735f94d9cd7ac",
+    "docs/verification/fleet-57/c5-geometry.png": "82e19df39cd3bd340b4bd29ea003624b643f26036a8c2947b64b016a03b7d6fc",
+    "docs/verification/fleet-57/22b-wall-contact.png": "f5917f680180772351d32086e5b819368a9cb65c74b32c24455f112bc5c9ec9a"
+  }
+}

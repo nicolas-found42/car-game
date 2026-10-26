@@ -1,0 +1,745 @@
+{
+  "status": "passed",
+  "scenario_summary": {
+    "successful_runs": 1920,
+    "assertions": 5360,
+    "route_completions": 640,
+    "unexpected_resets": 0,
+    "requested_resets": 80,
+    "minimum_four_contact_pct": 100.0,
+    "minimum_four_loaded_pct": 98.33531510107015,
+    "maximum_route_error_m": 3.790191650390625,
+    "identical_repeat_pairs": 960,
+    "unchanged_other_car_matched_trajectories": 1872,
+    "city_contact_loss_runs": [],
+    "after_binary_sha256": "343cbd08aaa9a8ca4e5a1a0cfa7e67ba53e7550d6632c425bb6b2de09b47a0a4",
+    "matched_before_after_scenario_hashes": 1920
+  },
+  "before_binary_sha256": "1ba35ad568f41b2554280240ba8ee9250af940609b83f33a9ffd4f1f7644f0aa",
+  "after_binary_sha256": "343cbd08aaa9a8ca4e5a1a0cfa7e67ba53e7550d6632c425bb6b2de09b47a0a4",
+  "changed_build_inputs": [
+    "assets/cars/physics.json"
+  ],
+  "native_run": "artifacts/runs/20261024T234234940692Z-2342545-fleet-29313-1-1792885354970544000",
+  "rust_tests_passed": 82,
+  "native_cars_passed": 40,
+  "native_captures_verified": 160,
+  "profile_parameter_changes": [
+    [
+      "redline-gt500",
+      "driveline_efficiency",
+      0.88,
+      0.82
+    ]
+  ],
+  "runtime_replay_complete": false,
+  "visual_review": "All five 40-car overview pages, GT500 driving view, acceleration and scenario comparisons inspected",
+  "limitations": [
+    "Effective power-delivery factor is estimated; the real internal split among losses, inertia and torque shape is not identified",
+    "0\u201360 gives back 0.150 s while remaining 0.533 s quicker than original",
+    "Quarter-mile elapsed time becomes less accurate; speed is instantaneous at crossing rather than publisher timing-trap average",
+    "Source rollout, driver/test load and atmosphere are not fully matched; calibration is not independent validation"
+  ],
+  "files": {
+    ".scratch/finalize_gt500_matrix.py": {
+      "sha256": "e643601af2777b1d1e7f70903091ab98b2a75255a82beff080f07af8593e509b",
+      "bytes": 3355
+    },
+    ".scratch/validate_gt500_midrange.py": {
+      "sha256": "db8ace22fd39375316bd0e412d3ae01e8caa81fad59cbf232a3236c000dd03d4",
+      "bytes": 8589
+    },
+    "Cargo.lock": {
+      "sha256": "3edfb3d3c56f8f7fab88c220da84542883e1d1a97b8117238e6430459c011e41",
+      "bytes": 164707
+    },
+    "Cargo.toml": {
+      "sha256": "f0ac94f34db170bce46b546953252f224ee9e2b875e58e7dc9de9e6129e84b95",
+      "bytes": 1093
+    },
+    "artifacts/fleet40-gt500-midrange-20261024/runs.jsonl": {
+      "sha256": "6c7507c131346227fedd7191d34210e9e06fbc941cbf4fd904363587db72777a",
+      "bytes": 1857375
+    },
+    "artifacts/fleet40-gt500-midrange-20261024/study.json": {
+      "sha256": "bb31db5b8b2449bf5cb7aaadfd9d69bb1ecfde10014d11c5ce148e7bdade7468",
+      "bytes": 541072
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-benchmark-r1.json": {
+      "sha256": "11be76ab111b0b4e04f4fa0737dad0147b002b9245e114eb890e0e6c598ee511",
+      "bytes": 13377
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-benchmark-r2.json": {
+      "sha256": "11be76ab111b0b4e04f4fa0737dad0147b002b9245e114eb890e0e6c598ee511",
+      "bytes": 13377
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-physics.json": {
+      "sha256": "4017bab8b8653a54a60952ce1793e79cc11a644b2766e50a888e5a1f79ae6059",
+      "bytes": 284402
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-skidpad-r1.json": {
+      "sha256": "a71a95cffbbce74a8fcac2f6954c44846799e7bdd76951edbf492fe50d1e48fc",
+      "bytes": 18338
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-skidpad-r2.json": {
+      "sha256": "a71a95cffbbce74a8fcac2f6954c44846799e7bdd76951edbf492fe50d1e48fc",
+      "bytes": 18338
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-trace-r1.json": {
+      "sha256": "3bac676466cf359f403fd739082c0bc665f41f69c0d25da6e9eb9467e3e3994b",
+      "bytes": 318496
+    },
+    "artifacts/vehicle-reference/gt500-midrange/after-trace-r2.json": {
+      "sha256": "3bac676466cf359f403fd739082c0bc665f41f69c0d25da6e9eb9467e3e3994b",
+      "bytes": 318496
+    },
+    "artifacts/vehicle-reference/gt500-midrange/analysis-gates.log": {
+      "sha256": "eabda7a0c34d13e7e65b31c896f4f19d62e7ebecde9a088a59ca0be988cbab01",
+      "bytes": 704
+    },
+    "artifacts/vehicle-reference/gt500-midrange/baseline-correct-distance.json": {
+      "sha256": "6854cb4e017f87ba64026e0daf56b662cdb6134827a724e3bfe2109a10a300aa",
+      "bytes": 315386
+    },
+    "artifacts/vehicle-reference/gt500-midrange/before-physics.json": {
+      "sha256": "568556980bef9f68acd11683b220303acd5aac26e7eeafc88e073f4a91ca4dc2",
+      "bytes": 283756
+    },
+    "artifacts/vehicle-reference/gt500-midrange/before-roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-binary.json": {
+      "sha256": "0f6c3856589bf90416c80afbd646ef4b3780724e8bf014d04c3725b09d0be66f",
+      "bytes": 476
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-method.json": {
+      "sha256": "0cf07bc16b4d469d3bcbf147e24aef04c8b0c9d3fc30d02766544985116669aa",
+      "bytes": 2657
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-probe": {
+      "sha256": "ad5a96937374cfbee9ec85b2895b580638b8aa15d1b4f9c2cfc9541ccd126f99",
+      "bytes": 107826080
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/Cargo.lock": {
+      "sha256": "400dbf987b8a9235e611a6cff72cf24bb63ee1f81f4b25fa05058d117ab53595",
+      "bytes": 164719
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/Cargo.toml": {
+      "sha256": "81ae396e7c43d1df23a0cfaafe6d0953573b52ea7a75600a56522e686fae5abb",
+      "bytes": 1105
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/examples/fleet_controls.rs": {
+      "sha256": "951376f236c2cfc0c69d2cf4fa3f853e1f5d0df2ee81a67967fea8952f1522ff",
+      "bytes": 3738
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/examples/fleet_envelope.rs": {
+      "sha256": "49d5dd4bdeecc5da812fb1682b0a37da356699c1edf11db9246191b02a277336",
+      "bytes": 5659
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/examples/gt500_trace.rs": {
+      "sha256": "7374725e90725f82bf2141ecc87118060735fd2e4b04324cf383b2fafa325366",
+      "bytes": 2413
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/assembly/mass.rs": {
+      "sha256": "7cc41b568f581b03f457668467f054ffc30c0f2a1db0ca0a75ac556384028641",
+      "bytes": 5746
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/assembly/pilot.rs": {
+      "sha256": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+      "bytes": 5042
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/assembly/runtime.rs": {
+      "sha256": "0a1290e58af9b118d85b44d4d2c2eae2696adc9bac3dc453e5107123f8607fa9",
+      "bytes": 2865
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/assembly.rs": {
+      "sha256": "3582f4b51909e83c669eed5ba951973977ccd33b77f17a0747a8f3800cdb1b4e",
+      "bytes": 11848
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/city/curve.rs": {
+      "sha256": "ec9da4d501b0ccbeab0489697af0c3cc55db15eba7cf4bfb0f9da9ad85271978",
+      "bytes": 2965
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/city.rs": {
+      "sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+      "bytes": 9835
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/config.rs": {
+      "sha256": "376d8825381daf53e93f1535df09cfcff07def7240ddb1dd74bdae6fae58450c",
+      "bytes": 6496
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/health.rs": {
+      "sha256": "60445ab5d8e346625ec66b84fb6134f15e2de9069c8b0d4daf3932ff83ecf842",
+      "bytes": 9500
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/history.rs": {
+      "sha256": "3551a9323f69d8b9684eb681c91c40d38f2dd60e5dd51d74ef3b885bee85d804",
+      "bytes": 4022
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/incident.rs": {
+      "sha256": "71a7af2fccd3068bc8527f5ecfce74724bd025a5e13c5cb8f0171b94b0a46b86",
+      "bytes": 1909
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/logging.rs": {
+      "sha256": "4555e1d82b7fce4f36bf8b6b7019ad797840acd67c57a9d8331ec05ae7eae66a",
+      "bytes": 1518
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/recording.rs": {
+      "sha256": "7e59c70f2dee7c83385178e223943280e7411ea86f4714de71e92a47ec5d43d0",
+      "bytes": 11488
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/settings.rs": {
+      "sha256": "2983201c28b0e92d3c47e70ff1c7daad8b334f91e71dc838e64307e8d870a66d",
+      "bytes": 5527
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/shutdown.rs": {
+      "sha256": "eb632395889aa929a7386d9381b71e14507266fdd49927ff9307a1e7778a0ee4",
+      "bytes": 1056
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics/writer.rs": {
+      "sha256": "fca911a4e4f69d74ef9a7c559818d0a86f2cb7a39be550998461986e532d9890",
+      "bytes": 9874
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/diagnostics.rs": {
+      "sha256": "8bb19fea2b08b6db8d7989b1dc423633f5ad088bcd5ae7c42de2c06f57cde230",
+      "bytes": 36533
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/ingress.rs": {
+      "sha256": "ee19af3ace7dc3aadaf777c3a39e4689025c4c7acc90297e6fe387fa6010c443",
+      "bytes": 1560
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/lib.rs": {
+      "sha256": "f5944d12f742269d532161654d5c89a7c8f4618ff4dfeb861cf11bd00b547dd4",
+      "bytes": 6160
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/main.rs": {
+      "sha256": "a7deb8992f503f7d54edfc1f80d4c330ed1658227ecc639d040bb1dcdee62fc7",
+      "bytes": 2081
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/presentation.rs": {
+      "sha256": "e801ad4e9393eb66d4e256bbbb6adc077cdc3eaf7e0d408c6b98dbfd7f916971",
+      "bytes": 19257
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/provenance/binding.rs": {
+      "sha256": "98eb529f243b41363f4bad7c221cd3deca5eb320ce22d330aa9e63405c4694bd",
+      "bytes": 2767
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/provenance/policy.rs": {
+      "sha256": "8f92dd1571ff005b00ddd06f5f40980d46c2b418287dfd6929f752485522913d",
+      "bytes": 7460
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/provenance/source.rs": {
+      "sha256": "653cb37ee3b60a7153f8f7a44525427d2caab3941814045dd10ed3aa7b1c4aa7",
+      "bytes": 9216
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/provenance/store.rs": {
+      "sha256": "7b2272aef483147ab6dc2c72f76cb64e93f40676e0742f43d66eea9aee59971e",
+      "bytes": 5078
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/provenance.rs": {
+      "sha256": "8eafebfebe869e9369d509251612f1093aea7780c3aaa2a279fc12b35aaed9ab",
+      "bytes": 15654
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/roster.rs": {
+      "sha256": "63f1247fd9b21a1929c4acf6cb4516b1effe180131788c8d36f27dda2884603f",
+      "bytes": 2341
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/runtime.rs": {
+      "sha256": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+      "bytes": 21297
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/scenario/route.rs": {
+      "sha256": "6c62dbe74ff8cfce6e6915a0c2877c0b704cc8c10d481b79f2e3158799efb070",
+      "bytes": 5376
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/scenario/runner.rs": {
+      "sha256": "09cf0d4097e21cec6a68e0d1f1b370fcdaeab4b8ab45585816c9d4612b73a36e",
+      "bytes": 16002
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/scenario.rs": {
+      "sha256": "f2036a81b11c40a0140ffc6edb8f76d7e9d56ab6b12a6c1419c075794f7fe230",
+      "bytes": 5595
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/smoke.rs": {
+      "sha256": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+      "bytes": 18108
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/telemetry.rs": {
+      "sha256": "5371de71508f82b09b61b4cad9c5fcc7ee78b3864e30a195219230d7c2dfeae8",
+      "bytes": 2250
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/vehicle/forces.rs": {
+      "sha256": "4c78fcf98a156b10089be778d4a791b9275448977f2b65ca70d81febf0d28473",
+      "bytes": 2657
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/vehicle/profile.rs": {
+      "sha256": "86c958d667c9c688f4870ac9364c8056dab3196dbd4f86b62a257cb84390e0de",
+      "bytes": 7458
+    },
+    "artifacts/vehicle-reference/gt500-midrange/diagnostic-source/src/vehicle.rs": {
+      "sha256": "3140cea3a3b145b73ec4bd52e71542b184c43c2104f02afa021de53e81c02af6",
+      "bytes": 35402
+    },
+    "artifacts/vehicle-reference/gt500-midrange/efficiency-080-correct-distance.json": {
+      "sha256": "41edb3a22be304783fa0c2679b8366ecfd6b59ba9eae46bebe0c7d9f6392dbd3",
+      "bytes": 316697
+    },
+    "artifacts/vehicle-reference/gt500-midrange/efficiency-082.json": {
+      "sha256": "d6db0fe68066ec5506d74b1c3aeae48f02d9282bb0c8bbda64a2d5e548d520a8",
+      "bytes": 317909
+    },
+    "artifacts/vehicle-reference/gt500-midrange/evidence-audit.log": {
+      "sha256": "6fce2c3e2bab42989f35e0a72b21e5e95b40f26e4ed9939553819a68b0681682",
+      "bytes": 1296
+    },
+    "artifacts/vehicle-reference/gt500-midrange/examples-build.log": {
+      "sha256": "e877ddc55c82b604aa98965078fd6a98c2d19d1fe2d1fe07cef5d2cf94e38dbd",
+      "bytes": 147
+    },
+    "artifacts/vehicle-reference/gt500-midrange/figures.log": {
+      "sha256": "f602646a288d8e32554581524b015d46f05d41698aacfa21b0564bc10c4c3d4d",
+      "bytes": 33
+    },
+    "artifacts/vehicle-reference/gt500-midrange/finalization.log": {
+      "sha256": "f40600944d4d0e4e0ced0bb671eb6bdbee4fea73221566d84652cd523616dcea",
+      "bytes": 597
+    },
+    "artifacts/vehicle-reference/gt500-midrange/green.log": {
+      "sha256": "60f2cb676d27fcf0167b22cde939c60208e33e30d24bfd1e48aaf855094da0c8",
+      "bytes": 415
+    },
+    "artifacts/vehicle-reference/gt500-midrange/incremental-analysis.jsonl": {
+      "sha256": "f2e27391e9d4ac510e419f4e3b41a37b1395e14ca74230332df8429670362925",
+      "bytes": 3183575
+    },
+    "artifacts/vehicle-reference/gt500-midrange/incremental-analysis.log": {
+      "sha256": "3e4341b393c8a43091fcae37b5529de0fe04acd3f320f086a4b43f7593da34a2",
+      "bytes": 1318
+    },
+    "artifacts/vehicle-reference/gt500-midrange/inertia-050.json": {
+      "sha256": "518a8e53eb53e08217e0755204ea7c2d377e1bfb2530b98b1b5ceac9da3184f5",
+      "bytes": 312895
+    },
+    "artifacts/vehicle-reference/gt500-midrange/matrix-launch.log": {
+      "sha256": "73408ad5120b7e86b9b6ba1f38f85dbf8883022c722881e76c803bdd87788328",
+      "bytes": 108
+    },
+    "artifacts/vehicle-reference/gt500-midrange/original-grip.json": {
+      "sha256": "7d35087534809e1af4702148064e498cfb424b4ebb6f0c89cf026f02bb68055f",
+      "bytes": 317795
+    },
+    "artifacts/vehicle-reference/gt500-midrange/probe-build.log": {
+      "sha256": "a42b702cc9ac9bf52c5f511e62806df15486a2e0af862bd4b347af1ddd1fbc12",
+      "bytes": 189
+    },
+    "artifacts/vehicle-reference/gt500-midrange/red.log": {
+      "sha256": "7c2f4659932b910b7d3649b0407cb35b5a4d5f4b683419e17c5669bf2210b26a",
+      "bytes": 774
+    },
+    "artifacts/vehicle-reference/gt500-midrange/scenarios.log": {
+      "sha256": "7aac2102ee4f39887961128b2f832c6fac38cdb76b9a95d6e7edec9aebe35a73",
+      "bytes": 83229
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-binary.json": {
+      "sha256": "c0fa17f1a47bfacc841a4c13626e2a9a8f1f4889f6ce1a097dfbfb8ae243eb5d",
+      "bytes": 226
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-build.log": {
+      "sha256": "81c05171ce0609d6a277dab53b59dd666a685b6c3c47aa37048689be579c9e31",
+      "bytes": 194
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-probe": {
+      "sha256": "d35eae3495a502ebf1e9cc35796a3680573183fafb70813ccee6e0a3df0405c1",
+      "bytes": 108119248
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/Cargo.lock": {
+      "sha256": "b762a0f4320890e2100ee932f63df50723c8245353e89467f4ff34ae31086c14",
+      "bytes": 164721
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/Cargo.toml": {
+      "sha256": "4513dc14543a17db6e851b11e2ceb92c7161b32640a589a8bb81d4073aec7f0f",
+      "bytes": 1107
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/assets/cars/physics.json": {
+      "sha256": "4017bab8b8653a54a60952ce1793e79cc11a644b2766e50a888e5a1f79ae6059",
+      "bytes": 284402
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/assets/cars/roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/examples/gt500_controls.rs": {
+      "sha256": "16d39eaa7686c6553511aec554da805c9de00642e48be69dd5e8fe05404d0d0b",
+      "bytes": 3739
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/assembly/mass.rs": {
+      "sha256": "7cc41b568f581b03f457668467f054ffc30c0f2a1db0ca0a75ac556384028641",
+      "bytes": 5746
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/assembly/pilot.rs": {
+      "sha256": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+      "bytes": 5042
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/assembly/runtime.rs": {
+      "sha256": "0a1290e58af9b118d85b44d4d2c2eae2696adc9bac3dc453e5107123f8607fa9",
+      "bytes": 2865
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/assembly.rs": {
+      "sha256": "3582f4b51909e83c669eed5ba951973977ccd33b77f17a0747a8f3800cdb1b4e",
+      "bytes": 11848
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/city/curve.rs": {
+      "sha256": "ec9da4d501b0ccbeab0489697af0c3cc55db15eba7cf4bfb0f9da9ad85271978",
+      "bytes": 2965
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/city.rs": {
+      "sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+      "bytes": 9835
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/config.rs": {
+      "sha256": "376d8825381daf53e93f1535df09cfcff07def7240ddb1dd74bdae6fae58450c",
+      "bytes": 6496
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/health.rs": {
+      "sha256": "60445ab5d8e346625ec66b84fb6134f15e2de9069c8b0d4daf3932ff83ecf842",
+      "bytes": 9500
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/history.rs": {
+      "sha256": "3551a9323f69d8b9684eb681c91c40d38f2dd60e5dd51d74ef3b885bee85d804",
+      "bytes": 4022
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/incident.rs": {
+      "sha256": "71a7af2fccd3068bc8527f5ecfce74724bd025a5e13c5cb8f0171b94b0a46b86",
+      "bytes": 1909
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/logging.rs": {
+      "sha256": "4555e1d82b7fce4f36bf8b6b7019ad797840acd67c57a9d8331ec05ae7eae66a",
+      "bytes": 1518
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/recording.rs": {
+      "sha256": "7e59c70f2dee7c83385178e223943280e7411ea86f4714de71e92a47ec5d43d0",
+      "bytes": 11488
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/settings.rs": {
+      "sha256": "2983201c28b0e92d3c47e70ff1c7daad8b334f91e71dc838e64307e8d870a66d",
+      "bytes": 5527
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/shutdown.rs": {
+      "sha256": "eb632395889aa929a7386d9381b71e14507266fdd49927ff9307a1e7778a0ee4",
+      "bytes": 1056
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics/writer.rs": {
+      "sha256": "fca911a4e4f69d74ef9a7c559818d0a86f2cb7a39be550998461986e532d9890",
+      "bytes": 9874
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/diagnostics.rs": {
+      "sha256": "8bb19fea2b08b6db8d7989b1dc423633f5ad088bcd5ae7c42de2c06f57cde230",
+      "bytes": 36533
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/ingress.rs": {
+      "sha256": "ee19af3ace7dc3aadaf777c3a39e4689025c4c7acc90297e6fe387fa6010c443",
+      "bytes": 1560
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/lib.rs": {
+      "sha256": "f5944d12f742269d532161654d5c89a7c8f4618ff4dfeb861cf11bd00b547dd4",
+      "bytes": 6160
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/main.rs": {
+      "sha256": "a7deb8992f503f7d54edfc1f80d4c330ed1658227ecc639d040bb1dcdee62fc7",
+      "bytes": 2081
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/presentation.rs": {
+      "sha256": "e801ad4e9393eb66d4e256bbbb6adc077cdc3eaf7e0d408c6b98dbfd7f916971",
+      "bytes": 19257
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/provenance/binding.rs": {
+      "sha256": "98eb529f243b41363f4bad7c221cd3deca5eb320ce22d330aa9e63405c4694bd",
+      "bytes": 2767
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/provenance/policy.rs": {
+      "sha256": "8f92dd1571ff005b00ddd06f5f40980d46c2b418287dfd6929f752485522913d",
+      "bytes": 7460
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/provenance/source.rs": {
+      "sha256": "653cb37ee3b60a7153f8f7a44525427d2caab3941814045dd10ed3aa7b1c4aa7",
+      "bytes": 9216
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/provenance/store.rs": {
+      "sha256": "7b2272aef483147ab6dc2c72f76cb64e93f40676e0742f43d66eea9aee59971e",
+      "bytes": 5078
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/provenance.rs": {
+      "sha256": "8eafebfebe869e9369d509251612f1093aea7780c3aaa2a279fc12b35aaed9ab",
+      "bytes": 15654
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/roster.rs": {
+      "sha256": "63f1247fd9b21a1929c4acf6cb4516b1effe180131788c8d36f27dda2884603f",
+      "bytes": 2341
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/runtime.rs": {
+      "sha256": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+      "bytes": 21297
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/scenario/route.rs": {
+      "sha256": "6c62dbe74ff8cfce6e6915a0c2877c0b704cc8c10d481b79f2e3158799efb070",
+      "bytes": 5376
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/scenario/runner.rs": {
+      "sha256": "09cf0d4097e21cec6a68e0d1f1b370fcdaeab4b8ab45585816c9d4612b73a36e",
+      "bytes": 16002
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/scenario.rs": {
+      "sha256": "f2036a81b11c40a0140ffc6edb8f76d7e9d56ab6b12a6c1419c075794f7fe230",
+      "bytes": 5595
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/smoke.rs": {
+      "sha256": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+      "bytes": 18108
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/telemetry.rs": {
+      "sha256": "5371de71508f82b09b61b4cad9c5fcc7ee78b3864e30a195219230d7c2dfeae8",
+      "bytes": 2250
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/vehicle/forces.rs": {
+      "sha256": "4c78fcf98a156b10089be778d4a791b9275448977f2b65ca70d81febf0d28473",
+      "bytes": 2657
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/vehicle/profile.rs": {
+      "sha256": "5fa256abffe0017e9f03cc975c0d17e164b642fc3cfb936457813ae59c37b3d9",
+      "bytes": 6638
+    },
+    "artifacts/vehicle-reference/gt500-midrange/surface-source/src/vehicle.rs": {
+      "sha256": "3140cea3a3b145b73ec4bd52e71542b184c43c2104f02afa021de53e81c02af6",
+      "bytes": 35402
+    },
+    "artifacts/vehicle-reference/gt500-midrange/trace-build.log": {
+      "sha256": "5fb2795807fcac4d198080cec469d2244b9d1ab7a46bf82666ed0155f0931004",
+      "bytes": 196
+    },
+    "artifacts/vehicle-reference/gt500-midrange/trail-surface-counterfactual.json": {
+      "sha256": "0d1596a60c7127f1c5e682c0fc5fb70fc0ebfde1428aba1c6af7ec96e2f0f9bd",
+      "bytes": 1104677
+    },
+    "artifacts/vehicle-reference/gt500-midrange/verification.log": {
+      "sha256": "5f43df900f92a63fad191cf54c00255b187ce6894bece90f82eef9033b9784c1",
+      "bytes": 253002
+    },
+    "assets/cars/physics.json": {
+      "sha256": "4017bab8b8653a54a60952ce1793e79cc11a644b2766e50a888e5a1f79ae6059",
+      "bytes": 284402
+    },
+    "assets/cars/roster.json": {
+      "sha256": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+      "bytes": 37589
+    },
+    "docs/verification/gt500-midrange/README.md": {
+      "sha256": "e10c71531a44dae02da9261f86f849c9cf761237a74b9e2d9d15348b382be4b5",
+      "bytes": 12053
+    },
+    "docs/verification/gt500-midrange/acceleration-comparison.png": {
+      "sha256": "03b4a5c454c776ec76b9c5ebf792fe842256f6f8d2ecf263b18bc59aa935f9ca",
+      "bytes": 144143
+    },
+    "docs/verification/gt500-midrange/all-40-fixtures.csv": {
+      "sha256": "7639495b8332c776ebbad994778cd8084b944af78c26b718d086c3c0ae607d5c",
+      "bytes": 8795
+    },
+    "docs/verification/gt500-midrange/build-comparison.py": {
+      "sha256": "44727fac6d7cb128f9ba09fe7de0cdffe4708e4767473f1ce30133046f7a77af",
+      "bytes": 6392
+    },
+    "docs/verification/gt500-midrange/comparison.json": {
+      "sha256": "6969bf961efa5ab3cb99441d1ee51a7f4288d32b642f2a8fce3a960b0124026c",
+      "bytes": 5945
+    },
+    "docs/verification/gt500-midrange/completion-summary.json": {
+      "sha256": "c84dc80b79169b35fd604218b8d6437fd244d6609f93715902005aff236224a3",
+      "bytes": 521
+    },
+    "docs/verification/gt500-midrange/evidence-audit.jsonl": {
+      "sha256": "0905abbe6cfc84471bc696dc4d3fbd05c360a6d2eaf6aae0a89d38a596f19ee6",
+      "bytes": 5417370
+    },
+    "docs/verification/gt500-midrange/parameter-changes.json": {
+      "sha256": "b1807264fc959c78774e5c8b4d77f56e60b7f9ea9bbb811b8931af1f25f4c2e9",
+      "bytes": 911
+    },
+    "docs/verification/gt500-midrange/protocol-equality.json": {
+      "sha256": "c57add3e4f4ed202efc9c94c2e2a59870830a031ffd3037b56b19351105c010a",
+      "bytes": 2138
+    },
+    "docs/verification/gt500-midrange/results.csv": {
+      "sha256": "90f84560222cfccd2ef71017ebbea8e8b79cec5e05c66358f7154409aa97be83",
+      "bytes": 139569
+    },
+    "docs/verification/gt500-midrange/results.json": {
+      "sha256": "df84cd201ee91030feca5d92f92901d39b1a20b92009e016f0dab91b6c82fe2a",
+      "bytes": 5415620
+    },
+    "docs/verification/gt500-midrange/scenario-comparison.png": {
+      "sha256": "4c5a75c7ee3fb0cbb27ec306a0d6143f2ba03ea485afefbc6238b760ce7d70d1",
+      "bytes": 135468
+    },
+    "docs/verification/gt500-midrange/scenario-deltas.json": {
+      "sha256": "72886d0a7598774050bf7247137973ba41e8f03fe3bbe55472708db2f39c5785",
+      "bytes": 2112976
+    },
+    "docs/verification/gt500-midrange/trail-surface-benchmark.rs": {
+      "sha256": "16d39eaa7686c6553511aec554da805c9de00642e48be69dd5e8fe05404d0d0b",
+      "bytes": 3739
+    },
+    "docs/verification/gt500-midrange/trail-surface-proof.json": {
+      "sha256": "4e783bf2beff1c6cf6692099c9b6224fa1059aeb7a7f147d7b1830cd324c8a18",
+      "bytes": 5046
+    },
+    "examples/gt500_trace.rs": {
+      "sha256": "11077e10b83f3e5b4ce894a9e3715b8465ce6b0c0e274ca9960b6931fa0c2c0f",
+      "bytes": 3002
+    },
+    "src/assembly/mass.rs": {
+      "sha256": "7cc41b568f581b03f457668467f054ffc30c0f2a1db0ca0a75ac556384028641",
+      "bytes": 5746
+    },
+    "src/assembly/pilot.rs": {
+      "sha256": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+      "bytes": 5042
+    },
+    "src/assembly/runtime.rs": {
+      "sha256": "0a1290e58af9b118d85b44d4d2c2eae2696adc9bac3dc453e5107123f8607fa9",
+      "bytes": 2865
+    },
+    "src/assembly.rs": {
+      "sha256": "3582f4b51909e83c669eed5ba951973977ccd33b77f17a0747a8f3800cdb1b4e",
+      "bytes": 11848
+    },
+    "src/city/curve.rs": {
+      "sha256": "ec9da4d501b0ccbeab0489697af0c3cc55db15eba7cf4bfb0f9da9ad85271978",
+      "bytes": 2965
+    },
+    "src/city.rs": {
+      "sha256": "f7c5bfa033d502db8857e8346f5454cb6132414a38cb1da875e780d0ee4322f9",
+      "bytes": 9835
+    },
+    "src/config.rs": {
+      "sha256": "376d8825381daf53e93f1535df09cfcff07def7240ddb1dd74bdae6fae58450c",
+      "bytes": 6496
+    },
+    "src/diagnostics/health.rs": {
+      "sha256": "60445ab5d8e346625ec66b84fb6134f15e2de9069c8b0d4daf3932ff83ecf842",
+      "bytes": 9500
+    },
+    "src/diagnostics/history.rs": {
+      "sha256": "3551a9323f69d8b9684eb681c91c40d38f2dd60e5dd51d74ef3b885bee85d804",
+      "bytes": 4022
+    },
+    "src/diagnostics/incident.rs": {
+      "sha256": "71a7af2fccd3068bc8527f5ecfce74724bd025a5e13c5cb8f0171b94b0a46b86",
+      "bytes": 1909
+    },
+    "src/diagnostics/logging.rs": {
+      "sha256": "4555e1d82b7fce4f36bf8b6b7019ad797840acd67c57a9d8331ec05ae7eae66a",
+      "bytes": 1518
+    },
+    "src/diagnostics/recording.rs": {
+      "sha256": "7e59c70f2dee7c83385178e223943280e7411ea86f4714de71e92a47ec5d43d0",
+      "bytes": 11488
+    },
+    "src/diagnostics/settings.rs": {
+      "sha256": "2983201c28b0e92d3c47e70ff1c7daad8b334f91e71dc838e64307e8d870a66d",
+      "bytes": 5527
+    },
+    "src/diagnostics/shutdown.rs": {
+      "sha256": "eb632395889aa929a7386d9381b71e14507266fdd49927ff9307a1e7778a0ee4",
+      "bytes": 1056
+    },
+    "src/diagnostics/writer.rs": {
+      "sha256": "fca911a4e4f69d74ef9a7c559818d0a86f2cb7a39be550998461986e532d9890",
+      "bytes": 9874
+    },
+    "src/diagnostics.rs": {
+      "sha256": "8bb19fea2b08b6db8d7989b1dc423633f5ad088bcd5ae7c42de2c06f57cde230",
+      "bytes": 36533
+    },
+    "src/ingress.rs": {
+      "sha256": "ee19af3ace7dc3aadaf777c3a39e4689025c4c7acc90297e6fe387fa6010c443",
+      "bytes": 1560
+    },
+    "src/lib.rs": {
+      "sha256": "f5944d12f742269d532161654d5c89a7c8f4618ff4dfeb861cf11bd00b547dd4",
+      "bytes": 6160
+    },
+    "src/main.rs": {
+      "sha256": "a7deb8992f503f7d54edfc1f80d4c330ed1658227ecc639d040bb1dcdee62fc7",
+      "bytes": 2081
+    },
+    "src/presentation.rs": {
+      "sha256": "e801ad4e9393eb66d4e256bbbb6adc077cdc3eaf7e0d408c6b98dbfd7f916971",
+      "bytes": 19257
+    },
+    "src/provenance/binding.rs": {
+      "sha256": "98eb529f243b41363f4bad7c221cd3deca5eb320ce22d330aa9e63405c4694bd",
+      "bytes": 2767
+    },
+    "src/provenance/policy.rs": {
+      "sha256": "8f92dd1571ff005b00ddd06f5f40980d46c2b418287dfd6929f752485522913d",
+      "bytes": 7460
+    },
+    "src/provenance/source.rs": {
+      "sha256": "653cb37ee3b60a7153f8f7a44525427d2caab3941814045dd10ed3aa7b1c4aa7",
+      "bytes": 9216
+    },
+    "src/provenance/store.rs": {
+      "sha256": "7b2272aef483147ab6dc2c72f76cb64e93f40676e0742f43d66eea9aee59971e",
+      "bytes": 5078
+    },
+    "src/provenance.rs": {
+      "sha256": "8eafebfebe869e9369d509251612f1093aea7780c3aaa2a279fc12b35aaed9ab",
+      "bytes": 15654
+    },
+    "src/roster.rs": {
+      "sha256": "63f1247fd9b21a1929c4acf6cb4516b1effe180131788c8d36f27dda2884603f",
+      "bytes": 2341
+    },
+    "src/runtime.rs": {
+      "sha256": "f81a6cb409ee3479cdd121905e2bfea3725aa8276562e37b31646a8f1b012c82",
+      "bytes": 21297
+    },
+    "src/scenario/route.rs": {
+      "sha256": "6c62dbe74ff8cfce6e6915a0c2877c0b704cc8c10d481b79f2e3158799efb070",
+      "bytes": 5376
+    },
+    "src/scenario/runner.rs": {
+      "sha256": "09cf0d4097e21cec6a68e0d1f1b370fcdaeab4b8ab45585816c9d4612b73a36e",
+      "bytes": 16002
+    },
+    "src/scenario.rs": {
+      "sha256": "f2036a81b11c40a0140ffc6edb8f76d7e9d56ab6b12a6c1419c075794f7fe230",
+      "bytes": 5595
+    },
+    "src/smoke.rs": {
+      "sha256": "88e4cda9412ad6836f2aa2f1e6c8d7c0c3ac773512a0b50197b5e24c78a6dc4f",
+      "bytes": 18108
+    },
+    "src/telemetry.rs": {
+      "sha256": "5371de71508f82b09b61b4cad9c5fcc7ee78b3864e30a195219230d7c2dfeae8",
+      "bytes": 2250
+    },
+    "src/vehicle/forces.rs": {
+      "sha256": "4c78fcf98a156b10089be778d4a791b9275448977f2b65ca70d81febf0d28473",
+      "bytes": 2657
+    },
+    "src/vehicle/profile.rs": {
+      "sha256": "5fa256abffe0017e9f03cc975c0d17e164b642fc3cfb936457813ae59c37b3d9",
+      "bytes": 6638
+    },
+    "src/vehicle.rs": {
+      "sha256": "3140cea3a3b145b73ec4bd52e71542b184c43c2104f02afa021de53e81c02af6",
+      "bytes": 35402
+    },
+    "tests/vehicle_profiles.rs": {
+      "sha256": "d0d8037eea57f6292f6d002c4ce05f8bf89ebcd821e8e18fbf394c5e0ba6a5ab",
+      "bytes": 7691
+    }
+  }
+}

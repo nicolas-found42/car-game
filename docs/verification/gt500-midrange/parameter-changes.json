@@ -1,0 +1,13 @@
+[
+  {
+    "car": "redline-gt500",
+    "parameter": "driveline_efficiency",
+    "before": 0.88,
+    "after": 0.82,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "basis": "Effective accelerating power-delivery calibration, 0.82 rather than generic 0.88: resolves engine-limited 60\u2013100 mph overperformance while retaining the improved launch and independently set lateral grip. Includes unresolved losses/rotational dynamics in this reduced-order model; not a measured OEM mechanical efficiency or a dyno claim. Reference 4.3 s to 60 and 9.7 s to 100; unknown rollout largely cancels in the 5.4 s interval. Quarter-mile crossing speed retained as a separate diagnostic. See docs/verification/gt500-midrange/README.md for interventions, guardrails and limitations."
+    }
+  }
+]

@@ -31,8 +31,9 @@ Default limits, configurable with the corresponding numeric CLI flag:
 | Raw output budget for provenance finalization | 512 MiB | `--recorder-finalize-max-bytes` |
 
 Configuration validates upper bounds: 32,768 queued records/64 MiB, 65,536 history
-records/128 MiB/7,200 ticks, 1 MiB per record, 5,000 ms per acknowledgment, and 1 GiB
-finalization input. Metadata serialization is capped at 2 MiB; legacy tails and
+records/128 MiB/7,200 ticks, 1 MiB per record, 5,000 ms per acknowledgment, and 8 GiB
+finalization input (the default remains 512 MiB). Ordinary metadata serialization
+is capped at 2 MiB; the root aggregate fleet report has a 32 MiB bound. Legacy tails and
 failure details at 256 KiB each; incident reasons at 128 characters. Finalization
 rejects more than 8,192 output entries and streams JSONL through a 2 MiB line
 buffer. Five stream buffers use 64 KiB each. Control messages have four reserved
@@ -46,6 +47,12 @@ queued or active incident snapshot. Reserve two history budgets including the li
 ring; retries while an export is pending cannot allocate another snapshot.
 Caller-owned inputs and concurrent caller stacks are additional.
 Raw logs are excluded from the history ring and portable diagnostic export.
+
+Automatic anomaly windows add at most one separately bounded snapshot beyond the
+live/fatal pair described above. Their nonfatal triggers, pre/post coverage,
+eight-window cap, JSON search interface and decision telemetry are documented in
+[searchable diagnosis](diagnosis.md). The measurements below retain their original
+source identity and predate that instrumentation; they are not new overhead claims.
 
 The CPU target for ordinary production payloads is producer p99 below 1 ms versus
 an 8.33 ms fixed tick. This is a measured target, not a real-time deadline for an

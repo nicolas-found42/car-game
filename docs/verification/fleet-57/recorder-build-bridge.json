@@ -1,0 +1,1967 @@
+{
+  "matrix_binary_sha256": "f4d78e283cdd932a8603bcd94e55ea7e9fa43fe2ee88bb1159bd74afe624ffb4",
+  "native_and_recorder_bridge_binary_sha256": "4bee831ce2633445ae1d09317d92988bfa2070aa48fab605e9d357b3fc6c2d97",
+  "changed_compiled_source_files": [
+    "build_source/src/diagnostics/settings.rs"
+  ],
+  "only_source_edit": "Recorder finalization explicit maximum: 1GiB to 2GiB; default 512MiB unchanged",
+  "all_other_compiled_sources_identical": true,
+  "bridges": [
+    {
+      "study": "artifacts/fleet57-recorder-bridge-20261025",
+      "executions": 114,
+      "rows": [
+        {
+          "identity": [
+            "350z",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-350z-r1/20261025T014909664803Z-2342545-scenario-12576-1-1792892949687895000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-350z-r1/20261025T012037285596Z-2342545-scenario-9940-1-1792891237317034000",
+          "trajectory_sha256": "77fce86f1f8cabe961c841ca5fd6b679c77a3f2ff858969e887cc8866375a659",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "350z",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-350z-r2/20261025T014916823143Z-2342545-scenario-13008-1-1792892956851246000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-350z-r2/20261025T012037285597Z-2342545-scenario-9941-1-1792891237317034000",
+          "trajectory_sha256": "77fce86f1f8cabe961c841ca5fd6b679c77a3f2ff858969e887cc8866375a659",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "fr2-cobra",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-fr2-cobra-r1/20261025T014923924546Z-2342545-scenario-13427-1-1792892963949843000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-fr2-cobra-r1/20261025T012037285597Z-2342545-scenario-9942-1-1792891237317035000",
+          "trajectory_sha256": "50ab7cf9c50bb0dbf90aa20be9d58f36c8fe27fa3da33d4cfa16809df543e435",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "fr2-cobra",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-fr2-cobra-r2/20261025T014930926622Z-2342545-scenario-13841-1-1792892970952170000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-fr2-cobra-r2/20261025T012037285598Z-2342545-scenario-9943-1-1792891237317051000",
+          "trajectory_sha256": "50ab7cf9c50bb0dbf90aa20be9d58f36c8fe27fa3da33d4cfa16809df543e435",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "fr2-fr500",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-fr2-fr500-r1/20261025T014937836648Z-2342545-scenario-14256-1-1792892977861344000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-fr2-fr500-r1/20261025T012043847202Z-2342545-scenario-10340-1-1792891243871848000",
+          "trajectory_sha256": "b491593a1d4103e0139fdc89967c89e66c90828e8f7c5b8832299bccb9860bd3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "fr2-fr500",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-fr2-fr500-r2/20261025T014944839043Z-2342545-scenario-14700-1-1792892984867846000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-fr2-fr500-r2/20261025T012044122342Z-2342545-scenario-10405-1-1792891244146998000",
+          "trajectory_sha256": "b491593a1d4103e0139fdc89967c89e66c90828e8f7c5b8832299bccb9860bd3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt-rx7",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt-rx7-r1/20261025T014951807125Z-2342545-scenario-15182-1-1792892991833112000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt-rx7-r1/20261025T012044481552Z-2342545-scenario-10471-1-1792891244510050000",
+          "trajectory_sha256": "e31e257ac5f02eb868a218c480143b7ade94acd8c926c0c16c3a0285e125038d",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt-rx7",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt-rx7-r2/20261025T014958490872Z-2342545-scenario-15637-1-1792892998519934000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt-rx7-r2/20261025T012045066674Z-2342545-scenario-10539-1-1792891245106854000",
+          "trajectory_sha256": "e31e257ac5f02eb868a218c480143b7ade94acd8c926c0c16c3a0285e125038d",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt-viper",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt-viper-r1/20261025T015005139764Z-2342545-scenario-16083-1-1792893005162814000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt-viper-r1/20261025T012048741289Z-2342545-scenario-10666-1-1792891248767318000",
+          "trajectory_sha256": "64f0adb38bcce1511261e35dde8c5454347a7ae8668a5a65fe6128922c77d94a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt-viper",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt-viper-r2/20261025T015011793909Z-2342545-scenario-16497-1-1792893011819699000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt-viper-r2/20261025T012049942485Z-2342545-scenario-10751-1-1792891249974444000",
+          "trajectory_sha256": "64f0adb38bcce1511261e35dde8c5454347a7ae8668a5a65fe6128922c77d94a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt4-m3",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt4-m3-r1/20261025T015018259087Z-2342545-scenario-16922-1-1792893018289797000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt4-m3-r1/20261025T012050713026Z-2342545-scenario-10816-1-1792891250743151000",
+          "trajectory_sha256": "3febc671a21149fd9a60d57dc614495e20357569c960b0eb4aefa0bca42c9ce7",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt4-m3",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt4-m3-r2/20261025T015025119958Z-2342545-scenario-17389-1-1792893025142717000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt4-m3-r2/20261025T012051382927Z-2342545-scenario-10882-1-1792891251410327000",
+          "trajectory_sha256": "3febc671a21149fd9a60d57dc614495e20357569c960b0eb4aefa0bca42c9ce7",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt4-nsx",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt4-nsx-r1/20261025T015031800042Z-2342545-scenario-17801-1-1792893031825735000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt4-nsx-r1/20261025T012054224079Z-2342545-scenario-10992-1-1792891254252066000",
+          "trajectory_sha256": "6c0394a1c6bf322944a4da212cd6615908fbeac52815228ef00ee383dd24dca9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "gt4-nsx",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-gt4-nsx-r2/20261025T015038574355Z-2342545-scenario-18214-1-1792893038599111000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-gt4-nsx-r2/20261025T012055605989Z-2342545-scenario-11091-1-1792891255634657000",
+          "trajectory_sha256": "6c0394a1c6bf322944a4da212cd6615908fbeac52815228ef00ee383dd24dca9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mc3-skyline",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mc3-skyline-r1/20261025T015045365576Z-2342545-scenario-18629-1-1792893045390914000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mc3-skyline-r1/20261025T012057040183Z-2342545-scenario-11164-1-1792891257071371000",
+          "trajectory_sha256": "edad14804d96bf86b9187a12dac35ac06038240e38c21d5caad4ba1c4e5fc7f5",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mc3-skyline",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mc3-skyline-r2/20261025T015052259103Z-2342545-scenario-19136-1-1792893052286356000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mc3-skyline-r2/20261025T0120579685Z-2342545-scenario-11246-1-1792891257998173000",
+          "trajectory_sha256": "edad14804d96bf86b9187a12dac35ac06038240e38c21d5caad4ba1c4e5fc7f5",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mc3-supra",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mc3-supra-r1/20261025T015059272404Z-2342545-scenario-19584-1-1792893059297861000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mc3-supra-r1/20261025T012100036344Z-2342545-scenario-11347-1-1792891260064040000",
+          "trajectory_sha256": "003b4f0603e8c699b81a9ffd12fc7c7d231eb5a26438b8253c2fe5f4091bd000",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mc3-supra",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mc3-supra-r2/20261025T015105960218Z-2342545-scenario-20028-1-1792893065989169000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mc3-supra-r2/20261025T012101417848Z-2342545-scenario-11429-1-1792891261450524000",
+          "trajectory_sha256": "003b4f0603e8c699b81a9ffd12fc7c7d231eb5a26438b8253c2fe5f4091bd000",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mcla-evo",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mcla-evo-r1/20261025T015112316999Z-2342545-scenario-20447-1-1792893072343929000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mcla-evo-r1/20261025T012102914007Z-2342545-scenario-11533-1-1792891262948330000",
+          "trajectory_sha256": "2ded76f456dc30cc8ac92d5153c3f330d9a9842f28035cb6be76cdd5e986c3d1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mcla-evo",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mcla-evo-r2/20261025T015118817478Z-2342545-scenario-20864-1-1792893078842247000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mcla-evo-r2/20261025T012104455499Z-2342545-scenario-11615-1-1792891264484117000",
+          "trajectory_sha256": "2ded76f456dc30cc8ac92d5153c3f330d9a9842f28035cb6be76cdd5e986c3d1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mcla-skyline",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mcla-skyline-r1/20261025T015125445689Z-2342545-scenario-21282-1-1792893085472930000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mcla-skyline-r1/20261025T012105820872Z-2342545-scenario-11698-1-1792891265851109000",
+          "trajectory_sha256": "351afa123f4fae73c5709db2e7573a65f92905dc2f34799765dc8724732cda23",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "mcla-skyline",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-mcla-skyline-r2/20261025T015131954691Z-2342545-scenario-21694-1-1792893091978983000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-mcla-skyline-r2/20261025T012107253348Z-2342545-scenario-11780-1-1792891267284458000",
+          "trajectory_sha256": "351afa123f4fae73c5709db2e7573a65f92905dc2f34799765dc8724732cda23",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-911",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-redline-911-r1/20261025T01513889113Z-2342545-scenario-22127-1-1792893098918114000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-redline-911-r1/20261025T012108832973Z-2342545-scenario-11863-1-1792891268859148000",
+          "trajectory_sha256": "dd7b21dacb01bfc6903308acd5bc43fdf9dedadbc82fbe083e43d2499ec22a2e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-911",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-redline-911-r2/20261025T015145998218Z-2342545-scenario-22584-1-1792893106021880000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-redline-911-r2/20261025T012110180733Z-2342545-scenario-11962-1-1792891270208596000",
+          "trajectory_sha256": "dd7b21dacb01bfc6903308acd5bc43fdf9dedadbc82fbe083e43d2499ec22a2e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-redline-gt500-r1/20261025T015152644235Z-2342545-scenario-23028-1-1792893112669209000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-redline-gt500-r1/20261025T012111925037Z-2342545-scenario-12047-1-1792891271955319000",
+          "trajectory_sha256": "956ec0e5723d6f9168518c13900248bab83f4158a8054434c141a876063f50aa",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-redline-gt500-r2/20261025T015159167948Z-2342545-scenario-23442-1-1792893119192882000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-redline-gt500-r2/20261025T012113219138Z-2342545-scenario-12140-1-1792891273249421000",
+          "trajectory_sha256": "956ec0e5723d6f9168518c13900248bab83f4158a8054434c141a876063f50aa",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a01",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a01-r1/20261025T015205671662Z-2342545-scenario-23865-1-1792893125697130000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a01-r1/20261025T01211478677Z-2342545-scenario-12222-1-1792891274812482000",
+          "trajectory_sha256": "7daf024a8c91a2faeb5716deee8dba8300e988a9f887abd7526d35f35a278dbe",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a01",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a01-r2/20261025T015212076373Z-2342545-scenario-24290-1-1792893132102115000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a01-r2/20261025T012116261535Z-2342545-scenario-12307-1-1792891276296468000",
+          "trajectory_sha256": "7daf024a8c91a2faeb5716deee8dba8300e988a9f887abd7526d35f35a278dbe",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a02",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a02-r1/20261025T015218735179Z-2342545-scenario-24717-1-1792893138759934000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a02-r1/20261025T012117983723Z-2342545-scenario-12390-1-1792891278014270000",
+          "trajectory_sha256": "072efcaaaf866c4b6d513837ea2fbf1bd36f27493babb87a3eee73b4406630e9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a02",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a02-r2/20261025T015226480587Z-2342545-scenario-25139-1-1792893146503162000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a02-r2/20261025T012119353946Z-2342545-scenario-12477-1-1792891279392222000",
+          "trajectory_sha256": "072efcaaaf866c4b6d513837ea2fbf1bd36f27493babb87a3eee73b4406630e9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a04",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a04-r1/20261025T015233464624Z-2342545-scenario-25586-1-1792893153488854000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a04-r1/20261025T012121294144Z-2342545-scenario-12560-1-1792891281339169000",
+          "trajectory_sha256": "8b4f2fd6fbdcf6ed58be3c6b18a0fca2c09ba985ad815de645682ee59498db08",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a04",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a04-r2/20261025T015239894141Z-2342545-scenario-26046-1-1792893159921199000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a04-r2/20261025T012122363215Z-2342545-scenario-12642-1-1792891282407553000",
+          "trajectory_sha256": "8b4f2fd6fbdcf6ed58be3c6b18a0fca2c09ba985ad815de645682ee59498db08",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a05",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a05-r1/20261025T015246403476Z-2342545-scenario-26491-1-1792893166431509000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a05-r1/20261025T012124832165Z-2342545-scenario-12725-1-1792891284877471000",
+          "trajectory_sha256": "4a1ff577d2f24356055fa9caf965ddebd6876aeb4b7d067a0305f03281d5349f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a05",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a05-r2/20261025T015253738038Z-2342545-scenario-26911-1-1792893173763953000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a05-r2/20261025T012125465904Z-2342545-scenario-12807-1-1792891285504315000",
+          "trajectory_sha256": "4a1ff577d2f24356055fa9caf965ddebd6876aeb4b7d067a0305f03281d5349f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a06",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a06-r1/20261025T015300744041Z-2342545-scenario-27356-1-1792893180772245000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a06-r1/20261025T012127701053Z-2342545-scenario-12894-1-1792891287739155000",
+          "trajectory_sha256": "e187a29fb0de1d5b2f4c7cb564e3d15aa19e68fc6e407b8953b4b1cc99bea8bd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a06",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a06-r2/20261025T015307533776Z-2342545-scenario-27831-1-1792893187556081000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a06-r2/20261025T012128655974Z-2342545-scenario-12977-1-1792891288700403000",
+          "trajectory_sha256": "e187a29fb0de1d5b2f4c7cb564e3d15aa19e68fc6e407b8953b4b1cc99bea8bd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a07",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a07-r1/20261025T015315429667Z-2342545-scenario-28247-1-1792893195451024000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a07-r1/20261025T012131692966Z-2342545-scenario-13079-1-1792891291729670000",
+          "trajectory_sha256": "3d1441c329a4c76202e0a8bb1109af45e722ebe321578b2614b6b7a56cdf0134",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a07",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a07-r2/20261025T015322243158Z-2342545-scenario-28702-1-1792893202270100000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a07-r2/20261025T012132403228Z-2342545-scenario-13161-1-1792891292441950000",
+          "trajectory_sha256": "3d1441c329a4c76202e0a8bb1109af45e722ebe321578b2614b6b7a56cdf0134",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a09",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a09-r1/20261025T015328996086Z-2342545-scenario-29161-1-1792893209020108000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a09-r1/20261025T012134122913Z-2342545-scenario-13228-1-1792891294171199000",
+          "trajectory_sha256": "4a066919fb9b6ab64cfeb92d92ef8b82dc41208814461cb2ded55ff31a9ac616",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a09",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a09-r2/20261025T015335973314Z-2342545-scenario-29579-1-1792893216004201000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a09-r2/20261025T01213528432Z-2342545-scenario-13311-1-1792891295328695000",
+          "trajectory_sha256": "4a066919fb9b6ab64cfeb92d92ef8b82dc41208814461cb2ded55ff31a9ac616",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a11",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a11-r1/20261025T015343783412Z-2342545-scenario-30154-1-1792893223808470000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a11-r1/20261025T012137730721Z-2342545-scenario-13394-1-1792891297778379000",
+          "trajectory_sha256": "4dacf48f59d2e9da260ba2e65111cbe2399063bf5bfbb23d38e22816cb7fe9cc",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a11",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a11-r2/20261025T01535043098Z-2342545-scenario-30661-1-1792893230453705000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a11-r2/20261025T012138561422Z-2342545-scenario-13479-1-1792891298612217000",
+          "trajectory_sha256": "4dacf48f59d2e9da260ba2e65111cbe2399063bf5bfbb23d38e22816cb7fe9cc",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a12",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a12-r1/20261025T015357079672Z-2342545-scenario-31079-1-1792893237104657000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a12-r1/20261025T012141244011Z-2342545-scenario-13563-1-1792891301288573000",
+          "trajectory_sha256": "e6618e47d16f5337c99ac3d66a252fb8aad391c9ab48bd6254797f3290922622",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a12",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a12-r2/20261025T015404542824Z-2342545-scenario-31492-1-1792893244566116000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a12-r2/20261025T012141877454Z-2342545-scenario-13645-1-1792891301921458000",
+          "trajectory_sha256": "e6618e47d16f5337c99ac3d66a252fb8aad391c9ab48bd6254797f3290922622",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a13",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a13-r1/20261025T015411432787Z-2342545-scenario-31945-1-1792893251454832000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a13-r1/20261025T012144949266Z-2342545-scenario-13754-1-1792891304989883000",
+          "trajectory_sha256": "ecd798bb3301ebc2be62d81239437be66175a64185826d29e34ba8e331ad4bdd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a13",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a13-r2/20261025T015418035156Z-2342545-scenario-32417-1-1792893258060233000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a13-r2/20261025T012145700572Z-2342545-scenario-13836-1-1792891305741523000",
+          "trajectory_sha256": "ecd798bb3301ebc2be62d81239437be66175a64185826d29e34ba8e331ad4bdd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a14",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a14-r1/20261025T015425413502Z-2342545-scenario-32849-1-1792893265438110000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a14-r1/20261025T012147852796Z-2342545-scenario-13909-1-1792891307905352000",
+          "trajectory_sha256": "af0844356f94345c0cad485c06f3d62973ae8f23d3c3c219b6f0eea7b753fdc0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a14",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a14-r2/20261025T015432355299Z-2342545-scenario-33289-1-1792893272379201000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a14-r2/20261025T012148915708Z-2342545-scenario-14004-1-1792891308955368000",
+          "trajectory_sha256": "af0844356f94345c0cad485c06f3d62973ae8f23d3c3c219b6f0eea7b753fdc0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a15",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a15-r1/20261025T015439266292Z-2342545-scenario-33779-1-1792893279292085000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a15-r1/20261025T012152167422Z-2342545-scenario-14109-1-1792891312198478000",
+          "trajectory_sha256": "09f09762999c2d9e7b05f8cd24d2ebc00f4572228689640b340deca3ccdc1c4e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a15",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a15-r2/20261025T01544719299Z-2342545-scenario-34196-1-1792893287218251000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a15-r2/20261025T012152841972Z-2342545-scenario-14190-1-1792891312877259000",
+          "trajectory_sha256": "09f09762999c2d9e7b05f8cd24d2ebc00f4572228689640b340deca3ccdc1c4e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a16",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a16-r1/20261025T015453847185Z-2342545-scenario-34649-1-1792893293874045000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a16-r1/20261025T012154208117Z-2342545-scenario-14257-1-1792891314235221000",
+          "trajectory_sha256": "47657f8b375934548089eafb010085009137e6f0721b1bbed2099eaaaddb69c2",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a16",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a16-r2/20261025T015500673835Z-2342545-scenario-35109-1-1792893300700322000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a16-r2/20261025T012155115993Z-2342545-scenario-14339-1-1792891315146289000",
+          "trajectory_sha256": "47657f8b375934548089eafb010085009137e6f0721b1bbed2099eaaaddb69c2",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e02",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e02-r1/20261025T015508640343Z-2342545-scenario-35526-1-1792893308664275000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e02-r1/20261025T012157575983Z-2342545-scenario-14422-1-1792891317602096000",
+          "trajectory_sha256": "ef80cf8795cb8cbf7265a9d1dce2a014a29de4a52434ea1a85f93cc1ff452ca5",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e02",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e02-r2/20261025T015515587539Z-2342545-scenario-35956-1-1792893315611206000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e02-r2/20261025T012158884264Z-2342545-scenario-14526-1-1792891318919492000",
+          "trajectory_sha256": "ef80cf8795cb8cbf7265a9d1dce2a014a29de4a52434ea1a85f93cc1ff452ca5",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e03",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e03-r1/20261025T015522380944Z-2342545-scenario-36440-1-1792893322406844000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e03-r1/20261025T012200573869Z-2342545-scenario-14691-1-1792891320613360000",
+          "trajectory_sha256": "1d937b3e2fb84e46a21cbb0217130f24337f288a0777fbc37e7fd24ba2ca71e8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e03",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e03-r2/20261025T015528706146Z-2342545-scenario-36852-1-1792893328730013000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e03-r2/20261025T012203613029Z-2342545-scenario-14830-1-1792891323647373000",
+          "trajectory_sha256": "1d937b3e2fb84e46a21cbb0217130f24337f288a0777fbc37e7fd24ba2ca71e8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e04",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e04-r1/20261025T015536645686Z-2342545-scenario-37299-1-1792893336668047000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e04-r1/20261025T012205187715Z-2342545-scenario-14935-1-1792891325228764000",
+          "trajectory_sha256": "ddb71e9dbfd4c1e4a734b5ef256236f2bb11fc72622ad65241a1435886e6f65e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e04",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e04-r2/20261025T015543437058Z-2342545-scenario-37765-1-1792893343461341000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e04-r2/20261025T01220667991Z-2342545-scenario-15003-1-1792891326713172000",
+          "trajectory_sha256": "ddb71e9dbfd4c1e4a734b5ef256236f2bb11fc72622ad65241a1435886e6f65e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e08",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e08-r1/20261025T015549993Z-2342545-scenario-38178-1-1792893350020159000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e08-r1/20261025T012208429092Z-2342545-scenario-15088-1-1792891328462619000",
+          "trajectory_sha256": "cef6e3a2d5e1c16d714f13186d6a5d17c068b4bddbc3a563701bcbc2d30780e3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e08",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e08-r2/20261025T015557553217Z-2342545-scenario-38660-1-1792893357577157000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e08-r2/20261025T01220992641Z-2342545-scenario-15172-1-1792891329968442000",
+          "trajectory_sha256": "cef6e3a2d5e1c16d714f13186d6a5d17c068b4bddbc3a563701bcbc2d30780e3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e09",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e09-r1/20261025T015604456791Z-2342545-scenario-39088-1-1792893364484037000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e09-r1/20261025T012212615325Z-2342545-scenario-15284-1-1792891332652262000",
+          "trajectory_sha256": "1100607607cde8835817819f0a6a11b17fc181c13ec07583f98d9564cc302eb3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e09",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e09-r2/20261025T015611291669Z-2342545-scenario-39517-1-1792893371318240000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e09-r2/20261025T012213282858Z-2342545-scenario-15374-1-1792891333316884000",
+          "trajectory_sha256": "1100607607cde8835817819f0a6a11b17fc181c13ec07583f98d9564cc302eb3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e10",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e10-r1/20261025T01561780722Z-2342545-scenario-39980-1-1792893377836079000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e10-r1/20261025T012214992849Z-2342545-scenario-15443-1-1792891335040798000",
+          "trajectory_sha256": "58de9aa0ac1bbe5c3687c3b143771479f4aa2a52c401c0e5dd56743705739ccc",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e10",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e10-r2/20261025T015625736871Z-2342545-scenario-40439-1-1792893385769257000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e10-r2/20261025T012216477226Z-2342545-scenario-15527-1-1792891336514940000",
+          "trajectory_sha256": "58de9aa0ac1bbe5c3687c3b143771479f4aa2a52c401c0e5dd56743705739ccc",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e11",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e11-r1/20261025T015632523532Z-2342545-scenario-40894-1-1792893392547124000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e11-r1/20261025T012219229124Z-2342545-scenario-15629-1-1792891339263325000",
+          "trajectory_sha256": "b47b0c7b4d0c4f5044f3e7a3dff4e9ad37bd67d9f3d0360c2460a3519b2f73a8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e11",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e11-r2/20261025T015639100177Z-2342545-scenario-41331-1-1792893399125355000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e11-r2/20261025T012219965677Z-2342545-scenario-15710-1-1792891339996225000",
+          "trajectory_sha256": "b47b0c7b4d0c4f5044f3e7a3dff4e9ad37bd67d9f3d0360c2460a3519b2f73a8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e12",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e12-r1/20261025T015647162881Z-2342545-scenario-41764-1-1792893407189099000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e12-r1/20261025T012221470727Z-2342545-scenario-15777-1-1792891341498613000",
+          "trajectory_sha256": "776f2a415990cd2d5dc959635d5e6d72050792ef459976358f5521d931bb7360",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e12",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e12-r2/20261025T015654100946Z-2342545-scenario-42202-1-1792893414128098000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e12-r2/20261025T012222689752Z-2342545-scenario-15867-1-1792891342721182000",
+          "trajectory_sha256": "776f2a415990cd2d5dc959635d5e6d72050792ef459976358f5521d931bb7360",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e13",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e13-r1/20261025T015700772206Z-2342545-scenario-42661-1-1792893420797478000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e13-r1/20261025T01222449177Z-2342545-scenario-15950-1-1792891344520601000",
+          "trajectory_sha256": "f6f7fd06be87b5d38569862dc1cc4d580e10ee8f3d11cb6c44ed2c946b56a112",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e13",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e13-r2/20261025T015707935826Z-2342545-scenario-43085-1-1792893427964026000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e13-r2/20261025T012225884214Z-2342545-scenario-16041-1-1792891345915490000",
+          "trajectory_sha256": "f6f7fd06be87b5d38569862dc1cc4d580e10ee8f3d11cb6c44ed2c946b56a112",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j04",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j04-r1/20261025T015714949461Z-2342545-scenario-43499-1-1792893434973276000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j04-r1/20261025T012227391835Z-2342545-scenario-16124-1-1792891347422167000",
+          "trajectory_sha256": "182a5858fb46c91b471b34502fb318f55ebba4f117de7177e4c6da4f32b23f8c",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j04",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j04-r2/20261025T015721879017Z-2342545-scenario-43951-1-1792893441905357000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j04-r2/20261025T012228738378Z-2342545-scenario-16209-1-1792891348767240000",
+          "trajectory_sha256": "182a5858fb46c91b471b34502fb318f55ebba4f117de7177e4c6da4f32b23f8c",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j07",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j07-r1/20261025T015728602274Z-2342545-scenario-44413-1-1792893448628387000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j07-r1/20261025T012230313472Z-2342545-scenario-16294-1-1792891350345205000",
+          "trajectory_sha256": "c01c9cdfef0e2d11450c0448038b7c99eb0f1985683ac81bfed94d952ea37af8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j07",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j07-r2/20261025T015736342075Z-2342545-scenario-44829-1-1792893456365235000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j07-r2/20261025T012231892898Z-2342545-scenario-16386-1-1792891351922558000",
+          "trajectory_sha256": "c01c9cdfef0e2d11450c0448038b7c99eb0f1985683ac81bfed94d952ea37af8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j11",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j11-r1/20261025T015743133313Z-2342545-scenario-45282-1-1792893463157346000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j11-r1/20261025T012233363917Z-2342545-scenario-16482-1-1792891353399639000",
+          "trajectory_sha256": "0a53bb7b49c0e69568db57fdf7651b2fa4832a6d24e4679ffba80165f1d0ab63",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j11",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j11-r2/20261025T015750801055Z-2342545-scenario-45790-1-1792893470829637000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j11-r2/20261025T012234731166Z-2342545-scenario-16564-1-1792891354763436000",
+          "trajectory_sha256": "0a53bb7b49c0e69568db57fdf7651b2fa4832a6d24e4679ffba80165f1d0ab63",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j12",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j12-r1/20261025T015758152409Z-2342545-scenario-46216-1-1792893478175675000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j12-r1/20261025T012236349177Z-2342545-scenario-16648-1-1792891356379142000",
+          "trajectory_sha256": "05ff199e6e744319a76ca20517ab1f7eb844e4d7aae4d6aa90f5693ede555a6e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j12",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j12-r2/20261025T015804688889Z-2342545-scenario-46628-1-1792893484712211000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j12-r2/20261025T012237844211Z-2342545-scenario-16730-1-1792891357874476000",
+          "trajectory_sha256": "05ff199e6e744319a76ca20517ab1f7eb844e4d7aae4d6aa90f5693ede555a6e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j16",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j16-r1/20261025T015811420114Z-2342545-scenario-47040-1-1792893491446552000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j16-r1/20261025T01223923646Z-2342545-scenario-16814-1-1792891359272289000",
+          "trajectory_sha256": "4b5e879363a86424cb743954fe2ed8a60f2a229dbffec917077597e7bb9a1fde",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j16",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j16-r2/20261025T015818459857Z-2342545-scenario-47511-1-1792893498483250000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j16-r2/20261025T012241641648Z-2342545-scenario-16914-1-1792891361675353000",
+          "trajectory_sha256": "4b5e879363a86424cb743954fe2ed8a60f2a229dbffec917077597e7bb9a1fde",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a08",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a08-r1/20261025T015826290639Z-2342545-scenario-47956-1-1792893506313203000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a08-r1/20261025T012242637738Z-2342545-scenario-16990-1-1792891362670128000",
+          "trajectory_sha256": "dce7dea2b08f7ef9e28621a7ddb2ebb820ac6f2decbd4ba6ebecec9645be7ac7",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a08",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a08-r2/20261025T015832664389Z-2342545-scenario-48368-1-1792893512688231000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a08-r2/20261025T012244329112Z-2342545-scenario-17072-1-1792891364374396000",
+          "trajectory_sha256": "dce7dea2b08f7ef9e28621a7ddb2ebb820ac6f2decbd4ba6ebecec9645be7ac7",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a10",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a10-r1/20261025T015839321397Z-2342545-scenario-48803-1-1792893519355550000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a10-r1/20261025T012245621444Z-2342545-scenario-17160-1-1792891365661157000",
+          "trajectory_sha256": "4413e7e2e497766ed1f00cd73ceb01e14c253e2874e4f7e08e98cc456e77ce6f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-a10",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-a10-r2/20261025T015846394389Z-2342545-scenario-49261-1-1792893526416617000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-a10-r2/20261025T012247724154Z-2342545-scenario-17245-1-1792891367755425000",
+          "trajectory_sha256": "4413e7e2e497766ed1f00cd73ceb01e14c253e2874e4f7e08e98cc456e77ce6f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e05",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e05-r1/20261025T015853470977Z-2342545-scenario-49730-1-1792893533496275000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e05-r1/20261025T012248605187Z-2342545-scenario-17327-1-1792891368634212000",
+          "trajectory_sha256": "1dbcb8ec79def5592c5f5e4ce27ed5ecbef530c3c36f41f6cfb4b97052e0e3d1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e05",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e05-r2/20261025T015900003168Z-2342545-scenario-50143-1-1792893540031169000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e05-r2/20261025T012250565653Z-2342545-scenario-17422-1-1792891370596461000",
+          "trajectory_sha256": "1dbcb8ec79def5592c5f5e4ce27ed5ecbef530c3c36f41f6cfb4b97052e0e3d1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e07",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e07-r1/20261025T015906609454Z-2342545-scenario-50555-1-1792893546633581000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e07-r1/20261025T012251513809Z-2342545-scenario-17504-1-1792891371541268000",
+          "trajectory_sha256": "d6de5fff158a764416b62854cc968902a03d015739732ec6b205915049f73556",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e07",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e07-r2/20261025T015915134477Z-2342545-scenario-51029-1-1792893555160367000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e07-r2/20261025T012253877105Z-2342545-scenario-17587-1-1792891373909300000",
+          "trajectory_sha256": "d6de5fff158a764416b62854cc968902a03d015739732ec6b205915049f73556",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e14",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e14-r1/20261025T015921647116Z-2342545-scenario-51475-1-1792893561671293000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e14-r1/20261025T012254510532Z-2342545-scenario-17669-1-1792891374538465000",
+          "trajectory_sha256": "a87f355b2df575edc2089d30dbb8f2af3eb9edd28ca5f1b983e50d76165f907c",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e14",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e14-r2/20261025T015928047208Z-2342545-scenario-51886-1-1792893568074440000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e14-r2/20261025T012256776419Z-2342545-scenario-17752-1-1792891376804148000",
+          "trajectory_sha256": "a87f355b2df575edc2089d30dbb8f2af3eb9edd28ca5f1b983e50d76165f907c",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e15",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e15-r1/20261025T015935265573Z-2342545-scenario-52331-1-1792893575292352000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e15-r1/20261025T012257467467Z-2342545-scenario-17834-1-1792891377494484000",
+          "trajectory_sha256": "645877651df137a2ade8bded5f99e519cdce99701bedf884d148505fdda7f683",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e15",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e15-r2/20261025T01594258865Z-2342545-scenario-52797-1-1792893582614222000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e15-r2/20261025T012300214579Z-2342545-scenario-17933-1-1792891380241300000",
+          "trajectory_sha256": "645877651df137a2ade8bded5f99e519cdce99701bedf884d148505fdda7f683",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e16",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e16-r1/20261025T015949251965Z-2342545-scenario-53209-1-1792893589280508000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e16-r1/20261025T012300899949Z-2342545-scenario-18015-1-1792891380927315000",
+          "trajectory_sha256": "020a106ee393ac54ebf2e2a02ea01101af50cd981dd923b0ed73b1e05afc941a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e16",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e16-r2/20261025T015955993893Z-2342545-scenario-53629-1-1792893596022362000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e16-r2/20261025T012302822101Z-2342545-scenario-18082-1-1792891382851334000",
+          "trajectory_sha256": "020a106ee393ac54ebf2e2a02ea01101af50cd981dd923b0ed73b1e05afc941a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e17",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e17-r1/20261025T020003711618Z-2342545-scenario-54044-1-1792893603738614000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e17-r1/20261025T012303478602Z-2342545-scenario-18164-1-1792891383509300000",
+          "trajectory_sha256": "bdc7c8708176e5f9d1e76eacc0541b39d7d046d1e7998606c0361d4825ebdac0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-e17",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-e17-r2/20261025T020010731154Z-2342545-scenario-54489-1-1792893610755514000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-e17-r2/20261025T012305828489Z-2342545-scenario-18247-1-1792891385859268000",
+          "trajectory_sha256": "bdc7c8708176e5f9d1e76eacc0541b39d7d046d1e7998606c0361d4825ebdac0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j03",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j03-r1/20261025T020017476664Z-2342545-scenario-54950-1-1792893617501298000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j03-r1/20261025T012306558867Z-2342545-scenario-18329-1-1792891386588558000",
+          "trajectory_sha256": "97b6500f156647941dd50ccfa907601ca0d50079917bd30420bd715e52ac4967",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j03",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j03-r2/20261025T020024880585Z-2342545-scenario-55370-1-1792893624908667000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j03-r2/20261025T012309127014Z-2342545-scenario-18417-1-1792891389155578000",
+          "trajectory_sha256": "97b6500f156647941dd50ccfa907601ca0d50079917bd30420bd715e52ac4967",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j05",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j05-r1/20261025T020031586282Z-2342545-scenario-55789-1-1792893631611698000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j05-r1/20261025T012309697367Z-2342545-scenario-18499-1-1792891389724284000",
+          "trajectory_sha256": "abde05b64a3d4d6a15166c0921769a0b44dccf3e2406b298c7ade1c3dbe4c50a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j05",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j05-r2/20261025T020038560607Z-2342545-scenario-56234-1-1792893638584216000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j05-r2/20261025T012312047959Z-2342545-scenario-18584-1-1792891392077128000",
+          "trajectory_sha256": "abde05b64a3d4d6a15166c0921769a0b44dccf3e2406b298c7ade1c3dbe4c50a",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j06",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j06-r1/20261025T020045084593Z-2342545-scenario-56698-1-1792893645107412000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j06-r1/20261025T012312845149Z-2342545-scenario-18666-1-1792891392874318000",
+          "trajectory_sha256": "8662c559abe27dc41206ed13563364cf2f599b0bd6629d6ad6141c9680ef52dd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j06",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j06-r2/20261025T020052713824Z-2342545-scenario-57120-1-1792893652739699000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j06-r2/20261025T012315185688Z-2342545-scenario-18772-1-1792891395213829000",
+          "trajectory_sha256": "8662c559abe27dc41206ed13563364cf2f599b0bd6629d6ad6141c9680ef52dd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j08",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j08-r1/20261025T020059117309Z-2342545-scenario-57598-1-1792893659145558000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j08-r1/20261025T012315733414Z-2342545-scenario-18838-1-1792891395763183000",
+          "trajectory_sha256": "6922cc940183eff37484ef57aba831793640b058c9a71e54bc1f5a2ae3d43a13",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j08",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j08-r2/20261025T020105962168Z-2342545-scenario-58028-1-1792893665988896000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j08-r2/20261025T012317923482Z-2342545-scenario-18930-1-1792891397955376000",
+          "trajectory_sha256": "6922cc940183eff37484ef57aba831793640b058c9a71e54bc1f5a2ae3d43a13",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j10",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j10-r1/20261025T020113126412Z-2342545-scenario-58510-1-1792893673155154000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j10-r1/20261025T012318725455Z-2342545-scenario-19025-1-1792891398759471000",
+          "trajectory_sha256": "42909600bc6fa6997457eba8eb5bedce20a4f7d6ea665a93fbe306ba77dfc0ae",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j10",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j10-r2/20261025T020120325613Z-2342545-scenario-58923-1-1792893680353577000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j10-r2/20261025T012321606382Z-2342545-scenario-19125-1-1792891401634237000",
+          "trajectory_sha256": "42909600bc6fa6997457eba8eb5bedce20a4f7d6ea665a93fbe306ba77dfc0ae",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j13",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j13-r1/20261025T020126980221Z-2342545-scenario-59342-1-1792893687006555000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j13-r1/20261025T012322214416Z-2342545-scenario-19206-1-1792891402241019000",
+          "trajectory_sha256": "5f128327b86eb5479ed460bab370955c279940676a60f37d0e11a58e2460e30d",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j13",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j13-r2/20261025T02013366792Z-2342545-scenario-59774-1-1792893693692333000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j13-r2/20261025T012323979758Z-2342545-scenario-19275-1-1792891404006251000",
+          "trajectory_sha256": "5f128327b86eb5479ed460bab370955c279940676a60f37d0e11a58e2460e30d",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j14",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j14-r1/20261025T020140862147Z-2342545-scenario-60247-1-1792893700888827000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j14-r1/20261025T012324817717Z-2342545-scenario-19357-1-1792891404846390000",
+          "trajectory_sha256": "5c39fa109e657e6bd6136a3b2769cde444d3fb353946a100c2871a0d0340cbec",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j14",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j14-r2/20261025T020148137455Z-2342545-scenario-60663-1-1792893708161927000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j14-r2/20261025T012326972781Z-2342545-scenario-19440-1-1792891407000384000",
+          "trajectory_sha256": "5c39fa109e657e6bd6136a3b2769cde444d3fb353946a100c2871a0d0340cbec",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j15",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j15-r1/20261025T020154881633Z-2342545-scenario-61088-1-1792893714907741000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j15-r1/20261025T012328064869Z-2342545-scenario-19522-1-1792891408094404000",
+          "trajectory_sha256": "bbc5f90b311f873c4d998c3acd3e76f1181523a993f3ae986d124a0e628b43f8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j15",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j15-r2/20261025T020201754522Z-2342545-scenario-61533-1-1792893721781666000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j15-r2/20261025T01232976988Z-2342545-scenario-19605-1-1792891409801273000",
+          "trajectory_sha256": "bbc5f90b311f873c4d998c3acd3e76f1181523a993f3ae986d124a0e628b43f8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j17",
+            "brake",
+            1
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j17-r1/20261025T020208779901Z-2342545-scenario-61999-1-1792893728808292000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j17-r1/20261025T012330831558Z-2342545-scenario-19687-1-1792891410861279000",
+          "trajectory_sha256": "2975177aa73d696dbdbfd7c4f00ecd17a8af36618e2c35f982afa7623be9e6a3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "ref-j17",
+            "brake",
+            2
+          ],
+          "run": "artifacts/fleet57-recorder-bridge-20261025/runs/brake-ref-j17-r2/20261025T020216256819Z-2342545-scenario-62431-1-1792893736281588000",
+          "baseline_run": "artifacts/fleet57-reference-20261025/runs/brake-ref-j17-r2/20261025T01233292453Z-2342545-scenario-19778-1-1792891412953173000",
+          "trajectory_sha256": "2975177aa73d696dbdbfd7c4f00ecd17a8af36618e2c35f982afa7623be9e6a3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        }
+      ]
+    },
+    {
+      "study": "artifacts/gt500-recorder-bridge-20261025",
+      "executions": 48,
+      "rows": [
+        {
+          "identity": [
+            "redline-gt500",
+            "brake",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/brake-redline-gt500-r1/20261025T020241223847Z-2342545-scenario-63981-1-1792893761254551000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/brake-redline-gt500-r1/20261024T234532357924Z-2342545-scenario-34875-1-1792885532386830000",
+          "trajectory_sha256": "956ec0e5723d6f9168518c13900248bab83f4158a8054434c141a876063f50aa",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "brake",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/brake-redline-gt500-r2/20261025T020247628811Z-2342545-scenario-64411-1-1792893767655844000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/brake-redline-gt500-r2/20261024T234532896541Z-2342545-scenario-34957-1-1792885532921294000",
+          "trajectory_sha256": "956ec0e5723d6f9168518c13900248bab83f4158a8054434c141a876063f50aa",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "turn-left",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/turn-left-redline-gt500-r1/20261025T020254566993Z-2342545-scenario-64905-1-1792893774592490000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/turn-left-redline-gt500-r1/20261024T234714068331Z-2342545-scenario-41649-1-1792885634096426000",
+          "trajectory_sha256": "eea7e8411cc8864c5845bd263542d01d914990f5ec2ff1ddcac7fdfe48fbd3c4",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "turn-left",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/turn-left-redline-gt500-r2/20261025T0203010221Z-2342545-scenario-65316-1-1792893781061674000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/turn-left-redline-gt500-r2/20261024T234714664757Z-2342545-scenario-41714-1-1792885634685766000",
+          "trajectory_sha256": "eea7e8411cc8864c5845bd263542d01d914990f5ec2ff1ddcac7fdfe48fbd3c4",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "turn-right",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/turn-right-redline-gt500-r1/20261025T020307504966Z-2342545-scenario-65684-1-1792893787527411000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/turn-right-redline-gt500-r1/20261024T234847326823Z-2342545-scenario-48450-1-1792885727353584000",
+          "trajectory_sha256": "27286ad505ebd6de09870c5c5236741d9f082a1921823a30f8074cc0e5ca64b6",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "turn-right",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/turn-right-redline-gt500-r2/20261025T020313821068Z-2342545-scenario-66098-1-1792893793843846000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/turn-right-redline-gt500-r2/20261024T234847946234Z-2342545-scenario-48517-1-1792885727970581000",
+          "trajectory_sha256": "27286ad505ebd6de09870c5c5236741d9f082a1921823a30f8074cc0e5ca64b6",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "fast-left",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/fast-left-redline-gt500-r1/20261025T020320310378Z-2342545-scenario-66493-1-1792893800338740000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/fast-left-redline-gt500-r1/20261024T235027033898Z-2342545-scenario-55362-1-1792885827058966000",
+          "trajectory_sha256": "79b16c05b9ee11e622078c9a6c4bc00f52832121140282125edce863eab89b55",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "fast-left",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/fast-left-redline-gt500-r2/20261025T020328252037Z-2342545-scenario-66930-1-1792893808278604000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/fast-left-redline-gt500-r2/20261024T235027796827Z-2342545-scenario-55444-1-1792885827824031000",
+          "trajectory_sha256": "79b16c05b9ee11e622078c9a6c4bc00f52832121140282125edce863eab89b55",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "fast-right",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/fast-right-redline-gt500-r1/20261025T020334758124Z-2342545-scenario-67341-1-1792893814780278000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/fast-right-redline-gt500-r1/20261024T235206265565Z-2342545-scenario-62017-1-1792885926296459000",
+          "trajectory_sha256": "86d4c837bda4ac2440aa5c2490f74ab646a4a637465f462dbb7024f72f55a6bd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "fast-right",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/fast-right-redline-gt500-r2/20261025T02034103799Z-2342545-scenario-67772-1-1792893821061584000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/fast-right-redline-gt500-r2/20261024T235206898783Z-2342545-scenario-62104-1-1792885926921467000",
+          "trajectory_sha256": "86d4c837bda4ac2440aa5c2490f74ab646a4a637465f462dbb7024f72f55a6bd",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "launch-full",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/launch-full-redline-gt500-r1/20261025T020347424143Z-2342545-scenario-68191-1-1792893827450137000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/launch-full-redline-gt500-r1/20261024T23534859199Z-2342545-scenario-68797-1-1792886028615616000",
+          "trajectory_sha256": "6190f292c0306932d79e60c5dd302eefbc0fff185528f35e47ad852ddc3b36e3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "launch-full",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/launch-full-redline-gt500-r2/20261025T020354752194Z-2342545-scenario-68616-1-1792893834776574000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/launch-full-redline-gt500-r2/20261024T23534966302Z-2342545-scenario-68882-1-1792886029692436000",
+          "trajectory_sha256": "6190f292c0306932d79e60c5dd302eefbc0fff185528f35e47ad852ddc3b36e3",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "launch-partial",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/launch-partial-redline-gt500-r1/20261025T020400950816Z-2342545-scenario-69030-1-1792893840977307000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/launch-partial-redline-gt500-r1/20261024T23553624338Z-2342545-scenario-75465-1-1792886136270721000",
+          "trajectory_sha256": "a510588c973e0a1572717c090d2af2ebcbf2a11c9318430a8a56909c4353520b",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "launch-partial",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/launch-partial-redline-gt500-r2/20261025T020407096622Z-2342545-scenario-69441-1-1792893847118738000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/launch-partial-redline-gt500-r2/20261024T23553694784Z-2342545-scenario-75547-1-1792886136970699000",
+          "trajectory_sha256": "a510588c973e0a1572717c090d2af2ebcbf2a11c9318430a8a56909c4353520b",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "coast-down",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/coast-down-redline-gt500-r1/20261025T020413555737Z-2342545-scenario-69852-1-1792893853583808000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/coast-down-redline-gt500-r1/20261024T235718561694Z-2342545-scenario-82100-1-1792886238589502000",
+          "trajectory_sha256": "2a6bbee721edc0fafbb6cd2aeb0012ebe402666badfa5b2e1f006ec5f20bff34",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "coast-down",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/coast-down-redline-gt500-r2/20261025T020420943541Z-2342545-scenario-70268-1-1792893860966031000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/coast-down-redline-gt500-r2/20261024T235719153228Z-2342545-scenario-82181-1-1792886239178826000",
+          "trajectory_sha256": "2a6bbee721edc0fafbb6cd2aeb0012ebe402666badfa5b2e1f006ec5f20bff34",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "brake-progressive",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/brake-progressive-redline-gt500-r1/20261025T020427308549Z-2342545-scenario-70686-1-1792893867333489000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/brake-progressive-redline-gt500-r1/20261024T2359026889Z-2342545-scenario-88753-1-1792886342714821000",
+          "trajectory_sha256": "0bc9a3648b11bea941d86a8e93bee788f599716d34cd6160befd1d467b20917e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "brake-progressive",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/brake-progressive-redline-gt500-r2/20261025T020433596363Z-2342545-scenario-71146-1-1792893873621523000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/brake-progressive-redline-gt500-r2/20261024T235903195226Z-2342545-scenario-88835-1-1792886343221919000",
+          "trajectory_sha256": "0bc9a3648b11bea941d86a8e93bee788f599716d34cd6160befd1d467b20917e",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "stop-relaunch",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/stop-relaunch-redline-gt500-r1/20261025T020439869539Z-2342545-scenario-71557-1-1792893879897976000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/stop-relaunch-redline-gt500-r1/20261025T000046213309Z-2342545-scenario-95393-1-1792886446239161000",
+          "trajectory_sha256": "1920b0cdecba249dff2f0c8d76962b139d18183eef33ab7bc119c5b1eb10e501",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "stop-relaunch",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/stop-relaunch-redline-gt500-r2/20261025T020447872374Z-2342545-scenario-71999-1-1792893887899603000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/stop-relaunch-redline-gt500-r2/20261025T000046767922Z-2342545-scenario-95474-1-1792886446790786000",
+          "trajectory_sha256": "1920b0cdecba249dff2f0c8d76962b139d18183eef33ab7bc119c5b1eb10e501",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "reverse-recover",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/reverse-recover-redline-gt500-r1/20261025T020454276226Z-2342545-scenario-72431-1-1792893894298691000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/reverse-recover-redline-gt500-r1/20261025T000228543184Z-2342545-scenario-2730-1-1792886548573179000",
+          "trajectory_sha256": "898c34b9295b250da86af1f2585832630e6980c44b811bd768235a6286298a03",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "reverse-recover",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/reverse-recover-redline-gt500-r2/20261025T020500627066Z-2342545-scenario-72849-1-1792893900651570000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/reverse-recover-redline-gt500-r2/20261025T000229533678Z-2342545-scenario-2822-1-1792886549561912000",
+          "trajectory_sha256": "898c34b9295b250da86af1f2585832630e6980c44b811bd768235a6286298a03",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "handbrake-left",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/handbrake-left-redline-gt500-r1/20261025T020507244592Z-2342545-scenario-73263-1-1792893907270501000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/handbrake-left-redline-gt500-r1/20261025T000408941545Z-2342545-scenario-9415-1-1792886648962433000",
+          "trajectory_sha256": "2ac9c8c00bd0f57bc030c542ab760bc58f99f30a77e87fe571bf4bed24968a45",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "handbrake-left",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/handbrake-left-redline-gt500-r2/20261025T020514475591Z-2342545-scenario-73658-1-1792893914504192000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/handbrake-left-redline-gt500-r2/20261025T000410393758Z-2342545-scenario-9497-1-1792886650418267000",
+          "trajectory_sha256": "2ac9c8c00bd0f57bc030c542ab760bc58f99f30a77e87fe571bf4bed24968a45",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "handbrake-right",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/handbrake-right-redline-gt500-r1/20261025T020520825629Z-2342545-scenario-74070-1-1792893920850720000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/handbrake-right-redline-gt500-r1/20261025T000547591531Z-2342545-scenario-16084-1-1792886747612353000",
+          "trajectory_sha256": "5a3b9dbdbb7d25b44bbfa78d27d7c9ae91134e0286b5b565717d06bd711f12d9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "handbrake-right",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/handbrake-right-redline-gt500-r2/20261025T020527202918Z-2342545-scenario-74488-1-1792893927230528000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/handbrake-right-redline-gt500-r2/20261025T000548861175Z-2342545-scenario-16166-1-1792886748883511000",
+          "trajectory_sha256": "5a3b9dbdbb7d25b44bbfa78d27d7c9ae91134e0286b5b565717d06bd711f12d9",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "trail-brake-left",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/trail-brake-left-redline-gt500-r1/20261025T020534327105Z-2342545-scenario-74884-1-1792893934349003000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/trail-brake-left-redline-gt500-r1/20261025T000724497407Z-2342545-scenario-22722-1-1792886844519172000",
+          "trajectory_sha256": "67d4aac3f81d45df73787c9b1a281623fce733ba40e1222e4b3c5c301b461219",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "trail-brake-left",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/trail-brake-left-redline-gt500-r2/20261025T020540848811Z-2342545-scenario-75297-1-1792893940876689000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/trail-brake-left-redline-gt500-r2/20261025T000725732954Z-2342545-scenario-22804-1-1792886845757555000",
+          "trajectory_sha256": "67d4aac3f81d45df73787c9b1a281623fce733ba40e1222e4b3c5c301b461219",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "trail-brake-right",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/trail-brake-right-redline-gt500-r1/20261025T020547023738Z-2342545-scenario-75710-1-1792893947047556000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/trail-brake-right-redline-gt500-r1/20261025T000901166283Z-2342545-scenario-29388-1-1792886941189047000",
+          "trajectory_sha256": "c59b4450c41e7d33cd318ef6e8220759d28f21194ff720e3ae3bc6c8d9740118",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "trail-brake-right",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/trail-brake-right-redline-gt500-r2/20261025T020553248966Z-2342545-scenario-76130-1-1792893953275767000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/trail-brake-right-redline-gt500-r2/20261025T00090248035Z-2342545-scenario-29470-1-1792886942502988000",
+          "trajectory_sha256": "c59b4450c41e7d33cd318ef6e8220759d28f21194ff720e3ae3bc6c8d9740118",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "slalom-pulses",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/slalom-pulses-redline-gt500-r1/20261025T020559420348Z-2342545-scenario-76541-1-1792893959444680000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/slalom-pulses-redline-gt500-r1/20261025T001036981677Z-2342545-scenario-36062-1-1792887037004771000",
+          "trajectory_sha256": "ed13debb6d6b1eba56f3bb8e20201056e0712dc8602e8bdf1f537bf5e54363ae",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "slalom-pulses",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/slalom-pulses-redline-gt500-r2/20261025T020607235797Z-2342545-scenario-76954-1-1792893967260655000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/slalom-pulses-redline-gt500-r2/20261025T001038286112Z-2342545-scenario-36144-1-1792887038308975000",
+          "trajectory_sha256": "ed13debb6d6b1eba56f3bb8e20201056e0712dc8602e8bdf1f537bf5e54363ae",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-forward-slow",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-forward-slow-redline-gt500-r1/20261025T020613743329Z-2342545-scenario-77367-1-1792893973765243000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-forward-slow-redline-gt500-r1/20261025T00122947504Z-2342545-scenario-42749-1-1792887149497923000",
+          "trajectory_sha256": "441d12d75dcc836188a4ba37568c1b471159ed7c79d5f38082d54dc9d013c6c0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-forward-slow",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-forward-slow-redline-gt500-r2/20261025T020623275034Z-2342545-scenario-77905-1-1792893983297649000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-forward-slow-redline-gt500-r2/20261025T001232107567Z-2342545-scenario-42833-1-1792887152138519000",
+          "trajectory_sha256": "441d12d75dcc836188a4ba37568c1b471159ed7c79d5f38082d54dc9d013c6c0",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-forward-fast",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-forward-fast-redline-gt500-r1/20261025T020633060774Z-2342545-scenario-78458-1-1792893993083643000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-forward-fast-redline-gt500-r1/20261025T001452692126Z-2342545-scenario-49505-1-1792887292713011000",
+          "trajectory_sha256": "0c0df3af4d38f34e6dc431a42fff13d383dc4b32835098749b299cf7d90f4b10",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-forward-fast",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-forward-fast-redline-gt500-r2/20261025T020641984656Z-2342545-scenario-78971-1-1792894002010854000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-forward-fast-redline-gt500-r2/20261025T001453889399Z-2342545-scenario-49573-1-1792887293912606000",
+          "trajectory_sha256": "0c0df3af4d38f34e6dc431a42fff13d383dc4b32835098749b299cf7d90f4b10",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-reverse-slow",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-reverse-slow-redline-gt500-r1/20261025T020651148105Z-2342545-scenario-79549-1-1792894011172771000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-reverse-slow-redline-gt500-r1/20261025T001718277079Z-2342545-scenario-56196-1-1792887438296701000",
+          "trajectory_sha256": "73c295d40de50ff4b3f2aa65769749ac3ee3536fab6a43a6eba948f77dd273b8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-reverse-slow",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-reverse-slow-redline-gt500-r2/20261025T020701005867Z-2342545-scenario-80117-1-1792894021028862000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-reverse-slow-redline-gt500-r2/20261025T001719611815Z-2342545-scenario-56262-1-1792887439634633000",
+          "trajectory_sha256": "73c295d40de50ff4b3f2aa65769749ac3ee3536fab6a43a6eba948f77dd273b8",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-reverse-fast",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-reverse-fast-redline-gt500-r1/20261025T020709985875Z-2342545-scenario-80616-1-1792894030009630000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-reverse-fast-redline-gt500-r1/20261025T00194706794Z-2342545-scenario-62941-1-1792887587091109000",
+          "trajectory_sha256": "a72d066fabf38be3a33901fd26f6d62a8a80babdef27603e8a8b1bb54a1ea088",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "curve-reverse-fast",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/curve-reverse-fast-redline-gt500-r2/20261025T020719336133Z-2342545-scenario-81200-1-1792894039359914000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/curve-reverse-fast-redline-gt500-r2/20261025T001948391561Z-2342545-scenario-63025-1-1792887588413398000",
+          "trajectory_sha256": "a72d066fabf38be3a33901fd26f6d62a8a80babdef27603e8a8b1bb54a1ea088",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "urban-left",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/urban-left-redline-gt500-r1/20261025T020729696996Z-2342545-scenario-81720-1-1792894049719739000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/urban-left-redline-gt500-r1/20261025T002217240606Z-2342545-scenario-69671-1-1792887737260250000",
+          "trajectory_sha256": "88049c3d990d4210403b89b89c7504419b22ef72f2be68e18a18a03441506460",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "urban-left",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/urban-left-redline-gt500-r2/20261025T020739252938Z-2342545-scenario-82297-1-1792894059280568000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/urban-left-redline-gt500-r2/20261025T002220681717Z-2342545-scenario-69775-1-1792887740701731000",
+          "trajectory_sha256": "88049c3d990d4210403b89b89c7504419b22ef72f2be68e18a18a03441506460",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "urban-right",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/urban-right-redline-gt500-r1/20261025T020749326456Z-2342545-scenario-82876-1-1792894069351967000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/urban-right-redline-gt500-r1/20261025T00245599677Z-2342545-scenario-76384-1-1792887896034302000",
+          "trajectory_sha256": "55a7177464d0dedc8110f9005c709b22e060b9e4c3f41562f08c7925350a61c1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "urban-right",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/urban-right-redline-gt500-r2/20261025T020759788574Z-2342545-scenario-83463-1-1792894079810600000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/urban-right-redline-gt500-r2/20261025T002457017319Z-2342545-scenario-76467-1-1792887897039342000",
+          "trajectory_sha256": "55a7177464d0dedc8110f9005c709b22e060b9e4c3f41562f08c7925350a61c1",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "lane-change",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/lane-change-redline-gt500-r1/20261025T020809322391Z-2342545-scenario-84040-1-1792894089348985000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/lane-change-redline-gt500-r1/20261025T002731947741Z-2342545-scenario-83127-1-1792888051974939000",
+          "trajectory_sha256": "bc52bea8632975dbc8b0b5e5692f97d95079d480b7d81b1d1eec95c95e298a5f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "lane-change",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/lane-change-redline-gt500-r2/20261025T020819160982Z-2342545-scenario-84601-1-1792894099186758000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/lane-change-redline-gt500-r2/20261025T002732938276Z-2342545-scenario-83209-1-1792888052957557000",
+          "trajectory_sha256": "bc52bea8632975dbc8b0b5e5692f97d95079d480b7d81b1d1eec95c95e298a5f",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "lane-change-reverse",
+            1
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/lane-change-reverse-redline-gt500-r1/20261025T020828465869Z-2342545-scenario-85185-1-1792894108489932000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/lane-change-reverse-redline-gt500-r1/20261025T003017192858Z-2342545-scenario-90127-1-1792888217218398000",
+          "trajectory_sha256": "5c5bb2992463cb24a09e57adc883c92dcdbc557084e3b48c0c5cd15a06ea5d32",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        },
+        {
+          "identity": [
+            "redline-gt500",
+            "lane-change-reverse",
+            2
+          ],
+          "run": "artifacts/gt500-recorder-bridge-20261025/runs/lane-change-reverse-redline-gt500-r2/20261025T020838524924Z-2342545-scenario-85616-1-1792894118549796000",
+          "baseline_run": "artifacts/fleet40-gt500-midrange-20261024/runs/lane-change-reverse-redline-gt500-r2/20261025T003018762558Z-2342545-scenario-90209-1-1792888218789283000",
+          "trajectory_sha256": "5c5bb2992463cb24a09e57adc883c92dcdbc557084e3b48c0c5cd15a06ea5d32",
+          "identical_trajectory": true,
+          "evidence_verified": true
+        }
+      ]
+    }
+  ]
+}

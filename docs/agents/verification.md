@@ -77,7 +77,7 @@ python3 tools/check_assets.py
 When touching vehicle physics (`src/vehicle.rs`), simulation loop, rendering/camera, or roster:
 
 ### Offline Verification (`scripts/verify.sh`)
-Runs the full local chain, offscreen fleet rendering across all 13 cars, and evidence generation:
+Runs the full local chain, offscreen fleet rendering across the entire roster, and evidence generation:
 
 ```sh
 sh scripts/verify.sh
@@ -91,6 +91,7 @@ For immutable build/source provenance, use
 `bash scripts/verify.sh --recorded --base origin/main`: it builds the recorded
 release executable once and uses that same executable for the single fleet run.
 Do not add a second ordinary fleet run solely to satisfy this ladder.
+The native fleet receives a 1GiB evidence-finalization allowance for up to 40 cars and an additional 1GiB per started 40-car block, bounded at 8GiB for the 300-car roster. The ordinary recorder default remains 512MiB.
 Keep source-specific Cargo processes under one outer lease across test children
 when targets may be shared between worktrees. The lease serializes Cargo invocations;
 independent tests within one suite may use their normal concurrency.

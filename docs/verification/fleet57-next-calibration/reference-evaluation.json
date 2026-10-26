@@ -1,0 +1,297 @@
+{
+  "primary_rows": [
+    {
+      "car": "350z",
+      "metric": "zero_60_mph_s",
+      "before": 5.2000003,
+      "after": 5.441667,
+      "reference": 5.4,
+      "source": "z-cd-2003",
+      "unit": "s",
+      "before_error_pct": -3.703698148148149,
+      "after_error_pct": 0.7716111111111035
+    },
+    {
+      "car": "350z",
+      "metric": "zero_100_mph_s",
+      "before": 12.55,
+      "after": 13.616668,
+      "reference": 13.9,
+      "source": "z-cd-2003",
+      "unit": "s",
+      "before_error_pct": -9.712230215827333,
+      "after_error_pct": -2.038359712230209
+    },
+    {
+      "car": "350z",
+      "metric": "sixty_to_hundred_mph_s",
+      "before": 7.349999700000001,
+      "after": 8.175001000000002,
+      "reference": 8.5,
+      "source": "z-cd-2003",
+      "unit": "s",
+      "before_error_pct": -13.52941529411764,
+      "after_error_pct": -3.823517647058805
+    }
+  ],
+  "qualification": "Selected related Track6MT equipment; rollout, driver load and exact source game grade unresolved. Calibration observations are not held-out validation.",
+  "nsx": {
+    "measured_period_range_g": [
+      0.86,
+      0.93
+    ],
+    "range_is_matched_circle": false,
+    "simulation_200ft_g": 0.9299673,
+    "simulation_300ft_g": 0.9319076,
+    "policy": "Conservative model envelope 0.84\u20130.95 g includes protocol/build uncertainty. Do not claim the .86\u2013.93 range is an exact matched-circle target."
+  },
+  "decisions": [
+    {
+      "car": "350z",
+      "decision": "Supported delivery-only probe; retain nominal output, mass, gears, current braking and lateral calibration",
+      "use_for_calibration": true,
+      "applicability": "US Track 6MT is selected related equipment; original GT4 grade remains unspecified",
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "z-cd-2003"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13.9,
+          "unit": "s",
+          "source_id": "z-cd-2003"
+        },
+        {
+          "metric": "interval_60_100_mph_s",
+          "value": 8.5,
+          "unit": "s",
+          "source_id": "z-cd-2003",
+          "derived": "13.9-5.4; not rolling-start test"
+        },
+        {
+          "metric": "brake_70_mph_0_m",
+          "value": 49.9872,
+          "unit": "m",
+          "source_id": "z-cd-2003",
+          "conversion": "164ft *0.3048"
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.88,
+          "unit": "g",
+          "source_id": "z-cd-2003",
+          "circle_diameter_ft": 300
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.66,
+          "unit": "s",
+          "source_id": "z-aw-2003"
+        },
+        {
+          "metric": "brake_60_mph_0_m",
+          "value": 34.7472,
+          "unit": "m",
+          "source_id": "z-aw-2003",
+          "conversion": "114ft *0.3048"
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.86,
+          "unit": "g",
+          "source_id": "z-aw-2003",
+          "circle_diameter_ft": 200
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 14.2,
+          "unit": "s",
+          "source_id": "z-rt-2003-indexed",
+          "use_for_calibration": false,
+          "qualification": "Indexed-only corroboration"
+        }
+      ]
+    },
+    {
+      "car": "gt4-nsx",
+      "decision": "Conservative lateral-only estimate near upper period observation; no exact matched-circle production validation claimed",
+      "use_for_calibration": "qualified lateral only",
+      "observed_grip_range_g": [
+        0.86,
+        0.93
+      ],
+      "range_is_matched_circle": false,
+      "observations": [
+        {
+          "metric": "lateral_g",
+          "value": 0.86,
+          "unit": "g",
+          "source_id": "nsx-cd-retrospective",
+          "circle_diameter_ft": 300
+        },
+        {
+          "metric": "lateral_g",
+          "value": 0.93,
+          "unit": "g",
+          "source_id": "nsx-rt-1990",
+          "circle_diameter_ft": null
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "nsx-cd-retrospective",
+          "use_for_calibration": false
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13.3,
+          "unit": "s",
+          "source_id": "nsx-cd-retrospective",
+          "use_for_calibration": false
+        },
+        {
+          "metric": "brake_70_mph_0_m",
+          "value": 47.8536,
+          "unit": "m",
+          "source_id": "nsx-cd-retrospective",
+          "conversion": "157ft *0.3048",
+          "use_for_calibration": false
+        }
+      ]
+    },
+    {
+      "car": "ref-a16",
+      "decision": "No supported production retune; prototype 4.7s excluded from production ranking",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.4,
+          "unit": "s",
+          "source_id": "gnx-rt-1987",
+          "status": "manufacturer_claim",
+          "qualification": "No payload, rollout or production measured result established"
+        },
+        {
+          "metric": "zero_60_mph_s",
+          "value": [
+            5.6,
+            5.7
+          ],
+          "unit": "s",
+          "source_id": "gnx-rt-1987",
+          "status": "informal_prototype_timing"
+        },
+        {
+          "metric": "torque_rpm",
+          "value": 3000,
+          "unit": "rpm",
+          "source_id": "gnx-aw-2003",
+          "status": "related_production_reference",
+          "use_for_calibration": "metadata or curve-shape correction only; not a retrieved factory torque curve"
+        }
+      ]
+    },
+    {
+      "car": "mc3-supra",
+      "decision": "Preserve current launch; related-year original test resolves apparent launch mismatch",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 5.1,
+          "unit": "s",
+          "source_id": "supra-mt-1997"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 12.3,
+          "unit": "s",
+          "source_id": "supra-mt-1997"
+        },
+        {
+          "metric": "interval_60_100_mph_s",
+          "value": 7.2,
+          "unit": "s",
+          "source_id": "supra-mt-1997",
+          "derived": "12.3-5.1"
+        }
+      ]
+    },
+    {
+      "car": "gt-viper",
+      "decision": "Preserve output; matching 100 mph excludes a power increase justified solely by related-year launch.",
+      "use_for_calibration": false
+    },
+    {
+      "car": "redline-911",
+      "decision": "No new calibration: market, load and test protocol unresolved; keep known DIN mass.",
+      "use_for_calibration": false
+    },
+    {
+      "car": "gt4-m3",
+      "decision": "Preserve Cup grip; track peak g is not sustained circle grip; brake upper bound already met.",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_100_kmh_s",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_200_kmh_s",
+          "value": 16.8,
+          "unit": "s",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "brake_100_kmh_0_m",
+          "value": 34,
+          "unit": "m",
+          "source_id": "csl-bmw-2003",
+          "status": "manufacturer_upper_bound",
+          "comparison": "less_than",
+          "conditions": "Optimal conditions"
+        }
+      ]
+    },
+    {
+      "car": "ref-e13",
+      "decision": "Qualified investigation only; full-tank 860 kg and stock RE040 retained; US Sport Pack test is not interchangeable.",
+      "use_for_calibration": false,
+      "observations": [
+        {
+          "metric": "zero_60_mph_s",
+          "value": 4.9,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_100_kmh_s",
+          "value": 5.2,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        },
+        {
+          "metric": "zero_100_mph_s",
+          "value": 13,
+          "unit": "s",
+          "source_id": "elise-lotus-2004",
+          "status": "manufacturer_claim"
+        }
+      ]
+    }
+  ],
+  "nominal_engine_outputs_unchanged": true,
+  "mean_absolute_error_selected_350z_observations_before_pct": 8.981781219364374,
+  "mean_absolute_error_selected_350z_observations_after_pct": 2.211162823466706
+}

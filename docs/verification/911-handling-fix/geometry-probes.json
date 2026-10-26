@@ -1,0 +1,50 @@
+[
+  {
+    "car": "350z",
+    "variant": "stock",
+    "entry_mps": 27.307566,
+    "braking_m": 38.501095,
+    "braking_s": 2.7916667,
+    "fast_tilt_deg": 4.3980136
+  },
+  {
+    "car": "redline-911",
+    "variant": "stock",
+    "entry_mps": 27.321457,
+    "braking_m": 39.28057,
+    "braking_s": 2.8500001,
+    "fast_tilt_deg": 5.205448
+  },
+  {
+    "car": "redline-911",
+    "variant": "baseline-wheelbase",
+    "entry_mps": 27.315617,
+    "braking_m": 38.265217,
+    "braking_s": 2.775,
+    "fast_tilt_deg": 5.2132716
+  },
+  {
+    "car": "redline-911",
+    "variant": "baseline-track",
+    "entry_mps": 27.321457,
+    "braking_m": 39.28057,
+    "braking_s": 2.8500001,
+    "fast_tilt_deg": 4.263791
+  },
+  {
+    "car": "redline-911",
+    "variant": "baseline-radii",
+    "entry_mps": 27.312124,
+    "braking_m": 39.554146,
+    "braking_s": 2.8666668,
+    "fast_tilt_deg": 5.3722816
+  },
+  {
+    "car": "redline-911",
+    "variant": "baseline-body",
+    "entry_mps": 27.321457,
+    "braking_m": 39.28057,
+    "braking_s": 2.8500001,
+    "fast_tilt_deg": 5.205448
+  }
+]

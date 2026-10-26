@@ -1,0 +1,212 @@
+{
+  "run": "artifacts/fleet40-curve-native-fixed/20261024T05473287348Z-2342545-scenario-91826-1-1792820852896785000",
+  "summary": {
+    "artifacts": [
+      "manifest.json",
+      "scenario.json",
+      "commands.jsonl",
+      "input.jsonl",
+      "physics.jsonl",
+      "events.jsonl"
+    ],
+    "assertions_declared": 2,
+    "assertions_executed": 2,
+    "assertions_passed": 2,
+    "capture": {
+      "metrics": {
+        "edge_count": 76411,
+        "height": 1080,
+        "luma_mean": 151.1478271484375,
+        "luma_stddev": 32.95797348022461,
+        "nonblank": true,
+        "unique_colors": 4096,
+        "width": 1920
+      },
+      "path": "captures/scenario.png",
+      "sha256": "2ae1ef075ad147acdfc65deb38b7289fc7850c2b0feb68ac0297da60d473ff0b"
+    },
+    "completed_tick": 3007,
+    "elapsed_ms": 25140,
+    "failure": null,
+    "max_ticks": 3601,
+    "max_wall_ms": 90000,
+    "name": "northeast-curve-native-preview",
+    "passed": true,
+    "readiness": {
+      "tick": 3
+    },
+    "readiness_timeout_ms": 10000,
+    "results": [
+      {
+        "assertion": {
+          "kind": "route_completed",
+          "max_cross_track_m": 6.0,
+          "tick": 3000
+        },
+        "observed": {
+          "active_ticks": 2761,
+          "completed": true,
+          "corridor_half_width_m": 6.0,
+          "four_contact_ticks": 2761,
+          "maximum_cross_track_m": 0.3556327521800995,
+          "passed": true,
+          "progress_m": 99.73137664794922,
+          "total_m": 99.83979797363281
+        },
+        "passed": true
+      },
+      {
+        "assertion": {
+          "count": 0,
+          "kind": "reset_count",
+          "tick": 3000
+        },
+        "observed": {
+          "count": 0,
+          "passed": true
+        },
+        "passed": true
+      }
+    ],
+    "schema_version": 1,
+    "seed": 17,
+    "ticks": 3004
+  },
+  "provenance": {
+    "ok": true,
+    "errors": [],
+    "run_id": "20261024T05473287348Z-2342545-scenario-91826-1-1792820852896785000",
+    "inventory_entries": 185,
+    "index_sha256": "f5334ad30fc96d1580ec8c610f89414c4f56fb7e8da07c2f7a80fc7ee3410b5f",
+    "completeness": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    },
+    "material_status": "complete_runtime_material",
+    "behavioral_run_result": {
+      "exit": {
+        "code": 0,
+        "reason": "success"
+      },
+      "failure_recorded": false,
+      "recorder_health": {
+        "accepted": 25094,
+        "completed_tick": 3007,
+        "drain_cancelled": false,
+        "dropped": 0,
+        "durable_seq": 25094,
+        "errors": [],
+        "failed": false,
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 0,
+          "last_tick": 3007,
+          "requested_ticks": 3600,
+          "retained_bytes": 28904960,
+          "retained_records": 25094,
+          "shortened": false,
+          "window_evictions": 0
+        },
+        "incident_pending": false,
+        "incident_snapshots": 0,
+        "last_durable_tick": 3007,
+        "limits": {
+          "drain_timeout_ms": 2000,
+          "fault": null,
+          "finalize_max_bytes": 536870912,
+          "flush_interval_ms": 500,
+          "flush_ticks": 120,
+          "history_bytes": 67108864,
+          "history_records": 32768,
+          "history_ticks": 3600,
+          "max_record_bytes": 1048576,
+          "queue_bytes": 8388608,
+          "queue_records": 8192,
+          "writer_delay_ms": 0
+        },
+        "loss_ranges_truncated": false,
+        "loss_ranges_unknown": false,
+        "losses": [],
+        "overhead": {
+          "flush_sync": {
+            "count": 62,
+            "max_ns": 95882292,
+            "p50_upper_ns": 67108864,
+            "p95_upper_ns": 67108864,
+            "p99_upper_ns": 95882292,
+            "total_ns": 2492921086
+          },
+          "producer": {
+            "count": 25094,
+            "max_ns": 65167,
+            "p50_upper_ns": 4096,
+            "p95_upper_ns": 8192,
+            "p99_upper_ns": 16384,
+            "total_ns": 83074705
+          },
+          "writer": {
+            "count": 25094,
+            "max_ns": 8258417,
+            "p50_upper_ns": 256,
+            "p95_upper_ns": 1024,
+            "p99_upper_ns": 16384,
+            "total_ns": 269994492
+          }
+        },
+        "panic_pending": false,
+        "phase": "finalized",
+        "produced": 25094,
+        "queue_high_bytes": 124288,
+        "queue_high_records": 103,
+        "queued_bytes": 0,
+        "queued_records": 0,
+        "run_id": "20261024T05473287348Z-2342545-scenario-91826-1-1792820852896785000",
+        "schema": 1,
+        "shutdown_reason": "normal",
+        "signal_support": true,
+        "streams": {
+          "commands": {
+            "accepted": 5025,
+            "flushed_seq": 25091,
+            "synced_seq": 25091,
+            "written": 5025,
+            "written_seq": 25091
+          },
+          "events": {
+            "accepted": 14055,
+            "flushed_seq": 25094,
+            "synced_seq": 25094,
+            "written": 14055,
+            "written_seq": 25094
+          },
+          "input": {
+            "accepted": 3007,
+            "flushed_seq": 25086,
+            "synced_seq": 25086,
+            "written": 3007,
+            "written_seq": 25086
+          },
+          "log": {
+            "accepted": 0,
+            "flushed_seq": 0,
+            "synced_seq": 0,
+            "written": 0,
+            "written_seq": 0
+          },
+          "physics": {
+            "accepted": 3007,
+            "flushed_seq": 25088,
+            "synced_seq": 25088,
+            "written": 3007,
+            "written_seq": 25088
+          }
+        },
+        "updated_at": "2026-10-24T05:48:02.077385Z",
+        "written": 25094
+      }
+    }
+  },
+  "capture_sha256": "2ae1ef075ad147acdfc65deb38b7289fc7850c2b0feb68ac0297da60d473ff0b"
+}

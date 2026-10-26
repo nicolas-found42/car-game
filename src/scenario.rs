@@ -1,7 +1,9 @@
 //! Bounded scenarios submit production commands and observe completed physics ticks.
+mod route;
 mod runner;
 use crate::{config::AccessContext, runtime::ProductionCommand};
-pub use runner::ScenarioPlugin;
+pub use route::RoutePlan;
+pub use runner::{ScenarioOutcome, ScenarioPlugin};
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -26,6 +28,9 @@ pub struct ScheduledCommand {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum AssertionKind {
+    RouteCompleted {
+        max_cross_track_m: f32,
+    },
     DisplacementAtLeast {
         meters: f32,
     },
@@ -57,6 +62,8 @@ pub struct ScenarioAssertion {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ScenarioDefinition {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub route: Option<RoutePlan>,
     pub schema_version: u32,
     pub name: String,
     pub scene: String,
@@ -80,6 +87,9 @@ impl ScenarioDefinition {
         Ok(scenario)
     }
     pub fn validate(&self) -> Result<(), String> {
+        if let Some(route) = &self.route {
+            route.validate()?;
+        }
         if self.schema_version != 1 || self.scene != "driving" || self.name.trim().is_empty() {
             return Err("unsupported scenario schema, scene or empty name".into());
         }
@@ -129,6 +139,15 @@ impl ScenarioDefinition {
             }
             last_tick = assertion.tick;
             match &assertion.condition {
+                AssertionKind::RouteCompleted { max_cross_track_m }
+                    if self.route.is_none()
+                        || !max_cross_track_m.is_finite()
+                        || *max_cross_track_m <= 0. =>
+                {
+                    return Err(
+                        "route assertion requires a route and positive corridor tolerance".into(),
+                    );
+                }
                 AssertionKind::DisplacementAtLeast { meters }
                 | AssertionKind::SpeedAtLeast { mps: meters }
                     if !meters.is_finite() || *meters <= 0.0 =>

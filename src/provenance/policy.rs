@@ -19,7 +19,7 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--smoke" | "--fleet-check" | "--visual-check" | "--offscreen"
-            | "--render-disabled" => exported.push(json!(arg)),
+            | "--render-disabled" | "--fast-scenario" => exported.push(json!(arg)),
             value
                 if matches!(value, "--car" | "--seed" | "--scenario-filter")
                     || crate::diagnostics::RecorderConfig::is_option(value) =>
@@ -157,6 +157,7 @@ pub fn config(value: &Value) -> Value {
         "car",
         "offscreen",
         "render_disabled",
+        "fast_scenario",
         "seed",
         "fixed_hz",
         "log_filter",
@@ -190,6 +191,13 @@ pub fn config(value: &Value) -> Value {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn accelerated_clock_setting_survives_evidence_redaction() {
+        for enabled in [true, false] {
+            let settings = json!({"fast_scenario":enabled,"fixed_hz":120});
+            assert_eq!(config(&settings), settings);
+        }
+    }
     #[test]
     fn canonical_assembly_locations_survive_scenario_evidence_redaction() {
         for location in [

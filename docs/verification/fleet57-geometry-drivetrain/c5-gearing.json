@@ -1,0 +1,39 @@
+{
+  "car": "ref-a08",
+  "method": "Kinematic 95%-redline upshift thresholds at fixed gear ratio; not observed shift events. Actual discrete-tick shifts can differ.",
+  "before_effective_radius_m": 0.35925686730391143,
+  "after_driven_radius_m": 0.33185,
+  "fixed_torque_force_ratio_after_over_before": 1.082588119041469,
+  "shift_thresholds": [
+    {
+      "from_gear": 1,
+      "to_gear": 2,
+      "before_mph": 51.16131735933427,
+      "after_mph": 47.25833995354841
+    },
+    {
+      "from_gear": 2,
+      "to_gear": 3,
+      "before_mph": 73.40536838513178,
+      "after_mph": 67.80544428117815
+    },
+    {
+      "from_gear": 3,
+      "to_gear": 4,
+      "before_mph": 106.25812066938654,
+      "after_mph": 98.15193682660052
+    },
+    {
+      "from_gear": 4,
+      "to_gear": 5,
+      "before_mph": 151.9491125572228,
+      "after_mph": 140.35726966203876
+    },
+    {
+      "from_gear": 5,
+      "to_gear": 6,
+      "before_mph": 180.8918006633604,
+      "after_mph": 167.0919876929033
+    }
+  ]
+}

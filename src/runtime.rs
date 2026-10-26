@@ -444,11 +444,17 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
     *velocity = Velocity::zero();
     *force = ExternalForce::default();
     *collider = chassis_collider(&spec);
-    *mass = crate::vehicle::baseline_mass_properties();
+    *mass = crate::vehicle::profile::for_car(&spec.id).mass_properties(&spec);
     let count = car.reset_count + 1;
     *car = Vehicle::default();
     car.previous = *pose;
     car.reset_count = count;
+    if let Some(run) = world.get_resource::<RunHandle>() {
+        run.event(
+            "vehicle.physics_profile",
+            crate::vehicle::profile::report(&spec.id),
+        );
+    }
     world.insert_resource(spec);
     world
         .resource_mut::<crate::assembly::AssemblyRuntime>()

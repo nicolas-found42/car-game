@@ -1,0 +1,3101 @@
+{
+  "schema": 1,
+  "source_corpus_sha256": "05ea3ab7c3bbdcb112d2766182f133ff506f589499e57dd619bab206705b5e43",
+  "cars": [
+    {
+      "id": "ref-a08",
+      "corpus_reference": "a08",
+      "asset_code": "MC3_VP_CORVETTEZ06_03",
+      "parameters": {
+        "mass_kg": 1414.30100966,
+        "power_kw": 302.00844799081943,
+        "torque_nm": 542.3271793325601,
+        "power_rpm": 6000,
+        "torque_rpm": 4800,
+        "redline_rpm": 6500,
+        "gears": [
+          2.97,
+          2.07,
+          1.43,
+          1,
+          0.84,
+          0.56
+        ],
+        "final_drive": 3.42,
+        "front_weight": 0.53,
+        "front_drive": 0,
+        "cg_height_m": 0.48,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.65,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.32668075,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.1
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "am_c5_specs",
+          "source_field": "curb_mass",
+          "source_value": 3118,
+          "source_unit": "lb",
+          "basis": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "am_c5_sheet",
+          "source_field": "power",
+          "source_value": 405,
+          "source_unit": "hp",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "am_c5_sheet",
+          "source_field": "torque",
+          "source_value": 400,
+          "source_unit": "lb_ft",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "am_c5_sheet",
+          "source_field": "power_rpm",
+          "source_value": 6000,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "am_c5_sheet",
+          "source_field": "torque_rpm",
+          "source_value": 4800,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "reference",
+          "source": "am_c5_specs",
+          "source_field": "redline",
+          "source_value": 6500,
+          "source_unit": "rpm",
+          "basis": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "am_c5_specs",
+          "source_field": "gear_ratios",
+          "source_value": [
+            2.97,
+            2.07,
+            1.43,
+            1,
+            0.84,
+            0.56
+          ],
+          "source_unit": "ratio",
+          "basis": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "am_c5_specs",
+          "source_field": "final_drive",
+          "source_value": 3.42,
+          "source_unit": "ratio",
+          "basis": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "am_c5_specs",
+          "source_field": "front_weight",
+          "source_value": 53,
+          "source_unit": "percent",
+          "basis": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Chevrolet Corvette Z06",
+        "year": 2003,
+        "variant": "C5 fixed-roof LS6 6-speed",
+        "identity_status": "catalog_exact_name",
+        "notes": "MC3 explicitly names the 2003 Z06. GT4 names Z06 2000, so it is not merged with this 405-horsepower 2003 profile. A period specification table has inconsistent brake unit conversions; inches are preserved."
+      }
+    },
+    {
+      "id": "ref-a10",
+      "corpus_reference": "a10",
+      "asset_code": "GT4_DODG0005",
+      "parameters": {
+        "mass_kg": 1522.7095860900001,
+        "power_kw": 372.8499357911351,
+        "torque_nm": 711.8044228739852,
+        "power_rpm": 5600,
+        "torque_rpm": 4200,
+        "redline_rpm": 6000,
+        "gears": [
+          2.66,
+          1.78,
+          1.3,
+          1,
+          0.74,
+          0.5
+        ],
+        "final_drive": 3.07,
+        "front_weight": 0.48,
+        "front_drive": 0,
+        "cg_height_m": 0.48,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.12,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.75,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.5326204,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.12
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "published_curb_mass",
+          "source_value": 3357,
+          "source_unit": "lb",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "am_viper_press",
+          "source_field": "power",
+          "source_value": 500,
+          "source_unit": "hp",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "am_viper_press",
+          "source_field": "torque",
+          "source_value": 525,
+          "source_unit": "lb_ft",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "power_rpm",
+          "source_value": 5600,
+          "source_unit": "rpm",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "torque_rpm",
+          "source_value": 4200,
+          "source_unit": "rpm",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "redline_rpm": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "redline",
+          "source_value": 6000,
+          "source_unit": "rpm",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "final_drive",
+          "source_value": 3.07,
+          "source_unit": "ratio",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "am_viper_test",
+          "source_field": "front_weight",
+          "source_value": 48,
+          "source_unit": "percent",
+          "basis": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Dodge Viper SRT10",
+        "year": 2003,
+        "variant": "8.3L roadster, 6-speed manual",
+        "identity_status": "catalog_exact_name",
+        "notes": "GT4 names the 2003 SRT10 and the MC3 source code names Viper 2003. The Redline base Viper lacks a year and trim; it is not merged with this roadster or a later coupe."
+      }
+    },
+    {
+      "id": "ref-e05",
+      "corpus_reference": "e05",
+      "asset_code": "MCLA_VP_LAM_MIURA_71",
+      "parameters": {
+        "mass_kg": 1300,
+        "power_kw": 283.16701875,
+        "torque_nm": 399.130655,
+        "power_rpm": 7850,
+        "torque_rpm": 5750,
+        "redline_rpm": 8200,
+        "gears": [
+          2.42,
+          1.565,
+          1.137,
+          0.846,
+          0.686
+        ],
+        "final_drive": 4.09,
+        "front_weight": 0.44,
+        "front_drive": 0,
+        "cg_height_m": 0.48,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.0,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.72,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.2969825,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.0
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "estimate",
+          "basis": "Provisional 1300kg operating mass assumption; both corpus wet mass and source-game catalog mass are unavailable. Do not treat as a manufacturer figure."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e05-heritage",
+          "source_field": "power",
+          "source_value": 385,
+          "source_unit": "CV",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e05-heritage",
+          "source_field": "torque",
+          "source_value": 40.7,
+          "source_unit": "kgf m",
+          "basis": "Original unit; do not read as Nm"
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e05-heritage",
+          "source_field": "power_rpm",
+          "source_value": 7850,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e05-heritage",
+          "source_field": "torque_rpm",
+          "source_value": 5750,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Lamborghini Miura P400 SV",
+        "year": 1971,
+        "variant": "SV production coupe",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": "SV-specific manufacturer retrospective used. Earlier P400/P400 S brochures are not treated as exact SV dimensional references."
+      }
+    },
+    {
+      "id": "ref-e07",
+      "corpus_reference": "e07",
+      "asset_code": "GT4_BMW_0014",
+      "parameters": {
+        "mass_kg": 1830,
+        "power_kw": 373,
+        "torque_nm": 520,
+        "power_rpm": 7750,
+        "torque_rpm": 6100,
+        "redline_rpm": 8250,
+        "gears": [
+          3.985,
+          2.652,
+          1.806,
+          1.392,
+          1.159,
+          1,
+          0.833
+        ],
+        "final_drive": 3.62,
+        "front_weight": 0.5,
+        "front_drive": 0,
+        "cg_height_m": 0.56,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.701,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.32668075,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.1,
+        "speed_governor_mps": 69.44444444444444
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "mass",
+          "source_value": 1830,
+          "source_unit": "kg",
+          "basis": "EUroadtrim incl 75 kgdriver/luggage"
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "power",
+          "source_value": 373,
+          "source_unit": "kW",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "torque",
+          "source_value": 520,
+          "source_unit": "Nm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "power_rpm",
+          "source_value": 7750,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "torque_rpm",
+          "source_value": 6100,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "reference",
+          "source": "e07-uk",
+          "source_field": "redline",
+          "source_value": 8250,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "gear_ratios_forward",
+          "source_value": [
+            3.985,
+            2.652,
+            1.806,
+            1.392,
+            1.159,
+            1,
+            0.833
+          ],
+          "source_unit": ":1",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "final_drive",
+          "source_value": 3.62,
+          "source_unit": ":1",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "e07-uk",
+          "source_field": "weight_distribution_front",
+          "source_value": 50,
+          "source_unit": "%",
+          "basis": "Manufacturer statedgoal"
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "drag_area",
+          "source_value": 0.701,
+          "source_unit": "m2",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "speed_governor_mps": {
+          "status": "reference",
+          "source": "e07-press",
+          "source_field": "top_speed",
+          "source_value": 250,
+          "source_unit": "km/h",
+          "basis": "Published electronically limited 250km/h; modeled with existing engine-force taper."
+        }
+      },
+      "applicability": {
+        "name": "BMW M5",
+        "year": 2005,
+        "variant": "E 60 saloon SMGIII",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": ""
+      }
+    },
+    {
+      "id": "ref-e14",
+      "corpus_reference": "e14",
+      "asset_code": "GT4_MBNZ0001",
+      "parameters": {
+        "mass_kg": 1959,
+        "power_kw": 367.6300366900592,
+        "torque_nm": 699.6020613390026,
+        "power_rpm": 6100,
+        "torque_rpm": 3375.0,
+        "redline_rpm": 6500,
+        "gears": [
+          3.59,
+          2.19,
+          1.41,
+          1,
+          0.83
+        ],
+        "final_drive": 2.82,
+        "front_weight": 0.52,
+        "front_drive": 0,
+        "cg_height_m": 0.53,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.08,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.68,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.1207411,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.08
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "mass",
+          "source_value": 1959,
+          "source_unit": "kg",
+          "basis": "UScurbweight 4319 lb;sourcefuel/driverdefinitionunstated 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "power",
+          "source_value": 493,
+          "source_unit": "hp",
+          "basis": "Net USbrochure 2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "torque",
+          "source_value": 516,
+          "source_unit": "lb-ft",
+          "basis": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "power_rpm",
+          "source_value": 6100,
+          "source_unit": "rpm",
+          "basis": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "torque_rpm_range",
+          "source_value": [
+            2750,
+            4000
+          ],
+          "source_unit": "rpm",
+          "basis": "Midpoint of published torque plateau; single-point curve convention."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "e14-mb2004",
+          "source_field": "final_drive",
+          "source_value": 2.82,
+          "source_unit": ":1",
+          "basis": "2004 US factory product guide reference; not exact 2002 GT 4 specification."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Mercedes-Benz SL55 AMG",
+        "year": 2002,
+        "variant": "R 230 retractablehardtop;GT 42002 and MC 32004",
+        "identity_status": "cross_game_family_match_market_year_differ",
+        "notes": "SL55 AMG family matches across games, but GT4 2002 European and MC3 2004 US identities are not exact year/market clones."
+      }
+    },
+    {
+      "id": "ref-e15",
+      "corpus_reference": "e15",
+      "asset_code": "GT4_ASMT0005",
+      "parameters": {
+        "mass_kg": 1760,
+        "power_kw": 331,
+        "torque_nm": 570,
+        "power_rpm": 5750,
+        "torque_rpm": 5000,
+        "redline_rpm": 7200,
+        "gears": [
+          3.15,
+          1.97,
+          1.44,
+          1.15,
+          0.94,
+          0.76
+        ],
+        "final_drive": 3.54,
+        "front_weight": 0.5,
+        "front_drive": 0,
+        "cg_height_m": 0.49,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.72,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.32668075,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.1
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_mass_manual",
+          "source_value": 1760,
+          "source_unit": "kg",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "power_kw": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_power",
+          "source_value": 331,
+          "source_unit": "kW",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "torque_nm": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_torque",
+          "source_value": 570,
+          "source_unit": "Nm",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "power_rpm": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_power_rpm",
+          "source_value": 5750,
+          "source_unit": "rpm",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "torque_rpm": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_torque_rpm",
+          "source_value": 5000,
+          "source_unit": "rpm",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "redline_rpm": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_redline",
+          "source_value": 7200,
+          "source_unit": "rpm",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "gears": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_gear_ratios_manual",
+          "source_value": [
+            3.15,
+            1.97,
+            1.44,
+            1.15,
+            0.94,
+            0.76
+          ],
+          "source_unit": ":1",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "final_drive": {
+          "status": "related_reference",
+          "source": "e15-manual2006",
+          "source_field": "reference_2006_final_drive_manual",
+          "source_value": 3.54,
+          "source_unit": ":1",
+          "basis": "Related 2006 manual production specification applied to launch-year asset; not exact 2003 configuration evidence."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Aston Martin DB9 Coupe",
+        "year": 2003,
+        "variant": "launchshowcar/initial 450 bhpmodel;production 2004 on",
+        "identity_status": "launch_year_match_production_reference_2004",
+        "notes": "GT4 labels the 2003 launch car. The 2006 owner manual is a separate adjacent reference and must not overwrite launch specifications."
+      }
+    },
+    {
+      "id": "ref-e16",
+      "corpus_reference": "e16",
+      "asset_code": "GT4_JAGU0004",
+      "parameters": {
+        "mass_kg": 1510,
+        "power_kw": 404.5243125,
+        "torque_nm": 644.0135254574152,
+        "power_rpm": 7200,
+        "torque_rpm": 5000,
+        "redline_rpm": 7500,
+        "gears": [
+          3.0,
+          1.8,
+          1.28,
+          1,
+          0.8
+        ],
+        "final_drive": 3.5,
+        "front_weight": 0.42,
+        "front_drive": 0,
+        "cg_height_m": 0.46,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.72,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.32668075,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.1
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "estimate",
+          "basis": "Operating mass 1510kg is estimated; source 1470kg basis unspecified. Not treated as measured wet curb mass.",
+          "source": "e16-jlr",
+          "source_field": "mass"
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e16-jlr",
+          "source_field": "power",
+          "source_value": 550,
+          "source_unit": "PS",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e16-jlr",
+          "source_field": "torque",
+          "source_value": 475,
+          "source_unit": "lb-ft",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "related_reference",
+          "source": "e16-cd",
+          "source_field": "reference_1993_review_power_rpm",
+          "source_value": 7200,
+          "source_unit": "rpm",
+          "basis": "December 1992 first drive of pre-production cars, labelled 1993; adjacent reference, not exact 1992 production homologation."
+        },
+        "torque_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Jaguar XJ220",
+        "year": 1992,
+        "variant": "production twin-turbo V6 road coupe",
+        "identity_status": "GT4_exact_year_Redline_family_match",
+        "notes": "GT4 identifies the 1992 road XJ220. Redline road XJ220 is separate from XJ220C Le Mans; exact Redline year remains unresolved."
+      }
+    },
+    {
+      "id": "ref-e17",
+      "corpus_reference": "e17",
+      "asset_code": "GT4_PGNI0001",
+      "parameters": {
+        "mass_kg": 1370,
+        "power_kw": 408,
+        "torque_nm": 750,
+        "power_rpm": 5900,
+        "torque_rpm": 4050,
+        "redline_rpm": 7000,
+        "gears": [
+          2.92,
+          1.87,
+          1.36,
+          1.07,
+          0.88,
+          0.73
+        ],
+        "final_drive": 3.5,
+        "front_weight": 0.45,
+        "front_drive": 0,
+        "cg_height_m": 0.44,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.15,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.74,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.841529874999999,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.15
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "estimate",
+          "basis": "Operating mass 1370kg is estimated; source 1280kg basis dry. Not treated as measured wet curb mass.",
+          "source": "e17-tech",
+          "source_field": "mass"
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "e17-tech",
+          "source_field": "power",
+          "source_value": 408,
+          "source_unit": "kW",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "e17-tech",
+          "source_field": "torque",
+          "source_value": 750,
+          "source_unit": "Nm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "e17-tech",
+          "source_field": "power_rpm",
+          "source_value": 5900,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "e17-tech",
+          "source_field": "torque_rpm",
+          "source_value": 4050,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Pagani Zonda C12S 7.3",
+        "year": 2002,
+        "variant": "7.3 LM 120 AMGcoupe",
+        "identity_status": "catalog_exact_model_variant",
+        "notes": "MC3 Zonda 2004 might be a 7.3, but is not merged without native trim proof. Redline Zonda F is separate."
+      }
+    },
+    {
+      "id": "ref-j03",
+      "corpus_reference": "j03",
+      "asset_code": "GT4_TOYT0006",
+      "parameters": {
+        "mass_kg": 1510,
+        "power_kw": 206,
+        "torque_nm": 451.1,
+        "power_rpm": 5600,
+        "torque_rpm": 3600,
+        "redline_rpm": 6800,
+        "gears": [
+          3.827,
+          2.36,
+          1.685,
+          1.312,
+          1,
+          0.793
+        ],
+        "final_drive": 3.266,
+        "front_weight": 0.53,
+        "front_drive": 0,
+        "cg_height_m": 0.52,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.66,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.91480145,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "vehicle_mass",
+          "source_value": 1510,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "power_kw",
+          "source_value": 206,
+          "source_unit": "kW net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "torque_nm",
+          "source_value": 451.1,
+          "source_unit": "N m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "power_rpm",
+          "source_value": 5600,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "torque_rpm",
+          "source_value": 3600,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j03-toyota-catalog",
+          "source_field": "final_drive",
+          "source_value": 3.266,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Toyota Supra RZ",
+        "year": 1997,
+        "variant": "E-JZA80 RZ, August1997 VVT-i revision",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": "Selected real reference is August1997 Japanese RZ. The game year alone does not resolve pre/post-August revision; verify native engine/torque before enforcing451.1Nm. GT1 unnamed-year RZ and MC3Supra98 are related mappings."
+      }
+    },
+    {
+      "id": "ref-j05",
+      "corpus_reference": "j05",
+      "asset_code": "GT4_MAZD0008",
+      "parameters": {
+        "mass_kg": 1310,
+        "power_kw": 184,
+        "torque_nm": 216,
+        "power_rpm": 8500,
+        "torque_rpm": 5500,
+        "redline_rpm": 9000,
+        "gears": [
+          3.76,
+          2.269,
+          1.539,
+          1.187,
+          1,
+          0.894
+        ],
+        "final_drive": 4.444,
+        "front_weight": 0.5,
+        "front_drive": 0,
+        "cg_height_m": 0.49,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.08,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.65,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.1207411,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.08
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "game_proxy",
+          "source": "docs/vehicle-reference/game-profiles.json",
+          "asset_code": "GT4_MAZD0008",
+          "source_field": "catalog.kg",
+          "basis": "Source-game catalog mass; exact operating mass not verified in real reference corpus."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j05-mazda-launch",
+          "source_field": "power_kw",
+          "source_value": 184,
+          "source_unit": "kW net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j05-mazda-launch",
+          "source_field": "torque_nm",
+          "source_value": 216,
+          "source_unit": "N m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j05-mazda-launch",
+          "source_field": "power_rpm",
+          "source_value": 8500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j05-mazda-launch",
+          "source_field": "torque_rpm",
+          "source_value": 5500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "reference",
+          "source": "j05-mazda-technical-review",
+          "source_field": "redline",
+          "source_value": 9000,
+          "source_unit": "rpm",
+          "basis": "High-power unit revlimit,PDF45Table1"
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j05-mazda-technical-review",
+          "source_field": "gear_ratios",
+          "source_value": [
+            3.76,
+            2.269,
+            1.539,
+            1.187,
+            1,
+            0.894
+          ],
+          "source_unit": "ratio",
+          "basis": "Japan 6MT column PDF88Table1"
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j05-mazda-technical-review",
+          "source_field": "final_drive",
+          "source_value": 4.444,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "reference",
+          "source": "j05-mazda-technical-review",
+          "source_field": "front_weight_fraction",
+          "source_value": 50,
+          "source_unit": "%",
+          "basis": "Manufacturer nominal claim,occupancy unspecified"
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Mazda RX-8 Type S",
+        "year": 2003,
+        "variant": "Japan Type S6MT",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": ""
+      }
+    },
+    {
+      "id": "ref-j06",
+      "corpus_reference": "j06",
+      "asset_code": "GT4_HOND0031",
+      "parameters": {
+        "mass_kg": 1270,
+        "power_kw": 206,
+        "torque_nm": 304,
+        "power_rpm": 7300,
+        "torque_rpm": 5300,
+        "redline_rpm": 8000,
+        "gears": [
+          3.066,
+          1.956,
+          1.428,
+          1.125,
+          0.914,
+          0.717
+        ],
+        "final_drive": 4.235,
+        "front_weight": 0.42,
+        "front_drive": 0,
+        "cg_height_m": 0.44,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.15,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.62,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.841529874999999,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.15
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "vehicle_mass",
+          "source_value": 1270,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "power_kw",
+          "source_value": 206,
+          "source_unit": "kW net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "torque_nm",
+          "source_value": 304,
+          "source_unit": "N m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "power_rpm",
+          "source_value": 7300,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "torque_rpm",
+          "source_value": 5300,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "gear_ratios",
+          "source_value": [
+            3.066,
+            1.956,
+            1.428,
+            1.125,
+            0.914,
+            0.717
+          ],
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j06-honda-spec",
+          "source_field": "final_drive",
+          "source_value": 4.235,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Honda NSX Type R",
+        "year": 2002,
+        "variant": "LA-NA2 NSX-R3.2L6MT",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": ""
+      }
+    },
+    {
+      "id": "ref-j08",
+      "corpus_reference": "j08",
+      "asset_code": "GT4_MAZD0046",
+      "parameters": {
+        "mass_kg": 1010,
+        "power_kw": 95.6148375,
+        "torque_nm": 156.9064,
+        "power_rpm": 6500,
+        "torque_rpm": 4500,
+        "redline_rpm": 7200,
+        "gears": [
+          3.136,
+          1.888,
+          1.33,
+          1,
+          0.814
+        ],
+        "final_drive": 4.1,
+        "front_weight": 0.51,
+        "front_drive": 0,
+        "cg_height_m": 0.47,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.0,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.58,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.2969825,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.0
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "mass_typeII_abs_manual",
+          "source_value": 1010,
+          "source_unit": "kg",
+          "basis": "Type II ABS manual selection; base 990kg is not mixed into the selected Type II equipment profile."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "power_ps",
+          "source_value": 130,
+          "source_unit": "PS net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "torque_kgfm",
+          "source_value": 16,
+          "source_unit": "kgf m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "power_rpm",
+          "source_value": 6500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "torque_rpm",
+          "source_value": 4500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "gear_ratios",
+          "source_value": [
+            3.136,
+            1.888,
+            1.33,
+            1,
+            0.814
+          ],
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j08-mazda-brochure",
+          "source_field": "final_drive",
+          "source_value": 4.1,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Mazda MX-5 V-Special Type II",
+        "year": 1993,
+        "variant": "Japan EunosRoadster E-NA8C1.85MT",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": "GT4 uses export familynameMX5 for Japan V-SpecialType II. August1993 Mazda brochure is1.8BP;not previous1.6Vspecial."
+      }
+    },
+    {
+      "id": "ref-j10",
+      "corpus_reference": "j10",
+      "asset_code": "MCLA_VP_MIT_3000GT_99",
+      "parameters": {
+        "mass_kg": 1720,
+        "power_kw": 238.6239589063265,
+        "torque_nm": 427.0826537243911,
+        "power_rpm": 6000,
+        "torque_rpm": 2500,
+        "redline_rpm": 7000,
+        "gears": [
+          3.27,
+          1.904,
+          1.241,
+          0.918,
+          0.739,
+          0.589
+        ],
+        "final_drive": 3.87,
+        "front_weight": 0.56,
+        "front_drive": 0.45,
+        "cg_height_m": 0.54,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.08,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.72,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.1207411,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.08
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "estimate",
+          "basis": "Provisional 1720kg operating mass assumption; both corpus wet mass and source-game catalog mass are unavailable. Not a manufacturer measurement."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j10-mitsubishi-brochure",
+          "source_field": "power_hp",
+          "source_value": 320,
+          "source_unit": "hp",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j10-mitsubishi-brochure",
+          "source_field": "torque_lbft",
+          "source_value": 315,
+          "source_unit": "lb ft",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j10-mitsubishi-brochure",
+          "source_field": "power_rpm",
+          "source_value": 6000,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j10-mitsubishi-brochure",
+          "source_field": "torque_rpm",
+          "source_value": 2500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Mitsubishi 3000GT VR-4",
+        "year": 1999,
+        "variant": "US3000GTVR4 sixspeed",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": "US1999VR4;GT4 Japanese VR4Turbo(J)1998 is a related differentmarket/year configuration, not the same powergrade."
+      }
+    },
+    {
+      "id": "ref-j13",
+      "corpus_reference": "j13",
+      "asset_code": "GT4_SUBR0019",
+      "parameters": {
+        "mass_kg": 1270,
+        "power_kw": 205.93965,
+        "torque_nm": 362.84605,
+        "power_rpm": 6000,
+        "torque_rpm": 3200,
+        "redline_rpm": 8000,
+        "gears": [
+          3.083,
+          2.062,
+          1.545,
+          1.151,
+          0.825
+        ],
+        "final_drive": 4.444,
+        "front_weight": 0.58,
+        "front_drive": 0.35,
+        "cg_height_m": 0.54,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.1,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.76,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 11.32668075,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.1
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "vehicle_mass",
+          "source_value": 1270,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "power_ps",
+          "source_value": 280,
+          "source_unit": "PS net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "torque_kgfm",
+          "source_value": 37,
+          "source_unit": "kgf m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "power_rpm",
+          "source_value": 6000,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "torque_rpm",
+          "source_value": 3200,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "gear_ratios",
+          "source_value": [
+            3.083,
+            2.062,
+            1.545,
+            1.151,
+            0.825
+          ],
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "final_drive",
+          "source_value": 4.444,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "reference",
+          "source": "j13-subaru-launch",
+          "source_field": "free_center_front_torque_percent",
+          "source_value": 35,
+          "source_unit": "%",
+          "basis": "Published unlocked-center 35% nominal front. Runtime load-demand transfer remains approximate, not DCCD emulation."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Subaru Impreza 22B-STi Version",
+        "year": 1998,
+        "variant": "E-GC8modified22B5MT",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": ""
+      }
+    },
+    {
+      "id": "ref-j14",
+      "corpus_reference": "j14",
+      "asset_code": "GT4_TOYT0026",
+      "parameters": {
+        "mass_kg": 1270,
+        "power_kw": 180,
+        "torque_nm": 304,
+        "power_rpm": 6000,
+        "torque_rpm": 4000,
+        "redline_rpm": 7200,
+        "gears": [
+          3.23,
+          1.913,
+          1.258,
+          0.918,
+          0.731
+        ],
+        "final_drive": 4.285,
+        "front_weight": 0.43,
+        "front_drive": 0,
+        "cg_height_m": 0.47,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.62,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.91480145,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "vehicle_mass",
+          "source_value": 1270,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "power_kw",
+          "source_value": 180,
+          "source_unit": "kW net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "torque_nm",
+          "source_value": 304,
+          "source_unit": "N m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "power_rpm",
+          "source_value": 6000,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "torque_rpm",
+          "source_value": 4000,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j14-toyota-catalog",
+          "source_field": "final_drive",
+          "source_value": 4.285,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Toyota MR2 GT-S",
+        "year": 1997,
+        "variant": "E-SW20 GT-S December1997 hardtop",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": "ReferenceDecember1997facelift;GT1GT-S has noyearlabel andmust be related/unresolved ratherthan exactyear."
+      }
+    },
+    {
+      "id": "ref-j15",
+      "corpus_reference": "j15",
+      "asset_code": "GT4_TOYT0071",
+      "parameters": {
+        "mass_kg": 980,
+        "power_kw": 103,
+        "torque_nm": 171,
+        "power_rpm": 6400,
+        "torque_rpm": 4400,
+        "redline_rpm": 7000,
+        "gears": [
+          3.166,
+          1.904,
+          1.392,
+          1.031,
+          0.815,
+          0.725
+        ],
+        "final_drive": 4.312,
+        "front_weight": 0.43,
+        "front_drive": 0,
+        "cg_height_m": 0.46,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.04,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.6,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.708861800000001,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.04
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "vehicle_mass",
+          "source_value": 980,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "power_kw",
+          "source_value": 103,
+          "source_unit": "kW net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "torque_nm",
+          "source_value": 171,
+          "source_unit": "N m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "power_rpm",
+          "source_value": 6400,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "torque_rpm",
+          "source_value": 4400,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "estimate",
+          "basis": "Provisional complete gearbox ratio set; not verified model-specific internals. It must not be used as sourced transmission evidence."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j15-toyota-catalog",
+          "source_field": "final_drive",
+          "source_value": 4.312,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Toyota MR2 V Edition",
+        "year": 2002,
+        "variant": "Japan MR-S TA-ZZW30 VEdition6MT August2002",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": "GT4localized MR2VEdition refers toJapan MR-S. Redline2005MR2Spyder isdifferentyearandUSmarket;2ZZaddon ismodifiedandmustnotusethe1ZZprofile."
+      }
+    },
+    {
+      "id": "ref-j17",
+      "corpus_reference": "j17",
+      "asset_code": "GT4_HOND0082",
+      "parameters": {
+        "mass_kg": 1050,
+        "power_kw": 136.06726874999998,
+        "torque_nm": 159.848395,
+        "power_rpm": 8200,
+        "torque_rpm": 7500,
+        "redline_rpm": 8600,
+        "gears": [
+          3.23,
+          2.105,
+          1.458,
+          1.107,
+          0.848
+        ],
+        "final_drive": 4.4,
+        "front_weight": 0.62,
+        "front_drive": 1,
+        "cg_height_m": 0.51,
+        "ride_frequency_hz": [
+          1.9,
+          2.0
+        ],
+        "damping_ratio": 0.68,
+        "anti_roll_fraction": [
+          0.24,
+          0.2
+        ],
+        "tire_mu": 1.06,
+        "cornering_per_load": [
+          14.5,
+          15.0
+        ],
+        "drag_area_m2": 0.62,
+        "rolling_coefficient": 0.015,
+        "driveline_efficiency": 0.88,
+        "shift_seconds": 0.28,
+        "brake_decel_mps2": 10.91480145,
+        "max_steer_rad": 0.56,
+        "steer_speed_falloff": 0.06,
+        "lateral_mu": 1.06
+      },
+      "evidence": {
+        "mass_kg": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "vehicle_mass",
+          "source_value": 1050,
+          "source_unit": "kg",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_kw": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "power_ps",
+          "source_value": 185,
+          "source_unit": "PS net",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_nm": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "torque_kgfm",
+          "source_value": 16.3,
+          "source_unit": "kgf m",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "power_rpm": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "power_rpm",
+          "source_value": 8200,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "torque_rpm": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "torque_rpm",
+          "source_value": 7500,
+          "source_unit": "rpm",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "redline_rpm": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "gears": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "gear_ratios",
+          "source_value": [
+            3.23,
+            2.105,
+            1.458,
+            1.107,
+            0.848
+          ],
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "final_drive": {
+          "status": "reference",
+          "source": "j17-honda-spec",
+          "source_field": "final_drive",
+          "source_value": 4.4,
+          "source_unit": "ratio",
+          "basis": "Selected corpus fact; explicit unit conversion only."
+        },
+        "front_weight": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "front_drive": {
+          "status": "estimate",
+          "basis": "Selected RWD or FWD axle layout; simplified open axle distribution. No differential or traction-control map recovered."
+        },
+        "cg_height_m": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "ride_frequency_hz": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "damping_ratio": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "anti_roll_fraction": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "tire_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "cornering_per_load": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "drag_area_m2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "rolling_coefficient": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "driveline_efficiency": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "shift_seconds": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "brake_decel_mps2": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "max_steer_rad": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "steer_speed_falloff": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        },
+        "lateral_mu": {
+          "status": "estimate",
+          "basis": "Provisional reduced-order assumption for fleet coverage; not a measured parameter or a recovered game setting."
+        }
+      },
+      "applicability": {
+        "name": "Honda Civic Type R",
+        "year": 1997,
+        "variant": "E-EK9 B16B5MT",
+        "identity_status": "catalog_name_verified_real_configuration_documented",
+        "notes": ""
+      }
+    }
+  ]
+}

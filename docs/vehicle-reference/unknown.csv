@@ -1,0 +1,255 @@
+car_id,description
+a01,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a02,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a03,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a04,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a05,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a05,"Cab/bed, curb mass, axle option, tires and engine configuration must be reconciled against the FR2 mesh and native vehicle definition."
+a06,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a06,Resolve minor spring-rate differences between2004press kit and Owner Supplement; exact3-door/5-door/EAPmesh configuration remains unverified.
+a07,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a08,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a09,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a10,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a11,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a11,"Curb mass, exact bed/drivetrain, torque and RPM, tires, ratios, track, length and height still require exact2004 manufacturer specification table. No2005values silently backfilled."
+a12,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a12,"SS-specific curb mass, geometry, tire sizes and individual gear ratios not recovered from original specification source yet; do not use generic1500payload/GVWR figures."
+a12,GM2004restorationkit has a suspect4L85Etransmissionlabel. Generic1500dimensions/masses inthiskitare notSS-specific; do notinherit them.
+a13,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a14,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a15,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a16,"Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+a16,"Factory production rating, final curb mass, tire specifications, gear ratios and exact production dimensions need original GNX-specific manufacturer documents; prototype table is clearly segregated."
+e01,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e01,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e01,Asset market remains inferred; European handbook chosen because 1982/204 CV/267 Nm aligns native author identity.
+e01,"Exact spring rates, brake disc dimensions, CG and inertia not retrieved."
+e01,0–100 km/h number illegible in OCR; not guessed.
+e02,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e02,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e02,"1991 asset year is explicit;1988 European handbook is adjacent-year reference, with 1 cc displacement difference. Matching 1990/1991 market handbook not retrieved."
+e02,Ferrari official historic webpage inaccessible to web retrieval in en-EN/en-US/it-IT because robot challenge.
+e03,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e03,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e04,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e04,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e04,Final-drive ratio and exact 2004 kerb mass were not established. Launch dossier gives 1650 kg without a mass definition.
+e04,Launch press dossier gives 7500 rpm power peak; 2022 retrospective gives 7200 rpm. Retain disagreement.
+e05,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e05,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e05,"Exact 1971 SV dimensional drawing, defined-basis mass, gear ratios and tire sidewall specifications were not verified in retrieved primary sources. Earlier P400 S dimensions and conflicting secondary tables were excluded."
+e06,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e06,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e07,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e07,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e08,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e08,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e08,Matching 2002 marketmass anddimensionaltable notyetconfirmed; adjacent 2003 USreferencefields areexplicitlyprefixed.
+e09,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e09,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e09,Exact year/Mk anddry rubber versus  Hydrolasticsuspension;do not set one globally.
+e09,Gear ratios/finaldrive varied and affect top speed;retrieved archive explicitly warns of this.
+e10,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e10,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e10,"US 2004 manufacturer gives 240 SAEhp alongside 177 k W; European 2003 gives 241 PS/177 k W. Retain source units and market, do not numerically equate hp/PS."
+e11,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e11,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e11,Exact USgear/finaldriveratiosanddimensionaldrawingmustbeextracted;UKbrochuredimensionsareavailableasanadjacentreference.
+e12,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e12,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e12,Matching 2008 USmass/gearratios not retrieved; Euro 2006 mass/dimensions preserved as explicit separate reference.
+e13,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e13,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e13,MC 3 Elise 04 trim remains provisional; do not assume 111 R solelyfromfilename.
+e13,Retrieved 2004 brochure omitted overall dimensions.
+e14,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e14,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e14,Separate 2002 Europeanhomologationspecificationneeded;allnumericfactsaboveexplicitly 2004 USreference.
+e15,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e15,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e15,Original 2003 launchcarcompleteengineeringtable not verified;2006 factorymanualdata deliberatelyprefixed.
+e15,"Original 3 Sept 2003 presssheetreported 4697 x 1875 x 1318,1710 manual/1760 auto; secondaryreprintsconflictwithlatermanual 4710 x 1875 x 1271,1760/1800. Notquietlyreconciled."
+e16,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e16,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+e16,"Exact production width, height, tracks, gear ratios and defined-basis mass were not retrieved from factory sources."
+e16,1992 factory press pack was inspected but contains no complete technical table; review dimensions remain separate adjacent reference.
+e16,213 mph is the manufacturer-reported Fort Stockton pre-production test. Modified Nardo runs are not stock production validation.
+e17,Measured centre-of-gravity height and full inertia tensor were not published in retrieved sources.
+e17,"Tire friction curves, spring rates and damper force/velocity curves require manufacturer engineering data or measurement."
+j01,center_of_gravity_height
+j01,inertia_tensor
+j01,tire_force_curves
+j01,spring_rates
+j01,damper_force_velocity_curves
+j01,brake_bias
+j01,drag_area
+j01,grade-specific curb mass
+j01,final_drive_ratio
+j01,performance test exactly matching unspecifiedGT4equipmentgrade
+j02,center_of_gravity_height
+j02,inertia_tensor
+j02,tire_force_curves
+j02,spring_rates
+j02,damper_force_velocity_curves
+j02,brake_bias
+j02,drag_area
+j02,acceleration_test
+j02,top_speed_test
+j03,center_of_gravity_height
+j03,inertia_tensor
+j03,tire_force_curves
+j03,spring_rates
+j03,damper_force_velocity_curves
+j03,brake_bias
+j03,drag_area
+j03,acceleration_test
+j03,top_speed_test
+j03,gear_ratios
+j03,exact GT4 pre/post August1997 revision
+j04,center_of_gravity_height
+j04,inertia_tensor
+j04,tire_force_curves
+j04,spring_rates
+j04,damper_force_velocity_curves
+j04,brake_bias
+j04,drag_area
+j04,acceleration_test
+j04,top_speed_test
+j05,center_of_gravity_height
+j05,inertia_tensor
+j05,tire_force_curves
+j05,spring_rates
+j05,damper_force_velocity_curves
+j05,brake_bias
+j05,drag_area
+j05,acceleration_test
+j05,top_speed_test
+j05,vehicle_mass
+j06,center_of_gravity_height
+j06,inertia_tensor
+j06,tire_force_curves
+j06,spring_rates
+j06,damper_force_velocity_curves
+j06,brake_bias
+j06,drag_area
+j06,acceleration_test
+j06,top_speed_test
+j07,center_of_gravity_height
+j07,inertia_tensor
+j07,tire_force_curves
+j07,spring_rates
+j07,damper_force_velocity_curves
+j07,brake_bias
+j07,drag_area
+j07,acceleration_test
+j07,top_speed_test
+j08,center_of_gravity_height
+j08,inertia_tensor
+j08,tire_force_curves
+j08,spring_rates
+j08,damper_force_velocity_curves
+j08,brake_bias
+j08,drag_area
+j08,acceleration_test
+j08,top_speed_test
+j09,center_of_gravity_height
+j09,inertia_tensor
+j09,tire_force_curves
+j09,spring_rates
+j09,damper_force_velocity_curves
+j09,brake_bias
+j09,drag_area
+j09,acceleration_test
+j09,top_speed_test
+j10,center_of_gravity_height
+j10,inertia_tensor
+j10,tire_force_curves
+j10,spring_rates
+j10,damper_force_velocity_curves
+j10,brake_bias
+j10,drag_area
+j10,acceleration_test
+j10,top_speed_test
+j10,vehicle_mass;brochure row too small for trustworthy transcription
+j10,length_width_height_wheelbase_tracks;need higherresolution original
+j10,gear_ratios
+j10,final_drive_ratio
+j11,center_of_gravity_height
+j11,inertia_tensor
+j11,tire_force_curves
+j11,spring_rates
+j11,damper_force_velocity_curves
+j11,brake_bias
+j11,drag_area
+j11,acceleration_test
+j11,top_speed_test
+j12,center_of_gravity_height
+j12,inertia_tensor
+j12,tire_force_curves
+j12,spring_rates
+j12,damper_force_velocity_curves
+j12,brake_bias
+j12,drag_area
+j12,acceleration_test
+j12,top_speed_test
+j12,vehicle_mass
+j12,length
+j12,height
+j12,wheelbase
+j12,tracks
+j12,power
+j12,torque
+j12,event-specifictires
+j12,gear_ratios
+j12,final_drive_ratio
+j12,differentialsettings
+j12,brakepackage
+j12,suspensionrates
+j13,center_of_gravity_height
+j13,inertia_tensor
+j13,tire_force_curves
+j13,spring_rates
+j13,damper_force_velocity_curves
+j13,brake_bias
+j13,drag_area
+j13,acceleration_test
+j13,top_speed_test
+j14,center_of_gravity_height
+j14,inertia_tensor
+j14,tire_force_curves
+j14,spring_rates
+j14,damper_force_velocity_curves
+j14,brake_bias
+j14,drag_area
+j14,acceleration_test
+j14,top_speed_test
+j14,gear_ratios
+j15,center_of_gravity_height
+j15,inertia_tensor
+j15,tire_force_curves
+j15,spring_rates
+j15,damper_force_velocity_curves
+j15,brake_bias
+j15,drag_area
+j15,acceleration_test
+j15,top_speed_test
+j15,gear_ratios
+j16,center_of_gravity_height
+j16,inertia_tensor
+j16,tire_force_curves
+j16,spring_rates
+j16,damper_force_velocity_curves
+j16,brake_bias
+j16,drag_area
+j16,acceleration_test
+j16,top_speed_test
+j17,center_of_gravity_height
+j17,inertia_tensor
+j17,tire_force_curves
+j17,spring_rates
+j17,damper_force_velocity_curves
+j17,brake_bias
+j17,drag_area
+j17,acceleration_test
+j17,top_speed_test

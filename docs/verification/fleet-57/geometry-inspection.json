@@ -1,0 +1,392 @@
+{
+  "method": "Prepared wheel-group bounds compared with physical pivots. Bbox center is an inspection proxy, not a measured contact patch or hub dynamometer result.",
+  "selected_cars": 5,
+  "rows": [
+    {
+      "car": "ref-a08",
+      "slot": "wheel_front_left",
+      "physical_pivot_m": [
+        -0.7335000038146973,
+        -0.20869999825954433,
+        -1.4021999835968018
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7352875709921136,
+        -0.20869999825954433,
+        -1.4022748253262551
+      ],
+      "center_minus_pivot_m": [
+        -0.0017875671774163493,
+        0.0,
+        -7.484172945337875e-05
+      ]
+    },
+    {
+      "car": "ref-a08",
+      "slot": "wheel_front_right",
+      "physical_pivot_m": [
+        0.7335000038146973,
+        -0.20869999825954433,
+        -1.4021999835968018
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7352875709921136,
+        -0.20869999825954433,
+        -1.4021251418673484
+      ],
+      "center_minus_pivot_m": [
+        0.0017875671774163493,
+        0.0,
+        7.484172945337875e-05
+      ]
+    },
+    {
+      "car": "ref-a08",
+      "slot": "wheel_rear_left",
+      "physical_pivot_m": [
+        -0.7335000038146973,
+        -0.19130000174045558,
+        1.4021999835968018
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7354175757509438,
+        -0.1913000017404556,
+        1.4021213997835102
+      ],
+      "center_minus_pivot_m": [
+        -0.0019175719362465315,
+        -2.7755575615628914e-17,
+        -7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a08",
+      "slot": "wheel_rear_right",
+      "physical_pivot_m": [
+        0.7335000038146973,
+        -0.19130000174045558,
+        1.4021999835968018
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7354175757509438,
+        -0.1913000017404556,
+        1.4022785674100933
+      ],
+      "center_minus_pivot_m": [
+        0.0019175719362465315,
+        -2.7755575615628914e-17,
+        7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a14",
+      "slot": "wheel_front_left",
+      "physical_pivot_m": [
+        -0.6962999701499939,
+        -0.19999999999999996,
+        -1.5048999786376953
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.6992853522797304,
+        -0.19999999999999998,
+        -1.5049785624509868
+      ],
+      "center_minus_pivot_m": [
+        -0.0029853821297365357,
+        -2.7755575615628914e-17,
+        -7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a14",
+      "slot": "wheel_front_right",
+      "physical_pivot_m": [
+        0.6962999701499939,
+        -0.19999999999999996,
+        -1.5048999786376953
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.6992853522797304,
+        -0.19999999999999998,
+        -1.5048213948244038
+      ],
+      "center_minus_pivot_m": [
+        0.0029853821297365357,
+        -2.7755575615628914e-17,
+        7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a14",
+      "slot": "wheel_rear_left",
+      "physical_pivot_m": [
+        -0.7609999775886536,
+        -0.19999999999999996,
+        1.5048999786376953
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7639853597183901,
+        -0.19999999999999998,
+        1.5048213948244038
+      ],
+      "center_minus_pivot_m": [
+        -0.0029853821297365357,
+        -2.7755575615628914e-17,
+        -7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a14",
+      "slot": "wheel_rear_right",
+      "physical_pivot_m": [
+        0.7609999775886536,
+        -0.19999999999999996,
+        1.5048999786376953
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7639853597183901,
+        -0.19999999999999998,
+        1.5049785624509868
+      ],
+      "center_minus_pivot_m": [
+        0.0029853821297365357,
+        -2.7755575615628914e-17,
+        7.858381329151065e-05
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "slot": "wheel_front_left",
+      "physical_pivot_m": [
+        -0.8526075035333633,
+        -0.19999999999999996,
+        -1.6062299311161041
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.8528766685703886,
+        -0.19999999999999996,
+        -1.6063306271476951
+      ],
+      "center_minus_pivot_m": [
+        -0.00026916503702523187,
+        0.0,
+        -0.00010069603159101881
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "slot": "wheel_front_right",
+      "physical_pivot_m": [
+        0.8459424823522568,
+        -0.19999999999999996,
+        -1.6063169538974762
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.846211647389282,
+        -0.19999999999999996,
+        -1.6062162578658852
+      ],
+      "center_minus_pivot_m": [
+        0.00026916503702523187,
+        0.0,
+        0.00010069603159101881
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "slot": "wheel_rear_left",
+      "physical_pivot_m": [
+        -0.8554244786500931,
+        -0.19999999999999996,
+        1.6063168942928314
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.8556936436871183,
+        -0.19999999999999996,
+        1.6062161982612404
+      ],
+      "center_minus_pivot_m": [
+        -0.00026916503702523187,
+        0.0,
+        -0.00010069603159101881
+      ]
+    },
+    {
+      "car": "ref-a13",
+      "slot": "wheel_rear_right",
+      "physical_pivot_m": [
+        0.8620894998311996,
+        -0.19999999999999996,
+        1.606229990720749
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.8623586648682249,
+        -0.19999999999999996,
+        1.60633068675234
+      ],
+      "center_minus_pivot_m": [
+        0.00026916503702523187,
+        0.0,
+        0.00010069603159101881
+      ]
+    },
+    {
+      "car": "ref-e02",
+      "slot": "wheel_front_left",
+      "physical_pivot_m": [
+        -0.74,
+        -0.21000000000000002,
+        -1.225
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7378119087219238,
+        -0.2099997675418854,
+        -1.225000286102295
+      ],
+      "center_minus_pivot_m": [
+        0.0021880912780761763,
+        2.3245811461847232e-07,
+        -2.861022949662839e-07
+      ]
+    },
+    {
+      "car": "ref-e02",
+      "slot": "wheel_front_right",
+      "physical_pivot_m": [
+        0.74,
+        -0.21000000000000002,
+        -1.225
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7378119087219238,
+        -0.2099997675418854,
+        -1.2249997138977053
+      ],
+      "center_minus_pivot_m": [
+        -0.0021880912780761763,
+        2.3245811461847232e-07,
+        2.861022947442393e-07
+      ]
+    },
+    {
+      "car": "ref-e02",
+      "slot": "wheel_rear_left",
+      "physical_pivot_m": [
+        -0.74,
+        -0.19000000000000006,
+        1.225
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7378119087219238,
+        -0.18999976754188547,
+        1.2249997138977053
+      ],
+      "center_minus_pivot_m": [
+        0.0021880912780761763,
+        2.3245811459071675e-07,
+        -2.861022947442393e-07
+      ]
+    },
+    {
+      "car": "ref-e02",
+      "slot": "wheel_rear_right",
+      "physical_pivot_m": [
+        0.74,
+        -0.19000000000000006,
+        1.225
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7378119087219238,
+        -0.18999976754188547,
+        1.225000286102295
+      ],
+      "center_minus_pivot_m": [
+        -0.0021880912780761763,
+        2.3245811459071675e-07,
+        2.861022949662839e-07
+      ]
+    },
+    {
+      "car": "ref-j13",
+      "slot": "wheel_front_left",
+      "physical_pivot_m": [
+        -0.7665,
+        -0.2,
+        -1.26
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7710652901940047,
+        -0.20000000000000004,
+        -1.26
+      ],
+      "center_minus_pivot_m": [
+        -0.004565290194004756,
+        -2.7755575615628914e-17,
+        0.0
+      ]
+    },
+    {
+      "car": "ref-j13",
+      "slot": "wheel_front_right",
+      "physical_pivot_m": [
+        0.7665,
+        -0.2,
+        -1.26
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7710652901940047,
+        -0.20000000000000004,
+        -1.26
+      ],
+      "center_minus_pivot_m": [
+        0.004565290194004756,
+        -2.7755575615628914e-17,
+        0.0
+      ]
+    },
+    {
+      "car": "ref-j13",
+      "slot": "wheel_rear_left",
+      "physical_pivot_m": [
+        -0.7675000000000001,
+        -0.2,
+        1.26
+      ],
+      "prepared_wheel_bounds_center_m": [
+        -0.7720652901940048,
+        -0.20000000000000004,
+        1.26
+      ],
+      "center_minus_pivot_m": [
+        -0.004565290194004756,
+        -2.7755575615628914e-17,
+        0.0
+      ]
+    },
+    {
+      "car": "ref-j13",
+      "slot": "wheel_rear_right",
+      "physical_pivot_m": [
+        0.7675000000000001,
+        -0.2,
+        1.26
+      ],
+      "prepared_wheel_bounds_center_m": [
+        0.7720652901940048,
+        -0.20000000000000004,
+        1.26
+      ],
+      "center_minus_pivot_m": [
+        0.004565290194004756,
+        -2.7755575615628914e-17,
+        0.0
+      ]
+    }
+  ],
+  "c5_mean_mesh_radius_m": 0.35925686730391143,
+  "c5_mean_nominal_unloaded_radius_m": 0.32687499999999997,
+  "c5_mean_radius_ratio": 1.0990649860157904,
+  "c5_wheel_force_delta_at_equal_engine_torque_and_ratio_pct": -9.01356946825409,
+  "c5_model_equation": "wheel_force = throttle * engine_torque * gear_ratio * final_drive * driveline_efficiency / mean(four mesh radii)",
+  "interpretation": "Selected pivots agree with their wheel mesh centers within millimetres. The larger real-reference deviations are present in the authored geometry, rather than explained by a many-centimetre pivot-reparenting offset. Stock-vs-modified source identity remains to be verified. Radius sensitivity is an analytical model effect, not a measured contribution to 0\u201360 time."
+}

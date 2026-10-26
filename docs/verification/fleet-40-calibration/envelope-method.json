@@ -1,0 +1,12 @@
+{
+  "before_source": "Captured build/runtime inputs from the original accepted native40-car run; Rust sources hash-matched",
+  "after_source": "Frozen copy of current production Rust sources and physics profiles",
+  "separate_package_identities": true,
+  "embedded_profile_equality_guard": true,
+  "same_original_metrics_before_and_after": true,
+  "helper_sha256": "49d5dd4bdeecc5da812fb1682b0a37da356699c1edf11db9246191b02a277336",
+  "after_profile_sha256": "568556980bef9f68acd11683b220303acd5aac26e7eeafc88e073f4a91ca4dc2",
+  "all_40_full_throttle_seconds": 140,
+  "top_speed_plateau": "Last10-second speed gain retained per car; four-contact fraction100% for all cars in both cohorts",
+  "invalid_shared_target_probe": "invalid-envelope-shared-target.json excluded; distinct package identities and embedded metadata guard prevent source/library substitution"
+}

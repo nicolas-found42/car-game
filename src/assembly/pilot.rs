@@ -29,39 +29,43 @@ fn residual(spec: &crate::roster::CarSpec) -> Definition {
             )
         })
         .collect();
-    let baseline = crate::vehicle::BASELINE_INERTIA;
-    let mut inertia = std::array::from_fn(|r| {
-        std::array::from_fn(|c| if r == c { baseline[r] as f64 } else { 0. })
-    });
-    let mut center = DVec3::ZERO;
+    let target = crate::vehicle::profile::for_car(&spec.id).properties(spec);
+    let mass = target.mass as f64 - 100.;
+    let target_center = target.local_center_of_mass.as_dvec3();
+    let baseline = target.principal_inertia.as_dvec3().to_array();
+    let mut center = target_center * target.mass as f64;
     for m in mounts.values() {
-        center -= DVec3::from_array(m.frame.position) * 25. / 1220.;
+        center -= DVec3::from_array(m.frame.position) * 25.;
     }
-    for r in 0..3 {
-        for c in 0..3 {
-            for mount in mounts.values() {
-                let p = DVec3::from_array(mount.frame.position);
-                inertia[r][c] -= if r == c {
-                    2. + 25. * p.length_squared()
+    center /= mass;
+    let inertia = std::array::from_fn(|r| {
+        std::array::from_fn(|c| {
+            let parallel = |p: DVec3| {
+                if r == c {
+                    p.length_squared() - p[r] * p[c]
                 } else {
-                    0.
-                };
-                inertia[r][c] += 25. * p[r] * p[c];
+                    -p[r] * p[c]
+                }
+            };
+            let mut value = if r == c { baseline[r] } else { 0. };
+            value += target.mass as f64 * parallel(target_center) - mass * parallel(center);
+            for m in mounts.values() {
+                value -= 25. * parallel(DVec3::from_array(m.frame.position))
+                    + if r == c { 2. } else { 0. };
             }
-            inertia[r][c] -= 1220. * (if r == c { center.length_squared() } else { 0. });
-            inertia[r][c] += 1220. * center[r] * center[c];
-        }
-    }
+            value
+        })
+    });
     Definition {
         visual: visual(spec, vec![(0, "body".into())]),
         collision: CollisionBinding::ResidualChassis,
         interface: "chassis".into(),
-        mass: 1220.,
+        mass,
         center: center.to_array(),
         inertia,
         mounts,
         provenance:
-            "P1 authored residual mass calibrated to ADR-0001 baseline; no invented engine geometry"
+            "Authored residual decomposes the selected 350Z physics profile; four wheel masses and inertia remain estimates"
                 .into(),
     }
 }

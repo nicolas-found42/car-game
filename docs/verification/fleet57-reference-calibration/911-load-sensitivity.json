@@ -1,0 +1,26 @@
+{
+  "rows": [
+    {
+      "illustrative_added_mass_kg": 0,
+      "total_mass_kg": 1160,
+      "zero_100_kmh_s": 5.616667,
+      "result_sha256": "e87f87ec67b2ef47b92ab068c11554a1fb30a47a473ecef0904b63fa5d0031a7"
+    },
+    {
+      "illustrative_added_mass_kg": 75,
+      "total_mass_kg": 1235,
+      "zero_100_kmh_s": 5.9500003,
+      "result_sha256": "da7e270605c5fb918bd6e6db1152d3226dee372f19917dce68d86ba31f2949c3"
+    },
+    {
+      "illustrative_added_mass_kg": 170,
+      "total_mass_kg": 1330,
+      "zero_100_kmh_s": 6.4000006,
+      "result_sha256": "18251486d30146aec4f20227a1cfd43800363afa00fb06900c23fbfad7be7dd4"
+    }
+  ],
+  "runtime_profile_changed": false,
+  "method": "Shadow production physics, mass only. Extra75kg is illustrative;170kg equals half(1500kg gross minus1160kg DINunladen). Front-weight fraction held fixed, so not an exact loaded occupant/CG reconstruction. Factory manual establishes a performance loading basis for top speed/standing kilometre; equivalence to the separate6.8s dealer acceleration claim is not verified.",
+  "source": "docs/vehicle-reference/real-profiles.json#e01",
+  "binary": "artifacts/vehicle-reference/fleet57-reference-calibration/probe-fleet_benchmark"
+}

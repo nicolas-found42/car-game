@@ -1,0 +1,32 @@
+{
+  "fixed_hz": 120,
+  "settle_ticks": 360,
+  "acceleration_ticks": 2400,
+  "braking_max_ticks": 1200,
+  "stop_threshold_mps": 0.1,
+  "entry_speeds_mps": [
+    26.8224,
+    31.2928,
+    27.77777777777778
+  ],
+  "rollout_m": 0,
+  "executor": "Single-threaded production VehiclePlugin and Rapier on flat floor",
+  "cars": 40,
+  "two_repeats_identical": true,
+  "benchmark_binary_sha256": "9372cb8ebf55c6848e92a503378c87d62e94a19ae4aed268dc72d207cd2f05c9",
+  "source_sha256": {
+    "src/vehicle.rs": "0829b7bdf2a36b97754c3617b4c14507fef7740d061dba1d67997b57582256f8",
+    "src/vehicle/profile.rs": "627c69a3037758e7779f4224e02daa00866056069bba243bda4e47876105ed07",
+    "src/vehicle/forces.rs": "5763be8a038e5bc419cffc4c0a0a7cc7323b7747740da3913094287509877a7e",
+    "src/assembly/pilot.rs": "62ea5e03a518e3d47edbf0a64a37ea33f5e5bff084f8e183b0335ce35daeda53",
+    "assets/cars/physics.json": "af1cd57169cc2c313e77930722a75363896cde1050c67c02ff6871f138b2cc6d",
+    "assets/cars/roster.json": "e113f488463c64160cd986a3ecd2c2a4e4d7abb7a54f3f8ebf3eb122d4d33488",
+    "examples/fleet_benchmark.rs": "66f9c803b0bf1e822ba56035d30fcb2b63bdcd7699e4992622346d3d75ec0d33"
+  },
+  "measurement_sha256": "381d3568128b545944f3e58f5fea327a3be5d392a2be2dfa1ea7e8c211629dba",
+  "limitations": [
+    "No added driver/payload",
+    "Reference launch/rollout/loading/tires differ",
+    "Estimated tire, torque shape, shifting and drivetrain losses"
+  ]
+}

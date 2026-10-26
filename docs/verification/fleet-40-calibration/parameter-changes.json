@@ -1,0 +1,188 @@
+[
+  {
+    "car": "350z",
+    "field": "brake_decel_mps2",
+    "before": 10.918530000000002,
+    "after": 9.65,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "350z",
+    "field": "lateral_mu",
+    "before": 1.06,
+    "after": 0.925,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.caranddriver.com/reviews/a15136959/nissan-350z-road-test/",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "gt-viper",
+    "field": "brake_decel_mps2",
+    "before": 11.124540000000001,
+    "after": 8.85,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "gt-viper",
+    "field": "lateral_mu",
+    "before": 1.08,
+    "after": 1.0,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.caranddriver.com/reviews/a35728264/1997-dodge-viper-gts-vs-porsche-911-turbo-s-vs-acura-nsx-t-comparison-test/",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "gt4-m3",
+    "field": "speed_governor_mps",
+    "before": null,
+    "after": 69.44444444444444,
+    "evidence": {
+      "status": "reference",
+      "source": "https://www.bmw-m.com/en/topics/magazine-article-pool/the-bmw-m3-csl.html",
+      "basis": "Stock CSL electronic 250 km/h limit; optional 280 km/h license-qualified version is not selected. Propulsive torque tapers over final0.5m/s and cuts above limit; no velocity clamp or artificial braking."
+    }
+  },
+  {
+    "car": "redline-gt500",
+    "field": "tire_mu",
+    "before": 1.08,
+    "after": 1.25,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "redline-gt500",
+    "field": "brake_decel_mps2",
+    "before": 11.124540000000001,
+    "after": 9.8,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "redline-gt500",
+    "field": "speed_governor_mps",
+    "before": null,
+    "after": 69.2912,
+    "evidence": {
+      "status": "related_reference",
+      "source": "https://www.motortrend.com/features/2007-ford-shelby-gt500",
+      "basis": "155mph limiter observed on related 2007 same-generation GT500. 2008 exact controller identity not recovered; stock-family reference retained. Propulsive torque tapers over final0.5m/s and cuts above limit; no velocity clamp or artificial braking."
+    }
+  },
+  {
+    "car": "redline-gt500",
+    "field": "lateral_mu",
+    "before": 1.08,
+    "after": 0.935,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/2008-dodge-challenger-srt8-vs-ford-shelby-gt500-comparison-test-archive",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "ref-a01",
+    "field": "lateral_mu",
+    "before": 1.0,
+    "after": 0.885,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/2005-ford-mustang-gt",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "ref-a14",
+    "field": "brake_decel_mps2",
+    "before": 11.120741,
+    "after": 9.55,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive",
+      "basis": "Calibration estimate from source-qualified acceleration/braking/skidpad envelope; not an OEM coefficient. See docs/verification/fleet-40-calibration/README.md for fit targets, holdouts and method."
+    }
+  },
+  {
+    "car": "ref-a16",
+    "field": "speed_governor_mps",
+    "before": null,
+    "after": 55.43296,
+    "evidence": {
+      "status": "related_reference",
+      "source": "https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/",
+      "basis": "124mph fuel-cut explicitly reported in period prototype GNX test. Applied as qualified stock-family controller proxy; production engine output is not replaced by prototype output. Propulsive torque tapers over final0.5m/s and cuts above limit; no velocity clamp or artificial braking."
+    }
+  },
+  {
+    "car": "ref-e04",
+    "field": "redline_rpm",
+    "before": 7800,
+    "after": 8000,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.lamborghiniclubwest.com/murcielago.pdf",
+      "basis": "Estimated operating ceiling8000rpm; source peak power7500rpm does not establish the rev limit. Joint high-speed/acceleration calibration, not an OEM measurement."
+    }
+  },
+  {
+    "car": "ref-e04",
+    "field": "final_drive",
+    "before": 2.53,
+    "after": 3.3,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.lamborghiniclubwest.com/murcielago.pdf",
+      "basis": "Provisional effective reduction fitted jointly to launch and high-speed envelope; replaces unverified2.53 which equals the factory reverse ratio. OEM final drive not recovered. No exact factory ratio claim."
+    }
+  },
+  {
+    "car": "ref-e04",
+    "field": "drag_area_m2",
+    "before": 0.78,
+    "after": 0.66,
+    "evidence": {
+      "status": "estimate",
+      "source": "https://www.lamborghiniclubwest.com/murcielago.pdf",
+      "basis": "Estimated Cd*A=0.33*2.0m\u00b2 in low-drag configuration. Factory dossier gives Cd0.33\u20130.36, while2.0m\u00b2 frontal area is a projection estimate (~86% of width*height bounding rectangle), not a measured frontal area. No active intake/wing aerodynamics recovered."
+    }
+  },
+  {
+    "car": "ref-e04",
+    "field": "driveline_efficiency",
+    "before": 0.88,
+    "after": 0.82,
+    "evidence": {
+      "status": "estimate",
+      "basis": "Provisional effective crank-to-wheel efficiency calibrated with the corrected reduction across the acceleration envelope; includes unresolved AWD/driveline losses. Not a measured Lamborghini efficiency or a recovered native value."
+    }
+  },
+  {
+    "car": "ref-e12",
+    "field": "speed_governor_mps",
+    "before": null,
+    "after": 69.44444444444444,
+    "evidence": {
+      "status": "related_reference",
+      "source": "https://www.ausmotive.com/downloads/Audi/RS4-Avant-press-kit-June2012.pdf",
+      "basis": "Audi manufacturer retrospective: B7 saloon standard 250km/h governed limit; optional 280km/h package not selected. Adjacent European reference for US 2008 asset. Propulsive torque tapers over final0.5m/s and cuts above limit; no velocity clamp or artificial braking."
+    }
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "native_editions_reviewed": 57,
+  "native_overview_pages": 7,
+  "c5_targeted_views": [
+    "side",
+    "front"
+  ],
+  "checks": "All editions present; wheels assembled and resting on road. C5 wheel placement/radii and source shell approximation reviewed. Source-era materials and wheel-arch styling remain approximate; no pixel-equivalence claim.",
+  "files": {
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-1.jpg": "b9924e56cf001d5a56785a7b57834503a9c3c1ae07fb34bcc9cc5f84f9bccd6d",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-2.jpg": "455e46a699757354c7feae805d0283a65cd07c058ae69fb9863321bccfb8561b",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-3.jpg": "46770e42d67b277d0750ead680838a675974a4c2c943bdc2c6e9958999392a8c",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-4.jpg": "7686910702d77fc7fd1a7b790f20394bd54a1189f476f0737c2021e1bfdcf492",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-5.jpg": "a14cf0827e42490710a72cc8779daf3d3f8f642cc89e55186098105aaf552096",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-6.jpg": "95da637ef32abb664669476619fa826ba13ce0fa914db06f559ceaafde460f7a",
+    "artifacts/runs/20261025T031729012509Z-2342545-fleet-80285-1-1792898249043075000/fleet-overview-7.jpg": "53acae62d227733846475eba5f2c955e0b9db9f0597b92df529d8f8d399b26a9",
+    "artifacts/c5-geometry-preview-20261025/20261025T031749477197Z-2342545-smoke-80429-1-1792898269500689000/captures/ref-a08-side.png": "e1d12a92495ebcfbdcf771b33b954eff3fa0baa85c11775e2e2d2d3e166194a3",
+    "artifacts/c5-geometry-preview-20261025/20261025T031749477197Z-2342545-smoke-80429-1-1792898269500689000/captures/ref-a08-front.png": "eb920fb0bb4dabb2eaf26de4b13b5ba24b698eb8dae31e83dab540158f22f51e",
+    "docs/verification/fleet57-geometry-drivetrain/comparison.png": "6f7c1210eb5b6ee44e5d79ce55a2fcceca6ff5e7bed50b95fde042bc2b53d78a"
+  },
+  "comparison_figure_reviewed": true,
+  "comparison_figure_checks": "All panel labels, units and before/after values legible; axes and top10 acceleration changes match comparison.json."
+}

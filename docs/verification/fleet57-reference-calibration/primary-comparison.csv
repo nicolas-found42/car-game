@@ -1,0 +1,12 @@
+after,after_error_pct,before,before_error_pct,car,decision,diameter_ft,metric,reference,source_id,unit,use_for_calibration
+0.91863805,0.9492362637362639,1.0676019,17.318890109890116,ref-e12,prioritize_mass_basis_and_excess_grip,300,skidpad_300ft,0.91,rs4-cd07,g,True
+4.4833336,-2.5362260869565167,3.9333336,-14.49274782608695,ref-e12,prioritize_mass_basis_and_excess_grip,,zero_60_mph,4.6,rs4-cd07,s,True
+11.083334,-0.15014414414413757,9.416667,-15.16516216216216,ref-e12,prioritize_mass_basis_and_excess_grip,,zero_100_mph,11.1,rs4-cd07,s,True
+48.97055,-2.6275550783424806,43.478622,-13.547637795275591,ref-e12,prioritize_mass_basis_and_excess_grip,,brake_70_mph_0,50.292,rs4-cd07,m,True
+0.8837226,0.42302272727272605,1.034394,17.54477272727273,ref-a14,prioritize_excess_lateral_grip_and_midrange,200,skidpad_200ft,0.88,ctsv-aw04,g,True
+5.241667,2.7777843137254843,4.941667,-3.1045686274509765,ref-a14,prioritize_excess_lateral_grip_and_midrange,,zero_60_mph,5.1,ctsv-mt04,s,True
+12.141667,-1.2872601626016333,10.916667,-11.246609756097559,ref-a14,prioritize_excess_lateral_grip_and_midrange,,zero_100_mph,12.3,ctsv-mt04,s,True
+36.77739,-0.2803897963167934,36.77739,-0.2803897963167934,ref-a14,prioritize_excess_lateral_grip_and_midrange,,brake_60_mph_0,36.8808,ctsv-mt04,m,True
+0.9861639,14.670220930232558,0.9861639,14.670220930232558,gt4-nsx,defer_until_production_configuration_target_verified,300,skidpad_300ft,0.86,nsx-cd90,g,False
+5.4583335,4.96795192307693,5.4583335,4.96795192307693,gt4-nsx,defer_until_production_configuration_target_verified,,zero_60_mph,5.2,nsx-cd90,s,False
+46.76062,-2.284007890733397,46.76062,-2.284007890733397,gt4-nsx,defer_until_production_configuration_target_verified,,brake_70_mph_0,47.8536,nsx-cd90,m,False

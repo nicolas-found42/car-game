@@ -1,0 +1,99 @@
+--- before/build_source/assets/cars/roster.json
++++ after/build_source/assets/cars/roster.json
+@@ -1770,36 +1770,36 @@
+     "visual_offset": 0.0,
+     "wheels": [
+       [
+-        -0.7335000038146973,
+-        -0.20869999825954433,
+-        -1.4021999835968018
+-      ],
+-      [
+-        0.7335000038146973,
+-        -0.20869999825954433,
+-        -1.4021999835968018
+-      ],
+-      [
+-        -0.7335000038146973,
+-        -0.19130000174045558,
+-        1.4021999835968018
+-      ],
+-      [
+-        0.7335000038146973,
+-        -0.19130000174045558,
+-        1.4021999835968018
+-      ]
+-    ],
+-    "radii": [
+-      0.3504945107049203,
+-      0.3504945107049203,
+-      0.36801922390290254,
+-      0.36801922390290254
+-    ],
+-    "half_width": 0.9558984374999999,
+-    "half_length": 2.1192108154296876,
+-    "body_center_z": 0.07993292808532715,
+-    "roof_height": 0.7313849657773972,
++        -0.79248,
++        -0.20497499999999996,
++        -1.32715
++      ],
++      [
++        0.79248,
++        -0.20497499999999996,
++        -1.32715
++      ],
++      [
++        -0.79502,
++        -0.195025,
++        1.32715
++      ],
++      [
++        0.79502,
++        -0.195025,
++        1.32715
++      ]
++    ],
++    "radii": [
++      0.3219,
++      0.3219,
++      0.33185,
++      0.33185
++    ],
++    "half_width": 0.8973312,
++    "half_length": 2.2137243,
++    "body_center_z": 0.08349781153639646,
++    "roof_height": 0.6847050000000001,
+     "wheel_nodes": 4,
+     "triangles": 5541
+   },
+--- before/build_source/src/vehicle/profile.rs
++++ after/build_source/src/vehicle/profile.rs
+@@ -133,6 +133,16 @@
+             .min(self.torque_nm)
+             .min(self.power_kw * 9549.297 / rpm.max(900.))
+     }
++    /// Kinematic mean wheel speed at the nominal driven-axle split. A harmonic
++    /// radius averages wheel RPM, excludes undriven wheels, and preserves power
++    /// equivalence. AWD remains a nominal center-coupling approximation; the
++    /// load-dependent force allocation does not change engine gearing.
++    pub fn drive_radius(&self, radii: [f32; 4]) -> f32 {
++        let front = (1. / radii[0] + 1. / radii[1]) * 0.5;
++        let rear = (1. / radii[2] + 1. / radii[3]) * 0.5;
++        1. / (self.front_drive * front + (1. - self.front_drive) * rear)
++    }
++
+     pub fn drive_force(
+         &self,
+         car: &mut super::Vehicle,
+--- before/build_source/src/vehicle.rs
++++ after/build_source/src/vehicle.rs
+@@ -281,7 +281,7 @@
+         } else if input.brake > 0.01 && planar_speed < 0.8 {
+             car.reverse_engaged = true;
+         }
+-        let radius = spec.radii.iter().sum::<f32>() / 4.;
++        let radius = physics.drive_radius(spec.radii);
+         let engine_demand = physics.drive_force(&mut car, speed, radius, input.throttle);
+         let (drive, brake, reverse) =
+             if input.brake > 0.01 && input.throttle < 0.01 && speed < 0.8 && car.reverse_engaged {

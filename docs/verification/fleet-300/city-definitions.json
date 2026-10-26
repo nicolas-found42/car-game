@@ -1,0 +1,2103 @@
+[
+  {
+    "case": "brake",
+    "definition": {
+      "schema_version": 1,
+      "name": "handling-brake-350z",
+      "scene": "driving",
+      "context": {
+        "kind": "sandbox"
+      },
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -150.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "readiness_timeout_ms": 10000,
+      "max_ticks": 1801,
+      "max_wall_ms": 60000,
+      "required_capture": false,
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 960,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 1440,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 1680,
+          "command": {
+            "action": "reset"
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1800,
+          "kind": "reset_count",
+          "count": 1
+        }
+      ]
+    }
+  },
+  {
+    "case": "turn-left",
+    "definition": {
+      "schema_version": 1,
+      "name": "handling-turn-left-350z",
+      "scene": "driving",
+      "context": {
+        "kind": "sandbox"
+      },
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -150.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "readiness_timeout_ms": 10000,
+      "max_ticks": 841,
+      "max_wall_ms": 60000,
+      "required_capture": false,
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": -0.5
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 840,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 840,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "case": "turn-right",
+    "definition": {
+      "schema_version": 1,
+      "name": "handling-turn-right-350z",
+      "scene": "driving",
+      "context": {
+        "kind": "sandbox"
+      },
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -150.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "readiness_timeout_ms": 10000,
+      "max_ticks": 841,
+      "max_wall_ms": 60000,
+      "required_capture": false,
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.5
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 840,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 840,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "case": "fast-left",
+    "definition": {
+      "schema_version": 1,
+      "name": "handling-fast-left-350z",
+      "scene": "driving",
+      "context": {
+        "kind": "sandbox"
+      },
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -150.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "readiness_timeout_ms": 10000,
+      "max_ticks": 1141,
+      "max_wall_ms": 60000,
+      "required_capture": false,
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 960,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": -0.5
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1140,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1140,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "case": "fast-right",
+    "definition": {
+      "schema_version": 1,
+      "name": "handling-fast-right-350z",
+      "scene": "driving",
+      "context": {
+        "kind": "sandbox"
+      },
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -150.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "readiness_timeout_ms": 10000,
+      "max_ticks": 1141,
+      "max_wall_ms": 60000,
+      "required_capture": false,
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 960,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.5
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1140,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1140,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ]
+    }
+  },
+  {
+    "case": "launch-full",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-launch-full-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1440,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1440,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1440,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1441,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "launch-partial",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-launch-partial-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 0.3,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1200,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1200,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1200,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1201,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "coast-down",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-coast-down-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 720,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1440,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1440,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1440,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1441,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "brake-progressive",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-brake-progressive-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 960,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.3,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 1200,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1680,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1680,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1680,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1681,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "stop-relaunch",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-stop-relaunch-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 720,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 1200,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1680,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1680,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1680,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1681,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "reverse-recover",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-reverse-recover-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1200,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1200,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1200,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1201,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "handbrake-left",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-handbrake-left-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": -0.5,
+            "handbrake": true
+          }
+        },
+        {
+          "tick": 660,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.2
+          }
+        },
+        {
+          "tick": 1020,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1080,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1080,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1080,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1081,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "handbrake-right",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-handbrake-right-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.5,
+            "handbrake": true
+          }
+        },
+        {
+          "tick": 660,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": -0.2
+          }
+        },
+        {
+          "tick": 1020,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1080,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1080,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1080,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1081,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "trail-brake-left",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-trail-brake-left-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.5,
+            "steer": -0.5
+          }
+        },
+        {
+          "tick": 780,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1080,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1080,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1080,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1081,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "trail-brake-right",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-trail-brake-right-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 0.5,
+            "steer": 0.5
+          }
+        },
+        {
+          "tick": 780,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1080,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1080,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1080,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1081,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "slalom-pulses",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-slalom-pulses-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [
+        {
+          "tick": 240,
+          "command": {
+            "action": "drive",
+            "throttle": 1.0,
+            "brake": 0.0,
+            "steer": 0.0
+          }
+        },
+        {
+          "tick": 600,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": 0.25
+          }
+        },
+        {
+          "tick": 660,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": -0.25
+          }
+        },
+        {
+          "tick": 720,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": 0.25
+          }
+        },
+        {
+          "tick": 780,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": -0.25
+          }
+        },
+        {
+          "tick": 840,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": 0.25
+          }
+        },
+        {
+          "tick": 900,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": -0.25
+          }
+        },
+        {
+          "tick": 960,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": 0.25
+          }
+        },
+        {
+          "tick": 1020,
+          "command": {
+            "action": "drive",
+            "throttle": 0.35,
+            "brake": 0.0,
+            "steer": -0.25
+          }
+        },
+        {
+          "tick": 1080,
+          "command": {
+            "action": "drive",
+            "throttle": 0.0,
+            "brake": 1.0,
+            "steer": 0.0
+          }
+        }
+      ],
+      "assertions": [
+        {
+          "tick": 1320,
+          "kind": "displacement_at_least",
+          "meters": 8.0
+        },
+        {
+          "tick": 1320,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 1320,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 1321,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false
+    }
+  },
+  {
+    "case": "curve-forward-slow",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-curve-forward-slow-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          458.0,
+          0.62,
+          350.0
+        ],
+        "rotation_y": -3.141592653589793
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            458.0,
+            350.0
+          ],
+          [
+            458.0,
+            390.0
+          ],
+          [
+            458.0,
+            420.0
+          ],
+          [
+            457.91864013671875,
+            422.4853210449219
+          ],
+          [
+            457.6748962402344,
+            424.9599914550781
+          ],
+          [
+            457.26983642578125,
+            427.4134216308594
+          ],
+          [
+            456.7051696777344,
+            429.8351135253906
+          ],
+          [
+            455.98333740234375,
+            432.2146911621094
+          ],
+          [
+            455.107421875,
+            434.5419616699219
+          ],
+          [
+            454.0811767578125,
+            436.8069763183594
+          ],
+          [
+            452.9089660644531,
+            439.0
+          ],
+          [
+            451.5958557128906,
+            441.1116638183594
+          ],
+          [
+            450.1474304199219,
+            443.1329345703125
+          ],
+          [
+            448.5699157714844,
+            445.0551452636719
+          ],
+          [
+            446.87005615234375,
+            446.87005615234375
+          ],
+          [
+            445.0551452636719,
+            448.5699157714844
+          ],
+          [
+            443.1329345703125,
+            450.1474304199219
+          ],
+          [
+            441.1116638183594,
+            451.5958557128906
+          ],
+          [
+            439.0,
+            452.9089660644531
+          ],
+          [
+            436.8069763183594,
+            454.0811767578125
+          ],
+          [
+            434.5419616699219,
+            455.107421875
+          ],
+          [
+            432.2146911621094,
+            455.98333740234375
+          ],
+          [
+            429.8351135253906,
+            456.7052001953125
+          ],
+          [
+            427.4134216308594,
+            457.26983642578125
+          ],
+          [
+            424.9599914550781,
+            457.6748962402344
+          ],
+          [
+            422.4853210449219,
+            457.91864013671875
+          ],
+          [
+            420.0,
+            458.0
+          ],
+          [
+            390.0,
+            458.0
+          ],
+          [
+            350.0,
+            458.0
+          ]
+        ],
+        "speed_mps": 8.0
+      }
+    }
+  },
+  {
+    "case": "curve-forward-fast",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-curve-forward-fast-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          458.0,
+          0.62,
+          350.0
+        ],
+        "rotation_y": -3.141592653589793
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            458.0,
+            350.0
+          ],
+          [
+            458.0,
+            390.0
+          ],
+          [
+            458.0,
+            420.0
+          ],
+          [
+            457.91864013671875,
+            422.4853210449219
+          ],
+          [
+            457.6748962402344,
+            424.9599914550781
+          ],
+          [
+            457.26983642578125,
+            427.4134216308594
+          ],
+          [
+            456.7051696777344,
+            429.8351135253906
+          ],
+          [
+            455.98333740234375,
+            432.2146911621094
+          ],
+          [
+            455.107421875,
+            434.5419616699219
+          ],
+          [
+            454.0811767578125,
+            436.8069763183594
+          ],
+          [
+            452.9089660644531,
+            439.0
+          ],
+          [
+            451.5958557128906,
+            441.1116638183594
+          ],
+          [
+            450.1474304199219,
+            443.1329345703125
+          ],
+          [
+            448.5699157714844,
+            445.0551452636719
+          ],
+          [
+            446.87005615234375,
+            446.87005615234375
+          ],
+          [
+            445.0551452636719,
+            448.5699157714844
+          ],
+          [
+            443.1329345703125,
+            450.1474304199219
+          ],
+          [
+            441.1116638183594,
+            451.5958557128906
+          ],
+          [
+            439.0,
+            452.9089660644531
+          ],
+          [
+            436.8069763183594,
+            454.0811767578125
+          ],
+          [
+            434.5419616699219,
+            455.107421875
+          ],
+          [
+            432.2146911621094,
+            455.98333740234375
+          ],
+          [
+            429.8351135253906,
+            456.7052001953125
+          ],
+          [
+            427.4134216308594,
+            457.26983642578125
+          ],
+          [
+            424.9599914550781,
+            457.6748962402344
+          ],
+          [
+            422.4853210449219,
+            457.91864013671875
+          ],
+          [
+            420.0,
+            458.0
+          ],
+          [
+            390.0,
+            458.0
+          ],
+          [
+            350.0,
+            458.0
+          ]
+        ],
+        "speed_mps": 14.0
+      }
+    }
+  },
+  {
+    "case": "curve-reverse-slow",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-curve-reverse-slow-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          350.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            350.0,
+            458.0
+          ],
+          [
+            390.0,
+            458.0
+          ],
+          [
+            420.0,
+            458.0
+          ],
+          [
+            422.4853210449219,
+            457.91864013671875
+          ],
+          [
+            424.9599914550781,
+            457.6748962402344
+          ],
+          [
+            427.4134216308594,
+            457.26983642578125
+          ],
+          [
+            429.8351135253906,
+            456.7052001953125
+          ],
+          [
+            432.2146911621094,
+            455.98333740234375
+          ],
+          [
+            434.5419616699219,
+            455.107421875
+          ],
+          [
+            436.8069763183594,
+            454.0811767578125
+          ],
+          [
+            439.0,
+            452.9089660644531
+          ],
+          [
+            441.1116638183594,
+            451.5958557128906
+          ],
+          [
+            443.1329345703125,
+            450.1474304199219
+          ],
+          [
+            445.0551452636719,
+            448.5699157714844
+          ],
+          [
+            446.87005615234375,
+            446.87005615234375
+          ],
+          [
+            448.5699157714844,
+            445.0551452636719
+          ],
+          [
+            450.1474304199219,
+            443.1329345703125
+          ],
+          [
+            451.5958557128906,
+            441.1116638183594
+          ],
+          [
+            452.9089660644531,
+            439.0
+          ],
+          [
+            454.0811767578125,
+            436.8069763183594
+          ],
+          [
+            455.107421875,
+            434.5419616699219
+          ],
+          [
+            455.98333740234375,
+            432.2146911621094
+          ],
+          [
+            456.7051696777344,
+            429.8351135253906
+          ],
+          [
+            457.26983642578125,
+            427.4134216308594
+          ],
+          [
+            457.6748962402344,
+            424.9599914550781
+          ],
+          [
+            457.91864013671875,
+            422.4853210449219
+          ],
+          [
+            458.0,
+            420.0
+          ],
+          [
+            458.0,
+            390.0
+          ],
+          [
+            458.0,
+            350.0
+          ]
+        ],
+        "speed_mps": 8.0
+      }
+    }
+  },
+  {
+    "case": "curve-reverse-fast",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-curve-reverse-fast-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          350.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            350.0,
+            458.0
+          ],
+          [
+            390.0,
+            458.0
+          ],
+          [
+            420.0,
+            458.0
+          ],
+          [
+            422.4853210449219,
+            457.91864013671875
+          ],
+          [
+            424.9599914550781,
+            457.6748962402344
+          ],
+          [
+            427.4134216308594,
+            457.26983642578125
+          ],
+          [
+            429.8351135253906,
+            456.7052001953125
+          ],
+          [
+            432.2146911621094,
+            455.98333740234375
+          ],
+          [
+            434.5419616699219,
+            455.107421875
+          ],
+          [
+            436.8069763183594,
+            454.0811767578125
+          ],
+          [
+            439.0,
+            452.9089660644531
+          ],
+          [
+            441.1116638183594,
+            451.5958557128906
+          ],
+          [
+            443.1329345703125,
+            450.1474304199219
+          ],
+          [
+            445.0551452636719,
+            448.5699157714844
+          ],
+          [
+            446.87005615234375,
+            446.87005615234375
+          ],
+          [
+            448.5699157714844,
+            445.0551452636719
+          ],
+          [
+            450.1474304199219,
+            443.1329345703125
+          ],
+          [
+            451.5958557128906,
+            441.1116638183594
+          ],
+          [
+            452.9089660644531,
+            439.0
+          ],
+          [
+            454.0811767578125,
+            436.8069763183594
+          ],
+          [
+            455.107421875,
+            434.5419616699219
+          ],
+          [
+            455.98333740234375,
+            432.2146911621094
+          ],
+          [
+            456.7051696777344,
+            429.8351135253906
+          ],
+          [
+            457.26983642578125,
+            427.4134216308594
+          ],
+          [
+            457.6748962402344,
+            424.9599914550781
+          ],
+          [
+            457.91864013671875,
+            422.4853210449219
+          ],
+          [
+            458.0,
+            420.0
+          ],
+          [
+            458.0,
+            390.0
+          ],
+          [
+            458.0,
+            350.0
+          ]
+        ],
+        "speed_mps": 14.0
+      }
+    }
+  },
+  {
+    "case": "urban-left",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-urban-left-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          0.0,
+          0.62,
+          200.0
+        ],
+        "rotation_y": -0.0
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 5400,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 5400,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 5400,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 5401,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            0.0,
+            200.0
+          ],
+          [
+            0.0,
+            140.0
+          ],
+          [
+            -0.0,
+            122.0
+          ],
+          [
+            -0.08555138626189596,
+            120.69473807779949
+          ],
+          [
+            -0.3407417371093171,
+            119.41180954897479
+          ],
+          [
+            -0.7612046748871322,
+            118.1731656763491
+          ],
+          [
+            -1.3397459621556127,
+            117.0
+          ],
+          [
+            -2.066466597087649,
+            115.9123857099128
+          ],
+          [
+            -2.9289321881345245,
+            114.92893218813452
+          ],
+          [
+            -3.912385709912794,
+            114.06646659708765
+          ],
+          [
+            -4.999999999999999,
+            113.33974596215562
+          ],
+          [
+            -6.173165676349102,
+            112.76120467488713
+          ],
+          [
+            -7.411809548974793,
+            112.34074173710931
+          ],
+          [
+            -8.694738077799483,
+            112.0855513862619
+          ],
+          [
+            -10.0,
+            112.0
+          ],
+          [
+            -40.0,
+            112.0
+          ],
+          [
+            -130.0,
+            112.0
+          ]
+        ],
+        "speed_mps": 7.0
+      }
+    }
+  },
+  {
+    "case": "urban-right",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-urban-right-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          0.0,
+          0.62,
+          200.0
+        ],
+        "rotation_y": -0.0
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 5400,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 5400,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 5400,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 5401,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            0.0,
+            200.0
+          ],
+          [
+            0.0,
+            140.0
+          ],
+          [
+            0.0,
+            122.0
+          ],
+          [
+            0.08555138626189596,
+            120.69473807779949
+          ],
+          [
+            0.3407417371093171,
+            119.41180954897479
+          ],
+          [
+            0.7612046748871322,
+            118.1731656763491
+          ],
+          [
+            1.3397459621556127,
+            117.0
+          ],
+          [
+            2.066466597087649,
+            115.9123857099128
+          ],
+          [
+            2.9289321881345245,
+            114.92893218813452
+          ],
+          [
+            3.912385709912794,
+            114.06646659708765
+          ],
+          [
+            4.999999999999999,
+            113.33974596215562
+          ],
+          [
+            6.173165676349102,
+            112.76120467488713
+          ],
+          [
+            7.411809548974793,
+            112.34074173710931
+          ],
+          [
+            8.694738077799483,
+            112.0855513862619
+          ],
+          [
+            10.0,
+            112.0
+          ],
+          [
+            40.0,
+            112.0
+          ],
+          [
+            130.0,
+            112.0
+          ]
+        ],
+        "speed_mps": 7.0
+      }
+    }
+  },
+  {
+    "case": "lane-change",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-lane-change-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -300.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": -1.5707963267948966
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            -300.0,
+            458.0
+          ],
+          [
+            -270.0,
+            458.0
+          ],
+          [
+            -245.0,
+            462.0
+          ],
+          [
+            -220.0,
+            462.0
+          ],
+          [
+            -195.0,
+            454.0
+          ],
+          [
+            -170.0,
+            454.0
+          ],
+          [
+            -145.0,
+            458.0
+          ],
+          [
+            -110.0,
+            458.0
+          ]
+        ],
+        "speed_mps": 10.0
+      }
+    }
+  },
+  {
+    "case": "lane-change-reverse",
+    "definition": {
+      "schema_version": 1,
+      "name": "fleet40-lane-change-reverse-350z",
+      "scene": "driving",
+      "seed": 17,
+      "initial": {
+        "car": "350z",
+        "position": [
+          -110.0,
+          0.62,
+          458.0
+        ],
+        "rotation_y": 1.5707963267948966
+      },
+      "commands": [],
+      "assertions": [
+        {
+          "tick": 4800,
+          "kind": "route_completed",
+          "max_cross_track_m": 7.0
+        },
+        {
+          "tick": 4800,
+          "kind": "selected_car",
+          "car": "350z"
+        },
+        {
+          "tick": 4800,
+          "kind": "reset_count",
+          "count": 0
+        }
+      ],
+      "max_ticks": 4801,
+      "max_wall_ms": 120000,
+      "readiness_timeout_ms": 10000,
+      "required_capture": false,
+      "route": {
+        "points": [
+          [
+            -110.0,
+            458.0
+          ],
+          [
+            -145.0,
+            458.0
+          ],
+          [
+            -170.0,
+            454.0
+          ],
+          [
+            -195.0,
+            454.0
+          ],
+          [
+            -220.0,
+            462.0
+          ],
+          [
+            -245.0,
+            462.0
+          ],
+          [
+            -270.0,
+            458.0
+          ],
+          [
+            -300.0,
+            458.0
+          ]
+        ],
+        "speed_mps": 10.0
+      }
+    }
+  }
+]

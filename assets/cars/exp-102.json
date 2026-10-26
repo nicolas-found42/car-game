@@ -1,0 +1,458 @@
+{
+  "source": "carmodels/dealership/dealership/models/GT4_CHEV0003.glb",
+  "source_sha256": "86c8afa1e8380d1d81efda0c02c7c7a602406fd3fd2418dd29d9c866a5d0030a",
+  "source_scene": 0,
+  "source_meshes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "source_materials": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120,
+    135,
+    150,
+    165,
+    180,
+    195,
+    210,
+    225,
+    240,
+    255,
+    270,
+    285,
+    300,
+    315,
+    330,
+    345,
+    360,
+    375,
+    390,
+    405,
+    420,
+    435,
+    450,
+    465,
+    480,
+    495,
+    510,
+    525,
+    540,
+    555,
+    570,
+    585,
+    600,
+    615,
+    630,
+    645,
+    660,
+    675,
+    690,
+    705,
+    720,
+    735,
+    750,
+    765,
+    780,
+    795,
+    810,
+    825,
+    840,
+    855,
+    870,
+    885,
+    900,
+    915,
+    930,
+    945,
+    960,
+    975,
+    990,
+    1005,
+    1020,
+    1035,
+    1050,
+    1065,
+    1080,
+    1095,
+    1110,
+    1125,
+    1140,
+    1141,
+    1156,
+    1171,
+    1186,
+    1201
+  ],
+  "normalization": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    -0.0,
+    -0.3857999999999999,
+    -0.0,
+    1
+  ],
+  "mesh_nodes": [
+    {
+      "source_node": 0,
+      "prepared_node": 5,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 1,
+      "prepared_node": 6,
+      "source_world_matrix": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -0.8225,
+        0.18579999999999994,
+        -1.4225,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 2,
+      "prepared_node": 7,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.8225,
+        0.18579999999999994,
+        -1.4225,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 3,
+      "prepared_node": 8,
+      "source_world_matrix": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -0.8225,
+        0.18579999999999994,
+        -1.4225,
+        1.0
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 4,
+      "prepared_node": 9,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.8225,
+        0.18579999999999994,
+        -1.4225,
+        1.0
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 5,
+      "prepared_node": 10,
+      "source_world_matrix": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -0.8225,
+        0.18579999999999994,
+        1.4225,
+        1.0
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 6,
+      "prepared_node": 11,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.8225,
+        0.18579999999999994,
+        1.4225,
+        1.0
+      ],
+      "wheel": 3
+    },
+    {
+      "source_node": 7,
+      "prepared_node": 12,
+      "source_world_matrix": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -0.8225,
+        0.18579999999999994,
+        1.4225,
+        1.0
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 8,
+      "prepared_node": 13,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.8225,
+        0.18579999999999994,
+        1.4225,
+        1.0
+      ],
+      "wheel": 3
+    }
+  ],
+  "excluded_nodes": [],
+  "repairs": [
+    [
+      1035,
+      "retain nonzero paint alpha"
+    ],
+    [
+      525,
+      "retain nonzero paint alpha"
+    ],
+    [
+      1050,
+      "retain nonzero paint alpha"
+    ],
+    [
+      540,
+      "retain nonzero paint alpha"
+    ],
+    [
+      570,
+      "retain nonzero paint alpha"
+    ],
+    [
+      585,
+      "retain nonzero paint alpha"
+    ],
+    [
+      1125,
+      "retain nonzero paint alpha"
+    ],
+    [
+      120,
+      "retain nonzero paint alpha"
+    ],
+    [
+      645,
+      "retain nonzero paint alpha"
+    ],
+    [
+      135,
+      "retain nonzero paint alpha"
+    ],
+    [
+      660,
+      "retain nonzero paint alpha"
+    ],
+    [
+      150,
+      "retain nonzero paint alpha"
+    ],
+    [
+      1186,
+      "retain nonzero paint alpha"
+    ],
+    [
+      690,
+      "retain nonzero paint alpha"
+    ],
+    [
+      195,
+      "retain nonzero paint alpha"
+    ],
+    [
+      210,
+      "retain nonzero paint alpha"
+    ],
+    [
+      735,
+      "retain nonzero paint alpha"
+    ],
+    [
+      225,
+      "retain nonzero paint alpha"
+    ],
+    [
+      795,
+      "retain nonzero paint alpha"
+    ],
+    [
+      300,
+      "retain nonzero paint alpha"
+    ],
+    [
+      315,
+      "retain nonzero paint alpha"
+    ],
+    [
+      840,
+      "retain nonzero paint alpha"
+    ],
+    [
+      330,
+      "retain nonzero paint alpha"
+    ],
+    [
+      345,
+      "retain nonzero paint alpha"
+    ],
+    [
+      885,
+      "retain nonzero paint alpha"
+    ],
+    [
+      375,
+      "retain nonzero paint alpha"
+    ],
+    [
+      390,
+      "retain nonzero paint alpha"
+    ],
+    [
+      930,
+      "retain nonzero paint alpha"
+    ],
+    [
+      960,
+      "retain nonzero paint alpha"
+    ],
+    [
+      1020,
+      "retain nonzero paint alpha"
+    ],
+    [
+      510,
+      "retain nonzero paint alpha"
+    ]
+  ],
+  "scene_triangles": 8424,
+  "source_binary_sha256": "e98ef4d5fd5d73678dc0f652a7dc061c3723efe277b0296497e053d21c7fe82f",
+  "index_partitions": 0,
+  "limits": [
+    "Source-era geometry and textures retained; not original game shader emulation.",
+    "PBR/glass translation is an explicit GRID preview choice."
+  ],
+  "prepared_sha256": "7d44c22e61b4c5914b9b244d01b69e923369490408ab4adf4d66126861e143f6"
+}

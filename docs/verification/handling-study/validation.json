@@ -1,0 +1,40 @@
+{
+  "runs": 130,
+  "cars": 13,
+  "cases": 5,
+  "repetitions": 2,
+  "all_runs_exit_zero": true,
+  "all_scenarios_passed": true,
+  "all_recorders_healthy": true,
+  "provenance_bundles_verified": 130,
+  "effective_input_hashes_per_case": {
+    "fast-right": 1,
+    "brake": 1,
+    "turn-left": 1,
+    "fast-left": 1,
+    "turn-right": 1
+  },
+  "support_ticks": 30574,
+  "all_maneuver_ticks_four_contacts": true,
+  "all_maneuver_ticks_four_loaded_wheels_over_1N": true,
+  "unexpected_resets": 0,
+  "requested_resets_upright_stopped_correlated": 26,
+  "minimum_body_clearance_m": 2.4833088171041595,
+  "identical_numeric_repeat_pairs": 53,
+  "maximum_repeat_brake_distance_spread_m": 0.0,
+  "maximum_repeat_turn_angle_spread_deg": 0.00026377186347303905,
+  "repository_checks": {
+    "format": "passed",
+    "strict_clippy": "passed",
+    "complexity": "passed",
+    "rust_tests_passed": 67,
+    "handling_analysis_tests_passed": 7,
+    "python_compileall": "passed",
+    "original_asset_preservation": "unavailable: missing sibling carmodels collection"
+  },
+  "visual_inspection": [
+    "comparison.png",
+    "traces.png"
+  ],
+  "notebook": "executed top-to-bottom; independent recalculation of braking, yaw, contact percentages and reset totals for all 130 runs"
+}

@@ -1,0 +1,1257 @@
+{
+  "existing_material_sha256": {
+    "assets/cars/350z.glb": "e79630558ed16c54942afc552838fd465a73bf507754947342bd65a805d37874",
+    "assets/cars/350z.json": "2497e367f3ebe153c82e2b7199212e127f53d4e018835a79b6e81b4e941cf64b",
+    "assets/cars/fr2-cobra.glb": "bcd7d99dfe3fb8d8a7c7d4be608b811eda57c382c1f5a1e99cd4224ca266b464",
+    "assets/cars/fr2-cobra.json": "38ceabad2a2090489251e0b7269705bfe42180e63bf295f3a79ad730a5a312ff",
+    "assets/cars/fr2-fr500.glb": "e280e49a49286eb62617f54f3f7d5fc5a9bf38958e1d55e23db76d9f28a5dccf",
+    "assets/cars/fr2-fr500.json": "014c777fe1630478e3dfbd684bb830793a7ce80709a5d657c667555d7e498501",
+    "assets/cars/gt-rx7.glb": "47fa84d5ec58d9de08f851902aa0880b95ba4416a119f6fbeddaa0f129621ca2",
+    "assets/cars/gt-rx7.json": "a86a44aea5538fd8d65434dd3c9b04da9126e82389c7086854993f2776c0fb31",
+    "assets/cars/gt-viper.glb": "7e61f66543554dd21a30f964c911ff30096d0c0cd51c8611b20f23b0205f594c",
+    "assets/cars/gt-viper.json": "8f84cb733a5983dbcd549cc0136337337f0083c98b10894412d92f3b6e783260",
+    "assets/cars/gt4-m3.glb": "edfad641515525b0e45873a27aff9079e353636978f4a17cec2c8f76a248b6db",
+    "assets/cars/gt4-m3.json": "575efc66c693200f99525cae549215c1b81dcf66da1ccd5078e82da9c6c4307b",
+    "assets/cars/gt4-nsx.glb": "443537bd92db0c56ef2cd2c36ffc1fb4cecccee8d3ae96c3cbf5d5000bf01788",
+    "assets/cars/gt4-nsx.json": "4501ab34ed9a7ded03369e78edc8818057cc199841fc0ac2156a8891655dac8a",
+    "assets/cars/mc3-skyline.glb": "601088871666af5d541efe3abcc0bcc09bd3bcf6d0934447e501658620c96e46",
+    "assets/cars/mc3-skyline.json": "b596a1c7c9dc33cfd4085be1c053622c86091f8cd9fa1d4226a78054bcbc32f8",
+    "assets/cars/mc3-supra.glb": "46d6e9b61633b0153b0e9c1c57d7149234f0a9bee561e3170c6d52139e6675f8",
+    "assets/cars/mc3-supra.json": "545126a10cfcf1f8f37ef3aa3da4df6a0f094c740b8afdcff2525f93f6cca76d",
+    "assets/cars/mcla-evo.glb": "a57e240be577ad9b7d927416db7ab72d0f4821bc03aeb7fb7ab930a1fa9dc10b",
+    "assets/cars/mcla-evo.json": "6caa1d31d900f82a574036f29467f2c1d079066b4d6a6ae4ad836c16ed0fa7c1",
+    "assets/cars/mcla-skyline.glb": "1a177823ed20cf5c605928a3f97a919f4e3b1cbe93e78bf8d8418318370dd850",
+    "assets/cars/mcla-skyline.json": "e71ace50b13a367cdd7f8c95bff19a56b49d35c65bd4255b106c7e27e46dddfe",
+    "assets/cars/redline-911.glb": "9404efbb30d226c5d9ea8d853609ed7a0c575d60eea934cba331ad195d75ec35",
+    "assets/cars/redline-911.json": "14b25820ab0e3249aacc7ed303d569c4df76635909b0a80c03f4129bc088676d",
+    "assets/cars/redline-gt500.glb": "94e906b98137a81d8033ca98fb5545c6f1cdcb05dfbdc95e7dfad34f45f150a5",
+    "assets/cars/redline-gt500.json": "022f06207d56e2b10dee4ed256333deb8937a20aab0ae7683c750cdb9ab7d698",
+    "assets/cars/ref-a01.glb": "424ceb800772f815cf797eb24d636c75803b321d6ddb4051e165e07a25634594",
+    "assets/cars/ref-a01.json": "88fd2b312d0552da24fd6aecaef29c7f0da2a6bd461c94f21cb199b9d851f944",
+    "assets/cars/ref-a02.glb": "a4f5e28bc1ceccd83b29a6532ee2b00639f9531b4f06711c9f939a01388397dd",
+    "assets/cars/ref-a02.json": "0f32512c5e396a0f994e0b89d164a18d2f8aee5e41ba2af9b2d77d86fde1b597",
+    "assets/cars/ref-a04.glb": "0aaa273c6b4624405edbc0e0ee70aa791f56fe3f8b69d6da529f00970a0dde5e",
+    "assets/cars/ref-a04.json": "a099c86ae02768fc903c2fdcb71e36e6ec7db73961df842b80837cd39e1b5ab9",
+    "assets/cars/ref-a05.glb": "d4110cf452c03bd8429008a3eb6fa2811603ebe09655e4eec5d503634bfdfb5b",
+    "assets/cars/ref-a05.json": "ab7a6d6917b428cb54ad1e66935533347c3edf9622d1396b8170a3cb95078549",
+    "assets/cars/ref-a06.glb": "80200a54635809c1a3f8228958485607a041c7f88ee3ca888873afd01be9e9e1",
+    "assets/cars/ref-a06.json": "b48b3b0b7e49ac40cbc18fb725b5b4558e951043ecd8270463753b50fd20fbf6",
+    "assets/cars/ref-a07.glb": "76052d6b86bcaa3bc38511f51521703cf76f33570cdbac156d9aa8f0eeaf8c66",
+    "assets/cars/ref-a07.json": "9b57cbe4a3b8da44b153a92741a2400c151e7d97578ecbd12f8684db0e87f271",
+    "assets/cars/ref-a09.glb": "9cc4c7281988867c5a034d9ad11b47a2702dd88f897210308205e966edd24ec9",
+    "assets/cars/ref-a09.json": "4a55d732f36232a0d0feb57f222dd62b2c2623d9069fe169b05c023595e1261d",
+    "assets/cars/ref-a11.glb": "76dbbc22b8792494cc29bb8e2119806553b2550f034da2d8240d8cd57083b938",
+    "assets/cars/ref-a11.json": "2ac419177440b4063923c1c22dcc84d309c4b0343f507170d7c3fe42bfa351bc",
+    "assets/cars/ref-a12.glb": "569d4084f09ad57a8493c1affe6e2bb09e0fa51320791a3f25c61a583d5ff538",
+    "assets/cars/ref-a12.json": "187501ae759f3d52db62fe968b3daeaf34b97164b0ab6481c090fddce24871fc",
+    "assets/cars/ref-a13.glb": "7caae8f4d3f4bf71dd3bbaedf2079d01fea2ac0703ac777f74c78622873a2222",
+    "assets/cars/ref-a13.json": "34f60c335b3edda5422f7f7683e2ebc688a17342a9e4298c5bc476285493fbe1",
+    "assets/cars/ref-a14.glb": "65f472b8c0194fa51470adbf5c523a252fc050a2074bd547a34585d548a66b9c",
+    "assets/cars/ref-a14.json": "65418e77176ec61ebbea4f6111fad2f83fd5ff468f99528bcff064db9c2aa70c",
+    "assets/cars/ref-a15.glb": "ddeccf5a606c5ecb6bf60091c1325ef93f237b030a4771f2eaac33fc8cea5e15",
+    "assets/cars/ref-a15.json": "66776dd7fa5f5a1f19f4a05d4b9fdb5551680634cc6f5f41568e2c7acbda75af",
+    "assets/cars/ref-a16.glb": "689a4bc9ab411ebf0fb5067cb85d3c1e2d69a9ad45109a79ed07926510b8de86",
+    "assets/cars/ref-a16.json": "e1bd6e36350eed23a02c62547f61a7165646df9971a895f5d80b0034897aad89",
+    "assets/cars/ref-e02.glb": "18d9d450f35342513bd67d29d88d4b7efc40a2a5f9831e9f3765aa98c8460075",
+    "assets/cars/ref-e02.json": "c7232d88f77b9f38f8c3df38f65babfcb87a303b3e5336508c1411bdc7439111",
+    "assets/cars/ref-e03.glb": "2a7cd3afde3945429ee5fcc8bf67842a22c76ed63d5449b108d8e091ea146754",
+    "assets/cars/ref-e03.json": "59e7e0f50b1daf838790b39b9726ce3ec8fb9e0134ffc72e1df37d79289b3420",
+    "assets/cars/ref-e04.glb": "0c458cff8b36da1e914f3c9aae525565a1f5da5e3bad851ca37f9a459a829d58",
+    "assets/cars/ref-e04.json": "fb3484a996dd46892b8905dcde7c2f86b98614697d0bcc63167d87d35bee00fc",
+    "assets/cars/ref-e08.glb": "aadef6b0337fd3a9ca61693a72128640728438dd040747e6eeca07d102e4f895",
+    "assets/cars/ref-e08.json": "8386a85e6419440601c0290a4d11d90de5b3864cdf1c494810ac2645f87c79ce",
+    "assets/cars/ref-e09.glb": "df8d8418d577a3a0ea2039ee97f48ca595308a823ad0e8e26f6faf8ec09f50f0",
+    "assets/cars/ref-e09.json": "4839ee911957b3079c3639d5f027e9d7382c4d9057b2c086956452822fa28a1f",
+    "assets/cars/ref-e10.glb": "23dcd54abb9ddbc6db7d7a0c1308e810b718556976d18f208d84201b2f134cf1",
+    "assets/cars/ref-e10.json": "6a805146907e0e585165dceed40591d4fc115c8bcc68fb006f37212acf23fc8a",
+    "assets/cars/ref-e11.glb": "3e03e136f776d70745b7cbc6c0a796c6ce137f7b5e8fce381f0463a15369d7a5",
+    "assets/cars/ref-e11.json": "75db6321561f5833f13a7850b7854e3e07e8693caffe462dff246b4519dfaf4e",
+    "assets/cars/ref-e12.glb": "33eb062a08c8879e6a996c99ff01d03307ebb410fe647350e3bd66fd8e2cbbc4",
+    "assets/cars/ref-e12.json": "652a4e0405675c80590651539b80edc0cef1c8303682aa7d423eb6b3897e9ab8",
+    "assets/cars/ref-e13.glb": "f4187b3f20e6da9ea1da3aa9f4f7b7d2605023dc5df5482b04ff59d128e2668d",
+    "assets/cars/ref-e13.json": "edad964dcf04e1f3aa79c7c8b1433f36e4c0b98bdf259dee8ac959a04e2fb1a5",
+    "assets/cars/ref-j04.glb": "8be637fed7e8a6bf5bbfdba56d19696ab774287924e1113ed6d56fe9721c6983",
+    "assets/cars/ref-j04.json": "e92e73ef85636e36e12d33ebf13330a03872e33086279b217053666e94d2d0d2",
+    "assets/cars/ref-j07.glb": "e047a5932ddcc135b5108d6183cb4491850a067b9775126201d4aa8777e55b55",
+    "assets/cars/ref-j07.json": "704a5704f35425a8f2836edafd601808023c2ec7a4353147f1031d53ab6ba566",
+    "assets/cars/ref-j11.glb": "35104ed1fcfa17a5db0ca23d9424e7dcfd8c1fd29b7b7ae800936696783edd24",
+    "assets/cars/ref-j11.json": "a985405419c632ee592d0451b7e29d992ec00512cb4666023100fd3477005827",
+    "assets/cars/ref-j12.glb": "3590fef7c329ddfc593c22baebb8e2581fc057378ed99c042fb54a414c8ec169",
+    "assets/cars/ref-j12.json": "f18c8965593cecdf6fc08bf3efcc68d876d307c10e9b94392c9d3af22d45be5e",
+    "assets/cars/ref-j16.glb": "f18c3f27d03364587bbc576322bee7e67e78ec8e31c5213be4276e43c1041c56",
+    "assets/cars/ref-j16.json": "9e6456d9bb5a021364ba9c98b268e06b3db547b84b7a5cc472c6f47db5098600",
+    "assets/cars/ref-a08.glb": "c3b6b956a2e51edb113ea9cf41e44894e6c89e7edc1868d65351144e71fb6592",
+    "assets/cars/ref-a08.json": "f168c3912dcb6b8b642c0c919d9d5276ce6484d4cf6e5a24fd098fe81c2e92af",
+    "assets/cars/ref-a10.glb": "8d045159710cc96b7e53d178a1d01d55927577b6040f5ca4643ca0a1c1027033",
+    "assets/cars/ref-a10.json": "1092eaf3bb788c02c725ab002c2c0b3bdd9abf23cab7a44f277dacaf64931edd",
+    "assets/cars/ref-e05.glb": "d91f3505133117235e60156c0f36d8270804977e1f31194e515f2f1b308535f5",
+    "assets/cars/ref-e05.json": "9abd33ca22b15d6a714356ece302857d82c44e9ec052d9d63cdfe0f4b701709e",
+    "assets/cars/ref-e07.glb": "0c89922d83001ce6612786932dc41db56931ede6ddf0ef998d40c2d47bf75271",
+    "assets/cars/ref-e07.json": "35e37ea9511721f40240135cfe6de0bc96c0d191555a8f0a44186fd2f6b10d48",
+    "assets/cars/ref-e14.glb": "4bf3957aa2a97fcc9d11d3c6e05372c94370c1753e6bc075ef94640ea2ffa691",
+    "assets/cars/ref-e14.json": "28d83e5743c73e58ce514519c1db44e1f140d324cb98a0c29f86429f1997652f",
+    "assets/cars/ref-e15.glb": "fc5cb280d9025b625ef37b1dc83eb34e3a68f63934691706b57b76da4a5a4a9b",
+    "assets/cars/ref-e15.json": "8bdc2fb1b44dd544b51d9966d70919379e3ce018e7facff54c7343b0521f175e",
+    "assets/cars/ref-e16.glb": "edd30e717a2498091f8a9edb46c1cc6c27b7e5c9480d9c4b1040be4b4e8070f9",
+    "assets/cars/ref-e16.json": "7d351c1a1687e03e929c96ea1b290f69fc64c6ebf6ae5ff019724f0580f7653f",
+    "assets/cars/ref-e17.glb": "35628d682a3c1692bd408c61d597344923fa0869c2ebb3201f6205c742f35c33",
+    "assets/cars/ref-e17.json": "51fd59bfea59516a1548c8d06570733eac4e334dd3175c369dcec2eb5a73b34b",
+    "assets/cars/ref-j03.glb": "5fd7e78df1cee8922f16f678c5845bb8d4ab912e100fd2cbf7905a144f733b6e",
+    "assets/cars/ref-j03.json": "441e5563a3cb75b70205d58c86af9ae1701989065b00590809d999c329a00c0c",
+    "assets/cars/ref-j05.glb": "b34d61c7c76477a7696b25263ceb8a2ce15faaf1c417115240c91e93e66f9987",
+    "assets/cars/ref-j05.json": "935fec07c11241934fbae2a810497ef2c07fec38b879c04a9dde97d3d9780184",
+    "assets/cars/ref-j06.glb": "da597e33f88bf26d081cf159bd57f1dda28f878b1cc5839b78c6d2568c9672df",
+    "assets/cars/ref-j06.json": "f1fceba6cf6856ded802db2d62c2ac1024296162cac5fb19d4ca2d368c144c47",
+    "assets/cars/ref-j08.glb": "aff0872cab209e8fe6af3c42f57520cc045200a7246cb9ea44e408bea9dbc1dd",
+    "assets/cars/ref-j08.json": "85617c468391b63cd3e9a04ed38596f46bc52ac0dcf8864c8077d48058c6ff56",
+    "assets/cars/ref-j10.glb": "e364420115d24a33af97731db29c87b63f384c4475e61b3c58408c5f547d1a68",
+    "assets/cars/ref-j10.json": "aab1c51a828bbb13d4ab8ae6bcce1bd52d607fe3816d7cac4fc84a08c1a67629",
+    "assets/cars/ref-j13.glb": "0523724242032ca4432a1e8adb1dc2a400efb2d2cf58486592ee0d96668639f5",
+    "assets/cars/ref-j13.json": "76ce21ee95636309f4c95d6d1891e2a77364ad59c2662164301624aea46f238c",
+    "assets/cars/ref-j14.glb": "10149dac7ba15c5dbb938e053e1da6cf0e5127a77e09e70e5b88fefc6f34267f",
+    "assets/cars/ref-j14.json": "9a056f7dc48da805c51aa986c9417f1d13a71e9334c8eaac0f6420f307e564db",
+    "assets/cars/ref-j15.glb": "83db79a67821c60f0d077d7cf7ad3bea4d9a1b429e4170247461561b90abae80",
+    "assets/cars/ref-j15.json": "560dfb8b2a7f88620cc5f86f14745adfff4941fb8d1256dac0a801d988b6ebe0",
+    "assets/cars/ref-j17.glb": "882acdb1a8ab76ca42d243707133f7a19946d86069c82d81aa019fdc6b50a163",
+    "assets/cars/ref-j17.json": "15337738faeece3cf84c24189eea04a79229c9c8da1bca2550da0e3bc42cad37"
+  },
+  "rejected_before_physics_testing": [
+    {
+      "code": "GT4_TKFD0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_ALPR0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MBNZ0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_ASL_0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_AUNI0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_BNTL0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_BLTZ0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_CADI0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_CHAP0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_RE__0005",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_CHRY0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_DOME0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_FDEU0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_ORG_0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_GLET0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_HKS_0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_HPA_0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "unsupported non-descending gearbox"
+    },
+    {
+      "code": "GT4_JAY_0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "('GT4_JAY_0001', 'rear_left', 0.5332347532476063)"
+    },
+    {
+      "code": "GT4_LNCA0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_LNDR0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_LIST0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_BENZ0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_TOYT0046",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MUGN0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_NIKE0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_NISM0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_OPRA0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PGNI0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PNOZ0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PSCL0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PEUG0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PSCL0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_REAM0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MBNZ0005",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_SPON0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_VXHL0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MBNZ0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_AMUS0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_BMW_0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_CHAP0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_FDEU0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_HYDI0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_LNCA0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MAZD0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_DMLR0001",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_OPEL0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_OPRA0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PEUG0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_RE__0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_TKIR0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_VXHL0002",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_AUDI0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_BMW_0004",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_HYDI0005",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_JAGU0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_OPEL0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_PONT0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_SPON0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_SUZK0003",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_ALFA0005",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_AUDI0004",
+      "stage": "static source/geometry eligibility",
+      "reason": "unsupported non-descending gearbox"
+    },
+    {
+      "code": "GT4_BMW_0005",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_FDEU0004",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_HYDI0006",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_LNCA0004",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_MBNZ0006",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_NISS0008",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_SPON0004",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT4_SUBR0006",
+      "stage": "static source/geometry eligibility",
+      "reason": "insufficient supported native power/torque/gearing"
+    },
+    {
+      "code": "GT_SIMULATION__A_EMR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ACOER",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ACOSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ADEMR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ADGLR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ADLXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFA7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFB7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFC7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFD7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFO7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFR7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AFX7R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__ALTSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AMINR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AMISR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AMIVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AN16R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AS16R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__AV16R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__C_30R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__CCAMR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__CCRCR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__CCRVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__DVPGR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__DVPRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__H_RXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HACSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HACWR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCFNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCFOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCRXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCVNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCVOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HCVRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HDEGR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HDELR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HDERR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HDESR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HINRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HINSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HNSBR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HNSNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HNSRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HNSSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HNSXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HPNER",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HPNVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HPRER",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__HPRVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__L_7CR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__LD7CR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__LD7VR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__LPLAN",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__LPLBN",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__LPLIN",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__M_NNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MECLR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MFTGR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MFTNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MFTOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MFTRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MFTXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGAGR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGALR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGNOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGNTR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGOOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGOTR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGTMR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGTOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MGTTR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MLNNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MLNOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MMGOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__MMGRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N_00R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N180R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N18NR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N18SR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N432R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NM32R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NN32R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NPLOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NPRIR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NPROR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NQ13R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NQ14R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NQ15R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NQ23R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NR02R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NR32R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NR33R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NR34R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NS13R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NS14R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NS15R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NS23R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NT32R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NT33R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NV12R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NV22R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NV33R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NV34R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NZX2R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NZX3R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NZXSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__NZXVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__S_PBR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPAR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPBR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPCR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPDR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPTR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPWR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SIPZR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SLGAR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SLGBR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SLGNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SLGWR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SSV4R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__SSVXR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__T_ELR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TCEER",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TCEGR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TCELR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TCHSR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TCHVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TEXVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TLEVR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TLVOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TM2SR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TM2VR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TMR2R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TMRLR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSGTR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSOAR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSONR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSOOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSORR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSPNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSPOR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSPRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TSTLR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TTRNR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__TTROR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__VCRBR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__VGR5R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__VGRFR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__A_IAR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__C_67N",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__H_VRR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__N_13R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__S_V4R",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__T_OAR",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    },
+    {
+      "code": "GT_SIMULATION__A_ODN",
+      "stage": "static source/geometry eligibility",
+      "reason": "native GT1 stock specification unavailable"
+    }
+  ],
+  "native_catalog_sha256": "5dd09aa0cc2d246495e847d42a06f544c8ccf992e2fa52fc7c55a36de65e4cda",
+  "decoder_sha256": "aa37a5e19555c544d314c75400bedf3178ad3172bef4fbc1d7ccc4cea3ba32a2"
+}

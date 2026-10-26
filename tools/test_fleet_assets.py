@@ -21,6 +21,9 @@ class IntegrityControls(unittest.TestCase):
         self.failed = False
         root = Path(self.temp.name) / 'grid'
         shutil.copytree(self.original_root / 'assets/cars', root / 'assets/cars')
+        selection = Path('docs/verification/fleet-40/selection.json')
+        (root / selection).parent.mkdir(parents=True)
+        shutil.copyfile(self.original_root / selection, root / selection)
         (Path(self.temp.name) / 'carmodels').symlink_to(self.original_root.parent / 'carmodels', target_is_directory=True)
         check_assets.ROOT = root
 
@@ -63,6 +66,30 @@ class IntegrityControls(unittest.TestCase):
         receipt = json.loads(path.with_suffix('.json').read_text())
         receipt['prepared_sha256'] = hashlib.sha256(data).hexdigest()
         path.with_suffix('.json').write_text(json.dumps(receipt))
+
+    def test_c5_stock_dimensions_and_tires_are_used_by_visuals_and_physics(self):
+        roster = json.loads((check_assets.ROOT / 'assets/cars/roster.json').read_text())
+        car = next(c for c in roster if c['id'] == 'ref-a08')
+        self.assertAlmostEqual(car['wheels'][2][2] - car['wheels'][0][2], 104.5 * .0254)
+        for axle, inches in enumerate([62.4, 62.6]):
+            self.assertAlmostEqual(car['wheels'][axle * 2 + 1][0] - car['wheels'][axle * 2][0], inches * .0254)
+        self.assertEqual(car['radii'], [.3219, .3219, .33185, .33185])
+        check_assets.check_car(car)
+
+    def test_c5_forged_transform_receipt_cannot_override_reference_geometry(self):
+        import hashlib
+        path = check_assets.ROOT / 'assets/cars/ref-a08.glb'
+        doc, binary = parse(path.read_bytes())
+        doc['nodes'][5]['matrix'][12] += .2
+        data = encode(doc, binary)
+        path.write_bytes(data)
+        receipt = json.loads(path.with_suffix('.json').read_text())
+        receipt['prepared_sha256'] = hashlib.sha256(data).hexdigest()
+        receipt['reference_geometry']['body_matrix'][12] += .2
+        path.with_suffix('.json').write_text(json.dumps(receipt))
+        roster = json.loads((check_assets.ROOT / 'assets/cars/roster.json').read_text())
+        with self.assertRaisesRegex(AssertionError, 'source-derived correction'):
+            check_assets.check_car(next(c for c in roster if c['id'] == 'ref-a08'))
 
     def test_untouched_roster_passes(self):
         self.run_check()

@@ -75,11 +75,12 @@ def check():
 
 def check_fleet():
     roster = json.loads((ROOT / 'assets/cars/roster.json').read_text())
-    assert len(roster) == 13 and roster[0]['id'] == '350z'
-    assert len({car['id'] for car in roster}) == 13
-    assert Counter(car['game_id'] for car in roster[1:]) == {
-        'ford-racing-2': 2, 'gran-turismo': 2, 'gran-turismo-4': 2,
-        'midnight-club-3-remix': 2, 'midnight-club-los-angeles': 2, 'redline': 2}
+    plan = json.loads((ROOT / 'docs/verification/fleet-40/selection.json').read_text())
+    assert len(roster) >= plan['target_fleet_size'] and roster[0]['id'] == '350z'
+    assert len({car['id'] for car in roster}) == len(roster)
+    counts = Counter(car['game_id'] for car in roster[1:])
+    assert len(counts) == 6 and min(counts.values()) >= 2
+    assert {c['id'] for c in plan['cars']} <= {c['id'] for c in roster}
     # The game-owned reference edition is immutable across this fleet addition.
     assert hashlib.sha256((ROOT / 'assets/cars/350z.glb').read_bytes()).hexdigest() == 'e79630558ed16c54942afc552838fd465a73bf507754947342bd65a805d37874'
     reports = []
@@ -96,7 +97,7 @@ def check_fleet():
     if errors:
         reasons = '; '.join(f'{error["id"]}: {error["error"].strip().splitlines()[-1]}' for error in errors)
         raise AssertionError(f'fleet asset check failed for {[error["id"] for error in errors]}; partial report: {output.relative_to(ROOT)}; {reasons}')
-    print('FLEET ASSETS PASS: 12 additions; 2 per game; 350Z unchanged; all source geometry/PNG bytes and texture references preserved; 4 animated wheel assemblies each')
+    print(f'FLEET ASSETS PASS: {len(roster)} cars across six games; 350Z unchanged; source geometry/PNG bytes and wheel assemblies preserved')
 
 
 def check_car(car):
@@ -119,12 +120,15 @@ def check_car(car):
     source_world = {i: world for i, world, _ in default_meshes(source)}
     assert {m['source_node'] for m in receipt['mesh_nodes']} == active_source - set(receipt['excluded_nodes'])
     assert all('HELMET' in source['nodes'][i].get('name', '').upper() for i in receipt['excluded_nodes'])
+    from reference_geometry import validate_receipt, transform_for
+    geometry = validate_receipt(car, source, receipt)
     scene_triangles = 0
     for record in receipt['mesh_nodes']:
         node = doc['nodes'][record['prepared_node']]
         old_node = source['nodes'][record['source_node']]
         assert record['source_world_matrix'] == source_world[record['source_node']]
         expected = multiply(receipt['normalization'], source_world[record['source_node']])
+        expected = multiply(transform_for(geometry, record['wheel']), expected)
         actual = multiply(matrix(doc['nodes'][parents[record['prepared_node']]]), matrix(node))
         assert all(abs(a-b) < 1e-6 for a, b in zip(expected, actual)), car['id']
         mesh = doc['meshes'][node['mesh']]

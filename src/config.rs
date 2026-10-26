@@ -37,6 +37,7 @@ impl AccessContext {
 
 #[derive(Resource, Clone, Debug)]
 pub struct RuntimeConfig {
+    pub fast_scenario: bool,
     pub mode: String,
     pub visual_only: bool,
     pub backend: RenderBackend,
@@ -58,6 +59,7 @@ impl Default for RuntimeConfig {
             .filter(|p| p.is_dir());
         let bundled = bundle.is_some();
         Self {
+            fast_scenario: false,
             mode: "interactive".into(),
             visual_only: false,
             backend: RenderBackend::Window,
@@ -91,6 +93,7 @@ impl RuntimeConfig {
             RenderBackend::Window
         };
         let mut config = Self {
+            fast_scenario: args.iter().any(|a| a == "--fast-scenario"),
             backend,
             visual_only: args.iter().any(|a| a == "--visual-check"),
             ..Self::default()
@@ -130,7 +133,20 @@ impl RuntimeConfig {
         if !Fleet::default().cars.iter().any(|car| car.id == config.car) {
             return Err(format!("unknown car {}", config.car));
         }
+        config.validate_execution()?;
         Ok(config)
+    }
+    pub fn validate_execution(&self) -> Result<(), String> {
+        if self.fast_scenario
+            && (self.backend != RenderBackend::Disabled
+                || self
+                    .scenario
+                    .as_ref()
+                    .is_none_or(|s| s.commands.iter().any(|c| c.elapsed_ms.is_some())))
+        {
+            return Err("--fast-scenario requires a render-disabled tick-only scenario".into());
+        }
+        Ok(())
     }
     fn load_scenario(&mut self, args: &[String]) -> Result<(), String> {
         if let Some(path) = argument(args, "--scenario")? {

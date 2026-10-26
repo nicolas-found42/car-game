@@ -72,12 +72,18 @@ def verify_capture(run: Path, car: dict, report: dict, view: str, baseline: dict
     return metrics
 
 
+def comparison_groups(roster):
+    for game in dict.fromkeys(c['game_id'] for c in roster[1:]):
+        additions = [c for c in roster[1:] if c['game_id'] == game]
+        for page, offset in enumerate(range(0,len(additions),4),1):
+            yield game,page,[roster[0]]+additions[offset:offset+4]
+
+
 def comparison_sheets(run, reports, roster):
     out = run / 'comparisons'
     out.mkdir(exist_ok=True)
-    for game in dict.fromkeys(c['game_id'] for c in roster[1:]):
-        group = [roster[0]] + [c for c in roster[1:] if c['game_id'] == game]
-        sheet = Image.new('RGB', (1800, 1260), (19, 26, 33))
+    for game,page,group in comparison_groups(roster):
+        sheet = Image.new('RGB', (1800, 420 * len(group)), (19, 26, 33))
         draw = ImageDraw.Draw(sheet)
         for row, car in enumerate(group):
             for col, view in enumerate(('front', 'side', 'rear')):
@@ -86,9 +92,10 @@ def comparison_sheets(run, reports, roster):
                 crop = image.crop((560, 340, 1360, 840)).resize((600, 375))
                 sheet.paste(crop, (col * 600, row * 420 + 35))
                 draw.text((col * 600 + 10, row * 420 + 10), f'{car["name"]} | {view}', fill='white')
-        sheet.save(out / f'{game}-comparison.jpg', quality=92)
+        suffix = '' if page == 1 else f'-{page}'
+        sheet.save(out / f'{game}-comparison{suffix}.jpg', quality=92)
 
-    overview = Image.new('RGB', (1800, 1600), (19, 26, 33))
+    overview = Image.new('RGB', (1800, 320 * ((len(roster) + 2) // 3)), (19, 26, 33))
     draw = ImageDraw.Draw(overview)
     for index, (car, report) in enumerate(zip(roster, reports, strict=True)):
         x, y = (index % 3) * 600, (index // 3) * 320
@@ -98,6 +105,8 @@ def comparison_sheets(run, reports, roster):
         draw.text((x + 14, y + 5), car['name'], fill='white')
         draw.text((x + 14, y + 20), car['game'] + (' / add-on' if car['variant'] == 'add-on' else ''), fill=(174, 190, 201))
     overview.save(run / 'fleet-overview.jpg', quality=94)
+    for page,y in enumerate(range(0,overview.height,960),1):
+        overview.crop((0,y,1800,min(y+960,overview.height))).save(run/f'fleet-overview-{page}.jpg',quality=94)
 
 
 def write_summary(run, manifest, reports, roster):
@@ -106,7 +115,7 @@ def write_summary(run, manifest, reports, roster):
         f'Run: `{manifest["run_id"]}`',
         f'Commit: `{manifest["git"]["sha"]}` ({"dirty" if manifest["git"]["dirty"] else "clean"})',
         f'Binary: `{manifest["binary_sha256"]}`', '',
-        'Thirteen cars: the original 350Z plus two additions from each of six games.', '',
+        f'{len(roster)} cars including the original 350Z, across six source games.', '',
         'Every row passed the same native acceleration/turn/handbrake/braking/reset script, animated every wheel/tire node, and produced four nonblank 1920x1080 captures. Matched static comparisons put the original 350Z on the first row of each game sheet.', '',
         '| Car | Source | Peak km/h | Brake km/h | FPS | p95 ms |',
         '| --- | --- | ---: | ---: | ---: | ---: |',
@@ -136,7 +145,7 @@ def main() -> int:
     provenance = verify(run)
     assert provenance['ok'], provenance['errors']
     roster = captured_catalog(run)
-    assert len(reports) == len(roster) == 13, 'A complete native fleet run is required'
+    assert len(reports) == len(roster) and len(roster) >= 13, 'A complete native fleet run is required'
     assert [r['id'] for r in reports] == [c['id'] for c in roster]
     baseline = load_json(args.baseline) if args.baseline else None
 
@@ -170,7 +179,7 @@ def main() -> int:
     write_summary(run, manifest, reports, roster)
     if evidence:
         print(f'Evidence manifest: {run / "evidence-manifest.json"}')
-    print(f'FLEET NATIVE EVIDENCE PASS: {manifest["run_id"]}; 13 drive scripts, all wheel animations, 52 captured views')
+    print(f'FLEET NATIVE EVIDENCE PASS: {manifest["run_id"]}; {len(roster)} drive scripts, all wheel animations, {4 * len(roster)} captured views')
     return 0
 
 

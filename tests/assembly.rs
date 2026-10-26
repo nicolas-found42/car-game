@@ -23,7 +23,10 @@ fn atomic_remove_reinstall_and_idempotence_preserve_identity() {
     let t = remove(0);
     a.transact(&t).unwrap();
     assert_eq!(a.inspect().unwrap().readiness, "incomplete-inoperable");
-    assert_eq!(a.aggregate().unwrap().mass, 1295.);
+    assert_eq!(
+        a.aggregate().unwrap().mass,
+        car_game::vehicle::profile::for_car("350z").mass_kg as f64 - 25.
+    );
     let once = a.clone();
     assert_eq!(a.transact(&t).unwrap(), "already-applied");
     assert_eq!(a, once);
@@ -163,13 +166,22 @@ fn prerequisites_are_acyclic_but_functional_networks_can_loop() {
 fn intact_mass_tensor_is_baseline_and_order_independent() {
     let a = pilot();
     let aggregate = a.aggregate().unwrap();
-    assert_eq!(aggregate.mass, 1320.);
-    for x in aggregate.center {
-        assert!(x.abs() < 1e-12);
+    let target = car_game::vehicle::profile::for_car("350z").properties(&CarSpec::default());
+    assert_eq!(aggregate.mass, target.mass as f64);
+    for (x, expected) in aggregate
+        .center
+        .iter()
+        .zip(target.local_center_of_mass.to_array())
+    {
+        assert!((*x - expected as f64).abs() < 1e-9);
     }
     for r in 0..3 {
         for c in 0..3 {
-            let expected = if r == c { [1800., 2300., 650.][r] } else { 0. };
+            let expected = if r == c {
+                target.principal_inertia[r] as f64
+            } else {
+                0.
+            };
             assert!((aggregate.inertia[r][c] - expected).abs() < 1e-9);
         }
     }

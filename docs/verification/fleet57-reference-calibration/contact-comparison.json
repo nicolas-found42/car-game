@@ -1,0 +1,50 @@
+{
+  "exceptions": [
+    {
+      "car": "ref-j13",
+      "case": "trail-brake-right",
+      "repeat": 1,
+      "before": {
+        "four_contact_pct": 99.0487514863258,
+        "four_loaded_pct": 98.5731272294887,
+        "minimum_contacts": 3,
+        "airborne_ticks": 0,
+        "peak_tilt_deg": 2.7242341397275367,
+        "run": "artifacts/fleet57-geometry-drivetrain-20261025/runs/trail-brake-right-ref-j13-r1/20261025T035914012119Z-2342545-scenario-27439-1-1792900754034772000"
+      },
+      "after": {
+        "four_contact_pct": 99.0487514863258,
+        "four_loaded_pct": 98.5731272294887,
+        "minimum_contacts": 3,
+        "airborne_ticks": 0,
+        "peak_tilt_deg": 2.7242341397275367,
+        "run": "artifacts/fleet57-reference-calibration-20261025/runs/trail-brake-right-ref-j13-r1/20261025T062003963116Z-2342545-scenario-72426-1-1792909203983870000"
+      },
+      "identical_trajectory": true
+    },
+    {
+      "car": "ref-j13",
+      "case": "trail-brake-right",
+      "repeat": 2,
+      "before": {
+        "four_contact_pct": 99.0487514863258,
+        "four_loaded_pct": 98.5731272294887,
+        "minimum_contacts": 3,
+        "airborne_ticks": 0,
+        "peak_tilt_deg": 2.7242341397275367,
+        "run": "artifacts/fleet57-geometry-drivetrain-20261025/runs/trail-brake-right-ref-j13-r2/20261025T035916297902Z-2342545-scenario-27538-1-1792900756319766000"
+      },
+      "after": {
+        "four_contact_pct": 99.0487514863258,
+        "four_loaded_pct": 98.5731272294887,
+        "minimum_contacts": 3,
+        "airborne_ticks": 0,
+        "peak_tilt_deg": 2.7242341397275367,
+        "run": "artifacts/fleet57-reference-calibration-20261025/runs/trail-brake-right-ref-j13-r2/20261025T062004679062Z-2342545-scenario-72509-1-1792909204700001000"
+      },
+      "identical_trajectory": true
+    }
+  ],
+  "baseline_investigation": "docs/verification/fleet-57/contact-investigation.json",
+  "interpretation": "Baseline 22B right trail-brake contact loss was reproduced by wall-only controls. Changed approaches require trace inspection before assigning the same cause."
+}
