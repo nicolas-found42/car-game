@@ -187,3 +187,31 @@ See `docs/verification/issue-15-schema.md` for the downstream schema/evidence ha
 Root owns coordination of the next active slot; this issue awaits #14 follow-up,
 full combined verification, independent reviews, final exact rebind/GPU/fleet checks
 and PR creation. No GPU acceptance, issue completion, merge or closure is claimed.
+
+## Rebuild on main after #13 and #14 — source `cd46952`
+
+Rebuilt from `origin/main` `34e8baf` (#14 merged) by cherry-picking only this
+issue's commits: `c7a7468 f03ed6b 86493c6 8769160 0f47939 c885c1f 878f7a9 de1e9cb`.
+Skipped `55754ea` and `06a363e` (pre-review copies of #14, superseded by the
+merged `8f7df51` helpers) and all #13 commits already on main. Two conflicts
+in `f03ed6b`: `AssertionKind` adds `PhysicsState` beside `SnapshotMatches` and
+`VehicleState`; the reserved-actor regression keeps main's shared
+`reserved-player-actor.json` fixture. A tree diff against the old branch
+`de1e9cb` shows only main's changes (shared `queue_player_reset`, CI test
+speedups, provenance hashing); no issue-15 code was lost.
+
+`CAR_GAME_MUTE=1 bash scripts/verify.sh --base origin/main` passed every rung
+with exit 0 as the only Cargo workload on the shared target: fmt, all-target
+Clippy, complexity against `HEAD` and `origin/main`, all-target Rust tests
+(**81 passed**, including
+`inserted_removed_and_relocated_road_queries_and_forces_are_current_on_the_first_tick`,
+`authored_query_force_and_reset_scenario_executes_all_eight_first_tick_assertions`,
+`simultaneous_cars_use_independent_geometry_inputs_and_exclusive_controllers`
+and `serialized_snapshot_restores_in_fresh_application_without_runtime_handles`),
+Python syntax/controls, asset integrity, and the offscreen release fleet check
+(13 car reports, run
+`20261026T174930292793Z-cd46952-fleet-51534-1-1793036970328087000`, 161204
+events, `RUN EVIDENCE PASS`). Log: primary `artifacts/issue-15/verify-cd46952.log`.
+
+Not run in this pass: `--recorded` provenance build, native Metal runs of
+`synchronized-physics-metal.json`, and `scripts/verify_live.sh`.
