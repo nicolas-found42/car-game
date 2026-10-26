@@ -1,5 +1,6 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
 use crate::{
+    controls::{PlayerVehicle, VehicleControl},
     diagnostics::{InputSample, PhysicsSample, PhysicsTrace, RunHandle},
     roster::{CarSpec, Fleet},
 };
@@ -103,12 +104,24 @@ pub fn chassis_collider(spec: &CarSpec) -> Collider {
 }
 
 fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
-    commands.spawn((
-        Name::new("Player chassis"),
+    let spec = spec.clone();
+    commands.spawn(chassis_bundle(&spec, spawn_pose())).insert((
+        PlayerVehicle,
+        VehicleControl::new(
+            crate::assembly::VehicleId::from("pilot-350z"),
+            spec,
+            crate::runtime::ControllerOwner::default(),
+        ),
+    ));
+}
+
+pub fn chassis_bundle(spec: &CarSpec, pose: Transform) -> impl Bundle {
+    (
+        Name::new("Vehicle chassis"),
         Vehicle::default(),
-        spawn_pose(),
+        pose,
         RigidBody::Dynamic,
-        chassis_collider(&spec),
+        chassis_collider(spec),
         ColliderMassProperties::Density(0.0),
         baseline_mass_properties(),
         Velocity::zero(),
@@ -121,7 +134,7 @@ fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
         Restitution::coefficient(0.08),
         Ccd::enabled(),
         Sleeping::disabled(),
-    ));
+    )
 }
 
 /// Snap to the nearest street, inside the perimeter, facing its longitudinal axis.
@@ -137,7 +150,12 @@ pub fn recovery_pose(position: Vec3) -> Transform {
     }
 }
 
-#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
+// Bevy ECS query includes independent per-chassis state and selected-player marker.
+#[allow(
+    clippy::too_many_arguments,
+    clippy::too_many_lines,
+    clippy::type_complexity
+)]
 pub(crate) fn simulate(
     context: ReadRapierContext,
     assembly: Option<Res<crate::assembly::AssemblyRuntime>>,
@@ -156,6 +174,8 @@ pub(crate) fn simulate(
         &mut Velocity,
         &mut ExternalForce,
         &mut Vehicle,
+        &mut VehicleControl,
+        Option<&PlayerVehicle>,
     )>,
 ) {
     let Ok(context) = context.single() else {
@@ -184,7 +204,31 @@ pub(crate) fn simulate(
         envelope.actor_id = Some("player-vehicle".into());
         recorder.event_envelope("controls.effective", json!({"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
     }
-    for (entity, mut pose, mut velocity, mut total, mut car) in &mut cars {
+    for (entity, mut pose, mut velocity, mut total, mut car, mut control, player) in &mut cars {
+        let is_player = player.is_some();
+        if is_player {
+            control.spec = spec.clone();
+            control.owner = controller.unwrap_or_default();
+            control.input = *input;
+            control.input.reset = do_reset;
+        }
+        let spec = control.spec.clone();
+        let mut input = control.input;
+        let do_reset = std::mem::take(&mut input.reset);
+        control.input.reset = false;
+        let controller = Some(control.owner);
+        let actor_id = if is_player {
+            "player-vehicle".to_string()
+        } else {
+            control.id.0.clone()
+        };
+        if !is_player && let Some(recorder) = recorder.as_ref() {
+            let mut envelope = recorder.envelope();
+            envelope.tick = tick;
+            envelope.boundary = "fixed_consumption".into();
+            envelope.actor_id = Some(actor_id.clone());
+            recorder.event_envelope("controls.effective", json!({"vehicle_id":control.id,"throttle":input.throttle,"brake":input.brake,"steer":input.steer,"handbrake":input.handbrake,"reset":do_reset,"controller":controller}), envelope);
+        }
         if do_reset || pose.translation.y < -12.0 {
             let before = json!({"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":car.reset_count});
             *pose = recovery_pose(pose.translation);
@@ -194,19 +238,27 @@ pub(crate) fn simulate(
             *car = Vehicle::default();
             car.previous = *pose;
             car.reset_count = count;
+            let request = if is_player {
+                pending_reset.as_mut().and_then(|p| p.0.take())
+            } else {
+                control.pending_reset.take()
+            };
             if let Some(recorder) = recorder.as_ref() {
-                let request = pending_reset.as_mut().and_then(|p| p.0.take());
+                let requested = request
+                    .as_ref()
+                    .map(|r| r.intent.as_ref().unwrap_or(&r.command));
+                let requested = serde_json::to_value(requested).expect("command");
                 let mut envelope = recorder.envelope();
                 envelope.tick = tick;
                 envelope.boundary = "applied_tick".into();
-                envelope.actor_id = Some("player-vehicle".into());
+                envelope.actor_id = Some(actor_id.clone());
                 if let Some(request) = request {
                     envelope.command_id = request.envelope.command_id;
                     envelope.correlation_id = request.envelope.correlation_id;
                     envelope.span = request.envelope.span;
                 }
-                recorder.event_envelope("vehicle.reset", json!({"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
-            } else if let Some(pending) = pending_reset.as_mut() {
+                recorder.event_envelope("vehicle.reset", json!({"vehicle_id":control.id,"requested_command":requested,"before":before,"after":{"position":pose.translation.to_array(),"rotation":pose.rotation.to_array(),"linear_velocity":velocity.linear.to_array(),"angular_velocity":velocity.angular.to_array(),"reset_count":count},"disposition":"applied","reason":if do_reset {"requested-reset"} else {"fell-below-world"}}), envelope);
+            } else if is_player && let Some(pending) = pending_reset.as_mut() {
                 pending.0 = None;
             }
             continue;
@@ -229,7 +281,10 @@ pub(crate) fn simulate(
         *total = ExternalForce::default();
 
         for (i, mount) in spec.mounts().iter().enumerate() {
-            if spec.id == "350z" && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i]) {
+            if is_player
+                && spec.id == "350z"
+                && assembly.as_ref().is_some_and(|a| !a.wheel_enabled[i])
+            {
                 ray_misses += 1;
                 continue;
             }
@@ -351,7 +406,7 @@ pub(crate) fn simulate(
         let sample = PhysicsSample {
             step,
             tick,
-            actor_id: "player-vehicle".into(),
+            actor_id: actor_id.clone(),
             time: fixed_time.elapsed_secs(),
             car: spec.id.clone(),
             position: [pose.translation.x, pose.translation.y, pose.translation.z],
@@ -384,8 +439,12 @@ pub(crate) fn simulate(
             },
             ray_misses,
         };
-        if let Some(trace) = trace.as_mut() {
-            trace.record(sample.clone());
+        if is_player {
+            if let Some(trace) = trace.as_mut() {
+                trace.record(sample.clone());
+            }
+        } else if let Some(recorder) = recorder.as_ref() {
+            recorder.record_evidence(crate::diagnostics::EvidenceStream::Physics, tick, &sample);
         }
         if let Some(reason) = physics_invariant(&sample) {
             if let Some(trace) = trace.as_mut() {
