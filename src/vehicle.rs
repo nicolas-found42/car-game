@@ -252,21 +252,15 @@ pub(crate) fn simulate(
         car.slip = 0.0;
         *total = ExternalForce::default();
 
+        let wheel_parts = revision
+            .and(ledger.as_ref())
+            .and_then(|a| a.mounted_wheels().ok())
+            .unwrap_or_default();
         for (i, mount) in spec.mounts().iter().enumerate() {
             let origin = center + pose.rotation * *mount;
             evidence.wheels[i] = crate::physics::WheelSample {
                 corner: i,
-                part_id: revision.and_then(|_| {
-                    ledger.as_ref().and_then(|a| {
-                        a.parts
-                            .iter()
-                            .find(|p| {
-                                matches!(a.definitions[&p.definition].collision,
-                        crate::assembly::CollisionBinding::RaycastWheel { corner } if corner == i)
-                            })
-                            .map(|p| p.id.clone())
-                    })
-                }),
+                part_id: wheel_parts[i].clone(),
                 availability: "miss".into(),
                 origin: origin.to_array(),
                 direction: (-up).to_array(),

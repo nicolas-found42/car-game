@@ -60,7 +60,7 @@ impl PhysicsEdit {
 fn finite(position: &[f32; 3]) -> bool {
     position.iter().all(|v| v.is_finite())
 }
-fn collider(world: &mut World, id: &str) -> Result<Entity, &'static str> {
+pub(crate) fn collider(world: &mut World, id: &str) -> Result<Entity, &'static str> {
     world
         .query::<(Entity, &ColliderIdentity)>()
         .iter(world)

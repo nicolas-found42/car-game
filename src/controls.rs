@@ -97,13 +97,15 @@ pub fn spawn(
         .find(|s| s.id == car)
         .cloned()
         .ok_or("unknown-car")?;
+    // Authored roads share the collider namespace; a clash would misroute physics edits.
+    let collider_id = format!("{}:chassis", id.0);
+    if crate::physics::commands::collider(world, &collider_id).is_ok() {
+        return Err("duplicate-collider-id");
+    }
     let pose = Transform::from_translation(Vec3::from_array(position));
     world
         .spawn(crate::vehicle::chassis_bundle(&spec, pose))
-        .insert(crate::physics::ColliderIdentity(format!(
-            "{}:chassis",
-            id.0
-        )))
+        .insert(crate::physics::ColliderIdentity(collider_id))
         .insert(VehicleControl::new(id, spec, owner));
     Ok(())
 }

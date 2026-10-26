@@ -305,8 +305,12 @@ fn composed_forces_match_the_backend_and_removed_wheel_capability_stays_with_its
     assert_eq!(player.body_part_id.unwrap().0, "350z-chassis");
     assert_eq!(player.evidence.wheels[0].availability, "wheel_absent");
     assert_eq!(
-        player.evidence.wheels[0].part_id.as_ref().unwrap().0,
-        "350z-wheel-0"
+        player.evidence.wheels[0].part_id, None,
+        "an empty socket names no part, not the wheel now in inventory"
+    );
+    assert_eq!(
+        player.evidence.wheels[1].part_id.as_ref().unwrap().0,
+        "350z-wheel-1"
     );
     let other = &app.world().resource::<CompletedSteps>().0[&VehicleId::from("independent")];
     assert_eq!(other.evidence.assembly_binding, "no_assembly_binding");

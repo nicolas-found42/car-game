@@ -36,7 +36,7 @@ force contributors reflect the current tick's explicitly labeled pre-step query.
 | `evidence.assembly_binding`, `assembly_revision`, `assembly_generation` | `bound` with actual graph revision and derived anchor generation, or explicit `no_assembly_binding` with null revisions. #16 must register secondary/all-fleet graphs before P1 acceptance. |
 | `evidence.mass`, `center_of_mass` | Actual freshly recomputed Rapier mass and world COM used for this tick's force lever arms. |
 | `evidence.pre_step_position`, `pre_step_linear_velocity` | Explicitly labeled preparation state; never treat as completed pose/velocity. |
-| `evidence.wheels` | Exactly four corners, each with own wheel PartId when bound, availability/rejection reason, stable hit collider ID, origin/direction/range, optional hit distance/point/normal and force contributors. |
+| `evidence.wheels` | Exactly four corners, each with the PartId of the wheel mounted in that corner's socket (none when the socket is empty), availability/rejection reason, stable hit collider ID, origin/direction/range, optional hit distance/point/normal and force contributors. |
 | Wheel `suspension`, `tire`, `antiroll` | Force and COM-relative torque arrays from the single production mechanics solver. Missing/rejected/inverted/reset corners retain explicit reasons and zero contribution. |
 | `evidence.chassis`, `evidence.total` | Chassis drag/downforce/yaw contribution and once-composed current-step sum. |
 | `backend_applied` | Actual Rapier user force/torque read after the integration; compare with the composed total to detect bridge/overwrite mistakes. |

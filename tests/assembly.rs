@@ -286,3 +286,25 @@ fn finite_tensor_entries_cannot_hide_principal_inertia_overflow() {
     assert_eq!(a.transact(&t).unwrap_err(), "invalid-aggregate-mass-tensor");
     assert_eq!(a, before);
 }
+#[test]
+fn mounted_wheels_follow_the_socket_not_the_definition_corner() {
+    let mut a = pilot();
+    let Attachment::Mounted { parent, .. } = a.parts[1].attachment.clone() else {
+        panic!("pilot wheel-0 is mounted");
+    };
+    a.transact(&remove(0)).unwrap();
+    let swap = Transaction {
+        id: TransactionId::from("swap"),
+        expected_revision: 1,
+        part: PartId::from("350z-wheel-1"),
+        destination: Attachment::Mounted {
+            parent,
+            mount: "wheel-0".into(),
+        },
+    };
+    a.transact(&swap).unwrap();
+    let wheels = a.mounted_wheels().unwrap();
+    assert_eq!(wheels[0], Some(PartId::from("350z-wheel-1")));
+    assert_eq!(wheels[1], None, "inventory wheel-0 and empty socket");
+    assert_eq!(a.wheel_mask().unwrap(), [true, false, true, true]);
+}
