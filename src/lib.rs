@@ -14,6 +14,7 @@ pub mod config;
 pub mod controls;
 pub mod diagnostics;
 mod ingress;
+pub mod physics;
 pub mod presentation;
 pub mod provenance;
 pub mod roster;

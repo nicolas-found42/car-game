@@ -49,6 +49,9 @@ pub enum ProductionCommand {
         position: [f32; 3],
         controller: ControllerOwner,
     },
+    PhysicsEdit {
+        edit: crate::physics::PhysicsEdit,
+    },
     InspectAssembly,
     SnapshotAssembly {
         key: String,
@@ -80,6 +83,9 @@ pub enum ProductionCommand {
 }
 impl ProductionCommand {
     pub fn validate(&self) -> Result<(), String> {
+        if let Self::PhysicsEdit { edit } = self {
+            edit.validate()?;
+        }
         if let Self::Vehicle { target, command } = self {
             if target.0.is_empty() {
                 return Err("empty-vehicle-id".into());
@@ -307,6 +313,7 @@ pub fn dispatch_update(world: &mut World) {
                 | ProductionCommand::RestoreAssembly { .. }
                 | ProductionCommand::Vehicle { .. }
                 | ProductionCommand::SpawnVehicle { .. }
+                | ProductionCommand::PhysicsEdit { .. }
                 | ProductionCommand::InspectAssembly
                 | ProductionCommand::AssemblyTransaction { .. }
                 | ProductionCommand::SelectCar { .. }
@@ -333,6 +340,14 @@ fn dispatch_fixed(world: &mut World) {
             continue;
         }
         match &command.command {
+            ProductionCommand::PhysicsEdit { edit } => {
+                let result = crate::physics::commands::apply(world, edit);
+                let (disposition, reason) = match result {
+                    Ok(reason) => ("applied", reason),
+                    Err(reason) => ("rejected", reason),
+                };
+                outcome(world, &command, disposition, reason);
+            }
             ProductionCommand::SnapshotAssembly { key } => {
                 crate::assembly::snapshot_command(world, &command, key)
             }

@@ -283,8 +283,9 @@ impl Assembly {
     pub fn installed(&self, id: &PartId) -> Result<bool, String> {
         Ok(matches!(self.root(id)?, Location::Vehicle { .. }))
     }
-    pub fn wheel_mask(&self) -> Result<[bool; 4], String> {
-        let mut mask = [false; 4];
+    /// Installed wheel part at each corner, resolved from the socket it is mounted in.
+    pub fn mounted_wheels(&self) -> Result<[Option<PartId>; 4], String> {
+        let mut wheels: [Option<PartId>; 4] = Default::default();
         for part in &self.parts {
             if !self.installed(&part.id)? {
                 continue;
@@ -297,10 +298,13 @@ impl Assembly {
                 && let Some(corner) =
                     self.definitions[&self.part(parent)?.definition].mounts[mount].wheel_corner
             {
-                mask[corner] = true;
+                wheels[corner] = Some(part.id.clone());
             }
         }
-        Ok(mask)
+        Ok(wheels)
+    }
+    pub fn wheel_mask(&self) -> Result<[bool; 4], String> {
+        Ok(self.mounted_wheels()?.map(|part| part.is_some()))
     }
     pub fn inspect(&self) -> Result<Inspection, String> {
         let mut missing = Vec::new();

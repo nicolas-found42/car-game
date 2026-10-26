@@ -697,3 +697,26 @@ fn secondary_spawn_cannot_alias_the_legacy_player_evidence_actor() {
         assert!(consumed.insert((event["actor_id"].to_string(), event["tick"].to_string())));
     }
 }
+
+#[test]
+fn secondary_spawn_cannot_reuse_an_authored_road_collider_identity() {
+    let fixture = serde_json::json!({
+        "schema_version":1,"name":"chassis-collider-clash","scene":"driving",
+        "initial":{"car":"350z"},"max_ticks":30,"max_wall_ms":10000,"readiness_timeout_ms":1000,
+        "commands":[
+            {"tick":0,"command":{"action":"physics_edit","edit":{"edit":"insert_road","id":"rival:chassis","position":[40.0,0.0,190.0],"half_extents":[2.0,0.2,2.0]}}},
+            {"tick":1,"command":{"action":"spawn_vehicle","id":"rival","car":"gt4-nsx","position":[-3.2,0.62,190.0],"controller":"scenario"}}
+        ],
+        "assertions":[{"tick":3,"kind":"command_rejected","reason":"duplicate-collider-id","count":1}]
+    });
+    let (summary, dir) = run_fixture(fixture);
+    assert_eq!(summary["passed"], true, "{summary}");
+    let events = std::fs::read_to_string(dir.join("events.jsonl")).unwrap();
+    assert!(
+        events
+            .lines()
+            .map(|line| serde_json::from_str::<serde_json::Value>(line).unwrap())
+            .filter(|event| event["kind"] == "simulation.tick_completed")
+            .all(|event| event["fields"]["vehicle_count"] == 1)
+    );
+}
