@@ -21,17 +21,19 @@ def physics_record(tick):
             'brake': 0.0, 'steer': 0.0, 'handbrake': False, 'reset': reset}
     return {'envelope': {'schema_version': 1, 'run_id': RUN_ID, 'actor_id': 'player-vehicle',
                          'tick': tick, 'boundary': 'completed_tick'},
-            'tick': tick, 'step': tick - 1, 'time': tick / 60, 'actor_id': 'player-vehicle',
+            'tick': tick, 'step': tick - 1, 'time': tick / 120, 'actor_id': 'player-vehicle',
             'vehicle_id': 'pilot-350z', 'boundary': 'completed_tick', 'integration_steps': 1,
             'position': [0.0, 0.6, float(tick)], 'rotation': [0.0, 0.0, 0.0, 1.0],
             'linear_velocity': [0.0, 0.0, 1.0], 'angular_velocity': [0.0, 0.0, 0.0],
             'speed': 1.0, 'reset_count': 1 if tick >= RESET_TICK else 0, 'input': held,
-            'evidence': {'outcome': 'reset' if reset else 'integrated', 'input': held}}
+            'evidence': {'query_tick': tick, 'wheels': [
+                {'origin': [0., 0., 0.], 'direction': [0., -1., 0.], 'point': None, 'normal': None}
+                for _ in range(4)], 'outcome': 'reset' if reset else 'integrated', 'input': held}}
 
 
 def event(kind, seq, tick, **fields):
     return {'schema_version': 1, 'run_id': RUN_ID, 'kind': kind, 'seq': seq, 'tick': tick,
-            'actor_id': None, 'command_id': fields.pop('command_id', None), 'fields': fields}
+            'render_frame': tick, 'actor_id': 'player-vehicle' if kind == 'command.outcome' else None, 'command_id': fields.pop('command_id', None), 'fields': fields}
 
 
 def command(number, phase, tick):
@@ -48,13 +50,22 @@ def build_streams():
         return seq[0]
     events = [event('run.start', nxt(), 0)]
     commands = [command(1, 'ingress', 0)]
-    events.append(event('command.outcome', nxt(), 0, command_id=f'{RUN_ID}:command:1', disposition='applied'))
+    events.append(event('command.outcome', nxt(), 0, command_id=f'{RUN_ID}:command:1', disposition='applied', command=commands[0]['command']))
     for tick in range(1, TICKS + 1):
-        events.append(event('controls.effective', nxt(), tick))
+        controls = physics_record(tick)['input']
+        control = event('controls.effective', nxt(), tick, **{k: v for k, v in controls.items() if k not in ('step', 'tick')})
+        control['actor_id'] = 'player-vehicle'
+        events.append(control)
         if tick == RESET_TICK:
-            events.append(event('vehicle.reset', nxt(), tick))
+            reset_event = event('vehicle.reset', nxt(), tick)
+            reset_event['actor_id'] = 'player-vehicle'
+            events.append(reset_event)
         events.append(event('simulation.tick_completed', nxt(), tick, vehicle_count=1))
-        events.append(event('simulation.completed', nxt(), tick, reset_count=1 if tick >= RESET_TICK else 0))
+        sample = physics_record(tick)
+        completed = event('simulation.completed', nxt(), tick, **{
+            key: sample[key] for key in ('reset_count', 'position', 'linear_velocity', 'vehicle_id')})
+        completed['actor_id'] = 'player-vehicle'
+        events.append(completed)
     events.append(event('run.exit', nxt(), TICKS, code=0))
     physics = [physics_record(tick) for tick in range(1, TICKS + 1)]
     inputs = [physics_record(tick)['input'] for tick in range(1, TICKS + 1)]
@@ -69,7 +80,7 @@ def read_lines(path):
     return [json.loads(line) for line in path.read_text().splitlines()]
 
 
-def fixture(root, mode='scenario'):
+def fixture(root, mode='interactive'):
     run = Path(root)
     streams = build_streams()
     for name, rows in streams.items():
@@ -82,7 +93,8 @@ def fixture(root, mode='scenario'):
     names = ('events', 'commands', 'physics', 'input', 'log')
     health_streams = {n: {'accepted': 0, 'written': 0, 'written_seq': 0, 'flushed_seq': 0, 'synced_seq': 0}
                       for n in names}
-    health_streams['events'] = {'accepted': 2, 'written': 2, 'written_seq': 2, 'flushed_seq': 2, 'synced_seq': 2}
+    for name, rows in streams.items():
+        health_streams[name].update(accepted=len(rows), written=len(rows))
     health = {'schema': 1, 'run_id': RUN_ID, 'phase': 'finalized', 'failed': False, 'errors': [],
               'dropped': 0, 'losses': [], 'loss_ranges_truncated': False, 'produced': 2,
               'accepted': 2, 'written': 2, 'durable_seq': 2, 'queued_bytes': 0, 'queued_records': 0,
@@ -228,19 +240,217 @@ class TraceIntegrityTests(unittest.TestCase):
 
     def test_capture_hash_mismatch_is_rejected(self):
         with tempfile.TemporaryDirectory() as root:
-            run = fixture(root, 'smoke')
-            manifest = json.loads((run / 'manifest.json').read_text())
-            manifest['gpu'] = {'backend': 'fixture'}
-            (run / 'manifest.json').write_text(json.dumps(manifest))
-            (run / 'captures').mkdir()
-            (run / 'captures/front.png').write_bytes(b'fixture')
-            good = hashlib.sha256(b'fixture').hexdigest()
-            (run / 'report.json').write_text(json.dumps([{'id': '350z', 'captures': {
-                'front': {'sha256': good, 'path': 'captures/front.png'}}}]))
+            run = fixture(root)
+            self.add_captures(run)
             result, _ = verify(run)
             self.assertEqual(result.returncode, 0, result.stdout)
             (run / 'captures/front.png').write_bytes(b'tampered')
             self.assertRejected(run, 'capture_hash_mismatch')
+
+    def add_captures(self, run):
+        (run / 'captures').mkdir()
+        events = read_lines(run / 'events.jsonl')
+        captures = {}
+        for view in ('front', 'side', 'rear', 'driving'):
+            path = f'captures/{view}.png'
+            (run / path).write_bytes(b'fixture')
+            metrics = {'nonblank': True}
+            captures[view] = {'sha256': hashlib.sha256(b'fixture').hexdigest(),
+                              'path': path, 'metrics': metrics}
+            for kind in ('screenshot.requested', 'screenshot.validated'):
+                row = event(kind, len(events) + 1, TICKS, car='350z', view=view,
+                            path=path, metrics=metrics)
+                row['actor_id'] = 'player-vehicle'
+                events.append(row)
+        write_lines(run / 'events.jsonl', events)
+        (run / 'report.json').write_text(json.dumps([{'id': '350z', 'passed': True, 'captures': captures}]))
+        health = json.loads((run / 'recorder-health.json').read_text())
+        health['streams']['events'].update(accepted=len(events), written=len(events))
+        (run / 'recorder-health.json').write_text(json.dumps(health))
+
+    def test_declared_actor_cannot_be_entirely_absent(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            mutate(run, 'events', lambda rows: [r['fields'].__setitem__('vehicle_count', 2)
+                   for r in rows if r['kind'] == 'simulation.tick_completed'])
+            self.assertRejected(run, 'trace_actor_coverage')
+
+    def test_unrelated_event_cannot_resolve_a_command(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            mutate(run, 'events', lambda rows: [r.__setitem__('kind', 'unrelated.event')
+                   for r in rows if r['kind'] == 'command.outcome'])
+            self.assertRejected(run, 'trace_command_unresolved')
+
+    def test_outcome_actor_action_and_order_must_match(self):
+        for change in (lambda r: r.__setitem__('actor_id', 'other'),
+                       lambda r: r['fields'].__setitem__('command', {'action': 'reset'}),
+                       lambda r: r.__setitem__('tick', -1)):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                mutate(run, 'events', lambda rows: change(rows[1]))
+                self.assertRejected(run, 'trace_command_mismatch')
+
+    def test_nested_nonfinite_and_wrong_completed_identity_fail(self):
+        for change in (lambda r: r['evidence'].__setitem__('wheel_loads', [float('nan')]),
+                       lambda r: r['envelope'].__setitem__('actor_id', 'other'),
+                       lambda r: r['envelope'].__setitem__('boundary', 'pre_step')):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                mutate(run, 'physics', lambda rows: change(rows[0]))
+                self.assertRejected(run, 'trace_invalid_value')
+
+    def test_capture_frame_or_actor_mismatch_fails(self):
+        for change in (lambda r: r.__setitem__('actor_id', 'other'),
+                       lambda r: r.__setitem__('render_frame', -1)):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                self.add_captures(run)
+                mutate(run, 'events', lambda rows: change(rows[-1]))
+                self.assertRejected(run, 'capture_link_mismatch')
+
+    def test_completed_state_and_effective_controls_are_correlated(self):
+        for kind, field, value, code in (
+                ('simulation.completed', 'position', [99, 0, 0], 'trace_state_mismatch'),
+                ('controls.effective', 'throttle', 0.25, 'trace_control_mismatch')):
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                mutate(run, 'events', lambda rows: next(r for r in rows if r['kind'] == kind)['fields'].__setitem__(field, value))
+                self.assertRejected(run, code)
+
+    def test_reset_duplicates_and_wrong_actors_fail(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            mutate(run, 'events', lambda rows: next(r for r in rows if r['kind'] == 'vehicle.reset').__setitem__('actor_id', 'other'))
+            self.assertRejected(run, 'trace_reset_mismatch')
+
+    def test_scenario_assertions_and_capture_must_be_complete(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root, 'scenario')
+            (run / 'scenario.json').write_text(json.dumps({'definition': {
+                'assertions': [{'kind': 'speed_at_least', 'tick': 1, 'mps': 1}], 'required_capture': True}}))
+            (run / 'scenario-summary.json').write_text(json.dumps({
+                'passed': True, 'assertions_declared': 1, 'assertions_executed': 0,
+                'assertions_passed': 0, 'results': [], 'capture': None}))
+            self.assertRejected(run, 'scenario_incomplete')
+            self.assertRejected(run, 'capture_link_missing')
+
+    def test_valid_secondary_actor_can_start_later(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            physics = read_lines(run / 'physics.jsonl')
+            events = read_lines(run / 'events.jsonl')
+            extra = []
+            for tick in range(4, TICKS + 1):
+                sample = physics_record(tick)
+                sample['actor_id'] = sample['envelope']['actor_id'] = 'secondary'
+                sample['vehicle_id'] = 'secondary'
+                extra.append(sample)
+                complete = event('simulation.completed', 0, tick, **{
+                    key: sample[key] for key in ('position', 'linear_velocity', 'reset_count', 'vehicle_id')})
+                complete['actor_id'] = 'secondary'
+                controls = event('controls.effective', 0, tick, **{
+                    k: v for k, v in sample['input'].items() if k not in ('tick', 'step')})
+                controls['actor_id'] = 'secondary'
+                events.extend([controls, complete])
+                if tick == RESET_TICK:
+                    reset = event('vehicle.reset', 0, tick)
+                    reset['actor_id'] = 'secondary'
+                    events.append(reset)
+            for row in events:
+                if row['kind'] == 'simulation.tick_completed' and row['tick'] >= 4:
+                    row['fields']['vehicle_count'] = 2
+            events.sort(key=lambda r: r['tick'])
+            for seq, row in enumerate(events, 1):
+                row['seq'] = seq
+            write_lines(run / 'physics.jsonl', sorted(physics + extra, key=lambda r: r['tick']))
+            write_lines(run / 'events.jsonl', events)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['physics'].update(accepted=len(physics + extra), written=len(physics + extra))
+            health['streams']['events'].update(accepted=len(events), written=len(events))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_scenario_capture_hash_and_frame_links(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root, 'scenario')
+            assertion = {'kind': 'speed_at_least', 'tick': 1, 'mps': 0}
+            (run / 'scenario.json').write_text(json.dumps({'definition': {
+                'assertions': [assertion], 'required_capture': True}}))
+            (run / 'captures').mkdir()
+            (run / 'captures/scenario.png').write_bytes(b'fixture')
+            capture = {'path': 'captures/scenario.png', 'metrics': {'nonblank': True},
+                       'sha256': hashlib.sha256(b'fixture').hexdigest()}
+            summary = {'passed': True, 'assertions_declared': 1, 'assertions_executed': 1,
+                       'assertions_passed': 1, 'completed_tick': TICKS,
+                       'results': [{'assertion': assertion, 'passed': True}], 'capture': capture}
+            (run / 'scenario-summary.json').write_text(json.dumps(summary))
+            events = read_lines(run / 'events.jsonl')
+            for kind in ('scenario.capture_requested', 'scenario.capture_validated'):
+                row = event(kind, len(events) + 1, TICKS, path=capture['path'], metrics=capture['metrics'])
+                row['actor_id'] = 'player-vehicle'
+                events.append(row)
+            events.append(event('scenario.finished', len(events) + 1, TICKS, **summary))
+            write_lines(run / 'events.jsonl', events)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['events'].update(accepted=len(events), written=len(events))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+            (run / 'captures/scenario.png').write_bytes(b'corrupt')
+            self.assertRejected(run, 'capture_hash_mismatch')
+
+    def test_capture_free_scenario_cannot_claim_a_different_completion_tick(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root, 'scenario')
+            assertion = {'kind': 'speed_at_least', 'tick': 1, 'mps': 0}
+            (run / 'scenario.json').write_text(json.dumps({'definition': {
+                'assertions': [assertion], 'required_capture': False}}))
+            summary = {'passed': True, 'assertions_declared': 1, 'assertions_executed': 1,
+                       'assertions_passed': 1, 'completed_tick': TICKS,
+                       'results': [{'assertion': assertion, 'passed': True}], 'capture': None}
+            events = read_lines(run / 'events.jsonl')
+            events.append(event('scenario.finished', len(events) + 1, TICKS, **summary))
+            write_lines(run / 'events.jsonl', events)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['events'].update(accepted=len(events), written=len(events))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            (run / 'scenario-summary.json').write_text(json.dumps(summary))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+            summary['completed_tick'] = 999
+            events[-1]['fields'] = summary
+            write_lines(run / 'events.jsonl', events)
+            (run / 'scenario-summary.json').write_text(json.dumps(summary))
+            self.assertRejected(run, 'scenario_tick_mismatch')
+
+    def test_targeted_player_reset_uses_vehicle_identity_at_ingress(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            target = {'action': 'vehicle', 'target': 'pilot-350z', 'command': {'action': 'reset'}}
+            ingress = command(2, 'ingress', RESET_TICK - 1)
+            ingress.update(actor_id='pilot-350z', command=target)
+            commands = read_lines(run / 'commands.jsonl') + [ingress]
+            write_lines(run / 'commands.jsonl', commands)
+            def apply(rows):
+                reset = next(row for row in rows if row['kind'] == 'vehicle.reset')
+                reset['command_id'] = ingress['command_id']
+                reset['fields'].update(vehicle_id='pilot-350z', requested_command=target, disposition='applied')
+            mutate(run, 'events', apply)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['commands'].update(accepted=len(commands), written=len(commands))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_completed_time_units_and_wheel_shapes_are_checked(self):
+        for change in (lambda r: r.__setitem__('time', r['tick'] / 60),
+                       lambda r: r['evidence'].__setitem__('wheels', [])):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                mutate(run, 'physics', lambda rows: change(rows[2]))
+                self.assertRejected(run, 'trace_invalid_value')
 
     def test_unknown_record_schema_is_unsupported_not_failed_or_verified(self):
         with tempfile.TemporaryDirectory() as root:

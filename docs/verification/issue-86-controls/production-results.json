@@ -1,0 +1,250 @@
+{
+  "source_run": "20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+  "source_unchanged": true,
+  "source_hashes": {
+    "manifest.json": "0b85bca55cacb7d9b17e4e21846ad064d7ead721fafa05bc6ef2333391ac2682",
+    "physics.jsonl": "23b08a54481db4400bb38194348c922a86de771c515006508492e8ff04a896ab",
+    "input.jsonl": "8d07c1c3bbfe878a6caf84680620cc6608dbb8b37890613f34d1cd6ff7a40614",
+    "events.jsonl": "733011492f4cbe588cebb2d3656c00c78ac0f5c1638125d1705e90a164b08cac",
+    "commands.jsonl": "a9b4028e543146281c0102d9e8523523349e7a8761aa487bfa55cd22820c7fcc",
+    "recorder-health.json": "fdbfc310683d4163db55b97e7b0eca5b617acc10e303d5224e1137ef744d8dab"
+  },
+  "results": [
+    {
+      "control": "valid",
+      "exit": 0,
+      "status": "verified",
+      "errors": []
+    },
+    {
+      "control": "empty-traces",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "trace_empty",
+          "file": "physics.jsonl",
+          "expected_ticks": 34389
+        },
+        {
+          "code": "trace_empty",
+          "file": "input.jsonl",
+          "expected_ticks": 34389
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 7
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 10,
+          "tick": 1,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 11
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 13,
+          "tick": 2,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 14
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 16,
+          "tick": 3,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 19
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 21,
+          "tick": 4,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 22
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 24,
+          "tick": 5,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 25
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 27,
+          "tick": 6,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 30
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 32,
+          "tick": 7,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 33
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 35,
+          "tick": 8,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 36
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 38,
+          "tick": 9,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 39
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 41,
+          "tick": 10,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 42
+        },
+        {
+          "code": "trace_actor_mismatch",
+          "file": "events.jsonl",
+          "line": 44,
+          "tick": 11,
+          "actor_id": "player-vehicle"
+        },
+        {
+          "code": "trace_control_mismatch",
+          "file": "events.jsonl",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "control": "absent-actor",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "trace_actor_coverage",
+          "file": "physics.jsonl",
+          "tick": 1,
+          "expected": 2,
+          "actual": 1
+        }
+      ]
+    },
+    {
+      "control": "unrelated-outcome",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "trace_command_unresolved",
+          "file": "commands.jsonl",
+          "line": 1,
+          "tick": 0,
+          "command_id": "20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000:command:1"
+        }
+      ]
+    },
+    {
+      "control": "wrong-reset-actor",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "trace_reset_mismatch",
+          "file": "events.jsonl"
+        },
+        {
+          "code": "trace_command_mismatch",
+          "file": "commands.jsonl",
+          "line": 3148,
+          "command_id": "20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000:command:3148"
+        }
+      ]
+    },
+    {
+      "control": "capture-hash",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "capture_hash_mismatch",
+          "file": "report.json",
+          "path": "captures/350z-front.png"
+        }
+      ]
+    },
+    {
+      "control": "corrupt-tail",
+      "exit": 1,
+      "status": "failed",
+      "errors": [
+        {
+          "code": "trace_malformed_record",
+          "file": "physics.jsonl",
+          "line": 34390,
+          "detail": "Expecting value: line 1 column 9 (char 8)"
+        },
+        {
+          "code": "trace_malformed_record",
+          "file": "physics.jsonl",
+          "line": 34390,
+          "detail": "Expecting value: line 1 column 9 (char 8)"
+        }
+      ]
+    }
+  ]
+}

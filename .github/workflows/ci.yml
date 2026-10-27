@@ -93,7 +93,7 @@ jobs:
       - name: Python syntax
         run: python3 -m compileall -q tools
       - name: Recorder health and provenance tooling tests
-        run: python3 -m unittest discover -s tools -p 'test_*provenance*.py' && python3 tools/test_recorder_health.py && python3 tools/test_codelimit.py && python3 tools/test_physics_profiles.py
+        run: python3 -m unittest discover -s tools -p 'test_*provenance*.py' && python3 tools/test_recorder_health.py && python3 tools/test_codelimit.py && python3 tools/test_physics_profiles.py && python3 tools/test_trace_integrity.py
       - name: Python asset tests when source collection is present
         run: |
           if [ -d ../carmodels ]; then

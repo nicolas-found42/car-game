@@ -41,7 +41,7 @@ Fleet car swaps bump `reset_count` without a reset outcome; that is accepted (de
 
 ## Tests
 
-`tools/test_trace_integrity.py` (17 cases, written failing first; wired into `scripts/verify.sh`):
+`tools/test_trace_integrity.py` (30 cases, written failing first; wired into `scripts/verify.sh`):
 valid control, empty traces, dropped/duplicated/out-of-order tick, truncated final tick,
 corrupt tail, invalid UTF-8, non-finite/mistyped values, missing reset outcome/event/counter,
 input vs state mismatch, duplicate command, unresolved command, event gaps, capture hash
@@ -78,3 +78,35 @@ because input lacks `actor_id` until #16 registers further actors.
 ## Local verification
 
 `CAR_GAME_MUTE=1 bash scripts/verify.sh --base origin/main`: see PR description for the result and log path.
+
+## Full-send completion
+
+The continuation reproduced two false successes against the checkpoint verifier:
+a declared second actor with no trace, and an unrelated event carrying a command
+ID in place of its outcome. Both negative controls now fail. Thirty focused
+controls pass, including supported120-Hz seconds/step alignment, nested finite
+values, wheel vector shapes, completed-state/effective-control agreement,
+actor populations, targeted player-reset identity, capture frame/actor links,
+and capture-free scenario completion alignment.
+
+Real production copies preserve the original run unchanged. The valid13-car
+control passes; empty streams, absent actor, unrelated outcome, wrong reset actor,
+corrupt capture and corrupt tail all fail with machine-readable locations.
+Results and source hashes are in `issue-86-controls/production-results.json`.
+The production independent-two-car scenario also passes this verifier, including
+its targeted player reset (`issue-86-controls/multi-validation.json`).
+
+Scenario capture request/validation callbacks now emit additive actor/tick/frame
+links. Required scenario captures are checked against those links and summary
+hashes; older capture runs without links cannot be promoted to verified by
+assuming the missing context. Recorder-health-only inspection remains available.
+
+The fresh full recorded ladder passed on the pre-#16 integration. Final
+verification after rebasing on merged#16 is retained at
+`artifacts/issue-86/final-verification.log` in the primary checkout. Raw controls
+and unchanged originals stay under `artifacts/issue-86/full-send-controls/`.
+
+Sol-loop completed three rounds with gpt-6.1-sol on medium. The scenario
+completion-tick finding was fixed; final verdict approved. Repository complexity
+limits remain unchanged. This verifier does not promise exact replay or infer a
+crash from a missing exit record.

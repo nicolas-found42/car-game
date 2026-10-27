@@ -3,9 +3,9 @@
 Each finding is a machine-readable record: {code, file, line?, tick?, actor_id?, ...}.
 Streams are read incrementally; a single malformed line stops that file's checks.
 """
-import hashlib
 import json
 import math
+from trace_schema import completed_errors
 from pathlib import Path
 
 SUPPORTED_SCHEMA = 1
@@ -43,7 +43,8 @@ def rows(run, name, findings):
     with handle:
         for line, raw in enumerate(handle, 1):
             if not raw.strip():
-                continue
+                findings.add('trace_malformed_record', name, line=line, detail='blank record')
+                return
             try:
                 record = json.loads(raw.decode('utf-8'))
                 if not isinstance(record, dict):
@@ -103,15 +104,15 @@ def check_reset(findings, state, line, record):
     reset = record['evidence']['outcome'] == 'reset'
     held = record['input'].get('reset') is True
     delta = record['reset_count'] - state['counts'].get(actor, 0)
-    if reset != held or delta not in (0, 1) or (reset and delta != 1):
+    if (held and not reset) or delta not in (0, 1) or (reset and delta != 1):
         findings.add('trace_reset_mismatch', 'physics.jsonl', line=line, tick=tick, actor_id=actor)
     state['counts'][actor] = record['reset_count']
     if reset:
-        state['reset_ticks'].add(tick)
+        state['reset_ticks'].add((tick, actor))
 
 
-def check_physics(run, completed, findings):
-    state = {'counts': {}, 'reset_ticks': set(), 'held': {}, 'last': {}}
+def check_physics(run, completed, findings, run_id):
+    state = {'counts': {}, 'reset_ticks': set(), 'held': {}, 'last': {}, 'samples': {}, 'frames': {}}
     name = 'physics.jsonl'
     for line, record in rows(run, name, findings):
         if findings.full():
@@ -120,11 +121,16 @@ def check_physics(run, completed, findings):
         if schema_version(record) != SUPPORTED_SCHEMA:
             findings.add('trace_schema_unsupported', name, line=line, schema_version=schema_version(record))
             break
-        bad = invalid_fields(record) if isinstance(actor, str) else ['actor_id']
-        state['last'][actor] = tick_cursor(findings, name, state['last'].get(actor, 0), line, record, actor)
+        bad = (invalid_fields(record) + completed_errors(record, run_id)
+               if isinstance(actor, str) else ['actor_id'])
+        state['last'][actor] = tick_cursor(
+            findings, name, state['last'].get(actor, record.get('tick', 1) - 1), line, record, actor)
         if bad:
             findings.add('trace_invalid_value', name, line=line, tick=record.get('tick'), actor_id=actor, fields=bad)
             continue
+        state['frames'][(record['tick'], actor)] = record['envelope'].get('render_frame')
+        state['samples'][(record['tick'], actor)] = {
+            key: record.get(key) for key in ('position', 'linear_velocity', 'reset_count', 'vehicle_id', 'input')}
         check_reset(findings, state, line, record)
         if actor == PLAYER:
             state['held'][record['tick']] = record['input']
@@ -151,66 +157,6 @@ def check_input(run, completed, held, findings):
         findings.add('trace_tick_coverage', name, last_tick=last, completed_tick=completed)
 
 
-def check_events(run, completed, reset_ticks, findings):
-    name, previous, ticks, resets, resolved = 'events.jsonl', 0, [], set(), set()
-    for line, record in rows(run, name, findings):
-        if findings.full():
-            break
-        if record.get('schema_version') != SUPPORTED_SCHEMA:
-            findings.add('trace_schema_unsupported', name, line=line, schema_version=record.get('schema_version'))
-            break
-        if type(record.get('seq')) is not int or record['seq'] <= previous:
-            findings.add('trace_event_sequence', name, line=line, previous_seq=previous)
-        previous = record['seq'] if type(record.get('seq')) is int else previous
-        if record.get('command_id'):
-            resolved.add(record['command_id'])
-        kind = record.get('kind')
-        if kind == 'simulation.tick_completed':
-            ticks.append(record.get('tick'))
-        elif kind == 'vehicle.reset':
-            resets.add(record.get('tick'))
-    if ticks != list(range(1, completed + 1)) and not findings.has(name):
-        missing = sorted(set(range(1, completed + 1)) - set(ticks))[:5]
-        findings.add('trace_event_incomplete', name, completed_tick=completed, missing_ticks=missing)
-    if resets != reset_ticks and not findings.full():
-        findings.add('trace_reset_mismatch', name, event_ticks=sorted(resets), trace_ticks=sorted(reset_ticks))
-    return resolved
-
-
-def check_commands(run, completed, resolved, findings):
-    name, seen = 'commands.jsonl', set()
-    for line, record in rows(run, name, findings):
-        if findings.full():
-            break
-        if record.get('schema_version') != SUPPORTED_SCHEMA:
-            findings.add('trace_schema_unsupported', name, line=line, schema_version=record.get('schema_version'))
-            break
-        command_id = record.get('command_id')
-        if command_id in seen:
-            findings.add('trace_command_duplicate', name, line=line, command_id=command_id)
-        seen.add(command_id)
-        # Ingress at the final completed boundary has no later tick to take effect in.
-        if command_id not in resolved and (record.get('tick') or 0) < completed:
-            findings.add('trace_command_unresolved', name, line=line, tick=record.get('tick'), command_id=command_id)
-
-
-def check_captures(run, manifest, findings):
-    path = Path(run) / 'report.json'
-    if not path.is_file():
-        return
-    try:
-        reports = json.loads(path.read_text())
-        entries = [(r.get('id'), view, c) for r in reports for view, c in r.get('captures', {}).items()]
-    except (ValueError, AttributeError, OSError):
-        findings.add('report_malformed', 'report.json')
-        return
-    for car, view, capture in entries:
-        target = Path(run) / str(capture.get('path'))
-        digest = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
-        if digest != capture.get('sha256'):
-            findings.add('capture_hash_mismatch', 'report.json', car=car, view=view, path=capture.get('path'))
-
-
 def inspect_traces(run, manifest, health):
     """Return {'status', 'errors'} for one finalized run; 'verified' only when nothing was found."""
     findings = Findings()
@@ -219,11 +165,14 @@ def inspect_traces(run, manifest, health):
         code = 'simulation_not_started'
         findings.add(code, 'recorder-health.json', completed_tick=0, exit=manifest.get('exit'))
         return {'status': 'failed', 'errors': findings.errors}
-    state = check_physics(run, completed, findings)
+    from trace_links import check_events, check_commands, check_counts
+    from trace_captures import check_captures
+    state = check_physics(run, completed, findings, manifest.get('run_id'))
     check_input(run, completed, state['held'], findings)
-    resolved = check_events(run, completed, state['reset_ticks'], findings)
-    check_commands(run, completed, resolved, findings)
-    check_captures(run, manifest, findings)
+    resolved = check_events(run, completed, state, findings, manifest.get('run_id'))
+    check_commands(run, completed, resolved, findings, manifest.get('run_id'))
+    check_captures(run, manifest, findings, completed)
+    check_counts(run, findings)
     status = 'verified'
     if findings.errors:
         status = 'unsupported' if findings.unsupported else 'failed'

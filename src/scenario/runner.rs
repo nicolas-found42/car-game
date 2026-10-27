@@ -334,6 +334,11 @@ fn observe(
 fn request_capture(world: &mut World) {
     let run = world.resource::<RunHandle>();
     let path = run.dir().join("captures/scenario.png");
+    run.actor_event(
+        "player-vehicle",
+        "scenario.capture_requested",
+        json!({"path":"captures/scenario.png"}),
+    );
     let capture = world
         .get_resource::<QaRenderTarget>()
         .and_then(|t| t.0.clone())
@@ -347,12 +352,20 @@ fn validate_capture(
     capture: On<ScreenshotCaptured>,
     requests: Query<(), With<ScenarioCapture>>,
     mut state: ResMut<ScenarioRun>,
+    run: Res<RunHandle>,
 ) {
     if requests.get(capture.entity).is_err() {
         return;
     }
     match capture_metrics(&capture.image) {
-        Some(metrics) if metrics.nonblank => state.capture = serde_json::to_value(metrics).ok(),
+        Some(metrics) if metrics.nonblank => {
+            state.capture = serde_json::to_value(metrics).ok();
+            run.actor_event(
+                "player-vehicle",
+                "scenario.capture_validated",
+                json!({"path":"captures/scenario.png","metrics":state.capture}),
+            );
+        }
         _ => state.capture_error = Some("required-capture-invalid".into()),
     }
 }
