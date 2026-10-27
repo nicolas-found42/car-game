@@ -171,3 +171,23 @@ fn fast_execution_rejects_wall_triggers_and_visual_or_non_scenario_modes() {
     invalid["route"]["points"] = json!([[0., 0.], [0., 0.]]);
     assert!(ScenarioDefinition::from_json(&invalid.to_string()).is_err());
 }
+
+#[test]
+fn an_endpoint_sample_cannot_substitute_for_traversing_the_first_segment() {
+    for length in [0.5, 100.] {
+        let label = if length < 1. {
+            "short-endpoint"
+        } else {
+            "long-endpoint"
+        };
+        let fixture = json!({"schema_version":1,"name":label,"scene":"driving",
+            "initial":{"car":"350z","position":[3.2,0.62,190.-length]},
+            "route":{"points":[[3.2,190.],[3.2,190.-length]],"speed_mps":8.},
+            "commands":[],"assertions":[{"tick":240,"kind":"route_completed","max_cross_track_m":6.}],
+            "max_ticks":241,"max_wall_ms":10000,"readiness_timeout_ms":1000});
+        let (summary, _) = execute(fixture, label);
+        assert_eq!(summary["passed"], false, "{summary}");
+        assert_eq!(summary["results"][0]["observed"]["completed"], false);
+        std::fs::remove_dir_all(root(label)).unwrap();
+    }
+}

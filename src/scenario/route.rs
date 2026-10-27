@@ -55,6 +55,7 @@ pub(super) struct RouteTracker {
     plan: RoutePlan,
     pub start_tick: Option<u64>,
     segment: usize,
+    entered_segment: bool,
     progress_m: f32,
     max_cross_track_m: f32,
     active_ticks: u64,
@@ -67,6 +68,7 @@ impl RouteTracker {
             plan,
             start_tick: None,
             segment: 0,
+            entered_segment: false,
             progress_m: 0.,
             max_cross_track_m: 0.,
             active_ticks: 0,
@@ -76,10 +78,6 @@ impl RouteTracker {
     }
     fn record(&mut self, sample: &PhysicsSample) {
         let position = Vec2::new(sample.position[0], sample.position[2]);
-        let end = Vec2::from(self.plan.points[self.segment + 1]);
-        if position.distance(end) < 2. && self.segment + 2 < self.plan.points.len() {
-            self.segment += 1;
-        }
         let a = Vec2::from(self.plan.points[self.segment]);
         let b = Vec2::from(self.plan.points[self.segment + 1]);
         let delta = b - a;
@@ -88,11 +86,20 @@ impl RouteTracker {
             .windows(2)
             .map(|p| Vec2::from(p[0]).distance(Vec2::from(p[1])))
             .sum();
-        self.progress_m = self.progress_m.max(offset + delta.length() * t);
+        self.entered_segment |= t <= 0.2 && position.distance(a) < 2.;
+        if self.entered_segment {
+            self.progress_m = self.progress_m.max(offset + delta.length() * t);
+        }
         self.max_cross_track_m = self.max_cross_track_m.max(position.distance(a + delta * t));
         self.active_ticks += 1;
         self.four_contact_ticks += u64::from(sample.grounded == 4);
-        self.completed |= self.segment + 2 == self.plan.points.len() && position.distance(b) < 2.;
+        if self.entered_segment && t >= 0.8 && position.distance(b) < 2. {
+            if self.segment + 2 == self.plan.points.len() {
+                self.completed = true;
+            } else {
+                self.segment += 1;
+            }
+        }
     }
     pub fn outcome(&self, tolerance: f32) -> serde_json::Value {
         serde_json::json!({"passed":self.completed && self.max_cross_track_m <= tolerance,

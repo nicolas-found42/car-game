@@ -44,5 +44,16 @@ The two original diagnostic inputs request staged-only NSX/Mini editions. Their
 exact bytes are preserved as historical inputs with hashes; they are deliberately
 not runnable examples that silently enable inactive cars.
 
-Sol-loop: one round with gpt-6.1-sol on medium, approved without findings. No
-review-driven behavior changes; usage was not exposed.
+The initial endpoint control had many segments; bot review exposed a two-point
+shortcut. A new short-route control reproduced false success before the admission
+fix. Observed first-segment entry is now required before accepting progress and
+an endpoint; each shared endpoint carries that entry into the following segment.
+The fresh 112-test headless ladder passes. Recorded build
+`3e68fe08ce688e0cc138316805a9c172e07dbc6995150fe7180cad4140d7cc46`
+passes both real fast route directions again; 0.5m and 100m two-point runs starting
+at their endpoint fail completion and strict validation. `fixed-route-results.json`
+retains those current results, separately from initial acceptance.
+
+Sol-loop: two rounds with gpt-6.1-sol on medium, approved after the endpoint
+admission fix. The behavior diff grew by 13 lines for that fix and the additional
+regression adds 20 lines. Usage was not exposed.
