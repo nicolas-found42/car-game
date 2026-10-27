@@ -20,9 +20,12 @@ def physics_record(tick):
     held = {'step': tick - 1, 'tick': tick, 'controller': 'scenario', 'throttle': 1.0,
             'brake': 0.0, 'steer': 0.0, 'handbrake': False, 'reset': reset}
     return {'envelope': {'schema_version': 1, 'run_id': RUN_ID, 'actor_id': 'player-vehicle',
-                         'tick': tick, 'boundary': 'completed_tick'},
+                         'tick': tick, 'render_frame': tick, 'boundary': 'completed_tick'},
             'tick': tick, 'step': tick - 1, 'time': tick / 120, 'actor_id': 'player-vehicle',
-            'vehicle_id': 'pilot-350z', 'boundary': 'completed_tick', 'integration_steps': 1,
+            'vehicle_id': 'pilot-350z', 'body_id': 'pilot-350z:chassis', 'car': '350z',
+            'query_mode': 'synchronized', 'gear': 1, 'grounded': 4, 'ray_misses': 0,
+            'wheel_lengths': [0.3] * 4, 'wheel_loads': [3200.] * 4,
+            'slip': 0., 'rpm': 900., 'steering': 0., 'boundary': 'completed_tick', 'integration_steps': 1,
             'position': [0.0, 0.6, float(tick)], 'rotation': [0.0, 0.0, 0.0, 1.0],
             'linear_velocity': [0.0, 0.0, 1.0], 'angular_velocity': [0.0, 0.0, 0.0],
             'speed': 1.0, 'reset_count': 1 if tick >= RESET_TICK else 0, 'input': held,
@@ -494,6 +497,27 @@ class TraceIntegrityTests(unittest.TestCase):
             report[0]['captures']['front']['path'] = 'other/front.png'
             (run / 'report.json').write_text(json.dumps(report))
             self.assertRejected(run, 'capture_link_mismatch')
+
+    def test_empty_smoke_report_cannot_verify_without_capture_evidence(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root, 'smoke')
+            manifest = json.loads((run / 'manifest.json').read_text())
+            manifest['gpu'] = {'backend': 'fixture'}
+            (run / 'manifest.json').write_text(json.dumps(manifest))
+            (run / 'report.json').write_text('[]')
+            self.assertRejected(run, 'report_incomplete')
+
+    def test_malformed_envelope_and_completed_scalar_shapes_are_located(self):
+        for field, value in [('envelope', None), ('gear', 'first'), ('rpm', None),
+                             ('wheel_lengths', [False] * 4)]:
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                def change(rows):
+                    rows[1][field] = value
+                    if field == 'envelope':
+                        rows[1]['schema_version'] = 1
+                mutate(run, 'physics', change)
+                self.assertRejected(run, 'trace_invalid_value', file='physics.jsonl')
 
     def test_unknown_record_schema_is_unsupported_not_failed_or_verified(self):
         with tempfile.TemporaryDirectory() as root:

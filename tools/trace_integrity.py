@@ -5,7 +5,7 @@ Streams are read incrementally; a single malformed line stops that file's checks
 """
 import json
 import math
-from trace_schema import completed_errors
+from trace_schema import completed_errors, finite_tree
 from pathlib import Path
 
 SUPPORTED_SCHEMA = 1
@@ -59,6 +59,8 @@ def rows(run, name, findings):
 
 
 def record_shape(record, name):
+    if not finite_tree(record):
+        return False
     tick = record.get('tick')
     if type(tick) is not int or tick < (1 if name in ('physics.jsonl', 'input.jsonl') else 0):
         return False
@@ -132,7 +134,10 @@ def check_physics(run, completed, findings, run_id):
         if findings.full():
             break
         actor = record.get('actor_id')
-        if schema_version(record) != SUPPORTED_SCHEMA:
+        if not isinstance(record.get('envelope'), dict):
+            findings.add('trace_invalid_value', name, line=line, fields=['envelope'])
+            continue
+        if type(schema_version(record)) is not int or schema_version(record) != SUPPORTED_SCHEMA:
             findings.add('trace_schema_unsupported', name, line=line, schema_version=schema_version(record))
             break
         bad = (invalid_fields(record) + completed_errors(record, run_id)

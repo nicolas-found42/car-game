@@ -130,3 +130,10 @@ All34 focused tests and the supplementary full headless ladder pass. A real
 13-car visual-only run with39captures passes strict verification, as do the
 retained full fleet and two-car scenario runs. Sol's fourth review round approved
 the state/identity fixes. No production Rust changed in this review pass.
+
+Final review also rejects empty smoke reports and malformed envelopes with
+located findings. Scalar/vector types and event-versus-physics frame identity
+are checked. All36 focused controls pass; the real native/offscreen two-car and
+13-car visual-only runs pass the final validator. Sol's fifth and final state
+review approved these changes. Supplementary gates are retained in
+`artifacts/issue-86/final-bot-verification.log`.

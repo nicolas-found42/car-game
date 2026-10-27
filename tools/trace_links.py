@@ -22,6 +22,8 @@ def completed_actor(record, state, seen, findings, line):
     seen.add(key)
     fields = record.get('fields', {})
     if sample is not None:
+        if record.get('render_frame') != state['frames'].get(key):
+            findings.add('trace_state_mismatch', 'events.jsonl', line=line, field='render_frame')
         for field in ('position', 'linear_velocity', 'reset_count', 'vehicle_id'):
             if not same_state(sample[field], fields.get(field)):
                 findings.add('trace_state_mismatch', 'events.jsonl', line=line, tick=key[0], actor_id=key[1], field=field)
@@ -41,7 +43,7 @@ def control_effect(record, state, seen, findings, line):
 
 
 def event_identity(record, run_id, previous, findings, line):
-    if record.get('schema_version') != 1:
+    if type(record.get('schema_version')) is not int or record.get('schema_version') != 1:
         findings.add('trace_schema_unsupported', 'events.jsonl', line=line)
     seq = record.get('seq')
     if type(seq) is not int or seq != previous + 1:
@@ -110,7 +112,7 @@ def check_commands(run, completed, resolved, findings, run_id):
     for line, record in rows(run, 'commands.jsonl', findings):
         if findings.full():
             break
-        if record.get('schema_version') != 1:
+        if type(record.get('schema_version')) is not int or record.get('schema_version') != 1:
             findings.add('trace_schema_unsupported', 'commands.jsonl', line=line)
             break
         identity = record.get('command_id')

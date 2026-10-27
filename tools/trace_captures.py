@@ -74,6 +74,9 @@ def check_reports(run, manifest, findings):
             findings.add('report_unavailable', 'report.json')
         return
     reports = json.loads(path.read_text())
+    if not isinstance(reports, list) or not reports:
+        findings.add('report_incomplete', 'report.json')
+        return
     events = capture_events(run, findings)
     seen = set()
     for report in reports:

@@ -23,7 +23,8 @@ def input_errors(value, tick):
     for name in ('handbrake', 'reset'):
         if type(value.get(name)) is not bool:
             bad.append('input.' + name)
-    if value.get('tick') != tick or value.get('step') != tick - 1:
+    if (type(value.get('tick')) is not int or type(value.get('step')) is not int
+            or value.get('tick') != tick or value.get('step') != tick - 1):
         bad.append('input.tick')
     if not isinstance(value.get('controller'), str):
         bad.append('input.controller')
@@ -47,13 +48,43 @@ def wheel_errors(evidence):
     return []
 
 
+def number(value):
+    return type(value) in (int, float) and math.isfinite(value)
+
+
+def numeric_vector(value, size):
+    return isinstance(value, list) and len(value) == size and all(number(x) for x in value)
+
+
+def state_errors(record):
+    bad = []
+    for name in ('time', 'speed', 'slip', 'rpm', 'steering'):
+        if not number(record.get(name)):
+            bad.append(name)
+    for name in ('gear', 'grounded', 'ray_misses'):
+        if type(record.get(name)) is not int:
+            bad.append(name)
+    for name in ('vehicle_id', 'body_id', 'car', 'query_mode'):
+        if not isinstance(record.get(name), str) or not record[name]:
+            bad.append(name)
+    for name in ('wheel_lengths', 'wheel_loads'):
+        if not numeric_vector(record.get(name), 4):
+            bad.append(name)
+    return bad
+
+
 def completed_errors(record, run_id):
     envelope = record.get('envelope', {})
     bad = []
+    if not isinstance(envelope, dict):
+        bad.append('envelope')
+        envelope = {}
     for name, expected in (('run_id', run_id), ('actor_id', record.get('actor_id')),
                            ('tick', record.get('tick')), ('boundary', 'completed_tick')):
         if envelope.get(name) != expected:
             bad.append('envelope.' + name)
+    if type(envelope.get('tick')) is not int or type(envelope.get('render_frame')) is not int or envelope.get('render_frame', -1) < 0:
+        bad.append('envelope.clock')
     if record.get('boundary') != 'completed_tick':
         bad.append('boundary')
     if not finite_tree(record):
@@ -67,6 +98,7 @@ def completed_errors(record, run_id):
     if evidence.get('query_tick') != record.get('tick'):
         bad.append('evidence.query_tick')
     bad.extend(wheel_errors(evidence))
+    bad.extend(state_errors(record))
     tick, time = record.get('tick'), record.get('time')
     if (type(tick) is int and (type(time) not in (int, float)
             or not math.isclose(time, tick / 120, rel_tol=1e-5, abs_tol=1e-4))):
