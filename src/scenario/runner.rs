@@ -40,6 +40,9 @@ impl Plugin for ScenarioPlugin {
         let Some(definition) = app.world().resource::<RuntimeConfig>().scenario.clone() else {
             return;
         };
+        if let Some(plan) = &definition.route {
+            app.insert_resource(super::route::RouteTracker::new(plan.clone()));
+        }
         app.insert_resource(ScenarioRun {
             definition,
             start: Instant::now(),
@@ -55,13 +58,14 @@ impl Plugin for ScenarioPlugin {
         .add_systems(PostStartup, initialize)
         .add_systems(
             FixedFirst,
-            tick_commands
+            (tick_commands, super::route::controls)
+                .chain()
                 .after(CommandSet::BeginTick)
                 .before(CommandSet::Dispatch),
         )
         .add_systems(
             FixedLast,
-            (collect_outcomes, evaluate)
+            (super::route::observe, collect_outcomes, evaluate)
                 .chain()
                 .after(CommandSet::CompleteTick),
         )
@@ -134,6 +138,9 @@ fn update(world: &mut World) {
                 let tick = world.resource::<SimulationClock>().completed;
                 let real_time = world.resource::<Time<Real>>().elapsed_secs_f64();
                 state.ready = Some((tick, real_time, position));
+                if let Some(mut route) = world.get_resource_mut::<super::route::RouteTracker>() {
+                    route.start_tick = Some(tick);
+                }
                 world
                     .resource::<RunHandle>()
                     .event("scenario.ready", json!({"tick":tick,"backend":backend}));
@@ -262,6 +269,12 @@ fn observe(
         return json!({"passed":false,"reason":"no-target"});
     };
     match condition {
+        AssertionKind::RouteCompleted { max_cross_track_m } => world
+            .get_resource::<super::route::RouteTracker>()
+            .map_or_else(
+                || json!({"passed":false,"reason":"no-route"}),
+                |r| r.outcome(*max_cross_track_m),
+            ),
         AssertionKind::DisplacementAtLeast { meters } => {
             let actual =
                 Vec2::new(pose.translation.x - start.x, pose.translation.z - start.z).length();

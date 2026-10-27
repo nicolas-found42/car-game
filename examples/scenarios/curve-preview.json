@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "curve-preview",
+  "scene": "driving",
+  "course": "northeast_curve",
+  "seed": 17,
+  "initial": {
+    "car": "350z",
+    "position": [
+      458.0,
+      0.62,
+      400.0
+    ],
+    "rotation_y": 3.141592653589793
+  },
+  "commands": [],
+  "assertions": [
+    {
+      "tick": 180,
+      "kind": "selected_car",
+      "car": "350z"
+    }
+  ],
+  "max_ticks": 600,
+  "max_wall_ms": 30000,
+  "readiness_timeout_ms": 15000,
+  "required_capture": true
+}

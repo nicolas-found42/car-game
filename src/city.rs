@@ -3,6 +3,8 @@ use bevy::{
 };
 use bevy_rapier3d::prelude::*;
 
+pub mod curve;
+
 pub const SPACING: f32 = 112.0;
 pub const ROAD: f32 = 24.0;
 pub const EDGE: f32 = 480.0;
@@ -73,6 +75,13 @@ fn build_city(
     assets: Res<AssetServer>,
     config: Res<crate::RuntimeConfig>,
 ) {
+    if config
+        .scenario
+        .as_ref()
+        .is_some_and(|s| s.course == crate::scenario::Course::NortheastCurve)
+    {
+        curve::build(&mut commands, &mut meshes, &mut materials);
+    }
     let cube = meshes.add(Cuboid::default());
     let asphalt = materials.add(StandardMaterial {
         base_color: Color::srgb(0.13, 0.15, 0.17),

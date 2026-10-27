@@ -1,0 +1,508 @@
+{
+  "forward": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/bound-forward/20261027T042416001848Z-7b4a2d0-scenario-44471-1-1793075056025943000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 1,
+      "capture": null,
+      "completed_tick": 5403,
+      "elapsed_ms": 2767,
+      "failure": null,
+      "max_ticks": 5500,
+      "max_wall_ms": 90000,
+      "name": "curve-forward",
+      "passed": true,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 15000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 5400
+          },
+          "observed": {
+            "active_ticks": 5161,
+            "boundary": "completed_tick",
+            "completed": true,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 5161,
+            "maximum_cross_track_m": 1.8994827270507812,
+            "passed": true,
+            "progress_m": 199.08761596679688,
+            "total_m": 199.67959594726562
+          },
+          "passed": true
+        }
+      ],
+      "schema_version": 1,
+      "seed": 17,
+      "ticks": 5400
+    },
+    "validation": {
+      "schema": 2,
+      "ok": true,
+      "status": "verified",
+      "run_id": "20261027T042416001848Z-7b4a2d0-scenario-44471-1-1793075056025943000",
+      "errors": [],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T042416001848Z-7b4a2d0-scenario-44471-1-1793075056025943000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 0,
+          "reason": "success"
+        },
+        "errors": [],
+        "last_durable_tick": 5403,
+        "completed_tick": 5403,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 1804,
+          "last_tick": 5403,
+          "requested_ticks": 3600,
+          "retained_bytes": 65896960,
+          "retained_records": 32402,
+          "shortened": false,
+          "window_evictions": 15756
+        }
+      }
+    },
+    "settings": {
+      "fast_scenario": true,
+      "course": "northeast_curve",
+      "reference_physics": false,
+      "fixed_hz": 120
+    },
+    "material_complete": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  },
+  "reverse": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/bound-reverse/20261027T042422612029Z-7b4a2d0-scenario-44994-1-1793075062634222000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 1,
+      "capture": null,
+      "completed_tick": 5403,
+      "elapsed_ms": 3034,
+      "failure": null,
+      "max_ticks": 5500,
+      "max_wall_ms": 90000,
+      "name": "curve-reverse",
+      "passed": true,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 15000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 5400
+          },
+          "observed": {
+            "active_ticks": 5161,
+            "boundary": "completed_tick",
+            "completed": true,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 5161,
+            "maximum_cross_track_m": 1.8995437622070312,
+            "passed": true,
+            "progress_m": 199.08761596679688,
+            "total_m": 199.67959594726562
+          },
+          "passed": true
+        }
+      ],
+      "schema_version": 1,
+      "seed": 17,
+      "ticks": 5400
+    },
+    "validation": {
+      "schema": 2,
+      "ok": true,
+      "status": "verified",
+      "run_id": "20261027T042422612029Z-7b4a2d0-scenario-44994-1-1793075062634222000",
+      "errors": [],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T042422612029Z-7b4a2d0-scenario-44994-1-1793075062634222000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 0,
+          "reason": "success"
+        },
+        "errors": [],
+        "last_durable_tick": 5403,
+        "completed_tick": 5403,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 1804,
+          "last_tick": 5403,
+          "requested_ticks": 3600,
+          "retained_bytes": 65672704,
+          "retained_records": 32402,
+          "shortened": false,
+          "window_evictions": 15756
+        }
+      }
+    },
+    "settings": {
+      "fast_scenario": true,
+      "course": "northeast_curve",
+      "reference_physics": false,
+      "fixed_hz": 120
+    },
+    "material_complete": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  },
+  "reference-forward": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/bound-reference-forward/20261027T042429010657Z-7b4a2d0-scenario-45081-1-1793075069035814000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 1,
+      "capture": null,
+      "completed_tick": 5403,
+      "elapsed_ms": 2638,
+      "failure": null,
+      "max_ticks": 5500,
+      "max_wall_ms": 90000,
+      "name": "curve-forward",
+      "passed": true,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 15000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 5400
+          },
+          "observed": {
+            "active_ticks": 5161,
+            "boundary": "completed_tick",
+            "completed": true,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 5161,
+            "maximum_cross_track_m": 1.9236340522766113,
+            "passed": true,
+            "progress_m": 198.9298095703125,
+            "total_m": 199.67959594726562
+          },
+          "passed": true
+        }
+      ],
+      "schema_version": 1,
+      "seed": 17,
+      "ticks": 5400
+    },
+    "validation": {
+      "schema": 2,
+      "ok": true,
+      "status": "verified",
+      "run_id": "20261027T042429010657Z-7b4a2d0-scenario-45081-1-1793075069035814000",
+      "errors": [],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T042429010657Z-7b4a2d0-scenario-45081-1-1793075069035814000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 0,
+          "reason": "success"
+        },
+        "errors": [],
+        "last_durable_tick": 5403,
+        "completed_tick": 5403,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 1804,
+          "last_tick": 5403,
+          "requested_ticks": 3600,
+          "retained_bytes": 65896832,
+          "retained_records": 32402,
+          "shortened": false,
+          "window_evictions": 15757
+        }
+      }
+    },
+    "settings": {
+      "fast_scenario": true,
+      "course": "northeast_curve",
+      "reference_physics": true,
+      "fixed_hz": 120
+    },
+    "material_complete": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  },
+  "short-endpoint": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/bound-short-endpoint/20261027T042434969528Z-7b4a2d0-scenario-45171-1-1793075074989662000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 0,
+      "capture": null,
+      "completed_tick": 243,
+      "elapsed_ms": 138,
+      "failure": null,
+      "max_ticks": 241,
+      "max_wall_ms": 10000,
+      "name": "short-endpoint",
+      "passed": false,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 1000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 240
+          },
+          "observed": {
+            "active_ticks": 1,
+            "boundary": "completed_tick",
+            "completed": false,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 1,
+            "maximum_cross_track_m": 0.0002593994140625,
+            "passed": false,
+            "progress_m": 0.0,
+            "total_m": 0.5
+          },
+          "passed": false
+        }
+      ],
+      "schema_version": 1,
+      "seed": 0,
+      "ticks": 240
+    },
+    "validation": {
+      "schema": 2,
+      "ok": false,
+      "status": "failed",
+      "run_id": "20261027T042434969528Z-7b4a2d0-scenario-45171-1-1793075074989662000",
+      "errors": [
+        {
+          "code": "run_recorded_failure",
+          "file": "events.jsonl"
+        },
+        {
+          "code": "nonzero_exit",
+          "file": "manifest.json"
+        },
+        {
+          "code": "scenario_incomplete",
+          "file": "scenario-summary.json"
+        }
+      ],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T042434969528Z-7b4a2d0-scenario-45171-1-1793075074989662000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 1,
+          "reason": "error"
+        },
+        "errors": [],
+        "last_durable_tick": 243,
+        "completed_tick": 243,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 0,
+          "last_tick": 243,
+          "requested_ticks": 3600,
+          "retained_bytes": 3325696,
+          "retained_records": 1719,
+          "shortened": false,
+          "window_evictions": 0
+        }
+      }
+    },
+    "settings": {
+      "fast_scenario": true,
+      "course": "city",
+      "reference_physics": false,
+      "fixed_hz": 120
+    },
+    "material_complete": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  },
+  "long-endpoint": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/bound-long-endpoint/20261027T042436317387Z-7b4a2d0-scenario-45254-1-1793075076337359000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 0,
+      "capture": null,
+      "completed_tick": 243,
+      "elapsed_ms": 156,
+      "failure": null,
+      "max_ticks": 241,
+      "max_wall_ms": 10000,
+      "name": "long-endpoint",
+      "passed": false,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 1000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 240
+          },
+          "observed": {
+            "active_ticks": 1,
+            "boundary": "completed_tick",
+            "completed": false,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 1,
+            "maximum_cross_track_m": 0.0002593994140625,
+            "passed": false,
+            "progress_m": 0.0,
+            "total_m": 100.0
+          },
+          "passed": false
+        }
+      ],
+      "schema_version": 1,
+      "seed": 0,
+      "ticks": 240
+    },
+    "validation": {
+      "schema": 2,
+      "ok": false,
+      "status": "failed",
+      "run_id": "20261027T042436317387Z-7b4a2d0-scenario-45254-1-1793075076337359000",
+      "errors": [
+        {
+          "code": "run_recorded_failure",
+          "file": "events.jsonl"
+        },
+        {
+          "code": "nonzero_exit",
+          "file": "manifest.json"
+        },
+        {
+          "code": "scenario_incomplete",
+          "file": "scenario-summary.json"
+        }
+      ],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T042436317387Z-7b4a2d0-scenario-45254-1-1793075076337359000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 1,
+          "reason": "error"
+        },
+        "errors": [],
+        "last_durable_tick": 243,
+        "completed_tick": 243,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 0,
+          "last_tick": 243,
+          "requested_ticks": 3600,
+          "retained_bytes": 3313920,
+          "retained_records": 1719,
+          "shortened": false,
+          "window_evictions": 0
+        }
+      }
+    },
+    "settings": {
+      "fast_scenario": true,
+      "course": "city",
+      "reference_physics": false,
+      "fixed_hz": 120
+    },
+    "material_complete": {
+      "inventory_integrity": true,
+      "rebuild_complete": true,
+      "runtime_material_complete": true,
+      "runtime_replay_complete": false
+    }
+  }
+}
