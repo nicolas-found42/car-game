@@ -116,3 +116,12 @@ sqlite3 docs/vehicle-reference/corpus.sqlite < docs/vehicle-reference/queries.sq
 The research inputs under `research/` are reviewed facts, not an automated web-scraping cache. Rebuilding exports preserves those facts; updating them requires checking their sources and applicability. Re-extraction reads the archive without modifying models. Source file hashes, decoder/map identity, model hashes and SQL foreign keys are checked. Hash checks establish byte identity and export fidelity; they do not replace interpreting the source qualifications.
 
 Validation also included the repository format, strict Clippy, complexity and all-target Rust test ladder. No new 50-car driving experiment is claimed; this task compiles the references needed to design one.
+
+### Historical extractor identity
+
+Implementation source hashes identify the code that produced this corpus. If a
+current helper has since changed, verification checks the exact retained copy
+under `evidence/source/` rather than reinterpreting an old hash as the current
+implementation. Those snapshots preserve provenance; they do not establish that
+later helper versions reproduce the same outputs. The staged-asset recovery
+separately re-prepares all12 original additional editions byte-for-byte.
