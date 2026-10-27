@@ -1,0 +1,86 @@
+{
+  "active_roster_sha256": "d13d57b3f666860932e80db383d938be072f70058d3acf2326b5df879623e64a",
+  "cohort": {
+    "cars": [
+      "350z",
+      "mcla-evo"
+    ],
+    "cases": [
+      "launch-partial",
+      "brake",
+      "curve-forward-slow"
+    ],
+    "repeats": 2
+  },
+  "default_scene_and_roster": "No changes to src/ or assets/ in this tooling PR.",
+  "deliberate_mismatch": {
+    "changed": "350z launch-partial repeat 0 throttle 0.3 -> 0.4",
+    "comparison_exit_code": 1,
+    "producer_runs": 12,
+    "result": "Unmatched studies: unmatched scenario stimulus"
+  },
+  "immutable_measurement_regression": {
+    "after": "Same actual recorded fixture: all 10 tests pass; accepted metrics unchanged.",
+    "before": "Changing raw slip to 1 rad changed accepted metrics: regression FAILED before fix.",
+    "raw_mutation": "Copy-before-write raw physics.jsonl only; original frozen objects remain untouched."
+  },
+  "matched_control": {
+    "frozen_report_sha256": "8c42acff0a451e633c293e7ba6105440e318cefa5b9ced4a7970c5739590cdaa",
+    "matched": true,
+    "report_sha256": "8c42acff0a451e633c293e7ba6105440e318cefa5b9ced4a7970c5739590cdaa",
+    "run_pairs": 12
+  },
+  "metric_regressions": {
+    "final_comparison_sha256": "86065718bec378e03234a0ced81f64b6e3e98d34580ede5f335459779b4a42cb",
+    "focused_and_recorded_fixture_tests": 12,
+    "matched_pairs": 12,
+    "result": "matched after metric fixes"
+  },
+  "preservation_source": "d75f9504144bbbc0f4b25d210fb0bf87bbffd3cf",
+  "producer_sha256": "6b5a76f4a556e2f020d46e9dcb5a3f74df5b89bfdfc379f626446f995d00f7b9",
+  "profile_corpus_sha256": "d5f5bbe563066e90c135139bff2d8c2e0a8f207bbe123e3929e0ed076779f818",
+  "protocol_smoke": {
+    "all_producer_exits_zero": true,
+    "cars": [
+      "350z"
+    ],
+    "full_audit": "Validated 24 production runs",
+    "producer_runs": 24,
+    "repeats": 1
+  },
+  "qualification": "Raw runs retain immutable runtime/rebuild material. Exact runtime replay is not established.",
+  "raw_evidence": [
+    "artifacts/calibration-control-a",
+    "artifacts/calibration-control-b",
+    "artifacts/calibration-stimulus-mismatch",
+    "artifacts/calibration-protocol-smoke"
+  ],
+  "scenario_merge": "fc29f09d39029545f58bd438b2e67e0d083f54e0",
+  "sol_loop": {
+    "declined": [],
+    "diff_insertions_after": 904,
+    "diff_insertions_before": 868,
+    "findings": [
+      {
+        "id": "S1",
+        "outcome": "fixed: consume frozen metric/profile/readiness objects; actual raw-mutation regression",
+        "severity": "should"
+      },
+      {
+        "id": "G1",
+        "outcome": "fixed: separate action_ metrics preserve full-window observations",
+        "severity": "should"
+      },
+      {
+        "id": "G2",
+        "outcome": "fixed: reset transitions excluded from path distance; regression fails1060m before and passes59m after",
+        "severity": "should"
+      }
+    ],
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "rounds": 3,
+    "usage": "not exposed",
+    "verdict": "APPROVE"
+  }
+}

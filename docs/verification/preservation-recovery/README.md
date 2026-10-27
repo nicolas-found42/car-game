@@ -35,7 +35,7 @@ git show codex/preserve-fleet-progress-20261026:path/from/inventory
 | Fleet assets and preparation (582 paths) | [#110](https://github.com/nicolas-found42/car-game/pull/110) preserves the 287 additional editions outside the active asset root; 13 remain active. |
 | Diagnostics and provenance (25 paths) | CLI recovered in [#112](https://github.com/nicolas-found42/car-game/pull/112); profile material binding in [#113](https://github.com/nicolas-found42/car-game/pull/113); automatic windows recovered separately with per-actor ownership. Existing current-main recorder guarantees remain authoritative. |
 | Profiles and forces (20 paths) | Adapted to current assemblies/controls in [#113](https://github.com/nicolas-found42/car-game/pull/113), behind `--reference-physics`. Default arcade tuning retained. |
-| Verification/study tooling (37 paths) | Current verification, diagnosis, profile and asset checks integrated. Old study runners remain quarantined because they assume the old actor pipeline, roster and courses. |
+| Verification/study tooling (37 paths) | Current verification, diagnosis, profile and asset checks integrated. Calibration protocols, metrics, production runners, frozen-evidence audits, comparisons and optional plotting are selectively recovered in `../calibration-studies/`; roster publishers and unrecorded harnesses remain archived. |
 | Scenario courses/fast runner (8 paths) | Recovered selectively as opt-in courses, player-scoped completed-step routing and bounded fast execution. See `../scenario-courses/`; original staged-only diagnostic examples remain hashed historical inputs. Default scene, roster and existing runtime owners are preserved. |
 | Historical study evidence (314 paths) | Kept byte-for-byte at checkpoint. Old matrices are historical evidence, not current-main acceptance or original-game fidelity certification. |
 
@@ -43,22 +43,7 @@ The duplicate GT experiment is retired after [#107](https://github.com/nicolas-f
 
 The preservation branch is deliberately retained as an immutable recovery source,
 not an active merge branch. No stashes or unrelated dirty work were discarded.
-Deferred recovery prompts, if those features are wanted next:
 
-```text
-Create codex/recover-scenario-courses from origin/main. Recover only the eight
-scenario-courses-and-fast-runner paths listed in preservation-recovery/inventory.json
-from d75f950. Integrate them with current per-actor commands and completed steps;
-keep the default driving scene unchanged. Prove opt-in courses and clock behavior
-through production scenarios, run the recorded verification ladder, Sol review,
-and open one focused PR. Do not overwrite current runtime owners.
-```
-
-```text
-After course recovery, create codex/recover-calibration-studies from origin/main.
-Recover the quarantined study runners and metrics from d75f950. Explicitly select
-reference physics; never silently enable staged cars or compare historical and
-current runs as equivalent. Adapt actor selection and provenance, reproduce a
-small matched control plus a deliberate mismatch, and open a separate tooling PR.
-Keep historical bulk matrices pinned at the preservation checkpoint.
-```
+Scenario courses landed in [#115](https://github.com/nicolas-found42/car-game/pull/115).
+The remaining calibration recovery uses those courses in a separate tooling PR;
+see `../calibration-studies/` for commands, scope and current acceptance evidence.
