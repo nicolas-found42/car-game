@@ -52,7 +52,21 @@ def rows(run, name, findings):
             except ValueError as error:
                 findings.add('trace_malformed_record', name, line=line, detail=str(error)[:120])
                 return
+            if not record_shape(record, name):
+                findings.add('trace_invalid_value', name, line=line, tick=record.get('tick'))
+                return
             yield line, record
+
+
+def record_shape(record, name):
+    tick = record.get('tick')
+    if type(tick) is not int or tick < (1 if name in ('physics.jsonl', 'input.jsonl') else 0):
+        return False
+    if record.get('actor_id') is not None and not isinstance(record['actor_id'], str):
+        return False
+    if name == 'events.jsonl':
+        return isinstance(record.get('kind'), str) and isinstance(record.get('fields'), dict)
+    return True
 
 
 def finite(value):

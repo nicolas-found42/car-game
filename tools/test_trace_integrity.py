@@ -283,13 +283,13 @@ class TraceIntegrityTests(unittest.TestCase):
             self.assertRejected(run, 'trace_command_unresolved')
 
     def test_outcome_actor_action_and_order_must_match(self):
-        for change in (lambda r: r.__setitem__('actor_id', 'other'),
-                       lambda r: r['fields'].__setitem__('command', {'action': 'reset'}),
-                       lambda r: r.__setitem__('tick', -1)):
+        for change, code in ((lambda r: r.__setitem__('actor_id', 'other'), 'trace_command_mismatch'),
+                             (lambda r: r['fields'].__setitem__('command', {'action': 'reset'}), 'trace_command_mismatch'),
+                             (lambda r: r.__setitem__('tick', -1), 'trace_invalid_value')):
             with self.subTest(change=change), tempfile.TemporaryDirectory() as root:
                 run = fixture(root)
                 mutate(run, 'events', lambda rows: change(rows[1]))
-                self.assertRejected(run, 'trace_command_mismatch')
+                self.assertRejected(run, code)
 
     def test_nested_nonfinite_and_wrong_completed_identity_fail(self):
         for change in (lambda r: r['evidence'].__setitem__('wheel_loads', [float('nan')]),
@@ -451,6 +451,49 @@ class TraceIntegrityTests(unittest.TestCase):
                 run = fixture(root)
                 mutate(run, 'physics', lambda rows: change(rows[2]))
                 self.assertRejected(run, 'trace_invalid_value')
+
+    def test_visual_only_reports_require_three_views(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            self.add_captures(run)
+            report = json.loads((run / 'report.json').read_text())
+            report[0]['visual_capture_only'] = True
+            del report[0]['captures']['driving']
+            (run / 'report.json').write_text(json.dumps(report))
+            events = [r for r in read_lines(run / 'events.jsonl') if r['fields'].get('view') != 'driving']
+            write_lines(run / 'events.jsonl', events)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['events'].update(accepted=len(events), written=len(events))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_nonnumeric_wheel_vectors_are_corrupt_records(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            mutate(run, 'physics', lambda rows: rows[1]['evidence']['wheels'][0].__setitem__('origin', ['bad', None, False]))
+            self.assertRejected(run, 'trace_invalid_value', file='physics.jsonl')
+
+    def test_null_evidence_and_invalid_actor_tick_shapes_keep_locations(self):
+        for stream, change in (
+                ('physics', lambda row: row.__setitem__('evidence', None)),
+                ('physics', lambda row: row.__setitem__('actor_id', [])),
+                ('events', lambda row: row.__setitem__('tick', []))):
+            with self.subTest(stream=stream), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                mutate(run, stream, lambda rows: change(rows[0]))
+                self.assertRejected(run, 'trace_invalid_value', file=stream + '.jsonl')
+
+    def test_same_capture_basename_in_another_directory_is_not_linked(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            self.add_captures(run)
+            (run / 'other').mkdir()
+            (run / 'other/front.png').write_bytes((run / 'captures/front.png').read_bytes())
+            report = json.loads((run / 'report.json').read_text())
+            report[0]['captures']['front']['path'] = 'other/front.png'
+            (run / 'report.json').write_text(json.dumps(report))
+            self.assertRejected(run, 'capture_link_mismatch')
 
     def test_unknown_record_schema_is_unsupported_not_failed_or_verified(self):
         with tempfile.TemporaryDirectory() as root:

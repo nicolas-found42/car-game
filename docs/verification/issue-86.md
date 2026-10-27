@@ -121,3 +121,12 @@ capture links. The native capture was visually inspected. Recorded binary:
 Later corpus-only and expected-test-fixture-cleanup merges do not change those
 production Rust bytes. Final full-run logs and accepted scenario bundles remain
 under the primary checkout's `artifacts/issue-86/`.
+
+Bot review additionally exposed and reproduced four cases: three-view visual
+reports, malformed evidence/tick/actor shapes, nonnumeric wheel vectors and
+same-basename capture substitution from a different directory. All are fixed;
+the new controls fail against the prior PR head and pass the corrected verifier.
+All34 focused tests and the supplementary full headless ladder pass. A real
+13-car visual-only run with39captures passes strict verification, as do the
+retained full fleet and two-car scenario runs. Sol's fourth review round approved
+the state/identity fixes. No production Rust changed in this review pass.

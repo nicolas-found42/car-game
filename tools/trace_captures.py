@@ -34,6 +34,18 @@ def capture_events(run, findings):
     return requested, validated, frames
 
 
+def relative_capture_path(event):
+    path = Path(str(event.get('fields', {}).get('path')))
+    if '..' in path.parts:
+        return None
+    if path.parts and path.parts[0] == 'captures':
+        return path.as_posix()
+    run_id = event.get('run_id')
+    if run_id in path.parts:
+        return Path(*path.parts[path.parts.index(run_id) + 1:]).as_posix()
+    return None
+
+
 def capture_link(key, capture, events, findings):
     requested, validated, frames = events
     request, result = requested.get(key), validated.get(key)
@@ -48,8 +60,8 @@ def capture_link(key, capture, events, findings):
     valid = valid and actor == result.get('actor_id') == 'player-vehicle'
     valid = valid and all(frames.get((t, actor), -1) <= f and (t, actor) in frames
                           for t, f in zip(ticks, render_frames))
-    names = [Path(str(row.get('fields', {}).get('path'))).name for row in (request, result)]
-    valid = valid and names[0] == names[1] == Path(str(capture.get('path'))).name
+    names = [relative_capture_path(row) for row in (request, result)]
+    valid = valid and names[0] == names[1] == capture.get('path')
     valid = valid and result.get('fields', {}).get('metrics') == capture.get('metrics')
     if not valid:
         findings.add('capture_link_mismatch', 'events.jsonl', car=key[0], view=key[1])
@@ -66,7 +78,10 @@ def check_reports(run, manifest, findings):
     seen = set()
     for report in reports:
         captures = report.get('captures', {})
-        if not report.get('passed') or set(captures) != {'front', 'side', 'rear', 'driving'}:
+        required = {'front', 'side', 'rear'}
+        if not report.get('visual_capture_only'):
+            required.add('driving')
+        if not report.get('passed') or set(captures) != required:
             findings.add('report_incomplete', 'report.json', car=report.get('id'))
         for view, capture in captures.items():
             key = (report.get('id'), view)

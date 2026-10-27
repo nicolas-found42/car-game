@@ -37,13 +37,12 @@ def wheel_errors(evidence):
     for wheel in wheels:
         if not isinstance(wheel, dict):
             return ['evidence.wheels']
-        for field in ('origin', 'direction'):
+        for field in ('origin', 'direction', 'point', 'normal'):
             value = wheel.get(field)
-            if not isinstance(value, list) or len(value) != 3:
-                return ['evidence.wheels.' + field]
-        for field in ('point', 'normal'):
-            value = wheel.get(field)
-            if value is not None and (not isinstance(value, list) or len(value) != 3):
+            if value is None and field in ('point', 'normal'):
+                continue
+            if (not isinstance(value, list) or len(value) != 3
+                    or any(type(x) not in (int, float) or not math.isfinite(x) for x in value)):
                 return ['evidence.wheels.' + field]
     return []
 
@@ -60,7 +59,9 @@ def completed_errors(record, run_id):
     if not finite_tree(record):
         bad.append('nonfinite')
     bad.extend(input_errors(record.get('input'), record.get('tick', 0)))
-    evidence = record.get('evidence', {})
+    evidence = record.get('evidence')
+    if not isinstance(evidence, dict):
+        return bad + ['evidence']
     if evidence.get('input') != record.get('input'):
         bad.append('evidence.input')
     if evidence.get('query_tick') != record.get('tick'):
