@@ -1,0 +1,42 @@
+{
+  "research_date": "2026-10-23",
+  "author_checks": {
+    "american": {
+      "cars": 16,
+      "facts": 439
+    },
+    "european": {
+      "cars": 17,
+      "facts": 541
+    },
+    "japanese": {
+      "cars": 17,
+      "facts": 575
+    }
+  },
+  "source_url_records": 102,
+  "source_ids_used_by_facts": 97,
+  "maximum_direct_excerpt_words_per_url": 18,
+  "bounded_independent_review": {
+    "status": "No additional attribution errors found in inspected cases",
+    "cases": [
+      "standard Evo IX versus MR test",
+      "1997 Japanese Supra RZ versus adjacent game models",
+      "US 1999 3000GT versus Japanese GTO",
+      "WRC homologation versus road STi",
+      "Porsche handbook 2272 mm wheelbase",
+      "1988 Testarossa source versus 1991 asset"
+    ],
+    "limit": "A targeted independent check, not an independent audit of every fact."
+  },
+  "repository_checks": {
+    "cargo_fmt_check": "passed",
+    "strict_clippy_all_targets": "passed",
+    "codelimit_and_complexity": "passed (one nonblocking length warning)",
+    "cargo_test_all_targets": "70 passed",
+    "python_compileall": "passed",
+    "assets": "passed",
+    "example_sql_queries": "7 sets passed"
+  },
+  "scope": "Reference data only; no new driving experiment or physics calibration performed."
+}

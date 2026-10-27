@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "accessed": "2026-10-25",
+  "baseline": "docs/verification/fleet57-geometry-drivetrain/all-57-cars.csv",
+  "policy": "Reference observations are calibration envelopes; preserve trim/year/mass/tire/circle/rollout qualifications. Simulation has no rollout; unknown rollout is not converted.",
+  "sources": [
+    {
+      "id": "rs4-us07-oem",
+      "url": "https://www.audiworld.com/model/rs4/07/07AudiRS4_TechSpecs.pdf",
+      "title": "Audi 2007 RS 4 Sedan Technical Specifications",
+      "kind": "manufacturer_document_mirror",
+      "retrieval": "Direct PDF returned 403; original document tables retrieved through web search index on 2026-10-25.",
+      "excerpt": "Curb weight: manual trans. 3957 lbs. 1795 kg",
+      "qualification": "US 2007 sedan; related year to 2008 US asset. OEM curb basis, separate from test vehicle weight."
+    },
+    {
+      "id": "rs4-us08-release",
+      "url": "https://www.audiworld.com/model/rs4/08/RS4_Cab_PR.pdf",
+      "title": "Audi of America June6,2007 RS4 announcement",
+      "kind": "manufacturer_document_mirror",
+      "retrieval": "Direct PDF403; indexed original document text retrieved.",
+      "excerpt": "RS 4 sedan receives enhancements for 2008",
+      "qualification": "Describes new 2008 sedan features/options and shared Cabriolet engine, suspension, tire and brake specification. Does not establish exact 2008 sedan mass."
+    },
+    {
+      "id": "rs4-cd07",
+      "url": "https://www.caranddriver.com/reviews/a18200959/2007-audi-rs-4-quattro-road-test-review/",
+      "title": "Car and Driver:2007 Audi RS4 Quattro instrumented test",
+      "kind": "instrumented_test_primary",
+      "excerpt": "Roadholding, 300-ft-dia skidpad: 0.91 g",
+      "qualification": "2007 sedan; Pirelli P Zero Rosso 255/35ZR19 (96Y); 3980 lb published curb/test vehicle weight. Measured at 97 F and 2000 ft, weather-corrected; rollout unspecified. Separate Willow track session used P Zero Corsa race tires.",
+      "browser_verification": "Jev browser open/read confirmed original page on 2026-10-25."
+    },
+    {
+      "id": "ctsv-aw04",
+      "url": "https://www.autoweek.com/news/a2086961/2004-cadillac-cts-v-flying-v-cadillacs-cts-v-simply-shreds/",
+      "title": "Autoweek:2004 Cadillac CTS-V FlyingV",
+      "kind": "instrumented_test_primary",
+      "excerpt": "our 200-foot skidpad",
+      "qualification": "Exact 2004 CTS-V road test; describes Goodyear Eagle F1s and production vehicle. Tire size, test payload, pressure, rollout and weather unspecified in accessible text.",
+      "browser_verification": "Jev browser open/read confirmed original page on 2026-10-25."
+    },
+    {
+      "id": "ctsv-mt04",
+      "url": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive",
+      "title": "MotorTrend April2004 CTS-V/S-TypeR comparison,2026 republication",
+      "kind": "instrumented_test_primary",
+      "excerpt": "Curb weight, lb 3850",
+      "qualification": "Exact 2004 LS6 six-speed; 245/45WR18 Goodyear Eagle F1; 54/46 weight distribution; axle hop during launch. No numeric skidpad; 600 ft slalom is not skidpad."
+    },
+    {
+      "id": "ctsv-cd04",
+      "url": "https://www.caranddriver.com/reviews/a15133698/cadillac-cts-v-road-test/",
+      "title": "Car and Driver March2004 Cadillac CTS-V comparison",
+      "kind": "instrumented_test_primary",
+      "excerpt": "a slow leak in the left front tire",
+      "qualification": "Reports 0.90 g but suspected pressure loss affected directional times; corroboration only. Circle diameter unstated in accessible page."
+    },
+    {
+      "id": "nsx-cd90",
+      "url": "https://www.caranddriver.com/reviews/comparison-test/a15140663/porsche-911-carrera-4-cabriolet-vs-acura-nsx-chevrolet-corvette-zr-1-ferrari-348ts-lotus-esprit-turbo-se-archived-comparison-test/",
+      "title": "Car and Driver1990 fiveway sportscar comparison",
+      "kind": "instrumented_test_primary",
+      "excerpt": "Roadholding, 300-ft-dia skidpad: 0.86 g",
+      "qualification": "Article labels 1990 Acura NSX; 270 hp, five-speed, 3020 lb. Early/preproduction status unresolved. Over 100 F ambient, weather corrections may be incomplete. Rollout unspecified. Diagnostic only; defer production calibration.",
+      "browser_verification": "Jev browser open/read confirmed original page on 2026-10-25."
+    },
+    {
+      "id": "csl-bmw10",
+      "url": "https://www.press.bmwgroup.com/austria/article/attachment/T0082318DE/125287",
+      "title": "BMW AG2010 historical M3technicaltable",
+      "kind": "manufacturer_document",
+      "excerpt": "M3 CSL 2003",
+      "qualification": "OEM retrospective gives 0\u2013100 km/h 4.9 s; other BMW retrospectives quote 4.8 s. No matched numeric skidpad target."
+    },
+    {
+      "id": "gnx-rt87",
+      "url": "https://www.roadandtrack.com/new-cars/road-tests/a25623/first-look-flashback-1987-buick-gnx/",
+      "title": "Road and TrackJune1987 GNX firstlook,2016 archive",
+      "kind": "first_hand_prototype_report",
+      "excerpt": "using the original GNX prototype",
+      "qualification": "Buick claim 5.4 s to 60 mph; R&T informal 5.6\u20135.7 s used prototype. Neither verifies a production instrumented target. Exclude from calibration ranking."
+    }
+  ],
+  "cars": [
+    {
+      "car": "ref-e12",
+      "decision": "prioritize_mass_basis_and_excess_grip",
+      "identity": "US2008B7sedan vs relatedUS2007OEM/test",
+      "oem_related_year": {
+        "source_id": "rs4-us07-oem",
+        "mass_kg": 1795,
+        "mass_lb": 3957,
+        "front_weight_fraction": 0.58,
+        "cd": 0.31,
+        "frontal_area_m2": 2.17,
+        "gear_ratios": [
+          3.667,
+          2.211,
+          1.52,
+          1.133,
+          0.919,
+          0.778
+        ],
+        "final_drive": 4.111,
+        "nominal_front_torque_fraction": 0.4,
+        "tire": "255/35ZR19",
+        "wheel": "9Jx19",
+        "wheelbase_mm": 2648,
+        "front_track_mm": 1559,
+        "rear_track_mm": 1559
+      },
+      "targets": [
+        {
+          "metric": "skidpad_300ft",
+          "reference_value": 0.91,
+          "unit": "g",
+          "source_id": "rs4-cd07",
+          "diameter_ft": 300,
+          "baseline_value": 1.0676019,
+          "baseline_unit": "g",
+          "baseline_relative_error_pct": 17.318890109890116
+        },
+        {
+          "metric": "zero_60_mph",
+          "reference_value": 4.6,
+          "unit": "s",
+          "source_id": "rs4-cd07",
+          "baseline_value": 3.9333336,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -14.49274782608695
+        },
+        {
+          "metric": "zero_100_mph",
+          "reference_value": 11.1,
+          "unit": "s",
+          "source_id": "rs4-cd07",
+          "baseline_value": 9.416667,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -15.16516216216216
+        },
+        {
+          "metric": "brake_70_mph_0",
+          "reference_value": 165,
+          "unit": "ft",
+          "source_id": "rs4-cd07",
+          "baseline_value": 43.478622,
+          "baseline_unit": "m",
+          "baseline_relative_error_pct": -13.547637795275591
+        }
+      ],
+      "caution": "2007techsheet DINhp420@7800/torque317lbft@6000 conflicts2008release torque5500rpm; retain competing source facts, do not blindly retune torque curve."
+    },
+    {
+      "car": "ref-a14",
+      "decision": "prioritize_excess_lateral_grip_and_midrange",
+      "targets": [
+        {
+          "metric": "skidpad_200ft",
+          "reference_value": 0.88,
+          "unit": "g",
+          "source_id": "ctsv-aw04",
+          "diameter_ft": 200,
+          "baseline_value": 1.034394,
+          "baseline_unit": "g",
+          "baseline_relative_error_pct": 17.54477272727273
+        },
+        {
+          "metric": "zero_60_mph",
+          "reference_value": 5.1,
+          "unit": "s",
+          "source_id": "ctsv-mt04",
+          "baseline_value": 4.941667,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -3.1045686274509765
+        },
+        {
+          "metric": "zero_100_mph",
+          "reference_value": 12.3,
+          "unit": "s",
+          "source_id": "ctsv-mt04",
+          "baseline_value": 10.916667,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -11.246609756097559
+        },
+        {
+          "metric": "brake_60_mph_0",
+          "reference_value": 121,
+          "unit": "ft",
+          "source_id": "ctsv-mt04",
+          "baseline_value": 36.77739,
+          "baseline_unit": "m",
+          "baseline_relative_error_pct": -0.2803897963167934
+        }
+      ],
+      "additional_observations": [
+        {
+          "metric": "zero_60_mph",
+          "reference_value": 5.35,
+          "unit": "s",
+          "source_id": "ctsv-aw04",
+          "baseline_value": 4.941667,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -7.632392523364484
+        },
+        {
+          "metric": "brake_60_mph_0",
+          "reference_value": 112,
+          "unit": "ft",
+          "source_id": "ctsv-aw04",
+          "baseline_value": 36.77739,
+          "baseline_unit": "m",
+          "baseline_relative_error_pct": 7.7327931664791905
+        }
+      ],
+      "caution": "Do not force across-test braking numbers to one value; launch axlehop and unknown rollout limit exacttime calibration."
+    },
+    {
+      "car": "gt4-nsx",
+      "decision": "defer_until_production_configuration_target_verified",
+      "targets": [
+        {
+          "metric": "skidpad_300ft",
+          "reference_value": 0.86,
+          "unit": "g",
+          "source_id": "nsx-cd90",
+          "diameter_ft": 300,
+          "baseline_value": 0.9861639,
+          "baseline_unit": "g",
+          "baseline_relative_error_pct": 14.670220930232558,
+          "use_for_calibration": false
+        },
+        {
+          "metric": "zero_60_mph",
+          "reference_value": 5.2,
+          "unit": "s",
+          "source_id": "nsx-cd90",
+          "baseline_value": 5.4583335,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": 4.96795192307693,
+          "use_for_calibration": false
+        },
+        {
+          "metric": "brake_70_mph_0",
+          "reference_value": 157,
+          "unit": "ft",
+          "source_id": "nsx-cd90",
+          "baseline_value": 46.76062,
+          "baseline_unit": "m",
+          "baseline_relative_error_pct": -2.284007890733397,
+          "use_for_calibration": false
+        }
+      ],
+      "caution": "The 1990 comparison does not establish production status. No matched early production 3.0-litre manual 300-ft source retrieved. 1994 has different wheels/tires; 1997 NSX-T has different engine/transmission/body. Do not tune to the 0.86 g early-car observation."
+    },
+    {
+      "car": "gt4-m3",
+      "decision": "do_not_reduce_lateral_grip_without_matched_primary_target",
+      "targets": [
+        {
+          "metric": "zero_100_kmh",
+          "reference_value": 4.9,
+          "unit": "s",
+          "source_id": "csl-bmw10",
+          "baseline_value": 4.5583334,
+          "baseline_unit": "s",
+          "baseline_relative_error_pct": -6.972787755102039
+        }
+      ],
+      "caution": "M3CSL PilotSportCup equipment differs from ordinaryM3. No matched primary skidpad found; current1.102g alone does not prove mismatch. Forum SportAuto1.4g maximumclaims not used."
+    },
+    {
+      "car": "ref-a16",
+      "decision": "exclude_prototype_targets_from_production_calibration",
+      "targets": [],
+      "caution": "CorpusC/D4.7sto60and.80g describeprototype; R&Talso testsprototype. No retrieved productioninstrumentedbaseline."
+    }
+  ]
+}
