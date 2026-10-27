@@ -11,6 +11,8 @@ def same_state(left, right):
         return len(left) == len(right) and all(same_state(a, b) for a, b in zip(left, right))
     if type(left) in (int, float) and type(right) in (int, float):
         return math.isclose(left, right, rel_tol=1e-6, abs_tol=1e-7)
+    if isinstance(left, bool) or isinstance(right, bool):
+        return type(left) is type(right) and left == right
     return left == right
 
 
@@ -55,7 +57,7 @@ def event_identity(record, run_id, previous, findings, line):
 
 def check_events(run, completed, state, findings, run_id):
     previous, ticks, resets, resolved, seen = 0, {}, Counter(), {}, set()
-    effective = set()
+    effective, increments = set(), Counter()
     for line, record in rows(run, 'events.jsonl', findings):
         if findings.full():
             break
@@ -72,12 +74,38 @@ def check_events(run, completed, state, findings, run_id):
             completed_actor(record, state, seen, findings, line)
         elif kind == 'vehicle.reset':
             resets[(tick, actor)] += 1
+            increments[(tick, actor)] += 1
+        elif kind == 'car.switched':
+            if valid_switch(record, resolved):
+                increments[(tick, actor)] += 1
+            else:
+                findings.add('trace_switch_mismatch', 'events.jsonl', line=line)
         if kind in ('command.outcome', 'vehicle.reset') and record.get('command_id'):
             resolved.setdefault(record['command_id'], []).append(record)
     if set(ticks) != set(range(1, completed + 1)):
         findings.add('trace_event_incomplete', 'events.jsonl', completed_tick=completed)
     check_populations(ticks, state, seen, effective, resets, findings)
+    check_counter_deltas(state, increments, findings)
     return resolved
+
+
+def valid_switch(record, resolved):
+    outcomes = resolved.get(record.get('command_id'), [])
+    for outcome in outcomes:
+        fields = outcome.get('fields', {})
+        if (outcome.get('kind') == 'command.outcome' and fields.get('disposition') == 'applied'
+                and fields.get('command', {}).get('action') in ('select_car', 'cycle_car')
+                and outcome.get('actor_id') == record.get('actor_id')
+                and outcome.get('tick') == record.get('tick')
+                and fields.get('selected_car') == record.get('fields', {}).get('car')):
+            return True
+    return False
+
+
+def check_counter_deltas(state, increments, findings):
+    for key in state['counter_deltas'].keys() | increments.keys():
+        if state['counter_deltas'].get(key, 0) != increments[key]:
+            findings.add('trace_reset_mismatch', 'physics.jsonl', tick=key[0], actor_id=key[1])
 
 
 def check_populations(ticks, state, seen, effective, resets, findings):

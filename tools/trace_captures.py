@@ -111,7 +111,7 @@ def check_scenario(run, findings, completed):
     try:
         scenario = json.loads((root / 'scenario.json').read_text())['definition']
         summary = json.loads((root / 'scenario-summary.json').read_text())
-    except (OSError, ValueError):
+    except (OSError, ValueError, KeyError, TypeError):
         findings.add('scenario_unavailable', 'scenario-summary.json')
         return
     results = summary.get('results', [])

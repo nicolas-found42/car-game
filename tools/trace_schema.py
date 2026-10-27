@@ -93,6 +93,7 @@ def completed_errors(record, run_id):
     evidence = record.get('evidence')
     if not isinstance(evidence, dict):
         return bad + ['evidence']
+    bad.extend('evidence.' + field for field in input_errors(evidence.get('input'), record.get('tick', 0)))
     if evidence.get('input') != record.get('input'):
         bad.append('evidence.input')
     if evidence.get('query_tick') != record.get('tick'):

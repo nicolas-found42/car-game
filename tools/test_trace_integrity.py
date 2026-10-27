@@ -519,6 +519,84 @@ class TraceIntegrityTests(unittest.TestCase):
                 mutate(run, 'physics', change)
                 self.assertRejected(run, 'trace_invalid_value', file='physics.jsonl')
 
+    def test_unexplained_counter_increment_is_rejected(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            def bump(rows):
+                for row in rows:
+                    if row['tick'] >= 7:
+                        row['reset_count'] += 1
+            mutate(run, 'physics', bump)
+            def match_completed(rows):
+                for row in rows:
+                    if row['kind'] == 'simulation.completed' and row['tick'] >= 7:
+                        row['fields']['reset_count'] += 1
+            mutate(run, 'events', match_completed)
+            self.assertRejected(run, 'trace_reset_mismatch', file='physics.jsonl')
+
+    def test_same_car_reselection_can_increment_counter_twice_in_one_tick(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            events = read_lines(run / 'events.jsonl')
+            commands = read_lines(run / 'commands.jsonl')
+            insert = next(i for i, row in enumerate(events) if row['tick'] == 7)
+            additions = []
+            for number in (2, 3):
+                cmd = command(number, 'ingress', 7)
+                cmd['command'] = {'action': 'select_car', 'car': '350z', 'reset_to_spawn': True}
+                commands.append(cmd)
+                for kind, fields in [('command.outcome', {'disposition': 'applied',
+                        'command': cmd['command'], 'selected_car': '350z'}),
+                        ('car.switched', {'car': '350z'})]:
+                    row = event(kind, 0, 7, command_id=cmd['command_id'], **fields)
+                    row['actor_id'] = 'player-vehicle'
+                    additions.append(row)
+            events[insert:insert] = additions
+            for seq, row in enumerate(events, 1):
+                row['seq'] = seq
+                if row['kind'] == 'simulation.completed' and row['tick'] >= 7:
+                    row['fields']['reset_count'] += 2
+            write_lines(run / 'events.jsonl', events)
+            write_lines(run / 'commands.jsonl', commands)
+            physics = read_lines(run / 'physics.jsonl')
+            for row in physics:
+                if row['tick'] >= 7:
+                    row['reset_count'] += 2
+            write_lines(run / 'physics.jsonl', physics)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            for name, rows in [('events', events), ('commands', commands)]:
+                health['streams'][name].update(accepted=len(rows), written=len(rows))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, report = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertTrue(report['ok'])
+
+    def test_unhashable_command_ids_are_located_without_a_traceback(self):
+        for stream in ('events', 'commands'):
+            for identity in ([], {}):
+                with self.subTest(stream=stream, identity=identity), tempfile.TemporaryDirectory() as root:
+                    run = fixture(root)
+                    mutate(run, stream, lambda rows: rows[0].__setitem__('command_id', identity))
+                    self.assertRejected(run, 'trace_invalid_value', file=stream + '.jsonl')
+
+    def test_boolean_numeric_aliases_do_not_match_completed_controls_or_state(self):
+        for kind, field in [('controls.effective', 'throttle'), ('simulation.completed', 'reset_count')]:
+            with self.subTest(kind=kind), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                def corrupt(rows):
+                    row = next(r for r in rows if r['kind'] == kind and r['tick'] == 7)
+                    row['fields'][field] = True
+                mutate(run, 'events', corrupt)
+                code = 'trace_control_mismatch' if kind == 'controls.effective' else 'trace_state_mismatch'
+                self.assertRejected(run, code, file='events.jsonl')
+
+    def test_missing_scenario_definition_is_a_json_failure(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root, 'scenario')
+            (run / 'scenario.json').write_text('{}')
+            (run / 'scenario-summary.json').write_text('{}')
+            self.assertRejected(run, 'scenario_unavailable')
+
     def test_unknown_record_schema_is_unsupported_not_failed_or_verified(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root)

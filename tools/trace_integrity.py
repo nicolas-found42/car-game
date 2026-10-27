@@ -5,7 +5,7 @@ Streams are read incrementally; a single malformed line stops that file's checks
 """
 import json
 import math
-from trace_schema import completed_errors, finite_tree
+from trace_schema import completed_errors, finite_tree, input_errors
 from pathlib import Path
 
 SUPPORTED_SCHEMA = 1
@@ -64,11 +64,20 @@ def record_shape(record, name):
     tick = record.get('tick')
     if type(tick) is not int or tick < (1 if name in ('physics.jsonl', 'input.jsonl') else 0):
         return False
+    if not key_shapes(record, name):
+        return False
     if record.get('actor_id') is not None and not isinstance(record['actor_id'], str):
         return False
     if name == 'events.jsonl':
         return isinstance(record.get('kind'), str) and isinstance(record.get('fields'), dict)
     return True
+
+
+def key_shapes(record, name):
+    identity = record.get('command_id')
+    if name == 'commands.jsonl':
+        return isinstance(identity, str) and bool(identity)
+    return identity is None or (isinstance(identity, str) and bool(identity))
 
 
 def finite(value):
@@ -120,15 +129,17 @@ def check_reset(findings, state, line, record):
     reset = record['evidence']['outcome'] == 'reset'
     held = record['input'].get('reset') is True
     delta = record['reset_count'] - state['counts'].get(actor, 0)
-    if (held and not reset) or delta not in (0, 1) or (reset and delta != 1):
+    if (held and not reset) or delta < 0 or (reset and delta < 1):
         findings.add('trace_reset_mismatch', 'physics.jsonl', line=line, tick=tick, actor_id=actor)
+    if delta:
+        state['counter_deltas'][(tick, actor)] = delta
     state['counts'][actor] = record['reset_count']
     if reset:
         state['reset_ticks'].add((tick, actor))
 
 
 def check_physics(run, completed, findings, run_id):
-    state = {'counts': {}, 'reset_ticks': set(), 'held': {}, 'last': {}, 'samples': {}, 'frames': {}}
+    state = {'counts': {}, 'reset_ticks': set(), 'held': {}, 'last': {}, 'samples': {}, 'frames': {}, 'counter_deltas': {}}
     name = 'physics.jsonl'
     for line, record in rows(run, name, findings):
         if findings.full():
@@ -168,6 +179,8 @@ def check_input(run, completed, held, findings):
             break
         seen = True
         last = tick_cursor(findings, name, last, line, record)
+        if input_errors(record, record.get('tick')):
+            findings.add('trace_invalid_value', name, line=line, tick=record.get('tick'))
         if held.get(record.get('tick')) != record:
             findings.add('trace_input_mismatch', name, line=line, tick=record.get('tick'))
     if not seen and not findings.has(name):

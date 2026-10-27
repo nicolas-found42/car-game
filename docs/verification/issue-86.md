@@ -137,3 +137,7 @@ are checked. All36 focused controls pass; the real native/offscreen two-car and
 13-car visual-only runs pass the final validator. Sol's fifth and final state
 review approved these changes. Supplementary gates are retained in
 `artifacts/issue-86/final-bot-verification.log`.
+
+### Final review controls
+
+The 41-test integrity suite includes event-backed reset counter deltas (including two same-car reselections in one tick), malformed command identities, strict boolean/numeric correlation and absent scenario definitions. These controls produced nine failing subcases on the preceding implementation and all pass after the fixes. The retained full fleet, visual-only and native/offscreen multi-actor runs still verify with these checks. The final headless ladder passed in `artifacts/issue-86/latest-bot-verification.log`.
