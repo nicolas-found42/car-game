@@ -122,6 +122,16 @@ def check_populations(ticks, state, seen, effective, resets, findings):
         findings.add('trace_reset_mismatch', 'events.jsonl')
 
 
+def same_command(left, right):
+    if isinstance(left, dict) and isinstance(right, dict):
+        return left.keys() == right.keys() and all(same_command(left[k], right[k]) for k in left)
+    if isinstance(left, list) and isinstance(right, list):
+        return len(left) == len(right) and all(same_command(a, b) for a, b in zip(left, right))
+    if isinstance(left, bool) or isinstance(right, bool):
+        return type(left) is type(right) and left == right
+    return left == right
+
+
 def outcome_matches(record, outcome):
     fields = outcome.get('fields', {})
     command = fields.get('command', fields.get('requested_command'))
@@ -132,7 +142,7 @@ def outcome_matches(record, outcome):
             and record.get('command', {}).get('target') == fields.get('vehicle_id'))
     return (actor_matches
             and type(outcome.get('tick')) is int and outcome['tick'] >= record['tick']
-            and command == record.get('command')
+            and same_command(command, record.get('command'))
             and fields.get('disposition') in ('applied', 'rejected', 'ignored', 'skipped'))
 
 

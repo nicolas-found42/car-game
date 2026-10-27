@@ -140,6 +140,8 @@ review approved these changes. Supplementary gates are retained in
 
 ### Final review controls
 
-The 42-test integrity suite includes event-backed reset counter deltas (including two same-car reselections in one tick), malformed command identities, strict boolean/numeric correlation and absent scenario definitions. These controls produced nine failing subcases on the preceding implementation and all pass after the fixes. The retained full fleet, visual-only and native/offscreen multi-actor runs still verify with these checks. The final headless ladder passed in `artifacts/issue-86/latest-bot-verification.log`.
+The 43-test integrity suite includes event-backed reset counter deltas (including two same-car reselections in one tick), malformed command identities, strict boolean/numeric correlation and absent scenario definitions. These controls produced nine failing subcases on the preceding implementation and all pass after the fixes. The retained full fleet, visual-only and native/offscreen multi-actor runs still verify with these checks. The final headless ladder passed in `artifacts/issue-86/latest-bot-verification.log`.
 
-A malformed switch command regression (null/list/string) failed in three subcases before the final nested-command guard; all 42 integrity tests now pass.
+A malformed switch command regression (null/list/string) failed in three subcases before the final nested-command guard; all 43 integrity tests now pass.
+
+A recursive command-payload correlation control rejects a numeric handbrake flag replacing a boolean; it failed before the type-aware comparison and passes afterward.

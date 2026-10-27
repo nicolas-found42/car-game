@@ -605,6 +605,17 @@ class TraceIntegrityTests(unittest.TestCase):
                 write_lines(run / 'events.jsonl', events)
                 self.assertRejected(run, 'trace_switch_mismatch', file='events.jsonl')
 
+    def test_command_payload_boolean_numeric_alias_is_rejected(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            commands = read_lines(run / 'commands.jsonl')
+            commands[0]['command'] = {'action': 'drive', 'handbrake': 1}
+            write_lines(run / 'commands.jsonl', commands)
+            events = read_lines(run / 'events.jsonl')
+            events[1]['fields']['command'] = {'action': 'drive', 'handbrake': True}
+            write_lines(run / 'events.jsonl', events)
+            self.assertRejected(run, 'trace_command_mismatch', file='commands.jsonl')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')
