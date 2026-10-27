@@ -133,7 +133,7 @@ def same_command(left, right):
     return left == right
 
 
-def outcome_matches(record, outcome):
+def outcome_matches(record, outcome, completed):
     fields = outcome.get('fields', {})
     command = fields.get('command', fields.get('requested_command'))
     actor_matches = outcome.get('actor_id') == record.get('actor_id')
@@ -142,7 +142,7 @@ def outcome_matches(record, outcome):
             fields.get('vehicle_id') == record.get('actor_id')
             and record.get('command', {}).get('target') == fields.get('vehicle_id'))
     return (actor_matches
-            and type(outcome.get('tick')) is int and outcome['tick'] >= record['tick']
+            and type(outcome.get('tick')) is int and record['tick'] <= outcome['tick'] <= completed
             and same_command(command, record.get('command'))
             and fields.get('disposition') in ('applied', 'rejected', 'ignored', 'skipped'))
 
@@ -172,7 +172,7 @@ def command_outcomes(record, outcomes, completed, findings, line):
     identity, tick = record['command_id'], record['tick']
     if len(outcomes) > 1:
         findings.add('trace_command_duplicate', 'events.jsonl', command_id=identity)
-    if outcomes and not all(outcome_matches(record, item) for item in outcomes):
+    if outcomes and not all(outcome_matches(record, item, completed) for item in outcomes):
         findings.add('trace_command_mismatch', 'commands.jsonl', line=line, command_id=identity)
     if not outcomes and tick < completed:
         findings.add('trace_command_unresolved', 'commands.jsonl', line=line, tick=tick, command_id=identity)

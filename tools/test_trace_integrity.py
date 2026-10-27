@@ -633,6 +633,12 @@ class TraceIntegrityTests(unittest.TestCase):
                     mutate(run, 'physics', corrupt)
                     self.assertRejected(run, 'trace_invalid_value', file='physics.jsonl')
 
+    def test_future_command_outcome_cannot_prove_a_completed_action(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            mutate(run, 'events', lambda rows: rows[1].__setitem__('tick', TICKS + 1))
+            self.assertRejected(run, 'trace_command_mismatch', file='commands.jsonl')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')
