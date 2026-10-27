@@ -422,6 +422,10 @@ class TraceIntegrityTests(unittest.TestCase):
             (run / 'scenario-summary.json').write_text(json.dumps(summary))
             result, _ = verify(run)
             self.assertEqual(result.returncode, 0, result.stdout)
+            events[-1]['tick'] = TICKS - 1
+            write_lines(run / 'events.jsonl', events)
+            self.assertRejected(run, 'scenario_incomplete')
+            events[-1]['tick'] = TICKS
             summary['completed_tick'] = 999
             events[-1]['fields'] = summary
             write_lines(run / 'events.jsonl', events)

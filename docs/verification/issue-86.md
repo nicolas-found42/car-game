@@ -153,3 +153,5 @@ A future command outcome beyond the final completed boundary cannot certify an i
 An additional check of the same type-confusion class rejects booleans in assertion counts and numeric report pass flags. All four subcases passed incorrectly before the guards and now fail; the full focused suite contains 47 tests.
 
 Completed reset counters compare as exact integers; float tolerances apply only to physical values. Canonical ingress commands require an object before target lookup. Fractional/float counter and malformed targeted-reset controls fail before these guards and pass afterward.
+
+A contradictory scenario.finished envelope tick is rejected even if its embedded summary agrees with the file. The focused control failed before the alignment guard and passes afterward.

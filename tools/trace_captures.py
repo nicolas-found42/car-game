@@ -120,7 +120,8 @@ def check_scenario(run, findings, completed):
     expected = scenario.get('assertions', [])
     valid = scenario_complete(summary, expected, results)
     finished = [r for _, r in rows(run, 'events.jsonl', findings) if r.get('kind') == 'scenario.finished']
-    if not valid or len(finished) != 1 or finished[0].get('fields') != summary:
+    if (not valid or len(finished) != 1 or finished[0].get('fields') != summary
+            or finished[0].get('tick') != completed):
         findings.add('scenario_incomplete', 'scenario-summary.json')
     if summary.get('completed_tick') != completed:
         findings.add('scenario_tick_mismatch', 'scenario-summary.json')
