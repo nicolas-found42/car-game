@@ -1,0 +1,281 @@
+{
+  "binary_sha256": "08f0e503c135c7c78629cd3277ae315a3a0b1834efde3205b1703d2213525936",
+  "cases": {
+    "rwd-offscreen": {
+      "run_dir": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-reference-physics/rwd-offscreen/20261027T012537964665Z-47dda36-scenario-84301-1-1793064337984147000",
+      "summary": {
+        "artifacts": [
+          "manifest.json",
+          "scenario.json",
+          "commands.jsonl",
+          "input.jsonl",
+          "physics.jsonl",
+          "events.jsonl"
+        ],
+        "assertions_declared": 2,
+        "assertions_executed": 2,
+        "assertions_passed": 2,
+        "capture": {
+          "metrics": {
+            "edge_count": 146331,
+            "height": 1080,
+            "luma_mean": 150.8844757080078,
+            "luma_stddev": 45.24575424194336,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/scenario.png",
+          "sha256": "32f62da12b7da632b3eeac253464940b7ac8b44656eea08f3765c486f6ed8893"
+        },
+        "completed_tick": 186,
+        "elapsed_ms": 1621,
+        "failure": null,
+        "max_ticks": 400,
+        "max_wall_ms": 30000,
+        "name": "reference-350z",
+        "passed": true,
+        "readiness": {
+          "tick": 3
+        },
+        "readiness_timeout_ms": 15000,
+        "results": [
+          {
+            "assertion": {
+              "kind": "speed_at_least",
+              "mps": 0.10000000149011612,
+              "tick": 180
+            },
+            "observed": {
+              "mps": 2.6529650688171387,
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "assertion": {
+              "car": "350z",
+              "kind": "selected_car",
+              "tick": 180
+            },
+            "observed": {
+              "car": "350z",
+              "passed": true
+            },
+            "passed": true
+          }
+        ],
+        "schema_version": 1,
+        "seed": 231,
+        "ticks": 183
+      }
+    },
+    "awd-offscreen": {
+      "run_dir": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-reference-physics/awd-offscreen/20261027T012244771768Z-47dda36-scenario-76763-1-1793064164789841000",
+      "summary": {
+        "artifacts": [
+          "manifest.json",
+          "scenario.json",
+          "commands.jsonl",
+          "input.jsonl",
+          "physics.jsonl",
+          "events.jsonl"
+        ],
+        "assertions_declared": 2,
+        "assertions_executed": 2,
+        "assertions_passed": 2,
+        "capture": {
+          "metrics": {
+            "edge_count": 146859,
+            "height": 1080,
+            "luma_mean": 150.34765625,
+            "luma_stddev": 45.236019134521484,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/scenario.png",
+          "sha256": "308410e83d57b95ed2829965c1049ec71e6d93e2cf603c7d2b4bb638f35169f9"
+        },
+        "completed_tick": 202,
+        "elapsed_ms": 1758,
+        "failure": null,
+        "max_ticks": 400,
+        "max_wall_ms": 30000,
+        "name": "reference-mcla-evo",
+        "passed": true,
+        "readiness": {
+          "tick": 19
+        },
+        "readiness_timeout_ms": 15000,
+        "results": [
+          {
+            "assertion": {
+              "kind": "speed_at_least",
+              "mps": 0.10000000149011612,
+              "tick": 180
+            },
+            "observed": {
+              "mps": 2.9801461696624756,
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "assertion": {
+              "car": "mcla-evo",
+              "kind": "selected_car",
+              "tick": 180
+            },
+            "observed": {
+              "car": "mcla-evo",
+              "passed": true
+            },
+            "passed": true
+          }
+        ],
+        "schema_version": 1,
+        "seed": 231,
+        "ticks": 183
+      }
+    },
+    "gt-offscreen": {
+      "run_dir": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-reference-physics/gt-offscreen/20261027T012339695899Z-47dda36-scenario-80230-1-1793064219715144000",
+      "summary": {
+        "artifacts": [
+          "manifest.json",
+          "scenario.json",
+          "commands.jsonl",
+          "input.jsonl",
+          "physics.jsonl",
+          "events.jsonl"
+        ],
+        "assertions_declared": 2,
+        "assertions_executed": 2,
+        "assertions_passed": 2,
+        "capture": {
+          "metrics": {
+            "edge_count": 145925,
+            "height": 1080,
+            "luma_mean": 150.67515563964844,
+            "luma_stddev": 45.45973587036133,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/scenario.png",
+          "sha256": "2fd1ff38fdacaec8ace851072cadecdfa6d601abcd03ec468f241bbb8a2a87ca"
+        },
+        "completed_tick": 186,
+        "elapsed_ms": 1623,
+        "failure": null,
+        "max_ticks": 400,
+        "max_wall_ms": 30000,
+        "name": "reference-redline-gt500",
+        "passed": true,
+        "readiness": {
+          "tick": 3
+        },
+        "readiness_timeout_ms": 15000,
+        "results": [
+          {
+            "assertion": {
+              "kind": "speed_at_least",
+              "mps": 0.10000000149011612,
+              "tick": 180
+            },
+            "observed": {
+              "mps": 2.9277307987213135,
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "assertion": {
+              "car": "redline-gt500",
+              "kind": "selected_car",
+              "tick": 180
+            },
+            "observed": {
+              "car": "redline-gt500",
+              "passed": true
+            },
+            "passed": true
+          }
+        ],
+        "schema_version": 1,
+        "seed": 231,
+        "ticks": 183
+      }
+    },
+    "reverse-after": {
+      "run_dir": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-reference-physics/reverse-after/20261027T012151202081Z-47dda36-scenario-76060-1-1793064111220266000",
+      "summary": {
+        "artifacts": [
+          "manifest.json",
+          "scenario.json",
+          "commands.jsonl",
+          "input.jsonl",
+          "physics.jsonl",
+          "events.jsonl"
+        ],
+        "assertions_declared": 1,
+        "assertions_executed": 1,
+        "assertions_passed": 1,
+        "capture": null,
+        "completed_tick": 124,
+        "elapsed_ms": 1065,
+        "failure": null,
+        "max_ticks": 180,
+        "max_wall_ms": 10000,
+        "name": "reference-reverse",
+        "passed": true,
+        "readiness": {
+          "tick": 4
+        },
+        "readiness_timeout_ms": 2000,
+        "results": [
+          {
+            "assertion": {
+              "car": "350z",
+              "controller": "scenario",
+              "kind": "vehicle_state",
+              "max_forward_mps": -0.10000000149011612,
+              "min_forward_mps": -10.0,
+              "reset_count": 0,
+              "tick": 120,
+              "vehicle": "pilot-350z"
+            },
+            "observed": {
+              "car": "350z",
+              "controller": "scenario",
+              "forward_mps": -2.514923095703125,
+              "grounded": 4,
+              "held": {
+                "brake": 1.0,
+                "steer": 0.0,
+                "throttle": 0.0
+              },
+              "passed": true,
+              "radii": [
+                0.3298499882221222,
+                0.3298499882221222,
+                0.3388499915599823,
+                0.3388499915599823
+              ],
+              "reset_count": 0,
+              "vehicle_id": "pilot-350z",
+              "wheelbase": 2.6500000953674316
+            },
+            "passed": true
+          }
+        ],
+        "schema_version": 1,
+        "seed": 231,
+        "ticks": 120
+      }
+    }
+  },
+  "native": "unavailable: host locked; two invalid black captures retained in primary artifacts",
+  "full_fleet": "13 default-mode cars,52 captures passed; recovery-profiles-final2-verification.log"
+}
