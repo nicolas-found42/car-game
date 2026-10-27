@@ -1,0 +1,323 @@
+{
+  "accessed": "2026-10-23",
+  "games": [
+    {
+      "game": "ford-racing-2",
+      "index": "games/ford-racing-2/inventory.json",
+      "sha256": "cc3d6f8cb4fd8cc77756632962e2f0de91e54323acf4aa849cbdf27dc3f5c32d",
+      "index_build_identity": {
+        "game": "Ford Racing 2 (2003), PAL PS2 CD, serial SLES-51705"
+      },
+      "system_configs": []
+    },
+    {
+      "game": "gran-turismo",
+      "index": "games/gran-turismo/cars/index.json",
+      "sha256": "d80c7aaa4af29d16c4cd53f8ec610ebda2ce6fae6b24928d3f2bb1bb93dbaec5",
+      "index_build_identity": {
+        "source": {
+          "bytes": 693668304,
+          "file": "gran-turismo.bin",
+          "iso_inventory": [
+            {
+              "directory": false,
+              "lba": 21332,
+              "path": "/ARCADE.DAT;1",
+              "size": 241272
+            },
+            {
+              "directory": false,
+              "lba": 21450,
+              "path": "/ARCADE2.DAT;1",
+              "size": 197658
+            },
+            {
+              "directory": false,
+              "lba": 21073,
+              "path": "/BG.DAT;1",
+              "size": 204800
+            },
+            {
+              "directory": false,
+              "lba": 855,
+              "path": "/CAR.DAT;1",
+              "size": 16379904
+            },
+            {
+              "directory": false,
+              "lba": 8853,
+              "path": "/CARCADE.DAT;1",
+              "size": 919552
+            },
+            {
+              "directory": false,
+              "lba": 9302,
+              "path": "/CARINF.DAT;1",
+              "size": 135301
+            },
+            {
+              "directory": false,
+              "lba": 9369,
+              "path": "/COURSE.DAT;1",
+              "size": 23969792
+            },
+            {
+              "directory": false,
+              "lba": 617,
+              "path": "/GAMEFONT.DAT;1",
+              "size": 23077
+            },
+            {
+              "directory": false,
+              "lba": 21173,
+              "path": "/GAMEMENU.DAT;1",
+              "size": 281247
+            },
+            {
+              "directory": false,
+              "lba": 495,
+              "path": "/GTEND.EXE;1",
+              "size": 110592
+            },
+            {
+              "directory": false,
+              "lba": 202,
+              "path": "/GTMAIN.EXE;1",
+              "size": 346112
+            },
+            {
+              "directory": false,
+              "lba": 371,
+              "path": "/GTMENU.EXE;1",
+              "size": 253952
+            },
+            {
+              "directory": false,
+              "lba": 93,
+              "path": "/GTOS.EXE;1",
+              "size": 223232
+            },
+            {
+              "directory": false,
+              "lba": 281277,
+              "path": "/MEASURE.QA;1",
+              "size": 27648000
+            },
+            {
+              "directory": false,
+              "lba": 21547,
+              "path": "/MENU_IMG.ARC;1",
+              "size": 121235456
+            },
+            {
+              "directory": false,
+              "lba": 80744,
+              "path": "/MENU_RAW.ARC;1",
+              "size": 294076
+            },
+            {
+              "directory": false,
+              "lba": 629,
+              "path": "/MESSAGES.DAT;1",
+              "size": 135168
+            },
+            {
+              "directory": false,
+              "lba": 87444,
+              "path": "/MUSIC.DAT;1",
+              "size": 160251904
+            },
+            {
+              "directory": false,
+              "lba": 21311,
+              "path": "/PITMENU.DAT;1",
+              "size": 42165
+            },
+            {
+              "directory": false,
+              "lba": 549,
+              "path": "/REPLAY.DAT;1",
+              "size": 122880
+            },
+            {
+              "directory": false,
+              "lba": 24,
+              "path": "/SCUS_941.94;1",
+              "size": 141312
+            },
+            {
+              "directory": false,
+              "lba": 80888,
+              "path": "/SOUND.DAT;1",
+              "size": 13426688
+            },
+            {
+              "directory": false,
+              "lba": 165692,
+              "path": "/STREAM.DAT;1",
+              "size": 236718080
+            },
+            {
+              "directory": false,
+              "lba": 23,
+              "path": "/SYSTEM.CNF;1",
+              "size": 68
+            },
+            {
+              "directory": false,
+              "lba": 609,
+              "path": "/SYSTEM.DAT;1",
+              "size": 14768
+            },
+            {
+              "directory": false,
+              "lba": 695,
+              "path": "/TITLE.DAT;1",
+              "size": 326984
+            }
+          ],
+          "sector_bytes": 2352,
+          "sha256": "e1ba7def96b7f213637fa82658b53c34a3a5f6c54df7d7e5ab9c3f53a2d41f03"
+        },
+        "game": "gran-turismo",
+        "schema": 2
+      },
+      "system_configs": [
+        {
+          "path": "games/gran-turismo/cars/_metadata/SYSTEM.CNF",
+          "sha256": "d5cdc6e0bd34c866d357b9fda50e1578c9071414713acb82b88968bdb35c90ef",
+          "text": "BOOT = cdrom:\\SCUS_941.94;1\nTCB = 4\nEVENT = 10\nSTACK = 801fff00\n"
+        }
+      ]
+    },
+    {
+      "game": "gran-turismo-4",
+      "index": "games/gran-turismo-4/cars/index.json",
+      "sha256": "d6483838ea99983fde8223588475aef1c74ca1b2b1ce66319a7611709a3381c3",
+      "index_build_identity": {
+        "source": {
+          "boot": "SCES_517.19",
+          "bytes": 5660540928,
+          "file": "Gran Turismo 4 (axekin.com).iso",
+          "sha256": "efcb2ac8428be5f4c67f3d5e97f941f4c267015ab92ea0cc1c624d75cb830ef5",
+          "volume": "GRANTURISMO4"
+        },
+        "game": "Gran Turismo 4",
+        "schema": 1,
+        "selection": {
+          "per_car": [
+            "car/lod/",
+            "car/menu/",
+            "car/open/",
+            "wheel/lod/",
+            "wheel/menu/",
+            "wheel/open/"
+          ],
+          "provenance": [
+            "specdb/ (excluding RACES/)",
+            "SYSTEM.CNF"
+          ],
+          "shared": [
+            "wheel/",
+            "tire/",
+            "wing/"
+          ]
+        }
+      },
+      "system_configs": [
+        {
+          "path": "games/gran-turismo-4/cars/provenance/SYSTEM.CNF",
+          "sha256": "a1625ac565f0628ff610b6f7f101acf4dde428a5494fdbf030a0ea23998d3f53",
+          "text": "BOOT2 = cdrom0:\\SCES_517.19;1\nVER = 1.00\nVMODE = PAL\n"
+        }
+      ]
+    },
+    {
+      "game": "redline",
+      "index": "games/redline/cars/index.json",
+      "sha256": "b603e4e490e09bc0e9f770c7a0b8f0238cc0373c56c37e2cacd7c0ee176121f2",
+      "index_build_identity": {
+        "game": "redline",
+        "schema": 1
+      },
+      "system_configs": []
+    },
+    {
+      "game": "midnight-club-3-remix",
+      "index": "games/midnight-club-3-remix/cars/index.json",
+      "sha256": "4d35bc1b59b3661786d5390f1e48ba5ba9746806e052b67d85b1378e5f8d6fa7",
+      "index_build_identity": {
+        "source": {
+          "bytes": 8539963392,
+          "file": "midnight-club-3-remix.iso",
+          "sha256": "de199f7e7f57b7cb603a129217f7482d50644fd66558450dfeb5612857b732f9",
+          "volume": "MC3REMIX"
+        },
+        "game": "Midnight Club 3: DUB Edition Remix",
+        "schema": 1,
+        "selection": {
+          "additional": [
+            "vehiclesexported.txt",
+            "texture/car_window_blank_dmg.tex",
+            "texture/car_window_blank_dmg_proxy.tex"
+          ],
+          "prefixes": [
+            "vehicle/",
+            "resources/vehicle/",
+            "tune/vehicle/",
+            "tune/phys/",
+            "tune/traffic/",
+            "tune/rider/",
+            "physicslib/"
+          ],
+          "root_carriers": "vp_[a-z0-9_]+.dat"
+        }
+      },
+      "system_configs": [
+        {
+          "path": "games/midnight-club-3-remix/cars/provenance/SYSTEM.CNF",
+          "sha256": "b55dd2f43159fadd052bcdb046cf4cfce3c4e3ba40c6bf30a497eb68c608c122",
+          "text": "BOOT2 = cdrom0:\\SLUS_213.55;1\nVER = 1.00\nVMODE = NTSC"
+        }
+      ]
+    },
+    {
+      "game": "midnight-club-los-angeles",
+      "index": "games/midnight-club-los-angeles/cars/index.json",
+      "sha256": "a851c26638ba8f700d062886394e6c8d8d9ffb1cd579da810b7e353c8fdafbb8",
+      "index_build_identity": {
+        "source": {
+          "bytes": 7838695424,
+          "file": "Midnight Club - Los Angeles - Complete Edition (USA, Europe).iso",
+          "format": "XDVDFS XGD2",
+          "sha1": "4ca07fcf49427834692042faaf07fcfdefa4b263",
+          "sha256": "877a9415f695d27f8170d04d3f18aab13e2b4de3cbabda824e04c9338b2914e9"
+        },
+        "game": "Midnight Club: Los Angeles",
+        "schema": 1,
+        "selection": {
+          "per_car": [
+            "resources/vehicle/<code>/",
+            "resources/ambients/<code>/",
+            "resources/vehicle/configs/ (full code in name)",
+            "resources/ui/textures/garage/ (full code in name)"
+          ],
+          "provenance": [
+            "XDVDFS listing",
+            "every RPF3 table",
+            "archive key location"
+          ],
+          "shared": [
+            "resources/rims/",
+            "resources/tires/",
+            "resources/brakes/",
+            "vehicle/",
+            "tune/vehicle/",
+            "resources/vehicle/configs/ (no code in name)"
+          ]
+        }
+      },
+      "system_configs": []
+    }
+  ]
+}

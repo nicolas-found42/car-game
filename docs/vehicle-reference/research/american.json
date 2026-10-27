@@ -1,0 +1,3603 @@
+{
+  "scope": "16 American-brand real-life profiles selected from existing local game-model catalog",
+  "accessed": "2026-10-23",
+  "method": "Exact year/trim/body variants are not merged; conditional dimensions, prototype tests, launch estimates and archival mirrors remain labeled.",
+  "cars": [
+    {
+      "id": "a01",
+      "name": "Ford Mustang GT",
+      "year": 2005,
+      "market": "United States",
+      "variant": "4.6L GT coupe, manual reference; automatic test retained separately",
+      "vehicle_type": "muscle_coupe",
+      "asset_codes": [
+        "GT4_FORD0011"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MCLA names a 2005 Mustang GT convertible, a different body variant. Do not apply coupe mass or roll calibration to the convertible.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 4.6,
+          "unit": "L",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "engine",
+          "value": "SOHC 3-valve V8",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "power",
+          "value": 300,
+          "unit": "hp",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5750,
+          "unit": "rpm",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "torque",
+          "value": 320,
+          "unit": "lb_ft",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "5-speed manual",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.55,
+          "unit": "ratio",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "optional_automatic_final_drive",
+          "value": 3.31,
+          "unit": "ratio",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "tire_front",
+          "value": "P235/55ZR17",
+          "unit": "designation",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "tire_rear",
+          "value": "P235/55ZR17",
+          "unit": "designation",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "front_suspension",
+          "value": "strut, coil spring, reverse-L lower arm",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "3-link live axle, coil spring, Panhard rod",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "brakes",
+          "value": "4-wheel disc ABS",
+          "unit": "text",
+          "source_id": "am_mustang_brochure"
+        },
+        {
+          "field": "wheelbase",
+          "value": 107.1,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "length",
+          "value": 187.6,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "width",
+          "value": 73.8,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "height",
+          "value": 54.4,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "front_track",
+          "value": 62.3,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "rear_track",
+          "value": 62.5,
+          "unit": "in",
+          "source_id": "am_mustang_guide",
+          "note": "Preliminary Ford product guide coupe dimensions; retained as published, not averaged with later test dimensions."
+        },
+        {
+          "field": "tested_curb_mass",
+          "value": 3520,
+          "unit": "lb",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_front_weight",
+          "value": 54,
+          "unit": "percent",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_0_60_mph",
+          "value": 5.1,
+          "unit": "s",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_quarter_mile",
+          "value": 13.6,
+          "unit": "s",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_quarter_mile_trap",
+          "value": 99.9,
+          "unit": "mph",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_60_0_mph",
+          "value": 120,
+          "unit": "ft",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        },
+        {
+          "field": "tested_skidpad",
+          "value": 0.84,
+          "unit": "g",
+          "source_id": "am_mustang_test",
+          "note": "MotorTrend automatic test car; brake-torque launch just over 2000rpm, 200-ft skidpad. Not manual-transmission performance."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_mustang_brochure",
+          "url": "https://www.auto-brochures.com/makes/Ford/Mustang/Ford_US%20Mustang_2005.pdf",
+          "title": "Ford 2005 Mustang US sales brochure, pp. 8, 13\u201315",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document",
+          "evidence_excerpt": "300 @ 5750"
+        },
+        {
+          "id": "am_mustang_test",
+          "url": "https://www.motortrend.com/reviews/2005-ford-mustang-gt",
+          "title": "MotorTrend 2005 Mustang GT instrumented automatic test, October 13 2004",
+          "accessed": "2026-10-23",
+          "kind": "instrumented_test",
+          "evidence_excerpt": "0-60 5.1"
+        },
+        {
+          "id": "am_mustang_guide",
+          "url": "https://shnack.com/docs/05_mustang_product_guide.pdf",
+          "title": "Ford 2005 Mustang dealer product guide: Key Product Specifications",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Wheelbase 107.1",
+          "retrieval_note": "Indexed tables read; direct PDF fetch returned 406."
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a02",
+      "name": "Ford Mustang SVT Cobra R",
+      "year": 2000,
+      "market": "United States",
+      "variant": "5.4L Cobra R coupe",
+      "vehicle_type": "track_coupe",
+      "asset_codes": [
+        "GT4_FORD0008"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "Ford Racing 2 COBRA is labeled SVT COBRA 2000 without R; it is not verified as this trim. The Ford overview alternates between 20- and 21-gallon fuel cells, so fuel capacity is omitted.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.4,
+          "unit": "L",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "engine",
+          "value": "naturally aspirated DOHC 32-valve V8",
+          "unit": "text",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "power",
+          "value": 385,
+          "unit": "bhp",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "torque",
+          "value": 385,
+          "unit": "lb_ft",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "transmission",
+          "value": "Tremec T56 6-speed manual",
+          "unit": "text",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.55,
+          "unit": "ratio",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "differential",
+          "value": "speed- and torque-sensitive hydro-mechanical limited slip",
+          "unit": "text",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "front_spring_rate",
+          "value": 800,
+          "unit": "lb_per_in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "rear_spring_rate",
+          "value": 750,
+          "unit": "lb_per_in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "front_ride_height_reduction",
+          "value": 1.5,
+          "unit": "in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "rear_ride_height_reduction",
+          "value": 1.0,
+          "unit": "in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "steering_ratio",
+          "value": 15,
+          "unit": "ratio",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "steering_turns",
+          "value": 2.5,
+          "unit": "turn",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 13,
+          "unit": "in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "front_caliper_pistons",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "wheel_front",
+          "value": "18x9.5",
+          "unit": "in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "wheel_rear",
+          "value": "18x9.5",
+          "unit": "in",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "tire_front",
+          "value": "265/40ZR18 BFGoodrich g-Force KD",
+          "unit": "designation",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "tire_rear",
+          "value": "265/40ZR18 BFGoodrich g-Force KD",
+          "unit": "designation",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "claimed_top_speed_lower_bound",
+          "value": 170,
+          "unit": "mph",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "claimed_skidpad_lower_bound",
+          "value": 1.0,
+          "unit": "g",
+          "source_id": "am_cobra_press",
+          "note": "Ford launch press text; power estimated, top speed >170mph and skidpad >1g on 100-ft skidpad. Spring rates are spring rates, not wheel rates."
+        },
+        {
+          "field": "wheelbase",
+          "value": 101.3,
+          "unit": "in",
+          "source_id": "am_cobra_test",
+          "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+        },
+        {
+          "field": "published_curb_mass",
+          "value": 3590,
+          "unit": "lb",
+          "source_id": "am_cobra_test",
+          "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_cobra_test",
+          "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+        },
+        {
+          "field": "front_suspension",
+          "value": "MacPherson strut, coil spring, anti-roll bar",
+          "unit": "text",
+          "source_id": "am_cobra_test",
+          "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+        },
+        {
+          "field": "rear_suspension",
+          "value": "independent upper/lower A-arms, coil spring, anti-roll bar",
+          "unit": "text",
+          "source_id": "am_cobra_test",
+          "note": "Period test-car specification table; power-rpm conflicts with launch data and is not imported."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_cobra_press",
+          "url": "https://terminator-cobra.com/2000%20SVT%20Mustang%20Cobra%20R%20Overview.pdf",
+          "title": "Ford SVT 2000 Mustang Cobra R Overview (manufacturer press text mirror)",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "The front spring rate is 800 lb./in."
+        },
+        {
+          "id": "am_cobra_test",
+          "url": "https://www.motortrend.com/reviews/supercar-top-speed-test-2000-america-versus-the-world",
+          "title": "MotorTrend November 2000 supercar shootout, republished May 2025",
+          "accessed": "2026-10-23",
+          "kind": "instrumented_test",
+          "evidence_excerpt": "Wheelbase, in 101.3"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a03",
+      "name": "Ford Shelby GT500",
+      "year": 2008,
+      "market": "United States",
+      "variant": "Coupe, stock supercharged 5.4L",
+      "vehicle_type": "muscle_coupe",
+      "asset_codes": [
+        "REDLINE_ADDON_080_MUSTANG_S197_PACK_ZIP_MUSTANG_NNB_GT500_867D18EE049F_18D1CC5DE2FE0CDE"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "The Redline addon explicitly names a 2008 GT500. Roush Stage 3 and FR500 variants are excluded. Coupe spring and stabilizer settings differ from convertible settings.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.4,
+          "unit": "L",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "engine",
+          "value": "supercharged/intercooled DOHC 32-valve V8",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "power",
+          "value": 500,
+          "unit": "hp_SAE_certified",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "torque",
+          "value": 480,
+          "unit": "lb_ft",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4500,
+          "unit": "rpm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "transmission",
+          "value": "TR6060 6-speed manual",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.31,
+          "unit": "ratio",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_spring_rate",
+          "value": 34.1,
+          "unit": "N_per_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "rear_spring_rate",
+          "value": 29.2,
+          "unit": "N_per_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_anti_roll_bar",
+          "value": "34 OD x 5.8 wall tubular",
+          "unit": "mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "rear_anti_roll_bar",
+          "value": 24,
+          "unit": "mm_solid_diameter",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "dampers",
+          "value": "Tokico twin tube",
+          "unit": "text",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 14,
+          "unit": "in",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "front_caliper_pistons",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "tire_front",
+          "value": "P255/45R18 Goodyear Eagle F1 Supercar",
+          "unit": "designation",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "tire_rear",
+          "value": "P285/40R18 Goodyear Eagle F1 Supercar",
+          "unit": "designation",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheel_front",
+          "value": "18x9.5 +45 offset",
+          "unit": "in_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheel_rear",
+          "value": "18x9.5 +45 offset",
+          "unit": "in_mm",
+          "source_id": "am_gt500_manual",
+          "note": "Coupe suspension; convertible spring/bar values differ. Cold-season grip differs from summer OE tires."
+        },
+        {
+          "field": "wheelbase",
+          "value": 107.1,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "length",
+          "value": 187.6,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "width",
+          "value": 73.9,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "height",
+          "value": 55.4,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_track",
+          "value": 61.9,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_track",
+          "value": 62.5,
+          "unit": "in",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "curb_mass",
+          "value": 3920,
+          "unit": "lb_approx",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_weight",
+          "value": 57,
+          "unit": "percent",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_weight",
+          "value": 43,
+          "unit": "percent",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.97,
+            1.78,
+            1.3,
+            1.0,
+            0.8,
+            0.63
+          ],
+          "unit": "ratio",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "front_suspension",
+          "value": "MacPherson strut, reverse-L arm",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "3-link live axle, Panhard rod",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_gt500_esource"
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_gt500_manual",
+          "url": "https://www.mustangspecs.com/wp-content/uploads/2020/05/2008-Ford-Shelby-GT500-Supplement.pdf",
+          "title": "Ford 2008 Shelby GT500 Owner Guide Supplement, pp.4,11,13",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "34.1 N/mm front and 29.2 N/mm rear (Coupe)"
+        },
+        {
+          "id": "am_gt500_esource",
+          "url": "https://themustangsource.com/forums/attachments/f637/46859d1187387886-2008-mustang-shelby-e-source-books-better-than-order-guide-08-20shelby-20sb.pdf",
+          "title": "Ford 2008 Shelby GT500 eSourceBook, June 2007, p.52",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Curb Weight (approx. lbs.) 3920 4040"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a04",
+      "name": "Ford SVT F-150 Lightning",
+      "year": 2003,
+      "market": "United States",
+      "variant": "Regular Cab Flareside RWD",
+      "vehicle_type": "sport_pickup",
+      "asset_codes": [
+        "GT4_FORD0012"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "GT4 explicitly names the 2003 Lightning. Ford Racing 2 LIGHTNING_SVT names 2002 and is retained as a related model year, without inheriting 2003 facts.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5409,
+          "unit": "cc",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "engine",
+          "value": "supercharged SOHC 16-valve V8",
+          "unit": "text",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "bore",
+          "value": 90.2,
+          "unit": "mm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "stroke",
+          "value": 105.8,
+          "unit": "mm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "compression",
+          "value": 8.4,
+          "unit": "ratio",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "power",
+          "value": 380,
+          "unit": "hp_SAE_net",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "power_rpm",
+          "value": 4750,
+          "unit": "rpm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "torque",
+          "value": 450,
+          "unit": "lb_ft",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3250,
+          "unit": "rpm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "redline",
+          "value": 5250,
+          "unit": "rpm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "fuel_cut",
+          "value": 5500,
+          "unit": "rpm",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "boost",
+          "value": 8,
+          "unit": "psi",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "transmission",
+          "value": "4R100 4-speed automatic",
+          "unit": "text",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.71,
+            1.53,
+            1.0,
+            0.71
+          ],
+          "unit": "ratio",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 2.176,
+          "unit": "ratio",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.73,
+          "unit": "ratio",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "differential",
+          "value": "9.75-inch limited slip rear axle",
+          "unit": "text",
+          "source_id": "am_lightning_manual"
+        },
+        {
+          "field": "wheelbase",
+          "value": 119.8,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "length",
+          "value": 208,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "width",
+          "value": 79.1,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "height",
+          "value": 70.9,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "front_track",
+          "value": 65.3,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "rear_track",
+          "value": 65.3,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "curb_mass",
+          "value": 4670,
+          "unit": "lb",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "front_weight",
+          "value": 57,
+          "unit": "percent",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "front_suspension",
+          "value": "SLA, coils, Bilstein monotube",
+          "unit": "text",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "live axle, 5-leaf springs, Bilstein monotube",
+          "unit": "text",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "front_anti_roll_bar",
+          "value": 31,
+          "unit": "mm_solid_diameter",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "rear_anti_roll_bar",
+          "value": 23,
+          "unit": "mm_solid_diameter",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 12.1,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 13.1,
+          "unit": "in",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "tire_front",
+          "value": "295/45ZR18 Goodyear Eagle F1-GS",
+          "unit": "designation",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "tire_rear",
+          "value": "295/45ZR18 Goodyear Eagle F1-GS",
+          "unit": "designation",
+          "source_id": "am_lightning_specs"
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_lightning_specs"
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_lightning_manual",
+          "url": "https://www.fordservicecontent.com/ford_content/catalog/owner_guides/03f12sv1e.pdf",
+          "title": "Ford 2003 SVT F-150 Lightning Owner Guide Supplement, pp.4,7\u20138",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document",
+          "evidence_excerpt": "Horsepower (SAE net) 284 kW @ 4750 rpm"
+        },
+        {
+          "id": "am_lightning_specs",
+          "url": "https://www.ford-trucks.com/specs/2003-2/2003-special-vehicle-team-svt-f-150-lightning-specifications/",
+          "title": "2003 SVT F-150 Lightning Ford specification table mirror",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_specification_mirror",
+          "evidence_excerpt": "Base Curb Weight (lbs) 4670"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ],
+      "related_assets": [
+        {
+          "asset_code": "LIGHTNING_SVT",
+          "relationship": "different_model_year",
+          "note": "FR2 specifies 2002; no 2003 facts inherited."
+        }
+      ]
+    },
+    {
+      "id": "a05",
+      "name": "Ford F-150 FX4",
+      "year": 2004,
+      "market": "United States",
+      "variant": "5.4L FX4 4x4; cab/bed unresolved",
+      "vehicle_type": "offroad_pickup",
+      "asset_codes": [
+        "F150_2004"
+      ],
+      "identity_status": "trim_year_known_body_configuration_unresolved",
+      "identity_notes": "Ford Racing 2 names the 2004 FX4, but cab and bed configurations remain unresolved. Body-dependent dimensions are alternatives rather than one fitted geometry.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 330,
+          "unit": "cu_in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "engine",
+          "value": "5.4L SOHC 3-valve Triton V8",
+          "unit": "text",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "power",
+          "value": 300,
+          "unit": "hp_SAE_net",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5000,
+          "unit": "rpm",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "torque",
+          "value": 365,
+          "unit": "lb_ft",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3750,
+          "unit": "rpm",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "compression",
+          "value": 9.8,
+          "unit": "ratio",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "transmission",
+          "value": "4-speed electronic automatic",
+          "unit": "text",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.84,
+            1.55,
+            1,
+            0.7
+          ],
+          "unit": "ratio",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 2.33,
+          "unit": "ratio",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "front_track",
+          "value": 67,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "rear_track",
+          "value": 67,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "width",
+          "value": 78.9,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "regular_cab_short_4x4_wheelbase",
+          "value": 126.1,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "regular_cab_short_4x4_length",
+          "value": 211.5,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "regular_cab_short_4x4_height",
+          "value": 75.0,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "supercrew_4x4_wheelbase",
+          "value": 138.7,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "supercrew_4x4_length",
+          "value": 224,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "supercrew_4x4_height",
+          "value": 75.5,
+          "unit": "in",
+          "source_id": "am_f150_specs",
+          "note": "Body-dependent values must be selected only after mesh identity/bed/cab verification; source chassis matrix includes all F150 trims."
+        },
+        {
+          "field": "standard_wheel_diameter",
+          "value": 17,
+          "unit": "in",
+          "source_id": "am_f150_preview"
+        },
+        {
+          "field": "optional_wheel_diameter",
+          "value": 18,
+          "unit": "in",
+          "source_id": "am_f150_preview"
+        },
+        {
+          "field": "drive",
+          "value": "4WD",
+          "unit": "text",
+          "source_id": "am_f150_preview"
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_f150_specs",
+          "url": "https://www.fordf150.net/specs/04f150.php",
+          "title": "Ford Motor Company 2004 F-150 specifications (credited reproduction)",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_specification_mirror",
+          "evidence_excerpt": "Source: Ford Motor Company"
+        },
+        {
+          "id": "am_f150_preview",
+          "url": "https://xr793.com/wp-content/uploads/2024/02/2004-Ford-F-150-Early-Preview.pdf",
+          "title": "Ford 2004 F-150 Early Preview sales training brochure",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Key FX4 Attributes"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources.",
+        "Cab/bed, curb mass, axle option, tires and engine configuration must be reconciled against the FR2 mesh and native vehicle definition."
+      ]
+    },
+    {
+      "id": "a06",
+      "name": "Ford SVT Focus",
+      "year": 2004,
+      "market": "United States",
+      "variant": "US 2.0L SVT hatchback",
+      "vehicle_type": "hot_hatch",
+      "asset_codes": [
+        "MCLA_VP_FRD_FOCUS_04"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MCLA explicitly names the 2004 SVT Focus. Ford Racing 2 SVT Focus 2002 and GT4 ST170 2003 are related vehicles with different year or market identities.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 2.0,
+          "unit": "L",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "engine",
+          "value": "SVT Zetec",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "power",
+          "value": 170,
+          "unit": "hp",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "power_rpm",
+          "value": 7000,
+          "unit": "rpm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "torque",
+          "value": 145,
+          "unit": "lb_ft",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 5500,
+          "unit": "rpm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "transmission",
+          "value": "Getrag 6-speed twin-layshaft manual",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "overall_gear_ratios",
+          "value": [
+            12.7,
+            7.7,
+            5.7,
+            4.6,
+            3.8,
+            3.1
+          ],
+          "unit": "ratio",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "overall_reverse_ratio",
+          "value": 12.0,
+          "unit": "ratio",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "front_spring_rate",
+          "value": 22,
+          "unit": "N_per_mm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "rear_spring_rate",
+          "value": 27.5,
+          "unit": "N_per_mm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "front_anti_roll_bar",
+          "value": 21,
+          "unit": "mm_diameter",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "rear_anti_roll_bar",
+          "value": 21,
+          "unit": "mm_diameter",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "front_suspension",
+          "value": "MacPherson strut",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "rear_suspension",
+          "value": "independent multilink",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "steering_turns",
+          "value": 2.6,
+          "unit": "turn",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 300,
+          "unit": "mm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 280,
+          "unit": "mm",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "front_brake_type",
+          "value": "vented disc, single piston",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "rear_brake_type",
+          "value": "solid disc, single piston",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "abs",
+          "value": "4 channel 4 sensor",
+          "unit": "text",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "tire_front",
+          "value": "215/45R17",
+          "unit": "designation",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "tire_rear",
+          "value": "215/45R17",
+          "unit": "designation",
+          "source_id": "am_focus_manual",
+          "note": "Manual supplies overall ratios, not individual gears; do not multiply by another final drive. Compression printed as malformed 10:2:1 and omitted."
+        },
+        {
+          "field": "wheelbase",
+          "value": 103.0,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "length",
+          "value": 168.1,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "width",
+          "value": 66.9,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "height",
+          "value": 56.3,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "front_track",
+          "value": 58.8,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "rear_track",
+          "value": 58.5,
+          "unit": "in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "curb_mass",
+          "value": 2750,
+          "unit": "lb",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "compression",
+          "value": 10.2,
+          "unit": "ratio",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "steering_ratio",
+          "value": 16.0,
+          "unit": "ratio",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "turning_circle",
+          "value": 39.1,
+          "unit": "ft",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            4.44,
+            2.67,
+            1.33,
+            1.08,
+            1.33,
+            1.08
+          ],
+          "unit": "ratio",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "final_drive_gears_1_2_5_6",
+          "value": 2.88,
+          "unit": "ratio",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "final_drive_gears_3_4_reverse",
+          "value": 4.25,
+          "unit": "ratio",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "front_spring_rate_press",
+          "value": 129,
+          "unit": "lb_per_in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        },
+        {
+          "field": "rear_spring_rate_press",
+          "value": 157,
+          "unit": "lb_per_in",
+          "source_id": "am_focus_2004_press",
+          "note": "Exact 2004 press kit. Twin layshaft uses two final drives. Press spring rates differ from Owner Supplement22/27.5Nmm; retain both sources. Brake rear11.7in in press kit conflicts with Owner Supplement280mm and is not imported."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_focus_manual",
+          "url": "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/04focsv1e.pdf",
+          "title": "Ford 2004 SVT Focus Owner Guide Supplement, pp.4,10\u201311",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document",
+          "evidence_excerpt": "Front suspension: MacPherson strut, retuned struts, 22 N/mm springs"
+        },
+        {
+          "id": "am_focus_2004_press",
+          "url": "https://terminator-cobra.com/SVT%20New%20for%202004.pdf",
+          "title": "Ford 2004 SVT Product Information, pp.85\u201387",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Base curb weight 2750 lb"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources.",
+        "Resolve minor spring-rate differences between2004press kit and Owner Supplement; exact3-door/5-door/EAPmesh configuration remains unverified."
+      ]
+    },
+    {
+      "id": "a07",
+      "name": "Ford GT",
+      "year": 2005,
+      "market": "United States",
+      "variant": "5.4L supercharged coupe",
+      "vehicle_type": "mid_engine_supercar",
+      "asset_codes": [
+        "GT4_FORD0006",
+        "GT4_FORD0015"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "Both GT4 codes explicitly name Ford GT 2005 and represent one real-life counterpart. Ford Racing 2 FORD_GT is labeled 2004 and may represent preproduction specification.",
+      "facts": [
+        {
+          "field": "wheelbase",
+          "value": 106.7,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "length",
+          "value": 182.8,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "width",
+          "value": 76.9,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "height",
+          "value": 44.3,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "front_track",
+          "value": 63.0,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "rear_track",
+          "value": 63.7,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "front_weight",
+          "value": 43,
+          "unit": "percent",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "rear_weight",
+          "value": 57,
+          "unit": "percent",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "engine_displacement",
+          "value": 5409,
+          "unit": "cc",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "engine",
+          "value": "supercharged DOHC 32-valve V8",
+          "unit": "text",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "power",
+          "value": 550,
+          "unit": "hp",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "torque",
+          "value": 500,
+          "unit": "lb_ft",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3750,
+          "unit": "rpm",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "compression",
+          "value": 8.4,
+          "unit": "ratio",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "bore",
+          "value": 90.2,
+          "unit": "mm",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "stroke",
+          "value": 105.8,
+          "unit": "mm",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "layout",
+          "value": "mid engine RWD",
+          "unit": "text",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "transmission",
+          "value": "6-speed manual Ricardo transaxle",
+          "unit": "text",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.61,
+            1.71,
+            1.23,
+            0.94,
+            0.77,
+            0.63
+          ],
+          "unit": "ratio",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "reverse_ratio",
+          "value": 3.135,
+          "unit": "ratio",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "final_drive",
+          "value": 3.36,
+          "unit": "ratio",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "front_suspension",
+          "value": "double wishbone",
+          "unit": "text",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "double wishbone",
+          "unit": "text",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 14.0,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 13.2,
+          "unit": "in",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "steering_ratio",
+          "value": 17,
+          "unit": "ratio",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "steering_turns",
+          "value": 2.7,
+          "unit": "turn",
+          "source_id": "am_fordgt_brochure"
+        },
+        {
+          "field": "turning_circle",
+          "value": 40,
+          "unit": "ft",
+          "source_id": "am_fordgt_brochure"
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_fordgt_brochure",
+          "url": "https://www.auto-brochures.com/makes/Ford/GT/Ford_US%20GT_2006.pdf",
+          "title": "Ford GT US brochure: internal table explicitly headed 2005 SPECIFICATIONS, p.2",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Weight Distribution (ft/rear) 43/57"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a08",
+      "name": "Chevrolet Corvette Z06",
+      "year": 2003,
+      "market": "United States",
+      "variant": "C5 fixed-roof LS6 6-speed",
+      "vehicle_type": "sports_coupe",
+      "asset_codes": [
+        "MC3_VP_CORVETTEZ06_03"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MC3 explicitly names the 2003 Z06. GT4 names Z06 2000, so it is not merged with this 405-horsepower 2003 profile. A period specification table has inconsistent brake unit conversions; inches are preserved.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.7,
+          "unit": "L",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "engine",
+          "value": "LS6 V8",
+          "unit": "text",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "power",
+          "value": 405,
+          "unit": "hp",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "torque",
+          "value": 400,
+          "unit": "lb_ft",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4800,
+          "unit": "rpm",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "transmission",
+          "value": "6-speed manual",
+          "unit": "text",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "differential",
+          "value": "limited slip",
+          "unit": "text",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "abs",
+          "value": true,
+          "unit": "boolean",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "traction_control",
+          "value": true,
+          "unit": "boolean",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "stability_control",
+          "value": "Active Handling",
+          "unit": "text",
+          "source_id": "am_c5_sheet"
+        },
+        {
+          "field": "engine_displacement_exact",
+          "value": 5665,
+          "unit": "cc",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "compression",
+          "value": 10.5,
+          "unit": "ratio",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "redline",
+          "value": 6500,
+          "unit": "rpm",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "layout",
+          "value": "front engine RWD",
+          "unit": "text",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            2.97,
+            2.07,
+            1.43,
+            1,
+            0.84,
+            0.56
+          ],
+          "unit": "ratio",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.42,
+          "unit": "ratio",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "wheelbase",
+          "value": 104.5,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "length",
+          "value": 179.7,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "width",
+          "value": 73.6,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "height",
+          "value": 47.7,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "front_track",
+          "value": 62.4,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "rear_track",
+          "value": 62.6,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "curb_mass",
+          "value": 3118,
+          "unit": "lb",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "front_weight",
+          "value": 53,
+          "unit": "percent",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 12.6,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 11.8,
+          "unit": "in",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "front_suspension",
+          "value": "SLA double wishbone, transverse composite leaf",
+          "unit": "text",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "rear_suspension",
+          "value": "SLA double wishbone, transverse composite leaf",
+          "unit": "text",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "tire_front",
+          "value": "P265/40ZR17 Goodyear Eagle F1 SC",
+          "unit": "designation",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        },
+        {
+          "field": "tire_rear",
+          "value": "P295/35ZR18 Goodyear Eagle F1 SC",
+          "unit": "designation",
+          "source_id": "am_c5_specs",
+          "note": "Period detailed table; corroborates manufacturer output sheet, but table does not explicitly credit GM. Treat technical origin as less certain than original sheet."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_c5_sheet",
+          "url": "https://xr793.com/wp-content/uploads/2020/04/2003-Chevrolet-Corvette-Spec-Sheet.pdf",
+          "title": "Chevrolet 2003 Corvette US specification sheet 03CHECORSPE01",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "405 hp @ 6000 rpm"
+        },
+        {
+          "id": "am_c5_specs",
+          "url": "https://www.corvetteactioncenter.com/specs/c5/2003/2003specs.html",
+          "title": "2003 Corvette LS6/Z06 period specifications table",
+          "accessed": "2026-10-23",
+          "kind": "period_specification_reproduction",
+          "evidence_excerpt": "Z06 3118 / 1414"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a09",
+      "name": "Chevrolet Corvette Z06",
+      "year": 2007,
+      "market": "United States",
+      "variant": "2007 C6 LS7 stock coupe",
+      "vehicle_type": "sports_coupe",
+      "asset_codes": [
+        "MCLA_VP_CHV_CORVETTEZ06_07"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MCLA explicitly names the 2007 Z06. The Redline C6 Z06 addon is related by generation and trim, with its model year unresolved. C6.R, Z06.R and ZR1 variants are excluded.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 7008,
+          "unit": "cc",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "engine",
+          "value": "LS7 OHV V8",
+          "unit": "text",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "power",
+          "value": 505,
+          "unit": "hp_SAE_certified",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "power_rpm",
+          "value": 6300,
+          "unit": "rpm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "torque",
+          "value": 470,
+          "unit": "lb_ft",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4800,
+          "unit": "rpm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "compression",
+          "value": 11,
+          "unit": "ratio",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "bore",
+          "value": 104.8,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "stroke",
+          "value": 101.6,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "layout",
+          "value": "front engine RWD",
+          "unit": "text",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "wheelbase",
+          "value": 2685,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "length",
+          "value": 4460,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "width",
+          "value": 1928,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "height",
+          "value": 1244,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "curb_mass",
+          "value": 1421,
+          "unit": "kg",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "front_suspension",
+          "value": "SLA double wishbone, transverse composite leaf",
+          "unit": "text",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "rear_suspension",
+          "value": "SLA double wishbone, transverse composite leaf",
+          "unit": "text",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 355,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 340,
+          "unit": "mm",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "front_caliper_pistons",
+          "value": 6,
+          "unit": "count",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "rear_caliper_pistons",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "tire_front",
+          "value": "P275/35ZR18 Goodyear Eagle F1 Supercar EMT",
+          "unit": "designation",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "tire_rear",
+          "value": "P325/30ZR19 Goodyear Eagle F1 Supercar EMT",
+          "unit": "designation",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "wheel_front",
+          "value": "18x9.5",
+          "unit": "in",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "wheel_rear",
+          "value": "19x12",
+          "unit": "in",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "traction_control",
+          "value": true,
+          "unit": "boolean",
+          "source_id": "am_c6_specs"
+        },
+        {
+          "field": "stability_control",
+          "value": "Active Handling",
+          "unit": "text",
+          "source_id": "am_c6_specs"
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_c6_specs",
+          "url": "https://www.corvetteactioncenter.com/specs/c6/2007/2007specs.html",
+          "title": "GM Media 2007 Corvette specifications, release August 1 2006",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_press_release_mirror",
+          "evidence_excerpt": "Source: GM Media"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ],
+      "related_assets": [
+        {
+          "asset_code": "REDLINE_ADDON_070_CORVETTE_Z06_13_ZIP_CORVETTE_Z06_NNB13_E460010400D5_C96DCEC409C7D1CB",
+          "relationship": "same_generation_trim_year_unresolved",
+          "note": "Redline C6 Z06 model year must be checked in native addon metadata."
+        }
+      ]
+    },
+    {
+      "id": "a10",
+      "name": "Dodge Viper SRT10",
+      "year": 2003,
+      "market": "United States",
+      "variant": "8.3L roadster, 6-speed manual",
+      "vehicle_type": "sports_roadster",
+      "asset_codes": [
+        "GT4_DODG0005",
+        "MC3_VP_VIPER_03"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "GT4 names the 2003 SRT10 and the MC3 source code names Viper 2003. The Redline base Viper lacks a year and trim; it is not merged with this roadster or a later coupe.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 505,
+          "unit": "cu_in",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "engine",
+          "value": "V10",
+          "unit": "text",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "power",
+          "value": 500,
+          "unit": "hp",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "torque",
+          "value": 525,
+          "unit": "lb_ft",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "layout",
+          "value": "front engine RWD",
+          "unit": "text",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "transmission",
+          "value": "6-speed manual",
+          "unit": "text",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "traction_control",
+          "value": false,
+          "unit": "boolean",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "abs",
+          "value": true,
+          "unit": "boolean",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "suspension",
+          "value": "4-wheel independent",
+          "unit": "text",
+          "source_id": "am_viper_press"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5600,
+          "unit": "rpm",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4200,
+          "unit": "rpm",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "compression",
+          "value": 9.6,
+          "unit": "ratio",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "redline",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.07,
+          "unit": "ratio",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "wheelbase",
+          "value": 98.8,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "length",
+          "value": 175.6,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "width",
+          "value": 75.2,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "height",
+          "value": 47.6,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "published_curb_mass",
+          "value": 3357,
+          "unit": "lb",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "front_weight",
+          "value": 48,
+          "unit": "percent",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "rear_weight",
+          "value": 52,
+          "unit": "percent",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "front_brake_rotor",
+          "value": 14,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "rear_brake_rotor",
+          "value": 14,
+          "unit": "in",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "tire_front",
+          "value": "275/35ZR18 Michelin Pilot Sport",
+          "unit": "designation",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "tire_rear",
+          "value": "345/30ZR19 Michelin Pilot Sport",
+          "unit": "designation",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "front_suspension",
+          "value": "upper/lower control arms, coil spring, anti-roll bar",
+          "unit": "text",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        },
+        {
+          "field": "rear_suspension",
+          "value": "upper/lower control arms, coil spring, anti-roll bar",
+          "unit": "text",
+          "source_id": "am_viper_test",
+          "note": "Period road-review specification table; front/rear track numbers look suspect and are intentionally omitted pending OEM confirmation."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_viper_press",
+          "url": "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/attachments/08192002_VIPER_OVERVIEW.pdf",
+          "title": "DaimlerChrysler 2003 Dodge Viper SRT10 Overview, August 19 2002",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_press_release",
+          "evidence_excerpt": "generating 500 horsepower and 525 lb.-ft. of torque"
+        },
+        {
+          "id": "am_viper_test",
+          "url": "https://www.motortrend.com/reviews/2003-dodge-viper-srt-10",
+          "title": "MotorTrend 2003 Viper SRT10 first-hand road review, July 9 2003",
+          "accessed": "2026-10-23",
+          "kind": "first_hand_vehicle_review",
+          "evidence_excerpt": "Curb weight, lb; f/r % 3357; 48/52"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a11",
+      "name": "Dodge Ram 1500 Laramie Hemi Quad Cab",
+      "year": 2004,
+      "market": "United States",
+      "variant": "5.7L Laramie Quad Cab; bed/drivetrain unresolved",
+      "vehicle_type": "pickup",
+      "asset_codes": [
+        "GT4_DODG0009"
+      ],
+      "identity_status": "trim_year_known_body_configuration_unresolved",
+      "identity_notes": "GT4 names the 2004 Laramie Hemi Quad Cab, without a bed or drivetrain specification. Do not select a generic Ram curb mass until its exact configuration is established.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.7,
+          "unit": "L",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "engine",
+          "value": "HEMI Magnum V8",
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "power",
+          "value": 345,
+          "unit": "hp",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "doors",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "seats",
+          "value": 6,
+          "unit": "count",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "standard_wheel_diameter",
+          "value": 17,
+          "unit": "in",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "optional_wheel_diameter",
+          "value": 20,
+          "unit": "in",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "brakes",
+          "value": "4-wheel disc ABS standard Laramie",
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "front_suspension_4x4",
+          "value": "independent",
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "steering",
+          "value": "rack and pinion",
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "drive_options",
+          "value": [
+            "2WD",
+            "4WD"
+          ],
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "transfer_case_options",
+          "value": [
+            "electric shift",
+            "full-time electric shift"
+          ],
+          "unit": "text",
+          "source_id": "am_ram_brochure"
+        },
+        {
+          "field": "quad_cab_short_wheelbase",
+          "value": 140.5,
+          "unit": "in",
+          "source_id": "am_ram_parts",
+          "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+        },
+        {
+          "field": "quad_cab_long_wheelbase",
+          "value": 160.5,
+          "unit": "in",
+          "source_id": "am_ram_parts",
+          "note": "Conditional body-code alternatives; not a confirmed mesh wheelbase."
+        },
+        {
+          "field": "transmission",
+          "value": "545RFE5-speed automatic",
+          "unit": "text",
+          "source_id": "am_ram_roadreview",
+          "note": "Review car has Laramie Package and optional wheels; these describe its test configuration, not proof of the GT4mesh specification."
+        },
+        {
+          "field": "reviewed_drive",
+          "value": "4WD",
+          "unit": "text",
+          "source_id": "am_ram_roadreview",
+          "note": "Review car has Laramie Package and optional wheels; these describe its test configuration, not proof of the GT4mesh specification."
+        },
+        {
+          "field": "reviewed_wheel_diameter",
+          "value": 20,
+          "unit": "in",
+          "source_id": "am_ram_roadreview",
+          "note": "Review car has Laramie Package and optional wheels; these describe its test configuration, not proof of the GT4mesh specification."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_ram_brochure",
+          "url": "https://xr793.com/wp-content/uploads/2021/11/2004-Dodge-Ram-1500.pdf",
+          "title": "DaimlerChrysler 2004 Ram1500 US brochure, six pages",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "345 hp HEMI"
+        },
+        {
+          "id": "am_ram_parts",
+          "url": "https://mopar1973man.com/external-media/pdf/2004Ramparts.pdf",
+          "title": "DaimlerChrysler 2004 DR Ram Parts Catalog model code definitions",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_parts_catalog_mirror",
+          "evidence_excerpt": "41 = Quad Cab (140.5 WB)"
+        },
+        {
+          "id": "am_ram_roadreview",
+          "url": "https://drivechicago.com/reviews/article/245/ram-ahead",
+          "title": "Ira Siegel first-hand2004Ram1500HEMIQuadCabLaramiepackage road review",
+          "accessed": "2026-10-23",
+          "kind": "first_hand_vehicle_review",
+          "evidence_excerpt": "5-45RFE 5-speed automatic transmission"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources.",
+        "Curb mass, exact bed/drivetrain, torque and RPM, tires, ratios, track, length and height still require exact2004 manufacturer specification table. No2005values silently backfilled."
+      ]
+    },
+    {
+      "id": "a12",
+      "name": "Chevrolet Silverado SS",
+      "year": 2004,
+      "market": "United States",
+      "variant": "AWD SS Extended Cab",
+      "vehicle_type": "sport_pickup",
+      "asset_codes": [
+        "MC3_VP_SILVERADO_SS_04"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MC3 explicitly names Silverado SS 2004. The MCLA ambient Silverado 2004 filename omits SS and remains a related family asset with unverified trim and drivetrain.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 6.0,
+          "unit": "L",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "engine",
+          "value": "Vortec High Output6000 V8 SFI",
+          "unit": "text",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "power",
+          "value": 345,
+          "unit": "hp",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "power_rpm",
+          "value": 5200,
+          "unit": "rpm",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "torque",
+          "value": 380,
+          "unit": "lb_ft",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4000,
+          "unit": "rpm",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "drive",
+          "value": "AWD",
+          "unit": "text",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "transmission",
+          "value": "4-speed electronic automatic",
+          "unit": "text",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "rear_differential",
+          "value": "automatic locking",
+          "unit": "text",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "wheel_diameter",
+          "value": 20,
+          "unit": "in",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "brakes",
+          "value": "4-wheel disc ABS",
+          "unit": "text",
+          "source_id": "am_silverado_sheet"
+        },
+        {
+          "field": "final_drive",
+          "value": 4.1,
+          "unit": "ratio",
+          "source_id": "am_silverado_manual",
+          "note": "SS-specific manual towing table; GCWR is loaded combination limit, never curb mass."
+        },
+        {
+          "field": "maximum_trailer_mass",
+          "value": 7600,
+          "unit": "lb",
+          "source_id": "am_silverado_manual",
+          "note": "SS-specific manual towing table; GCWR is loaded combination limit, never curb mass."
+        },
+        {
+          "field": "gcwr",
+          "value": 13000,
+          "unit": "lb",
+          "source_id": "am_silverado_manual",
+          "note": "SS-specific manual towing table; GCWR is loaded combination limit, never curb mass."
+        },
+        {
+          "field": "engine_code",
+          "value": "LQ9",
+          "unit": "text",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "engine_displacement_exact",
+          "value": 5967,
+          "unit": "cc",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "bore",
+          "value": 101.6,
+          "unit": "mm",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "stroke",
+          "value": 92.0,
+          "unit": "mm",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "center_coupling",
+          "value": "full-time AWD viscous-coupled transfercase",
+          "unit": "text",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "chassis_package",
+          "value": "Z60 high performance",
+          "unit": "text",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "first_gear_ratio",
+          "value": 3.06,
+          "unit": "ratio",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        },
+        {
+          "field": "top_gear_ratio",
+          "value": 0.7,
+          "unit": "ratio",
+          "source_id": "am_silverado_2004_kit",
+          "note": "SS-specific narrative andLQ9enginecolumn. Narrative calls transmission4L85E yet gives3.06first; model designation is suspect and deliberatelynot imported as authoritative."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_silverado_sheet",
+          "url": "https://xr793.com/wp-content/uploads/2021/11/2004-Chevrolet-Silverado-Spec-Sheet.pdf",
+          "title": "Chevrolet2004 Silverado US spec sheet 04CHESILSPE01",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "345 hp @ 5200 rpm"
+        },
+        {
+          "id": "am_silverado_manual",
+          "url": "https://assets.gm.com/manuals/chevrolet/2004_chevrolet_silverado_owners.pdf",
+          "title": "GM2004 Chevrolet Silverado Owner Manual SS towing row",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document",
+          "evidence_excerpt": "6000 V8 4.10"
+        },
+        {
+          "id": "am_silverado_2004_kit",
+          "url": "https://news.chevrolet.com/content/dam/company/no_search/heritage-archive-docs/vehicle-information-kits/chevrolet/2004-Chevrolet-Silverado.pdf",
+          "title": "GM2004ChevroletSilveradoRestorationKit, printedpp.3,10",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document",
+          "evidence_excerpt": "standard high-output LQ9 version of the Vortec6000V8",
+          "retrieval_note": "Full original31MB-classscannedPDFdownloaded; selectedpagesOCRd withTesseract locally. Sourcepageimages inspected."
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources.",
+        "SS-specific curb mass, geometry, tire sizes and individual gear ratios not recovered from original specification source yet; do not use generic1500payload/GVWR figures.",
+        "GM2004restorationkit has a suspect4L85Etransmissionlabel. Generic1500dimensions/masses inthiskitare notSS-specific; do notinherit them."
+      ],
+      "related_assets": [
+        {
+          "asset_code": "MCLA_VA_CHV_SILVERADO_04",
+          "relationship": "same_family_year_trim_unresolved",
+          "note": "Ambient Silverado 2004 filename omits SS; do not inherit SS engine or AWD."
+        }
+      ]
+    },
+    {
+      "id": "a13",
+      "name": "Hummer H2",
+      "year": 2003,
+      "market": "United States",
+      "variant": "6.0L 2003 SUV, full-time 4WD; launch specification estimates",
+      "vehicle_type": "large_suv",
+      "asset_codes": [
+        "MC3_VP_H2_03"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MC3 H2_03 explicitly identifies the H2 and 2003. The separate MC3 hummer_02 asset is excluded. The Redline H2 addon lacks a model year and remains a related model.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5967,
+          "unit": "cc",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "engine",
+          "value": "OHV Vortec6000 V8",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "power",
+          "value": 325,
+          "unit": "hp_SAE_estimated",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5200,
+          "unit": "rpm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "torque",
+          "value": 385,
+          "unit": "lb_ft_estimated",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 3600,
+          "unit": "rpm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "compression",
+          "value": 9.4,
+          "unit": "ratio",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "transmission",
+          "value": "4L65E4-speed automatic",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.06,
+            1.62,
+            1,
+            0.69
+          ],
+          "unit": "ratio",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "final_drive",
+          "value": 4.1,
+          "unit": "ratio",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "low_range_ratio",
+          "value": 2.64,
+          "unit": "ratio",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "layout",
+          "value": "front engine full-time4WD",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "wheelbase",
+          "value": 3118,
+          "unit": "mm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "length",
+          "value": 4819.7,
+          "unit": "mm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "width_without_mirrors",
+          "value": 2062.6,
+          "unit": "mm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "front_track",
+          "value": 1762.8,
+          "unit": "mm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "rear_track",
+          "value": 1762.8,
+          "unit": "mm",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "curb_mass",
+          "value": 6400,
+          "unit": "lb_estimated",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "height_range",
+          "value": [
+            1977,
+            2080
+          ],
+          "unit": "mm_estimated",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "ground_clearance",
+          "value": 229,
+          "unit": "mm_estimated",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "front_suspension",
+          "value": "independent torsion bar",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "rear_suspension",
+          "value": "5-link coil spring; optional air",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "front_anti_roll_bar",
+          "value": 35.9,
+          "unit": "mm_diameter",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "rear_anti_roll_bar",
+          "value": 30,
+          "unit": "mm_diameter",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "tire_standard",
+          "value": "LT285/70R17 all-terrain",
+          "unit": "designation",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "tire_optional",
+          "value": "LT315/70R17 off-road",
+          "unit": "designation",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        },
+        {
+          "field": "rear_differential",
+          "value": "locking",
+          "unit": "text",
+          "source_id": "am_h2_brief",
+          "note": "Launch preliminary data, not final homologated values. Height range includes roof-rack variation; 6400lb/2909kg source conversion is inconsistent, so preserve pounds."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_h2_brief",
+          "url": "https://www.rockcrawler.com/reviews/hummer/h2/2003_tech_briefing/specs.asp",
+          "title": "HUMMER2003 H2 launch technical briefing preliminary specifications reproduction",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_technical_briefing_mirror",
+          "evidence_excerpt": "Model: 2003 HUMMER H2 SUV"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ],
+      "related_assets": [
+        {
+          "asset_code": "REDLINE_ADDON_032_HUMMERH2_REDPLUG_ZIP_H2_83D731E16D4E_870B1484A05D23D0",
+          "relationship": "same_model_year_unresolved",
+          "note": "Redline Hummer H2 v0.5 addon has no model-year label."
+        }
+      ]
+    },
+    {
+      "id": "a14",
+      "name": "Cadillac CTS-V",
+      "year": 2004,
+      "market": "United States",
+      "variant": "LS6 six-speed sedan",
+      "vehicle_type": "sports_sedan",
+      "asset_codes": [
+        "MC3_VP_CTSV_04",
+        "MCLA_VA_CAD_CTSV_04"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "MC3 and MCLA filenames explicitly identify CTS-V 2004. The MCLA asset is ambient; its geometry identity does not imply playable physics or shared native tuning.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5.7,
+          "unit": "L",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "engine",
+          "value": "LS6 V8 SFI",
+          "unit": "text",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "power",
+          "value": 400,
+          "unit": "hp",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "power_rpm",
+          "value": 6000,
+          "unit": "rpm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "torque",
+          "value": 395,
+          "unit": "lb_ft",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4800,
+          "unit": "rpm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "drive",
+          "value": "RWD",
+          "unit": "text",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "transmission",
+          "value": "Tremec6-speed manual",
+          "unit": "text",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "final_drive",
+          "value": 3.73,
+          "unit": "ratio",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "wheelbase",
+          "value": 2880,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "length",
+          "value": 4864,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "width",
+          "value": 1793,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "height",
+          "value": 1455,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "front_track",
+          "value": 1552,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "rear_track",
+          "value": 1560,
+          "unit": "mm",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "curb_mass",
+          "value": 1746,
+          "unit": "kg",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "tire_front",
+          "value": "P245/45WR18 Goodyear Eagle EMT",
+          "unit": "designation",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "tire_rear",
+          "value": "P245/45WR18 Goodyear Eagle EMT",
+          "unit": "designation",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "wheel_front",
+          "value": "18x8.5",
+          "unit": "in",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "wheel_rear",
+          "value": "18x8.5",
+          "unit": "in",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "traction_control",
+          "value": true,
+          "unit": "boolean",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "stability_control_modes",
+          "value": 4,
+          "unit": "count",
+          "source_id": "am_ctsv_order",
+          "note": "OEMorderguide dimensions without optional equipment. Torque Newton-meter conversion printed533.3 conflicts with395lbft; preserve original lbft, no silent conversion."
+        },
+        {
+          "field": "tested_0_60_mph",
+          "value": 5.1,
+          "unit": "s",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        },
+        {
+          "field": "tested_0_100_mph",
+          "value": 12.3,
+          "unit": "s",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        },
+        {
+          "field": "tested_quarter_mile",
+          "value": 13.48,
+          "unit": "s",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        },
+        {
+          "field": "tested_quarter_mile_trap",
+          "value": 105.33,
+          "unit": "mph",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        },
+        {
+          "field": "tested_60_0_mph",
+          "value": 121,
+          "unit": "ft",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        },
+        {
+          "field": "tested_slalom_600ft",
+          "value": 65,
+          "unit": "mph",
+          "source_id": "am_ctsv_test",
+          "note": "MotorTrend instrumented results; not GMclaimed4.6seconds. Tire/conditions vary; use as scenario envelope."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_ctsv_order",
+          "url": "https://www.cadillacvnet.com/tech-center/cts-v/2004/2004_cts-v_rpo.pdf",
+          "title": "GM2004 Cadillac CTS-V Vehicle Order Guide, April9 2004 pp.2,12\u201313",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_document_mirror",
+          "evidence_excerpt": "Curb weight, lbs. (kg) 3850 (1746)"
+        },
+        {
+          "id": "am_ctsv_test",
+          "url": "https://www.motortrend.com/reviews/comparison-2004-cadillac-cts-v-vs-jaguar-s-type-r-archive",
+          "title": "MotorTrend April2004 CTS-V/S-TypeR instrumented comparison, republished2026",
+          "accessed": "2026-10-23",
+          "kind": "instrumented_test",
+          "evidence_excerpt": "Braking, 60-0 mph, ft 121"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a15",
+      "name": "Chrysler 300C",
+      "year": 2005,
+      "market": "United States",
+      "variant": "5.7L HEMI RWD sedan, AWD alternate separately recorded",
+      "vehicle_type": "large_sedan",
+      "asset_codes": [
+        "GT4_CHRY0009",
+        "MC3_VP_CHRYSLER300C_05",
+        "MCLA_VA_CHR_300C_05"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "GT4, MC3 and MCLA ambient names identify 300C 2005. The playable MCLA SRT8 has a different engine and year and is excluded. The asset drivetrain must still be reconciled with RWD and AWD alternatives.",
+      "facts": [
+        {
+          "field": "engine_displacement",
+          "value": 5654,
+          "unit": "cc",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "engine",
+          "value": "OHV16-valve HEMIV8 MDS",
+          "unit": "text",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "power",
+          "value": 340,
+          "unit": "hp_SAE_net",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "power_rpm",
+          "value": 5000,
+          "unit": "rpm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "torque",
+          "value": 390,
+          "unit": "lb_ft",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "torque_rpm",
+          "value": 4000,
+          "unit": "rpm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "compression",
+          "value": 9.6,
+          "unit": "ratio",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "max_engine_speed",
+          "value": 5800,
+          "unit": "rpm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "transmission",
+          "value": "5-speed automatic AutoStick",
+          "unit": "text",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "gear_ratios",
+          "value": [
+            3.59,
+            2.19,
+            1.41,
+            1,
+            0.83
+          ],
+          "unit": "ratio",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "final_drive_rwd",
+          "value": 2.82,
+          "unit": "ratio",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "final_drive_awd",
+          "value": 3.07,
+          "unit": "ratio",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "wheelbase",
+          "value": 3048,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "length",
+          "value": 4999,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "width",
+          "value": 1881,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "height",
+          "value": 1483,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "front_track",
+          "value": 1600,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "rear_track",
+          "value": 1603,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "ground_clearance",
+          "value": 143,
+          "unit": "mm",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "curb_mass_rwd",
+          "value": 1844,
+          "unit": "kg",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "curb_mass_awd",
+          "value": 1938,
+          "unit": "kg",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "front_weight_rwd",
+          "value": 54,
+          "unit": "percent",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "front_weight_awd",
+          "value": 55,
+          "unit": "percent",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "drag_coefficient_rwd",
+          "value": 0.35,
+          "unit": "dimensionless",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "drag_coefficient_awd",
+          "value": 0.36,
+          "unit": "dimensionless",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "frontal_area",
+          "value": 2.36,
+          "unit": "m2",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        },
+        {
+          "field": "awd_front_torque_split",
+          "value": 38,
+          "unit": "percent",
+          "source_id": "am_300c_press",
+          "note": "RWDandAWD alternatives must not be combined into one car. Dimensions at curb weight with standard tires. Torque525Nm source conversion differs from390lbft; retainoriginalunit."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_300c_press",
+          "url": "https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2005300Specs.pdf",
+          "title": "DaimlerChrysler2005 Chrysler300 product information specifications, pp.12\u201315",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_press_release",
+          "evidence_excerpt": "Curb Weight, lb. (kg) 300C\u20144066 (1844)"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources."
+      ]
+    },
+    {
+      "id": "a16",
+      "name": "Buick GNX",
+      "year": 1987,
+      "market": "United States",
+      "variant": "productionGNX identity; prototype measurement envelope",
+      "vehicle_type": "turbo_muscle_coupe",
+      "asset_codes": [
+        "GT4_BUIC0001",
+        "MCLA_VP_BUK_GRANDNATIONAL_87"
+      ],
+      "identity_status": "catalog_exact_name",
+      "identity_notes": "GT4 and MCLA explicitly identify GNX 1987. The period Car and Driver measurements describe a prototype and quote 300 hp and 380 lb-ft; they remain separate from the advertised production figures reported by a later firsthand GM collection visit.",
+      "facts": [
+        {
+          "field": "production_total",
+          "value": 547,
+          "unit": "count",
+          "source_id": "am_gnx_gm"
+        },
+        {
+          "field": "turbocharger",
+          "value": "Garrett AiResearch T3",
+          "unit": "text",
+          "source_id": "am_gnx_gm"
+        },
+        {
+          "field": "transmission",
+          "value": "TurboHydramatic2004R",
+          "unit": "text",
+          "source_id": "am_gnx_gm"
+        },
+        {
+          "field": "wheel_diameter",
+          "value": 16,
+          "unit": "in",
+          "source_id": "am_gnx_gm"
+        },
+        {
+          "field": "layout",
+          "value": "front engine RWD",
+          "unit": "text",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "engine_displacement",
+          "value": 3791,
+          "unit": "cc",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "engine",
+          "value": "turbo/intercooled OHV12-valveV6",
+          "unit": "text",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_published_power",
+          "value": 300,
+          "unit": "hp",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_published_power_rpm",
+          "value": 4400,
+          "unit": "rpm",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_published_torque",
+          "value": 380,
+          "unit": "lb_ft",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_published_torque_rpm",
+          "value": 2600,
+          "unit": "rpm",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_wheelbase",
+          "value": 108.1,
+          "unit": "in",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_length",
+          "value": 200.6,
+          "unit": "in",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_width",
+          "value": 75.5,
+          "unit": "in",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_height",
+          "value": 54.6,
+          "unit": "in",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "prototype_curb_mass",
+          "value": 3545,
+          "unit": "lb",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_0_60_mph",
+          "value": 4.7,
+          "unit": "s",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_quarter_mile",
+          "value": 13.5,
+          "unit": "s",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_quarter_mile_trap",
+          "value": 102,
+          "unit": "mph",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_top_speed",
+          "value": 124,
+          "unit": "mph",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_70_0_mph",
+          "value": 186,
+          "unit": "ft",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "tested_skidpad_300ft",
+          "value": 0.8,
+          "unit": "g",
+          "source_id": "am_gnx_test",
+          "note": "C/D prototype test; not verified production-car baseline. Numericresultsonly, weather/rolloutnotreportedintheaccessibletext."
+        },
+        {
+          "field": "advertised_power_reported",
+          "value": 276,
+          "unit": "hp",
+          "source_id": "am_gnx_visit",
+          "note": "Author inspectedGMretainedGNX001; quotes advertisedfigures, notadynamometermeasurement or retrievedproductionfactoryspecsheet. Exactratingrpm remainsunknown."
+        },
+        {
+          "field": "advertised_torque_reported",
+          "value": 360,
+          "unit": "lb_ft",
+          "source_id": "am_gnx_visit",
+          "note": "Author inspectedGMretainedGNX001; quotes advertisedfigures, notadynamometermeasurement or retrievedproductionfactoryspecsheet. Exactratingrpm remainsunknown."
+        }
+      ],
+      "sources": [
+        {
+          "id": "am_gnx_gm",
+          "url": "https://news.gm.com/home.detail.html/Pages/topic/us/en/2025/feb/0217-buick.html",
+          "title": "GM GNX project history by MarkReuss, February17 2025",
+          "accessed": "2026-10-23",
+          "kind": "manufacturer_history",
+          "evidence_excerpt": "a turbo Hydromatic 200-4R transmission"
+        },
+        {
+          "id": "am_gnx_test",
+          "url": "https://www.caranddriver.com/reviews/a33502193/tested-1987-buick-gnx/",
+          "title": "Car and Driver May1987 GNX prototype instrumented test",
+          "accessed": "2026-10-23",
+          "kind": "instrumented_test",
+          "evidence_excerpt": "Roadholding, 300-ft-dia skidpad: 0.80 g"
+        },
+        {
+          "id": "am_gnx_interview",
+          "url": "https://www.caranddriver.com/features/a23739443/buick-regal-grand-national-gnx-history/",
+          "title": "GNX creators interviews: identifies1987testcars asprototypes",
+          "accessed": "2026-10-23",
+          "kind": "first_hand_creator_interviews",
+          "evidence_excerpt": "spend a day with two prototypes"
+        },
+        {
+          "id": "am_gnx_visit",
+          "url": "https://www.motortrend.com/news/1403-inside-gnx-001-1987-buick-regal",
+          "title": "RickJensen firsthandGMwarehouse visit toGNX001, March31 2014",
+          "accessed": "2026-10-23",
+          "kind": "first_hand_vehicle_review",
+          "evidence_excerpt": "a \u201c276\u201d-horse, \u201c360\u201d-pound-feet PR machine"
+        }
+      ],
+      "unknowns": [
+        "Center of gravity height, inertia tensor, tire force curves and damper curves not published in retrieved sources.",
+        "Factory production rating, final curb mass, tire specifications, gear ratios and exact production dimensions need original GNX-specific manufacturer documents; prototype table is clearly segregated."
+      ]
+    }
+  ]
+}

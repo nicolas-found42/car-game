@@ -1,0 +1,384 @@
+{
+  "cars": [
+    {
+      "id": "a01",
+      "name": "Ford Mustang GT",
+      "asset_codes": [
+        "GT4_FORD0011"
+      ]
+    },
+    {
+      "id": "a02",
+      "name": "Ford Mustang SVT Cobra R",
+      "asset_codes": [
+        "GT4_FORD0008"
+      ]
+    },
+    {
+      "id": "a03",
+      "name": "Ford Shelby GT500",
+      "asset_codes": [
+        "REDLINE_ADDON_080_MUSTANG_S197_PACK_ZIP_MUSTANG_NNB_GT500_867D18EE049F_18D1CC5DE2FE0CDE"
+      ]
+    },
+    {
+      "id": "a04",
+      "name": "Ford SVT F-150 Lightning",
+      "asset_codes": [
+        "GT4_FORD0012",
+        "LIGHTNING_SVT"
+      ]
+    },
+    {
+      "id": "a05",
+      "name": "Ford F-150 FX4",
+      "asset_codes": [
+        "F150_2004"
+      ]
+    },
+    {
+      "id": "a06",
+      "name": "Ford SVT Focus",
+      "asset_codes": [
+        "MCLA_VP_FRD_FOCUS_04"
+      ]
+    },
+    {
+      "id": "a07",
+      "name": "Ford GT",
+      "asset_codes": [
+        "GT4_FORD0006",
+        "GT4_FORD0015"
+      ]
+    },
+    {
+      "id": "a08",
+      "name": "Chevrolet Corvette Z06",
+      "asset_codes": [
+        "MC3_VP_CORVETTEZ06_03"
+      ]
+    },
+    {
+      "id": "a09",
+      "name": "Chevrolet Corvette Z06",
+      "asset_codes": [
+        "MCLA_VP_CHV_CORVETTEZ06_07",
+        "REDLINE_ADDON_070_CORVETTE_Z06_13_ZIP_CORVETTE_Z06_NNB13_E460010400D5_C96DCEC409C7D1CB"
+      ]
+    },
+    {
+      "id": "a10",
+      "name": "Dodge Viper SRT10",
+      "asset_codes": [
+        "GT4_DODG0005",
+        "MC3_VP_VIPER_03"
+      ]
+    },
+    {
+      "id": "a11",
+      "name": "Dodge Ram 1500 Laramie Hemi Quad Cab",
+      "asset_codes": [
+        "GT4_DODG0009"
+      ]
+    },
+    {
+      "id": "a12",
+      "name": "Chevrolet Silverado SS",
+      "asset_codes": [
+        "MC3_VP_SILVERADO_SS_04",
+        "MCLA_VA_CHV_SILVERADO_04"
+      ]
+    },
+    {
+      "id": "a13",
+      "name": "Hummer H2",
+      "asset_codes": [
+        "MC3_VP_H2_03",
+        "REDLINE_ADDON_032_HUMMERH2_REDPLUG_ZIP_H2_83D731E16D4E_870B1484A05D23D0"
+      ]
+    },
+    {
+      "id": "a14",
+      "name": "Cadillac CTS-V",
+      "asset_codes": [
+        "MC3_VP_CTSV_04",
+        "MCLA_VA_CAD_CTSV_04"
+      ]
+    },
+    {
+      "id": "a15",
+      "name": "Chrysler 300C",
+      "asset_codes": [
+        "GT4_CHRY0009",
+        "MC3_VP_CHRYSLER300C_05",
+        "MCLA_VA_CHR_300C_05"
+      ]
+    },
+    {
+      "id": "a16",
+      "name": "Buick GNX",
+      "asset_codes": [
+        "GT4_BUIC0001",
+        "MCLA_VP_BUK_GRANDNATIONAL_87"
+      ]
+    },
+    {
+      "id": "e01",
+      "name": "Porsche 911 SC 3.0",
+      "asset_codes": [
+        "REDLINE_ADDON_072_DP_911_PACK_II_REDPLUG_ZIP_DP91130_D40AEBAC2F82_2F607564778B6BAC"
+      ]
+    },
+    {
+      "id": "e02",
+      "name": "Ferrari Testarossa",
+      "asset_codes": [
+        "REDLINE_ADDON_022_FERRARITESTAROSSA_ZIP_TESTAROSSA_220E18865D7B_9ADA21231AEFF101"
+      ]
+    },
+    {
+      "id": "e03",
+      "name": "Lamborghini Gallardo",
+      "asset_codes": [
+        "MC3_VP_GALLARDO_04"
+      ]
+    },
+    {
+      "id": "e04",
+      "name": "Lamborghini Murcielago",
+      "asset_codes": [
+        "MC3_VP_MURCIELAGO_04"
+      ]
+    },
+    {
+      "id": "e05",
+      "name": "Lamborghini Miura P400 SV",
+      "asset_codes": [
+        "MCLA_VP_LAM_MIURA_71"
+      ]
+    },
+    {
+      "id": "e06",
+      "name": "BMW M3 CSL",
+      "asset_codes": [
+        "GT4_BMW_0011"
+      ]
+    },
+    {
+      "id": "e07",
+      "name": "BMW M5",
+      "asset_codes": [
+        "GT4_BMW_0014"
+      ]
+    },
+    {
+      "id": "e08",
+      "name": "MINI Cooper S",
+      "asset_codes": [
+        "GT4_MINI0001"
+      ]
+    },
+    {
+      "id": "e09",
+      "name": "Morris Mini Cooper S 1275",
+      "asset_codes": [
+        "REDLINE_ADDON_076_GCW_MINI_COOPER_V1_0_ZIP_GCW_MORRIS_MINI_5666B24469E1_66F5F24BEA75563F"
+      ]
+    },
+    {
+      "id": "e10",
+      "name": "Volkswagen Golf IV R32",
+      "asset_codes": [
+        "GT4_VW__0007",
+        "MC3_VP_GOLFR32_04",
+        "MCLA_VA_GOLFR32_04"
+      ]
+    },
+    {
+      "id": "e11",
+      "name": "Audi R8 4.2 FSI quattro",
+      "asset_codes": [
+        "MCLA_VP_AUD_R8_08"
+      ]
+    },
+    {
+      "id": "e12",
+      "name": "Audi RS4",
+      "asset_codes": [
+        "MCLA_VP_AUD_RS4_07"
+      ]
+    },
+    {
+      "id": "e13",
+      "name": "Lotus Elise 111R",
+      "asset_codes": [
+        "GT4_LOTU0010",
+        "MC3_VP_ELISE_04"
+      ]
+    },
+    {
+      "id": "e14",
+      "name": "Mercedes-Benz SL55 AMG",
+      "asset_codes": [
+        "GT4_MBNZ0001",
+        "MC3_VP_SL55_AMG_04"
+      ]
+    },
+    {
+      "id": "e15",
+      "name": "Aston Martin DB9 Coupe",
+      "asset_codes": [
+        "GT4_ASMT0005"
+      ]
+    },
+    {
+      "id": "e16",
+      "name": "Jaguar XJ220",
+      "asset_codes": [
+        "GT4_JAGU0004",
+        "REDLINE_ADDON_035_JAGUARXJ220_2_1_ZIP_PIMLEY_JAGUAR_XJ220_05099F84EBCE_AC0BB4271762361A"
+      ]
+    },
+    {
+      "id": "e17",
+      "name": "Pagani Zonda C12S 7.3",
+      "asset_codes": [
+        "GT4_PGNI0001"
+      ]
+    },
+    {
+      "id": "j01",
+      "name": "Nissan 350Z",
+      "asset_codes": [
+        "GT4_NISS0004",
+        "MC3_VP_350Z_04",
+        "MCLA_VA_350Z_04"
+      ]
+    },
+    {
+      "id": "j02",
+      "name": "Nissan Skyline GT-R V-spec",
+      "asset_codes": [
+        "GT4_NISS0046",
+        "MCLA_VP_NSN_SKYLINE_99"
+      ]
+    },
+    {
+      "id": "j03",
+      "name": "Toyota Supra RZ",
+      "asset_codes": [
+        "GT4_TOYT0006",
+        "MC3_VP_SUPRA_98",
+        "GT_SIMULATION__TSPNN",
+        "GT_SIMULATION__T_PNN",
+        "GT_SIMULATION__TSONN",
+        "REDLINE_ADDON_055_TOYOTA_SUPRA_ZIP_TOYOTA_SUPRA_V0_1_47072AE57B27_B60593267222F127"
+      ]
+    },
+    {
+      "id": "j04",
+      "name": "Mazda RX-7 Spirit R Type A",
+      "asset_codes": [
+        "GT4_MAZD0007"
+      ]
+    },
+    {
+      "id": "j05",
+      "name": "Mazda RX-8 Type S",
+      "asset_codes": [
+        "GT4_MAZD0008"
+      ]
+    },
+    {
+      "id": "j06",
+      "name": "Honda NSX Type R",
+      "asset_codes": [
+        "GT4_HOND0031"
+      ]
+    },
+    {
+      "id": "j07",
+      "name": "Honda S2000",
+      "asset_codes": [
+        "GT4_HOND0049",
+        "REDLINE_ADDON_030_HONDA_S2000_1_2_ZIP_HONDA_S2000_V1_2_EE4212DABFB1_409613152E2B8DD4"
+      ]
+    },
+    {
+      "id": "j08",
+      "name": "Mazda MX-5 V-Special Type II",
+      "asset_codes": [
+        "GT4_MAZD0046",
+        "REDLINE_ADDON_040_MAZDA_MX_5_MIATA_V1_0_REDPLUG_ZIP_MAZDA_MX_5_MIATA_V1_0_2804F582B1E9_A7BFAC6FCE407A78"
+      ]
+    },
+    {
+      "id": "j09",
+      "name": "Mitsubishi Lancer Evolution IX",
+      "asset_codes": [
+        "MCLA_VP_MIT_EVO_06"
+      ]
+    },
+    {
+      "id": "j10",
+      "name": "Mitsubishi 3000GT VR-4",
+      "asset_codes": [
+        "MCLA_VP_MIT_3000GT_99",
+        "GT4_MITS0069"
+      ]
+    },
+    {
+      "id": "j11",
+      "name": "Subaru Impreza Sedan WRX STi",
+      "asset_codes": [
+        "GT4_SUBR0001",
+        "GT_SIMULATION__SIPBN",
+        "GT_SIMULATION__SIPSN"
+      ]
+    },
+    {
+      "id": "j12",
+      "name": "Subaru Impreza Rally Car",
+      "asset_codes": [
+        "GT4_SUBR0003"
+      ]
+    },
+    {
+      "id": "j13",
+      "name": "Subaru Impreza 22B-STi Version",
+      "asset_codes": [
+        "GT4_SUBR0019"
+      ]
+    },
+    {
+      "id": "j14",
+      "name": "Toyota MR2 GT-S",
+      "asset_codes": [
+        "GT4_TOYT0026",
+        "GT_SIMULATION__TMR2N"
+      ]
+    },
+    {
+      "id": "j15",
+      "name": "Toyota MR2 V Edition",
+      "asset_codes": [
+        "GT4_TOYT0071",
+        "REDLINE_ADDON_054_TOYOTA_MR2_SPYDER_V_1_0_ZIP_TOYOTA_MR2_0851A2D424FB_C99668FA944D7C65"
+      ]
+    },
+    {
+      "id": "j16",
+      "name": "Suzuki Cappuccino",
+      "asset_codes": [
+        "GT4_SUZK0007"
+      ]
+    },
+    {
+      "id": "j17",
+      "name": "Honda Civic Type R",
+      "asset_codes": [
+        "GT4_HOND0082"
+      ]
+    }
+  ]
+}

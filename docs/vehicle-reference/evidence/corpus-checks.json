@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "real_cars": 50,
+  "game_assets": 80,
+  "source_files_hash_checked": 280,
+  "game_parameter_values_cross_checked": 99166,
+  "real_facts_with_resolved_sources": 1555,
+  "scope": "Structural consistency, source-file byte identity and export fidelity; research source applicability also requires cited identity notes."
+}
