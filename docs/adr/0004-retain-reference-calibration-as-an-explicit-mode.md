@@ -1,0 +1,5 @@
+# Retain reference calibration as an explicit mode
+
+The preservation checkpoint predates independent controls and synchronized completed-step physics. Recover its qualified reference profiles behind `--reference-physics`, retaining the accepted shared arcade model by default, so calibration remains runnable without silently replacing the newly accepted foundation. Both modes use the same per-chassis controls, assembly identities and query/force schedule; profile masses decompose into the existing residual body and four estimated wheel assemblies only when reference calibration is selected.
+
+Manufacturer values, related trims, native proxies and estimated suspension, grip, torque curves, drivetrain losses and shift control remain identified in `assets/cars/physics.json`. The recovered ratio-aware hysteresis prevents adjacent shift bands from overlapping; it is an authored automatic-shift approximation. Activating additional staged editions or promoting this calibration into the default requires separate current-main acceptance, rather than treating historical checkpoint results as proof of the new integration.

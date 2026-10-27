@@ -37,6 +37,7 @@ impl AccessContext {
 
 #[derive(Resource, Clone, Debug)]
 pub struct RuntimeConfig {
+    pub reference_physics: bool,
     pub mode: String,
     pub visual_only: bool,
     pub backend: RenderBackend,
@@ -58,6 +59,7 @@ impl Default for RuntimeConfig {
             .filter(|p| p.is_dir());
         let bundled = bundle.is_some();
         Self {
+            reference_physics: false,
             mode: "interactive".into(),
             visual_only: false,
             backend: RenderBackend::Window,
@@ -91,6 +93,7 @@ impl RuntimeConfig {
             RenderBackend::Window
         };
         let mut config = Self {
+            reference_physics: args.iter().any(|a| a == "--reference-physics"),
             backend,
             visual_only: args.iter().any(|a| a == "--visual-check"),
             ..Self::default()

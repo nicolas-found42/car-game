@@ -521,6 +521,12 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
         outcome(world, command, "rejected", "duplicate-vehicle-id");
         return;
     }
+    let configured_mass = crate::vehicle::configured_mass(
+        &spec,
+        world
+            .get_resource::<crate::RuntimeConfig>()
+            .is_some_and(|c| c.reference_physics),
+    );
     let mut query = world.query_filtered::<(
         &mut Transform,
         &mut Velocity,
@@ -543,7 +549,7 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
     *velocity = Velocity::zero();
     *force = ExternalForce::default();
     *collider = chassis_collider(&spec);
-    *mass = crate::vehicle::baseline_mass_properties();
+    *mass = configured_mass;
     let count = car.reset_count + 1;
     *car = Vehicle::default();
     car.previous = *pose;
@@ -556,6 +562,16 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
     if let Ok((mut control, mut collider)) = players.single_mut(world) {
         collider.0 = format!("{}:chassis", identity.0);
         control.id = identity;
+    }
+    if world
+        .get_resource::<crate::RuntimeConfig>()
+        .is_some_and(|c| c.reference_physics)
+        && let Some(run) = world.get_resource::<RunHandle>()
+    {
+        run.event(
+            "vehicle.physics_profile",
+            crate::vehicle::profile::report(&spec.id),
+        );
     }
     world.insert_resource(spec);
     world

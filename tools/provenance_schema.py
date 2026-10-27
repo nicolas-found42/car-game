@@ -2,7 +2,7 @@
 import re
 from pathlib import PurePosixPath
 
-SINGLETONS = {'executable', 'effective_config', 'embedded_catalog', 'capture_index', 'build_metadata'}
+SINGLETONS = {'executable', 'effective_config', 'embedded_catalog', 'embedded_physics_profile', 'capture_index', 'build_metadata'}
 FLAGS = {'inventory_integrity', 'runtime_material_complete', 'runtime_replay_complete', 'rebuild_complete'}
 DIGEST = re.compile(r'[0-9a-f]{64}')
 SYSTEM_PREREQUISITES = {'compatible_os_arch_dynamic_libraries', 'gpu_renderer_audio_drivers'}

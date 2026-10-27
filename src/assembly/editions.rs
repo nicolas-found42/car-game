@@ -46,9 +46,10 @@ pub(crate) fn activate(world: &mut World, id: &str) {
 
 pub(crate) fn initialize(world: &mut World) {
     let selected = world.resource::<crate::roster::CarSpec>().id.clone();
+    let reference = world.resource::<crate::RuntimeConfig>().reference_physics;
     let mut retained = RetainedAssemblies::default();
     for spec in crate::roster::Fleet::default().cars {
-        let Some(assembly) = Assembly::major_parts(&spec) else {
+        let Some(assembly) = Assembly::major_parts_configured(&spec, reference) else {
             continue;
         };
         assembly.validate().expect("edition manifest");

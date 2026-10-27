@@ -166,6 +166,7 @@ fn effective_config(
         "render_disabled": config.backend == RenderBackend::Disabled,
         "seed": config.seed,
         "fixed_hz": 120,
+        "reference_physics": config.reference_physics,
         "log_filter": config.log_filter,
         "scene": config.scenario.as_ref().map_or("driving", |s| s.scene.as_str()),
         "context": config.access,

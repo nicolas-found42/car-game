@@ -33,6 +33,12 @@ pub fn capture(
         "embedded_catalog",
         "catalog/roster.json",
     )?);
+    entries.push(store::capture_bytes(
+        run,
+        include_bytes!("../assets/cars/physics.json"),
+        "embedded_physics_profile",
+        "catalog/physics.json",
+    )?);
     capture_assets(run, assets, &mut entries, &mut omissions);
     required_assets(&entries, &mut omissions);
     let embedded = entries
@@ -46,6 +52,17 @@ pub fn capture(
     let catalog_matches = embedded == runtime_catalog;
     if !catalog_matches {
         omissions.push(json!({"role": "catalog", "reason": "embedded_runtime_catalog_mismatch", "replay_required": true}));
+    }
+    let embedded_physics = entries
+        .iter()
+        .find(|e| e.role == "embedded_physics_profile")
+        .map(|e| &e.sha256);
+    let runtime_physics = entries
+        .iter()
+        .find(|e| e.logical_path == "assets/cars/physics.json")
+        .map(|e| &e.sha256);
+    if embedded_physics != runtime_physics {
+        omissions.push(json!({"role":"physics_profile", "reason":"embedded_runtime_physics_mismatch", "replay_required":true}));
     }
     let (args, inputs, omitted) = policy::arguments();
     for (role, path) in inputs {
@@ -102,11 +119,12 @@ fn prerequisites() -> Value {
 }
 
 fn capture_assets(run: &Path, assets: &Path, entries: &mut Vec<Entry>, omissions: &mut Vec<Value>) {
+    let allowed: std::collections::BTreeSet<_> = allowed_assets().into_iter().collect();
     let result = store::files(assets).and_then(|paths| {
         for path in paths {
             let relative = path.strip_prefix(assets).expect("asset prefix");
             let logical = format!("assets/{}", relative.to_string_lossy());
-            if !allowed_assets().contains(&logical) {
+            if !allowed.contains(&logical) {
                 omissions.push(json!({"role": "runtime_asset", "logical_path": logical,
                     "reason": "asset_path_not_allowlisted", "replay_required": true}));
                 continue;
@@ -334,7 +352,10 @@ fn fleet_evidence(run: &Path, entries: &[Entry]) -> Value {
 fn allowed_assets() -> Vec<String> {
     let catalog: Vec<Value> =
         serde_json::from_slice(include_bytes!("../assets/cars/roster.json")).unwrap_or_default();
-    let mut required = vec!["assets/cars/roster.json".to_string()];
+    let mut required = vec![
+        "assets/cars/roster.json".to_string(),
+        "assets/cars/physics.json".to_string(),
+    ];
     for car in catalog {
         let Some(relative) = car["path"].as_str() else {
             continue;
@@ -363,5 +384,40 @@ fn required_assets(entries: &[Entry], omissions: &mut Vec<Value>) {
             omissions.push(json!({"role": "catalog_content", "logical_path": logical,
                 "reason": "required_catalog_content_unavailable", "replay_required": true}));
         }
+    }
+}
+
+#[cfg(test)]
+mod capture_policy_tests {
+    use super::*;
+
+    #[test]
+    fn cached_asset_inventory_keeps_unknown_files_explicitly_omitted() {
+        let root = env::temp_dir().join(format!(
+            "asset-policy-{}-{}",
+            std::process::id(),
+            crate::diagnostics::now().replace(':', "-")
+        ));
+        let assets = root.join("assets");
+        let run = root.join("run");
+        fs::create_dir_all(assets.join("cars")).unwrap();
+        fs::create_dir_all(&run).unwrap();
+        fs::write(assets.join("cars/roster.json"), b"[]").unwrap();
+        fs::write(assets.join("cars/physics.json"), b"{}").unwrap();
+        fs::write(assets.join("cars/unlisted.glb"), b"unrecognized content").unwrap();
+        let mut entries = Vec::new();
+        let mut omissions = Vec::new();
+        capture_assets(&run, &assets, &mut entries, &mut omissions);
+        let paths: std::collections::BTreeSet<_> =
+            entries.iter().map(|e| e.logical_path.as_str()).collect();
+        assert_eq!(
+            paths,
+            ["assets/cars/physics.json", "assets/cars/roster.json"].into()
+        );
+        assert_eq!(omissions.len(), 1);
+        assert_eq!(omissions[0]["logical_path"], "assets/cars/unlisted.glb");
+        assert_eq!(omissions[0]["reason"], "asset_path_not_allowlisted");
+        assert_eq!(omissions[0]["replay_required"], true);
+        fs::remove_dir_all(root).unwrap();
     }
 }

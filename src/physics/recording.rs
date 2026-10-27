@@ -246,6 +246,9 @@ fn completed_sample(
         control.id.0.clone()
     };
     PhysicsSample {
+        decisions: car.decisions.clone(),
+        drive_demands: car.drive_demands,
+        longitudinal_forces: car.longitudinal_forces,
         envelope: None,
         backend_applied: None,
         body_part_id: None,

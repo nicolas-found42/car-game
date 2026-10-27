@@ -102,9 +102,18 @@ pub fn spawn(
     if crate::physics::commands::collider(world, &collider_id).is_ok() {
         return Err("duplicate-collider-id");
     }
+    let reference = world
+        .get_resource::<crate::RuntimeConfig>()
+        .is_some_and(|c| c.reference_physics);
+    let mass = crate::vehicle::configured_mass(&spec, reference);
     let pose = Transform::from_translation(Vec3::from_array(position));
     world
         .spawn(crate::vehicle::chassis_bundle(&spec, pose))
+        .insert(mass)
+        .insert(bevy_rapier3d::prelude::Damping {
+            linear_damping: if reference { 0. } else { 0.02 },
+            angular_damping: 0.25,
+        })
         .insert(crate::physics::ColliderIdentity(collider_id))
         .insert(VehicleControl::new(id, spec, owner));
     Ok(())

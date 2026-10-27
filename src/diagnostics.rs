@@ -2,6 +2,7 @@
 //!
 //! Every run writes to `artifacts/runs/<id>/`. The directory is append-only from the
 //! caller's perspective; a run never rewrites another run's evidence.
+pub mod decision;
 mod health;
 mod history;
 mod incident;
@@ -634,6 +635,9 @@ pub struct InputSample {
 
 #[derive(Serialize, Clone, Debug)]
 pub struct PhysicsSample {
+    pub decisions: Option<decision::VehicleDecisions>,
+    pub drive_demands: [f32; 4],
+    pub longitudinal_forces: [f32; 4],
     pub envelope: Option<crate::telemetry::Envelope>,
     pub vehicle_id: crate::assembly::VehicleId,
     pub body_part_id: Option<crate::assembly::PartId>,
