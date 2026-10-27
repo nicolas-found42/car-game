@@ -1,0 +1,15 @@
+{
+  "checkpoint": "d75f9504144bbbc0f4b25d210fb0bf87bbffd3cf",
+  "inputs": [
+    {
+      "source": "examples/scenarios/gear-hunting-diagnostic.json",
+      "sha256": "2e9b25bda5071e391850f34645d8ce2224d8c550e231246071defa204070042a",
+      "status": "historical-only: requested edition is staged, not active"
+    },
+    {
+      "source": "examples/scenarios/mini-curb-diagnostic.json",
+      "sha256": "0436ff63c952b16dbae2dab9dcd6b30210c79aff5c09ca152606f1d1e3279504",
+      "status": "historical-only: requested edition is staged, not active"
+    }
+  ]
+}

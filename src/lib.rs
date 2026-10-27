@@ -26,6 +26,7 @@ pub mod vehicle;
 pub use config::{RenderBackend, RuntimeConfig};
 
 pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> Result<App, String> {
+    config.validate_execution()?;
     let mut fleet = roster::Fleet::default();
     fleet.selected = fleet
         .cars
@@ -111,10 +112,13 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
         ..default()
     };
     if config.backend == RenderBackend::Disabled {
+        let frame = if config.fast_scenario {
+            Duration::ZERO
+        } else {
+            Duration::from_secs_f64(1. / 120.)
+        };
         app.add_plugins((
-            MinimalPlugins.set(ScheduleRunnerPlugin::run_loop(Duration::from_secs_f64(
-                1.0 / 120.0,
-            ))),
+            MinimalPlugins.set(ScheduleRunnerPlugin::run_loop(frame)),
             TransformPlugin,
             bevy::input::InputPlugin,
             assets,
@@ -122,6 +126,11 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
         .init_asset::<Image>()
         .init_asset::<Mesh>()
         .init_asset::<StandardMaterial>();
+        if config.fast_scenario {
+            app.insert_resource(bevy::time::TimeUpdateStrategy::ManualDuration(
+                Duration::from_secs_f64(1. / 120.),
+            ));
+        }
         return;
     }
     let offscreen = config.backend == RenderBackend::Offscreen;
@@ -168,6 +177,8 @@ fn effective_config(
         "seed": config.seed,
         "fixed_hz": 120,
         "reference_physics": config.reference_physics,
+        "fast_scenario": config.fast_scenario,
+        "course": config.scenario.as_ref().map(|s| s.course),
         "log_filter": config.log_filter,
         "scene": config.scenario.as_ref().map_or("driving", |s| s.scene.as_str()),
         "context": config.access,

@@ -1,8 +1,18 @@
 //! Bounded scenarios submit production commands and observe completed physics ticks.
+mod route;
 mod runner;
 use crate::{config::AccessContext, runtime::ProductionCommand};
+pub use route::RoutePlan;
 pub use runner::ScenarioPlugin;
 use serde::{Deserialize, Serialize};
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Deserialize, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Course {
+    #[default]
+    City,
+    NortheastCurve,
+}
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
@@ -26,6 +36,9 @@ pub struct ScheduledCommand {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 pub enum AssertionKind {
+    RouteCompleted {
+        max_cross_track_m: f32,
+    },
     DisplacementAtLeast {
         meters: f32,
     },
@@ -76,6 +89,10 @@ pub struct ScenarioAssertion {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct ScenarioDefinition {
+    #[serde(default)]
+    pub course: Course,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub route: Option<RoutePlan>,
     pub schema_version: u32,
     pub name: String,
     pub scene: String,
@@ -120,8 +137,30 @@ impl ScenarioDefinition {
         if !self.context.permits(&self.initial.car) {
             return Err("initial career car is not-owned".into());
         }
+        self.validate_route()?;
         self.validate_timeline()?;
         self.validate_assertions()
+    }
+    fn validate_route(&self) -> Result<(), String> {
+        if let Some(route) = &self.route {
+            route.validate()?;
+            for assertion in &self.assertions {
+                if let AssertionKind::RouteCompleted { max_cross_track_m } = assertion.condition
+                    && (!max_cross_track_m.is_finite() || max_cross_track_m <= 0.)
+                {
+                    return Err("route corridor tolerance must be positive and finite".into());
+                }
+            }
+        }
+        if self.route.is_none()
+            && self
+                .assertions
+                .iter()
+                .any(|a| matches!(a.condition, AssertionKind::RouteCompleted { .. }))
+        {
+            return Err("route assertion requires a route".into());
+        }
+        Ok(())
     }
     fn validate_timeline(&self) -> Result<(), String> {
         let mut last_tick = 0;

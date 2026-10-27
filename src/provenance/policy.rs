@@ -23,7 +23,8 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
             | "--visual-check"
             | "--offscreen"
             | "--render-disabled"
-            | "--reference-physics" => exported.push(json!(arg)),
+            | "--reference-physics"
+            | "--fast-scenario" => exported.push(json!(arg)),
             value
                 if matches!(value, "--car" | "--seed" | "--scenario-filter")
                     || crate::diagnostics::RecorderConfig::is_option(value) =>
