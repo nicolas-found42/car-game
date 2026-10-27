@@ -1,9 +1,10 @@
 use super::*;
-const PREPARED_SHA: &str = "e79630558ed16c54942afc552838fd465a73bf507754947342bd65a805d37874";
 fn visual(spec: &crate::roster::CarSpec, nodes: Vec<(usize, String)>) -> VisualBinding {
     VisualBinding {
         asset: spec.path.clone(),
-        prepared_sha256: PREPARED_SHA.into(),
+        prepared_sha256: super::editions::prepared_hash(&spec.id)
+            .expect("supported edition")
+            .into(),
         scene: 0,
         nodes,
         picking: "unavailable until authored P2 picking/access geometry".into(),
@@ -19,7 +20,7 @@ fn residual(spec: &crate::roster::CarSpec) -> Definition {
                 format!("wheel-{i}"),
                 Mount {
                     wheel_corner: Some(i),
-                    interface: "350z-wheel-hub".into(),
+                    interface: format!("{}-wheel-hub", spec.id),
                     frame: Frame {
                         position: p.as_dvec3().to_array(),
                         ..default()
@@ -73,10 +74,14 @@ impl Assembly {
             spec.id, "350z",
             "pilot fixture requires the prepared baseline car"
         );
+        Self::major_parts(spec).expect("baseline edition")
+    }
+    pub fn major_parts(spec: &crate::roster::CarSpec) -> Option<Self> {
+        super::editions::prepared_hash(&spec.id)?;
         let owner = OwnerId::from("sandbox");
-        let vehicle = VehicleId::from("pilot-350z");
-        let chassis = DefinitionId::from("350z-residual-chassis");
-        let root = PartId::from("350z-chassis");
+        let vehicle = super::editions::vehicle_id(&spec.id);
+        let chassis = DefinitionId(format!("{}-residual-chassis", spec.id));
+        let root = PartId(format!("{}-chassis", spec.id));
         let mut parts = vec![Part {
             id: root.clone(),
             definition: chassis.clone(),
@@ -89,7 +94,11 @@ impl Assembly {
             condition: 1.,
             secured: true,
         }];
-        let mut definitions = BTreeMap::from([(chassis, residual(spec))]);
+        let mut body = residual(spec);
+        if spec.id != "350z" {
+            body.visual.nodes = vec![(0, "GRID body".into())];
+        }
+        let mut definitions = BTreeMap::from([(chassis, body)]);
         for (i, (suffix, wheel_node, tire_node)) in [
             ("front_left", 1, 3),
             ("front_right", 2, 4),
@@ -99,15 +108,23 @@ impl Assembly {
         .into_iter()
         .enumerate()
         {
-            let wheel = DefinitionId(format!("350z-test-wheel-{i}"));
+            let wheel = DefinitionId(format!("{}-test-wheel-{i}", spec.id));
+            let nodes = if spec.id == "350z" {
+                vec![
+                    (wheel_node, format!("wheel_{suffix}")),
+                    (tire_node, format!("tire_{suffix}")),
+                ]
+            } else {
+                vec![(i + 1, format!("wheel_{suffix}"))]
+            };
             definitions.insert(wheel.clone(),Definition {
-                visual:visual(spec,vec![(wheel_node,format!("wheel_{suffix}")),(tire_node,format!("tire_{suffix}"))]),
+                visual:visual(spec,nodes),
                 collision:CollisionBinding::RaycastWheel {corner:i},
-                interface:"350z-wheel-hub".into(),mass:25.,center:[0.;3],inertia:[[2.,0.,0.],[0.,2.,0.],[0.,0.,2.]],mounts:BTreeMap::new(),
+                interface:format!("{}-wheel-hub", spec.id),mass:25.,center:[0.;3],inertia:[[2.,0.,0.],[0.,2.,0.],[0.,0.,2.]],mounts:BTreeMap::new(),
                 provenance:"P1 authored test wheel physical approximation; existing prepared wheel pivot binding".into(),
             });
             parts.push(Part {
-                id: PartId(format!("350z-wheel-{i}")),
+                id: PartId(format!("{}-wheel-{i}", spec.id)),
                 definition: wheel,
                 attachment: Attachment::Mounted {
                     parent: root.clone(),
@@ -117,7 +134,7 @@ impl Assembly {
                 secured: true,
             });
         }
-        Self {
+        Some(Self {
             vehicle,
             owner,
             revision: 0,
@@ -126,6 +143,6 @@ impl Assembly {
             prerequisites: Vec::new(),
             networks: Vec::new(),
             committed: BTreeMap::new(),
-        }
+        })
     }
 }

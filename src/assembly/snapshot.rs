@@ -230,9 +230,6 @@ fn validate_history(
     Ok(())
 }
 
-pub(super) fn initialize(world: &mut World) {
-    rebuild_entities(world);
-}
 fn rebuild_entities(world: &mut World) {
     let assembly = world.resource::<Assembly>();
     let ids: Vec<_> = assembly.parts.iter().map(|p| p.id.clone()).collect();
@@ -249,6 +246,10 @@ fn rebuild_entities(world: &mut World) {
     }
 }
 pub fn snapshot_command(world: &mut World, queued: &QueuedCommand, key: &str) {
+    if super::editions::prepared_hash(&world.resource::<crate::roster::CarSpec>().id).is_none() {
+        crate::runtime::outcome(world, queued, "rejected", "unsupported-edition-assembly");
+        return;
+    }
     if key.is_empty() {
         crate::runtime::outcome(world, queued, "rejected", "empty-snapshot-key");
         return;
@@ -293,6 +294,10 @@ pub fn restore_command(
     source: &SnapshotSource,
     expected_revision: u64,
 ) {
+    if super::editions::prepared_hash(&world.resource::<crate::roster::CarSpec>().id).is_none() {
+        crate::runtime::outcome(world, queued, "rejected", "unsupported-edition-assembly");
+        return;
+    }
     let snapshot = match source {
         SnapshotSource::Saved { key } => world
             .resource::<SnapshotStore>()

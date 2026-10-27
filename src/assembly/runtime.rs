@@ -16,10 +16,7 @@ impl Plugin for AssemblyPlugin {
         app.init_resource::<AssemblyRuntime>()
             .init_resource::<SnapshotStore>()
             .init_resource::<super::snapshot::SnapshotOrigins>()
-            .add_systems(
-                PostStartup,
-                (initialize, super::snapshot::initialize).chain(),
-            )
+            .add_systems(PostStartup, super::editions::initialize)
             .add_systems(
                 FixedUpdate,
                 prepare
@@ -28,26 +25,22 @@ impl Plugin for AssemblyPlugin {
             );
     }
 }
-fn initialize(mut commands: Commands) {
-    let assembly = Assembly::pilot(&crate::roster::CarSpec::default());
-    assembly.validate().expect("pilot manifest");
-    // Pilot authority is explicit; other fleet cars keep the permanent regression path.
-    commands.insert_resource(assembly);
-}
 fn prepare(
     assembly: Res<Assembly>,
     mut runtime: ResMut<AssemblyRuntime>,
-    mut cars: Query<(
-        Entity,
-        &crate::controls::VehicleControl,
-        &mut AdditionalMassProperties,
-    )>,
+    mut cars: Query<
+        (
+            Entity,
+            &crate::controls::VehicleControl,
+            &mut AdditionalMassProperties,
+        ),
+        With<crate::controls::PlayerVehicle>,
+    >,
     identities: Query<&PartIdentity>,
 ) {
-    let Some((entity, _, mut properties)) = cars
-        .iter_mut()
-        .find(|(_, control, _)| control.id == assembly.vehicle && control.spec.id == "350z")
-    else {
+    let Some((entity, _, mut properties)) = cars.iter_mut().find(|(_, control, _)| {
+        control.id == assembly.vehicle && super::editions::prepared_hash(&control.spec.id).is_some()
+    }) else {
         runtime.applied_revision = None;
         runtime.bodies.remove(&assembly.vehicle);
         return;
@@ -78,7 +71,7 @@ pub fn command(
     queued: &crate::runtime::QueuedCommand,
     transaction: Option<&Transaction>,
 ) {
-    if world.resource::<CarSpec>().id != "350z" {
+    if super::editions::prepared_hash(&world.resource::<CarSpec>().id).is_none() {
         crate::runtime::outcome(world, queued, "rejected", "pilot-350z-required");
         return;
     }
