@@ -44,16 +44,22 @@ The two original diagnostic inputs request staged-only NSX/Mini editions. Their
 exact bytes are preserved as historical inputs with hashes; they are deliberately
 not runnable examples that silently enable inactive cars.
 
-The initial endpoint control had many segments; bot review exposed a two-point
-shortcut. A new short-route control reproduced false success before the admission
-fix. Observed first-segment entry is now required before accepting progress and
-an endpoint; each shared endpoint carries that entry into the following segment.
-The fresh 112-test headless ladder passes. Recorded build
-`3e68fe08ce688e0cc138316805a9c172e07dbc6995150fe7180cad4140d7cc46`
-passes both real fast route directions again; 0.5m and 100m two-point runs starting
-at their endpoint fail completion and strict validation. `fixed-route-results.json`
-retains those current results, separately from initial acceptance.
+Endpoint admission also has short-route and return-leg controls. The new
+0.5m two-point test reproduced false success before observed entry was required;
+a point-sequence test reproduced a later short return leg being skipped before
+entry state reset at every segment. Both now reject the shortcut and retain a
+valid entry/traversal continuation. The fresh headless ladder passes 113 Rust
+tests and all Python/asset gates.
 
-Sol-loop: two rounds with gpt-6.1-sol on medium, approved after the endpoint
-admission fix. The behavior diff grew by 13 lines for that fix and the additional
-regression adds 20 lines. Usage was not exposed.
+Final recorded build
+`b0f5ff012124523f937212edbb0447d7ccfb6166171388f15a0c4205a8fd23c4`
+reverifies both actual fast route directions and rejects 0.5m/100m two-point
+endpoint starts. `route-results.json` holds these final controls; the initial
+full default-fleet gate and unchanged geometry preview above remain separate
+acceptance evidence. Original failing and intermediate runs stay in primary
+artifacts, without duplicating their reports in this directory.
+
+Sol-loop: three rounds with gpt-6.1-sol on medium, approved after endpoint and
+per-segment admission fixes. The behavior fix adds one entry flag and resets it
+at segment boundaries; the additional tests cover first and later segments.
+Usage was not exposed.

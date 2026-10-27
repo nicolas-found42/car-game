@@ -76,8 +76,7 @@ impl RouteTracker {
             completed: false,
         }
     }
-    fn record(&mut self, sample: &PhysicsSample) {
-        let position = Vec2::new(sample.position[0], sample.position[2]);
+    fn record(&mut self, position: Vec2, grounded: usize) {
         let a = Vec2::from(self.plan.points[self.segment]);
         let b = Vec2::from(self.plan.points[self.segment + 1]);
         let delta = b - a;
@@ -92,12 +91,13 @@ impl RouteTracker {
         }
         self.max_cross_track_m = self.max_cross_track_m.max(position.distance(a + delta * t));
         self.active_ticks += 1;
-        self.four_contact_ticks += u64::from(sample.grounded == 4);
+        self.four_contact_ticks += u64::from(grounded == 4);
         if self.entered_segment && t >= 0.8 && position.distance(b) < 2. {
             if self.segment + 2 == self.plan.points.len() {
                 self.completed = true;
             } else {
                 self.segment += 1;
+                self.entered_segment = false;
             }
         }
     }
@@ -158,7 +158,10 @@ pub(super) fn observe(
         return;
     }
     if let Some(sample) = player.single().ok().and_then(|c| completed.0.get(&c.id)) {
-        track.record(sample);
+        track.record(
+            Vec2::new(sample.position[0], sample.position[2]),
+            sample.grounded,
+        );
     }
 }
 
@@ -190,6 +193,31 @@ pub(super) fn controls(
                 target: control.id.clone(),
                 command: track.drive(sample, &spec, config.reference_physics),
             },
+        );
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn every_segment_requires_entry_even_when_a_short_leg_reverses_direction() {
+        let mut track = RouteTracker::new(RoutePlan {
+            points: vec![[0., 0.], [100., 0.], [99.5, 0.]],
+            speed_mps: 8.,
+        });
+        track.record(Vec2::new(0., 0.), 4);
+        track.record(Vec2::new(99., 0.), 4);
+        track.record(Vec2::new(99., 0.), 4);
+        assert!(
+            !track.completed,
+            "proximity to a short return leg cannot replace its entry"
+        );
+        track.record(Vec2::new(100., 0.), 4);
+        track.record(Vec2::new(99.5, 0.), 4);
+        assert!(
+            track.completed,
+            "observed entry and traversal complete the return leg"
         );
     }
 }

@@ -1,7 +1,6 @@
 {
   "forward": {
-    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/forward/20261027T034529186954Z-254bf44-scenario-50138-1-1793072729208426000",
-    "exit_code": 0,
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/final-forward/20261027T04111371636Z-67135af-scenario-79481-1-1793074273743473000",
     "summary": {
       "artifacts": [
         "manifest.json",
@@ -16,7 +15,7 @@
       "assertions_passed": 1,
       "capture": null,
       "completed_tick": 5403,
-      "elapsed_ms": 2401,
+      "elapsed_ms": 2300,
       "failure": null,
       "max_ticks": 5500,
       "max_wall_ms": 90000,
@@ -39,9 +38,9 @@
             "completed": true,
             "corridor_half_width_m": 6.0,
             "four_contact_ticks": 5161,
-            "maximum_cross_track_m": 1.9983772039413452,
+            "maximum_cross_track_m": 1.8994827270507812,
             "passed": true,
-            "progress_m": 199.06488037109375,
+            "progress_m": 199.08761596679688,
             "total_m": 199.67959594726562
           },
           "passed": true
@@ -55,11 +54,11 @@
       "schema": 2,
       "ok": true,
       "status": "verified",
-      "run_id": "20261027T034529186954Z-254bf44-scenario-50138-1-1793072729208426000",
+      "run_id": "20261027T04111371636Z-67135af-scenario-79481-1-1793074273743473000",
       "errors": [],
       "recorder_health": {
         "schema": 1,
-        "run_id": "20261027T034529186954Z-254bf44-scenario-50138-1-1793072729208426000",
+        "run_id": "20261027T04111371636Z-67135af-scenario-79481-1-1793074273743473000",
         "ok": true,
         "status": "healthy",
         "behavioral_exit": {
@@ -76,7 +75,7 @@
           "first_tick": 1804,
           "last_tick": 5403,
           "requested_ticks": 3600,
-          "retained_bytes": 65884928,
+          "retained_bytes": 65896960,
           "retained_records": 32402,
           "shortened": false,
           "window_evictions": 15756
@@ -85,8 +84,7 @@
     }
   },
   "reverse": {
-    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/reverse/20261027T03453442694Z-254bf44-scenario-50246-1-1793072734447458000",
-    "exit_code": 0,
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/final-reverse/20261027T04111891039Z-67135af-scenario-79566-1-1793074278929848000",
     "summary": {
       "artifacts": [
         "manifest.json",
@@ -101,7 +99,7 @@
       "assertions_passed": 1,
       "capture": null,
       "completed_tick": 5403,
-      "elapsed_ms": 2381,
+      "elapsed_ms": 2281,
       "failure": null,
       "max_ticks": 5500,
       "max_wall_ms": 90000,
@@ -124,9 +122,9 @@
             "completed": true,
             "corridor_half_width_m": 6.0,
             "four_contact_ticks": 5161,
-            "maximum_cross_track_m": 1.9983937740325928,
+            "maximum_cross_track_m": 1.8995437622070312,
             "passed": true,
-            "progress_m": 199.06488037109375,
+            "progress_m": 199.08761596679688,
             "total_m": 199.67959594726562
           },
           "passed": true
@@ -140,11 +138,11 @@
       "schema": 2,
       "ok": true,
       "status": "verified",
-      "run_id": "20261027T03453442694Z-254bf44-scenario-50246-1-1793072734447458000",
+      "run_id": "20261027T04111891039Z-67135af-scenario-79566-1-1793074278929848000",
       "errors": [],
       "recorder_health": {
         "schema": 1,
-        "run_id": "20261027T03453442694Z-254bf44-scenario-50246-1-1793072734447458000",
+        "run_id": "20261027T04111891039Z-67135af-scenario-79566-1-1793074278929848000",
         "ok": true,
         "status": "healthy",
         "behavioral_exit": {
@@ -161,7 +159,7 @@
           "first_tick": 1804,
           "last_tick": 5403,
           "requested_ticks": 3600,
-          "retained_bytes": 65897088,
+          "retained_bytes": 65672704,
           "retained_records": 32402,
           "shortened": false,
           "window_evictions": 15756
@@ -169,9 +167,8 @@
       }
     }
   },
-  "endpoint-negative": {
-    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/endpoint-negative/20261027T034539706549Z-254bf44-scenario-50336-1-1793072739725689000",
-    "exit_code": 1,
+  "short-endpoint": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/final-short-endpoint/20261027T041124076113Z-67135af-scenario-79650-1-1793074284095743000",
     "summary": {
       "artifacts": [
         "manifest.json",
@@ -185,47 +182,47 @@
       "assertions_executed": 1,
       "assertions_passed": 0,
       "capture": null,
-      "completed_tick": 263,
-      "elapsed_ms": 140,
+      "completed_tick": 243,
+      "elapsed_ms": 142,
       "failure": null,
-      "max_ticks": 261,
-      "max_wall_ms": 90000,
-      "name": "curve-endpoint-is-not-completion",
+      "max_ticks": 241,
+      "max_wall_ms": 10000,
+      "name": "short-endpoint",
       "passed": false,
       "readiness": {
         "tick": 3
       },
-      "readiness_timeout_ms": 15000,
+      "readiness_timeout_ms": 1000,
       "results": [
         {
           "assertion": {
             "kind": "route_completed",
             "max_cross_track_m": 6.0,
-            "tick": 260
+            "tick": 240
           },
           "observed": {
-            "active_ticks": 21,
+            "active_ticks": 1,
             "boundary": "completed_tick",
             "completed": false,
             "corridor_half_width_m": 6.0,
-            "four_contact_ticks": 21,
-            "maximum_cross_track_m": 127.66400146484375,
+            "four_contact_ticks": 1,
+            "maximum_cross_track_m": 0.0002593994140625,
             "passed": false,
-            "progress_m": 40.0,
-            "total_m": 199.67959594726562
+            "progress_m": 0.0,
+            "total_m": 0.5
           },
           "passed": false
         }
       ],
       "schema_version": 1,
-      "seed": 17,
-      "ticks": 260
+      "seed": 0,
+      "ticks": 240
     },
     "validation": {
       "schema": 2,
       "ok": false,
       "status": "failed",
-      "run_id": "20261027T034539706549Z-254bf44-scenario-50336-1-1793072739725689000",
+      "run_id": "20261027T041124076113Z-67135af-scenario-79650-1-1793074284095743000",
       "errors": [
         {
           "code": "run_recorded_failure",
@@ -242,7 +239,7 @@
       ],
       "recorder_health": {
         "schema": 1,
-        "run_id": "20261027T034539706549Z-254bf44-scenario-50336-1-1793072739725689000",
+        "run_id": "20261027T041124076113Z-67135af-scenario-79650-1-1793074284095743000",
         "ok": true,
         "status": "healthy",
         "behavioral_exit": {
@@ -250,17 +247,114 @@
           "reason": "error"
         },
         "errors": [],
-        "last_durable_tick": 263,
-        "completed_tick": 263,
+        "last_durable_tick": 243,
+        "completed_tick": 243,
         "losses": [],
         "phase": "finalized",
         "history": {
           "capacity_evictions": 0,
           "first_tick": 0,
-          "last_tick": 263,
+          "last_tick": 243,
           "requested_ticks": 3600,
-          "retained_bytes": 3855104,
-          "retained_records": 1899,
+          "retained_bytes": 3329792,
+          "retained_records": 1719,
+          "shortened": false,
+          "window_evictions": 0
+        }
+      }
+    }
+  },
+  "long-endpoint": {
+    "run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-courses/final-long-endpoint/20261027T041125405427Z-67135af-scenario-79734-1-1793074285423924000",
+    "summary": {
+      "artifacts": [
+        "manifest.json",
+        "scenario.json",
+        "commands.jsonl",
+        "input.jsonl",
+        "physics.jsonl",
+        "events.jsonl"
+      ],
+      "assertions_declared": 1,
+      "assertions_executed": 1,
+      "assertions_passed": 0,
+      "capture": null,
+      "completed_tick": 243,
+      "elapsed_ms": 144,
+      "failure": null,
+      "max_ticks": 241,
+      "max_wall_ms": 10000,
+      "name": "long-endpoint",
+      "passed": false,
+      "readiness": {
+        "tick": 3
+      },
+      "readiness_timeout_ms": 1000,
+      "results": [
+        {
+          "assertion": {
+            "kind": "route_completed",
+            "max_cross_track_m": 6.0,
+            "tick": 240
+          },
+          "observed": {
+            "active_ticks": 1,
+            "boundary": "completed_tick",
+            "completed": false,
+            "corridor_half_width_m": 6.0,
+            "four_contact_ticks": 1,
+            "maximum_cross_track_m": 0.0002593994140625,
+            "passed": false,
+            "progress_m": 0.0,
+            "total_m": 100.0
+          },
+          "passed": false
+        }
+      ],
+      "schema_version": 1,
+      "seed": 0,
+      "ticks": 240
+    },
+    "validation": {
+      "schema": 2,
+      "ok": false,
+      "status": "failed",
+      "run_id": "20261027T041125405427Z-67135af-scenario-79734-1-1793074285423924000",
+      "errors": [
+        {
+          "code": "run_recorded_failure",
+          "file": "events.jsonl"
+        },
+        {
+          "code": "nonzero_exit",
+          "file": "manifest.json"
+        },
+        {
+          "code": "scenario_incomplete",
+          "file": "scenario-summary.json"
+        }
+      ],
+      "recorder_health": {
+        "schema": 1,
+        "run_id": "20261027T041125405427Z-67135af-scenario-79734-1-1793074285423924000",
+        "ok": true,
+        "status": "healthy",
+        "behavioral_exit": {
+          "code": 1,
+          "reason": "error"
+        },
+        "errors": [],
+        "last_durable_tick": 243,
+        "completed_tick": 243,
+        "losses": [],
+        "phase": "finalized",
+        "history": {
+          "capacity_evictions": 0,
+          "first_tick": 0,
+          "last_tick": 243,
+          "requested_ticks": 3600,
+          "retained_bytes": 3313920,
+          "retained_records": 1719,
           "shortened": false,
           "window_evictions": 0
         }
