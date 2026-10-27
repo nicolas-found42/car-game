@@ -33,8 +33,8 @@ def records(path, errors):
                 value = json.loads(line)
                 if not isinstance(value, dict):
                     raise ValueError('record must be an object')
-                if 'fields' in value and not isinstance(value['fields'], dict):
-                    raise ValueError('event fields must be an object')
+                if not valid_record(value):
+                    raise ValueError('invalid record shape')
                 yield value
             except ValueError:
                 if len(errors) >= 16:
@@ -42,13 +42,33 @@ def records(path, errors):
                 errors.append({'code': 'invalid_record', 'line': number, 'path': str(path)})
 
 
+def valid_record(value):
+    return (isinstance(value, dict)
+            and ('fields' not in value or isinstance(value['fields'], dict))
+            and (value.get('envelope') is None or isinstance(value['envelope'], dict)))
+
+
+def bounded_records(path, errors):
+    size = 0
+    for count, row in enumerate(records(path, errors)):
+        size += len(json.dumps(row).encode())
+        if count >= 100000 or size > 64 * 1024 * 1024:
+            errors.append({'code': 'stream_scan_limit', 'path': str(path)})
+            return
+        yield row
+
+
 def selected(row, options):
     tick = row.get('tick', -1)
     if not isinstance(tick, (int, float)):
         return False
     car = row.get('car', row.get('fields', {}).get('car'))
-    identifiers = [('actor_id', 'actor'), ('command_id', 'command_id'), ('correlation_id', 'correlation_id')]
-    return (all(getattr(options, flag, None) is None or row.get(key) == getattr(options, flag) for key, flag in identifiers)
+    identifiers = [('actor_id', 'actor'), ('vehicle_id', 'vehicle_id'), ('command_id', 'command_id'), ('correlation_id', 'correlation_id')]
+    envelope = row.get('envelope') or {}
+    fields = row.get('fields', {})
+    entity = row.get('entity', fields.get('runtime_entity'))
+    return (all(getattr(options, flag, None) is None or row.get(key, envelope.get(key, fields.get(key))) == getattr(options, flag) for key, flag in identifiers)
+            and (getattr(options, 'entity', None) is None or str(entity) == options.entity)
             and (options.car is None or car == options.car)
             and (options.first is None or tick >= options.first)
             and (options.last is None or tick <= options.last)
@@ -57,9 +77,9 @@ def selected(row, options):
 
 def stream_records(run, stream, incident, errors):
     if incident is None:
-        yield from records(run / (stream + '.jsonl'), errors)
+        yield from bounded_records(run / (stream + '.jsonl'), errors)
         return
-    for wrapped in records(run / 'incidents' / f'{incident:04d}' / 'incident-history.jsonl', errors):
+    for wrapped in bounded_records(run / 'incidents' / f'{incident:04d}' / 'incident-history.jsonl', errors):
         if (wrapped.get('stream') not in ['events', 'commands', 'physics', 'input']
                 or type(wrapped.get('tick')) is not int or type(wrapped.get('recorder_seq')) is not int):
             errors.append({'code': 'invalid_incident_envelope'})
@@ -67,7 +87,7 @@ def stream_records(run, stream, incident, errors):
         if wrapped.get('stream') != stream:
             continue
         row = wrapped.get('record')
-        if not isinstance(row, dict):
+        if not valid_record(row):
             errors.append({'code': 'invalid_incident_record'})
             return
         if row.get('tick', wrapped.get('tick')) != wrapped.get('tick'):

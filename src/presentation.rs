@@ -11,6 +11,7 @@ use bevy::{
     light::CascadeShadowConfigBuilder,
     prelude::*,
     render::render_resource::TextureFormat,
+    world_serialization::WorldInstanceReady,
 };
 use bevy_rapier3d::prelude::*;
 
@@ -18,6 +19,8 @@ use bevy_rapier3d::prelude::*;
 pub struct VisualCar;
 #[derive(Component)]
 struct AdditionalVisual(Entity);
+#[derive(Component)]
+struct AssetRequest(String);
 #[derive(Component)]
 struct WheelVisual(usize, Transform);
 #[derive(Component)]
@@ -49,7 +52,8 @@ pub use crate::runtime::Session;
 pub struct PresentationPlugin;
 impl Plugin for PresentationPlugin {
     fn build(&self, app: &mut App) {
-        app.init_resource::<InspectionView>()
+        app.add_observer(asset_instantiated)
+            .init_resource::<InspectionView>()
             .init_resource::<QaRenderTarget>()
             .insert_resource(ClearColor(Color::srgb(0.58, 0.72, 0.81)))
             .insert_resource(GlobalAmbientLight {
@@ -91,7 +95,19 @@ fn text_style(size: f32, color: Color) -> (TextFont, TextColor) {
     )
 }
 
-fn spawn_visual(commands: &mut Commands, assets: &AssetServer, spec: &CarSpec, pose: Transform) {
+fn spawn_visual(
+    commands: &mut Commands,
+    assets: &AssetServer,
+    spec: &CarSpec,
+    pose: Transform,
+    run: &crate::diagnostics::RunHandle,
+) {
+    run.correlated_event(
+        "player-vehicle",
+        &format!("asset:{}", spec.id),
+        "asset.requested",
+        serde_json::json!({"car":spec.id,"path":spec.path}),
+    );
     commands.spawn((
         Name::new(format!("{} visual", spec.id)),
         VisualCar,
@@ -99,9 +115,25 @@ fn spawn_visual(commands: &mut Commands, assets: &AssetServer, spec: &CarSpec, p
         pose,
         children![(
             WorldAssetRoot(assets.load(GltfAssetLabel::Scene(0).from_asset(spec.path.clone()))),
+            AssetRequest(spec.id.clone()),
             Transform::from_xyz(0.0, spec.visual_offset, 0.0)
         )],
     ));
+}
+
+fn asset_instantiated(
+    event: On<WorldInstanceReady>,
+    requests: Query<&AssetRequest>,
+    run: Res<crate::diagnostics::RunHandle>,
+) {
+    if let Ok(request) = requests.get(event.entity) {
+        run.correlated_event(
+            "player-vehicle",
+            &format!("asset:{}", request.0),
+            "asset.instantiated",
+            serde_json::json!({"car":request.0}),
+        );
+    }
 }
 
 #[allow(clippy::too_many_lines)]
@@ -112,8 +144,9 @@ fn setup(
     session: Res<Session>,
     mut images: ResMut<Assets<Image>>,
     config: Res<RuntimeConfig>,
+    run: Res<crate::diagnostics::RunHandle>,
 ) {
-    spawn_visual(&mut commands, &assets, &spec, spawn_pose());
+    spawn_visual(&mut commands, &assets, &spec, spawn_pose(), &run);
     let camera = commands
         .spawn((
             ChaseCamera,
@@ -318,6 +351,7 @@ fn refresh_car_visual(
     spec: Res<CarSpec>,
     cars: Query<&Transform, With<crate::controls::PlayerVehicle>>,
     visuals: Query<Entity, (With<VisualCar>, Without<AdditionalVisual>)>,
+    run: Res<crate::diagnostics::RunHandle>,
 ) {
     if !spec.is_changed() || spec.is_added() {
         return;
@@ -328,7 +362,7 @@ fn refresh_car_visual(
     for entity in &visuals {
         commands.entity(entity).despawn();
     }
-    spawn_visual(&mut commands, &assets, &spec, *pose);
+    spawn_visual(&mut commands, &assets, &spec, *pose, &run);
 }
 
 fn update_car_label(

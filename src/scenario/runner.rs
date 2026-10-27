@@ -33,7 +33,10 @@ struct ScenarioRun {
     rejections: HashMap<String, usize>,
 }
 #[derive(Component)]
-struct ScenarioCapture;
+struct ScenarioCapture {
+    source_tick: u64,
+    source_frame: u64,
+}
 pub struct ScenarioPlugin;
 impl Plugin for ScenarioPlugin {
     fn build(&self, app: &mut App) {
@@ -91,8 +94,19 @@ fn initialize(world: &mut World) {
     let config = world.resource::<RuntimeConfig>();
     let run = world.resource::<RunHandle>();
     write_json(
+        &run.dir().join("scenario-definition.json"),
+        &serde_json::to_value(&world.resource::<ScenarioRun>().definition)
+            .expect("scenario definition"),
+    );
+    run.correlated_event(
+        "player-vehicle",
+        "scenario:readiness",
+        "scenario.readiness_requested",
+        json!({"car":config.car}),
+    );
+    write_json(
         &run.dir().join("scenario.json"),
-        &json!({"definition":world.resource::<ScenarioRun>().definition,"effective_seed":config.seed,"render_backend":config.backend,"context":config.access,"rng":{"algorithm":"no-random-draws","state":config.seed,"draws":0}}),
+        &json!({"definition":world.resource::<ScenarioRun>().definition,"effective_seed":config.seed,"render_backend":config.backend,"context":config.access,"diagnostic_fault":config.diagnostic_fault,"rng":{"algorithm":"no-random-draws","state":config.seed,"draws":0}}),
     );
 }
 fn tick_commands(
@@ -134,16 +148,25 @@ fn update(world: &mut World) {
             return;
         }
         if state.ready.is_none() {
-            if let Some(position) = ready(world) {
+            if let Some(position) = ready(world).filter(|_| {
+                world
+                    .resource::<RuntimeConfig>()
+                    .diagnostic_fault
+                    .as_deref()
+                    != Some("readiness-stall")
+            }) {
                 let tick = world.resource::<SimulationClock>().completed;
                 let real_time = world.resource::<Time<Real>>().elapsed_secs_f64();
                 state.ready = Some((tick, real_time, position));
                 if let Some(mut route) = world.get_resource_mut::<super::route::RouteTracker>() {
                     route.start_tick = Some(tick);
                 }
-                world
-                    .resource::<RunHandle>()
-                    .event("scenario.ready", json!({"tick":tick,"backend":backend}));
+                world.resource::<RunHandle>().correlated_event(
+                    "player-vehicle",
+                    "scenario:readiness",
+                    "scenario.ready",
+                    json!({"tick":tick,"backend":backend}),
+                );
             } else if elapsed >= state.definition.readiness_timeout_ms as u128 {
                 finish(world, &mut state, Some("readiness-timeout"));
             }
@@ -347,39 +370,71 @@ fn observe(
 fn request_capture(world: &mut World) {
     let run = world.resource::<RunHandle>();
     let path = run.dir().join("captures/scenario.png");
-    run.actor_event(
+    let source = run.envelope();
+    run.correlated_event(
         "player-vehicle",
+        "scenario:capture",
         "scenario.capture_requested",
         json!({"path":"captures/scenario.png"}),
     );
+    let fault = world
+        .resource::<RuntimeConfig>()
+        .diagnostic_fault
+        .as_deref()
+        == Some("capture-missing");
     let capture = world
         .get_resource::<QaRenderTarget>()
         .and_then(|t| t.0.clone())
         .map_or_else(Screenshot::primary_window, Screenshot::image);
-    world
-        .spawn((capture, ScenarioCapture))
-        .observe(save_to_disk(path))
-        .observe(validate_capture);
+    let mut entity = world.spawn((
+        capture,
+        ScenarioCapture {
+            source_tick: source.tick,
+            source_frame: source.render_frame,
+        },
+    ));
+    if !fault {
+        entity.observe(save_to_disk(path)).observe(validate_capture);
+    }
+    world.resource::<RunHandle>().correlated_event(
+        "player-vehicle", "scenario:capture", "scenario.capture_queued",
+        json!({"source_tick":source.tick,"source_frame":source.render_frame,"completion_observer_suppressed":fault}),
+    );
 }
 fn validate_capture(
     capture: On<ScreenshotCaptured>,
-    requests: Query<(), With<ScenarioCapture>>,
+    requests: Query<&ScenarioCapture>,
     mut state: ResMut<ScenarioRun>,
     run: Res<RunHandle>,
 ) {
-    if requests.get(capture.entity).is_err() {
+    let Ok(request) = requests.get(capture.entity) else {
         return;
-    }
+    };
+    run.correlated_event(
+        "player-vehicle",
+        "scenario:capture",
+        "scenario.capture_received",
+        json!({"source_tick":request.source_tick,"source_frame":request.source_frame}),
+    );
     match capture_metrics(&capture.image) {
         Some(metrics) if metrics.nonblank => {
             state.capture = serde_json::to_value(metrics).ok();
-            run.actor_event(
+            run.correlated_event(
                 "player-vehicle",
+                "scenario:capture",
                 "scenario.capture_validated",
-                json!({"path":"captures/scenario.png","metrics":state.capture}),
+                json!({"path":"captures/scenario.png","metrics":state.capture,"source_tick":request.source_tick,"source_frame":request.source_frame}),
             );
         }
-        _ => state.capture_error = Some("required-capture-invalid".into()),
+        _ => {
+            run.correlated_event(
+                "player-vehicle",
+                "scenario:capture",
+                "scenario.capture_invalid",
+                json!({"source_tick":request.source_tick,"source_frame":request.source_frame}),
+            );
+            state.capture_error = Some("required-capture-invalid".into());
+        }
     }
 }
 fn finish(world: &mut World, state: &mut ScenarioRun, failure: Option<&str>) {
@@ -406,6 +461,14 @@ fn finish(world: &mut World, state: &mut ScenarioRun, failure: Option<&str>) {
     let run = world.resource::<RunHandle>();
     let capture_path = run.dir().join("captures/scenario.png");
     let capture = state.capture.as_ref().map(|metrics| json!({"path":"captures/scenario.png","metrics":metrics,"sha256":crate::diagnostics::sha256_file(&capture_path)}));
+    if capture.as_ref().is_some_and(|c| c["sha256"].is_string()) {
+        run.correlated_event(
+            "player-vehicle",
+            "scenario:capture",
+            "scenario.capture_saved",
+            json!({"path":"captures/scenario.png", "sha256":capture.as_ref().unwrap()["sha256"]}),
+        );
+    }
     let capture_missing = state.definition.required_capture
         && !capture.as_ref().is_some_and(|c| c["sha256"].is_string());
     let failure = failure.or(if capture_missing {

@@ -50,6 +50,7 @@ pub struct RuntimeConfig {
     pub access: AccessContext,
     pub scenario: Option<ScenarioDefinition>,
     pub replay_path: Option<PathBuf>,
+    pub diagnostic_fault: Option<String>,
     pub log_filter: String,
 }
 impl Default for RuntimeConfig {
@@ -79,6 +80,7 @@ impl Default for RuntimeConfig {
             access: AccessContext::Sandbox,
             scenario: None,
             replay_path: None,
+            diagnostic_fault: None,
             log_filter: std::env::var("RUST_LOG")
                 .unwrap_or_else(|_| "car_game=debug,bevy_asset=warn,wgpu=error,naga=warn".into()),
         }
@@ -119,26 +121,45 @@ impl RuntimeConfig {
         }
         config.replay_path = argument(&args, "--replay-input")?.map(PathBuf::from);
         config.load_scenario(&args)?;
+        config.set_diagnostic_fault(&args)?;
         if let Some(value) = argument(&args, "--seed")? {
             config.seed = value
                 .parse()
                 .map_err(|_| "--seed requires an unsigned integer")?;
         }
-        if let Some(filter) = argument(&args, "--scenario-filter")?
-            && (filter.trim().is_empty()
-                || config
-                    .scenario
-                    .as_ref()
-                    .is_none_or(|s| !s.name.contains(filter)))
-        {
-            return Err("scenario filter selected zero scenarios".into());
-        }
+        config.validate_scenario_filter(&args)?;
         if !Fleet::default().cars.iter().any(|car| car.id == config.car) {
             return Err(format!("unknown car {}", config.car));
         }
         config.validate_execution()?;
         Ok(config)
     }
+    fn validate_scenario_filter(&self, args: &[String]) -> Result<(), String> {
+        if let Some(filter) = argument(args, "--scenario-filter")?
+            && (filter.trim().is_empty()
+                || self
+                    .scenario
+                    .as_ref()
+                    .is_none_or(|s| !s.name.contains(filter)))
+        {
+            return Err("scenario filter selected zero scenarios".into());
+        }
+        Ok(())
+    }
+
+    fn set_diagnostic_fault(&mut self, args: &[String]) -> Result<(), String> {
+        self.diagnostic_fault = argument(args, "--diagnostic-fault")?.map(str::to_owned);
+        if let Some(fault) = &self.diagnostic_fault
+            && !((self.mode == "scenario"
+                && matches!(fault.as_str(), "readiness-stall" | "capture-missing"))
+                || (matches!(self.mode.as_str(), "smoke" | "fleet")
+                    && fault == "asset-readiness-stall"))
+        {
+            return Err("invalid --diagnostic-fault for selected mode".into());
+        }
+        Ok(())
+    }
+
     pub fn validate_execution(&self) -> Result<(), String> {
         if self.fast_scenario
             && (self.backend != RenderBackend::Disabled

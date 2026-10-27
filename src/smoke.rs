@@ -21,6 +21,8 @@ use std::{
 struct CaptureRequest {
     view: String,
     path: PathBuf,
+    source_tick: u64,
+    source_frame: u64,
 }
 
 #[derive(Resource)]
@@ -123,6 +125,7 @@ fn validate_capture(
         error!("FLEET: screenshot arrived without a capture request");
         return;
     };
+    run.correlated_event("player-vehicle", &format!("capture:{}:{}", smoke.current_car, request.view), "screenshot.received", json!({"car":smoke.current_car,"view":request.view,"source_tick":request.source_tick,"source_frame":request.source_frame}));
     let metrics = capture_metrics(&capture.image);
     let value = metrics
         .as_ref()
@@ -134,14 +137,17 @@ fn validate_capture(
             smoke.valid_captures += 1;
             smoke.captures.insert(request.view.clone(), value.clone());
             run.record_capture_metrics(&smoke.current_car, &request.view, &value);
-            run.actor_event(
+            run.correlated_event(
                 "player-vehicle",
+                &format!("capture:{}:{}", smoke.current_car, request.view),
                 "screenshot.validated",
                 json!({
                     "car": smoke.current_car,
                     "view": request.view,
                     "path": path,
                     "metrics": value,
+                    "source_tick": request.source_tick,
+                    "source_frame": request.source_frame,
                 }),
             );
             smoke.pending_capture = None;
@@ -250,7 +256,8 @@ fn scripted_drive(
         .map(|name| (*name).to_string())
         .collect();
     if smoke.started.is_none() {
-        if loaded == spec.wheel_nodes {
+        let injected_stall = config.diagnostic_fault.as_deref() == Some("asset-readiness-stall");
+        if loaded == spec.wheel_nodes && !injected_stall {
             smoke.started = Some(time.elapsed_secs_f64());
             smoke.starting_reset_count = cars
                 .single()
@@ -260,8 +267,9 @@ fn scripted_drive(
                 "FLEET: {} loaded; {} wheel/tire nodes ready: {:?}",
                 spec.id, loaded, loaded_names
             );
-            run.actor_event(
+            run.correlated_event(
                 "player-vehicle",
+                &format!("asset:{}", spec.id),
                 "asset.loaded",
                 json!({
                     "car": spec.id,
@@ -271,7 +279,9 @@ fn scripted_drive(
                     "missing_node_names": missing_names,
                 }),
             );
-        } else if time.elapsed_secs_f64() - smoke.waiting_since > 60.0 {
+        } else if time.elapsed_secs_f64() - smoke.waiting_since
+            > if injected_stall { 2.0 } else { 60.0 }
+        {
             error!(
                 "FLEET: {} model load timeout: {} nodes; missing {:?}",
                 spec.id, loaded, missing_names
@@ -285,6 +295,7 @@ fn scripted_drive(
                     "expected_nodes": spec.wheel_nodes,
                     "loaded_node_names": loaded_names,
                     "missing_node_names": missing_names,
+                    "injected_stall": injected_stall,
                 }),
             );
             exit.write(AppExit::error());
@@ -354,8 +365,10 @@ fn scripted_drive(
                 .join(format!("{}-{view}.png", spec.id));
             let requested_at = time.elapsed_secs_f64();
             smoke.pending_capture = Some((view.to_string(), requested_at));
-            run.actor_event(
+            let source = run.envelope();
+            run.correlated_event(
                 "player-vehicle",
+                &format!("capture:{}:{view}", spec.id),
                 "screenshot.requested",
                 json!({
                     "car": spec.id,
@@ -374,6 +387,8 @@ fn scripted_drive(
                     CaptureRequest {
                         view: view.to_string(),
                         path: path.clone(),
+                        source_tick: source.tick,
+                        source_frame: source.render_frame,
                     },
                 ))
                 .observe(save_to_disk(path))
@@ -413,6 +428,14 @@ fn scripted_drive(
             for view in smoke.captures.keys() {
                 let relative = format!("captures/{}-{view}.png", spec.id);
                 let path = smoke.run_dir.join(&relative);
+                if let Some(hash) = sha256_file(&path) {
+                    run.correlated_event(
+                        "player-vehicle",
+                        &format!("capture:{}:{view}", spec.id),
+                        "screenshot.saved",
+                        json!({"car":spec.id,"view":view,"path":relative,"sha256":hash}),
+                    );
+                }
                 captures.insert(
                     view.clone(),
                     json!({
