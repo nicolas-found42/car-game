@@ -1,4 +1,6 @@
 //! Persistent major-part ownership; ECS identities never enter this ledger.
+mod bindings;
+pub mod editions;
 mod mass;
 mod pilot;
 mod runtime;

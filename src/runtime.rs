@@ -515,6 +515,12 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
         return;
     }
     let spec = world.resource::<Fleet>().cars[index].clone();
+    let identity = crate::assembly::editions::vehicle_id(&spec.id);
+    if world.query_filtered::<&crate::controls::VehicleControl, Without<crate::controls::PlayerVehicle>>()
+        .iter(world).any(|control| control.id == identity) {
+        outcome(world, command, "rejected", "duplicate-vehicle-id");
+        return;
+    }
     let mut query = world.query_filtered::<(
         &mut Transform,
         &mut Velocity,
@@ -542,6 +548,15 @@ fn select(world: &mut World, command: &QueuedCommand, id: String, reset_to_spawn
     *car = Vehicle::default();
     car.previous = *pose;
     car.reset_count = count;
+    crate::assembly::editions::activate(world, &spec.id);
+    let mut players = world.query_filtered::<(
+        &mut crate::controls::VehicleControl,
+        &mut crate::physics::ColliderIdentity,
+    ), With<crate::controls::PlayerVehicle>>();
+    if let Ok((mut control, mut collider)) = players.single_mut(world) {
+        collider.0 = format!("{}:chassis", identity.0);
+        control.id = identity;
+    }
     world.insert_resource(spec);
     world
         .resource_mut::<crate::assembly::AssemblyRuntime>()

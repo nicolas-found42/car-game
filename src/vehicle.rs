@@ -121,14 +121,11 @@ pub fn chassis_collider(spec: &CarSpec) -> Collider {
 
 fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
     let spec = spec.clone();
+    let identity = crate::assembly::editions::vehicle_id(&spec.id);
     commands.spawn(chassis_bundle(&spec, spawn_pose())).insert((
         PlayerVehicle,
-        crate::physics::ColliderIdentity("pilot-350z:chassis".into()),
-        VehicleControl::new(
-            crate::assembly::VehicleId::from("pilot-350z"),
-            spec,
-            crate::runtime::ControllerOwner::default(),
-        ),
+        crate::physics::ColliderIdentity(format!("{}:chassis", identity.0)),
+        VehicleControl::new(identity, spec, crate::runtime::ControllerOwner::default()),
     ));
 }
 

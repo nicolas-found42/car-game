@@ -19,7 +19,9 @@ pub struct VisualCar;
 #[derive(Component)]
 struct AdditionalVisual(Entity);
 #[derive(Component)]
-struct WheelVisual(usize);
+struct WheelVisual(usize, Transform);
+#[derive(Component)]
+pub struct PartVisual(pub crate::assembly::PartId);
 #[derive(Component)]
 pub struct ChaseCamera;
 #[derive(Resource, Default)]
@@ -64,6 +66,7 @@ impl Plugin for PresentationPlugin {
                     crate::runtime::dispatch_update,
                     refresh_car_visual,
                     tag_wheels,
+                    bind_part_visuals,
                     follow_vehicle,
                     animate_wheels,
                     additional_visuals,
@@ -422,8 +425,8 @@ pub fn read_controls(
     }
 }
 
-fn tag_wheels(mut commands: Commands, names: Query<(Entity, &Name), Added<Name>>) {
-    for (entity, name) in &names {
+fn tag_wheels(mut commands: Commands, names: Query<(Entity, &Name, &Transform), Added<Name>>) {
+    for (entity, name, transform) in &names {
         let s = name.as_str();
         if s.starts_with("wheel_") || s.starts_with("tire_") {
             let i = match s.trim_start_matches("wheel_").trim_start_matches("tire_") {
@@ -433,10 +436,52 @@ fn tag_wheels(mut commands: Commands, names: Query<(Entity, &Name), Added<Name>>
                 "rear_right" => 3,
                 _ => continue,
             };
-            commands.entity(entity).insert(WheelVisual(i));
+            commands.entity(entity).insert(WheelVisual(i, *transform));
         }
     }
 }
+
+fn bind_part_visuals(
+    mut commands: Commands,
+    spec: Res<CarSpec>,
+    assembly: Res<crate::assembly::Assembly>,
+    names: Query<(Entity, &Name)>,
+    parents: Query<&ChildOf>,
+    visuals: Query<Entity, (With<VisualCar>, Without<AdditionalVisual>)>,
+) {
+    if crate::assembly::editions::prepared_hash(&spec.id).is_none() {
+        return;
+    }
+    for (entity, name) in &names {
+        if !parents
+            .iter_ancestors(entity)
+            .any(|parent| visuals.contains(parent))
+        {
+            continue;
+        }
+        for part in &assembly.parts {
+            let binding = &assembly.definitions[&part.definition].visual;
+            if binding
+                .nodes
+                .iter()
+                .any(|(_, bound)| bound == name.as_str())
+            {
+                let visibility = if assembly.installed(&part.id).expect("valid visual part") {
+                    Visibility::Inherited
+                } else {
+                    Visibility::Hidden
+                };
+                commands
+                    .entity(entity)
+                    .insert((visibility, PartVisual(part.id.clone())));
+            }
+        }
+    }
+}
+
+#[cfg(test)]
+#[path = "presentation_tests.rs"]
+mod tests;
 
 // The visual and chassis transforms must be disjoint ECS queries.
 #[allow(clippy::type_complexity)]
@@ -467,7 +512,7 @@ fn animate_wheels(
         return;
     };
     for (wheel, mut transform) in &mut wheels {
-        apply_wheel_pose(&mut transform, &spec, car, wheel.0);
+        apply_wheel_pose(&mut transform, &spec, car, wheel);
     }
 }
 
@@ -662,13 +707,15 @@ fn additional_visuals(
         let Ok((_, _, car, control)) = cars.get(body) else {
             continue;
         };
-        apply_wheel_pose(&mut transform, &control.spec, car, wheel.0);
+        apply_wheel_pose(&mut transform, &control.spec, car, wheel);
     }
 }
 
-fn apply_wheel_pose(transform: &mut Transform, spec: &CarSpec, car: &Vehicle, corner: usize) {
+fn apply_wheel_pose(transform: &mut Transform, spec: &CarSpec, car: &Vehicle, wheel: &WheelVisual) {
+    let corner = wheel.0;
     transform.translation.y =
         spec.mounts()[corner].y - car.wheel_lengths[corner] - spec.visual_offset;
     transform.rotation = Quat::from_rotation_y(if corner < 2 { car.steering } else { 0.0 })
-        * Quat::from_rotation_x(car.wheel_spin[corner]);
+        * Quat::from_rotation_x(car.wheel_spin[corner])
+        * wheel.1.rotation;
 }

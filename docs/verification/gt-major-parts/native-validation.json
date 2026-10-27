@@ -1,0 +1,635 @@
+{
+  "offscreen": [
+    {
+      "car": "350z",
+      "run": "artifacts/runs/20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+      "target": "offscreen",
+      "physics_samples": 2643,
+      "max_speed_kmh": 101.44995880126953,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 166900,
+            "height": 1080,
+            "luma_mean": 154.14125061035156,
+            "luma_stddev": 43.85999298095703,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-driving.png",
+          "sha256": "76fb346fc11eff3f3f31f0a94a1e47d96614d40414660ed566ed9b68f8a36de7"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 159852,
+            "height": 1080,
+            "luma_mean": 144.99441528320312,
+            "luma_stddev": 35.18907928466797,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-front.png",
+          "sha256": "8cf7d85f8790440a0e36e790d483a9c30ef1e067038f457cd5c6eb143ff4f6d6"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 151488,
+            "height": 1080,
+            "luma_mean": 140.1423797607422,
+            "luma_stddev": 36.161746978759766,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-rear.png",
+          "sha256": "13e75fc4231ebeddfcb23106e5acebbd5bc42942f7ef315fe29cac08235e8220"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 145158,
+            "height": 1080,
+            "luma_mean": 139.09617614746094,
+            "luma_stddev": 34.98014450073242,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-side.png",
+          "sha256": "7f07e5fac5b8c992c45a7739eabc6f290591ac709882cb665065e8ead3792f5b"
+        }
+      }
+    },
+    {
+      "car": "gt-rx7",
+      "run": "artifacts/runs/20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+      "target": "offscreen",
+      "physics_samples": 2647,
+      "max_speed_kmh": 101.75694274902344,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 165914,
+            "height": 1080,
+            "luma_mean": 153.9284210205078,
+            "luma_stddev": 43.90449142456055,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-driving.png",
+          "sha256": "4304908fd77602c2147e926b4fefc6639dbc924c1872526783997d6f01db10e3"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 159187,
+            "height": 1080,
+            "luma_mean": 145.9747314453125,
+            "luma_stddev": 34.93361282348633,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-front.png",
+          "sha256": "b655b65a5ed83c0e94e87c3083c2856b5eea266f304fdae7625204072e6e6b7c"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 150515,
+            "height": 1080,
+            "luma_mean": 140.7899627685547,
+            "luma_stddev": 36.253135681152344,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-rear.png",
+          "sha256": "fcb36c84cda6cc1c88fe6de4b138cb515e627e94ec141bc87099f178992fe8ca"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 143147,
+            "height": 1080,
+            "luma_mean": 140.80154418945312,
+            "luma_stddev": 34.5695686340332,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-side.png",
+          "sha256": "d424940fcfeee85b45100deb7c568340b806b2ce7edd8013d823fb32b3dfbd8f"
+        }
+      }
+    },
+    {
+      "car": "gt-viper",
+      "run": "artifacts/runs/20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+      "target": "offscreen",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.67398071289062,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 164215,
+            "height": 1080,
+            "luma_mean": 153.7178955078125,
+            "luma_stddev": 43.84288024902344,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-driving.png",
+          "sha256": "7d09143452e3d02b05111c79c594413e60c6d0a0ab2042ae1d37d5521d6b8ebf"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 154081,
+            "height": 1080,
+            "luma_mean": 144.83145141601562,
+            "luma_stddev": 34.813194274902344,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-front.png",
+          "sha256": "ce061568930c71a6c42fb20474ffb32e1ecefd7c787be7b11ecad3ceedb0eede"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 145512,
+            "height": 1080,
+            "luma_mean": 139.5293426513672,
+            "luma_stddev": 35.82132339477539,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-rear.png",
+          "sha256": "eafdd5fc2f3fce6c087d0c0cc1512733686740d46e822ef25a3d231f195483ce"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 135308,
+            "height": 1080,
+            "luma_mean": 139.0324249267578,
+            "luma_stddev": 34.806148529052734,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-side.png",
+          "sha256": "0c9fc2c9ad3d39ef4bd684b7a4acbf2e342d02359849aee88f4925cff448fba7"
+        }
+      }
+    },
+    {
+      "car": "gt4-m3",
+      "run": "artifacts/runs/20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+      "target": "offscreen",
+      "physics_samples": 2647,
+      "max_speed_kmh": 101.5227279663086,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 166224,
+            "height": 1080,
+            "luma_mean": 153.87191772460938,
+            "luma_stddev": 43.76081466674805,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-driving.png",
+          "sha256": "047bebc23c3f03f21710e8702c0a0dacb282263acae38bcbe90bad0881dc8943"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 159867,
+            "height": 1080,
+            "luma_mean": 145.00686645507812,
+            "luma_stddev": 35.11166000366211,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-front.png",
+          "sha256": "e20efaaf2dc28d5d123e587f3e964da28314aa125195eaf13fca88f828c140e1"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 151576,
+            "height": 1080,
+            "luma_mean": 139.57235717773438,
+            "luma_stddev": 35.89016342163086,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-rear.png",
+          "sha256": "eb1eeb71fd548d0542704eaf5728d0c2fe068dae16040f8c70dd748095a8db3e"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 144411,
+            "height": 1080,
+            "luma_mean": 138.5906219482422,
+            "luma_stddev": 34.881256103515625,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-side.png",
+          "sha256": "cca4703a525b03a9f2aa6fab1632a24e8885b6bb7ad3b35a4f0105a9365b1e9c"
+        }
+      }
+    },
+    {
+      "car": "gt4-nsx",
+      "run": "artifacts/runs/20261026T213924756219Z-4f91911-fleet-25238-1-1793050764776766000",
+      "target": "offscreen",
+      "physics_samples": 2645,
+      "max_speed_kmh": 101.6205825805664,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 165921,
+            "height": 1080,
+            "luma_mean": 153.83444213867188,
+            "luma_stddev": 43.919002532958984,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-driving.png",
+          "sha256": "0f2a012df50eef2e547e6b929ee2f30be3a1c2a002c5346c6b74a91278577a04"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 159576,
+            "height": 1080,
+            "luma_mean": 145.2343292236328,
+            "luma_stddev": 34.95842742919922,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-front.png",
+          "sha256": "611473699babdd4186fc4355b45590198eb6c505fcae8bf17f5b4b81a67757b7"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 149380,
+            "height": 1080,
+            "luma_mean": 139.67640686035156,
+            "luma_stddev": 35.7534065246582,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-rear.png",
+          "sha256": "f510e214c434c6e1c1d4be271b516dc62088fa315959fea5025acef93927d4d2"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 140306,
+            "height": 1080,
+            "luma_mean": 139.0675506591797,
+            "luma_stddev": 34.662410736083984,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-side.png",
+          "sha256": "f1938d67e4366f58f81876708d9e5d8b237ca3afa83a01c9f2b1f399dd36e967"
+        }
+      }
+    }
+  ],
+  "native": [
+    {
+      "car": "350z",
+      "run": "artifacts/issue-16/native-350z/20261027T00120037903Z-4f91911-smoke-61514-1-1793059920396535000",
+      "target": "window",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.61900329589844,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 164812,
+            "height": 1080,
+            "luma_mean": 156.53480529785156,
+            "luma_stddev": 43.972900390625,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-driving.png",
+          "sha256": "a3071fb5fb66c02f55d3790100eb5c1771b5ab47c0462e7a4929a0c33ca47692"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 157762,
+            "height": 1080,
+            "luma_mean": 147.19471740722656,
+            "luma_stddev": 35.23712921142578,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-front.png",
+          "sha256": "f6d4d1fb2b70801dcd96bff69a21598821983c20522b62b0d9b2a22dca8a986e"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 149736,
+            "height": 1080,
+            "luma_mean": 142.35934448242188,
+            "luma_stddev": 36.11017608642578,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-rear.png",
+          "sha256": "a5e32c7072d4241d16170f83ad13a1c1170db3f9efbf062b16f36f4a283d83d4"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 142948,
+            "height": 1080,
+            "luma_mean": 141.22349548339844,
+            "luma_stddev": 34.76171112060547,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/350z-side.png",
+          "sha256": "66234ccc505bd7ef40e247b2ea496804c71b629f3745bef06e0bc49f9649c008"
+        }
+      }
+    },
+    {
+      "car": "gt-rx7",
+      "run": "artifacts/issue-16/native-gt-rx7/20261027T001223972761Z-4f91911-smoke-61740-1-1793059943989317000",
+      "target": "window",
+      "physics_samples": 2648,
+      "max_speed_kmh": 101.75694274902344,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 163848,
+            "height": 1080,
+            "luma_mean": 156.5064697265625,
+            "luma_stddev": 43.98210525512695,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-driving.png",
+          "sha256": "027f2cf2f0ee1e8ebdc7b72e75a13044716356d3963a8ccdcac1dd6b330e10e7"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 157081,
+            "height": 1080,
+            "luma_mean": 148.15016174316406,
+            "luma_stddev": 34.97626495361328,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-front.png",
+          "sha256": "28ac4d1998925a6279d1aa5c83c684dfba0dda777008fa554abaa8848f2c7efd"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 148649,
+            "height": 1080,
+            "luma_mean": 142.9949188232422,
+            "luma_stddev": 36.18608474731445,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-rear.png",
+          "sha256": "dfcfc48dd8bebd286b27fd5b52e91fc94790f9698218d9a16b033ee73e1ca4df"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 141000,
+            "height": 1080,
+            "luma_mean": 142.9013214111328,
+            "luma_stddev": 34.34254837036133,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-rx7-side.png",
+          "sha256": "cc8ffc46bccac60a1780c608d95b683415f1afd7e12e8ef2da41d087d6903687"
+        }
+      }
+    },
+    {
+      "car": "gt-viper",
+      "run": "artifacts/issue-16/native-gt-viper/20261027T001247579715Z-4f91911-smoke-62155-1-1793059967596846000",
+      "target": "window",
+      "physics_samples": 2644,
+      "max_speed_kmh": 101.5891342163086,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 161608,
+            "height": 1080,
+            "luma_mean": 156.319580078125,
+            "luma_stddev": 43.799407958984375,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-driving.png",
+          "sha256": "a1a812fcaa3f66ac66b99d0bd3f1014a02080bd451ae6c26f2a43a5cd00b3ae6"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 150648,
+            "height": 1080,
+            "luma_mean": 146.92630004882812,
+            "luma_stddev": 34.92998504638672,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-front.png",
+          "sha256": "e378b4547f7f7f66a8218af87d350580a3807ec55246627c249f470e106608db"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 142509,
+            "height": 1080,
+            "luma_mean": 141.6365966796875,
+            "luma_stddev": 35.84502410888672,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-rear.png",
+          "sha256": "bb43f1ea220a92b3642d4de954d7830c5ce27938527d53ade0584deb7ec4504a"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 132354,
+            "height": 1080,
+            "luma_mean": 141.0500030517578,
+            "luma_stddev": 34.68927001953125,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt-viper-side.png",
+          "sha256": "c354bb9064affac4dfc0e196e5675411a664a5e444e47f88d88548a9e337da59"
+        }
+      }
+    },
+    {
+      "car": "gt4-m3",
+      "run": "artifacts/issue-16/native-gt4-m3/20261027T001311135155Z-4f91911-smoke-62353-1-1793059991154393000",
+      "target": "window",
+      "physics_samples": 2643,
+      "max_speed_kmh": 101.52386474609375,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 164067,
+            "height": 1080,
+            "luma_mean": 156.44317626953125,
+            "luma_stddev": 43.825321197509766,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-driving.png",
+          "sha256": "ab38eca77d9e456bbb3fd335c128879fe7912ba1848e3d84ab1c3fc38f9150e7"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 157819,
+            "height": 1080,
+            "luma_mean": 147.19760131835938,
+            "luma_stddev": 35.16143798828125,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-front.png",
+          "sha256": "92d45ef28c7b5a9866e935f14bd48846103cb6adf3dd9d9baef73e98989ed868"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 149721,
+            "height": 1080,
+            "luma_mean": 141.79356384277344,
+            "luma_stddev": 35.855037689208984,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-rear.png",
+          "sha256": "c8c173bb1c77368784d0363aee07e380cb392b608ab289d6c0904e6cb9feec37"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 142174,
+            "height": 1080,
+            "luma_mean": 140.7233123779297,
+            "luma_stddev": 34.67482376098633,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-m3-side.png",
+          "sha256": "b50d5bade1f7d8856ece3950f3f6a9e50d3134b4ccb62bc49d53512e26c9929a"
+        }
+      }
+    },
+    {
+      "car": "gt4-nsx",
+      "run": "artifacts/issue-16/native-gt4-nsx/20261027T001523458389Z-4f91911-smoke-63190-1-1793060123477389000",
+      "target": "window",
+      "physics_samples": 2643,
+      "max_speed_kmh": 101.53617858886719,
+      "captures": {
+        "driving": {
+          "metrics": {
+            "edge_count": 164084,
+            "height": 1080,
+            "luma_mean": 156.39820861816406,
+            "luma_stddev": 43.79526901245117,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-driving.png",
+          "sha256": "590413d74ebbab8a8f25ff6d7f06461c8d40aad4bcd0a729cc3a7bed94cb180d"
+        },
+        "front": {
+          "metrics": {
+            "edge_count": 157502,
+            "height": 1080,
+            "luma_mean": 147.37619018554688,
+            "luma_stddev": 35.02900314331055,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-front.png",
+          "sha256": "ac0d5dd980ced7830d9b4588bcc30140cde229def0f02d74a15f2e4088b9a492"
+        },
+        "rear": {
+          "metrics": {
+            "edge_count": 147645,
+            "height": 1080,
+            "luma_mean": 141.83555603027344,
+            "luma_stddev": 35.739376068115234,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-rear.png",
+          "sha256": "ea5a3afe50eb117f7bb4cd54a46be1bbe22bbdd16b80a29c29013a47a46517dd"
+        },
+        "side": {
+          "metrics": {
+            "edge_count": 138089,
+            "height": 1080,
+            "luma_mean": 141.11978149414062,
+            "luma_stddev": 34.516292572021484,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/gt4-nsx-side.png",
+          "sha256": "ff8c15adc7a93c5c6c57ed26426bd249af7c7c102c2873d8cee31efcc2783d2b"
+        }
+      }
+    }
+  ],
+  "native_acceptance": "passed",
+  "lifecycle": {
+    "run": "artifacts/issue-16/native-lifecycle/20261027T001645762731Z-4f91911-scenario-65600-1-1793060205793372000",
+    "target": "native",
+    "assertions": 40,
+    "capture": {
+      "metrics": {
+        "edge_count": 142067,
+        "height": 1080,
+        "luma_mean": 151.0956573486328,
+        "luma_stddev": 46.61165237426758,
+        "nonblank": true,
+        "unique_colors": 4096,
+        "width": 1920
+      },
+      "path": "captures/scenario.png",
+      "sha256": "a4f8075c61af198a88a4d327ebcbf05a248ec99ee141342ebc4a9b5f91d1ce95"
+    }
+  }
+}
