@@ -77,6 +77,7 @@ pub struct HealthData {
     pub loss_ranges_unknown: bool,
     pub errors: Vec<Value>,
     pub incident_snapshots: u64,
+    pub window_exports: u64,
     pub streams: BTreeMap<String, StreamHealth>,
     pub completed_tick: u64,
     pub last_durable_tick: u64,
@@ -91,6 +92,7 @@ pub struct HealthState {
     pub cancel_requested: AtomicBool,
     pub incident_published: AtomicBool,
     pub incident_pending: AtomicBool,
+    pub window_pending: AtomicBool,
     pub data: Mutex<HealthData>,
     pub config: RecorderConfig,
     pub dir: PathBuf,
@@ -106,6 +108,7 @@ impl HealthState {
             cancel_requested: AtomicBool::new(false),
             incident_published: AtomicBool::new(false),
             incident_pending: AtomicBool::new(false),
+            window_pending: AtomicBool::new(false),
             data: Mutex::new(HealthData {
                 phase: "recording".into(),
                 shutdown_reason: "normal".into(),
@@ -197,7 +200,7 @@ impl HealthState {
             "queue_high_records":data.queue_high_records,"dropped":data.dropped,"losses":data.losses,"loss_ranges_truncated":data.loss_ranges_truncated,"loss_ranges_unknown":data.loss_ranges_unknown,
             "streams":data.streams,"completed_tick":data.completed_tick,"last_durable_tick":data.last_durable_tick,"durable_seq":data.durable_seq,
             "overhead":data.metrics.iter().map(|(k,v)|(k.clone(),v.summary())).collect::<BTreeMap<_,_>>(),
-            "updated_at":super::now(),"history":history,"incident_snapshots":data.incident_snapshots,"incident_pending":self.incident_pending.load(Ordering::Acquire),"shutdown_reason":data.shutdown_reason,"signal_support":data.signal_support,"run_id":self.dir.file_name().map(|v|v.to_string_lossy()),"panic_pending":self.panic_requested.load(Ordering::Acquire),"drain_cancelled":self.cancel_requested.load(Ordering::Acquire)})
+            "updated_at":super::now(),"history":history,"incident_snapshots":data.incident_snapshots,"automatic_window_pending":self.window_pending.load(Ordering::Acquire),"incident_pending":self.incident_pending.load(Ordering::Acquire),"shutdown_reason":data.shutdown_reason,"signal_support":data.signal_support,"run_id":self.dir.file_name().map(|v|v.to_string_lossy()),"panic_pending":self.panic_requested.load(Ordering::Acquire),"drain_cancelled":self.cancel_requested.load(Ordering::Acquire)})
     }
     pub fn persist(&self) -> bool {
         if !self.dir.is_dir() {

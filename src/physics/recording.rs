@@ -137,6 +137,9 @@ pub(super) fn observe(world: &mut World) {
         } else if let Some(run) = &recorder {
             run.record_evidence(crate::diagnostics::EvidenceStream::Physics, tick, &sample);
         }
+        if let Some(run) = &recorder {
+            run.observe_physics(&sample);
+        }
         world.resource_mut::<CompletedSteps>().0.insert(id, sample);
     }
 }

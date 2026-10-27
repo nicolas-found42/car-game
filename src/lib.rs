@@ -65,6 +65,7 @@ pub fn build_app(config: RuntimeConfig, run: Arc<diagnostics::RunRecorder>) -> R
         .insert_resource(config.access.clone())
         .insert_resource(diagnostics::PhysicsTrace::for_recorder(run.clone()))
         .insert_resource(runtime::Session::from_env())
+        .add_systems(Update, diagnostics::observe_clocks)
         .add_plugins((
             runtime::RuntimePlugin,
             assembly::AssemblyPlugin,

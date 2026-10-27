@@ -2,12 +2,15 @@
 //!
 //! Every run writes to `artifacts/runs/<id>/`. The directory is append-only from the
 //! caller's perspective; a run never rewrites another run's evidence.
+mod automatic;
+pub(crate) use automatic::observe_clocks;
 pub mod decision;
 mod health;
 mod history;
 mod incident;
 mod logging;
 mod recording;
+mod windows;
 pub(crate) use recording::bounded_json;
 mod settings;
 mod shutdown;
@@ -175,6 +178,8 @@ impl std::ops::Deref for RunHandle {
 
 #[derive(Resource)]
 pub struct RunRecorder {
+    monitor: Mutex<std::collections::BTreeMap<String, automatic::Monitor>>,
+    windows: Mutex<windows::Windows>,
     run_id: String,
     root: PathBuf,
     dir: PathBuf,
@@ -234,6 +239,8 @@ impl RunRecorder {
         let health = std::sync::Arc::new(health::HealthState::new(dir.clone(), config));
         let recording = recording::Recording::open(health.clone())?;
         let recorder = Self {
+            monitor: Mutex::new(std::collections::BTreeMap::new()),
+            windows: Mutex::new(windows::Windows::default()),
             run_id: run_id.clone(),
             root: root.to_path_buf(),
             dir: dir.clone(),
@@ -347,6 +354,7 @@ impl RunRecorder {
     pub fn completed_tick(&self, tick: u64) {
         self.evidence_clock.completed(tick);
         self.recording.completed(tick);
+        self.poll_window(tick, false);
     }
 
     pub fn run_id(&self) -> &str {
@@ -498,7 +506,12 @@ impl RunRecorder {
             "run.exit",
             json!({"code":requested_code,"reason":if requested_code==0 {"success"} else {"error"}}),
         );
+        self.poll_window(self.envelope().tick, true);
         let drained = self.recording.flush(true);
+        self.health.write_json(
+            &self.dir.join("diagnostic-windows.json"),
+            &self.window_status(),
+        );
         let mut code = if self.health.failed() || self.failure_written.load(Ordering::Acquire) {
             1
         } else {
