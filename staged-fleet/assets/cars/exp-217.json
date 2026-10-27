@@ -1,0 +1,171 @@
+{
+  "source": "carmodels/dealership/dealership/models/GT_SIMULATION__ACOSN.glb",
+  "source_sha256": "db7967285165524e8719eaac1f5361226521c226c630b790be11c8b8d1e7c0d9",
+  "source_scene": 0,
+  "source_meshes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "source_materials": [
+    0,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    44,
+    48
+  ],
+  "normalization": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0.0001220703125,
+    -0.342333984375,
+    0.0023193359375,
+    1
+  ],
+  "mesh_nodes": [
+    {
+      "source_node": 4,
+      "prepared_node": 5,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": null
+    },
+    {
+      "source_node": 0,
+      "prepared_node": 6,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": 0
+    },
+    {
+      "source_node": 1,
+      "prepared_node": 7,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": 1
+    },
+    {
+      "source_node": 2,
+      "prepared_node": 8,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": 2
+    },
+    {
+      "source_node": 3,
+      "prepared_node": 9,
+      "source_world_matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "wheel": 3
+    }
+  ],
+  "excluded_nodes": [],
+  "repairs": [],
+  "scene_triangles": 528,
+  "source_binary_sha256": "dbe32946a3d2e2f8410b90039827750b14a24eb1389f78a57f08b104c1415d26",
+  "index_partitions": 0,
+  "limits": [
+    "Source-era geometry and textures retained; not original game shader emulation.",
+    "PBR/glass translation is an explicit GRID preview choice."
+  ],
+  "prepared_sha256": "23d5dbea9dbcae6e92002db4b6a642654a78e13216643e2a6c40fcf87cf5fb59"
+}

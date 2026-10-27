@@ -200,6 +200,101 @@ def scope_lens_materials(doc, binary, included, normalization, game):
     return binary, partitions
 
 
+def gt4_material(doc, binary, m, index, repairs):
+    pbr = m.setdefault('pbrMetallicRoughness', {})
+    finish = max(m.get('extras', {}).get('gt4_material', {}).get('specular', [0, 0, 0])[:3])
+    if finish > 0 and m.get('alphaMode') == 'MASK':
+        m['alphaCutoff'] = 1 / 255
+        pbr.setdefault('baseColorFactor', [1, 1, 1, 1])[3] = 1
+        repairs.append([index, 'retain nonzero paint alpha'])
+    if finish > 0:
+        pbr['roughnessFactor'] = 0.32
+    if m.get('alphaMode') == 'BLEND' and 'baseColorTexture' in pbr:
+        pixels = png_pixels(doc, binary, pbr['baseColorTexture']['index'])
+        marker = sum(pixels[i] == 8 and pixels[i + 1] == 255 and pixels[i + 2] in (16, 55)
+                     and pixels[i + 3] >= 63 for i in range(0, len(pixels), 4))
+        if marker >= len(pixels) / 16:
+            # Retain the texture's cutout alpha and neutralize keyed green RGB.
+            pbr['baseColorFactor'] = [0, 0, 0, 0.7]
+            pbr['roughnessFactor'] = 0.18
+            m['doubleSided'] = True
+            repairs.append([index, 'neutral marker-glass preview; original PNG retained'])
+
+
+def mc3_material(m, ident, index, repairs):
+    name = m.get('name', '')
+    pbr = m.setdefault('pbrMetallicRoughness', {})
+    if name in ('car_window', 'colored_glass'):
+        pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
+        repairs.append([index, 'artistic dark glass preview'])
+    elif name == 'carpaint':
+        color = [0.025, 0.10, 0.34, 1] if ident == 'mc3-skyline' else [0.38, 0.035, 0.025, 1]
+        pbr.update(baseColorFactor=color, metallicFactor=0.38, roughnessFactor=0.28)
+        repairs.append([index, 'artistic GRID paint; not a recovered factory colour'])
+    elif name in ('tire', 'rubber', 'black_matte', 'wheel_inner'):
+        pbr.update(baseColorFactor=[0.08, 0.08, 0.08, 1], metallicFactor=0.0, roughnessFactor=0.95)
+        repairs.append([index, 'native rubber/black material role to dark rough PBR'])
+    elif name in ('more_chrome_wheel_hi_lod', 'default_shiny_rim', 'masked_chrome'):
+        pbr.update(baseColorFactor=[0.22, 0.22, 0.22, 1], metallicFactor=0.7, roughnessFactor=0.25)
+        repairs.append([index, 'native rim/chrome material role to alloy PBR'])
+    light_cover = m.get('extras', {}).get('gridLightCover')
+    if light_cover:
+        color = [0.55, 0.62, 0.7, 0.15] if light_cover == 'front' else [0.45, 0.008, 0.012, 0.45]
+        pbr.update(baseColorFactor=color, metallicFactor=0.1, roughnessFactor=0.12)
+        m['alphaMode'] = 'BLEND'
+        repairs.append([index, f'clear {light_cover} lamp cover; cabin material remains separate'])
+
+
+def mcla_material(m, ident, index, repairs):
+    name = m.get('name', '')
+    pbr = m.setdefault('pbrMetallicRoughness', {})
+    shader = m.get('extras', {}).get('sourceShader')
+    if shader in ('CarPaintCustomizable', 'CarPaintNormalMapped'):
+        color = [0.33, 0.025, 0.02, 1] if ident == 'mcla-evo' else [0.025, 0.08, 0.28, 1]
+        pbr.update(baseColorFactor=color, metallicFactor=0.38, roughnessFactor=0.28)
+        repairs.append([index, 'artistic GRID paint for explicit native paint shader'])
+    elif shader in ('CarGlass', 'BlackOpaqueGlass'):
+        pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
+        repairs.append([index, 'artistic dark glass for explicit native glass shader'])
+    elif shader in ('RimMain', 'RimBadge', 'Chrome', 'BrushedMetal'):
+        pbr.update(baseColorFactor=[0.28, 0.28, 0.28, 1], metallicFactor=0.7, roughnessFactor=0.25)
+        repairs.append([index, 'native metal/rim shader to alloy PBR'])
+    elif shader in ('blackmatte', 'Underbody', 'GrillOpaque', 'BumperSubframe'):
+        pbr.update(baseColorFactor=[0.025, 0.025, 0.025, 1], roughnessFactor=0.95)
+        repairs.append([index, 'native dark trim shader to rough black PBR'])
+    if '/taillight' in name and shader in ('CarLight', 'bumpedglass'):
+        pbr.update(baseColorFactor=[0.45, 0.008, 0.012, 1], roughnessFactor=0.25)
+        repairs.append([index, 'artistic red tailglass on explicit taillight part'])
+        if shader == 'bumpedglass':
+            pbr['baseColorFactor'][3] = 0.25
+            m['alphaMode'] = 'BLEND'
+            repairs.append([index, 'translucent rear lamp cover reveals source reflector geometry'])
+    if '/headlight' in name and shader == 'bumpedglass':
+        pbr.update(baseColorFactor=[0.55, 0.62, 0.7, 0.15], metallicFactor=0.1, roughnessFactor=0.12)
+        m['alphaMode'] = 'BLEND'
+        repairs.append([index, 'clear headlamp cover reveals source reflector geometry'])
+
+
+def redline_material(m, index, repairs):
+    name = m.get('name', '')
+    pbr = m.setdefault('pbrMetallicRoughness', {})
+    role = m.get('extras', {}).get('gridGlassRole')
+    if role == 'cabin' or name == 'dp911vitres.png.txr':
+        pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
+        m['alphaMode'] = 'MASK'
+        m['alphaCutoff'] = 1 / 255
+        repairs.append([index, 'artistic opaque dark cabin preview; preserve alpha-zero cutouts'])
+    elif role == 'exterior_lens':
+        pbr.update(baseColorFactor=[0.6, 0.65, 0.7, 0.2], metallicFactor=0.1, roughnessFactor=0.12)
+        repairs.append([index, 'clear exterior lenses kept separate from cabin tint'])
+    elif '_tire.' in name:
+        pbr.update(baseColorFactor=[0.12, 0.12, 0.12, 1], metallicFactor=0.0, roughnessFactor=0.95)
+        repairs.append([index, 'named tire material to dark rubber PBR'])
+    elif '_wheel.' in name or '_brake.' in name:
+        pbr.update(baseColorFactor=[0.28, 0.28, 0.28, 1], metallicFactor=0.55, roughnessFactor=0.28)
+        repairs.append([index, 'named wheel/brake material to alloy PBR'])
+
+
 def materials(doc, binary, game, ident):
     repairs = []
     used = {p['material'] for m in doc['meshes'] for p in m['primitives']}
@@ -218,96 +313,19 @@ def materials(doc, binary, game, ident):
             pbr['metallicFactor'] = 0.08
             pbr['roughnessFactor'] = 0.42
         if game == 'gran-turismo-4':
-            finish = max(m.get('extras', {}).get('gt4_material', {}).get('specular', [0, 0, 0])[:3])
-            if finish > 0 and m.get('alphaMode') == 'MASK':
-                m['alphaCutoff'] = 1 / 255
-                pbr.setdefault('baseColorFactor', [1, 1, 1, 1])[3] = 1
-                repairs.append([index, 'retain nonzero paint alpha'])
-            if finish > 0:
-                pbr['roughnessFactor'] = 0.32
-            if m.get('alphaMode') == 'BLEND' and 'baseColorTexture' in pbr:
-                pixels = png_pixels(doc, binary, pbr['baseColorTexture']['index'])
-                marker = sum(pixels[i] == 8 and pixels[i + 1] == 255 and pixels[i + 2] in (16, 55)
-                             and pixels[i + 3] >= 63 for i in range(0, len(pixels), 4))
-                if marker >= len(pixels) / 16:
-                    # Retain the texture's cutout alpha and neutralize keyed green RGB.
-                    pbr['baseColorFactor'] = [0, 0, 0, 0.7]
-                    pbr['roughnessFactor'] = 0.18
-                    m['doubleSided'] = True
-                    repairs.append([index, 'neutral marker-glass preview; original PNG retained'])
+            gt4_material(doc, binary, m, index, repairs)
         if game == 'midnight-club-3-remix':
-            if name in ('car_window', 'colored_glass'):
-                pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
-                repairs.append([index, 'artistic dark glass preview'])
-            elif name == 'carpaint':
-                color = [0.025, 0.10, 0.34, 1] if ident == 'mc3-skyline' else [0.38, 0.035, 0.025, 1]
-                pbr.update(baseColorFactor=color, metallicFactor=0.38, roughnessFactor=0.28)
-                repairs.append([index, 'artistic GRID paint; not a recovered factory colour'])
-            elif name in ('tire', 'rubber', 'black_matte', 'wheel_inner'):
-                pbr.update(baseColorFactor=[0.08, 0.08, 0.08, 1], metallicFactor=0.0, roughnessFactor=0.95)
-                repairs.append([index, 'native rubber/black material role to dark rough PBR'])
-            elif name in ('more_chrome_wheel_hi_lod', 'default_shiny_rim', 'masked_chrome'):
-                pbr.update(baseColorFactor=[0.22, 0.22, 0.22, 1], metallicFactor=0.7, roughnessFactor=0.25)
-                repairs.append([index, 'native rim/chrome material role to alloy PBR'])
-            light_cover = m.get('extras', {}).get('gridLightCover')
-            if light_cover:
-                color = [0.55, 0.62, 0.7, 0.15] if light_cover == 'front' else [0.45, 0.008, 0.012, 0.45]
-                pbr.update(baseColorFactor=color, metallicFactor=0.1, roughnessFactor=0.12)
-                m['alphaMode'] = 'BLEND'
-                repairs.append([index, f'clear {light_cover} lamp cover; cabin material remains separate'])
+            mc3_material(m, ident, index, repairs)
         if game == 'midnight-club-los-angeles':
-            shader = m.get('extras', {}).get('sourceShader')
-            if shader in ('CarPaintCustomizable', 'CarPaintNormalMapped'):
-                color = [0.33, 0.025, 0.02, 1] if ident == 'mcla-evo' else [0.025, 0.08, 0.28, 1]
-                pbr.update(baseColorFactor=color, metallicFactor=0.38, roughnessFactor=0.28)
-                repairs.append([index, 'artistic GRID paint for explicit native paint shader'])
-            elif shader in ('CarGlass', 'BlackOpaqueGlass'):
-                pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
-                repairs.append([index, 'artistic dark glass for explicit native glass shader'])
-            elif shader in ('RimMain', 'RimBadge', 'Chrome', 'BrushedMetal'):
-                pbr.update(baseColorFactor=[0.28, 0.28, 0.28, 1], metallicFactor=0.7, roughnessFactor=0.25)
-                repairs.append([index, 'native metal/rim shader to alloy PBR'])
-            elif shader in ('blackmatte', 'Underbody', 'GrillOpaque', 'BumperSubframe'):
-                pbr.update(baseColorFactor=[0.025, 0.025, 0.025, 1], roughnessFactor=0.95)
-                repairs.append([index, 'native dark trim shader to rough black PBR'])
-            if '/taillight' in name and shader in ('CarLight', 'bumpedglass'):
-                pbr.update(baseColorFactor=[0.45, 0.008, 0.012, 1], roughnessFactor=0.25)
-                repairs.append([index, 'artistic red tailglass on explicit taillight part'])
-                if shader == 'bumpedglass':
-                    pbr['baseColorFactor'][3] = 0.25
-                    m['alphaMode'] = 'BLEND'
-                    repairs.append([index, 'translucent rear lamp cover reveals source reflector geometry'])
-            if '/headlight' in name and shader == 'bumpedglass':
-                pbr.update(baseColorFactor=[0.55, 0.62, 0.7, 0.15], metallicFactor=0.1, roughnessFactor=0.12)
-                m['alphaMode'] = 'BLEND'
-                repairs.append([index, 'clear headlamp cover reveals source reflector geometry'])
+            mcla_material(m, ident, index, repairs)
         if game == 'redline':
-            role = m.get('extras', {}).get('gridGlassRole')
-            if role == 'cabin' or name == 'dp911vitres.png.txr':
-                pbr.update(baseColorFactor=[0.025, 0.045, 0.06, 1], metallicFactor=0.25, roughnessFactor=0.18)
-                m['alphaMode'] = 'MASK'
-                m['alphaCutoff'] = 1 / 255
-                repairs.append([index, 'artistic opaque dark cabin preview; preserve alpha-zero cutouts'])
-            elif role == 'exterior_lens':
-                pbr.update(baseColorFactor=[0.6, 0.65, 0.7, 0.2], metallicFactor=0.1, roughnessFactor=0.12)
-                repairs.append([index, 'clear exterior lenses kept separate from cabin tint'])
-            elif '_tire.' in name:
-                pbr.update(baseColorFactor=[0.12, 0.12, 0.12, 1], metallicFactor=0.0, roughnessFactor=0.95)
-                repairs.append([index, 'named tire material to dark rubber PBR'])
-            elif '_wheel.' in name or '_brake.' in name:
-                pbr.update(baseColorFactor=[0.28, 0.28, 0.28, 1], metallicFactor=0.55, roughnessFactor=0.28)
-                repairs.append([index, 'named wheel/brake material to alloy PBR'])
+            redline_material(m, index, repairs)
         if name.startswith('tire_'):
             pbr.update(baseColorFactor=[0.12, 0.12, 0.12, 1], roughnessFactor=0.95)
     return repairs
 
 
-def prepare(root, catalog, ident, code, title):
-    source = root / 'models' / f'{code}.glb'
-    original = source.read_bytes()
-    doc, binary = parse(original)
-    entry = catalog[code]
-    game = entry['game']
+def source_groups(doc, game, code):
     meshes = default_meshes(doc)
     groups = {}
     included = []
@@ -322,16 +340,10 @@ def prepare(root, catalog, ident, code, title):
             groups.setdefault(owner[0], {'pivot': owner[1], 'nodes': []})['nodes'].append((index, world))
         included.append((index, world, owner[0] if owner else None))
     assert len(groups) == 4, (code, groups.keys())
-    rotation = IDENTITY[:]
-    if game in ('ford-racing-2', 'redline'):
-        rotation[0] = rotation[10] = -1
-    pivots = [point(rotation, g['pivot']) for g in groups.values()]
-    center = [sum(p[i] for p in pivots) / 4 for i in range(3)]
-    normalization = rotation[:]
-    normalization[12:15] = [-center[0], -0.20 - center[1], -center[2]]
-    source_materials = sorted({p['material'] for i, _, _ in included for p in doc['meshes'][doc['nodes'][i]['mesh']]['primitives']})
-    source_binary = binary
-    binary, partitions = scope_lens_materials(doc, binary, included, normalization, game)
+    return groups, included, excluded
+
+
+def prepared_wheels(doc, groups, normalization):
     wheel_data = {}
     for key, group in groups.items():
         pivot = point(normalization, group['pivot'])
@@ -339,9 +351,13 @@ def prepare(root, catalog, ident, code, title):
         bounds = merged_bounds([mesh_bounds(doc, doc['nodes'][i]['mesh'], multiply(normalization, w))
                                 for i, w in group['nodes']])
         radius = (bounds[1][1] - bounds[0][1]) / 2
-        assert 0.22 < radius < 0.5, (code, slot, radius)
+        assert 0.22 < radius < 0.5, (slot, radius)
         wheel_data[slot] = {'key': key, 'pivot': pivot, 'radius': radius}
     assert set(wheel_data) == set(WHEELS)
+    return wheel_data
+
+
+def prepared_nodes(doc, included, wheel_data, normalization):
     nodes = [{'name': 'GRID body', 'children': []}]
     for slot in WHEELS:
         nodes.append({'name': 'wheel_' + slot, 'translation': wheel_data[slot]['pivot'], 'children': []})
@@ -365,11 +381,10 @@ def prepare(root, catalog, ident, code, title):
                       'extras': {'sourceNode': index}})
         mapping.append({'source_node': index, 'prepared_node': new_index,
                         'source_world_matrix': world, 'wheel': parent - 1 if parent else None})
-    source_scene = doc.get('scene', 0)
-    triangles = sum(sum(doc['accessors'][p['indices']]['count'] // 3 for p in doc['meshes'][doc['nodes'][i]['mesh']]['primitives']) for i, _, _ in included)
-    doc['nodes'] = nodes
-    doc['scenes'] = [{'name': title, 'nodes': list(range(5))}]
-    doc['scene'] = 0
+    return nodes, mapping, body_bounds
+
+
+def compact_materials(doc, binary, game, ident, nodes):
     # Keep only meshes used by this scene; binary buffers and all source accessors stay exact.
     used_meshes = sorted({n['mesh'] for n in nodes if 'mesh' in n})
     mesh_map = {old: new for new, old in enumerate(used_meshes)}
@@ -390,6 +405,34 @@ def prepare(root, catalog, ident, code, title):
     doc.pop('extensionsUsed', None)
     # No animations/skins exist in these static source profiles.
     assert not doc.get('animations') and not doc.get('skins')
+    return used_meshes, repairs
+
+
+def prepare(root, catalog, ident, code, title, destination=None):
+    source = root / 'models' / f'{code}.glb'
+    original = source.read_bytes()
+    doc, binary = parse(original)
+    entry = catalog[code]
+    game = entry['game']
+    groups, included, excluded = source_groups(doc, game, code)
+    rotation = IDENTITY[:]
+    if game in ('ford-racing-2', 'redline'):
+        rotation[0] = rotation[10] = -1
+    pivots = [point(rotation, g['pivot']) for g in groups.values()]
+    center = [sum(p[i] for p in pivots) / 4 for i in range(3)]
+    normalization = rotation[:]
+    normalization[12:15] = [-center[0], -0.20 - center[1], -center[2]]
+    source_materials = sorted({p['material'] for i, _, _ in included for p in doc['meshes'][doc['nodes'][i]['mesh']]['primitives']})
+    source_binary = binary
+    binary, partitions = scope_lens_materials(doc, binary, included, normalization, game)
+    wheel_data = prepared_wheels(doc, groups, normalization)
+    nodes, mapping, body_bounds = prepared_nodes(doc, included, wheel_data, normalization)
+    source_scene = doc.get('scene', 0)
+    triangles = sum(sum(doc['accessors'][p['indices']]['count'] // 3 for p in doc['meshes'][doc['nodes'][i]['mesh']]['primitives']) for i, _, _ in included)
+    doc['nodes'] = nodes
+    doc['scenes'] = [{'name': title, 'nodes': list(range(5))}]
+    doc['scene'] = 0
+    used_meshes, repairs = compact_materials(doc, binary, game, ident, nodes)
     bounds = merged_bounds(body_bounds)
     receipt = {'source': f'carmodels/dealership/dealership/models/{code}.glb',
                'source_sha256': hashlib.sha256(original).hexdigest(), 'source_scene': source_scene,
@@ -401,7 +444,7 @@ def prepare(root, catalog, ident, code, title):
                'limits': ['Source-era geometry and textures retained; not original game shader emulation.',
                           'PBR/glass translation is an explicit GRID preview choice.']}
     doc.setdefault('extras', {})['gridPreparation'] = {'id': ident, 'source_sha256': receipt['source_sha256']}
-    output = ROOT / 'assets/cars' / f'{ident}.glb'
+    output = (destination or ROOT / 'assets/cars') / f'{ident}.glb'
     result = encode(doc, binary)
     output.write_bytes(result)
     receipt['prepared_sha256'] = hashlib.sha256(result).hexdigest()

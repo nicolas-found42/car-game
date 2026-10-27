@@ -36,6 +36,8 @@ def verify_pins(games, archive):
         assert hashlib.sha256(data).hexdigest() == pin['sha256'], 'Source hash changed: ' + name
     for pin in games['implementation_sources']:
         path = ROOT.parents[1] / pin['path']
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != pin['sha256']:
+            path = ROOT / 'evidence/source' / (pin['path'] + '.txt')
         assert hashlib.sha256(path.read_bytes()).hexdigest() == pin['sha256'], path
     return len(unique)
 

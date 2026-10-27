@@ -10,8 +10,8 @@
       "sha256": "79f523af411ab96fc386dd2358fbb9b860f20ce5a45783a89c00048793943799"
     },
     "README.md": {
-      "bytes": 13539,
-      "sha256": "9f7bb2af1a6ee9add1e4f34b7db68bf2e2a760aa8f4e00d38e8fa66c9f4a0e70"
+      "bytes": 14040,
+      "sha256": "81919ca5e95bd5e0880b0ec61be27af5639bd87da8bb7a84a3a8aecf49081ef8"
     },
     "car.csv": {
       "bytes": 13025,
@@ -302,8 +302,8 @@
       "sha256": "aa37a5e19555c544d314c75400bedf3178ad3172bef4fbc1d7ccc4cea3ba32a2"
     },
     "scripts/verify_corpus.py": {
-      "bytes": 4087,
-      "sha256": "3089903b375c93266e0e237557df8ab4a5e5c822b101b46e4190264a8d6aba6f"
+      "bytes": 4253,
+      "sha256": "60d00acddb2bf3213daf81fb86d29f9f87ab05526efbc34c8de1f02751babe0d"
     },
     "selection.json": {
       "bytes": 7909,
@@ -320,6 +320,10 @@
     "validation.json": {
       "bytes": 575,
       "sha256": "e994aaad77c7e3f441dfa37073a51faa5221bed8938361f8e1932a61909905d8"
+    },
+    "evidence/source/tools/prepare_fleet.py.txt": {
+      "bytes": 23889,
+      "sha256": "0af3249310989f156653d31ad5ba3169b79caf67b7e8371a8facb58916b3e4cc"
     }
   }
 }
