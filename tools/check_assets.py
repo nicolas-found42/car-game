@@ -119,12 +119,15 @@ def check_car(car):
     source_world = {i: world for i, world, _ in default_meshes(source)}
     assert {m['source_node'] for m in receipt['mesh_nodes']} == active_source - set(receipt['excluded_nodes'])
     assert all('HELMET' in source['nodes'][i].get('name', '').upper() for i in receipt['excluded_nodes'])
+    from reference_geometry import validate_receipt, transform_for
+    geometry = validate_receipt(car, source, receipt)
     scene_triangles = 0
     for record in receipt['mesh_nodes']:
         node = doc['nodes'][record['prepared_node']]
         old_node = source['nodes'][record['source_node']]
         assert record['source_world_matrix'] == source_world[record['source_node']]
         expected = multiply(receipt['normalization'], source_world[record['source_node']])
+        expected = multiply(transform_for(geometry, record['wheel']), expected)
         actual = multiply(matrix(doc['nodes'][parents[record['prepared_node']]]), matrix(node))
         assert all(abs(a-b) < 1e-6 for a, b in zip(expected, actual)), car['id']
         mesh = doc['meshes'][node['mesh']]
