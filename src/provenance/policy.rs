@@ -18,8 +18,12 @@ pub fn arguments() -> (Vec<Value>, Vec<(String, PathBuf)>, usize) {
     let mut omitted = 0;
     while let Some(arg) = args.next() {
         match arg.as_str() {
-            "--smoke" | "--fleet-check" | "--visual-check" | "--offscreen"
-            | "--render-disabled" => exported.push(json!(arg)),
+            "--smoke"
+            | "--fleet-check"
+            | "--visual-check"
+            | "--offscreen"
+            | "--render-disabled"
+            | "--reference-physics" => exported.push(json!(arg)),
             value
                 if matches!(value, "--car" | "--seed" | "--scenario-filter")
                     || crate::diagnostics::RecorderConfig::is_option(value) =>
@@ -159,6 +163,7 @@ pub fn config(value: &Value) -> Value {
         "render_disabled",
         "seed",
         "fixed_hz",
+        "reference_physics",
         "log_filter",
         "max_ticks",
         "tick_rate",

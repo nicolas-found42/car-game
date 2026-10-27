@@ -76,6 +76,20 @@ impl Assembly {
         );
         Self::major_parts(spec).expect("baseline edition")
     }
+    pub fn major_parts_configured(spec: &crate::roster::CarSpec, reference: bool) -> Option<Self> {
+        let mut assembly = Self::major_parts(spec)?;
+        if reference {
+            let (mass, center, inertia) = reference_residual(spec);
+            let definition = assembly
+                .definitions
+                .get_mut(&DefinitionId(format!("{}-residual-chassis", spec.id)))?;
+            definition.mass = mass;
+            definition.center = center;
+            definition.inertia = inertia;
+            definition.provenance = "Declared reference profile decomposed into residual body and four estimated25kg wheels".into();
+        }
+        Some(assembly)
+    }
     pub fn major_parts(spec: &crate::roster::CarSpec) -> Option<Self> {
         super::editions::prepared_hash(&spec.id)?;
         let owner = OwnerId::from("sandbox");
@@ -145,4 +159,31 @@ impl Assembly {
             committed: BTreeMap::new(),
         })
     }
+}
+
+fn reference_residual(spec: &crate::roster::CarSpec) -> (f64, [f64; 3], [[f64; 3]; 3]) {
+    let target = crate::vehicle::profile::for_car(&spec.id).properties(spec);
+    let mass = target.mass as f64 - 100.;
+    let target_center = target.local_center_of_mass.as_dvec3();
+    let wheels = spec.mounts().map(|p| p.as_dvec3());
+    let center = (target_center * target.mass as f64 - wheels.iter().sum::<DVec3>() * 25.) / mass;
+    let baseline = target.principal_inertia.as_dvec3().to_array();
+    let inertia = std::array::from_fn(|r| {
+        std::array::from_fn(|c| {
+            let parallel = |p: DVec3| {
+                if r == c {
+                    p.length_squared() - p[r] * p[c]
+                } else {
+                    -p[r] * p[c]
+                }
+            };
+            let mut value = if r == c { baseline[r] } else { 0. };
+            value += target.mass as f64 * parallel(target_center) - mass * parallel(center);
+            for p in wheels {
+                value -= 25. * parallel(p) + if r == c { 2. } else { 0. };
+            }
+            value
+        })
+    });
+    (mass, center.to_array(), inertia)
 }

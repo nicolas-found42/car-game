@@ -1,4 +1,6 @@
 //! Vehicle dynamics live here, independent of rendering and input devices.
+mod forces;
+pub mod profile;
 use crate::{
     controls::{PlayerVehicle, VehicleControl},
     diagnostics::PhysicsSample,
@@ -31,6 +33,10 @@ pub struct DriveInput {
 
 #[derive(Component)]
 pub struct Vehicle {
+    pub drive_demands: [f32; 4],
+    pub longitudinal_forces: [f32; 4],
+    pub(crate) decisions: Option<crate::diagnostics::decision::VehicleDecisions>,
+    pub(crate) shift_remaining: f32,
     pub steering: f32,
     pub wheel_lengths: [f32; 4],
     pub wheel_spin: [f32; 4],
@@ -47,6 +53,10 @@ pub struct Vehicle {
 impl Default for Vehicle {
     fn default() -> Self {
         Self {
+            drive_demands: [0.; 4],
+            longitudinal_forces: [0.; 4],
+            decisions: None,
+            shift_remaining: 0.,
             steering: 0.0,
             wheel_lengths: [REST; 4],
             wheel_spin: [0.0; 4],
@@ -119,14 +129,39 @@ pub fn chassis_collider(spec: &CarSpec) -> Collider {
     ])
 }
 
-fn spawn_vehicle(mut commands: Commands, spec: Res<CarSpec>) {
+fn spawn_vehicle(
+    mut commands: Commands,
+    spec: Res<CarSpec>,
+    config: Option<Res<crate::RuntimeConfig>>,
+    run: Option<Res<crate::diagnostics::RunHandle>>,
+) {
+    let reference = config.as_ref().is_some_and(|c| c.reference_physics);
+    if reference && let Some(run) = run {
+        run.event("vehicle.physics_profile", profile::report(&spec.id));
+    }
     let spec = spec.clone();
     let identity = crate::assembly::editions::vehicle_id(&spec.id);
-    commands.spawn(chassis_bundle(&spec, spawn_pose())).insert((
-        PlayerVehicle,
-        crate::physics::ColliderIdentity(format!("{}:chassis", identity.0)),
-        VehicleControl::new(identity, spec, crate::runtime::ControllerOwner::default()),
-    ));
+    let mass = configured_mass(&spec, reference);
+    commands
+        .spawn(chassis_bundle(&spec, spawn_pose()))
+        .insert(mass)
+        .insert(Damping {
+            linear_damping: if reference { 0. } else { 0.02 },
+            angular_damping: 0.25,
+        })
+        .insert((
+            PlayerVehicle,
+            crate::physics::ColliderIdentity(format!("{}:chassis", identity.0)),
+            VehicleControl::new(identity, spec, crate::runtime::ControllerOwner::default()),
+        ));
+}
+
+pub(crate) fn configured_mass(spec: &CarSpec, reference: bool) -> AdditionalMassProperties {
+    if reference {
+        profile::for_car(&spec.id).mass_properties(spec)
+    } else {
+        baseline_mass_properties()
+    }
 }
 
 pub fn chassis_bundle(spec: &CarSpec, pose: Transform) -> impl Bundle {
@@ -173,6 +208,7 @@ pub fn recovery_pose(position: Vec3) -> Transform {
 )]
 pub(crate) fn simulate(
     context: ReadRapierContext,
+    config: Option<Res<crate::RuntimeConfig>>,
     mode: Res<crate::physics::QueryMode>,
     current: Res<crate::physics::CurrentQueries>,
     assembly: Option<Res<crate::assembly::AssemblyRuntime>>,
@@ -191,6 +227,12 @@ pub(crate) fn simulate(
     for (entity, pose, velocity, mut total, mut car, control, mut evidence) in &mut cars {
         let spec = &control.spec;
         let input = control.input;
+        let physics = config
+            .as_ref()
+            .filter(|c| c.reference_physics)
+            .map(|_| profile::for_car(&spec.id));
+        let mut decisions =
+            physics.map(|_| crate::diagnostics::decision::VehicleDecisions::new(car.gear));
         let revision = crate::physics::recording::assembly_revision(
             entity,
             &control.id,
@@ -238,7 +280,8 @@ pub(crate) fn simulate(
         let forward = pose.rotation * Vec3::NEG_Z;
         let speed = velocity.linear.dot(forward);
         car.speed = speed;
-        let max_steer = 0.56 / (1.0 + speed.abs() * 0.06);
+        let max_steer = physics.map_or(0.56, |p| p.max_steer_rad)
+            / (1.0 + speed.abs() * physics.map_or(0.06, |p| p.steer_speed_falloff));
         let target = -input.steer.clamp(-1.0, 1.0) * max_steer;
         car.steering += (target - car.steering) * (1.0 - (-9.0 * STEP).exp());
         let mut lengths = [REST; 4];
@@ -312,8 +355,9 @@ pub(crate) fn simulate(
             let point = origin - up * distance;
             let point_velocity = velocity.linear + velocity.angular.cross(point - force_center);
             let compression = REST - lengths[i];
-            let load = (compression * 38000.0 - point_velocity.dot(normal) * 4100.0)
-                .clamp(0.0, mass * 9.81 * 1.5);
+            let load = (compression * physics.map_or(38000., |p| p.spring(i / 2))
+                - point_velocity.dot(normal) * physics.map_or(4100., |p| p.damper(i / 2)))
+            .clamp(0.0, mass * 9.81 * 1.5);
             loads[i] = load;
             contacts[i] = Some((point, normal, point_velocity));
             let force = ExternalForce::at_point(normal * load, point, force_center);
@@ -327,6 +371,30 @@ pub(crate) fn simulate(
         } else if input.brake > 0.01 && planar_speed < 0.8 {
             car.reverse_engaged = true;
         }
+        let radius = physics.map(|p| p.drive_radius(spec.radii));
+        let engine_demand = physics
+            .zip(radius)
+            .map(|(p, radius)| p.drive_force(&mut car, speed, radius, input.throttle));
+        if let Some(decision) = &mut decisions {
+            let p = physics.expect("reference model");
+            let cutoff = if car.shift_remaining > 0. {
+                "shift_in_progress"
+            } else if car.rpm > p.redline_rpm {
+                "redline"
+            } else if input.throttle <= 0. {
+                "no_throttle"
+            } else {
+                "none"
+            };
+            decision.drive(
+                &car,
+                engine_demand.unwrap_or(0.),
+                radius.unwrap(),
+                cutoff,
+                p,
+                speed,
+            );
+        }
         let (drive, brake, reverse) =
             if input.brake > 0.01 && input.throttle < 0.01 && speed < 0.8 && car.reverse_engaged {
                 (
@@ -338,11 +406,17 @@ pub(crate) fn simulate(
                 (0.0, input.throttle, false)
             } else {
                 (
-                    input.throttle * 8500.0 * (1.0 - speed.max(0.0) / 77.0).max(0.06),
+                    engine_demand.unwrap_or(
+                        input.throttle * 8500.0 * (1.0 - speed.max(0.0) / 77.0).max(0.06),
+                    ),
                     input.brake,
                     false,
                 )
             };
+        let total_load = loads.iter().sum();
+        let shares = physics.map_or([0., 0., 0.5, 0.5], |p| p.drive_shares(drive, loads));
+        car.drive_demands = [0.; 4];
+        car.longitudinal_forces = [0.; 4];
         for i in 0..4 {
             if let Some((point, normal, point_velocity)) = contacts[i] {
                 let steer = if i < 2 { car.steering } else { 0.0 };
@@ -355,16 +429,48 @@ pub(crate) fn simulate(
                 let angle = lateral.atan2(longitudinal.abs().max(2.0));
                 let rear_slide = input.handbrake && i >= 2;
                 let grip = loads[i] * if rear_slide { 0.60 } else { 1.22 };
-                let braking = (brake * mass * 10.0 / 4.0 + if rear_slide { 6500.0 } else { 0.0 })
-                    .min(longitudinal.abs() * mass / (4.0 * STEP));
-                let engine = if i >= 2 && !rear_slide {
-                    drive / 2.0
-                } else {
-                    0.0
-                };
+                let braking = physics.map_or_else(
+                    || {
+                        (brake * mass * 10.0 / 4.0 + if rear_slide { 6500.0 } else { 0.0 })
+                            .min(longitudinal.abs() * mass / (4.0 * STEP))
+                    },
+                    |p| {
+                        forces::braking_force(
+                            brake,
+                            loads[i],
+                            total_load,
+                            longitudinal,
+                            rear_slide,
+                            mass,
+                            p.brake_decel_mps2,
+                        )
+                    },
+                );
+                let engine = if !rear_slide { drive * shares[i] } else { 0.0 };
                 let fx = engine - longitudinal.signum() * braking;
-                let fy = -angle * if i < 2 { 47000.0 } else { 45000.0 };
-                let force2 = Vec2::new(fx, fy).clamp_length_max(grip);
+                car.drive_demands[i] = engine;
+                let fy = -angle
+                    * physics.map_or(if i < 2 { 47000.0 } else { 45000.0 }, |p| {
+                        loads[i] * p.cornering_per_load[i / 2]
+                    });
+                let force2 = physics.map_or_else(
+                    || Vec2::new(fx, fy).clamp_length_max(grip),
+                    |p| {
+                        let scale = if rear_slide { 0.5 } else { 1. };
+                        forces::tire_force(
+                            Vec2::new(fx, fy),
+                            loads[i],
+                            p.tire_mu * scale,
+                            p.lateral_mu * scale,
+                        )
+                    },
+                );
+                car.longitudinal_forces[i] = force2.x;
+                if let Some(decision) = &mut decisions {
+                    decision.wheels[i].requested_tire_n = [fx, fy];
+                    decision.wheels[i].applied_tire_n = force2.to_array();
+                    decision.wheels[i].brake_n = braking;
+                }
                 let force = wheel_forward * force2.x + side * force2.y;
                 let force = ExternalForce::at_point(force, point, force_center);
                 evidence.wheels[i].tire = force.into();
@@ -379,7 +485,10 @@ pub(crate) fn simulate(
         }
         for axle in [0, 2] {
             if contacts[axle].is_some() && contacts[axle + 1].is_some() {
-                let roll = (lengths[axle + 1] - lengths[axle]) * 6500.0;
+                let roll = (lengths[axle + 1] - lengths[axle])
+                    * physics.map_or(6500., |p| {
+                        p.spring(axle / 2) * p.anti_roll_fraction[axle / 2]
+                    });
                 for (i, sign) in [(axle, 1.0), (axle + 1, -1.0)] {
                     let force = ExternalForce::at_point(
                         up * roll * sign,
@@ -392,23 +501,57 @@ pub(crate) fn simulate(
             }
         }
         let wheel_total = *total;
-        total.force -= velocity.linear * velocity.linear.length() * 0.45;
-        total.force -= Vec3::new(velocity.linear.x, 0.0, velocity.linear.z) * 17.0;
-        if car.grounded >= 3 {
-            total.force -= up * speed * speed * 1.3;
-            let target_yaw = (car.steering.tan() * speed / spec.wheelbase())
-                .clamp(-11.0 / speed.abs().max(4.0), 11.0 / speed.abs().max(4.0));
-            let assist = if input.handbrake { 350.0 } else { 1700.0 };
-            total.torque.y += (target_yaw - velocity.angular.y) * assist;
+        if let Some(p) = physics {
+            total.force -=
+                velocity.linear * velocity.linear.length() * (0.5 * 1.225 * p.drag_area_m2);
+            let planar = Vec3::new(velocity.linear.x, 0., velocity.linear.z);
+            total.force -= planar.normalize_or_zero()
+                * (mass * 9.81 * p.rolling_coefficient * planar.length().min(1.));
+            if reverse || speed < -0.8 {
+                car.gear = -1;
+            }
+        } else {
+            total.force -= velocity.linear * velocity.linear.length() * 0.45;
+            total.force -= Vec3::new(velocity.linear.x, 0.0, velocity.linear.z) * 17.0;
+            if car.grounded >= 3 {
+                total.force -= up * speed * speed * 1.3;
+                let target_yaw = (car.steering.tan() * speed / spec.wheelbase())
+                    .clamp(-11.0 / speed.abs().max(4.0), 11.0 / speed.abs().max(4.0));
+                let assist = if input.handbrake { 350.0 } else { 1700.0 };
+                total.torque.y += (target_yaw - velocity.angular.y) * assist;
+            }
+
+            car.gear = if reverse || speed < -0.8 {
+                -1
+            } else {
+                (1 + (speed.max(0.0) / 12.0) as i32).min(6)
+            };
+            car.rpm =
+                900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
         }
         car.wheel_lengths = lengths;
-        car.gear = if reverse || speed < -0.8 {
-            -1
-        } else {
-            (1 + (speed.max(0.0) / 12.0) as i32).min(6)
-        };
-        car.rpm =
-            900.0 + ((speed.abs() % 12.0) / 12.0 * 4900.0 + input.throttle * 900.0).min(6000.0);
+        if let Some(decision) = &mut decisions {
+            decision.gear_after = car.gear;
+            if decision.gear_before != car.gear {
+                if car.gear < 0 {
+                    decision.shift_reason = "reverse_control";
+                } else if decision.gear_before < 0 {
+                    decision.shift_reason = "forward_control";
+                }
+            }
+            for i in 0..4 {
+                decision.wheels[i].contact = match evidence.wheels[i].availability.as_str() {
+                    "hit" => "hit",
+                    "inverted" => "body_inverted",
+                    "rejected_normal" => "normal_rejected",
+                    "wheel_absent" => "wheel_absent",
+                    _ => "ray_miss",
+                };
+                decision.wheels[i].point = evidence.wheels[i].point;
+                decision.wheels[i].normal = evidence.wheels[i].normal;
+            }
+        }
+        car.decisions = decisions;
 
         evidence.chassis = ExternalForce {
             force: total.force - wheel_total.force,

@@ -40,6 +40,7 @@ pub fn runtime_snapshot(run: &Path, entries: &mut Vec<Entry>) -> Value {
                 "Cargo.lock",
                 "build.rs",
                 "assets/cars/roster.json",
+                "assets/cars/physics.json",
             ],
         ) {
             entries.push(store::capture_bytes(
@@ -77,6 +78,7 @@ pub fn source_files(root: &Path) -> io::Result<Vec<String>> {
         "rust-toolchain",
         "rust-toolchain.toml",
         "assets/cars/roster.json",
+        "assets/cars/physics.json",
     ] {
         if root.join(logical).is_file() {
             paths.push(logical.into());
@@ -246,6 +248,11 @@ fn validate_sources(sources: &[Entry]) -> io::Result<()> {
         if !paths.contains(format!("build_source/{required}").as_str()) {
             return Err(io::Error::other("source_build_mismatch"));
         }
+    }
+    if paths.contains("build_source/src/vehicle/profile.rs")
+        && !paths.contains("build_source/assets/cars/physics.json")
+    {
+        return Err(io::Error::other("source_build_mismatch"));
     }
     Ok(())
 }

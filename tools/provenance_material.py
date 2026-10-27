@@ -77,6 +77,11 @@ def verify_runtime(root, index):
         raise BundleError('invalid_completeness_claim', reason='required_runtime_content_missing', logical_paths=missing)
     if actual['assets/cars/roster.json']['sha256'] != catalog_entry['sha256']:
         raise BundleError('invalid_completeness_claim', reason='embedded_runtime_catalog_mismatch')
+    physics = entry_for(index, 'embedded_physics_profile')
+    if physics is not None:
+        runtime = actual.get('assets/cars/physics.json')
+        if not runtime or runtime['sha256'] != physics['sha256']:
+            raise BundleError('invalid_completeness_claim', reason='embedded_runtime_physics_mismatch')
     verify_receipts(root, required, actual)
     config = load_json(root, entry_for(index, 'effective_config'))
     if not isinstance(config, dict) or not isinstance(config.get('settings'), dict) or not isinstance(config.get('arguments'), list) or not isinstance(config.get('environment'), dict):
@@ -143,6 +148,8 @@ def verify_build_sources(index, metadata):
     paths = {entry['logical_path'] for entry in sources}
     required = {'build_source/' + name for name in
                 ('Cargo.toml', 'Cargo.lock', 'src/main.rs', 'assets/cars/roster.json', 'dirty.patch')}
+    if 'build_source/src/vehicle/profile.rs' in paths:
+        required.add('build_source/assets/cars/physics.json')
     if not required <= paths or any(entry['role'] != 'binary_build_snapshot' for entry in sources):
         raise BundleError('invalid_completeness_claim', reason='required_build_source_missing')
 
