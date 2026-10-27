@@ -176,11 +176,24 @@ class DiagnosisTests(unittest.TestCase):
     def test_replay_invocation_preserves_recorded_car(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            (root / 'manifest.json').write_text(json.dumps({'run_id':'r','car':'nsx'}))
+            (root / 'manifest.json').write_text(json.dumps({'run_id':'r','car':'nsx','args':['--reference-physics','--seed','42','--render-disabled']}))
             (root / 'events.jsonl').write_text('')
             (root / 'input.jsonl').write_text('{}\n')
             _, result = self.invoke('incident', root)
-            self.assertIn('--car nsx --replay-input', result['reproduction']['command'])
+            command = result['reproduction']['command']
+            self.assertIn('--car nsx --replay-input', command)
+            self.assertIn('--reference-physics --seed 42 --render-disabled', command)
+
+    def test_scenario_reproduction_preserves_reference_and_fast_mode(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'manifest.json').write_text(json.dumps({'run_id':'r','args':['--reference-physics','--fast-scenario','--seed','42']}))
+            (root / 'scenario.json').write_text(json.dumps({'definition':{},'render_backend':'disabled'}))
+            (root / 'scenario-definition.json').write_text('{}')
+            (root / 'events.jsonl').write_text('')
+            _, result = self.invoke('incident', root)
+            command = result['reproduction']['command']
+            self.assertIn('--reference-physics --seed 42 --render-disabled --fast-scenario', command)
 
     def test_nonobject_manifest_is_a_versioned_json_error(self):
         with tempfile.TemporaryDirectory() as temporary:

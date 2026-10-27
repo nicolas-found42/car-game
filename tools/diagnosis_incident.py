@@ -159,24 +159,52 @@ def status_for(manifest, health, failure, summary):
 
 
 def reproduction(run, scenario):
-    if scenario and isinstance(scenario.get('definition'), dict):
-        definition = run / 'scenario-definition.json'
-        if definition.is_file():
-            backend = scenario.get('render_backend')
-            flags = {'disabled': ' --render-disabled', 'offscreen': ' --offscreen'}.get(backend, '')
-            fault = scenario.get('diagnostic_fault')
-            if fault in ('readiness-stall', 'capture-missing'):
-                flags += ' --diagnostic-fault ' + fault
-            return {'availability': 'available', 'command': 'cargo run -- --scenario ' + shlex.quote(str(definition)) + flags}
-        return {'availability': 'unavailable', 'reason': 'standalone scenario definition not recorded'}
     manifest = optional_metadata(run / 'manifest.json') or {}
-    args = manifest.get('args', [])
+    args = manifest.get('args') if isinstance(manifest.get('args'), list) else []
+    if scenario and isinstance(scenario.get('definition'), dict):
+        return scenario_reproduction(run, scenario, args)
+    return replay_reproduction(run, manifest, args)
+
+
+def scenario_reproduction(run, scenario, args):
+    definition = run / 'scenario-definition.json'
+    if not definition.is_file():
+        return {'availability': 'unavailable', 'reason': 'standalone scenario definition not recorded'}
+    flags = recorded_flags(args)
+    flags += {'disabled': ' --render-disabled', 'offscreen': ' --offscreen'}.get(scenario.get('render_backend'), '')
+    if '--fast-scenario' in args:
+        flags += ' --fast-scenario'
+    fault = scenario.get('diagnostic_fault')
+    if fault in ('readiness-stall', 'capture-missing'):
+        flags += ' --diagnostic-fault ' + fault
+    return {'availability': 'available', 'command': 'cargo run -- --scenario ' + shlex.quote(str(definition)) + flags}
+
+
+def replay_reproduction(run, manifest, args):
+    flags = recorded_flags(args)
+    car = manifest.get('car')
+    car_flag = ' --car ' + shlex.quote(car) if isinstance(car, str) and car else ''
     if '--diagnostic-fault' in args and 'asset-readiness-stall' in args and manifest.get('mode') in ('smoke', 'fleet'):
         mode = '--smoke' if manifest['mode'] == 'smoke' else '--fleet-check'
-        car = manifest.get('car')
-        car_flag = ' --car ' + shlex.quote(car) if isinstance(car, str) and car else ''
-        return {'availability': 'available', 'command': 'cargo run -- --offscreen ' + mode + car_flag + ' --diagnostic-fault asset-readiness-stall'}
+        return {'availability': 'available', 'command': 'cargo run -- --offscreen ' + mode + car_flag + flags + ' --diagnostic-fault asset-readiness-stall'}
     replay = run / 'input.jsonl'
-    if replay.is_file() and isinstance(manifest.get('car'), str) and manifest['car']:
-        return {'availability': 'available', 'command': 'cargo run -- --car ' + shlex.quote(manifest['car']) + ' --replay-input ' + shlex.quote(str(replay))}
+    if replay.is_file() and car_flag:
+        return {'availability': 'available', 'command': 'cargo run --' + car_flag + ' --replay-input ' + shlex.quote(str(replay)) + flags + replay_backend(args)}
     return {'availability': 'unavailable', 'reason': 'scenario and replay input not recorded'}
+
+
+def recorded_flags(args):
+    flags = ' --reference-physics' if '--reference-physics' in args else ''
+    if '--seed' in args:
+        index = args.index('--seed')
+        if index + 1 < len(args) and str(args[index + 1]).isdigit():
+            flags += ' --seed ' + str(args[index + 1])
+    return flags
+
+
+def replay_backend(args):
+    if '--render-disabled' in args:
+        return ' --render-disabled'
+    if '--offscreen' in args:
+        return ' --offscreen'
+    return ''
