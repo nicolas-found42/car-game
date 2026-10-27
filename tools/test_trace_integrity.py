@@ -446,6 +446,10 @@ class TraceIntegrityTests(unittest.TestCase):
             (run / 'recorder-health.json').write_text(json.dumps(health))
             result, _ = verify(run)
             self.assertEqual(result.returncode, 0, result.stdout)
+            for value in (None, [], 'reset'):
+                commands[1]['command'] = value
+                write_lines(run / 'commands.jsonl', commands)
+                self.assertRejected(run, 'trace_invalid_value', file='commands.jsonl')
 
     def test_completed_time_units_and_wheel_shapes_are_checked(self):
         for change in (lambda r: r.__setitem__('time', r['tick'] / 60),
@@ -665,6 +669,15 @@ class TraceIntegrityTests(unittest.TestCase):
             reports[0]['passed'] = 1
             path.write_text(json.dumps(reports))
             self.assertRejected(run, 'report_incomplete')
+
+    def test_completed_reset_counter_requires_an_exact_integer(self):
+        for tick, value in [(1, 1e-8), (7, 1.0)]:
+            with self.subTest(value=value), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                def corrupt(rows):
+                    next(r for r in rows if r['kind'] == 'simulation.completed' and r['tick'] == tick)['fields']['reset_count'] = value
+                mutate(run, 'events', corrupt)
+                self.assertRejected(run, 'trace_state_mismatch', file='events.jsonl')
 
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:

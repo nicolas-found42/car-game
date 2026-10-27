@@ -76,7 +76,7 @@ def record_shape(record, name):
 def key_shapes(record, name):
     identity = record.get('command_id')
     if name == 'commands.jsonl':
-        return isinstance(identity, str) and bool(identity)
+        return isinstance(identity, str) and bool(identity) and isinstance(record.get('command'), dict)
     return identity is None or (isinstance(identity, str) and bool(identity))
 
 
