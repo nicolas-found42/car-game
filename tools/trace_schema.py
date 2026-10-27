@@ -99,6 +99,12 @@ def completed_errors(record, run_id):
         bad.append('evidence.query_tick')
     bad.extend(wheel_errors(evidence))
     bad.extend(state_errors(record))
+    bad.extend(clock_errors(record))
+    return bad
+
+
+def clock_errors(record):
+    bad = []
     tick, time = record.get('tick'), record.get('time')
     if (type(tick) is int and (type(time) not in (int, float)
             or not math.isclose(time, tick / 120, rel_tol=1e-5, abs_tol=1e-4))):
