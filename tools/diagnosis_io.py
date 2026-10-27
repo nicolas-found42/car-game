@@ -33,6 +33,8 @@ def records(path, errors):
                 value = json.loads(line)
                 if not isinstance(value, dict):
                     raise ValueError('record must be an object')
+                if 'fields' in value and not isinstance(value['fields'], dict):
+                    raise ValueError('event fields must be an object')
                 yield value
             except ValueError:
                 if len(errors) >= 16:

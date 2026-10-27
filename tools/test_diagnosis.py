@@ -120,6 +120,16 @@ class DiagnosisTests(unittest.TestCase):
             self.assertEqual(result['error'], 'ValueError')
 
 
+    def test_nonobject_event_fields_are_located_corrupt_records(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'events.jsonl').write_text('{"tick":1,"fields":[]}\n')
+            code, result = self.invoke('timeline', root, '--stream', 'events')
+            self.assertEqual(code, 1)
+            self.assertEqual(result['errors'][0]['code'], 'invalid_record')
+            self.assertEqual(result['errors'][0]['line'], 1)
+
+
 
 if __name__ == '__main__':
     unittest.main()
