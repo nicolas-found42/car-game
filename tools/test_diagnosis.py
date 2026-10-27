@@ -6,6 +6,8 @@ import tempfile
 import unittest
 
 from diagnosis_rules import PhysicsRules
+from unittest.mock import patch
+import diagnosis_incident
 
 
 class DiagnosisTests(unittest.TestCase):
@@ -139,6 +141,46 @@ class DiagnosisTests(unittest.TestCase):
             code, result = self.invoke('timeline', root, '--stream', 'events', '--vehicle-id', 'pilot-350z')
             self.assertEqual(code, 0)
             self.assertEqual(result['records'], [row])
+
+    def test_invalid_envelope_reports_corruption_instead_of_crashing(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'events.jsonl').write_text('{"tick":1,"envelope":"bad"}\n')
+            code, result = self.invoke('timeline', root, '--stream', 'events', '--actor', 'player')
+            self.assertEqual(code, 1)
+            self.assertEqual(result['errors'][0]['code'], 'invalid_record')
+
+    def test_invalid_incident_envelope_reports_corruption(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); window = root / 'incidents/0001'; window.mkdir(parents=True)
+            (window / 'incident.json').write_text('{}')
+            row = {'stream':'events','tick':1,'recorder_seq':1,'record':{'tick':1,'envelope':'bad'}}
+            (window / 'incident-history.jsonl').write_text(json.dumps(row)+'\n')
+            code, result = self.invoke('timeline', root, '--stream', 'events', '--incident', '1', '--actor', 'player')
+            self.assertEqual(code, 1)
+            self.assertEqual(result['errors'][0]['code'], 'invalid_incident_record')
+
+    def test_truncated_capture_span_is_unknown_not_incomplete(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'manifest.json').write_text(json.dumps({'run_id':'r','ended_at':'now','exit':{'code':0}}))
+            rows = [{'kind':'scenario.capture_requested','correlation_id':'capture','tick':1},
+                    {'kind':'scenario.capture_saved','correlation_id':'capture','tick':2}]
+            (root / 'events.jsonl').write_text(''.join(json.dumps(row)+'\n' for row in rows))
+            with patch.object(diagnosis_incident, 'EVENT_LIMIT', 1), patch.object(diagnosis_incident, 'inspect_health', return_value={'ok':True,'status':'healthy'}):
+                result = diagnosis_incident.incident(root)
+            self.assertEqual(result['status'], 'complete')
+            self.assertEqual(result['spans'][0]['status'], 'unknown_truncated')
+            self.assertEqual(result['errors'][0]['code'], 'event_scan_limit')
+
+    def test_replay_invocation_preserves_recorded_car(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'manifest.json').write_text(json.dumps({'run_id':'r','car':'nsx'}))
+            (root / 'events.jsonl').write_text('')
+            (root / 'input.jsonl').write_text('{}\n')
+            _, result = self.invoke('incident', root)
+            self.assertIn('--car nsx --replay-input', result['reproduction']['command'])
 
     def test_nonobject_manifest_is_a_versioned_json_error(self):
         with tempfile.TemporaryDirectory() as temporary:

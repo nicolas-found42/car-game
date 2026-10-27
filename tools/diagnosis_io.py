@@ -33,13 +33,19 @@ def records(path, errors):
                 value = json.loads(line)
                 if not isinstance(value, dict):
                     raise ValueError('record must be an object')
-                if 'fields' in value and not isinstance(value['fields'], dict):
-                    raise ValueError('event fields must be an object')
+                if not valid_record(value):
+                    raise ValueError('invalid record shape')
                 yield value
             except ValueError:
                 if len(errors) >= 16:
                     return
                 errors.append({'code': 'invalid_record', 'line': number, 'path': str(path)})
+
+
+def valid_record(value):
+    return (isinstance(value, dict)
+            and ('fields' not in value or isinstance(value['fields'], dict))
+            and (value.get('envelope') is None or isinstance(value['envelope'], dict)))
 
 
 def bounded_records(path, errors):
@@ -81,7 +87,7 @@ def stream_records(run, stream, incident, errors):
         if wrapped.get('stream') != stream:
             continue
         row = wrapped.get('record')
-        if not isinstance(row, dict):
+        if not valid_record(row):
             errors.append({'code': 'invalid_incident_record'})
             return
         if row.get('tick', wrapped.get('tick')) != wrapped.get('tick'):

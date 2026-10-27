@@ -88,13 +88,18 @@ def incident(run):
     health = inspect_health(run, manifest)
     errors = []
     support, boundaries, spans = event_boundaries(run, errors)
+    event_incomplete = bool(errors)
     phases = physics_phases(run, errors)
     failure = optional_metadata(run / 'failure.json')
     scenario = optional_metadata(run / 'scenario.json')
     summary = optional_metadata(run / 'scenario-summary.json')
     status = status_for(manifest, health, failure, summary)
     classify_spans(spans, bool(manifest.get('ended_at')), manifest.get('mode'))
-    if status == 'complete' and any(span['status'] == 'incomplete' for span in spans.values() if 'capture' in span['correlation_id']):
+    if event_incomplete:
+        for span in spans.values():
+            if span['status'] == 'incomplete':
+                span['status'] = 'unknown_truncated'
+    if not event_incomplete and status == 'complete' and any(span['status'] == 'incomplete' for span in spans.values() if 'capture' in span['correlation_id']):
         status = 'incomplete'
     return {'run': str(run), 'run_id': manifest.get('run_id'), 'status': status,
             'recording': health, 'failure': failure, 'scenario_summary': summary,
@@ -168,8 +173,10 @@ def reproduction(run, scenario):
     args = manifest.get('args', [])
     if '--diagnostic-fault' in args and 'asset-readiness-stall' in args and manifest.get('mode') in ('smoke', 'fleet'):
         mode = '--smoke' if manifest['mode'] == 'smoke' else '--fleet-check'
-        return {'availability': 'available', 'command': 'cargo run -- --offscreen ' + mode + ' --diagnostic-fault asset-readiness-stall'}
+        car = manifest.get('car')
+        car_flag = ' --car ' + shlex.quote(car) if isinstance(car, str) and car else ''
+        return {'availability': 'available', 'command': 'cargo run -- --offscreen ' + mode + car_flag + ' --diagnostic-fault asset-readiness-stall'}
     replay = run / 'input.jsonl'
-    if replay.is_file():
-        return {'availability': 'available', 'command': 'cargo run -- --replay-input ' + shlex.quote(str(replay))}
+    if replay.is_file() and isinstance(manifest.get('car'), str) and manifest['car']:
+        return {'availability': 'available', 'command': 'cargo run -- --car ' + shlex.quote(manifest['car']) + ' --replay-input ' + shlex.quote(str(replay))}
     return {'availability': 'unavailable', 'reason': 'scenario and replay input not recorded'}
