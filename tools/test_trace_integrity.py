@@ -683,6 +683,20 @@ class TraceIntegrityTests(unittest.TestCase):
                 mutate(run, 'events', corrupt)
                 self.assertRejected(run, 'trace_state_mismatch', file='events.jsonl')
 
+    def test_pending_final_boundary_is_valid_but_future_ingress_is_not(self):
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            commands = read_lines(run / 'commands.jsonl') + [command(2, 'ingress', TICKS)]
+            write_lines(run / 'commands.jsonl', commands)
+            health = json.loads((run / 'recorder-health.json').read_text())
+            health['streams']['commands'].update(accepted=len(commands), written=len(commands))
+            (run / 'recorder-health.json').write_text(json.dumps(health))
+            result, _ = verify(run)
+            self.assertEqual(result.returncode, 0, result.stdout)
+            commands[-1]['tick'] = TICKS + 1
+            write_lines(run / 'commands.jsonl', commands)
+            self.assertRejected(run, 'trace_command_mismatch', file='commands.jsonl')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')

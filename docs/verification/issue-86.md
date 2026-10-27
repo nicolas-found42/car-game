@@ -140,9 +140,9 @@ review approved these changes. Supplementary gates are retained in
 
 ### Final review controls
 
-The 47-test integrity suite includes event-backed reset counter deltas (including two same-car reselections in one tick), malformed command identities, strict boolean/numeric correlation and absent scenario definitions. These controls produced nine failing subcases on the preceding implementation and all pass after the fixes. The retained full fleet, visual-only and native/offscreen multi-actor runs still verify with these checks. The final headless ladder passed in `artifacts/issue-86/latest-bot-verification.log`.
+The 48-test integrity suite includes event-backed reset counter deltas (including two same-car reselections in one tick), malformed command identities, strict boolean/numeric correlation and absent scenario definitions. These controls produced nine failing subcases on the preceding implementation and all pass after the fixes. The retained full fleet, visual-only and native/offscreen multi-actor runs still verify with these checks. The final headless ladder passed in `artifacts/issue-86/latest-bot-verification.log`.
 
-A malformed switch command regression (null/list/string) failed in three subcases before the final nested-command guard; all 47 integrity tests now pass.
+A malformed switch command regression (null/list/string) failed in three subcases before the final nested-command guard; all 48 integrity tests now pass.
 
 A recursive command-payload correlation control rejects a numeric handbrake flag replacing a boolean; it failed before the type-aware comparison and passes afterward.
 
@@ -150,8 +150,10 @@ The same boolean/numeric class is rejected at completed event frames, evidence q
 
 A future command outcome beyond the final completed boundary cannot certify an ingress action. The regression passed incorrectly before the upper-bound guard; all 47 tests pass after.
 
-An additional check of the same type-confusion class rejects booleans in assertion counts and numeric report pass flags. All four subcases passed incorrectly before the guards and now fail; the full focused suite contains 47 tests.
+An additional check of the same type-confusion class rejects booleans in assertion counts and numeric report pass flags. All four subcases passed incorrectly before the guards and now fail; the full focused suite contains 48 tests.
 
 Completed reset counters compare as exact integers; float tolerances apply only to physical values. Canonical ingress commands require an object before target lookup. Fractional/float counter and malformed targeted-reset controls fail before these guards and pass afterward.
 
 A contradictory scenario.finished envelope tick is rejected even if its embedded summary agrees with the file. The focused control failed before the alignment guard and passes afterward.
+
+Pending ingress exactly at the final boundary remains valid; moving it into a future tick is a located mismatch. The positive control and failing-before future-ingress control are retained in the 48-test suite.

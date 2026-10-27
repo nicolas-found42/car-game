@@ -177,7 +177,9 @@ def command_outcomes(record, outcomes, completed, findings, line):
         findings.add('trace_command_duplicate', 'events.jsonl', command_id=identity)
     if outcomes and not all(outcome_matches(record, item, completed) for item in outcomes):
         findings.add('trace_command_mismatch', 'commands.jsonl', line=line, command_id=identity)
-    if not outcomes and tick < completed:
+    if tick > completed:
+        findings.add('trace_command_mismatch', 'commands.jsonl', line=line, tick=tick, command_id=identity)
+    elif not outcomes and tick < completed:
         findings.add('trace_command_unresolved', 'commands.jsonl', line=line, tick=tick, command_id=identity)
 
 
