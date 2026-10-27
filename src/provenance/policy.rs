@@ -165,6 +165,8 @@ pub fn config(value: &Value) -> Value {
         "seed",
         "fixed_hz",
         "reference_physics",
+        "fast_scenario",
+        "course",
         "log_filter",
         "max_ticks",
         "tick_rate",

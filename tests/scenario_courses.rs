@@ -120,6 +120,24 @@ fn accelerated_routes_use_completed_steps_and_player_command_identity() {
         let observed = &summary["results"][0]["observed"];
         assert_eq!(observed["boundary"], "completed_tick");
         assert!(observed["active_ticks"].as_u64().unwrap() > 240);
+        let capture: Value =
+            serde_json::from_slice(&std::fs::read(dir.join("provenance/capture.json")).unwrap())
+                .unwrap();
+        let entry = capture["inventory"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|r| r["role"] == "effective_config")
+            .unwrap();
+        let frozen: Value = serde_json::from_slice(
+            &std::fs::read(dir.join(entry["object"].as_str().unwrap())).unwrap(),
+        )
+        .unwrap();
+        assert_eq!(
+            frozen["settings"]["fast_scenario"], true,
+            "fast clock must survive provenance policy"
+        );
+        assert_eq!(frozen["settings"]["course"], "northeast_curve");
         let commands = std::fs::read_to_string(dir.join("commands.jsonl")).unwrap();
         assert!(
             commands

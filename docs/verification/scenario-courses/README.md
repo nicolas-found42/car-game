@@ -52,14 +52,18 @@ valid entry/traversal continuation. The fresh headless ladder passes 113 Rust
 tests and all Python/asset gates.
 
 Final recorded build
-`b0f5ff012124523f937212edbb0447d7ccfb6166171388f15a0c4205a8fd23c4`
+`6b5a76f4a556e2f020d46e9dcb5a3f74df5b89bfdfc379f626446f995d00f7b9`
 reverifies both actual fast route directions and rejects 0.5m/100m two-point
-endpoint starts. `route-results.json` holds these final controls; the initial
+endpoint starts. The forward route also passes with reference physics enabled.
+Trace and immutable-bundle verification pass, and frozen effective settings retain
+fast_scenario/course/reference_physics. A persistence assertion reproduced the
+missing clock/course fields before the provenance allowlist correction. `route-results.json` holds these final controls; the initial
 full default-fleet gate and unchanged geometry preview above remain separate
 acceptance evidence. Original failing and intermediate runs stay in primary
 artifacts, without duplicating their reports in this directory.
 
-Sol-loop: three rounds with gpt-6.1-sol on medium, approved after endpoint and
-per-segment admission fixes. The behavior fix adds one entry flag and resets it
+Sol-loop: four rounds with gpt-6.1-sol on medium, approved after endpoint,
+per-segment admission and frozen-configuration fixes. The fourth round was a
+focused data-integrity review of the observed lost effective settings. The behavior fix adds one entry flag and resets it
 at segment boundaries; the additional tests cover first and later segments.
 Usage was not exposed.
