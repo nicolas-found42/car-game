@@ -375,6 +375,19 @@ impl RunRecorder {
         self.event_envelope(kind, fields, envelope);
     }
 
+    pub fn correlated_event(
+        &self,
+        actor_id: &str,
+        correlation_id: &str,
+        kind: &str,
+        fields: Value,
+    ) {
+        let mut envelope = self.envelope();
+        envelope.actor_id = Some(actor_id.into());
+        envelope.correlation_id = Some(correlation_id.into());
+        self.event_envelope(kind, fields, envelope);
+    }
+
     pub fn envelope(&self) -> crate::telemetry::Envelope {
         self.evidence_clock.envelope(&self.run_id)
     }

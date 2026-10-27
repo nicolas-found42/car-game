@@ -6,8 +6,9 @@ import sys
 from itertools import zip_longest
 from pathlib import Path
 
-from diagnosis_io import incident_metadata, metadata, records, run_summary, selected, stream_records
+from diagnosis_io import bounded_records, incident_metadata, metadata, run_summary, selected, stream_records
 from diagnosis_rules import PhysicsRules, clock_gap
+from diagnosis_incident import incident, resolve_run, run_paths
 from recorder_health import inspect_health
 
 
@@ -23,7 +24,8 @@ def search(options):
         if not root.is_dir():
             errors.append({'code': 'root_unavailable', 'path': str(root)})
             continue
-        for path in sorted(root.rglob('manifest.json')):
+        for run in run_paths(root, errors):
+            path = run / 'manifest.json'
             if len(results) >= options.limit:
                 return {'runs': results, 'errors': errors, 'truncated': True}
             try:
@@ -104,14 +106,16 @@ def analyze(options):
 
 def compare(options):
     errors = []
-    left = records(options.run / 'physics.jsonl', errors)
-    right = records(options.other / 'physics.jsonl', errors)
+    left = bounded_records(options.run / 'physics.jsonl', errors)
+    right = bounded_records(options.other / 'physics.jsonl', errors)
     fields = ['step', 'tick', 'actor_id', 'time', 'car', 'position', 'rotation', 'linear_velocity',
               'angular_velocity', 'gear', 'rpm', 'speed', 'slip', 'steering', 'input', 'ray_misses',
               'grounded', 'wheel_lengths', 'wheel_loads', 'drive_demands', 'longitudinal_forces', 'reset_count']
     count, unavailable = 0, set()
     optional = {'drive_demands', 'longitudinal_forces'}
     for a, b in zip_longest(left, right):
+        if count >= 1000000:
+            return {'equal': False, 'matched_samples': count, 'errors': [{'code': 'comparison_scan_limit'}]}
         if a is None or b is None:
             return {'equal': False, 'matched_samples': count, 'reason': 'length_mismatch', 'errors': errors}
         compared, missing = comparable_fields(a, b, fields, optional, unavailable)
@@ -121,7 +125,9 @@ def compare(options):
                    != json.dumps(b[key], sort_keys=True, allow_nan=False)]
         if changes:
             return {'equal': False, 'matched_samples': count, 'left_tick': a.get('tick'),
-                    'right_tick': b.get('tick'), 'different_fields': changes, 'errors': errors}
+                    'right_tick': b.get('tick'), 'different_fields': changes, 'errors': errors,
+                    'references': [{'path': str(options.run / 'physics.jsonl'), 'sample_ordinal': count + 1},
+                                   {'path': str(options.other / 'physics.jsonl'), 'sample_ordinal': count + 1}]}
         count += 1
     return {'equal': not errors and count > 0, 'matched_samples': count, 'errors': errors,
             'unavailable_fields': sorted(unavailable),
@@ -143,11 +149,14 @@ def parser():
     for key in ['car', 'mode', 'status', 'build', 'since', 'until', 'scenario', 'reason']:
         find.add_argument('--' + key)
     find.add_argument('--limit', type=int, default=100)
-    for name in ['analyze', 'timeline', 'compare']:
+    for name in ['analyze', 'timeline', 'compare', 'incident']:
         command = commands.add_parser(name)
         command.add_argument('run', type=Path)
+        command.add_argument('--root', type=Path, default=Path('artifacts/runs'))
         if name == 'compare':
             command.add_argument('other', type=Path)
+        elif name == 'incident':
+            command.add_argument('--other', type=Path, help='compare physics against this run')
         else:
             command.add_argument('--car')
             command.add_argument('--incident', type=int)
@@ -156,26 +165,43 @@ def parser():
         if name == 'timeline':
             command.add_argument('--stream', choices=['physics', 'commands', 'input', 'events'], default='physics')
             command.add_argument('--kind')
-            for flag in ['actor', 'command-id', 'correlation-id']:
+            for flag in ['actor', 'vehicle-id', 'entity', 'command-id', 'correlation-id']:
                 command.add_argument('--' + flag)
             command.add_argument('--limit', type=int, default=100)
     return root
 
 
+def validate_options(options):
+    if hasattr(options, 'limit') and not 1 <= options.limit <= 1000:
+        raise ValueError('limit must be between 1 and 1000')
+    if getattr(options, 'incident', None) is not None and not 1 <= options.incident <= 8:
+        raise ValueError('incident must be between 1 and 8')
+    if getattr(options, 'first', None) is not None and options.first < 0:
+        raise ValueError('first tick must be nonnegative')
+    if getattr(options, 'last', None) is not None and options.last < (options.first or 0):
+        raise ValueError('last tick must not precede first tick')
+
+
+def query(options):
+    if options.action != 'search':
+        options.run = resolve_run(options.run, options.root)
+    if options.action == 'compare':
+        options.other = resolve_run(options.other, options.root)
+    result = incident(options.run) if options.action == 'incident' else globals()[options.action](options)
+    if options.action == 'incident' and options.other:
+        options.other = resolve_run(options.other, options.root)
+        result['first_divergence'] = compare(options)
+    return result
+
+
 def main():
     options = parser().parse_args()
     try:
-        if hasattr(options, 'limit') and not 1 <= options.limit <= 1000:
-            raise ValueError('limit must be between 1 and 1000')
-        if getattr(options, 'incident', None) is not None and not 1 <= options.incident <= 8:
-            raise ValueError('incident must be between 1 and 8')
-        if getattr(options, 'first', None) is not None and options.first < 0:
-            raise ValueError('first tick must be nonnegative')
-        if getattr(options, 'last', None) is not None and options.last < (options.first or 0):
-            raise ValueError('last tick must not precede first tick')
-        result = globals()[options.action](options)
+        validate_options(options)
+        result = query(options)
         print(json.dumps({'schema_version': 1, 'action': options.action, **result}, allow_nan=False))
-        return int(bool(result.get('errors')))
+        return int(bool(result.get('errors')) or bool(result.get('first_divergence', {}).get('errors'))
+                   or result.get('status') in ('failed', 'degraded', 'incomplete', 'ongoing_or_stale'))
     except (OSError, ValueError, KeyError, TypeError) as error:
         print(json.dumps({'schema_version': 1, 'error': type(error).__name__, 'detail': str(error)}))
         return 2

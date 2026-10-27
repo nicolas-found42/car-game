@@ -110,6 +110,36 @@ class DiagnosisTests(unittest.TestCase):
         self.assertEqual(hunting.findings[0]['actor_id'], 'first')
         self.assertEqual(hunting.transitions, 29)
 
+    def test_incident_reports_causal_boundaries_and_unknowns_without_mutation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            run = root / 'case'; run.mkdir()
+            (root / 'index.jsonl').write_text(json.dumps({'event':'start','run_id':'case'}) + '\n')
+            (run / 'manifest.json').write_text(json.dumps({'run_id':'case','mode':'scenario','car':'350z'}))
+            (run / 'failure.json').write_text(json.dumps({'reason':'wall-time-limit'}))
+            rows = [{'kind':'scenario.capture_requested','tick':20,'render_frame':30,
+                     'actor_id':'player-vehicle','correlation_id':'scenario:capture','fields':{}}]
+            events = run / 'events.jsonl'; events.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+            before = events.read_bytes()
+            code, result = self.invoke('incident', 'case', '--root', root)
+            self.assertEqual(code, 1)
+            self.assertEqual(result['status'], 'failed')
+            self.assertEqual(result['spans'][0]['last_observed_boundary'], 'scenario.capture_requested')
+            self.assertIn('missing callback', result['unknowns'][1])
+            self.assertEqual(events.read_bytes(), before)
+            code, listed = self.invoke('search', '--root', root)
+            self.assertEqual(code, 0)
+            self.assertEqual(listed['runs'][0]['run_id'], 'case')
+
+    def test_vehicle_filter_matches_event_fields(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            row = {'tick': 5, 'kind': 'simulation.completed', 'fields': {'vehicle_id': 'pilot-350z'}}
+            (root / 'events.jsonl').write_text(json.dumps(row) + '\n')
+            code, result = self.invoke('timeline', root, '--stream', 'events', '--vehicle-id', 'pilot-350z')
+            self.assertEqual(code, 0)
+            self.assertEqual(result['records'], [row])
+
     def test_nonobject_manifest_is_a_versioned_json_error(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
