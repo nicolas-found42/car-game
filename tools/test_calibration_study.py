@@ -103,6 +103,30 @@ class CalibrationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             local('/tmp/study', '../elsewhere')
 
+    def test_reset_teleport_is_not_driven_distance(self):
+        from analyze_calibration_study import metrics
+        samples = [self.sample(i) for i in range(300)]
+        for i, row in enumerate(samples[250:], 250):
+            row['position'][0] = i + 1000
+            row['reset_count'] = 1
+        self.assertEqual(metrics(samples)['path_m'], 59.)
+
+    def test_action_support_cannot_replace_full_window(self):
+        from analyze_calibration_study import measure_case
+        samples = [self.sample(i) for i in range(840)]
+        samples[250]['slip'] = 1.
+        result = measure_case(samples, 'turn-left')
+        self.assertEqual(result['support_ticks'], 601)
+        self.assertEqual(result['action_support_ticks'], 240)
+        self.assertGreater(result['peak_slip_deg'], 57.)
+        self.assertEqual(result['action_peak_slip_deg'], 0.)
+
+    @staticmethod
+    def sample(index):
+        return {'grounded': 4, 'wheel_loads': [100] * 4, 'rotation': [0, 0, 0, 1],
+                'slip': 0., 'position': [index, 0., 0.], 'linear_velocity': [1., 0., 0.],
+                'reset_count': 0}
+
     def test_stop_uses_first_stop_even_if_later_reverse(self):
         states = {i: {'position': [i, 0, 0], 'linear_velocity': [speed, 0, 0]}
                   for i, speed in enumerate([10, 5, .5, -8])}

@@ -30,6 +30,12 @@
     "report_sha256": "8c42acff0a451e633c293e7ba6105440e318cefa5b9ced4a7970c5739590cdaa",
     "run_pairs": 12
   },
+  "metric_regressions": {
+    "final_comparison_sha256": "86065718bec378e03234a0ced81f64b6e3e98d34580ede5f335459779b4a42cb",
+    "focused_and_recorded_fixture_tests": 12,
+    "matched_pairs": 12,
+    "result": "matched after metric fixes"
+  },
   "preservation_source": "d75f9504144bbbc0f4b25d210fb0bf87bbffd3cf",
   "producer_sha256": "6b5a76f4a556e2f020d46e9dcb5a3f74df5b89bfdfc379f626446f995d00f7b9",
   "profile_corpus_sha256": "d5f5bbe563066e90c135139bff2d8c2e0a8f207bbe123e3929e0ed076779f818",
@@ -59,11 +65,21 @@
         "id": "S1",
         "outcome": "fixed: consume frozen metric/profile/readiness objects; actual raw-mutation regression",
         "severity": "should"
+      },
+      {
+        "id": "G1",
+        "outcome": "fixed: separate action_ metrics preserve full-window observations",
+        "severity": "should"
+      },
+      {
+        "id": "G2",
+        "outcome": "fixed: reset transitions excluded from path distance; regression fails1060m before and passes59m after",
+        "severity": "should"
       }
     ],
     "model": "gpt-6.1-sol",
     "reasoning_effort": "medium",
-    "rounds": 2,
+    "rounds": 3,
     "usage": "not exposed",
     "verdict": "APPROVE"
   }

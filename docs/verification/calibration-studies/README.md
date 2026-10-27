@@ -48,8 +48,10 @@ Open-loop held inputs are independently checked against the scenario timeline.
 
 `analysis.json` and `metrics.csv` contain per-run measurements. Generic metrics
 cover relative tick 240 through the final assertion, including stopped tails;
-the five original handling cases add their explicit action windows and first
-near-stop metrics. Contact counts and load-bearing wheel counts are distinct.
+the five original handling cases add separate `action_` prefixed columns for their
+explicit action windows and first near-stop metrics. Full-window support metrics
+remain independent. Path distance excludes transitions where the reset counter
+changes, so recovery teleports are never counted as driving. Contact counts and load-bearing wheel counts are distinct.
 Repeated simulations show repeatability, not real-world variance. These reports
 neither certify original-game/manufacturer fidelity nor establish exact replay
 (`runtime_replay_complete` is currently false).

@@ -30,9 +30,18 @@ def metrics(samples):
     require(bool(window), 'empty measurement window')
     distance = sum(((b['position'][0] - a['position'][0]) ** 2 +
                     (b['position'][2] - a['position'][2]) ** 2) ** .5
-                   for a, b in zip(window, window[1:]))
+                   for a, b in zip(window, window[1:]) if a['reset_count'] == b['reset_count'])
     return {**support(window), 'path_m': distance, 'peak_mps': max(planar(s['linear_velocity']) for s in window),
             'final_mps': planar(window[-1]['linear_velocity']), 'yaw_change_deg': yaw_change(window)}
+
+
+def measure_case(samples, case):
+    observed = metrics(samples)
+    if case in CASES:
+        relative = dict(enumerate(samples, 1))
+        observed.update({'action_' + key: value for key, value in
+                         measure(relative, relative, case, CASES[case]).items()})
+    return observed
 
 
 def analyze(study):
@@ -42,10 +51,7 @@ def analyze(study):
     results = []
     for task in tasks:
         samples, inputs, completeness = audit(study, plan, task)
-        observed = metrics(samples)
-        if task['case'] in CASES:
-            relative = dict(enumerate(samples, 1))
-            observed.update(measure(relative, relative, task['case'], CASES[task['case']]))
+        observed = measure_case(samples, task['case'])
         results.append({**{k: task[k] for k in ['car', 'case', 'repeat', 'scenario_sha256']},
                         'input_sha256': inputs, 'metrics': observed, 'completeness': completeness})
     report = {'schema': 1, 'plan': plan, 'results': results,
