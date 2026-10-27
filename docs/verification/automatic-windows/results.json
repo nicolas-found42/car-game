@@ -1,0 +1,207 @@
+{
+  "binary_sha256": "0660d762234793bb30b9684870be9047555414eb0e1377e72c02f0890f8f51d3",
+  "fleet_run": "/Users/nicolas/.codex/worktrees/recover-recording-windows/car-game/artifacts/runs/20261027T0139054456Z-47dda36-fleet-38928-1-1793065145475461000",
+  "cars": 13,
+  "captures": 52,
+  "recorder_health": {
+    "accepted": 278201,
+    "automatic_window_pending": false,
+    "completed_tick": 34399,
+    "drain_cancelled": false,
+    "dropped": 0,
+    "durable_seq": 278201,
+    "errors": [],
+    "failed": false,
+    "history": {
+      "capacity_evictions": 0,
+      "first_tick": 30800,
+      "last_tick": 34399,
+      "requested_ticks": 3600,
+      "retained_bytes": 55939840,
+      "retained_records": 28938,
+      "shortened": false,
+      "window_evictions": 248555
+    },
+    "incident_pending": false,
+    "incident_snapshots": 0,
+    "last_durable_tick": 34399,
+    "limits": {
+      "drain_timeout_ms": 2000,
+      "fault": null,
+      "finalize_max_bytes": 536870912,
+      "flush_interval_ms": 500,
+      "flush_ticks": 120,
+      "history_bytes": 67108864,
+      "history_records": 32768,
+      "history_ticks": 3600,
+      "max_record_bytes": 1048576,
+      "queue_bytes": 8388608,
+      "queue_records": 8192,
+      "writer_delay_ms": 0
+    },
+    "loss_ranges_truncated": false,
+    "loss_ranges_unknown": false,
+    "losses": [],
+    "overhead": {
+      "flush_sync": {
+        "count": 578,
+        "max_ns": 736115833,
+        "p50_upper_ns": 33554432,
+        "p95_upper_ns": 67108864,
+        "p99_upper_ns": 134217728,
+        "total_ns": 16031253272
+      },
+      "producer": {
+        "count": 277493,
+        "max_ns": 3149083,
+        "p50_upper_ns": 4096,
+        "p95_upper_ns": 32768,
+        "p99_upper_ns": 65536,
+        "total_ns": 1853568630
+      },
+      "producer_log": {
+        "count": 708,
+        "max_ns": 81250,
+        "p50_upper_ns": 2048,
+        "p95_upper_ns": 8192,
+        "p99_upper_ns": 16384,
+        "total_ns": 1470031
+      },
+      "writer": {
+        "count": 278201,
+        "max_ns": 53127042,
+        "p50_upper_ns": 512,
+        "p95_upper_ns": 2048,
+        "p99_upper_ns": 65536,
+        "total_ns": 2747280923
+      }
+    },
+    "panic_pending": false,
+    "phase": "finalized",
+    "produced": 278201,
+    "queue_high_bytes": 897408,
+    "queue_high_records": 583,
+    "queued_bytes": 0,
+    "queued_records": 0,
+    "run_id": "20261027T0139054456Z-47dda36-fleet-38928-1-1793065145475461000",
+    "schema": 1,
+    "shutdown_reason": "normal",
+    "signal_support": true,
+    "streams": {
+      "commands": {
+        "accepted": 52617,
+        "flushed_seq": 278199,
+        "synced_seq": 278199,
+        "written": 52617,
+        "written_seq": 278199
+      },
+      "events": {
+        "accepted": 156078,
+        "flushed_seq": 278201,
+        "synced_seq": 278201,
+        "written": 156078,
+        "written_seq": 278201
+      },
+      "input": {
+        "accepted": 34399,
+        "flushed_seq": 278190,
+        "synced_seq": 278190,
+        "written": 34399,
+        "written_seq": 278190
+      },
+      "log": {
+        "accepted": 708,
+        "flushed_seq": 171925,
+        "synced_seq": 171925,
+        "written": 708,
+        "written_seq": 171925
+      },
+      "physics": {
+        "accepted": 34399,
+        "flushed_seq": 278191,
+        "synced_seq": 278191,
+        "written": 34399,
+        "written_seq": 278191
+      }
+    },
+    "updated_at": "2026-10-27T01:43:53.454473Z",
+    "written": 278201
+  },
+  "windows": {
+    "active": false,
+    "exported": 0,
+    "max_windows": 8,
+    "post_ticks": 240,
+    "pre_ticks": 1800,
+    "schema": 1,
+    "suppressed": 0,
+    "triggered": 0
+  },
+  "native": {
+    "artifacts": [
+      "manifest.json",
+      "scenario.json",
+      "commands.jsonl",
+      "input.jsonl",
+      "physics.jsonl",
+      "events.jsonl"
+    ],
+    "assertions_declared": 2,
+    "assertions_executed": 2,
+    "assertions_passed": 2,
+    "capture": {
+      "metrics": {
+        "edge_count": 143256,
+        "height": 1080,
+        "luma_mean": 152.8126678466797,
+        "luma_stddev": 44.801639556884766,
+        "nonblank": true,
+        "unique_colors": 4096,
+        "width": 1920
+      },
+      "path": "captures/scenario.png",
+      "sha256": "5b7c8f139cd49efc2e2bae6f6c1eeb0f0e5303824caf1af94698553cef0262de"
+    },
+    "completed_tick": 186,
+    "elapsed_ms": 1709,
+    "failure": null,
+    "max_ticks": 400,
+    "max_wall_ms": 30000,
+    "name": "reference-350z",
+    "passed": true,
+    "readiness": {
+      "tick": 3
+    },
+    "readiness_timeout_ms": 15000,
+    "results": [
+      {
+        "assertion": {
+          "kind": "speed_at_least",
+          "mps": 0.10000000149011612,
+          "tick": 180
+        },
+        "observed": {
+          "mps": 2.7736196517944336,
+          "passed": true
+        },
+        "passed": true
+      },
+      {
+        "assertion": {
+          "car": "350z",
+          "kind": "selected_car",
+          "tick": 180
+        },
+        "observed": {
+          "car": "350z",
+          "passed": true
+        },
+        "passed": true
+      }
+    ],
+    "schema_version": 1,
+    "seed": 231,
+    "ticks": 183
+  },
+  "native_run": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-windows-native/20261027T014416815564Z-c19a4d0-scenario-48652-1-1793065456844841000"
+}

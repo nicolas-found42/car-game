@@ -54,6 +54,13 @@ impl Writer {
             let next = receiver.recv_timeout(Duration::from_millis(50));
             self.handle_panic();
             match next {
+                Ok(Job::Window {
+                    window,
+                    end,
+                    snapshot,
+                }) => {
+                    super::windows::publish(&self.health, window, end, snapshot);
+                }
                 Ok(Job::Record(record)) => self.write(record),
                 Ok(Job::Incident {
                     reason,

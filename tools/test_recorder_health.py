@@ -79,7 +79,7 @@ class RecorderHealthTests(unittest.TestCase):
     def test_lost_records_and_invalid_status_types_are_rejected(self):
         with tempfile.TemporaryDirectory() as root:
             run, original = fixture(root)
-            for update in ({'failed': 'false'}, {'dropped': 1}, {'losses': [{'first_tick': 4}]}, {'streams': {}}, {'queued_bytes': 10}, {'loss_ranges_unknown': True}, {'incident_pending': True}):
+            for update in ({'failed': 'false'}, {'dropped': 1}, {'losses': [{'first_tick': 4}]}, {'streams': {}}, {'queued_bytes': 10}, {'loss_ranges_unknown': True}, {'incident_pending': True}, {'automatic_window_pending': True}):
                 health = dict(original, **update)
                 (run / 'recorder-health.json').write_text(json.dumps(health))
                 result = subprocess.run([sys.executable, str(VERIFY), '--health-only', '--json', str(run)], capture_output=True, text=True)
