@@ -37,9 +37,9 @@ Final recorded binary `08f0e503c135c7c78629cd3277ae315a3a0b1834efde3205b1703d221
 passed the complete default-mode ladder and 13-car/52-view fleet. The same
 binary passed bounded reference-mode production scenarios for the 350Z, AWD
 Evo and GT500, each with a validated offscreen capture. The 350Z capture was
-visually inspected. Native capture was unavailable while the host was locked;
-two black captures remain retained as failures. It is not reported as a native
-pass. `results.json` retains the original summaries and capture hashes.
+visually inspected. Two native captures failed while the host was locked and remain retained as
+failures. After the user unlocked it, the unchanged recorded binary passed the
+same native scenario with a validated capture, which was visually inspected. `results.json` retains the original summaries and capture hashes.
 
 A real brake-to-reverse trace reproduced `gear=-1, decisions.gear_after=1` before
 the telemetry fix; all 120 reverse samples now agree. The all-edition integration

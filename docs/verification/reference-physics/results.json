@@ -274,8 +274,77 @@
         "seed": 231,
         "ticks": 120
       }
+    },
+    "rwd-native": {
+      "run_dir": "/Users/nicolas/Documents/github/car-game/artifacts/recovery-reference-physics/rwd-native-unlocked/20261027T012815239222Z-33a737a-scenario-92496-1-1793064495267969000",
+      "summary": {
+        "artifacts": [
+          "manifest.json",
+          "scenario.json",
+          "commands.jsonl",
+          "input.jsonl",
+          "physics.jsonl",
+          "events.jsonl"
+        ],
+        "assertions_declared": 2,
+        "assertions_executed": 2,
+        "assertions_passed": 2,
+        "capture": {
+          "metrics": {
+            "edge_count": 143104,
+            "height": 1080,
+            "luma_mean": 152.81752014160156,
+            "luma_stddev": 44.81023406982422,
+            "nonblank": true,
+            "unique_colors": 4096,
+            "width": 1920
+          },
+          "path": "captures/scenario.png",
+          "sha256": "38c17c7156a60b644722c932f8b9ed24415fc6c23db6dc01669128818fd48ec2"
+        },
+        "completed_tick": 186,
+        "elapsed_ms": 1738,
+        "failure": null,
+        "max_ticks": 400,
+        "max_wall_ms": 30000,
+        "name": "reference-350z",
+        "passed": true,
+        "readiness": {
+          "tick": 3
+        },
+        "readiness_timeout_ms": 15000,
+        "results": [
+          {
+            "assertion": {
+              "kind": "speed_at_least",
+              "mps": 0.10000000149011612,
+              "tick": 180
+            },
+            "observed": {
+              "mps": 2.6529650688171387,
+              "passed": true
+            },
+            "passed": true
+          },
+          {
+            "assertion": {
+              "car": "350z",
+              "kind": "selected_car",
+              "tick": 180
+            },
+            "observed": {
+              "car": "350z",
+              "passed": true
+            },
+            "passed": true
+          }
+        ],
+        "schema_version": 1,
+        "seed": 231,
+        "ticks": 183
+      }
     }
   },
-  "native": "unavailable: host locked; two invalid black captures retained in primary artifacts",
+  "native": "passed after user unlocked host; prior invalid black captures retained as failures",
   "full_fleet": "13 default-mode cars,52 captures passed; recovery-profiles-final2-verification.log"
 }
