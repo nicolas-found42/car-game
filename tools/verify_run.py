@@ -4,25 +4,15 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from collections import Counter
 from recorder_health import inspect_health
+from trace_integrity import Findings, inspect_traces, rows
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_json(path: Path):
     return json.loads(path.read_text())
-
-
-def read_events(run: Path) -> list[dict]:
-    events = []
-    for line_number, line in enumerate((run / 'events.jsonl').read_text().splitlines(), 1):
-        if not line.strip():
-            continue
-        try:
-            events.append(json.loads(line))
-        except json.JSONDecodeError as error:
-            raise AssertionError(f'events.jsonl:{line_number}: {error}') from error
-    return events
 
 
 def main() -> int:
@@ -53,41 +43,71 @@ def main() -> int:
     if args.health_only or not health['ok']:
         print(json.dumps(health))
         return 0 if health['ok'] else 1
-    return verify_gameplay(run, manifest, health, args.json)
+    try:
+        return verify_gameplay(run, manifest, health, args.json)
+    except Exception as error:  # a verifier fault must never read as success
+        print(json.dumps({'schema': 2, 'ok': False, 'status': 'unknown', 'run_id': manifest.get('run_id'),
+                          'errors': [{'code': 'verifier_internal_error', 'detail': repr(error)[:200]}]}))
+        return 1
+
+
+def lifecycle(run, manifest, findings):
+    """Mode-aware lifecycle and acceptance checks; returns the event-kind counts."""
+    kinds, first = Counter(), None
+    for _, event in rows(run, 'events.jsonl', findings):
+        first = first or event.get('kind')
+        kinds[event.get('kind')] += 1
+    rendered = manifest.get('mode') in ('fleet', 'smoke')
+    checks = [
+        (first == 'run.start', 'missing_run_start', 'events.jsonl'),
+        (kinds['run.exit'] > 0, 'missing_run_exit', 'events.jsonl'),
+        (not kinds['run.failure'] and not (run / 'failure.json').exists(), 'run_recorded_failure', 'events.jsonl'),
+        (manifest.get('exit', {}).get('code') == 0, 'nonzero_exit', 'manifest.json'),
+        (bool(manifest.get('gpu')) or not rendered, 'missing_gpu_record', 'manifest.json'),
+        ((run / 'run.log').is_file(), 'missing_run_log', 'run.log'),
+    ]
+    for ok, code, file in checks:
+        if not ok:
+            findings.add(code, file)
+    return kinds
+
+
+def fleet_findings(run, kinds, findings):
+    try:
+        reports = json.loads((run / 'report.json').read_text())
+    except (OSError, ValueError):
+        findings.add('report_unavailable', 'report.json')
+        return 0
+    expected = {'car.report': 13, 'screenshot.validated': 52}
+    for kind, count in expected.items():
+        if kinds[kind] != count:
+            findings.add('fleet_event_count', 'events.jsonl', kind=kind, expected=count, actual=kinds[kind])
+    if len(reports) != 13:
+        findings.add('fleet_report_count', 'report.json', expected=13, actual=len(reports))
+    for kind in ('screenshot.requested',):
+        if kinds[kind] < 52:
+            findings.add('fleet_event_count', 'events.jsonl', kind=kind, expected=52, actual=kinds[kind])
+    if not kinds['run.complete']:
+        findings.add('missing_run_complete', 'events.jsonl')
+    return len(reports)
 
 
 def verify_gameplay(run, manifest, health, output_json=False):
-    events = read_events(run)
-    kinds = [event['kind'] for event in events]
-    assert kinds[0] == 'run.start', 'missing run.start'
-    assert 'run.exit' in kinds, 'missing run.exit'
-    assert 'run.failure' not in kinds, 'run recorded a failure'
-    assert not (run / 'failure.json').exists(), 'failure.json exists'
-    assert manifest.get('exit', {}).get('code') == 0, manifest.get('exit')
-    assert manifest.get('gpu'), 'manifest has no GPU/environment record'
-    assert (run / 'physics.jsonl').is_file(), 'missing physics.jsonl'
-    assert (run / 'input.jsonl').is_file(), 'missing input.jsonl'
-    assert (run / 'run.log').is_file(), 'missing run.log'
-
-    reports = load_json(run / 'report.json')
-    if manifest.get('mode') == 'fleet':
-        assert len(reports) == 13, f'expected 13 reports, got {len(reports)}'
-        assert kinds.count('car.report') == 13, f'expected 13 car.report events, got {kinds.count("car.report")}'
-        assert kinds.count('screenshot.validated') == 52, (
-            f'expected 52 validated captures, got {kinds.count("screenshot.validated")}'
-        )
-        assert kinds.count('screenshot.requested') >= 52
-        assert 'run.complete' in kinds, 'missing run.complete'
-    for report in reports:
-        assert report.get('captures'), f'{report.get("id")}: missing captures'
-        for view, capture in report['captures'].items():
-            assert capture.get('sha256'), f'{report["id"]}/{view}: missing capture hash'
-            assert (run / capture['path']).is_file(), f'{report["id"]}/{view}: capture file missing'
-    if output_json:
-        print(json.dumps({'schema': 1, 'ok': True, 'run_id': manifest['run_id'], 'recorder_health': health}))
+    findings = Findings()
+    kinds = lifecycle(run, manifest, findings)
+    reports = fleet_findings(run, kinds, findings) if manifest.get('mode') == 'fleet' else 0
+    traces = inspect_traces(run, manifest, health)
+    errors = findings.errors + traces['errors']
+    status = traces['status'] if not findings.errors else 'failed'
+    if errors and status == 'verified':
+        status = 'failed'
+    result = {'schema': 2, 'ok': not errors, 'status': 'verified' if not errors else status,
+              'run_id': manifest.get('run_id'), 'errors': errors, 'recorder_health': health}
+    if errors or output_json:
+        print(json.dumps(result))
     else:
-        print(f'RUN EVIDENCE PASS: {manifest["run_id"]}; {len(events)} events, {len(reports)} car reports')
-    return 0
+        print(f'RUN EVIDENCE PASS: {manifest["run_id"]}; {sum(kinds.values())} events, {reports} car reports')
+    return 1 if errors else 0
 
 
 if __name__ == '__main__':

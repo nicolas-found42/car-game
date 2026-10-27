@@ -50,6 +50,7 @@ run() {
   run python3 -m unittest discover -s tools -p 'test_*provenance*.py'
   run python3 tools/test_physics_profiles.py
   run python3 tools/test_recorder_health.py
+  run python3 tools/test_trace_integrity.py
   run python3 tools/test_codelimit.py
   run python3 tools/test_fleet_assets.py
   if ! "$headless"; then
