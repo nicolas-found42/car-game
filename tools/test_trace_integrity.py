@@ -639,6 +639,33 @@ class TraceIntegrityTests(unittest.TestCase):
             mutate(run, 'events', lambda rows: rows[1].__setitem__('tick', TICKS + 1))
             self.assertRejected(run, 'trace_command_mismatch', file='commands.jsonl')
 
+    def test_boolean_scenario_counts_and_numeric_report_passes_are_rejected(self):
+        for name in ('assertions_declared', 'assertions_executed', 'assertions_passed'):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as root:
+                run = fixture(root, 'scenario')
+                assertion = {'kind': 'speed_at_least', 'tick': 1, 'mps': 0}
+                (run / 'scenario.json').write_text(json.dumps({'definition': {'assertions': [assertion]}}))
+                summary = {'passed': True, 'assertions_declared': 1, 'assertions_executed': 1,
+                           'assertions_passed': 1, 'completed_tick': TICKS,
+                           'results': [{'assertion': assertion, 'passed': True}]}
+                summary[name] = True
+                (run / 'scenario-summary.json').write_text(json.dumps(summary))
+                events = read_lines(run / 'events.jsonl')
+                events.append(event('scenario.finished', len(events) + 1, TICKS, **summary))
+                write_lines(run / 'events.jsonl', events)
+                health = json.loads((run / 'recorder-health.json').read_text())
+                health['streams']['events'].update(accepted=len(events), written=len(events))
+                (run / 'recorder-health.json').write_text(json.dumps(health))
+                self.assertRejected(run, 'scenario_incomplete')
+        with tempfile.TemporaryDirectory() as root:
+            run = fixture(root)
+            self.add_captures(run)
+            path = run / 'report.json'
+            reports = json.loads(path.read_text())
+            reports[0]['passed'] = 1
+            path.write_text(json.dumps(reports))
+            self.assertRejected(run, 'report_incomplete')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')

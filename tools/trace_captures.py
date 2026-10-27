@@ -84,7 +84,7 @@ def check_reports(run, manifest, findings):
         required = {'front', 'side', 'rear'}
         if not report.get('visual_capture_only'):
             required.add('driving')
-        if not report.get('passed') or set(captures) != required:
+        if report.get('passed') is not True or set(captures) != required:
             findings.add('report_incomplete', 'report.json', car=report.get('id'))
         for view, capture in captures.items():
             key = (report.get('id'), view)
@@ -99,6 +99,8 @@ def check_reports(run, manifest, findings):
 
 def scenario_complete(summary, expected, results):
     valid = (bool(expected) and summary.get('passed') is True and not summary.get('failure')
+             and all(type(summary.get(name)) is int for name in
+                     ('assertions_declared', 'assertions_executed', 'assertions_passed'))
              and summary.get('assertions_declared') == summary.get('assertions_executed')
              == summary.get('assertions_passed') == len(expected) == len(results)
              and all(r.get('passed') is True for r in results)
