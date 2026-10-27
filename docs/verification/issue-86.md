@@ -110,3 +110,14 @@ Sol-loop completed three rounds with gpt-6.1-sol on medium. The scenario
 completion-tick finding was fixed; final verdict approved. Repository complexity
 limits remain unchanged. This verifier does not promise exact replay or infer a
 crash from a missing exit record.
+
+Final post-#16 recorded verification passed: all91 Rust tests, doc tests,
+format/Clippy/complexity, all30 integrity controls and the Python/source-asset
+ladder;13 fleet cars/52 captures and strict full-run validation pass. Both the
+independent-two-car Metal offscreen and native scenarios pass their assertions,
+required captures and full semantic validation, including the new asynchronous
+capture links. The native capture was visually inspected. Recorded binary:
+`a5486cf54dd47644b6a22972e8515ff45dc12bb5cdcba0ccd2bdbafb590e981a`.
+Later corpus-only and expected-test-fixture-cleanup merges do not change those
+production Rust bytes. Final full-run logs and accepted scenario bundles remain
+under the primary checkout's `artifacts/issue-86/`.
