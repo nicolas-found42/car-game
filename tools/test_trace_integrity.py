@@ -590,6 +590,21 @@ class TraceIntegrityTests(unittest.TestCase):
                 code = 'trace_control_mismatch' if kind == 'controls.effective' else 'trace_state_mismatch'
                 self.assertRejected(run, code, file='events.jsonl')
 
+    def test_malformed_switch_command_is_a_located_failure(self):
+        for value in (None, [], 'select_car'):
+            with self.subTest(value=value), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                events = read_lines(run / 'events.jsonl')
+                events[1]['fields']['command'] = value
+                switched = event('car.switched', 0, 0, car='350z',
+                                 command_id=f'{RUN_ID}:command:1')
+                switched['actor_id'] = 'player-vehicle'
+                events.insert(2, switched)
+                for seq, row in enumerate(events, 1):
+                    row['seq'] = seq
+                write_lines(run / 'events.jsonl', events)
+                self.assertRejected(run, 'trace_switch_mismatch', file='events.jsonl')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')

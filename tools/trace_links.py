@@ -93,8 +93,9 @@ def valid_switch(record, resolved):
     outcomes = resolved.get(record.get('command_id'), [])
     for outcome in outcomes:
         fields = outcome.get('fields', {})
+        command = fields.get('command')
         if (outcome.get('kind') == 'command.outcome' and fields.get('disposition') == 'applied'
-                and fields.get('command', {}).get('action') in ('select_car', 'cycle_car')
+                and isinstance(command, dict) and command.get('action') in ('select_car', 'cycle_car')
                 and outcome.get('actor_id') == record.get('actor_id')
                 and outcome.get('tick') == record.get('tick')
                 and fields.get('selected_car') == record.get('fields', {}).get('car')):
