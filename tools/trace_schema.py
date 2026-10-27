@@ -96,7 +96,7 @@ def completed_errors(record, run_id):
     bad.extend('evidence.' + field for field in input_errors(evidence.get('input'), record.get('tick', 0)))
     if evidence.get('input') != record.get('input'):
         bad.append('evidence.input')
-    if evidence.get('query_tick') != record.get('tick'):
+    if type(evidence.get('query_tick')) is not int or evidence.get('query_tick') != record.get('tick'):
         bad.append('evidence.query_tick')
     bad.extend(wheel_errors(evidence))
     bad.extend(state_errors(record))
@@ -110,8 +110,8 @@ def clock_errors(record):
     if (type(tick) is int and (type(time) not in (int, float)
             or not math.isclose(time, tick / 120, rel_tol=1e-5, abs_tol=1e-4))):
         bad.append('time_seconds_at_120hz')
-    if record.get('step') != record.get('tick', 0) - 1:
+    if type(record.get('step')) is not int or record.get('step') != record.get('tick', 0) - 1:
         bad.append('step')
-    if record.get('integration_steps') not in (0, 1):
+    if type(record.get('integration_steps')) is not int or record.get('integration_steps') not in (0, 1):
         bad.append('integration_steps')
     return bad

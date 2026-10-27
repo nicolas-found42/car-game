@@ -616,6 +616,23 @@ class TraceIntegrityTests(unittest.TestCase):
             write_lines(run / 'events.jsonl', events)
             self.assertRejected(run, 'trace_command_mismatch', file='commands.jsonl')
 
+    def test_boolean_clock_aliases_are_rejected(self):
+        for field, value in [('render_frame', True), ('query_tick', True),
+                             ('step', False), ('integration_steps', True)]:
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as root:
+                run = fixture(root)
+                if field == 'render_frame':
+                    def corrupt(rows):
+                        next(r for r in rows if r['kind'] == 'simulation.completed' and r['tick'] == 1)[field] = value
+                    mutate(run, 'events', corrupt)
+                    self.assertRejected(run, 'trace_state_mismatch', file='events.jsonl')
+                else:
+                    def corrupt(rows):
+                        target = rows[0]['evidence'] if field == 'query_tick' else rows[0]
+                        target[field] = value
+                    mutate(run, 'physics', corrupt)
+                    self.assertRejected(run, 'trace_invalid_value', file='physics.jsonl')
+
     def test_missing_scenario_definition_is_a_json_failure(self):
         with tempfile.TemporaryDirectory() as root:
             run = fixture(root, 'scenario')

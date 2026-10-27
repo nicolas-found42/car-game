@@ -24,7 +24,8 @@ def completed_actor(record, state, seen, findings, line):
     seen.add(key)
     fields = record.get('fields', {})
     if sample is not None:
-        if record.get('render_frame') != state['frames'].get(key):
+        if (type(record.get('render_frame')) is not int or record['render_frame'] < 0
+                or record['render_frame'] != state['frames'].get(key)):
             findings.add('trace_state_mismatch', 'events.jsonl', line=line, field='render_frame')
         for field in ('position', 'linear_velocity', 'reset_count', 'vehicle_id'):
             if not same_state(sample[field], fields.get(field)):
