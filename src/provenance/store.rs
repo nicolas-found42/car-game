@@ -4,6 +4,7 @@ use std::{
     fs::{self, File, OpenOptions},
     io::{self, Read, Write},
     path::{Path, PathBuf},
+    sync::atomic::{AtomicU64, Ordering},
 };
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -41,20 +42,25 @@ pub fn hash_file(path: &Path) -> io::Result<(String, u64)> {
 }
 
 pub fn capture_file(root: &Path, source: &Path, role: &str, logical: &str) -> io::Result<Entry> {
+    capture_file_with(root, source, role, logical, try_clone)
+}
+
+fn capture_file_with(
+    root: &Path,
+    source: &Path,
+    role: &str,
+    logical: &str,
+    clone: impl FnOnce(&Path, &Path) -> bool,
+) -> io::Result<Entry> {
     if fs::symlink_metadata(source)?.file_type().is_symlink() {
         return Err(io::Error::other("symlink_capture_disallowed"));
     }
-    let mut input = File::open(source)?;
     let objects = root.join("objects/sha256");
     fs::create_dir_all(&objects)?;
-    let temporary = objects.join(format!(".capture-{}", std::process::id()));
-    let mut output = OpenOptions::new()
-        .write(true)
-        .create_new(true)
-        .open(&temporary)?;
-    let result = copy_hashed(&mut input, &mut output);
-    drop(output);
-    let result = result.and_then(|(sha, size)| {
+    let staging = CaptureStaging::create(&objects)?;
+    let temporary = staging.0.join("snapshot");
+    let result = capture_snapshot(source, &temporary, clone);
+    result.and_then(|(sha, size)| {
         let destination = objects.join(&sha);
         if destination.exists() {
             if hash_file(&destination)? != (sha.clone(), size) {
@@ -64,9 +70,74 @@ pub fn capture_file(root: &Path, source: &Path, role: &str, logical: &str) -> io
             fs::rename(&temporary, &destination)?;
         }
         Ok(entry(role, logical, sha, size))
-    });
-    let _ = fs::remove_file(temporary);
-    result
+    })
+}
+
+static CAPTURE_COUNTER: AtomicU64 = AtomicU64::new(0);
+
+struct CaptureStaging(PathBuf);
+impl CaptureStaging {
+    fn create(objects: &Path) -> io::Result<Self> {
+        for _ in 0..128 {
+            let id = CAPTURE_COUNTER.fetch_add(1, Ordering::Relaxed);
+            let path = objects.join(format!(".capture-{}-{id}", std::process::id()));
+            match fs::create_dir(&path) {
+                Ok(()) => return Ok(Self(path)),
+                Err(error) if error.kind() == io::ErrorKind::AlreadyExists => continue,
+                Err(error) => return Err(error),
+            }
+        }
+        Err(io::Error::new(
+            io::ErrorKind::AlreadyExists,
+            "capture staging exhausted",
+        ))
+    }
+}
+impl Drop for CaptureStaging {
+    fn drop(&mut self) {
+        let _ = fs::remove_dir_all(&self.0);
+    }
+}
+
+// A clone is a separate file whose blocks are shared until either file changes.
+// If the filesystem cannot clone, keep the existing portable streaming behavior.
+fn capture_snapshot(
+    source: &Path,
+    temporary: &Path,
+    clone: impl FnOnce(&Path, &Path) -> bool,
+) -> io::Result<(String, u64)> {
+    if clone(source, temporary) {
+        File::open(temporary)?.sync_all()?;
+        return hash_file(temporary);
+    }
+    let mut input = File::open(source)?;
+    let mut output = OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(temporary)?;
+    copy_hashed(&mut input, &mut output)
+}
+
+#[cfg(target_os = "macos")]
+fn try_clone(source: &Path, destination: &Path) -> bool {
+    use std::{ffi::CString, os::unix::ffi::OsStrExt};
+    unsafe extern "C" {
+        fn clonefile(src: *const std::ffi::c_char, dst: *const std::ffi::c_char, flags: u32)
+        -> i32;
+    }
+    let (Ok(source), Ok(destination)) = (
+        CString::new(source.as_os_str().as_bytes()),
+        CString::new(destination.as_os_str().as_bytes()),
+    ) else {
+        return false;
+    };
+    // SAFETY: both arguments are valid NUL-terminated paths and clonefile retains neither.
+    unsafe { clonefile(source.as_ptr(), destination.as_ptr(), 0) == 0 }
+}
+
+#[cfg(not(target_os = "macos"))]
+fn try_clone(_source: &Path, _destination: &Path) -> bool {
+    false
 }
 
 fn copy_hashed(input: &mut File, output: &mut File) -> io::Result<(String, u64)> {
@@ -167,6 +238,105 @@ pub fn freeze_bytes(path: &Path, bytes: &[u8]) -> io::Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn test_root(name: &str) -> PathBuf {
+        let root = std::env::temp_dir().join(format!("grid-capture-{name}-{}", std::process::id()));
+        fs::create_dir(&root).unwrap();
+        root
+    }
+
+    #[test]
+    fn forced_fallback_copies_and_hashes_the_source() {
+        let root = test_root("fallback");
+        let source = root.join("input");
+        fs::write(&source, b"fallback bytes").unwrap();
+        let entry = capture_file_with(&root, &source, "input", "input", |_, _| false).unwrap();
+        assert_eq!(entry.sha256, digest(b"fallback bytes"));
+        fs::write(&source, b"new bytes").unwrap();
+        assert_eq!(
+            fs::read(root.join(entry.object)).unwrap(),
+            b"fallback bytes"
+        );
+        fs::remove_dir_all(root).unwrap();
+    }
+
+    #[cfg(target_os = "macos")]
+    #[test]
+    fn clone_path_captures_a_real_copy_on_write_snapshot() {
+        let root = test_root("clone");
+        let source = root.join("input");
+        fs::write(&source, b"clone bytes").unwrap();
+        let mut cloned = false;
+        let entry = capture_file_with(&root, &source, "input", "input", |src, dst| {
+            cloned = try_clone(src, dst);
+            cloned
+        })
+        .unwrap();
+        if cloned {
+            fs::write(&source, b"new bytes").unwrap();
+            assert_eq!(fs::read(root.join(entry.object)).unwrap(), b"clone bytes");
+        } else {
+            eprintln!("clonefile unavailable on the test filesystem; fallback exercised");
+        }
+        fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn failed_capture_removes_only_its_staging_directory() {
+        let root = test_root("cleanup");
+        let source = root.join("input");
+        fs::write(&source, b"source").unwrap();
+        let objects = root.join("objects/sha256");
+        fs::create_dir_all(&objects).unwrap();
+        let foreign = objects.join(".capture-foreign");
+        fs::create_dir(&foreign).unwrap();
+        fs::write(foreign.join("snapshot"), b"untouched").unwrap();
+        let result = capture_file_with(&root, &source, "input", "input", |_, path| {
+            fs::write(path, b"partial").unwrap();
+            false
+        });
+        assert!(result.is_err());
+        assert_eq!(fs::read(foreign.join("snapshot")).unwrap(), b"untouched");
+        assert_eq!(fs::read_dir(&objects).unwrap().count(), 1);
+        fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn simultaneous_captures_do_not_share_staging_files() {
+        let root = test_root("concurrent");
+        let source = root.join("input");
+        fs::write(&source, b"concurrent bytes").unwrap();
+        std::thread::scope(|scope| {
+            for _ in 0..8 {
+                scope.spawn(|| {
+                    let entry =
+                        capture_file_with(&root, &source, "input", "input", |_, _| false).unwrap();
+                    assert_eq!(entry.sha256, digest(b"concurrent bytes"));
+                });
+            }
+        });
+        let objects = root.join("objects/sha256");
+        assert_eq!(fs::read_dir(objects).unwrap().count(), 1);
+        fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn captured_file_is_independent_of_source_changes() {
+        let root =
+            std::env::temp_dir().join(format!("grid-clone-isolation-{}", std::process::id()));
+        fs::create_dir(&root).unwrap();
+        let source = root.join("source");
+        fs::write(&source, b"original evidence").unwrap();
+        let entry = capture_file(&root, &source, "probe", "input").unwrap();
+        fs::write(&source, b"changed source").unwrap();
+        assert_eq!(
+            fs::read(root.join(&entry.object)).unwrap(),
+            b"original evidence"
+        );
+        fs::write(root.join(entry.object), b"changed snapshot").unwrap();
+        assert_eq!(fs::read(&source).unwrap(), b"changed source");
+        fs::remove_dir_all(root).unwrap();
+    }
 
     #[test]
     fn known_sha256_vectors_cover_all_provenance_hash_paths() {
