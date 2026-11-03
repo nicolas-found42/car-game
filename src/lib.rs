@@ -156,7 +156,8 @@ fn add_platform(app: &mut App, config: &RuntimeConfig) {
             ..default()
         })
         .set(assets)
-        .disable::<bevy::app::TerminalCtrlCHandlerPlugin>();
+        .disable::<bevy::app::TerminalCtrlCHandlerPlugin>()
+        .disable::<bevy::audio::AudioPlugin>();
     if offscreen {
         plugins = plugins.disable::<WinitPlugin>();
     }
@@ -187,4 +188,20 @@ fn effective_config(
         "capture_required": config.scenario.as_ref().is_some_and(|s| s.required_capture),
         "replay_input": config.replay_path
     })
+}
+
+#[cfg(test)]
+mod audio_policy_tests {
+    use super::*;
+
+    #[test]
+    fn rendered_game_never_initializes_audio_output() {
+        let mut app = App::new();
+        let config = RuntimeConfig {
+            backend: RenderBackend::Offscreen,
+            ..Default::default()
+        };
+        add_platform(&mut app, &config);
+        assert!(!app.is_plugin_added::<bevy::audio::AudioPlugin>());
+    }
 }

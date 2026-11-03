@@ -32,11 +32,10 @@ Open the resulting `dist/GRID.app` to play. The first build compiles Bevy and Ra
 | Pause / resume | Escape | Start |
 | Quit while paused | Q | Select / Back |
 | Previous / next car | [ / ] | Left / right bumper |
-| Mute / unmute | M | — |
 
 Switching cars recovers the new car upright and stopped on a nearby road. The HUD names its source game and position in the fleet.
 
-The city has solid buildings and sidewalks, a connected perimeter road, and barriers at unfinished exits. Impacts affect motion without a damage system. Audio is synthesized placeholder engine, tire and impact sound. The HUD shows speed in km/h and a simple automatic gear/RPM estimate.
+The city has solid buildings and sidewalks, a connected perimeter road, and barriers at unfinished exits. Impacts affect motion without a damage system. Audio playback is disabled while the placeholder sounds are unfinished. The HUD shows speed in km/h and a simple automatic gear/RPM estimate.
 
 ## Check
 

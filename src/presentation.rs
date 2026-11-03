@@ -2,15 +2,11 @@ use crate::{
     config::{RenderBackend, RuntimeConfig},
     roster::{CarSpec, Fleet},
     runtime::{CommandBus, ControllerOwner, ProductionCommand},
-    vehicle::{DriveInput, Vehicle, spawn_pose},
+    vehicle::{Vehicle, spawn_pose},
 };
 use bevy::{
-    audio::{AudioSinkPlayback, Volume},
-    camera::RenderTarget,
-    core_pipeline::tonemapping::Tonemapping,
-    light::CascadeShadowConfigBuilder,
-    prelude::*,
-    render::render_resource::TextureFormat,
+    camera::RenderTarget, core_pipeline::tonemapping::Tonemapping,
+    light::CascadeShadowConfigBuilder, prelude::*, render::render_resource::TextureFormat,
     world_serialization::WorldInstanceReady,
 };
 use bevy_rapier3d::prelude::*;
@@ -43,10 +39,6 @@ struct CarText;
 struct PauseText;
 #[derive(Component)]
 struct RpmBar;
-#[derive(Component)]
-struct EngineSound;
-#[derive(Component)]
-struct TireSound;
 pub use crate::runtime::Session;
 
 pub struct PresentationPlugin;
@@ -77,7 +69,6 @@ impl Plugin for PresentationPlugin {
                     camera_follow,
                     update_hud,
                     update_car_label,
-                    update_audio,
                 )
                     .chain()
                     .in_set(PresentationUpdate),
@@ -141,7 +132,6 @@ fn setup(
     mut commands: Commands,
     assets: Res<AssetServer>,
     spec: Res<CarSpec>,
-    session: Res<Session>,
     mut images: ResMut<Assets<Image>>,
     config: Res<RuntimeConfig>,
     run: Res<crate::diagnostics::RunHandle>,
@@ -312,16 +302,6 @@ fn setup(
         Visibility::Hidden,
         BackgroundColor(Color::srgba(0.025, 0.04, 0.055, 0.92)),
     ));
-    commands.spawn((
-        EngineSound,
-        AudioPlayer::new(assets.load("audio/engine.wav")),
-        PlaybackSettings::LOOP.with_volume(Volume::Linear(if session.muted { 0.0 } else { 0.15 })),
-    ));
-    commands.spawn((
-        TireSound,
-        AudioPlayer::new(assets.load("audio/tires.wav")),
-        PlaybackSettings::LOOP.with_volume(Volume::Linear(0.0)),
-    ));
 }
 
 pub(crate) fn select_car(
@@ -438,9 +418,6 @@ pub fn read_controls(
                 paused: !session.paused,
             },
         );
-    }
-    if keys.just_pressed(KeyCode::KeyM) {
-        bus.submit(source, ProductionCommand::ToggleMute);
     }
     if quit {
         bus.submit(source, ProductionCommand::Quit);
@@ -622,10 +599,7 @@ fn update_hud(
         } else {
             car.gear.to_string()
         };
-        text.0 = format!(
-            "KM/H    GEAR {gear}{}",
-            if session.muted { "    MUTED" } else { "" }
-        );
+        text.0 = format!("KM/H    GEAR {gear}    MUTED");
     }
     for (mut text, mut visible) in &mut pause {
         *visible = if session.paused {
@@ -638,51 +612,6 @@ fn update_hud(
     for mut node in &mut bars {
         node.width = percent((car.rpm / 7000.0 * 100.0).min(100.0));
     }
-}
-
-// Bevy injects these resources and disjoint sink queries as system parameters.
-#[allow(clippy::too_many_arguments)]
-fn update_audio(
-    mut commands: Commands,
-    assets: Res<AssetServer>,
-    time: Res<Time>,
-    session: Res<Session>,
-    input: Res<DriveInput>,
-    cars: Query<(&Vehicle, &Velocity), With<crate::controls::PlayerVehicle>>,
-    mut engines: Query<&mut AudioSink, (With<EngineSound>, Without<TireSound>)>,
-    mut tires: Query<&mut AudioSink, (With<TireSound>, Without<EngineSound>)>,
-    mut previous_velocity: Local<Vec3>,
-    mut impact_cooldown: Local<f32>,
-    mut previous_reset: Local<u32>,
-) {
-    let Ok((car, velocity)) = cars.single() else {
-        return;
-    };
-    let active = !session.paused && !session.muted;
-    for mut sink in &mut engines {
-        sink.set_speed((car.rpm / 1800.0).clamp(0.5, 3.8));
-        sink.set_volume(Volume::Linear(if active {
-            0.12 + input.throttle * 0.16
-        } else {
-            0.0
-        }));
-    }
-    for mut sink in &mut tires {
-        let volume = ((car.slip - 0.12) * 1.6).clamp(0.0, 0.5);
-        sink.set_volume(Volume::Linear(if active { volume } else { 0.0 }));
-    }
-    *impact_cooldown -= time.delta_secs();
-    let delta = (velocity.linear - *previous_velocity).length();
-    let resetting = car.reset_count != *previous_reset;
-    *previous_reset = car.reset_count;
-    if active && delta > 3.2 && !resetting && *impact_cooldown <= 0.0 {
-        commands.spawn((
-            AudioPlayer::new(assets.load("audio/impact.wav")),
-            PlaybackSettings::DESPAWN.with_volume(Volume::Linear((delta / 18.0).clamp(0.1, 0.65))),
-        ));
-        *impact_cooldown = 0.3;
-    }
-    *previous_velocity = velocity.linear;
 }
 
 // Each extra visual follows its own chassis; the selected player's HUD/camera remain scoped.
